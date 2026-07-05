@@ -1,0 +1,77 @@
+---
+import { journeySteps } from '../../data/content';
+---
+<section class="section section--gray" id="journey">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Your Wellness Journey</h2>
+      <p>Simple, personalized care from start to finish.</p>
+    </div>
+
+    <ol class="journey reveal">
+      {journeySteps.map((s) => (
+        <li class="journey__step">
+          <div class="journey__media">
+            <img src={s.image} width="600" height="636" alt={s.alt} loading="lazy" />
+          </div>
+          <span class="journey__num">{s.n}</span>
+          <h3 class="journey__title">{s.title}</h3>
+          <p class="journey__body">{s.body}</p>
+        </li>
+      ))}
+    </ol>
+
+    <p class="journey__foot reveal">
+      <img class="journey__foot-icon" src="/images/icons/journey-shield.png" alt="" loading="lazy" />
+      Most patients complete their assessment in less than 10 minutes.
+    </p>
+  </div>
+</section>
+
+<style>
+  .journey {
+    list-style: none; padding: 0; margin-top: clamp(2.5rem, 4vw, 4rem);
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem;
+    counter-reset: step;
+    container-type: inline-size;
+  }
+  .journey__step { text-align: center; position: relative; }
+  /* Guide grid: images are equal-size, ~1 : 1.14 (slightly portrait) */
+  .journey__media { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); aspect-ratio: 1 / 1.14; }
+  .journey__media img { width: 100%; height: 100%; object-fit: cover; }
+  .journey__num {
+    display: grid; place-items: center;
+    width: 46px; height: 46px; margin: 1.4rem auto 0;
+    border-radius: 50%; background: var(--bg-wellness); color: var(--navy);
+    font-family: var(--font-serif); font-weight: 600; font-size: 1.35rem;
+    position: relative; z-index: 1;
+  }
+  /* connector line + mid dot between numbered nodes.
+     Width is derived from the column width via container-query units so it
+     reaches the next number exactly. --step = center-to-center distance. */
+  .journey__step:not(:last-child) .journey__num::after {
+    content: ''; position: absolute; top: 50%; left: 100%;
+    width: calc((100cqw - 4rem) / 5 + 1rem - 46px);
+    height: 2px; background: var(--border-strong); transform: translateY(-50%);
+  }
+  .journey__step:not(:last-child) .journey__num::before {
+    content: ''; position: absolute; top: 50%; z-index: 2;
+    left: calc(100% + ((100cqw - 4rem) / 5 + 1rem - 46px) / 2);
+    width: 7px; height: 7px; border-radius: 50%; background: var(--blue-soft);
+    transform: translate(-50%, -50%);
+  }
+  .journey__title { font-size: 1.05rem; font-weight: 600; margin-top: 1rem; color: var(--navy); line-height: 1.3; }
+  .journey__body { font-size: var(--text-small); color: var(--text-body); margin-top: 0.6rem; line-height: 1.55; }
+
+  .journey__foot {
+    display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+    margin-top: 3rem; color: var(--text-body); font-size: var(--text-small);
+  }
+  .journey__foot-icon { width: 22px; height: 22px; object-fit: contain; }
+
+  @media (max-width: 980px) {
+    .journey { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.5rem; }
+    .journey__step .journey__num::after, .journey__step .journey__num::before { display: none; }
+  }
+  @media (max-width: 520px) { .journey { grid-template-columns: 1fr; } }
+</style>

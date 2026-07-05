@@ -1,0 +1,23 @@
+# Dependencies / build output
+wellpeps-site/node_modules/
+wellpeps-site/dist/
+wellpeps-site/.astro/
+wellpeps-site/.vercel/
+wellpeps-site/.netlify/
+node_modules/
+
+# Temp / working files
+wellpeps-site/src/_raw_programs/
+wellpeps-site/_shot.mjs
+**/*.tmp
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
+*.log
+
+# Saved-webpage exports (contain embedded tokens/secrets)
+*_files/
+Sexual Wellness/*.html
+Logo/*.html

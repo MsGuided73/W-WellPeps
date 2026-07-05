@@ -1,0 +1,65 @@
+---
+import Icon from '../Icon.astro';
+import { faqs } from '../../data/content';
+---
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Common Questions</h2>
+      <p>Answers to the questions patients ask most.</p>
+    </div>
+
+    <div class="faq reveal">
+      {faqs.map((f, i) => (
+        <div class="faq__item" data-faq>
+          <button aria-expanded="false" aria-controls={`faq-${i}`}>
+            <span>{f.q}</span>
+            <span class="faq__icon"><Icon name="plus" /></span>
+          </button>
+          <div class="faq__panel" id={`faq-${i}`}><p>{f.a}</p></div>
+        </div>
+      ))}
+    </div>
+
+    <p class="faq__foot reveal">
+      <span class="faq__foot-icon"><img src="/images/icons/inc-chat.png" alt="" loading="lazy" /></span>
+      Still have questions? <a href="#faq-full">Visit our complete FAQ <Icon name="arrow-right" class="inline-arrow" /></a>
+      or chat with our virtual assistant.
+    </p>
+  </div>
+</section>
+
+<style>
+  .faq {
+    max-width: 820px; margin: clamp(2.5rem, 4vw, 3.5rem) auto 0;
+    background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+    box-shadow: var(--shadow-sm); overflow: hidden;
+  }
+  .faq__item { border-bottom: 1px solid var(--border); }
+  .faq__item:last-child { border-bottom: 0; }
+  .faq__item button {
+    width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    background: none; border: 0; cursor: pointer; text-align: left;
+    padding: 1.4rem 1.6rem;
+    font-family: var(--font-serif); font-weight: 600; font-size: 1.15rem; color: var(--navy);
+    transition: background var(--dur) var(--ease);
+  }
+  .faq__item button:hover { background: var(--bg-gray); }
+  .faq__icon { display: grid; place-items: center; width: 30px; height: 30px; flex: none; color: var(--blue); transition: transform var(--dur) var(--ease); }
+  .faq__icon :global(svg) { width: 22px; height: 22px; }
+  .faq__item button[aria-expanded='true'] .faq__icon { transform: rotate(45deg); }
+
+  .faq__panel {
+    display: grid; grid-template-rows: 0fr;
+    transition: grid-template-rows var(--dur) var(--ease);
+  }
+  .faq__panel > p { overflow: hidden; color: var(--text-body); padding: 0 1.6rem; font-size: var(--text-small); line-height: 1.65; }
+  .faq__item button[aria-expanded='true'] + .faq__panel { grid-template-rows: 1fr; }
+  .faq__item button[aria-expanded='true'] + .faq__panel > p { padding-bottom: 1.5rem; }
+
+  .faq__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.4rem; margin-top: 2.5rem; color: var(--text-body); font-size: var(--text-small); }
+  .faq__foot-icon { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--bg-wellness); color: var(--blue); margin-right: 0.4rem; }
+  .faq__foot-icon img { width: 20px; height: 20px; object-fit: contain; }
+  .faq__foot a { display: inline-flex; align-items: center; gap: 0.3rem; font-weight: 600; }
+  .inline-arrow { width: 0.9em; height: 0.9em; }
+</style>

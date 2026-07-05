@@ -1,0 +1,66 @@
+---
+import Icon from '../Icon.astro';
+import { programs } from '../../data/programs';
+import { assessmentUrl } from '../../config';
+---
+<section class="section" id="programs">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Our Wellness Programs</h2>
+      <p>Personalized care to help you look, feel, and perform your best.</p>
+    </div>
+
+    <div class="programs__grid reveal">
+      {programs.map((p) => (
+        <article class="card program">
+          <div class="program__media">
+            <img src={p.image} width="780" height="520" alt={p.imageAlt} loading="lazy" />
+            {p.status === 'coming-soon' && <span class="program__badge">Coming Soon</span>}
+          </div>
+          <div class="program__body">
+            <h3>{p.title}</h3>
+            <p class="program__tagline">{p.tagline}</p>
+            <p class="program__blurb">{p.blurb}</p>
+            <a href={p.status === 'live' ? assessmentUrl(p.slug) : '#notify'}
+               class={`pill-link${p.status === 'coming-soon' ? ' pill-link--muted' : ''}`}>
+              {p.status === 'live' ? 'Explore Program' : 'Notify Me'}
+              <Icon name="arrow-right" />
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .programs__grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    margin-top: clamp(2.5rem, 4vw, 4rem);
+  }
+  .program { overflow: hidden; display: flex; flex-direction: column; }
+  .program:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+  /* Banner close to the guide but a touch taller so faces aren't over-cropped */
+  .program__media { position: relative; aspect-ratio: 11 / 5; overflow: hidden; }
+  .program__media img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; transition: transform 0.5s var(--ease); }
+  .program:hover .program__media img { transform: scale(1.04); }
+  .program__badge {
+    position: absolute; top: 0.9rem; left: 0.9rem;
+    background: rgba(8,43,89,0.9); color: #fff; font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.04em; text-transform: uppercase; padding: 0.35rem 0.7rem; border-radius: var(--radius-pill);
+  }
+  .program__body { padding: 1.3rem 1.4rem 1.4rem; display: flex; flex-direction: column; flex: 1; }
+  .program__body h3 { font-size: 1.4rem; font-weight: 600; line-height: 1.15; }
+  /* Tagline hugs the title (one group); blurb sits clearly below the pair */
+  .program__tagline { font-family: var(--font-serif); font-style: italic; color: var(--blue); font-weight: 500; margin-top: 0.15rem; font-size: 1rem; }
+  .program__blurb { margin-top: 0.85rem; color: var(--text-body); font-size: 0.9rem; line-height: 1.55; flex: 1; }
+  /* Compact CTA to match the guide's pill (less padding, smaller text) */
+  .program .pill-link {
+    margin-top: 1rem; align-self: flex-start;
+    padding: 0.4rem 0.9rem; font-size: 0.82rem; gap: 0.4rem;
+  }
+  .program .pill-link svg { width: 0.95em; height: 0.95em; }
+
+  @media (max-width: 900px) { .programs__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .programs__grid { grid-template-columns: 1fr; } }
+</style>

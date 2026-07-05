@@ -1,0 +1,43 @@
+---
+import { ONBOARDING_URL } from '../../config';
+---
+<section class="section" id="assessment">
+  <div class="container helpfind">
+    <div class="helpfind__media reveal">
+      <img src="/images/doctor-assessment.jpg" width="1000" height="666"
+           alt="A licensed healthcare provider reviewing a health assessment on a laptop" />
+    </div>
+    <div class="helpfind__copy reveal">
+      <h2>We Help You Find<br />the Treatment That’s<br />Right for You.</h2>
+      <p class="helpfind__accent">Get a Free Online Health Assessment Reviewed by Licensed Healthcare Providers.</p>
+      <hr class="rule rule--left" />
+      <p class="helpfind__body">
+        Every treatment begins with a free online health assessment. Licensed healthcare
+        providers review your health history, current medications, symptoms, and wellness
+        goals before recommending a personalized treatment plan—if clinically appropriate.
+      </p>
+      <a href={ONBOARDING_URL} class="btn btn--primary btn--lg helpfind__cta">Start Your Free Assessment</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .helpfind {
+    display: grid; grid-template-columns: 1fr 1.25fr;
+    gap: clamp(2rem, 5vw, 4.5rem); align-items: center;
+  }
+  .helpfind__media img {
+    width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
+    aspect-ratio: 4 / 4.2; object-fit: cover;
+  }
+  /* Headline is broken to exactly 3 lines via <br>; keep size so the longest
+     line ("the Treatment That's") never wraps to a 4th line. */
+  .helpfind__copy h2 { font-size: clamp(1.9rem, 1.1rem + 2.4vw, 3rem); font-weight: 700; white-space: nowrap; }
+  .helpfind__accent { color: var(--blue); font-weight: 600; font-size: 1.2rem; margin-top: 1.25rem; line-height: 1.4; }
+  .helpfind__body { margin-top: 1.5rem; color: var(--text-body); max-width: 52ch; }
+  .helpfind__cta { margin-top: 2rem; }
+  @media (max-width: 860px) {
+    .helpfind { grid-template-columns: 1fr; }
+    .helpfind__copy h2 { white-space: normal; }
+  }
+</style>

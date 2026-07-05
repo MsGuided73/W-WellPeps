@@ -1,0 +1,93 @@
+---
+import '../styles/global.css';
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = 'WellPeps — Personalized Wellness. Simplified.',
+  description = 'Personalized treatment plans, licensed healthcare providers, and ongoing support—all from the comfort of home. Start your free online health assessment.',
+} = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/images/w-mark.png" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+
+    <!-- Fonts: Lora (editorial serif headings, per MASTER Guide) + Inter (UI/body).
+         Production TODO: self-host to remove the third-party request. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <NavBar />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+
+    <style>
+      .skip-link {
+        position: absolute; left: 1rem; top: -3rem;
+        background: var(--blue); color: #fff; padding: 0.6rem 1rem;
+        border-radius: 8px; z-index: 200; transition: top var(--dur) var(--ease);
+      }
+      .skip-link:focus { top: 1rem; color: #fff; }
+    </style>
+
+    <!-- Progressive enhancement: scroll reveal + FAQ + mobile nav -->
+    <script>
+      // Reveal on scroll
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+        }
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+      // Sticky nav shadow on scroll
+      const nav = document.querySelector('[data-nav]');
+      const onScroll = () => nav?.classList.toggle('is-scrolled', window.scrollY > 8);
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      // Mobile nav toggle
+      const toggle = document.querySelector('[data-nav-toggle]');
+      const menu = document.querySelector('[data-nav-menu]');
+      toggle?.addEventListener('click', () => {
+        const open = nav?.classList.toggle('nav-open');
+        toggle.setAttribute('aria-expanded', String(!!open));
+      });
+      menu?.querySelectorAll('a').forEach((a) =>
+        a.addEventListener('click', () => {
+          nav?.classList.remove('nav-open');
+          toggle?.setAttribute('aria-expanded', 'false');
+        })
+      );
+
+      // FAQ accordion
+      document.querySelectorAll('[data-faq]').forEach((item) => {
+        const btn = item.querySelector('button');
+        btn?.addEventListener('click', () => {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+        });
+      });
+    </script>
+  </body>
+</html>

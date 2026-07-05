@@ -1,0 +1,79 @@
+/* ==========================================================================
+   WellPeps Design Tokens
+   Source of truth: MASTER Guide (Home Page Guide By Section 7-2).
+   Where the written brand docs and the MASTER Guide differ, the MASTER
+   Guide wins (per client direction). Overrides are noted inline.
+   ========================================================================== */
+
+:root {
+  /* ---- Brand color ---- */
+  --navy: #082B59;          /* Logo navy — headlines, nav, footer, premium elements */
+  --navy-deep: #061F42;     /* Footer base / deepest panels */
+
+  /* Working blue — MASTER Guide OVERRIDE.
+     Brand doc lists #1565C0, but the approved mockups use a brighter,
+     more saturated royal blue for CTAs, links and accent words. */
+  --blue: #0B5CEF;
+  --blue-hover: #0A49C9;
+  --blue-soft: #2EA8F7;     /* Sky accent — icon fills, subtle highlights */
+
+  /* ---- Surfaces ---- */
+  --white: #ffffff;
+  --bg-gray: #F7F9FC;       /* Alternating section background */
+  --bg-wellness: #EAF5FF;   /* Soft wellness blue — trust bars, tinted sections */
+  --hero-tint: #F4F9FF;     /* Hero gradient end */
+  --card: #ffffff;
+
+  /* ---- Text ---- */
+  --text-heading: #082B59;  /* MASTER Guide OVERRIDE: navy headings (not #153B73) */
+  --text-body: #4B5C73;
+  --text-muted: #7A8899;
+  --text-on-dark: #EAF1FB;
+  --text-on-dark-muted: #9DB0CC;
+
+  /* ---- Accents ---- */
+  --gold: #D8A53A;          /* Thin dividers, footer newsletter button — used sparingly */
+  --border: #E6ECF4;
+  --border-strong: #D3DEEC;
+  --icon-disabled: #C9D4E2;
+
+  /* ---- Status ---- */
+  --success: #2E7D32;
+  --warning: #F9A825;
+  --error: #D32F2F;
+
+  /* ---- Typography ---- */
+  /* MASTER Guide OVERRIDE: section & card titles are an editorial serif
+     (guide shows serif headlines), not Plus Jakarta Sans. Body/UI = Inter. */
+  --font-serif: 'Lora', 'Georgia', 'Times New Roman', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* Fluid type scale */
+  --text-hero: clamp(2.75rem, 1.6rem + 5.2vw, 5rem);
+  --text-h2: clamp(2.1rem, 1.3rem + 3.2vw, 3.5rem);
+  --text-h3: clamp(1.3rem, 1.05rem + 1vw, 1.65rem);
+  --text-lead: clamp(1.05rem, 0.98rem + 0.4vw, 1.3rem);
+  --text-body-size: 1.0625rem;    /* 17px */
+  --text-small: 0.9375rem;        /* 15px */
+
+  /* ---- Spacing rhythm ----
+     Design Note: give the page a magazine-like rhythm — generous vertical
+     space so the eye rests between sections. */
+  --space-section: clamp(4.5rem, 3rem + 6vw, 8.5rem);
+  --gutter: clamp(1.25rem, 0.5rem + 3vw, 4rem);
+  --content-max: 1200px;
+
+  /* ---- Radius / shadow / motion ---- */
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(8, 43, 89, 0.06), 0 2px 8px rgba(8, 43, 89, 0.05);
+  --shadow: 0 4px 14px rgba(8, 43, 89, 0.07), 0 12px 32px rgba(8, 43, 89, 0.06);
+  --shadow-lg: 0 10px 30px rgba(8, 43, 89, 0.10), 0 24px 60px rgba(8, 43, 89, 0.10);
+
+  --dur-fast: 150ms;
+  --dur: 260ms;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}

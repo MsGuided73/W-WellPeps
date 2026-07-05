@@ -1,0 +1,208 @@
+---
+import Icon from './Icon.astro';
+import { CONTACT } from '../config';
+
+const columns = [
+  {
+    heading: 'Programs',
+    links: [
+      { label: 'Weight Management', href: '/#programs' },
+      { label: 'Peptide Therapies', href: '/#programs' },
+      { label: 'Sexual Wellness', href: '/#programs' },
+      { label: 'Hair Restoration', href: '/#programs' },
+      { label: 'Hormone Optimization', href: '/#programs', note: 'Coming Soon' },
+      { label: 'Mental Wellness', href: '/#programs', note: 'Coming Soon' },
+    ],
+  },
+  {
+    heading: 'Resources',
+    links: [
+      { label: 'Wellness Insights', href: '/#insights' },
+      { label: 'FAQ', href: '/#faq' },
+      { label: 'Treatment Process', href: '/#journey' },
+      { label: 'Pricing', href: '/#includes' },
+      { label: 'Patient Resources', href: '/#insights' },
+    ],
+  },
+  {
+    heading: 'Company',
+    links: [
+      { label: 'About WellPeps', href: '#' },
+      { label: 'Our Mission', href: '#' },
+      { label: 'Why WellPeps', href: '/#why' },
+      { label: 'Careers', href: '#' },
+      { label: 'Contact Us', href: '#' },
+    ],
+  },
+  {
+    heading: 'Support',
+    links: [
+      { label: 'Help Center', href: '#' },
+      { label: 'Virtual Assistant', href: '#' },
+      { label: 'Shipping & Delivery', href: '/#faq' },
+      { label: 'Privacy & Security', href: '/#safety' },
+    ],
+  },
+];
+
+const legal = [
+  'Privacy Policy', 'Terms of Use', 'Notice of Privacy Practices',
+  'Accessibility', 'Do Not Sell or Share My Personal Information',
+];
+---
+<footer class="footer">
+  <div class="container-wide">
+    <!-- Brand + newsletter -->
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <img src="/images/w-mark.png" alt="" width="52" height="52" />
+          <span>WellPeps</span>
+        </div>
+        <h3 class="footer__headline">Wellness Starts with Knowledge</h3>
+        <p class="footer__sub">Get expert wellness insights, program updates, and exclusive offers—delivered to your inbox.</p>
+      </div>
+
+      <form class="newsletter" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <p class="visually-hidden"><label>Leave blank: <input name="bot-field" /></label></p>
+        <div class="newsletter__row">
+          <div class="newsletter__field">
+            <Icon name="mail" class="newsletter__icon" />
+            <input type="email" name="email" required placeholder="Enter your email address" aria-label="Email address" />
+          </div>
+          <button type="submit" class="newsletter__btn">Get Free Wellness Insights<br />Delivered Monthly</button>
+        </div>
+        <p class="newsletter__note"><Icon name="lock" class="tiny" /> We respect your privacy. Unsubscribe anytime.</p>
+      </form>
+    </div>
+
+    <hr class="footer__rule" />
+
+    <!-- Link columns -->
+    <div class="footer__grid">
+      {columns.map((col) => (
+        <div class="footer__col">
+          <h4>{col.heading}</h4>
+          <ul>
+            {col.links.map((l) => (
+              <li>
+                <a href={l.href}>{l.label}</a>
+                {l.note && <span class="footer__soon">{l.note}</span>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+
+      <div class="footer__col footer__contact">
+        <h4>Contact Us</h4>
+        <ul>
+          <li>
+            <Icon name="phone" class="footer__cicon" />
+            <span><a href={CONTACT.phoneHref}>{CONTACT.phone}</a><br /><small>{CONTACT.hours}</small></span>
+          </li>
+          <li>
+            <Icon name="mail" class="footer__cicon" />
+            <span><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></span>
+          </li>
+          <li>
+            <Icon name="map-pin" class="footer__cicon" />
+            <span>50 States<br /><small>Nationwide Care</small></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="footer__rule footer__rule--gold" />
+
+    <div class="footer__legal">
+      <ul>{legal.map((l) => <li><a href="#">{l}</a></li>)}</ul>
+      <span class="footer__hipaa"><Icon name="shield-check" class="tiny" /> HIPAA COMPLIANT</span>
+    </div>
+
+    <p class="footer__disclaimer">
+      WellPeps is a platform that connects patients with licensed healthcare providers and pharmacy partners.
+      Medical services are provided by independent providers. WellPeps does not provide medical advice, diagnosis, or treatment.
+    </p>
+    <p class="footer__copy">© 2025 WellPeps. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: var(--text-on-dark);
+    padding-block: clamp(3rem, 2rem + 4vw, 5rem) 2.5rem;
+    font-size: var(--text-small);
+  }
+  .footer a { color: var(--text-on-dark); transition: color var(--dur) var(--ease); }
+  .footer a:hover { color: #fff; }
+
+  .footer__top {
+    display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+  }
+  .footer__logo { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.4rem; }
+  .footer__logo span { font-family: var(--font-serif); font-weight: 700; font-size: 1.9rem; color: #fff; }
+  .footer__headline { font-family: var(--font-serif); color: #fff; font-size: 1.55rem; font-weight: 600; }
+  .footer__sub { color: var(--text-on-dark-muted); margin-top: 0.7rem; max-width: 42ch; line-height: 1.6; }
+
+  .newsletter__row {
+    display: flex; background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.14); border-radius: 12px; overflow: hidden;
+  }
+  .newsletter__field { display: flex; align-items: center; gap: 0.6rem; flex: 1; padding: 0 1rem; }
+  .newsletter__icon { width: 20px; height: 20px; color: var(--blue-soft); flex: none; }
+  .newsletter__field input {
+    flex: 1; background: none; border: 0; color: #fff; font-family: var(--font-sans);
+    font-size: 1rem; padding: 1.05rem 0;
+  }
+  .newsletter__field input::placeholder { color: #93a6c4; }
+  .newsletter__field input:focus { outline: none; }
+  .newsletter__btn {
+    border: 0; cursor: pointer;
+    background: var(--gold); color: #3a2c07;
+    font-family: var(--font-sans); font-weight: 700; font-size: 0.9rem; line-height: 1.25;
+    padding: 0.6rem 1.4rem; transition: background var(--dur) var(--ease);
+  }
+  .newsletter__btn:hover { background: #e8b64f; color: #3a2c07; }
+  .newsletter__note { display: flex; align-items: center; gap: 0.4rem; color: var(--text-on-dark-muted); margin-top: 0.7rem; }
+  .tiny { width: 14px; height: 14px; }
+
+  .footer__rule { border: 0; height: 1px; background: rgba(255,255,255,0.12); margin: 2.5rem 0; }
+  .footer__rule--gold { background: rgba(216,165,58,0.4); margin: 2.5rem 0 1.5rem; }
+
+  .footer__grid {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 2rem;
+  }
+  .footer__col h4 {
+    font-family: var(--font-sans); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem;
+  }
+  .footer__col ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+  .footer__col a { color: #cdd8ea; }
+  .footer__soon { display: block; font-size: 0.72rem; font-style: italic; color: #8296b5; }
+
+  .footer__contact ul li { display: flex; gap: 0.65rem; align-items: flex-start; line-height: 1.45; }
+  .footer__cicon { width: 18px; height: 18px; color: var(--blue-soft); margin-top: 2px; flex: none; }
+  .footer__contact small { color: #8296b5; }
+
+  .footer__legal { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; }
+  .footer__legal ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 1.5rem; }
+  .footer__legal a { color: #cdd8ea; font-size: 0.82rem; }
+  .footer__hipaa { display: inline-flex; align-items: center; gap: 0.4rem; color: #cdd8ea; font-size: 0.78rem; letter-spacing: 0.05em; }
+
+  .footer__disclaimer { color: #8296b5; font-size: 0.78rem; line-height: 1.6; text-align: center; max-width: 80ch; margin: 1.6rem auto 0; }
+  .footer__copy { text-align: center; color: #8296b5; font-size: 0.8rem; margin-top: 0.8rem; }
+
+  @media (max-width: 900px) {
+    .footer__top { grid-template-columns: 1fr; }
+    .footer__grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.5rem; }
+  }
+  @media (max-width: 640px) {
+    .newsletter__row { flex-direction: column; }
+    .newsletter__btn { text-align: center; }
+    .footer__grid { grid-template-columns: 1fr 1fr; }
+    .footer__legal { flex-direction: column; align-items: flex-start; }
+  }
+</style>

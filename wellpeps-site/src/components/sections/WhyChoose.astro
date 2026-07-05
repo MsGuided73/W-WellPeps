@@ -1,0 +1,78 @@
+---
+import { whyPrimary, whySecondary, whyTrust } from '../../data/content';
+---
+<section class="section section--gray" id="why">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Why Patients <span class="accent">Choose WellPeps</span></h2>
+      <p>Expert care. Trusted medications. Personalized guidance.</p>
+    </div>
+
+    <div class="why__grid reveal">
+      {whyPrimary.map((c) => (
+        <article class="card why__card">
+          <img class="why__icon" src={c.img} alt="" loading="lazy" />
+          <h3>{c.title}</h3>
+          <hr class="rule" />
+          <p>{c.body}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="why__secondary reveal">
+      {whySecondary.map((s) => (
+        <div class="why__sec-item">
+          <img class="why__sec-icon" src={s.img} alt="" loading="lazy" />
+          <span>{s.title}</span>
+        </div>
+      ))}
+    </div>
+
+    <div class="why__trust reveal">
+      {whyTrust.map((t) => (
+        <span class="why__trust-item"><span class="why__trust-badge"><img src={t.img} alt="" loading="lazy" /></span>{t.label}</span>
+      ))}
+    </div>
+
+    <p class="why__foot">*When clinically appropriate and available.</p>
+  </div>
+</section>
+
+<style>
+  .why__grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    margin-top: clamp(2.5rem, 4vw, 4rem);
+  }
+  .why__card { padding: 2.5rem 2rem; text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .why__card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .why__icon { height: 76px; width: auto; margin-bottom: 0.4rem; }
+  .why__card h3 { font-size: var(--text-h3); margin-top: 1.4rem; }
+  .why__card .rule { margin-top: 1rem; }
+  .why__card p { margin-top: 1rem; color: var(--text-body); }
+
+  .why__secondary {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+    background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 1.75rem 2rem; margin-top: 1.5rem; box-shadow: var(--shadow-sm);
+  }
+  .why__sec-item { display: flex; align-items: center; gap: 1rem; color: var(--navy); font-weight: 500; line-height: 1.4; }
+  .why__sec-item:not(:last-child) { border-right: 1px solid var(--border); }
+  .why__sec-icon { height: 42px; width: auto; flex: none; }
+
+  .why__trust {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem;
+    margin-top: 2.5rem;
+  }
+  .why__trust-item { display: inline-flex; align-items: center; gap: 0.7rem; color: var(--navy); font-weight: 600; }
+  .why__trust-badge { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--bg-wellness); }
+  .why__trust-badge img { width: 20px; height: 20px; object-fit: contain; }
+
+  .why__foot { text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 2rem; }
+
+  @media (max-width: 860px) {
+    .why__grid { grid-template-columns: 1fr; }
+    .why__secondary { grid-template-columns: 1fr; gap: 1.25rem; }
+    .why__sec-item:not(:last-child) { border-right: 0; border-bottom: 1px solid var(--border); padding-bottom: 1.25rem; }
+    .why__trust { gap: 1.5rem; }
+  }
+</style>
