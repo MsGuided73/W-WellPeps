@@ -2,10 +2,10 @@
 import Icon from '../Icon.astro';
 import { insights } from '../../data/content';
 ---
-<section class="section section--gray" id="insights">
+<section class="section section--ivory" id="insights">
   <div class="container">
     <div class="section-head reveal">
-      <h2>Wellness Insights &amp; Resources</h2>
+      <h2>Wellness Learning Center</h2>
       <p>Personalized care starts with informed decisions. Explore evidence-based articles, treatment guides, and wellness education designed to help you make confident healthcare decisions.</p>
     </div>
 
@@ -32,7 +32,7 @@ import { insights } from '../../data/content';
 <style>
   .insights__grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem;
-    margin-top: clamp(2.5rem, 4vw, 4rem);
+    margin-top: clamp(1.75rem, 2.5vw, 2.75rem);
   }
   .insight { overflow: hidden; display: flex; flex-direction: column; }
   .insight:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }

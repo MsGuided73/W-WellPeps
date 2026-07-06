@@ -24,6 +24,33 @@
   --hero-tint: #F4F9FF;     /* Hero gradient end */
   --card: #ffffff;
 
+  /* ---- Section background palette ----
+     From the WellPeps Background Color Palette board. A calm, trustworthy
+     set used to differentiate home-page sections. Blues carry the medical /
+     trust feel; the two warm neutrals (cream, ivory) warm the human-story
+     sections. See .section--* modifiers in global.css for how they're applied. */
+
+  /* Primary backgrounds */
+  --bg-pure-white:      #FFFFFF;   /* Clean, open, primary base */
+  --bg-light-blue-gray: #E9EFF5;   /* Soft, calm, and professional */
+  --bg-warm-cream:      #F7F3E9;   /* Welcoming, warm, human, approachable */
+  --bg-soft-ivory:      #FAF8F4;   /* Subtle warmth with a clean feel */
+
+  /* Secondary backgrounds */
+  --bg-pale-blue:       #F2F7FC;   /* Very light, airy blue background */
+  --bg-cool-blue:       #E1ECF8;   /* Subtle blue for section variation */
+  --bg-blue-gray:       #D6DEE8;   /* Balanced tone for contrast without heaviness */
+  --bg-light-gray:      #F1F3F6;   /* Neutral, clean separator background */
+
+  /* Accent / supporting backgrounds */
+  --bg-soft-mint:       #EAF7F1;   /* Fresh, subtle wellness accent */
+  --bg-light-sand:      #F6F0E2;   /* Warm neutral variation */
+  --bg-light-sky:       #E8F1FB;   /* Clean, uplifting blue tint */
+  --bg-lavender-mist:   #F1F2FA;   /* Soft cool accent option */
+
+  /* Deep / anchor background */
+  --bg-deep-navy:       #0D2B45;   /* Primary anchor for footer, contrast sections, depth */
+
   /* ---- Text ---- */
   --text-heading: #082B59;  /* MASTER Guide OVERRIDE: navy headings (not #153B73) */
   --text-body: #4B5C73;
@@ -59,9 +86,14 @@
   /* ---- Spacing rhythm ----
      Design Note: give the page a magazine-like rhythm — generous vertical
      space so the eye rests between sections. */
-  --space-section: clamp(4.5rem, 3rem + 6vw, 8.5rem);
-  --gutter: clamp(1.25rem, 0.5rem + 3vw, 4rem);
-  --content-max: 1200px;
+  /* Section-to-section gap — pulled in from 8.5rem so sections sit closer and
+     the page reads shorter; the reclaimed height goes into the sections. */
+  --space-section: clamp(3.25rem, 2.5rem + 3.5vw, 6rem);
+  /* Tight side margins so section content fills nearly the full page width. */
+  --gutter: clamp(1.25rem, 0.75rem + 1.5vw, 2.75rem);
+  /* Wide content column — sections span close to the full page width so
+     photos, headlines and cards read large and generous. */
+  --content-max: 1680px;
 
   /* ---- Radius / shadow / motion ---- */
   --radius-sm: 10px;

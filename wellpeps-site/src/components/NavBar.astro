@@ -40,6 +40,10 @@ import { NAV_LINKS, ONBOARDING_URL } from '../config';
   .nav__inner {
     display: flex; align-items: center; gap: 1.5rem;
     height: 76px;
+    /* Matches the section content width so the brand and CTA line up with
+       the page content below. */
+    max-width: var(--content-max);
+    padding-inline: var(--gutter);
   }
   .brand { display: flex; align-items: center; gap: 0.5rem; }
   .brand__mark { height: 38px; width: auto; display: block; }

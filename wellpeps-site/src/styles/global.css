@@ -74,6 +74,17 @@ h1, h2, h3, h4 {
 .section--gray { background: var(--bg-gray); }
 .section--wellness { background: var(--bg-wellness); }
 
+/* Section background palette (WellPeps board). Used to differentiate the
+   home-page sections — see the token block in tokens.css. */
+.section--pale-blue      { background: var(--bg-pale-blue); }
+.section--light-blue-gray { background: var(--bg-light-blue-gray); }
+.section--cool-blue      { background: var(--bg-cool-blue); }
+.section--cream          { background: var(--bg-warm-cream); }
+.section--ivory          { background: var(--bg-soft-ivory); }
+.section--sky            { background: var(--bg-light-sky); }
+.section--mint           { background: var(--bg-soft-mint); }
+.section--lavender       { background: var(--bg-lavender-mist); }
+
 /* Centered section header (eyebrow-free): title + supporting line */
 .section-head { text-align: center; max-width: 760px; margin-inline: auto; }
 .section-head h2 {

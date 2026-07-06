@@ -1,7 +1,7 @@
 ---
 import { journeySteps } from '../../data/content';
 ---
-<section class="section section--gray" id="journey">
+<section class="section section--cream" id="journey">
   <div class="container">
     <div class="section-head reveal">
       <h2>Your Wellness Journey</h2>
@@ -30,14 +30,14 @@ import { journeySteps } from '../../data/content';
 
 <style>
   .journey {
-    list-style: none; padding: 0; margin-top: clamp(2.5rem, 4vw, 4rem);
-    display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem;
+    list-style: none; padding: 0; margin-top: clamp(1.75rem, 2.5vw, 2.75rem);
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 2rem;
     counter-reset: step;
     container-type: inline-size;
   }
   .journey__step { text-align: center; position: relative; }
   /* Guide grid: images are equal-size, ~1 : 1.14 (slightly portrait) */
-  .journey__media { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); aspect-ratio: 1 / 1.14; }
+  .journey__media { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); aspect-ratio: 1 / 1.32; }
   .journey__media img { width: 100%; height: 100%; object-fit: cover; }
   .journey__num {
     display: grid; place-items: center;
@@ -51,12 +51,12 @@ import { journeySteps } from '../../data/content';
      reaches the next number exactly. --step = center-to-center distance. */
   .journey__step:not(:last-child) .journey__num::after {
     content: ''; position: absolute; top: 50%; left: 100%;
-    width: calc((100cqw - 4rem) / 5 + 1rem - 46px);
+    width: calc((100cqw - 8rem) / 5 + 2rem - 46px);
     height: 2px; background: var(--border-strong); transform: translateY(-50%);
   }
   .journey__step:not(:last-child) .journey__num::before {
     content: ''; position: absolute; top: 50%; z-index: 2;
-    left: calc(100% + ((100cqw - 4rem) / 5 + 1rem - 46px) / 2);
+    left: calc(100% + ((100cqw - 8rem) / 5 + 2rem - 46px) / 2);
     width: 7px; height: 7px; border-radius: 50%; background: var(--blue-soft);
     transform: translate(-50%, -50%);
   }

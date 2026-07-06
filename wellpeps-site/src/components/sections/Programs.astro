@@ -3,7 +3,7 @@ import Icon from '../Icon.astro';
 import { programs } from '../../data/programs';
 import { assessmentUrl } from '../../config';
 ---
-<section class="section" id="programs">
+<section class="section section--light-blue-gray" id="programs">
   <div class="container">
     <div class="section-head reveal">
       <h2>Our Wellness Programs</h2>
@@ -35,13 +35,13 @@ import { assessmentUrl } from '../../config';
 
 <style>
   .programs__grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
-    margin-top: clamp(2.5rem, 4vw, 4rem);
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+    margin-top: clamp(1.75rem, 2.5vw, 2.75rem);
   }
   .program { overflow: hidden; display: flex; flex-direction: column; }
   .program:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
   /* Banner close to the guide but a touch taller so faces aren't over-cropped */
-  .program__media { position: relative; aspect-ratio: 11 / 5; overflow: hidden; }
+  .program__media { position: relative; aspect-ratio: 11 / 6; overflow: hidden; }
   .program__media img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; transition: transform 0.5s var(--ease); }
   .program:hover .program__media img { transform: scale(1.04); }
   .program__badge {
@@ -49,11 +49,11 @@ import { assessmentUrl } from '../../config';
     background: rgba(8,43,89,0.9); color: #fff; font-size: 0.72rem; font-weight: 600;
     letter-spacing: 0.04em; text-transform: uppercase; padding: 0.35rem 0.7rem; border-radius: var(--radius-pill);
   }
-  .program__body { padding: 1.3rem 1.4rem 1.4rem; display: flex; flex-direction: column; flex: 1; }
-  .program__body h3 { font-size: 1.4rem; font-weight: 600; line-height: 1.15; }
+  .program__body { padding: 1.6rem 1.6rem 1.7rem; display: flex; flex-direction: column; flex: 1; }
+  .program__body h3 { font-size: 1.5rem; font-weight: 600; line-height: 1.15; }
   /* Tagline hugs the title (one group); blurb sits clearly below the pair */
   .program__tagline { font-family: var(--font-serif); font-style: italic; color: var(--blue); font-weight: 500; margin-top: 0.15rem; font-size: 1rem; }
-  .program__blurb { margin-top: 0.85rem; color: var(--text-body); font-size: 0.9rem; line-height: 1.55; flex: 1; }
+  .program__blurb { margin-top: 0.95rem; color: var(--text-body); font-size: 0.95rem; line-height: 1.6; flex: 1; }
   /* Compact CTA to match the guide's pill (less padding, smaller text) */
   .program .pill-link {
     margin-top: 1rem; align-self: flex-start;
