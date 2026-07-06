@@ -10,7 +10,7 @@ import { ONBOARDING_URL } from '../../config';
 
   <div class="hero__wrap">
     <div class="hero__copy reveal">
-      <h1>Personalized<br />Wellness.<br /><span class="accent">Simplified.</span></h1>
+      <h1><span class="hero__line">Personalized</span><span class="hero__rotator" data-rotator><span class="hero__rotate-word" style="color:#0B5CEF">Wellness.</span></span><span class="hero__line accent">Simplified.</span></h1>
       <hr class="rule rule--left" />
       <p class="hero__lead">Personalized treatment plans, licensed healthcare providers, and ongoing support—all from the comfort of home.</p>
       <div class="hero__actions">
@@ -60,6 +60,25 @@ import { ONBOARDING_URL } from '../../config';
     line-height: 1.02;
     font-weight: 700; letter-spacing: -0.025em; color: var(--navy);
   }
+  /* Rotating headline word — its own line so width changes never shift
+     "Simplified." below it. Left-aligned, so words grow rightward. */
+  /* Each headline line is a block so they stack cleanly at exactly 3 lines
+     (no <br>). The rotator's width = the copy column, and its word never
+     wraps — JS (fitWord) scales it to fit one line. */
+  .hero__line { display: block; }
+  .hero__rotator { display: block; }
+  .hero__rotate-word {
+    display: inline-block;
+    white-space: nowrap;
+    transform-origin: left center;
+    transition: opacity 380ms var(--ease), transform 380ms var(--ease);
+  }
+  .hero__rotate-word.is-out { opacity: 0; transform: translateY(0.18em); }
+  @media (prefers-reduced-motion: reduce) {
+    .hero__rotate-word { transition: none; }
+    .hero__rotate-word.is-out { transform: none; }
+  }
+
   .hero__lead {
     font-size: clamp(1.15rem, 1rem + 0.55vw, 1.5rem); color: var(--text-body);
     max-width: 34ch; margin-top: 1.75rem;
@@ -78,3 +97,58 @@ import { ONBOARDING_URL } from '../../config';
     .hero__actions { max-width: none; }
   }
 </style>
+
+<script>
+  // Rotating hero word — swaps text + color every 3s with a fade/slide.
+  const ROTATE_WORDS = [
+    { text: 'Wellness.',          color: '#0B5CEF' }, // royal blue
+    { text: 'Weight Loss.',       color: '#148F6B' }, // emerald
+    { text: 'Hair Growth.',       color: '#B26A00' }, // amber
+    { text: 'Sexual Wellness.',   color: '#C2185B' }, // rose
+    { text: 'Longevity Support.', color: '#6D4AC4' }, // violet
+    { text: 'Energy & Vitality.', color: '#0F84C7' }, // sky blue
+    { text: 'Recovery.',          color: '#2E7D32' }, // green
+  ];
+  const INTERVAL_MS = 3000;
+
+  const rotator = document.querySelector('[data-rotator]');
+  const word = rotator?.querySelector('.hero__rotate-word');
+  if (word) {
+    // Keep the phrase on one line (3-line headline). Let it grow past the
+    // text column into the faint left edge of the hero photo, and only shrink
+    // if it would reach the image's subject zone (~52vw). On the stacked
+    // mobile layout (<=860px) there's no side image, so fit to the column.
+    const SAFE_RIGHT_VW = 0.52;
+    const fitWord = () => {
+      word.style.fontSize = '';                       // reset to inherited (fluid) size
+      const stacked = window.innerWidth <= 860;
+      const left = rotator.getBoundingClientRect().left;
+      const avail = stacked
+        ? rotator.clientWidth
+        : Math.max(rotator.clientWidth, window.innerWidth * SAFE_RIGHT_VW - left);
+      const natural = word.getBoundingClientRect().width;
+      if (avail > 0 && natural > avail) {
+        const base = parseFloat(getComputedStyle(word).fontSize);
+        word.style.fontSize = (base * (avail / natural) * 0.99) + 'px';
+      }
+    };
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const OUT_MS = reduce ? 0 : 380; // must match the CSS transition duration
+    let i = 0;
+
+    fitWord(); // fit the initial word
+    window.addEventListener('resize', fitWord);
+
+    setInterval(() => {
+      word.classList.add('is-out');
+      setTimeout(() => {
+        i = (i + 1) % ROTATE_WORDS.length;
+        word.textContent = ROTATE_WORDS[i].text;
+        word.style.color = ROTATE_WORDS[i].color;
+        fitWord();                    // scale while invisible, then fade in
+        word.classList.remove('is-out');
+      }, OUT_MS);
+    }, INTERVAL_MS);
+  }
+</script>
