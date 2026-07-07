@@ -39,10 +39,9 @@ import { whyPrimary, whySecondary, whyTrust } from '../../data/content';
 </section>
 
 <style>
-  /* Wider than the shared 760px section-head so the header sits on one line,
-     with a 1px bump on the heading size. */
+  /* Wider than the shared 760px section-head so the header sits on one line.
+     Heading size is set globally on .section-head h2. */
   .why__head { max-width: 60rem; }
-  .why__head h2 { font-size: calc(var(--text-h2) + 1px); }
 
   .why__grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;

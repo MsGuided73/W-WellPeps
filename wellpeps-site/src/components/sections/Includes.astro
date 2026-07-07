@@ -4,7 +4,7 @@ import { includes } from '../../data/content';
 ---
 <section class="section" id="includes">
   <div class="container">
-    <div class="section-head reveal">
+    <div class="section-head includes__head reveal">
       <h2>Every <span class="accent">WellPeps</span> Program Includes</h2>
       <p>Transparent Pricing. Licensed Healthcare Provider Review. Ongoing Provider Support.</p>
     </div>
@@ -24,6 +24,13 @@ import { includes } from '../../data/content';
 </section>
 
 <style>
+  /* Wider than the shared 760px section-head so the heading and the long
+     subtext each sit on one line. Title/subtext sizes are set globally on
+     .section-head so every section matches; here we only widen + no-wrap. */
+  .includes__head { max-width: 68rem; }
+  .includes__head h2 { white-space: nowrap; }
+  .includes__head p { white-space: nowrap; }
+
   .includes__grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
     margin-top: clamp(1.75rem, 2.5vw, 2.75rem);
@@ -37,5 +44,8 @@ import { includes } from '../../data/content';
   .includes__card h3 { font-size: calc(var(--text-h3) + 1px); font-weight: 600; margin-top: 0.9rem; }
   .includes__card p { margin-top: 0.8rem; color: var(--text-body); flex: 1; }
   .includes__card .pill-link { margin-top: 1.25rem; }
-  @media (max-width: 860px) { .includes__grid { grid-template-columns: 1fr; } }
+  @media (max-width: 860px) {
+    .includes__grid { grid-template-columns: 1fr; }
+    .includes__head h2, .includes__head p { white-space: normal; }
+  }
 </style>
