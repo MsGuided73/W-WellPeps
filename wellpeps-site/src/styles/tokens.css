@@ -83,6 +83,19 @@
   --text-body-size: 1.1875rem;    /* 19px */
   --text-small: 0.9375rem;        /* 15px */
 
+  /* ---- Semantic type roles ----
+     Prefer these role tokens in components — and on ALL new pages (Treatment
+     Category pages, etc.) — over raw rem sizes or one-off calc() values, so
+     every surface stays on the same scale. Values are tuned to the approved
+     home-page mockups; adjust a role here and every page updates together.
+     Pair each with the fonts below: serif (--font-serif) for titles/headings,
+     sans (--font-sans) for body, labels, and UI. */
+  --text-section-title: calc(var(--text-h2) + 1px);    /* section headings (.section-head h2) */
+  --text-card-title:    calc(var(--text-h3) + 2px);    /* titles inside any card */
+  --text-card-body:     var(--text-lead);              /* body copy inside cards + lead paragraphs */
+  --text-note:          calc(var(--text-small) + 2px); /* footnotes, captions, helper lines */
+  --text-footer:        calc(var(--text-small) + 1px); /* footer base body text */
+
   /* ---- Spacing rhythm ----
      Design Note: give the page a magazine-like rhythm — generous vertical
      space so the eye rests between sections. */
