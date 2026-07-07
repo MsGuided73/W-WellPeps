@@ -3,7 +3,7 @@ import { whyPrimary, whySecondary, whyTrust } from '../../data/content';
 ---
 <section class="section section--pale-blue" id="why">
   <div class="container">
-    <div class="section-head reveal">
+    <div class="section-head why__head reveal">
       <h2>Why Patients <span class="accent">Choose WellPeps</span></h2>
       <p>Expert care. Trusted medications. Personalized guidance.</p>
     </div>
@@ -39,6 +39,11 @@ import { whyPrimary, whySecondary, whyTrust } from '../../data/content';
 </section>
 
 <style>
+  /* Wider than the shared 760px section-head so the header sits on one line,
+     with a 1px bump on the heading size. */
+  .why__head { max-width: 60rem; }
+  .why__head h2 { font-size: calc(var(--text-h2) + 1px); }
+
   .why__grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
     margin-top: clamp(1.75rem, 2.5vw, 2.75rem);
