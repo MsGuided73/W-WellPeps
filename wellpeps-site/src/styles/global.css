@@ -147,7 +147,7 @@ h1, h2, h3, h4 {
 /* Ghost pill link used on cards ("Explore Program →") */
 .pill-link {
   display: inline-flex; align-items: center; gap: 0.5rem;
-  font-family: var(--font-sans); font-weight: 600; font-size: var(--text-small);
+  font-family: var(--font-sans); font-weight: 600; font-size: calc(var(--text-small) + 1px);
   color: var(--blue);
   background: var(--bg-wellness);
   padding: 0.6rem 1.1rem;
