@@ -57,7 +57,7 @@ import { faqs } from '../../data/content';
   .faq__item button[aria-expanded='true'] + .faq__panel { grid-template-rows: 1fr; }
   .faq__item button[aria-expanded='true'] + .faq__panel > p { padding-bottom: 1.5rem; }
 
-  .faq__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.4rem; margin-top: 2.5rem; color: var(--text-body); font-size: var(--text-small); }
+  .faq__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.4rem; margin-top: 2.5rem; color: var(--text-body); font-size: calc(var(--text-small) + 2px); }
   .faq__foot-icon { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--bg-wellness); color: var(--blue); margin-right: 0.4rem; }
   .faq__foot-icon img { width: 20px; height: 20px; object-fit: contain; }
   .faq__foot a { display: inline-flex; align-items: center; gap: 0.3rem; font-weight: 600; }
