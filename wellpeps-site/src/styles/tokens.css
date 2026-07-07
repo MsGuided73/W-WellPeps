@@ -80,7 +80,7 @@
   --text-h2: clamp(2.1rem, 1.3rem + 3.2vw, 3.5rem);
   --text-h3: clamp(1.3rem, 1.05rem + 1vw, 1.65rem);
   --text-lead: clamp(1.05rem, 0.98rem + 0.4vw, 1.3rem);
-  --text-body-size: 1.0625rem;    /* 17px */
+  --text-body-size: 1.1875rem;    /* 19px */
   --text-small: 0.9375rem;        /* 15px */
 
   /* ---- Spacing rhythm ----
