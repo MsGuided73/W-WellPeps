@@ -8,8 +8,8 @@ import { ONBOARDING_URL } from '../../config';
            alt="A licensed healthcare provider reviewing a health assessment on a laptop" />
     </div>
     <div class="helpfind__copy reveal">
-      <h2>We Help You Find<br />the Treatment That’s<br />Right for You.</h2>
-      <p class="helpfind__accent">Get a Free Online Health Assessment Reviewed by Licensed Healthcare Providers.</p>
+      <h2>We Help You Find the Treatment<br />That’s Right for You.</h2>
+      <p class="helpfind__accent">Get Your Free Online Health Assessment<br />Reviewed by Licensed Healthcare Providers.</p>
       <hr class="rule rule--left" />
       <p class="helpfind__body">
         Every treatment begins with a free online health assessment. Licensed healthcare
@@ -32,8 +32,8 @@ import { ONBOARDING_URL } from '../../config';
   }
   /* Headline is broken to exactly 3 lines via <br>; keep size so the longest
      line ("the Treatment That's") never wraps to a 4th line. */
-  .helpfind__copy h2 { font-size: clamp(1.9rem, 1.1rem + 2.4vw, 3rem); font-weight: 700; white-space: nowrap; }
-  .helpfind__accent { color: var(--blue); font-weight: 600; font-size: 1.2rem; margin-top: 1.25rem; line-height: 1.4; }
+  .helpfind__copy h2 { font-size: calc(var(--text-h2) + 1px); font-weight: 700; white-space: nowrap; }
+  .helpfind__accent { color: var(--blue); font-weight: 600; font-size: 1.4rem; margin-top: 1.25rem; line-height: 1.4; }
   .helpfind__body { margin-top: 1.5rem; color: var(--text-body); max-width: 52ch; }
   .helpfind__cta { margin-top: 2rem; }
   @media (max-width: 860px) {
