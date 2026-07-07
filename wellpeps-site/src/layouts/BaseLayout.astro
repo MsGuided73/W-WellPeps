@@ -43,11 +43,13 @@ const {
 
     <style>
       .skip-link {
-        position: absolute; left: 1rem; top: -3rem;
+        position: absolute; left: 1rem; top: 1rem; z-index: 200;
         background: var(--blue); color: #fff; padding: 0.6rem 1rem;
-        border-radius: 8px; z-index: 200; transition: top var(--dur) var(--ease);
+        border-radius: 8px;
+        transform: translateY(calc(-100% - 1.5rem));
+        transition: transform var(--dur) var(--ease);
       }
-      .skip-link:focus { top: 1rem; color: #fff; }
+      .skip-link:focus { transform: translateY(0); color: #fff; }
     </style>
 
     <!-- Progressive enhancement: scroll reveal + FAQ + mobile nav -->

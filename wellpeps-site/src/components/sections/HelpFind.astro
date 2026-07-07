@@ -33,7 +33,7 @@ import { ONBOARDING_URL } from '../../config';
   /* Headline is broken to exactly 3 lines via <br>; keep size so the longest
      line ("the Treatment That's") never wraps to a 4th line. */
   .helpfind__copy h2 { font-size: var(--text-section-title); font-weight: 700; white-space: nowrap; }
-  .helpfind__accent { color: var(--blue); font-weight: 600; font-size: 1.4rem; margin-top: 1.25rem; line-height: 1.4; }
+  .helpfind__accent { color: var(--blue); font-weight: 600; font-size: calc(1.4rem + 1px); margin-top: 1.25rem; line-height: 1.4; }
   .helpfind__body { margin-top: 1.5rem; color: var(--text-body); font-size: var(--text-card-body); max-width: 52ch; }
   .helpfind__cta { margin-top: 2rem; }
   @media (max-width: 860px) {
