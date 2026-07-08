@@ -1,0 +1,62 @@
+---
+import Icon from '../../Icon.astro';
+import { ONBOARDING_URL } from '../../../config';
+import { weightHero } from '../../../data/weight';
+---
+<section class="whero">
+  <img class="whero__img" src={weightHero.image} width="1500" height="1000"
+       alt={weightHero.alt} fetchpriority="high" />
+
+  <div class="whero__wrap">
+    <div class="whero__copy reveal">
+      <h1>
+        <span class="whero__line">{weightHero.titleLead}</span>
+        <span class="whero__line whero__line--accent">{weightHero.titleAccent}</span>
+      </h1>
+      <hr class="rule rule--left" />
+      <p class="whero__lead">{weightHero.lead}</p>
+      <div class="whero__actions">
+        <a href={ONBOARDING_URL} class="btn btn--primary btn--lg">Start Your Free Assessment <Icon name="arrow-right" /></a>
+        <a href="#weight-products" class="btn btn--secondary btn--lg">Explore Treatment Options <Icon name="arrow-right" /></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .whero {
+    position: relative; overflow: hidden; background: #fff;
+    min-height: clamp(520px, 56vw, 780px);
+    display: flex; align-items: center;
+  }
+  .whero__img {
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: 60vw; height: 100%; object-fit: cover; object-position: 50% center;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 22%, #000 48%);
+            mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 22%, #000 48%);
+  }
+  .whero__wrap {
+    position: relative; z-index: 2; width: 100%; max-width: var(--content-max);
+    margin-inline: auto; padding-inline: var(--gutter);
+  }
+  .whero__copy { max-width: clamp(360px, 44vw, 620px); padding-block: clamp(2.5rem, 4vw, 4.5rem); }
+  .whero__copy h1 {
+    font-size: clamp(2.5rem, 1.5rem + 4.2vw, 4.6rem);
+    line-height: 1.04; font-weight: 700; letter-spacing: -0.025em; color: var(--navy);
+  }
+  .whero__line { display: block; }
+  .whero__line--accent { color: var(--blue); }
+  .whero__lead { margin-top: 1.5rem; color: var(--text-body); font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); max-width: 40ch; }
+  .whero__actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.25rem; max-width: 520px; }
+
+  @media (max-width: 900px) {
+    .whero { flex-direction: column; min-height: 0; align-items: stretch; }
+    .whero__img {
+      position: relative; inset: auto; width: 100%; height: clamp(260px, 60vw, 420px);
+      object-position: center 25%;
+      -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+              mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+    }
+    .whero__copy { max-width: none; padding-block: 2rem; }
+  }
+</style>

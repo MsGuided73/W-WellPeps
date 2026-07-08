@@ -2,43 +2,62 @@
 import Icon from '../Icon.astro';
 import { ONBOARDING_URL } from '../../config';
 ---
-<section class="finalcta-wrap section">
-  <div class="container">
-    <div class="finalcta reveal">
-      <div class="finalcta__copy">
-        <h2>Ready to Start Your<br /><span class="accent">Wellness</span> Journey?</h2>
-        <hr class="rule rule--left" />
-        <a href={ONBOARDING_URL} class="btn btn--primary btn--lg">Start Your Free Assessment <Icon name="arrow-right" /></a>
-        <p class="finalcta__note">It only takes a few minutes.</p>
-      </div>
-      <div class="finalcta__media">
-        <img src="/images/cta-couple.jpg" width="900" height="785"
-             alt="A smiling couple enjoying a walk on the beach" loading="lazy" />
-      </div>
+<section class="finalcta">
+  <!-- Hero-style treatment: the photo bleeds off the right edge and feathers
+       into the light background on its left, so image + copy read as one band
+       (no floating card, no boxed image). -->
+  <img class="finalcta__img" src="/images/cta-couple.jpg" width="603" height="604"
+       alt="A smiling couple enjoying the outdoors at the beach" loading="lazy" />
+
+  <div class="finalcta__wrap">
+    <div class="finalcta__copy reveal">
+      <h2>Ready to Start Your<br /><span class="accent">Wellness</span> Journey?</h2>
+      <hr class="rule rule--left" />
+      <a href={ONBOARDING_URL} class="btn btn--primary btn--lg finalcta__btn">Start Your Free Assessment <Icon name="arrow-right" /></a>
+      <p class="finalcta__note">It only takes a few minutes.</p>
     </div>
   </div>
 </section>
 
 <style>
-  .finalcta-wrap { padding-block: clamp(3rem, 2rem + 3vw, 5rem); }
   .finalcta {
-    position: relative; overflow: hidden;
-    border-radius: var(--radius-lg);
-    background: linear-gradient(180deg, #fff 0%, var(--hero-tint) 100%);
-    box-shadow: var(--shadow-lg);
-    display: grid; grid-template-columns: 1fr 1fr; align-items: stretch;
-    min-height: 420px;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-soft-ivory);
+    display: flex; align-items: center;
+    min-height: clamp(460px, 46vw, 680px);
   }
-  .finalcta__copy { padding: clamp(2.5rem, 4vw, 4.5rem); display: flex; flex-direction: column; justify-content: center; }
-  .finalcta__copy h2 { font-size: clamp(2.25rem, 1.4rem + 3vw, 3.6rem); font-weight: 700; letter-spacing: -0.02em; }
-  .finalcta__copy .btn { margin-top: 1.5rem; align-self: flex-start; }
-  .finalcta__note { margin-top: 1rem; color: var(--text-muted); font-size: var(--text-note); }
-  .finalcta__media { position: relative; }
-  .finalcta__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
 
-  @media (max-width: 800px) {
-    .finalcta { grid-template-columns: 1fr; }
-    .finalcta__media { min-height: 280px; order: -1; }
-    .finalcta__media img { position: relative; }
+  /* Bleed to the viewport's right edge; feather into the background on the left. */
+  .finalcta__img {
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 56vw;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 24%, #000 50%);
+            mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 24%, #000 50%);
+  }
+
+  .finalcta__wrap {
+    position: relative; z-index: 2;
+    width: 100%; max-width: var(--content-max);
+    margin-inline: auto; padding-inline: var(--gutter);
+  }
+  .finalcta__copy { max-width: clamp(340px, 44vw, 580px); padding-block: clamp(2.5rem, 4vw, 4.25rem); }
+  .finalcta__copy h2 { font-size: clamp(2.1rem, 1.3rem + 3vw, 3.6rem); font-weight: 700; letter-spacing: -0.02em; color: var(--navy); line-height: 1.08; }
+  .finalcta__btn { margin-top: 1.5rem; align-self: flex-start; }
+  .finalcta__note { margin-top: 1rem; color: var(--text-muted); font-size: var(--text-note); }
+
+  @media (max-width: 900px) {
+    .finalcta { flex-direction: column; min-height: 0; align-items: stretch; }
+    .finalcta__img {
+      position: relative; inset: auto; width: 100%; height: clamp(260px, 60vw, 400px);
+      object-position: center 30%;
+      -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 100%);
+              mask-image: linear-gradient(to bottom, #000 62%, transparent 100%);
+    }
+    .finalcta__copy { max-width: none; padding-block: 2rem 2.75rem; }
   }
 </style>

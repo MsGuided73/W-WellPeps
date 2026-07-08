@@ -26,9 +26,9 @@ export const CONTACT = {
 
 /** Primary navigation. Program pages are stubbed for this Home Page build. */
 export const NAV_LINKS = [
-  { label: 'Weight Loss', href: '/#programs' },
-  { label: 'Hair Restoration', href: '/#programs' },
+  { label: 'Weight Loss', href: '/weight-loss' },
+  { label: 'Hair Restoration', href: '/hair-restoration' },
   { label: 'Sexual Wellness', href: '/#programs' },
-  { label: 'Peptides & More', href: '/#programs' },
+  { label: 'Peptides & More', href: '/peptides' },
   { label: 'Why WellPeps', href: '/#why' },
 ];

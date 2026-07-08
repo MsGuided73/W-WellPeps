@@ -1,0 +1,49 @@
+---
+import Icon from '../../Icon.astro';
+import { peptideFaqs, peptideFaqsIntro } from '../../../data/peptide';
+---
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>{peptideFaqsIntro.title}</h2>
+      <p>{peptideFaqsIntro.lead}</p>
+    </div>
+
+    <div class="pfaq__grid reveal">
+      {peptideFaqs.map((f, i) => (
+        <div class="pfaq__item" data-faq>
+          <button aria-expanded="false" aria-controls={`pfaq-${i}`}>
+            <span>{f.q}</span>
+            <span class="pfaq__icon"><Icon name="chevron-down" /></span>
+          </button>
+          <div class="pfaq__panel" id={`pfaq-${i}`}><p>{f.a}</p></div>
+        </div>
+      ))}
+    </div>
+
+    <p class="pfaq__trust reveal"><Icon name="shield-check" /> {peptideFaqsIntro.trust}</p>
+  </div>
+</section>
+
+<style>
+  .pfaq__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; max-width: 1080px; margin: clamp(2.5rem, 4vw, 3.5rem) auto 0; }
+  .pfaq__item { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); overflow: hidden; align-self: start; transition: box-shadow var(--dur) var(--ease); }
+  .pfaq__item:hover { box-shadow: var(--shadow); }
+  .pfaq__item button {
+    width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    background: none; border: 0; cursor: pointer; text-align: left; padding: 1.35rem 1.5rem;
+    font-family: var(--font-sans); font-weight: 700; font-size: 1.08rem; color: var(--navy); line-height: 1.35;
+  }
+  .pfaq__icon { display: grid; place-items: center; width: 28px; height: 28px; flex: none; color: var(--blue); transition: transform var(--dur) var(--ease); }
+  .pfaq__icon :global(svg) { width: 22px; height: 22px; }
+  .pfaq__item button[aria-expanded='true'] .pfaq__icon { transform: rotate(180deg); }
+  .pfaq__panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--dur) var(--ease); }
+  .pfaq__panel > p { overflow: hidden; color: var(--text-body); padding: 0 1.5rem; font-size: 1rem; line-height: 1.65; }
+  .pfaq__item button[aria-expanded='true'] + .pfaq__panel { grid-template-rows: 1fr; }
+  .pfaq__item button[aria-expanded='true'] + .pfaq__panel > p { padding-bottom: 1.4rem; }
+
+  .pfaq__trust { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 2.5rem; color: var(--text-body); font-size: var(--text-note); }
+  .pfaq__trust :global(svg) { width: 20px; height: 20px; color: var(--blue); }
+
+  @media (max-width: 760px) { .pfaq__grid { grid-template-columns: 1fr; } }
+</style>

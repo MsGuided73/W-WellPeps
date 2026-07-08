@@ -1,0 +1,115 @@
+---
+/**
+ * ProductCardPills — the approved "Sermorelin" product-card style.
+ *
+ * Structure: image · title · 2×2 benefit pills · description · delivery row ·
+ * "Starting at $X /month" · "Start Free Assessment" CTA. Used for program pages
+ * that present each treatment with benefit tags (e.g. Weight Loss).
+ */
+import Icon from './Icon.astro';
+import type { PillProduct } from '../data/weight';
+
+interface Props {
+  product: PillProduct;
+}
+const { product } = Astro.props;
+const { name, image, alt, benefits, description, delivery, price, priceUnit, priceNote, href } = product;
+---
+<article class="pcard">
+  <div class="pcard__media">
+    <img src={image} alt={alt} width="720" height="560" loading="lazy" />
+  </div>
+
+  <div class="pcard__body">
+    <h3 class="pcard__name">{name}</h3>
+
+    <ul class="pcard__benefits">
+      {benefits.map((b) => (
+        <li class="pcard__benefit">
+          <span class="pcard__benefit-icon"><Icon name={b.icon} /></span>
+          <span>{b.label}</span>
+        </li>
+      ))}
+    </ul>
+
+    <hr class="pcard__divider" />
+
+    <p class="pcard__desc">{description}</p>
+
+    <hr class="pcard__divider" />
+
+    <div class="pcard__delivery">
+      <span class="pcard__delivery-icon"><Icon name={delivery.icon} /></span>
+      <span>{delivery.label}</span>
+    </div>
+
+    <div class="pcard__price">
+      <span class="pcard__price-label">Starting at</span>
+      <span class="pcard__price-row">
+        <span class="pcard__price-amount">${price}</span>
+        <span class="pcard__price-unit">{priceUnit}{priceNote ? '*' : ''}</span>
+      </span>
+    </div>
+
+    <a href={href} class="btn btn--primary btn--block pcard__cta">
+      Start Free Assessment <Icon name="arrow-right" />
+    </a>
+  </div>
+</article>
+
+<style>
+  .pcard {
+    display: flex; flex-direction: column;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  }
+  .pcard:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+
+  .pcard__media { aspect-ratio: 4 / 3; overflow: hidden; background: var(--bg-light-sky); }
+  .pcard__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s var(--ease); }
+  .pcard:hover .pcard__media img { transform: scale(1.03); }
+
+  .pcard__body { display: flex; flex-direction: column; flex: 1; padding: 1.6rem 1.5rem 1.5rem; }
+
+  .pcard__name {
+    font-family: var(--font-sans);
+    font-weight: 700; letter-spacing: -0.02em;
+    font-size: 1.5rem; color: var(--navy);
+  }
+
+  .pcard__benefits {
+    list-style: none; padding: 0; margin: 1.25rem 0 0;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem 1.25rem;
+  }
+  .pcard__benefit { display: flex; align-items: center; gap: 0.65rem; font-weight: 700; color: var(--blue); font-size: 0.98rem; }
+  .pcard__benefit-icon {
+    display: inline-grid; place-items: center; flex: none;
+    width: 38px; height: 38px; border-radius: 50%;
+    background: var(--bg-wellness); color: var(--blue);
+  }
+  .pcard__benefit-icon :global(svg) { width: 20px; height: 20px; }
+
+  .pcard__divider { height: 1px; border: 0; background: var(--border); margin: 1.3rem 0; }
+
+  .pcard__desc { color: var(--text-body); font-size: 1.0625rem; line-height: 1.6; }
+
+  .pcard__delivery { display: flex; align-items: center; gap: 0.7rem; color: var(--navy); font-weight: 500; }
+  .pcard__delivery-icon {
+    display: inline-grid; place-items: center; flex: none;
+    width: 38px; height: 38px; border-radius: 50%;
+    background: var(--bg-wellness); color: var(--blue);
+  }
+  .pcard__delivery-icon :global(svg) { width: 20px; height: 20px; }
+
+  .pcard__price { margin-top: auto; padding-top: 1.3rem; }
+  .pcard__price-label { display: block; color: var(--text-muted); font-size: 0.95rem; }
+  .pcard__price-row { display: flex; align-items: baseline; gap: 0.35rem; margin-top: 0.1rem; }
+  .pcard__price-amount { font-family: var(--font-sans); font-weight: 800; letter-spacing: -0.02em; font-size: 2.4rem; color: var(--navy); line-height: 1; }
+  .pcard__price-unit { color: var(--text-muted); font-size: 1.05rem; }
+
+  .pcard__cta { margin-top: 1.1rem; border-radius: var(--radius); }
+</style>

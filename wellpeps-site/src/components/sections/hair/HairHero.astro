@@ -1,0 +1,97 @@
+---
+import Icon from '../../Icon.astro';
+import { ONBOARDING_URL } from '../../../config';
+import { hairHero } from '../../../data/hair';
+---
+<section class="hhero">
+  <!-- Full-bleed image on the right, feathered into white on its left edge.
+       The exported photo already carries a soft left fade; the CSS mask
+       guarantees a clean blend over the crop. Reusable pattern for all
+       sub-category hero sections. -->
+  <img class="hhero__img" src={hairHero.image} width="1536" height="1024"
+       alt={hairHero.alt} fetchpriority="high" />
+
+  <div class="hhero__wrap">
+    <div class="hhero__copy reveal">
+      <span class="hhero__eyebrow"><Icon name="droplet" /> {hairHero.eyebrow}</span>
+      <h1>
+        <span class="hhero__line">{hairHero.titleLead}</span>
+        <span class="hhero__line hhero__line--accent">{hairHero.titleAccent}</span>
+      </h1>
+      <hr class="rule rule--left" />
+      <p class="hhero__lead">{hairHero.lead}</p>
+      <div class="hhero__actions">
+        <a href={ONBOARDING_URL} class="btn btn--primary btn--lg">Get Started Today <Icon name="arrow-right" /></a>
+        <a href="#hair-products" class="btn btn--secondary btn--lg">Learn More <Icon name="arrow-right" /></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hhero {
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    min-height: clamp(520px, 56vw, 780px);
+    display: flex;
+    align-items: center;
+  }
+
+  /* Bleed to the viewport's right edge; feather into white on the left. */
+  .hhero__img {
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 64vw;
+    height: 100%;
+    object-fit: cover;
+    object-position: 62% center;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 22%, #000 48%);
+            mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 22%, #000 48%);
+  }
+
+  .hhero__wrap {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: var(--content-max);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+  .hhero__copy { max-width: clamp(360px, 42vw, 600px); padding-block: clamp(2.5rem, 4vw, 4.5rem); }
+
+  .hhero__eyebrow {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--bg-wellness); color: var(--navy);
+    font-family: var(--font-sans); font-weight: 700; font-size: 0.9rem;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 0.5rem 1rem; border-radius: var(--radius-pill);
+  }
+  .hhero__eyebrow :global(svg) { width: 18px; height: 18px; color: var(--blue); }
+
+  .hhero__copy h1 {
+    margin-top: 1.5rem;
+    font-size: clamp(2.75rem, 1.6rem + 4.6vw, 5rem);
+    line-height: 1.03; font-weight: 700; letter-spacing: -0.025em; color: var(--navy);
+  }
+  .hhero__line { display: block; }
+  .hhero__line--accent { color: var(--blue); }
+
+  .hhero__lead {
+    margin-top: 1.5rem; color: var(--text-body);
+    font-size: clamp(1.1rem, 1rem + 0.5vw, 1.4rem); max-width: 32ch;
+  }
+  .hhero__actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.25rem; max-width: 440px; }
+
+  @media (max-width: 900px) {
+    .hhero { flex-direction: column; min-height: 0; align-items: stretch; }
+    .hhero__img {
+      position: relative; inset: auto; width: 100%; height: clamp(260px, 60vw, 420px);
+      object-position: center;
+      -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+              mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+    }
+    .hhero__copy { max-width: none; padding-block: 2rem; }
+    .hhero__actions { max-width: none; }
+  }
+</style>

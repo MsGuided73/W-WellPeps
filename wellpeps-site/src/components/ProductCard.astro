@@ -1,0 +1,102 @@
+---
+/**
+ * ProductCard — WellPeps hair restoration product-card style.
+ *
+ * Original approved design: image (with a small icon badge) · title ·
+ * description · "Common options include" list · "Plans from $X/month" ·
+ * outlined "Learn More" button.
+ */
+import Icon from './Icon.astro';
+import type { Product } from '../data/hair';
+
+interface Props {
+  product: Product;
+}
+const { product } = Astro.props;
+const { name, image, alt, icon, description, optionsLabel, options, price, priceUnit, href } = product;
+---
+<article class="pcard">
+  <div class="pcard__media">
+    <img src={image} alt={alt} width="720" height="540" loading="lazy" />
+    <span class="pcard__badge"><Icon name={icon} /></span>
+  </div>
+
+  <div class="pcard__body">
+    <h3 class="pcard__name">{name}</h3>
+    <p class="pcard__desc">{description}</p>
+
+    <div class="pcard__options">
+      <p class="pcard__options-label">{optionsLabel}</p>
+      <ul>
+        {options.map((o) => <li>{o}</li>)}
+      </ul>
+    </div>
+
+    <p class="pcard__price">Plans from ${price}{priceUnit}</p>
+
+    <a href={href} class="pcard__cta">Learn More <Icon name="arrow-right" /></a>
+  </div>
+</article>
+
+<style>
+  .pcard {
+    display: flex; flex-direction: column;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  }
+  .pcard:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+
+  .pcard__media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--bg-gray); }
+  .pcard__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s var(--ease); }
+  .pcard:hover .pcard__media img { transform: scale(1.03); }
+  /* Circular icon badge overlapping the bottom-left of the image. */
+  .pcard__badge {
+    position: absolute; left: 0.9rem; bottom: 0.9rem;
+    display: inline-grid; place-items: center;
+    width: 46px; height: 46px; border-radius: 50%;
+    background: #fff; color: var(--blue);
+    box-shadow: var(--shadow-sm);
+  }
+  .pcard__badge :global(svg) { width: 24px; height: 24px; }
+
+  .pcard__body { display: flex; flex-direction: column; flex: 1; padding: 1.5rem 1.5rem 1.6rem; }
+
+  .pcard__name {
+    font-family: var(--font-sans);
+    font-weight: 700; letter-spacing: -0.02em;
+    font-size: 1.35rem; color: var(--navy);
+  }
+  .pcard__desc { margin-top: 0.7rem; color: var(--text-body); font-size: 1rem; line-height: 1.55; }
+
+  .pcard__options { margin-top: 1.15rem; }
+  .pcard__options-label { font-weight: 700; color: var(--navy); font-size: 0.95rem; }
+  .pcard__options ul { list-style: none; padding: 0; margin: 0.55rem 0 0; display: flex; flex-direction: column; gap: 0.4rem; }
+  .pcard__options li {
+    position: relative; padding-left: 1.15rem;
+    color: var(--text-body); font-size: 0.95rem; line-height: 1.45;
+  }
+  .pcard__options li::before {
+    content: ''; position: absolute; left: 0; top: 0.5em;
+    width: 6px; height: 6px; border-radius: 50%; background: var(--blue-soft);
+  }
+
+  /* Price + CTA pinned to the bottom so cards align across the row. */
+  .pcard__price { margin-top: auto; padding-top: 1.3rem; color: var(--blue); font-weight: 700; font-size: 1.0625rem; }
+
+  .pcard__cta {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 0.9rem; width: 100%;
+    padding: 0.85rem 1.1rem;
+    border: 1.5px solid var(--border-strong); border-radius: var(--radius-sm);
+    color: var(--blue); font-family: var(--font-sans); font-weight: 600; font-size: 1rem;
+    transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+  }
+  .pcard__cta :global(svg) { position: absolute; right: 1.1rem; width: 1.05em; height: 1.05em; transition: transform var(--dur) var(--ease); }
+  .pcard__cta:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .pcard__cta:hover :global(svg) { transform: translateX(3px); }
+</style>

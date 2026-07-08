@@ -1,0 +1,51 @@
+---
+import Icon from '../../Icon.astro';
+import ProductCardPills from '../../ProductCardPills.astro';
+import { weightProducts, weightProductsIntro } from '../../../data/weight';
+---
+<section class="section section--gray" id="weight-products">
+  <div class="container">
+    <div class="wprod__head reveal">
+      <h2>{weightProductsIntro.title}</h2>
+      <p class="wprod__lead">{weightProductsIntro.lead}</p>
+    </div>
+
+    <div class="wprod__grid reveal">
+      {weightProducts.map((product) => <ProductCardPills product={product} />)}
+    </div>
+
+    <p class="wprod__pricenote reveal">{weightProductsIntro.priceFootnote}</p>
+
+    <div class="wprod__band reveal">
+      <span class="wprod__band-icon"><Icon name="shield" /></span>
+      <p><strong>Prescription required.</strong> Treatment recommendations depend on your assessment and provider evaluation.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .wprod__head { text-align: center; max-width: 860px; margin-inline: auto; }
+  .wprod__head h2 { font-size: var(--text-section-title); font-weight: 700; }
+  .wprod__lead { margin-top: 1rem; font-size: var(--text-lead); color: var(--text-body); }
+
+  .wprod__grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem;
+    margin-top: clamp(2.5rem, 4vw, 3.5rem);
+    max-width: 1200px; margin-inline: auto;
+  }
+
+  .wprod__pricenote { text-align: center; margin-top: 1.5rem; color: var(--text-muted); font-size: var(--text-note); }
+
+  .wprod__band {
+    display: flex; align-items: center; justify-content: center; gap: 0.85rem;
+    margin-top: 1.25rem; padding: 1.25rem 1.75rem;
+    background: var(--bg-wellness); border-radius: var(--radius);
+    max-width: 900px; margin-inline: auto;
+  }
+  .wprod__band-icon { display: inline-grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 50%; background: #fff; color: var(--blue); }
+  .wprod__band-icon :global(svg) { width: 20px; height: 20px; }
+  .wprod__band p { color: var(--text-body); font-size: var(--text-note); }
+  .wprod__band strong { color: var(--navy); }
+
+  @media (max-width: 1000px) { .wprod__grid { grid-template-columns: 1fr; max-width: 440px; } }
+</style>

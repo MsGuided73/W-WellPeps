@@ -1,0 +1,138 @@
+---
+import Icon from '../Icon.astro';
+
+interface Props {
+  eyebrowIcon: string;
+  titleLead: string;
+  titleAccent: string;
+  subhead: string;
+  lead: string;
+  image: string;
+  imageAlt: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  successBody?: string;
+}
+const {
+  eyebrowIcon, titleLead, titleAccent, subhead, lead, image, imageAlt,
+  imageWidth = 814, imageHeight = 931,
+  successBody = 'Thanks for your interest. We’ll email you the moment enrollment opens.',
+} = Astro.props;
+---
+<section class="wls">
+  <div class="container wls__inner">
+    <div class="wls__copy reveal">
+      <span class="wls__eyebrow"><Icon name={eyebrowIcon} /> Coming Soon</span>
+      <h1>
+        <span class="wls__line">{titleLead}</span>
+        <span class="wls__line wls__line--accent">{titleAccent}</span>
+      </h1>
+      <hr class="rule rule--left" />
+      <p class="wls__subhead">{subhead}</p>
+
+      <h2 class="wls__form-title">Join the Priority List</h2>
+      <p class="wls__lead">{lead}</p>
+
+      <!-- Waitlist signup. TODO (client): wire `action`/handler to the real
+           notification list (OpenLoops / ESP). For now this confirms inline. -->
+      <form class="wls__form" data-waitlist novalidate>
+        <div class="wls__field">
+          <span class="wls__field-icon"><Icon name="user" /></span>
+          <input type="text" name="firstName" autocomplete="given-name" placeholder="First Name" required />
+        </div>
+        <div class="wls__field">
+          <span class="wls__field-icon"><Icon name="mail" /></span>
+          <input type="email" name="email" autocomplete="email" placeholder="Email Address" required />
+        </div>
+        <button type="submit" class="btn btn--primary btn--lg btn--block wls__submit">Join the Priority List <Icon name="arrow-right" /></button>
+        <p class="wls__note"><Icon name="lock" /> Your information is secure and will never be shared.</p>
+      </form>
+
+      <div class="wls__success" data-waitlist-success hidden>
+        <span class="wls__success-icon"><Icon name="check" /></span>
+        <div>
+          <p class="wls__success-title">You’re on the list!</p>
+          <p class="wls__success-body">{successBody}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="wls__media reveal">
+      <img src={image} width={imageWidth} height={imageHeight} alt={imageAlt} fetchpriority="high" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .wls { background: #fff; padding-block: clamp(2rem, 4vw, 4.5rem); }
+  .wls__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); align-items: center; gap: clamp(2rem, 5vw, 4.5rem); }
+  .wls__copy { max-width: 620px; }
+
+  .wls__eyebrow {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--bg-wellness); color: var(--blue);
+    font-family: var(--font-sans); font-weight: 700; font-size: 0.85rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.5rem 1rem; border-radius: var(--radius-pill);
+  }
+  .wls__eyebrow :global(svg) { width: 18px; height: 18px; }
+
+  .wls__copy h1 { margin-top: 1.4rem; font-size: clamp(2.75rem, 1.7rem + 4vw, 4.6rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.025em; color: var(--navy); }
+  .wls__line { display: block; }
+  .wls__line--accent { color: var(--blue); }
+
+  .wls__subhead { margin-top: 1.5rem; font-family: var(--font-sans); font-weight: 700; color: var(--navy); font-size: 1.15rem; }
+
+  .wls__form-title { margin-top: 1.6rem; font-family: var(--font-sans); font-weight: 700; color: var(--navy); font-size: 1.5rem; letter-spacing: -0.01em; }
+  .wls__lead { margin-top: 0.6rem; color: var(--text-body); font-size: 1.05rem; line-height: 1.6; max-width: 44ch; }
+
+  .wls__form { margin-top: 1.5rem; max-width: 480px; }
+  .wls__field { position: relative; margin-bottom: 0.9rem; }
+  .wls__field-icon { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); display: grid; place-items: center; }
+  .wls__field-icon :global(svg) { width: 20px; height: 20px; }
+  .wls__field input {
+    width: 100%; padding: 1rem 1rem 1rem 2.9rem;
+    font-family: var(--font-sans); font-size: 1.05rem; color: var(--navy);
+    background: #fff; border: 1.5px solid var(--border-strong); border-radius: var(--radius-sm);
+    transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  }
+  .wls__field input::placeholder { color: var(--text-muted); }
+  .wls__field input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(11, 92, 239, 0.15); }
+  .wls__field input:user-invalid { border-color: var(--error); }
+
+  .wls__submit { margin-top: 0.3rem; }
+  .wls__note { display: flex; align-items: center; gap: 0.45rem; margin-top: 1rem; color: var(--text-muted); font-size: var(--text-note); }
+  .wls__note :global(svg) { width: 15px; height: 15px; }
+
+  .wls__success[hidden] { display: none; }
+  .wls__success { display: flex; align-items: flex-start; gap: 1rem; margin-top: 1.5rem; max-width: 480px; padding: 1.4rem 1.5rem; background: var(--bg-soft-mint); border: 1px solid #bfe6cf; border-radius: var(--radius); }
+  .wls__success-icon { display: inline-grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--success); color: #fff; }
+  .wls__success-icon :global(svg) { width: 22px; height: 22px; }
+  .wls__success-title { font-family: var(--font-sans); font-weight: 700; color: var(--navy); font-size: 1.15rem; }
+  .wls__success-body { margin-top: 0.25rem; color: var(--text-body); font-size: 1rem; line-height: 1.55; }
+
+  .wls__media { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
+  .wls__media img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 4.4; }
+
+  @media (max-width: 900px) {
+    .wls__inner { grid-template-columns: 1fr; gap: 2rem; }
+    .wls__media { order: -1; }
+    .wls__media img { aspect-ratio: 4 / 3; }
+    .wls__copy { max-width: none; }
+  }
+</style>
+
+<script>
+  // Waitlist form — inline confirmation (no backend wired yet).
+  document.querySelectorAll('[data-waitlist]').forEach((form) => {
+    const success = form.parentElement?.querySelector('[data-waitlist-success]');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!(form as HTMLFormElement).reportValidity()) return;
+      // TODO (client): POST the collected fields to the real notification list.
+      (form as HTMLFormElement).hidden = true;
+      if (success) (success as HTMLElement).hidden = false;
+      (success as HTMLElement | undefined)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  });
+</script>

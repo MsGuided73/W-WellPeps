@@ -1,0 +1,100 @@
+---
+/**
+ * PeptideCard — approved Peptides & Wellness card design.
+ * Lifestyle photo · icon badge · name + subtitle · description · vial image ·
+ * "Starting at $X/mo" · outlined "Learn More".
+ */
+import Icon from './Icon.astro';
+import type { PeptideProduct } from '../data/peptide';
+
+interface Props { product: PeptideProduct; }
+const { product } = Astro.props;
+const { name, subtitle, description, icon, photo, photoAlt, vial, price, href } = product;
+---
+<article class="pepcard">
+  <div class="pepcard__photo"><img src={photo} alt={photoAlt} width="760" height="428" loading="lazy" /></div>
+
+  <div class="pepcard__body">
+    <img class="pepcard__vial" src={vial} alt={`${name} vial`} width="220" height="440" loading="lazy" />
+    <div class="pepcard__main">
+      <div class="pepcard__head">
+        <span class="pepcard__badge"><Icon name={icon} /></span>
+        <div>
+          <h3 class="pepcard__name">{name}</h3>
+          <p class="pepcard__subtitle">{subtitle}</p>
+        </div>
+      </div>
+      <p class="pepcard__desc">{description}</p>
+    </div>
+
+    <hr class="pepcard__divider" />
+
+    <div class="pepcard__foot">
+      <div class="pepcard__price">
+        <span>Starting at</span>
+        <strong>${price}<span>/mo</span></strong>
+      </div>
+      <a href={href} class="pepcard__cta">Learn More <Icon name="arrow-right" /></a>
+    </div>
+  </div>
+</article>
+
+<style>
+  .pepcard {
+    position: relative;
+    display: flex; flex-direction: column;
+    background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+    box-shadow: var(--shadow-sm); overflow: hidden;
+    transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  }
+  .pepcard:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+
+  /* Taller photo + top-biased crop so subjects (heads) stay intact. */
+  .pepcard__photo { aspect-ratio: 16 / 9; overflow: hidden; }
+  .pepcard__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; }
+
+  /* Vial straddles the photo/body seam on the right (over the background edge,
+     anchored to the body so it lands consistently regardless of photo height). */
+  .pepcard__vial {
+    position: absolute; right: 1.1rem; top: -86px;
+    width: auto; height: clamp(170px, 14vw, 208px); object-fit: contain;
+    z-index: 2; pointer-events: none;
+  }
+
+  .pepcard__body { position: relative; display: flex; flex-direction: column; flex: 1; padding: 1.4rem 1.5rem 1.4rem; }
+  .pepcard__main { flex: 1; padding-right: 118px; }
+
+  .pepcard__head { display: flex; align-items: flex-start; gap: 0.85rem; }
+  .pepcard__badge {
+    display: inline-grid; place-items: center; flex: none;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--bg-wellness); color: var(--blue);
+  }
+  .pepcard__badge :global(svg) { width: 22px; height: 22px; }
+  .pepcard__name { font-family: var(--font-serif); font-weight: 700; font-size: 1.5rem; color: var(--navy); line-height: 1.1; }
+  .pepcard__subtitle { margin-top: 0.2rem; color: var(--blue); font-weight: 600; font-size: 0.98rem; }
+  .pepcard__desc { margin-top: 0.9rem; color: var(--text-body); font-size: 0.98rem; line-height: 1.55; }
+
+  .pepcard__divider { height: 1px; border: 0; background: var(--border); margin: 1.2rem 0; }
+
+  .pepcard__foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .pepcard__price span { display: block; color: var(--text-muted); font-size: 0.85rem; }
+  .pepcard__price strong { color: var(--blue); font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; }
+  .pepcard__price strong span { display: inline; color: var(--text-muted); font-size: 0.9rem; font-weight: 500; }
+
+  .pepcard__cta {
+    display: inline-flex; align-items: center; gap: 0.5rem; flex: none;
+    padding: 0.7rem 1.25rem;
+    border: 1.5px solid var(--border-strong); border-radius: var(--radius-sm);
+    color: var(--blue); font-family: var(--font-sans); font-weight: 600; font-size: 0.98rem;
+    transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+  }
+  .pepcard__cta :global(svg) { width: 1em; height: 1em; transition: transform var(--dur) var(--ease); }
+  .pepcard__cta:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .pepcard__cta:hover :global(svg) { transform: translateX(3px); }
+
+  @media (max-width: 460px) {
+    .pepcard__vial { height: 148px; top: -58px; }
+    .pepcard__main { padding-right: 92px; }
+  }
+</style>

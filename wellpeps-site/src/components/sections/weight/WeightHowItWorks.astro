@@ -1,0 +1,68 @@
+---
+import Icon from '../../Icon.astro';
+import { weightWorks, weightWorksIntro, weightWorksNotes } from '../../../data/weight';
+---
+<section class="section section--ivory" id="how-it-works">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>{weightWorksIntro.title}</h2>
+      <p>{weightWorksIntro.lead}</p>
+    </div>
+
+    <div class="wworks__grid reveal">
+      {weightWorks.map((step) => (
+        <article class="wworks__step">
+          <span class="wworks__icon"><Icon name={step.icon} /></span>
+          <h3>{step.title}</h3>
+          <hr class="rule" />
+          <p>{step.body}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="wworks__notes reveal">
+      {weightWorksNotes.map((n) => (
+        <div class="wworks__note">
+          <span class="wworks__note-icon"><Icon name={n.icon} /></span>
+          <p><strong>{n.lead}</strong> {n.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .wworks__grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.75rem;
+    margin-top: clamp(2.5rem, 4vw, 3.5rem);
+  }
+  .wworks__step { text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .wworks__icon {
+    display: inline-grid; place-items: center; width: 84px; height: 84px; border-radius: 50%;
+    background: #fff; color: var(--blue); box-shadow: var(--shadow-sm);
+  }
+  .wworks__icon :global(svg) { width: 38px; height: 38px; }
+  .wworks__step h3 { margin-top: 1.4rem; font-size: var(--text-card-title); font-weight: 600; line-height: 1.2; }
+  .wworks__step .rule { margin-top: 0.9rem; }
+  .wworks__step p { margin-top: 0.9rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.55; }
+
+  .wworks__notes {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+    margin-top: clamp(2.5rem, 4vw, 3.5rem);
+    background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 1.75rem 2rem; box-shadow: var(--shadow-sm);
+  }
+  .wworks__note { display: flex; align-items: center; gap: 1rem; }
+  .wworks__note:first-child { border-right: 1px solid var(--border); padding-right: 1.5rem; }
+  .wworks__note-icon { display: inline-grid; place-items: center; flex: none; width: 48px; height: 48px; border-radius: 50%; background: var(--bg-wellness); color: var(--blue); }
+  .wworks__note-icon :global(svg) { width: 24px; height: 24px; }
+  .wworks__note p { color: var(--text-body); font-size: var(--text-card-body); line-height: 1.5; }
+  .wworks__note strong { color: var(--navy); }
+
+  @media (max-width: 1000px) { .wworks__grid { grid-template-columns: 1fr 1fr; gap: 2.25rem 1.75rem; } }
+  @media (max-width: 620px) {
+    .wworks__grid { grid-template-columns: 1fr; max-width: 360px; margin-inline: auto; }
+    .wworks__notes { grid-template-columns: 1fr; gap: 1.25rem; }
+    .wworks__note:first-child { border-right: 0; border-bottom: 1px solid var(--border); padding-right: 0; padding-bottom: 1.25rem; }
+  }
+</style>

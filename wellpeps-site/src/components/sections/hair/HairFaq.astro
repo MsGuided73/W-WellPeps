@@ -1,0 +1,55 @@
+---
+import Icon from '../../Icon.astro';
+import { hairFaqs } from '../../../data/hair';
+---
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Common Questions</h2>
+      <p>Get answers to the most frequently asked questions about our hair restoration treatments.</p>
+    </div>
+
+    <div class="hfaq__grid reveal">
+      {hairFaqs.map((f, i) => (
+        <div class="hfaq__item" data-faq>
+          <button aria-expanded="false" aria-controls={`hfaq-${i}`}>
+            <span>{f.q}</span>
+            <span class="hfaq__icon"><Icon name="chevron-down" /></span>
+          </button>
+          <div class="hfaq__panel" id={`hfaq-${i}`}><p>{f.a}</p></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .hfaq__grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;
+    max-width: 1080px; margin: clamp(2.5rem, 4vw, 3.5rem) auto 0;
+  }
+  .hfaq__item {
+    background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+    box-shadow: var(--shadow-sm); overflow: hidden;
+    align-self: start;
+    transition: box-shadow var(--dur) var(--ease);
+  }
+  .hfaq__item:hover { box-shadow: var(--shadow); }
+  .hfaq__item button {
+    width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    background: none; border: 0; cursor: pointer; text-align: left;
+    padding: 1.4rem 1.5rem;
+    font-family: var(--font-sans); font-weight: 700; font-size: 1.15rem; color: var(--navy);
+    line-height: 1.35;
+  }
+  .hfaq__icon { display: grid; place-items: center; width: 28px; height: 28px; flex: none; color: var(--blue); transition: transform var(--dur) var(--ease); }
+  .hfaq__icon :global(svg) { width: 22px; height: 22px; }
+  .hfaq__item button[aria-expanded='true'] .hfaq__icon { transform: rotate(180deg); }
+
+  .hfaq__panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--dur) var(--ease); }
+  .hfaq__panel > p { overflow: hidden; color: var(--text-body); padding: 0 1.5rem; font-size: 1rem; line-height: 1.65; }
+  .hfaq__item button[aria-expanded='true'] + .hfaq__panel { grid-template-rows: 1fr; }
+  .hfaq__item button[aria-expanded='true'] + .hfaq__panel > p { padding-bottom: 1.4rem; }
+
+  @media (max-width: 760px) { .hfaq__grid { grid-template-columns: 1fr; } }
+</style>

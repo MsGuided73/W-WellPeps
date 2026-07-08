@@ -1,0 +1,66 @@
+---
+import Icon from '../../Icon.astro';
+import { ONBOARDING_URL } from '../../../config';
+import { peptideHero } from '../../../data/peptide';
+---
+<section class="phero">
+  <img class="phero__img" src={peptideHero.image} width="1500" height="1000"
+       alt={peptideHero.alt} fetchpriority="high" />
+
+  <div class="phero__wrap">
+    <div class="phero__copy reveal">
+      <span class="phero__eyebrow"><Icon name="molecule" /> {peptideHero.eyebrow}</span>
+      <h1>
+        <span class="phero__line">Next-Gen Peptide<br class="db" /> &amp; Wellness Therapies.</span>
+        <span class="phero__line phero__line--accent">Feel Like Yourself Again.</span>
+      </h1>
+      <hr class="rule rule--left" />
+      <p class="phero__lead">Advanced peptide therapies and personalized protocols,<br class="db" /> designed to optimize performance, support recovery,<br class="db" /> and help you feel your best.</p>
+      <div class="phero__actions">
+        <a href={ONBOARDING_URL} class="btn btn--primary btn--lg">Start Your Free Assessment <Icon name="arrow-right" /></a>
+        <a href="#peptide-products" class="btn btn--secondary btn--lg">Learn More <Icon name="arrow-right" /></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .phero { position: relative; overflow: hidden; background: #fff; min-height: clamp(520px, 56vw, 780px); display: flex; align-items: center; }
+  .phero__img {
+    position: absolute; top: 0; right: 0; bottom: 0; width: 60vw; height: 100%;
+    object-fit: cover; object-position: 50% center;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 22%, #000 48%);
+            mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 22%, #000 48%);
+  }
+  .phero__wrap { position: relative; z-index: 2; width: 100%; max-width: var(--content-max); margin-inline: auto; padding-inline: var(--gutter); }
+  .phero__copy { max-width: clamp(360px, 56vw, 810px); padding-block: clamp(2.5rem, 4vw, 4.5rem); }
+  /* Desktop-only line breaks in the headline + subtext. */
+  .db { display: none; }
+  @media (min-width: 901px) {
+    .db { display: inline; }
+    .phero__line { white-space: nowrap; }
+  }
+  .phero__eyebrow {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--bg-wellness); color: var(--navy);
+    font-family: var(--font-sans); font-weight: 700; font-size: 0.9rem;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 0.5rem 1rem; border-radius: var(--radius-pill);
+  }
+  .phero__eyebrow :global(svg) { width: 18px; height: 18px; color: var(--blue); }
+  .phero__copy h1 { margin-top: 1.5rem; font-size: clamp(2.6rem, 1.6rem + 3.3vw, 3.95rem); line-height: 1.06; font-weight: 700; letter-spacing: -0.025em; color: var(--navy); }
+  .phero__line { display: block; }
+  .phero__line--accent { color: var(--blue); }
+  .phero__lead { margin-top: 1.5rem; color: var(--text-body); font-size: clamp(1.1rem, 1rem + 0.4vw, 1.28rem); }
+  .phero__actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.25rem; max-width: 480px; }
+
+  @media (max-width: 900px) {
+    .phero { flex-direction: column; min-height: 0; align-items: stretch; }
+    .phero__img {
+      position: relative; inset: auto; width: 100%; height: clamp(260px, 60vw, 420px); object-position: center;
+      -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+              mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+    }
+    .phero__copy { max-width: none; padding-block: 2rem; }
+  }
+</style>
