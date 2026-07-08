@@ -58,7 +58,8 @@ import { hairHero } from '../../../data/hair';
     margin-inline: auto;
     padding-inline: var(--gutter);
   }
-  .hhero__copy { max-width: clamp(360px, 42vw, 600px); padding-block: clamp(2.5rem, 4vw, 4.5rem); }
+  /* Wide enough that "Restore Your Hair." holds one line at full title size. */
+  .hhero__copy { max-width: clamp(360px, 50vw, 760px); padding-block: clamp(2.5rem, 4vw, 4.5rem); }
 
   .hhero__eyebrow {
     display: inline-flex; align-items: center; gap: 0.5rem;
