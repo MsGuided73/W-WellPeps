@@ -32,13 +32,13 @@ import { peptideFaqs, peptideFaqsIntro } from '../../../data/peptide';
   .pfaq__item button {
     width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
     background: none; border: 0; cursor: pointer; text-align: left; padding: 1.35rem 1.5rem;
-    font-family: var(--font-sans); font-weight: 700; font-size: 1.08rem; color: var(--navy); line-height: 1.35;
+    font-family: var(--font-sans); font-weight: 700; font-size: 1.25rem; color: var(--navy); line-height: 1.35;
   }
   .pfaq__icon { display: grid; place-items: center; width: 28px; height: 28px; flex: none; color: var(--blue); transition: transform var(--dur) var(--ease); }
   .pfaq__icon :global(svg) { width: 22px; height: 22px; }
   .pfaq__item button[aria-expanded='true'] .pfaq__icon { transform: rotate(180deg); }
   .pfaq__panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--dur) var(--ease); }
-  .pfaq__panel > p { overflow: hidden; color: var(--text-body); padding: 0 1.5rem; font-size: 1rem; line-height: 1.65; }
+  .pfaq__panel > p { overflow: hidden; color: var(--text-body); padding: 0 1.5rem; font-size: var(--text-card-body); line-height: 1.65; }
   .pfaq__item button[aria-expanded='true'] + .pfaq__panel { grid-template-rows: 1fr; }
   .pfaq__item button[aria-expanded='true'] + .pfaq__panel > p { padding-bottom: 1.4rem; }
 

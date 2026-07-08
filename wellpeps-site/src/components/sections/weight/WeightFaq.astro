@@ -38,14 +38,14 @@ import { weightFaqs } from '../../../data/weight';
     width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
     background: none; border: 0; cursor: pointer; text-align: left;
     padding: 1.4rem 1.5rem;
-    font-family: var(--font-sans); font-weight: 700; font-size: 1.1rem; color: var(--navy); line-height: 1.35;
+    font-family: var(--font-sans); font-weight: 700; font-size: 1.25rem; color: var(--navy); line-height: 1.35;
   }
   .wfaq__icon { display: grid; place-items: center; width: 28px; height: 28px; flex: none; color: var(--blue); transition: transform var(--dur) var(--ease); }
   .wfaq__icon :global(svg) { width: 22px; height: 22px; }
   .wfaq__item button[aria-expanded='true'] .wfaq__icon { transform: rotate(180deg); }
 
   .wfaq__panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--dur) var(--ease); }
-  .wfaq__panel > p { overflow: hidden; color: var(--text-body); padding: 0 1.5rem; font-size: 1rem; line-height: 1.65; }
+  .wfaq__panel > p { overflow: hidden; color: var(--text-body); padding: 0 1.5rem; font-size: var(--text-card-body); line-height: 1.65; }
   .wfaq__item button[aria-expanded='true'] + .wfaq__panel { grid-template-rows: 1fr; }
   .wfaq__item button[aria-expanded='true'] + .wfaq__panel > p { padding-bottom: 1.4rem; }
 

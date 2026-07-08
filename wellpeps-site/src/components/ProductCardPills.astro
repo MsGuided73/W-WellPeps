@@ -78,14 +78,14 @@ const { name, image, alt, benefits, description, delivery, price, priceUnit, pri
   .pcard__name {
     font-family: var(--font-sans);
     font-weight: 700; letter-spacing: -0.02em;
-    font-size: 1.5rem; color: var(--navy);
+    font-size: calc(1.5rem + 1px); color: var(--navy);
   }
 
   .pcard__benefits {
     list-style: none; padding: 0; margin: 1.25rem 0 0;
     display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem 1.25rem;
   }
-  .pcard__benefit { display: flex; align-items: center; gap: 0.65rem; font-weight: 700; color: var(--blue); font-size: 0.98rem; }
+  .pcard__benefit { display: flex; align-items: center; gap: 0.65rem; font-weight: 700; color: var(--blue); font-size: calc(0.98rem + 1px); }
   .pcard__benefit-icon {
     display: inline-grid; place-items: center; flex: none;
     width: 38px; height: 38px; border-radius: 50%;
@@ -95,7 +95,7 @@ const { name, image, alt, benefits, description, delivery, price, priceUnit, pri
 
   .pcard__divider { height: 1px; border: 0; background: var(--border); margin: 1.3rem 0; }
 
-  .pcard__desc { color: var(--text-body); font-size: 1.0625rem; line-height: 1.6; }
+  .pcard__desc { color: var(--text-body); font-size: var(--text-card-body); line-height: 1.6; }
 
   .pcard__delivery { display: flex; align-items: center; gap: 0.7rem; color: var(--navy); font-weight: 500; }
   .pcard__delivery-icon {
@@ -106,7 +106,7 @@ const { name, image, alt, benefits, description, delivery, price, priceUnit, pri
   .pcard__delivery-icon :global(svg) { width: 20px; height: 20px; }
 
   .pcard__price { margin-top: auto; padding-top: 1.3rem; }
-  .pcard__price-label { display: block; color: var(--text-muted); font-size: 0.95rem; }
+  .pcard__price-label { display: block; color: var(--text-muted); font-size: calc(0.95rem + 1px); }
   .pcard__price-row { display: flex; align-items: baseline; gap: 0.35rem; margin-top: 0.1rem; }
   .pcard__price-amount { font-family: var(--font-sans); font-weight: 800; letter-spacing: -0.02em; font-size: 2.4rem; color: var(--navy); line-height: 1; }
   .pcard__price-unit { color: var(--text-muted); font-size: 1.05rem; }

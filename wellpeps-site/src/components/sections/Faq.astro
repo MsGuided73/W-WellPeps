@@ -41,7 +41,7 @@ import { faqs } from '../../data/content';
     width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
     background: none; border: 0; cursor: pointer; text-align: left;
     padding: 1.4rem 1.6rem;
-    font-family: var(--font-serif); font-weight: 600; font-size: 1.15rem; color: var(--navy);
+    font-family: var(--font-serif); font-weight: 600; font-size: 1.25rem; color: var(--navy);
     transition: background var(--dur) var(--ease);
   }
   .faq__item button:hover { background: var(--bg-gray); }
@@ -53,7 +53,7 @@ import { faqs } from '../../data/content';
     display: grid; grid-template-rows: 0fr;
     transition: grid-template-rows var(--dur) var(--ease);
   }
-  .faq__panel > p { overflow: hidden; color: var(--text-body); padding: 0 1.6rem; font-size: var(--text-small); line-height: 1.65; }
+  .faq__panel > p { overflow: hidden; color: var(--text-body); padding: 0 1.6rem; font-size: var(--text-card-body); line-height: 1.65; }
   .faq__item button[aria-expanded='true'] + .faq__panel { grid-template-rows: 1fr; }
   .faq__item button[aria-expanded='true'] + .faq__panel > p { padding-bottom: 1.5rem; }
 
