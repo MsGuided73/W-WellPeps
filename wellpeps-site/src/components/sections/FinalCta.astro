@@ -25,7 +25,9 @@ import { ONBOARDING_URL } from '../../config';
     overflow: hidden;
     background: var(--bg-soft-ivory);
     display: flex; align-items: center;
-    min-height: clamp(460px, 46vw, 680px);
+    /* Taller band (matches the category-page CTAs) so the square source photo
+       needs far less vertical cropping. */
+    min-height: clamp(560px, 52vw, 800px);
   }
 
   /* Bleed to the viewport's right edge; feather into the background on the left. */
@@ -35,9 +37,9 @@ import { ONBOARDING_URL } from '../../config';
     width: 56vw;
     height: 100%;
     object-fit: cover;
-    object-position: center center;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 24%, #000 50%);
-            mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 24%, #000 50%);
+    object-position: center 12%;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.55) 20%, #000 38%);
+            mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.55) 20%, #000 38%);
   }
 
   .finalcta__wrap {
