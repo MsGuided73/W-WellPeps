@@ -4,13 +4,14 @@ import { peptideScience, peptideBenefits } from '../../../data/peptide';
 ---
 <section class="section" id="science">
   <div class="container">
+    <!-- Image on the LEFT so this band alternates with the hero (image right). -->
     <div class="psci__top reveal">
+      <div class="psci__media"><img src={peptideScience.image} alt={peptideScience.alt} width="820" height="560" loading="lazy" /></div>
       <div class="psci__intro">
         <h2>Modern Wellness,<br />Backed by Science</h2>
         <hr class="rule rule--left" />
         {peptideScience.paragraphs.map((p) => <p>{p}</p>)}
       </div>
-      <div class="psci__media"><img src={peptideScience.image} alt={peptideScience.alt} width="820" height="560" loading="lazy" /></div>
     </div>
 
     <p class="psci__benefits-title reveal">{peptideScience.benefitsTitle}</p>
@@ -50,13 +51,12 @@ import { peptideScience, peptideBenefits } from '../../../data/peptide';
   .psci__benefit-icon { display: inline-grid; place-items: center; flex: none; width: 52px; height: 52px; border-radius: 50%; background: var(--bg-wellness); color: var(--blue); }
   .psci__benefit-icon :global(svg) { width: 26px; height: 26px; }
   .psci__benefit h3 { font-family: var(--font-sans); font-size: 1.1rem; font-weight: 700; color: var(--navy); }
-  .psci__benefit p { margin-top: 0.25rem; color: var(--text-body); font-size: 0.98rem; line-height: 1.45; }
+  .psci__benefit p { margin-top: 0.25rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.45; }
 
   .psci__foot { text-align: center; margin-top: 2rem; color: var(--text-muted); font-size: var(--text-note); }
 
   @media (max-width: 900px) {
     .psci__top { grid-template-columns: 1fr; }
-    .psci__media { order: -1; }
     .psci__grid { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }
   }
   @media (max-width: 900px) and (min-width: 620px) { .psci__grid { grid-template-columns: 1fr 1fr; max-width: none; } }
