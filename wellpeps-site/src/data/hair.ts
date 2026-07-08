@@ -54,9 +54,7 @@ export const hairWorks: HairWorkStep[] = [
 ];
 
 export const hairProductsIntro = {
-  eyebrow: 'Personalized Care, Real Results',
   title: 'Personalized Hair Restoration Plans',
-  lead: 'Explore provider-guided treatment plans designed to meet your unique hair restoration goals.',
   // Approved copy from "Headlines and text before Product Cards.docx"
   intro:
     'Every treatment begins with a free online health assessment. Our licensed healthcare providers will review your health history, symptoms, and wellness goals before recommending a personalized hair restoration plan—if clinically appropriate.',
