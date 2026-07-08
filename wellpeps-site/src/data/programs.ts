@@ -7,6 +7,7 @@ export interface Program {
   image: string;
   imageAlt: string;
   status: 'live' | 'coming-soon';
+  href: string;         // sub-page for the program (waitlist page when coming soon)
 }
 
 export const programs: Program[] = [
@@ -18,6 +19,7 @@ export const programs: Program[] = [
     image: '/images/program-weight.jpg',
     imageAlt: 'Woman running along the beach at sunrise',
     status: 'live',
+    href: '/weight-loss',
   },
   {
     slug: 'hair-restoration',
@@ -27,6 +29,7 @@ export const programs: Program[] = [
     image: '/images/program-hair.jpg',
     imageAlt: 'Smiling man outdoors',
     status: 'live',
+    href: '/hair-restoration',
   },
   {
     slug: 'sexual-wellness',
@@ -36,6 +39,7 @@ export const programs: Program[] = [
     image: '/images/program-sexual.jpg',
     imageAlt: 'Happy couple together',
     status: 'live',
+    href: '/sexual-wellness',
   },
   {
     slug: 'wellness-longevity',
@@ -45,6 +49,7 @@ export const programs: Program[] = [
     image: '/images/program-longevity.jpg',
     imageAlt: 'Woman hiking near a mountain lake',
     status: 'live',
+    href: '/peptides',
   },
   {
     slug: 'hormone-optimization',
@@ -54,6 +59,7 @@ export const programs: Program[] = [
     image: '/images/program-hormone.jpg',
     imageAlt: 'Man smiling in a bright kitchen',
     status: 'coming-soon',
+    href: '/hormone-optimization',
   },
   {
     slug: 'mental-wellness',
@@ -63,5 +69,6 @@ export const programs: Program[] = [
     image: '/images/program-mental.jpg',
     imageAlt: 'Woman relaxing outdoors at golden hour',
     status: 'coming-soon',
+    href: '/mental-wellness',
   },
 ];

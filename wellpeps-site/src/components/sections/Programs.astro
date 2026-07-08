@@ -1,7 +1,6 @@
 ---
 import Icon from '../Icon.astro';
 import { programs } from '../../data/programs';
-import { assessmentUrl } from '../../config';
 ---
 <section class="section section--light-blue-gray" id="programs">
   <div class="container">
@@ -21,7 +20,7 @@ import { assessmentUrl } from '../../config';
             <h3>{p.title}</h3>
             <p class="program__tagline">{p.tagline}</p>
             <p class="program__blurb">{p.blurb}</p>
-            <a href={p.status === 'live' ? assessmentUrl(p.slug) : '#notify'}
+            <a href={p.href}
                class={`pill-link${p.status === 'coming-soon' ? ' pill-link--muted' : ''}`}>
               {p.status === 'live' ? 'Explore Program' : 'Notify Me'}
               <Icon name="arrow-right" />
