@@ -32,6 +32,11 @@ import { weightWorks, weightWorksIntro, weightWorksNotes } from '../../../data/w
 </section>
 
 <style>
+  /* Widen the standard section header so the title fits on one line at
+     desktop sizes; the lead keeps a readable measure. */
+  .section-head { max-width: none; }
+  .section-head p { max-width: 760px; margin-inline: auto; }
+
   .wworks__grid {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.75rem;
     margin-top: clamp(2.5rem, 4vw, 3.5rem);
