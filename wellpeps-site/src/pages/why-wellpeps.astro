@@ -9,13 +9,14 @@ const cards = [
   { icon: 'shield-check', title: 'Trusted Clinical Network', body: 'From licensed providers and pharmacy partners to secure technology and access to leading national labs, every part of the WellPeps experience is built around quality and safety.' },
 ];
 
-const trust: { label: string; icon?: string; image?: string; note?: string }[] = [
-  { icon: 'stethoscope', label: 'Licensed Providers' },
-  { icon: 'lock', label: 'HIPAA Protected' },
-  { icon: 'pharmacy', label: 'Licensed Pharmacy Partners' },
-  { icon: 'tag', label: 'Transparent Pricing' },
-  { icon: 'flask', label: 'Access to Leading National Labs', note: 'Including Quest Diagnostics® and Labcorp® where available' },
-  { image: '/images/legitscript-seal.webp', label: 'LegitScript Certified' },
+/* Each label is split into exactly two rows (per the approved mock). */
+const trust: { lines: [string, string]; icon?: string; image?: string; note?: string }[] = [
+  { icon: 'stethoscope', lines: ['Licensed', 'Providers'] },
+  { icon: 'lock', lines: ['HIPAA', 'Protected'] },
+  { icon: 'pharmacy', lines: ['Licensed', 'Pharmacy Partners'] },
+  { icon: 'tag', lines: ['Transparent', 'Pricing'] },
+  { icon: 'flask', lines: ['Access to Leading', 'National Labs'], note: 'Including Quest Diagnostics® and Labcorp® where available' },
+  { image: '/images/legitscript-seal.webp', lines: ['LegitScript', 'Certified'] },
 ];
 ---
 <BaseLayout
@@ -68,7 +69,7 @@ const trust: { label: string; icon?: string; image?: string; note?: string }[] =
             ) : (
               <span class="medallion medallion--sm"><Icon name={t.icon} /></span>
             )}
-            <p class="why-trust__label">{t.label}</p>
+            <p class="why-trust__label">{t.lines[0]}<br />{t.lines[1]}</p>
             {t.note && <p class="why-trust__note">{t.note}</p>}
           </div>
         ))}
