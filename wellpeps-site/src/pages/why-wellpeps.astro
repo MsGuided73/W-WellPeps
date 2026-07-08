@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { ONBOARDING_URL } from '../config';
+
+const cards = [
+  { icon: 'stethoscope', title: 'Physician & Pharmacy Founded', body: 'Built by healthcare professionals committed to making personalized wellness more accessible, convenient, and patient-centered.' },
+  { icon: 'clipboard-check', title: 'Personalized Care', body: 'Every treatment begins with a licensed provider evaluation tailored to your health history, goals, and individual needs.' },
+  { icon: 'shield-check', title: 'Trusted Clinical Network', body: 'From licensed providers and pharmacy partners to secure technology and access to leading national labs, every part of the WellPeps experience is built around quality and safety.' },
+];
+
+const trust = [
+  { icon: 'stethoscope', label: 'Licensed Providers' },
+  { icon: 'lock', label: 'HIPAA Protected' },
+  { icon: 'pharmacy', label: 'Licensed Pharmacy Partners' },
+  { icon: 'tag', label: 'Transparent Pricing' },
+  { icon: 'flask', label: 'Access to Leading National Labs', note: 'Including Quest Diagnostics® and Labcorp® where available' },
+  { icon: 'award', label: 'LegitScript Certified' },
+];
+---
+<BaseLayout
+  title="Why WellPeps — Personalized, Provider-Guided Wellness"
+  description="WellPeps was founded by a physician and pharmacy professionals to make personalized wellness more accessible—combining licensed providers, trusted pharmacy partners, and evidence-based treatments in one seamless experience."
+>
+  <!-- Intro / founding story -->
+  <section class="section why-intro">
+    <div class="container why-intro__inner">
+      <div class="why-intro__copy reveal">
+        <h1>Why <span class="accent">WellPeps</span></h1>
+        <hr class="rule rule--left" />
+        <p class="why-intro__subhead">We believe healthcare should be more convenient, more accessible and more personal.</p>
+        <p>Healthcare has never offered more opportunities to help people live healthier lives. Yet for many patients, getting the right care still means long wait times, confusing treatment options, rushed appointments, and little ongoing support.</p>
+        <p>WellPeps was founded by a physician and experienced pharmacy professionals who believed there should be a better way.</p>
+        <p>Our vision was simple: make personalized wellness more accessible by combining licensed medical providers, trusted pharmacy partners, and evidence-based treatments into one simple and seamless experience centered around each patient’s unique goals.</p>
+        <p class="why-intro__closer">Because healthcare should feel personal again.</p>
+      </div>
+      <div class="why-intro__media reveal">
+        <img src="/images/about/hero.png" width="900" height="1000" alt="A WellPeps patient enjoying life outdoors" fetchpriority="high" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Patients Choose WellPeps -->
+  <section class="section section--pale-blue">
+    <div class="container">
+      <div class="section-head reveal"><h2>Why Patients Choose WellPeps</h2></div>
+      <div class="why-cards reveal">
+        {cards.map((c) => (
+          <article class="card why-card">
+            <span class="medallion"><Icon name={c.icon} /></span>
+            <h3>{c.title}</h3>
+            <p>{c.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Built on Trust -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal"><h2>Built on Trust</h2></div>
+      <div class="why-trust reveal">
+        {trust.map((t) => (
+          <div class="why-trust__item">
+            <span class="medallion medallion--sm"><Icon name={t.icon} /></span>
+            <p class="why-trust__label">{t.label}</p>
+            {t.note && <p class="why-trust__note">{t.note}</p>}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Modern Healthcare, Built Around You -->
+  <section class="section section--sky">
+    <div class="container why-built__inner">
+      <div class="why-built__media reveal">
+        <img src="/images/about/built-around-you.png" width="820" height="620" alt="A woman relaxing on the beach with a water bottle" loading="lazy" />
+      </div>
+      <div class="why-built__copy reveal">
+        <h2>Modern Healthcare,<br />Built Around You</h2>
+        <hr class="rule rule--left" />
+        <p>Instead of feeling like another online healthcare platform, WellPeps was designed to provide a more connected experience—from your initial consultation through ongoing care and support.</p>
+        <p>Our goal isn’t simply to provide treatment—it’s to help you make informed decisions about your long-term health with trusted medical guidance every step of the way, in a way that’s simple, transparent and convenient.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Promise -->
+  <section class="section">
+    <div class="container why-promise">
+      <span class="medallion medallion--lg reveal"><Icon name="heart" /></span>
+      <div class="why-promise__copy reveal">
+        <h2>Our Promise</h2>
+        <hr class="rule rule--left" />
+        <p>We’re honored every time a patient chooses WellPeps.</p>
+        <p>That trust is something we work to earn every day through personalized care, transparent communication, and a commitment to helping people feel their very best.</p>
+        <p>Whether you’re taking your first step toward better wellness or continuing a journey you’ve already begun, we’re here to support you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section why-cta-wrap">
+    <div class="container">
+      <div class="why-cta reveal">
+        <span class="why-cta__watermark" aria-hidden="true">W</span>
+        <div class="why-cta__copy">
+          <h2>Ready to Start Your Wellness Journey?</h2>
+          <p>Find the wellness program that’s right for you.</p>
+          <a href="/#programs" class="btn btn--primary btn--lg">Explore Programs <Icon name="arrow-right" /></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Intro */
+  .why-intro__inner { display: grid; grid-template-columns: 1.05fr 0.95fr; align-items: center; gap: clamp(2rem, 5vw, 4.5rem); }
+  .why-intro__copy { max-width: 620px; }
+  .why-intro__copy h1 { font-size: clamp(2.75rem, 1.8rem + 4vw, 4.5rem); font-weight: 700; letter-spacing: -0.02em; color: var(--navy); line-height: 1.02; }
+  .why-intro__subhead { margin-top: 1.5rem; font-family: var(--font-serif); font-weight: 700; font-size: clamp(1.2rem, 1rem + 0.8vw, 1.6rem); color: var(--navy); line-height: 1.3; }
+  .why-intro__copy p:not(.why-intro__subhead):not(.why-intro__closer) { margin-top: 1rem; color: var(--text-body); font-size: 1.05rem; line-height: 1.7; }
+  .why-intro__closer { margin-top: 1.4rem; font-family: var(--font-serif); font-weight: 700; color: var(--navy); font-size: 1.15rem; }
+  .why-intro__media { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
+  /* Match the provided group photo's 3:2 ratio so no one is cropped out. */
+  .why-intro__media img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 3 / 2; }
+
+  /* Cards */
+  .why-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; margin-top: clamp(2rem, 3vw, 2.75rem); }
+  .why-card { padding: 2.5rem 2rem; text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .why-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .why-card h3 { margin-top: 1.4rem; font-size: var(--text-card-title); font-weight: 600; color: var(--navy); line-height: 1.2; }
+  .why-card p { margin-top: 1rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.6; }
+
+  /* Trust row */
+  .why-trust { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5rem; margin-top: clamp(2rem, 3vw, 2.75rem); }
+  .why-trust__item { text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .medallion--sm { width: 58px; height: 58px; }
+  .medallion--sm :global(svg) { width: 26px; height: 26px; }
+  .why-trust__label { margin-top: 0.9rem; font-family: var(--font-serif); font-weight: 600; color: var(--navy); font-size: 1.02rem; line-height: 1.25; }
+  .why-trust__note { margin-top: 0.4rem; color: var(--text-muted); font-size: 0.8rem; line-height: 1.35; }
+
+  /* Built Around You */
+  .why-built__inner { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(2rem, 5vw, 4rem); }
+  .why-built__media { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
+  .why-built__media img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 3.2; }
+  .why-built__copy h2 { font-size: var(--text-section-title); font-weight: 700; line-height: 1.08; }
+  .why-built__copy .rule { margin-block: 1.1rem 1.4rem; }
+  .why-built__copy p { color: var(--text-body); font-size: var(--text-card-body); line-height: 1.65; }
+  .why-built__copy p + p { margin-top: 1rem; }
+
+  /* Our Promise */
+  .why-promise { display: grid; grid-template-columns: auto 1fr; align-items: start; gap: clamp(1.5rem, 3vw, 3rem); max-width: 1000px; margin-inline: auto; }
+  .medallion--lg { width: 96px; height: 96px; }
+  .medallion--lg :global(svg) { width: 46px; height: 46px; }
+  .why-promise__copy h2 { font-size: var(--text-section-title); font-weight: 700; }
+  .why-promise__copy .rule { margin-block: 1rem 1.4rem; }
+  .why-promise__copy p { color: var(--text-body); font-size: var(--text-card-body); line-height: 1.65; }
+  .why-promise__copy p + p { margin-top: 0.9rem; }
+
+  /* CTA */
+  .why-cta-wrap { padding-block: clamp(2rem, 3vw, 3.5rem); }
+  .why-cta { position: relative; overflow: hidden; background: var(--bg-light-sky); border-radius: var(--radius-lg); padding: clamp(2.5rem, 4vw, 3.5rem); text-align: center; }
+  .why-cta__watermark { position: absolute; right: clamp(1rem, 4vw, 4rem); top: 50%; transform: translateY(-50%); font-family: var(--font-serif); font-weight: 700; font-size: clamp(8rem, 18vw, 15rem); line-height: 1; color: var(--blue); opacity: 0.08; pointer-events: none; }
+  .why-cta__copy { position: relative; z-index: 1; }
+  .why-cta__copy h2 { font-size: var(--text-section-title); font-weight: 700; color: var(--navy); }
+  .why-cta__copy p { margin-top: 0.75rem; color: var(--text-body); font-size: var(--text-lead); }
+  .why-cta__copy .btn { margin-top: 1.75rem; }
+
+  @media (max-width: 1000px) {
+    .why-trust { grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+  }
+  @media (max-width: 900px) {
+    .why-intro__inner { grid-template-columns: 1fr; }
+    .why-intro__media { order: -1; }
+    .why-intro__media img { aspect-ratio: 3 / 2; }
+    .why-cards { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }
+    .why-built__inner { grid-template-columns: 1fr; }
+    .why-built__media { order: -1; }
+    .why-promise { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+    .why-promise__copy .rule { margin-inline: auto; }
+  }
+  @media (max-width: 560px) { .why-trust { grid-template-columns: 1fr 1fr; } }
+</style>

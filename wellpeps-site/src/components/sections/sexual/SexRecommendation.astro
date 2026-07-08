@@ -1,0 +1,25 @@
+---
+import Icon from '../../Icon.astro';
+import { ONBOARDING_URL } from '../../../config';
+import { sexRecommendation } from '../../../data/sexual';
+---
+<section class="section sxrec-wrap">
+  <div class="container">
+    <div class="sxrec reveal">
+      <span class="sxrec__icon"><Icon name="user-check" /></span>
+      <h2>{sexRecommendation.title}</h2>
+      <p>{sexRecommendation.body}</p>
+      <a href={ONBOARDING_URL} class="btn btn--primary btn--lg">Start Your Free Personalized Assessment <Icon name="arrow-right" /></a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sxrec-wrap { padding-block: clamp(2.5rem, 4vw, 4rem); }
+  .sxrec { max-width: 780px; margin-inline: auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .sxrec__icon { display: inline-grid; place-items: center; width: 72px; height: 72px; border-radius: 50%; background: var(--bg-wellness); color: var(--blue); }
+  .sxrec__icon :global(svg) { width: 34px; height: 34px; }
+  .sxrec h2 { margin-top: 1.4rem; font-size: var(--text-section-title); font-weight: 700; }
+  .sxrec p { margin-top: 1rem; color: var(--text-body); font-size: var(--text-lead); line-height: 1.6; }
+  .sxrec .btn { margin-top: 1.75rem; }
+</style>

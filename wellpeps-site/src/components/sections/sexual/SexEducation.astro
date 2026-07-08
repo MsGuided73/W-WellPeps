@@ -1,0 +1,50 @@
+---
+import Icon from '../../Icon.astro';
+import { sexEducation, sexWorks, sexWorksIntro } from '../../../data/sexual';
+---
+<section class="section section--pale-blue" id="how-it-works">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>{sexEducation.title}</h2>
+    </div>
+    <div class="sxedu__intro reveal">
+      {sexEducation.paragraphs.map((p) => <p>{p}</p>)}
+    </div>
+
+    <div class="sxedu__works reveal">
+      <h3 class="sxedu__works-title">{sexWorksIntro.title}</h3>
+      <p class="sxedu__works-lead">{sexWorksIntro.lead}</p>
+      <div class="sxedu__grid">
+        {sexWorks.map((s, i) => (
+          <article class="card sxedu__step">
+            <span class="sxedu__num">{i + 1}</span>
+            <span class="sxedu__icon"><Icon name={s.icon} /></span>
+            <h4>{s.title}</h4>
+            <p>{s.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sxedu__intro { max-width: 820px; margin: 1.5rem auto 0; text-align: center; }
+  .sxedu__intro p { color: var(--text-body); font-size: var(--text-card-body); line-height: 1.65; }
+  .sxedu__intro p + p { margin-top: 1rem; }
+
+  .sxedu__works { margin-top: clamp(3rem, 5vw, 4.5rem); text-align: center; }
+  .sxedu__works-title { font-family: var(--font-serif); font-weight: 700; color: var(--navy); font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.4rem); }
+  .sxedu__works-lead { max-width: 820px; margin: 1rem auto 0; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.6; }
+
+  .sxedu__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; margin-top: clamp(2rem, 3vw, 3rem); text-align: left; }
+  .sxedu__step { position: relative; padding: 2.25rem 1.75rem 2rem; overflow: hidden; }
+  .sxedu__step:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .sxedu__num { position: absolute; top: 1rem; right: 1.25rem; font-family: var(--font-serif); font-weight: 700; font-size: 2.6rem; color: var(--border-strong); line-height: 1; }
+  .sxedu__icon { display: inline-grid; place-items: center; width: 60px; height: 60px; border-radius: 50%; background: var(--bg-wellness); color: var(--blue); }
+  .sxedu__icon :global(svg) { width: 28px; height: 28px; }
+  .sxedu__step h4 { margin-top: 1.25rem; font-family: var(--font-serif); font-weight: 600; font-size: var(--text-card-title); color: var(--navy); line-height: 1.2; }
+  .sxedu__step p { margin-top: 0.8rem; color: var(--text-body); font-size: 1rem; line-height: 1.6; }
+
+  @media (max-width: 900px) { .sxedu__grid { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; } }
+</style>

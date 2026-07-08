@@ -28,7 +28,7 @@ export const CONTACT = {
 export const NAV_LINKS = [
   { label: 'Weight Loss', href: '/weight-loss' },
   { label: 'Hair Restoration', href: '/hair-restoration' },
-  { label: 'Sexual Wellness', href: '/#programs' },
+  { label: 'Sexual Wellness', href: '/sexual-wellness' },
   { label: 'Peptides & More', href: '/peptides' },
-  { label: 'Why WellPeps', href: '/#why' },
+  { label: 'Why WellPeps', href: '/why-wellpeps' },
 ];

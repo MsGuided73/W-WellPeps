@@ -1,0 +1,57 @@
+---
+import Icon from '../../Icon.astro';
+import { ONBOARDING_URL } from '../../../config';
+import { sexHero } from '../../../data/sexual';
+---
+<section class="sxhero">
+  <img class="sxhero__img" src={sexHero.image} width="1500" height="1000" alt={sexHero.alt} fetchpriority="high" />
+  <div class="sxhero__wrap">
+    <div class="sxhero__copy reveal">
+      <span class="sxhero__eyebrow"><Icon name="heart" /> {sexHero.eyebrow}</span>
+      <h1>
+        <span class="sxhero__line">{sexHero.titleLead}</span>
+        <span class="sxhero__line sxhero__line--accent">{sexHero.titleAccent}</span>
+      </h1>
+      <hr class="rule rule--left" />
+      <p class="sxhero__lead">{sexHero.lead}</p>
+      <div class="sxhero__actions">
+        <a href={ONBOARDING_URL} class="btn btn--primary btn--lg">Start Your Free Assessment <Icon name="arrow-right" /></a>
+        <a href="#sex-products" class="btn btn--secondary btn--lg">Learn More <Icon name="arrow-right" /></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sxhero { position: relative; overflow: hidden; background: #fff; min-height: clamp(520px, 56vw, 780px); display: flex; align-items: center; }
+  .sxhero__img {
+    position: absolute; top: 0; right: 0; bottom: 0; width: 58vw; height: 100%;
+    object-fit: cover; object-position: 50% center;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 22%, #000 48%);
+            mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 22%, #000 48%);
+  }
+  .sxhero__wrap { position: relative; z-index: 2; width: 100%; max-width: var(--content-max); margin-inline: auto; padding-inline: var(--gutter); }
+  .sxhero__copy { max-width: clamp(360px, 48vw, 660px); padding-block: clamp(2.5rem, 4vw, 4.5rem); }
+  .sxhero__eyebrow {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--bg-wellness); color: var(--navy);
+    font-family: var(--font-sans); font-weight: 700; font-size: 0.9rem;
+    letter-spacing: 0.06em; text-transform: uppercase; padding: 0.5rem 1rem; border-radius: var(--radius-pill);
+  }
+  .sxhero__eyebrow :global(svg) { width: 18px; height: 18px; color: var(--blue); }
+  .sxhero__copy h1 { margin-top: 1.5rem; font-size: clamp(2.5rem, 1.5rem + 4.2vw, 4.6rem); line-height: 1.04; font-weight: 700; letter-spacing: -0.025em; color: var(--navy); }
+  .sxhero__line { display: block; }
+  .sxhero__line--accent { color: var(--blue); }
+  .sxhero__lead { margin-top: 1.5rem; color: var(--text-body); font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); max-width: 40ch; }
+  .sxhero__actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.25rem; max-width: 480px; }
+
+  @media (max-width: 900px) {
+    .sxhero { flex-direction: column; min-height: 0; align-items: stretch; }
+    .sxhero__img {
+      position: relative; inset: auto; width: 100%; height: clamp(260px, 60vw, 420px); object-position: center 30%;
+      -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+              mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+    }
+    .sxhero__copy { max-width: none; padding-block: 2rem; }
+  }
+</style>

@@ -1,0 +1,61 @@
+---
+/**
+ * SexProductCard — approved Sexual Wellness product-card design.
+ * image · title · subtitle · description · 3-item checklist · "Plans from
+ * $X/month" · navy "Start Health Assessment".
+ */
+import Icon from './Icon.astro';
+import type { SexProduct } from '../data/sexual';
+
+interface Props { product: SexProduct; }
+const { product } = Astro.props;
+const { name, subtitle, image, alt, description, features, price, priceUnit, href } = product;
+---
+<article class="sxcard">
+  <div class="sxcard__media"><img src={image} alt={alt} width="720" height="520" loading="lazy" /></div>
+  <div class="sxcard__body">
+    <h3 class="sxcard__name">{name}</h3>
+    <p class="sxcard__subtitle">{subtitle}</p>
+    <p class="sxcard__desc">{description}</p>
+    <hr class="sxcard__divider" />
+    <ul class="sxcard__features">
+      {features.map((f) => (
+        <li><span class="sxcard__check"><Icon name="check-circle" /></span>{f}</li>
+      ))}
+    </ul>
+    <p class="sxcard__price">Plans from <strong>${price}</strong><span>{priceUnit}</span></p>
+    <a href={href} class="btn btn--block sxcard__cta">Start Health Assessment</a>
+  </div>
+</article>
+
+<style>
+  .sxcard {
+    display: flex; flex-direction: column;
+    background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+    box-shadow: var(--shadow-sm); overflow: hidden;
+    transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  }
+  .sxcard:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+  .sxcard__media { aspect-ratio: 4 / 3; overflow: hidden; background: var(--bg-gray); }
+  .sxcard__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s var(--ease); }
+  .sxcard:hover .sxcard__media img { transform: scale(1.03); }
+
+  .sxcard__body { display: flex; flex-direction: column; flex: 1; padding: 1.5rem 1.5rem 1.6rem; }
+  .sxcard__name { font-family: var(--font-serif); font-weight: 700; font-size: 1.6rem; color: var(--navy); line-height: 1.1; }
+  .sxcard__subtitle { margin-top: 0.35rem; color: var(--blue); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; }
+  .sxcard__desc { margin-top: 0.85rem; color: var(--text-body); font-size: 1rem; line-height: 1.55; }
+
+  .sxcard__divider { height: 1px; border: 0; background: var(--border); margin: 1.25rem 0; }
+
+  .sxcard__features { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.6rem; }
+  .sxcard__features li { display: flex; align-items: center; gap: 0.6rem; color: var(--text-body); font-size: 0.98rem; }
+  .sxcard__check { display: inline-grid; place-items: center; flex: none; color: var(--blue); }
+  .sxcard__check :global(svg) { width: 20px; height: 20px; }
+
+  .sxcard__price { margin-top: auto; padding-top: 1.4rem; color: var(--navy); font-size: 1.05rem; display: flex; align-items: baseline; gap: 0.3rem; }
+  .sxcard__price strong { font-size: 1.9rem; font-weight: 800; letter-spacing: -0.02em; }
+  .sxcard__price span { color: var(--text-muted); font-size: 0.95rem; }
+
+  .sxcard__cta { margin-top: 1rem; background: var(--navy); color: #fff; border-radius: var(--radius-sm); box-shadow: 0 8px 18px rgba(8,43,89,0.2); }
+  .sxcard__cta:hover { background: var(--navy-deep); color: #fff; transform: translateY(-2px); }
+</style>
