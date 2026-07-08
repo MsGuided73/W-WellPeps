@@ -93,7 +93,7 @@
   --text-section-title: calc(var(--text-h2) + 1px);    /* section headings (.section-head h2) */
   --text-card-title:    calc(var(--text-h3) + 2px);    /* titles inside any card */
   --text-card-body:     var(--text-lead);              /* body copy inside cards + lead paragraphs */
-  --text-note:          calc(var(--text-small) + 2px); /* footnotes, captions, helper lines */
+  --text-note:          calc(var(--text-small) + 4px); /* footnotes, captions, helper lines */
   --text-footer:        calc(var(--text-small) + 1px); /* footer base body text */
 
   /* ---- Spacing rhythm ----

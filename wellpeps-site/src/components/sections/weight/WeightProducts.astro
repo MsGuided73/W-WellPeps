@@ -28,10 +28,10 @@ import { weightProducts, weightProductsIntro } from '../../../data/weight';
   .wprod__head h2 { font-size: var(--text-section-title); font-weight: 700; }
   .wprod__lead { margin-top: 1rem; font-size: var(--text-lead); color: var(--text-body); }
 
+  /* Full container width so the three cards render wider. */
   .wprod__grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem;
     margin-top: clamp(2.5rem, 4vw, 3.5rem);
-    max-width: 1200px; margin-inline: auto;
   }
 
   .wprod__pricenote { text-align: center; margin-top: 1.5rem; color: var(--text-muted); font-size: var(--text-note); }
