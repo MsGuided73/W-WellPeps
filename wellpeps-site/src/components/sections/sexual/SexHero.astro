@@ -7,7 +7,6 @@ import { sexHero } from '../../../data/sexual';
   <img class="sxhero__img" src={sexHero.image} width="1500" height="1000" alt={sexHero.alt} fetchpriority="high" />
   <div class="sxhero__wrap">
     <div class="sxhero__copy reveal">
-      <span class="sxhero__eyebrow"><Icon name="heart" /> {sexHero.eyebrow}</span>
       <h1>
         <span class="sxhero__line">{sexHero.titleLead}</span>
         <span class="sxhero__line sxhero__line--accent">{sexHero.titleAccent}</span>
@@ -23,23 +22,17 @@ import { sexHero } from '../../../data/sexual';
 </section>
 
 <style>
-  .sxhero { position: relative; overflow: hidden; background: #fff; min-height: clamp(520px, 56vw, 780px); display: flex; align-items: center; }
+  /* Fill the first viewport below the 76px sticky nav. */
+  .sxhero { position: relative; overflow: hidden; background: #fff; min-height: calc(100vh - 76px); min-height: calc(100svh - 76px); display: flex; align-items: center; }
   .sxhero__img {
-    position: absolute; top: 0; right: 0; bottom: 0; width: 58vw; height: 100%;
-    object-fit: cover; object-position: 50% center;
+    position: absolute; top: 0; right: 0; bottom: 0; width: 60vw; height: 100%;
+    object-fit: cover; object-position: 50% 20%;
     -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 22%, #000 48%);
             mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 22%, #000 48%);
   }
   .sxhero__wrap { position: relative; z-index: 2; width: 100%; max-width: var(--content-max); margin-inline: auto; padding-inline: var(--gutter); }
   .sxhero__copy { max-width: clamp(360px, 48vw, 660px); padding-block: clamp(2.5rem, 4vw, 4.5rem); }
-  .sxhero__eyebrow {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: var(--bg-wellness); color: var(--navy);
-    font-family: var(--font-sans); font-weight: 700; font-size: 0.9rem;
-    letter-spacing: 0.06em; text-transform: uppercase; padding: 0.5rem 1rem; border-radius: var(--radius-pill);
-  }
-  .sxhero__eyebrow :global(svg) { width: 18px; height: 18px; color: var(--blue); }
-  .sxhero__copy h1 { margin-top: 1.5rem; font-size: clamp(2.5rem, 1.5rem + 4.2vw, 4.6rem); line-height: 1.04; font-weight: 700; letter-spacing: -0.025em; color: var(--navy); }
+  .sxhero__copy h1 { font-size: clamp(2.5rem, 1.5rem + 4.2vw, 4.6rem); line-height: 1.04; font-weight: 700; letter-spacing: -0.025em; color: var(--navy); }
   .sxhero__line { display: block; }
   .sxhero__line--accent { color: var(--blue); }
   .sxhero__lead { margin-top: 1.5rem; color: var(--text-body); font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); max-width: 40ch; }
