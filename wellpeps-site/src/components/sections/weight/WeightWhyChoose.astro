@@ -25,6 +25,11 @@ import { weightWhy, weightWhyIntro } from '../../../data/weight';
 </section>
 
 <style>
+  /* Widen the section header so the title fits on one line at desktop sizes;
+     the lead keeps a readable measure. */
+  .section-head { max-width: none; }
+  .section-head p { max-width: 760px; margin-inline: auto; }
+
   .wwhy__grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem;
     margin-top: clamp(2rem, 3vw, 3rem);

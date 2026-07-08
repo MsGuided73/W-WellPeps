@@ -9,13 +9,13 @@ const cards = [
   { icon: 'shield-check', title: 'Trusted Clinical Network', body: 'From licensed providers and pharmacy partners to secure technology and access to leading national labs, every part of the WellPeps experience is built around quality and safety.' },
 ];
 
-const trust = [
+const trust: { label: string; icon?: string; image?: string; note?: string }[] = [
   { icon: 'stethoscope', label: 'Licensed Providers' },
   { icon: 'lock', label: 'HIPAA Protected' },
   { icon: 'pharmacy', label: 'Licensed Pharmacy Partners' },
   { icon: 'tag', label: 'Transparent Pricing' },
   { icon: 'flask', label: 'Access to Leading National Labs', note: 'Including Quest Diagnostics® and Labcorp® where available' },
-  { icon: 'award', label: 'LegitScript Certified' },
+  { image: '/images/legitscript-seal.webp', label: 'LegitScript Certified' },
 ];
 ---
 <BaseLayout
@@ -63,7 +63,11 @@ const trust = [
       <div class="why-trust reveal">
         {trust.map((t) => (
           <div class="why-trust__item">
-            <span class="medallion medallion--sm"><Icon name={t.icon} /></span>
+            {t.image ? (
+              <img class="why-trust__seal" src={t.image} alt="" width="96" height="96" loading="lazy" />
+            ) : (
+              <span class="medallion medallion--sm"><Icon name={t.icon} /></span>
+            )}
             <p class="why-trust__label">{t.label}</p>
             {t.note && <p class="why-trust__note">{t.note}</p>}
           </div>
@@ -101,32 +105,36 @@ const trust = [
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section why-cta-wrap">
-    <div class="container">
-      <div class="why-cta reveal">
-        <span class="why-cta__watermark" aria-hidden="true">W</span>
-        <div class="why-cta__copy">
-          <h2>Ready to Start Your Wellness Journey?</h2>
-          <p>Find the wellness program that’s right for you.</p>
-          <a href="/#programs" class="btn btn--primary btn--lg">Explore Programs <Icon name="arrow-right" /></a>
-        </div>
+  <!-- CTA — same full-bleed band as the category-page CTAs: photo bleeds off
+       the right edge and feathers into the ivory background on its left. -->
+  <section class="why-cta">
+    <img class="why-cta__img" src="/images/about/cta-couple.png" width="888" height="875"
+         alt="A couple walking together through a sunny park" loading="lazy" />
+    <div class="why-cta__wrap">
+      <div class="why-cta__copy reveal">
+        <h2>Ready to Start Your<br />Wellness Journey?</h2>
+        <p class="why-cta__lead">Find the wellness program that’s right for you.</p>
+        <a href="/#programs" class="btn btn--primary btn--lg why-cta__btn">Explore Programs <Icon name="arrow-right" /></a>
       </div>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  /* Intro */
-  .why-intro__inner { display: grid; grid-template-columns: 1.05fr 0.95fr; align-items: center; gap: clamp(2rem, 5vw, 4.5rem); }
+  /* Intro — image column widened so the hero photo reads larger. */
+  .why-intro__inner { display: grid; grid-template-columns: 0.9fr 1.1fr; align-items: center; gap: clamp(2rem, 4vw, 3.5rem); }
   .why-intro__copy { max-width: 620px; }
-  .why-intro__copy h1 { font-size: clamp(2.75rem, 1.8rem + 4vw, 4.5rem); font-weight: 700; letter-spacing: -0.02em; color: var(--navy); line-height: 1.02; }
-  .why-intro__subhead { margin-top: 1.5rem; font-family: var(--font-serif); font-weight: 700; font-size: clamp(1.2rem, 1rem + 0.8vw, 1.6rem); color: var(--navy); line-height: 1.3; }
-  .why-intro__copy p:not(.why-intro__subhead):not(.why-intro__closer) { margin-top: 1rem; color: var(--text-body); font-size: 1.05rem; line-height: 1.7; }
-  .why-intro__closer { margin-top: 1.4rem; font-family: var(--font-serif); font-weight: 700; color: var(--navy); font-size: 1.15rem; }
+  .why-intro__copy h1 { font-size: clamp(2.75rem, 1.6rem + 4.6vw, 5rem); font-weight: 700; letter-spacing: -0.02em; color: var(--navy); line-height: 1.02; }
+  .why-intro__subhead { margin-top: 1.5rem; font-family: var(--font-serif); font-weight: 700; font-size: clamp(1.3rem, 1.05rem + 1vw, 1.8rem); color: var(--navy); line-height: 1.3; }
+  .why-intro__copy p:not(.why-intro__subhead):not(.why-intro__closer) { margin-top: 1rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.7; }
+  .why-intro__closer { margin-top: 1.4rem; font-family: var(--font-serif); font-weight: 700; color: var(--navy); font-size: var(--text-lead); }
   .why-intro__media { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
   /* Match the provided group photo's 3:2 ratio so no one is cropped out. */
   .why-intro__media img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 3 / 2; }
+
+  /* Widen the standard section headers so titles ("Why Patients Choose
+     WellPeps") fit on one line at desktop sizes. */
+  .section-head { max-width: none; }
 
   /* Cards */
   .why-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; margin-top: clamp(2rem, 3vw, 2.75rem); }
@@ -135,13 +143,17 @@ const trust = [
   .why-card h3 { margin-top: 1.4rem; font-size: var(--text-card-title); font-weight: 600; color: var(--navy); line-height: 1.2; }
   .why-card p { margin-top: 1rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.6; }
 
-  /* Trust row */
+  /* Trust row — large icon medallions with hairline dividers between items. */
   .why-trust { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5rem; margin-top: clamp(2rem, 3vw, 2.75rem); }
-  .why-trust__item { text-align: center; display: flex; flex-direction: column; align-items: center; }
-  .medallion--sm { width: 58px; height: 58px; }
-  .medallion--sm :global(svg) { width: 26px; height: 26px; }
-  .why-trust__label { margin-top: 0.9rem; font-family: var(--font-serif); font-weight: 600; color: var(--navy); font-size: 1.02rem; line-height: 1.25; }
-  .why-trust__note { margin-top: 0.4rem; color: var(--text-muted); font-size: 0.8rem; line-height: 1.35; }
+  .why-trust__item { text-align: center; display: flex; flex-direction: column; align-items: center; padding-inline: 0.75rem; }
+  .medallion--sm { width: 96px; height: 96px; }
+  .medallion--sm :global(svg) { width: 46px; height: 46px; }
+  .why-trust__label { margin-top: 1.1rem; font-family: var(--font-serif); font-weight: 700; color: var(--navy); font-size: var(--text-card-body); line-height: 1.3; }
+  .why-trust__note { margin-top: 0.5rem; color: var(--text-muted); font-size: var(--text-note); line-height: 1.4; }
+  .why-trust__seal { height: 96px; width: auto; }
+  @media (min-width: 1001px) {
+    .why-trust__item + .why-trust__item { border-left: 1px solid var(--border); }
+  }
 
   /* Built Around You */
   .why-built__inner { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(2rem, 5vw, 4rem); }
@@ -161,14 +173,28 @@ const trust = [
   .why-promise__copy p { color: var(--text-body); font-size: var(--text-card-body); line-height: 1.65; }
   .why-promise__copy p + p { margin-top: 0.9rem; }
 
-  /* CTA */
-  .why-cta-wrap { padding-block: clamp(2rem, 3vw, 3.5rem); }
-  .why-cta { position: relative; overflow: hidden; background: var(--bg-light-sky); border-radius: var(--radius-lg); padding: clamp(2.5rem, 4vw, 3.5rem); text-align: center; }
-  .why-cta__watermark { position: absolute; right: clamp(1rem, 4vw, 4rem); top: 50%; transform: translateY(-50%); font-family: var(--font-serif); font-weight: 700; font-size: clamp(8rem, 18vw, 15rem); line-height: 1; color: var(--blue); opacity: 0.08; pointer-events: none; }
-  .why-cta__copy { position: relative; z-index: 1; }
-  .why-cta__copy h2 { font-size: var(--text-section-title); font-weight: 700; color: var(--navy); }
-  .why-cta__copy p { margin-top: 0.75rem; color: var(--text-body); font-size: var(--text-lead); }
-  .why-cta__copy .btn { margin-top: 1.75rem; }
+  /* CTA — full-bleed band, photo right, feathered left (matches category CTAs). */
+  .why-cta {
+    position: relative; overflow: hidden; background: var(--bg-soft-ivory);
+    display: flex; align-items: center;
+    min-height: clamp(560px, 52vw, 800px);
+  }
+  .why-cta__img {
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: 56vw; height: 100%;
+    object-fit: cover; object-position: center 20%;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.55) 20%, #000 38%);
+            mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.55) 20%, #000 38%);
+  }
+  .why-cta__wrap {
+    position: relative; z-index: 2; width: 100%; max-width: var(--content-max);
+    margin-inline: auto; padding-inline: var(--gutter);
+  }
+  .why-cta__copy { max-width: clamp(340px, 44vw, 580px); padding-block: clamp(2.5rem, 4vw, 4.25rem); }
+  .why-cta__copy h2 { font-size: clamp(2.1rem, 1.3rem + 3vw, 3.6rem); font-weight: 700; letter-spacing: -0.02em; color: var(--navy); line-height: 1.08; }
+  .why-cta__lead { margin-top: 1.1rem; color: var(--text-body); font-size: var(--text-lead); max-width: 34ch; }
+  .why-cta__btn { margin-top: 1.75rem; align-self: flex-start; background: var(--navy); box-shadow: 0 8px 20px rgba(8, 43, 89, 0.22); }
+  .why-cta__btn:hover { background: var(--navy-deep); }
 
   @media (max-width: 1000px) {
     .why-trust { grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
@@ -182,6 +208,14 @@ const trust = [
     .why-built__media { order: -1; }
     .why-promise { grid-template-columns: 1fr; text-align: center; justify-items: center; }
     .why-promise__copy .rule { margin-inline: auto; }
+    .why-cta { flex-direction: column; min-height: 0; align-items: stretch; }
+    .why-cta__img {
+      position: relative; inset: auto; width: 100%; height: clamp(260px, 60vw, 400px);
+      object-position: center 25%;
+      -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 100%);
+              mask-image: linear-gradient(to bottom, #000 62%, transparent 100%);
+    }
+    .why-cta__copy { max-width: none; padding-block: 2rem 2.75rem; }
   }
   @media (max-width: 560px) { .why-trust { grid-template-columns: 1fr 1fr; } }
 </style>
