@@ -16,10 +16,11 @@ import { sexRecommendation } from '../../../data/sexual';
 
 <style>
   .sxrec-wrap { padding-block: clamp(2.5rem, 4vw, 4rem); }
-  .sxrec { max-width: 780px; margin-inline: auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
+  /* Full container width so the title fits on one line; body copy stays narrow. */
+  .sxrec { margin-inline: auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
   .sxrec__icon { display: inline-grid; place-items: center; width: 72px; height: 72px; border-radius: 50%; background: var(--bg-wellness); color: var(--blue); }
   .sxrec__icon :global(svg) { width: 34px; height: 34px; }
   .sxrec h2 { margin-top: 1.4rem; font-size: var(--text-section-title); font-weight: 700; }
-  .sxrec p { margin-top: 1rem; color: var(--text-body); font-size: var(--text-lead); line-height: 1.6; }
+  .sxrec p { margin-top: 1rem; max-width: 780px; color: var(--text-body); font-size: var(--text-lead); line-height: 1.6; }
   .sxrec .btn { margin-top: 1.75rem; }
 </style>

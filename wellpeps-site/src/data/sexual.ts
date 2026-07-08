@@ -5,7 +5,6 @@
  */
 
 export const sexHero = {
-  eyebrow: 'Sexual Wellness',
   titleLead: 'Sexual Wellness For Every Need.',
   titleAccent: 'Regain & Reconnect.',
   lead:
@@ -15,10 +14,12 @@ export const sexHero = {
 };
 
 export const sexEducation = {
-  title: 'What Is Erectile Dysfunction?',
+  title: 'Understanding Sexual Wellness',
   paragraphs: [
-    'Erectile dysfunction (ED) is one of the most common health concerns affecting men. While occasional difficulty achieving or maintaining an erection is normal, persistent symptoms may be a sign of an underlying medical condition or other factors that deserve attention.',
-    'ED affects millions of men of all ages and, for many, is highly treatable with the right medical evaluation and personalized treatment plan.',
+    'Sexual wellness is an important part of overall health—and you’re not alone.',
+    'Changes in sexual wellness are incredibly common and can affect both men and women at any stage of life. Factors such as aging, hormone changes, stress, medical conditions, medications, and lifestyle can all impact sexual function, desire, and confidence.',
+    'The good news is that many sexual wellness concerns are treatable. With a personalized evaluation, licensed healthcare providers can identify potential contributing factors and recommend evidence-based treatment options that are appropriate for your individual needs.',
+    'At WellPeps, we believe these conversations should be private, judgment-free, and focused on helping you feel your best.',
   ],
 };
 
@@ -28,26 +29,21 @@ export interface WorkStep {
   body: string;
 }
 
-export const sexWorksIntro = {
-  title: 'How Treatment Works',
-  lead: 'Erectile dysfunction medications help increase blood flow to the penis, making it easier to achieve and maintain an erection during sexual stimulation. Your licensed healthcare provider will recommend the treatment option that best fits your health history, symptoms, and lifestyle.',
-};
-
 export const sexWorks: WorkStep[] = [
   {
-    icon: 'activity',
+    icon: 'heart',
     title: 'Improve Blood Flow',
-    body: 'ED medications help relax blood vessels and increase blood flow where it’s needed, supporting a stronger erectile response when you’re sexually aroused.',
+    body: 'Many treatment options are designed to help improve healthy blood flow, supporting physical function and sexual performance when medically appropriate.',
   },
   {
-    icon: 'heart',
-    title: 'Support Natural Sexual Response',
-    body: 'These medications don’t create sexual desire or cause automatic erections. They help your body respond more naturally to sexual stimulation.',
+    icon: 'zap',
+    title: 'Support Healthy Sexual Function',
+    body: 'Personalized therapies may help support your body’s natural sexual function, enhancing confidence and helping you enjoy a more satisfying intimate experience.',
   },
   {
     icon: 'stethoscope',
-    title: 'Personalized Treatment Options',
-    body: 'Different medications and formulations vary in how quickly they begin working, how long they last, and how they may fit your lifestyle. Your provider will recommend the option that best supports your individual needs.',
+    title: 'Personalized Treatment',
+    body: 'Every treatment plan is tailored to your individual health history, symptoms, and wellness goals, with ongoing provider guidance and support throughout your journey.',
   },
 ];
 
@@ -65,7 +61,7 @@ export interface SexProduct {
 
 export const sexProductsIntro = {
   title: 'Sexual Wellness Treatments',
-  lead: 'Every treatment begins with a free online health assessment. Our licensed healthcare providers will review your health history, symptoms, and wellness goals before recommending a personalized sexual wellness plan—if clinically appropriate.',
+  lead: 'Sexual wellness treatments begin with a personalized evaluation by a licensed healthcare provider who reviews your health history, symptoms, and goals. Based on your assessment, your provider may recommend evidence-based treatment options designed to improve sexual wellness, confidence, and overall quality of life.',
   footnote: 'All treatments require a consultation with a licensed provider. Treatment plans are personalized to your needs.',
 };
 
