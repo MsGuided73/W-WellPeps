@@ -85,8 +85,10 @@ h1, h2, h3, h4 {
 .section--mint           { background: var(--bg-soft-mint); }
 .section--lavender       { background: var(--bg-lavender-mist); }
 
-/* Centered section header (eyebrow-free): title + supporting line */
-.section-head { text-align: center; max-width: 760px; margin-inline: auto; }
+/* Centered section header (eyebrow-free): title + supporting line.
+   The head spans the full container so titles stay on ONE line whenever
+   possible; only the supporting line keeps a readable 760px measure. */
+.section-head { text-align: center; margin-inline: auto; }
 .section-head h2 {
   font-size: var(--text-section-title);
   font-weight: 700;
@@ -95,6 +97,8 @@ h1, h2, h3, h4 {
   margin-top: 1rem;
   font-size: var(--text-lead);
   color: var(--text-body);
+  max-width: 760px;
+  margin-inline: auto;
 }
 
 /* Short gold/blue rule used under some headings */
@@ -175,6 +179,10 @@ h1, h2, h3, h4 {
   box-shadow: var(--shadow-sm);
   transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
 }
+/* Card body copy defaults to the shared body-text size (--text-card-body =
+   --text-lead) so cards match surrounding body copy. Component-scoped rules
+   still win where a card needs something specific. */
+.card p { font-size: var(--text-card-body); }
 
 /* ---- Icons ----
    <Icon> renders a bare <svg> that does NOT receive a component's scoped
