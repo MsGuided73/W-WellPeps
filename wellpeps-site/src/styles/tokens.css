@@ -15,6 +15,8 @@
      more saturated royal blue for CTAs, links and accent words. */
   --blue: #0B5CEF;
   --blue-hover: #0A49C9;
+  --btn-blue: #4284CB;      /* CTA button fill (client-approved) */
+  --btn-blue-hover: #366FB0;
   --blue-soft: #2EA8F7;     /* Sky accent — icon fills, subtle highlights */
 
   /* ---- Surfaces ---- */
