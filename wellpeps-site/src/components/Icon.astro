@@ -85,13 +85,15 @@ const paths: Record<string, string> = {
   // Provider guided care: provider in a speech bubble with a chat
   'provider-chat': '<path d="M11.4 3.6a7.4 7.4 0 0 1 2.6 14.3V21l-3-2.2a7.4 7.4 0 0 1 .4-15.2Z"/><circle cx="10.4" cy="9" r="2.2"/><path d="M7.4 15.4a3.4 3.4 0 0 1 6-2.2"/><rect x="14.6" y="12.4" width="7" height="5.2" rx="1.6"/><path d="M16.6 15h.01M18.2 15h.01M19.8 15h.01"/>',
 
-  /* --- Sexual wellness card set (from the client's icon sheet) --- */
-  // Improve blood flow: heart with a rising arrow
-  'heart-flow': '<path d="M12 20.4S4.6 15.6 4.6 10.2A4.4 4.4 0 0 1 12 7a4.4 4.4 0 0 1 7.4 3.2c0 1.5-.58 2.9-1.44 4.16"/><path d="M5.6 17.4c3-2.6 6.2-3.6 9.4-3.2"/><path d="M19.6 12.6 21 16.6l-4-.6"/>',
-  // Support healthy sexual function: male + female symbols with an energy bolt
-  'gender-bolt': '<circle cx="12" cy="12" r="7.4" stroke-dasharray="30 8"/><path d="m12.8 7.8-2.6 4.4h3l-1.6 4 4-4.8h-3l1.6-3.6Z"/><circle cx="7.4" cy="10.4" r="2.2"/><path d="M7.4 12.6v3.4m-1.4-1.6h2.8"/><path d="m15.6 9.6 3.4-3.4m-2.8 0h2.8v2.8"/>',
-  // Personalized treatment: clipboard + stethoscope with a check
-  'chart-check': '<path d="M6 5.6h8a1.6 1.6 0 0 1 1.6 1.6v6"/><path d="M6 5.6a1.6 1.6 0 0 0-1.6 1.6v11A1.6 1.6 0 0 0 6 19.8h5"/><path d="M8.4 5.6V4.8a1.6 1.6 0 0 1 1.6-1.6A1.6 1.6 0 0 1 11.6 4.8v.8"/><path d="M7.2 9.4h5M7.2 12.2h3.4M7.2 15h2.4"/><circle cx="17" cy="15.4" r="4"/><path d="m15.4 15.5 1.2 1.2 2.2-2.4"/>',
+  /* --- Sexual wellness card set (redrawn to match the client's icon sheet).
+     All geometry is kept inside a ~2px margin of the 24x24 box so no stroke
+     is clipped at the edge. --- */
+  // Improve blood flow: a closed heart with a flow arrow sweeping up and out
+  'heart-flow': '<path d="M12 20.3C9.2 18.5 4 14.8 4 10.5A4.5 4.5 0 0 1 12 7.6a4.5 4.5 0 0 1 8 2.9c0 4.3-5.2 8-8 9.8Z"/><path d="M5.9 16.7c3-2.6 5.7-1.4 8.1-3.2 1.4-1.1 2.4-2.5 3.5-4.2"/><path d="M13.9 9.3h3.7V13"/>',
+  // Support healthy sexual function: female + male symbols around an energy bolt
+  'gender-bolt': '<circle cx="12.4" cy="12" r="5.6"/><path d="m16.4 8 4-4"/><path d="M16.8 4h3.6v3.6"/><circle cx="5.4" cy="14.6" r="2.2"/><path d="M5.4 16.8v3.4"/><path d="M3.8 18.6h3.2"/><path d="M12.8 8.4 10 13h2.6l-.8 3.4 3.4-4.6h-2.6l1.2-3.4Z"/>',
+  // Personalized treatment: medical chart + stethoscope with a check
+  'chart-check': '<rect x="3.2" y="4.8" width="10.4" height="14.6" rx="2"/><path d="M6.6 4.8V4.2a1.8 1.8 0 0 1 3.6 0v.6"/><path d="M8.4 7.6v3.4M6.7 9.3h3.4"/><path d="M5.6 13.6h5.6M5.6 16.2h3.6"/><path d="M16 3.4v3.2a2.9 2.9 0 0 0 5.8 0V3.4"/><path d="M18.9 9.5v2.4"/><circle cx="18.2" cy="15.6" r="3.7"/><path d="m16.7 15.7 1.1 1.1 2.3-2.5"/>',
 };
 
 const svg = paths[name] ?? '';
