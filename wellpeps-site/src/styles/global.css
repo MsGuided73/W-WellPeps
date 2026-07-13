@@ -129,11 +129,11 @@ h1, h2, h3, h4 {
 .btn svg { width: 1.1em; height: 1.1em; }
 
 .btn--primary {
-  background: var(--btn-blue); color: #fff;
+  background: var(--blue); color: #fff;
   box-shadow: 0 8px 20px rgba(66, 132, 203, 0.25);
 }
 .btn--primary:hover {
-  background: var(--btn-blue-hover); color: #fff;
+  background: var(--blue-hover); color: #fff;
   transform: translateY(-2px);
   box-shadow: 0 12px 26px rgba(66, 132, 203, 0.32);
 }

@@ -21,10 +21,12 @@ import { faqs } from '../../data/content';
       ))}
     </div>
 
+    {/* The "Visit our complete FAQ" link pointed at an anchor that does not
+        exist. No standalone FAQ page has been built, so the dead link is
+        removed; restore it here once that page exists. */}
     <p class="faq__foot reveal">
-      <span class="faq__foot-icon"><img src="/images/icons/inc-chat.png" alt="" loading="lazy" /></span>
-      Still have questions? <a href="#faq-full">Visit our complete FAQ <Icon name="arrow-right" class="inline-arrow" /></a>
-      or chat with our virtual assistant.
+      <span class="faq__foot-icon"><Icon name="chat" /></span>
+      Still have questions? Chat with our virtual assistant.
     </p>
   </div>
 </section>

@@ -3,20 +3,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
 import { ONBOARDING_URL } from '../config';
 
-const cards = [
-  { icon: 'stethoscope', title: 'Physician & Pharmacy Founded', body: 'Built by healthcare professionals committed to making personalized wellness more accessible, convenient, and patient-centered.' },
-  { icon: 'clipboard-check', title: 'Personalized Care', body: 'Every treatment begins with a licensed provider evaluation tailored to your health history, goals, and individual needs.' },
-  { icon: 'shield-check', title: 'Trusted Clinical Network', body: 'From licensed providers and pharmacy partners to secure technology and access to leading national labs, every part of the WellPeps experience is built around quality and safety.' },
+/* Copy for both card sections is verbatim from the approved "Why WellPeps
+   Page 7-9 Notes"; icons follow the client's icon sheet. */
+const trustCards = [
+  { icon: 'stethoscope', title: 'Physician & Pharmacy Founded', body: 'Built by healthcare professionals dedicated to making personalized wellness more accessible, convenient, and patient-centered.' },
+  { icon: 'caduceus', title: 'Decades of Healthcare Experience', body: 'Our founders, physicians and pharmacy partners bring decades of clinical experience to every patient journey.' },
+  { icon: 'map-check', title: '50-State Licensed Provider Network', body: 'Access licensed healthcare providers serving patients across all 50 states where available.' },
+  { icon: 'flask-search', title: 'Access to Leading Labs', body: 'Convenient access to trusted national laboratory partners, including Quest Diagnostics® and Labcorp®, when clinically appropriate.' },
+  { icon: 'pharmacy', title: 'Medications from USA Pharmacies', body: 'Medications are dispensed through licensed U.S. pharmacy partners that meet applicable quality and regulatory standards.' },
+  { icon: 'legit-badge', title: 'LegitScript Certified', body: 'LegitScript certification reflects our commitment to transparency, compliance, and patient protection.' },
 ];
 
-/* Each label is split into exactly two rows (per the approved mock). */
-const trust: { lines: [string, string]; icon?: string; image?: string; note?: string }[] = [
-  { icon: 'stethoscope', lines: ['Licensed', 'Providers'] },
-  { icon: 'lock', lines: ['HIPAA', 'Protected'] },
-  { icon: 'pharmacy', lines: ['Licensed', 'Pharmacy Partners'] },
-  { icon: 'tag', lines: ['Transparent', 'Pricing'] },
-  { icon: 'flask', lines: ['Access to Leading', 'National Labs'], note: 'Including Quest Diagnostics® and Labcorp® where available' },
-  { image: '/images/legitscript-seal.webp', lines: ['LegitScript', 'Certified'] },
+const patientsFirstCards = [
+  { icon: 'clipboard-check', title: 'Personalized Care', body: 'Every treatment plan is tailored by licensed providers to your unique health history, goals, and needs.' },
+  { icon: 'headset', title: 'Ongoing Support', body: 'Providers are available to guide, monitor, and support your treatment every step of the way.' },
+  { icon: 'price-shield', title: 'Transparent Pricing', body: 'Know your program cost upfront with clear pricing and no hidden fees or surprise charges.' },
+  { icon: 'clock-x', title: 'Cancel Anytime', body: 'You’re never locked into a long-term commitment—cancel anytime before your next month’s medication is ordered.' },
+  { icon: 'no-insurance', title: 'No Insurance Required', body: 'Affordable self-pay programs make personalized wellness care simple and accessible without insurance.' },
+  { icon: 'lock', title: 'Privacy Protected', body: 'Your personal health information is protected using secure technology and HIPAA-compliant safeguards.' },
+];
+
+/* New FAQ section — copy verbatim from the 7-9 notes. */
+const faqs = [
+  { q: 'Why choose WellPeps instead of another telehealth company?', a: 'WellPeps combines physician-guided care, experienced pharmacy partners, personalized treatment plans, transparent pricing, and ongoing support to deliver a more patient-centered healthcare experience.' },
+  { q: 'Are your healthcare providers licensed?', a: 'Yes. Every treatment recommendation is made by licensed healthcare providers practicing in the states where they are authorized to provide care.' },
+  { q: 'Where do your medications come from?', a: 'When prescribed, medications are dispensed through licensed U.S. pharmacy partners that meet applicable quality and regulatory standards.' },
+  { q: 'Is my personal health information secure?', a: 'Yes. We use HIPAA-compliant systems and secure technology to protect your privacy and personal health information.' },
+  { q: 'Can I cancel my membership at any time?', a: 'Yes. Patients may cancel anytime and request a refund, except for medications that have already been ordered or processed for that month’s shipment.' },
+  { q: 'Do I need insurance?', a: 'No. WellPeps offers straightforward self-pay pricing, so insurance is not required to receive care.' },
 ];
 ---
 <BaseLayout
@@ -27,12 +41,12 @@ const trust: { lines: [string, string]; icon?: string; image?: string; note?: st
   <section class="section why-intro">
     <div class="container why-intro__inner">
       <div class="why-intro__copy reveal">
-        <h1>Why <span class="accent">WellPeps</span></h1>
+        <h1>Why we Founded <span class="accent">WellPeps</span></h1>
         <hr class="rule rule--left" />
         <p class="why-intro__subhead">We believe healthcare should be more convenient, more accessible and more personal.</p>
         <p>Healthcare has never offered more opportunities to help people live healthier lives. Yet for many patients, getting the right care still means long wait times, confusing treatment options, rushed appointments, and little ongoing support.</p>
         <p>WellPeps was founded by a physician and experienced pharmacy professionals who believed there should be a better way.</p>
-        <p>Our vision was simple: make personalized wellness more accessible by combining licensed medical providers, trusted pharmacy partners, and evidence-based treatments into one simple and seamless experience centered around each patient’s unique goals.</p>
+        <p>Today, WellPeps combines physician-guided care, licensed providers, trusted pharmacy partners, and evidence-based treatments to help patients nationwide access personalized wellness from home.</p>
         <p class="why-intro__closer">Because healthcare should feel personal again.</p>
       </div>
       <div class="why-intro__media reveal">
@@ -41,12 +55,12 @@ const trust: { lines: [string, string]; icon?: string; image?: string; note?: st
     </div>
   </section>
 
-  <!-- Why Patients Choose WellPeps -->
+  <!-- Why Patients Trust WellPeps -->
   <section class="section section--pale-blue">
     <div class="container">
-      <div class="section-head reveal"><h2>Why Patients Choose WellPeps</h2></div>
+      <div class="section-head reveal"><h2>Why Patients Trust WellPeps</h2></div>
       <div class="why-cards reveal">
-        {cards.map((c) => (
+        {trustCards.map((c) => (
           <article class="card why-card">
             <span class="medallion"><Icon name={c.icon} /></span>
             <h3>{c.title}</h3>
@@ -57,21 +71,17 @@ const trust: { lines: [string, string]; icon?: string; image?: string; note?: st
     </div>
   </section>
 
-  <!-- Built on Trust -->
+  <!-- We Put Patients First -->
   <section class="section">
     <div class="container">
-      <div class="section-head reveal"><h2>Built on Trust</h2></div>
-      <div class="why-trust reveal">
-        {trust.map((t) => (
-          <div class="why-trust__item">
-            {t.image ? (
-              <img class="why-trust__seal" src={t.image} alt="" width="96" height="96" loading="lazy" />
-            ) : (
-              <span class="medallion medallion--sm"><Icon name={t.icon} /></span>
-            )}
-            <p class="why-trust__label">{t.lines[0]}<br />{t.lines[1]}</p>
-            {t.note && <p class="why-trust__note">{t.note}</p>}
-          </div>
+      <div class="section-head reveal"><h2>We Put Patients First</h2></div>
+      <div class="why-cards reveal">
+        {patientsFirstCards.map((c) => (
+          <article class="card why-card">
+            <span class="medallion"><Icon name={c.icon} /></span>
+            <h3>{c.title}</h3>
+            <p>{c.body}</p>
+          </article>
         ))}
       </div>
     </div>
@@ -92,16 +102,37 @@ const trust: { lines: [string, string]; icon?: string; image?: string; note?: st
     </div>
   </section>
 
-  <!-- Our Promise -->
+  <!-- Our Promise — copy left, photo opposite (per the 7-9 notes) -->
   <section class="section">
     <div class="container why-promise">
-      <span class="medallion medallion--lg reveal"><Icon name="heart" /></span>
       <div class="why-promise__copy reveal">
+        <span class="medallion medallion--lg"><Icon name="heart" /></span>
         <h2>Our Promise</h2>
         <hr class="rule rule--left" />
         <p>We’re honored every time a patient chooses WellPeps.</p>
         <p>That trust is something we work to earn every day through personalized care, transparent communication, and a commitment to helping people feel their very best.</p>
         <p>Whether you’re taking your first step toward better wellness or continuing a journey you’ve already begun, we’re here to support you.</p>
+      </div>
+      <div class="why-promise__media reveal">
+        <img src="/images/about/hero.png" width="820" height="620" alt="The WellPeps care team" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Questions -->
+  <section class="section section--pale-blue" id="faq">
+    <div class="container">
+      <div class="section-head reveal"><h2>Common Questions</h2></div>
+      <div class="why-faq reveal">
+        {faqs.map((f, i) => (
+          <div class="why-faq__item" data-faq>
+            <button type="button" aria-expanded={i === 0 ? 'true' : 'false'}>
+              {f.q}
+              <span class="why-faq__icon"><Icon name="chevron-down" /></span>
+            </button>
+            <div class="why-faq__panel"><p>{f.a}</p></div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -144,17 +175,22 @@ const trust: { lines: [string, string]; icon?: string; image?: string; note?: st
   .why-card h3 { margin-top: 1.4rem; font-size: var(--text-card-title); font-weight: 600; color: var(--navy); line-height: 1.2; }
   .why-card p { margin-top: 1rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.6; }
 
-  /* Trust row — large icon medallions with hairline dividers between items. */
-  .why-trust { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5rem; margin-top: clamp(2rem, 3vw, 2.75rem); }
-  .why-trust__item { text-align: center; display: flex; flex-direction: column; align-items: center; padding-inline: 0.75rem; }
-  .medallion--sm { width: 96px; height: 96px; }
-  .medallion--sm :global(svg) { width: 46px; height: 46px; }
-  .why-trust__label { margin-top: 1.1rem; font-family: var(--font-serif); font-weight: 700; color: var(--navy); font-size: var(--text-card-body); line-height: 1.3; }
-  .why-trust__note { margin-top: 0.5rem; color: var(--text-muted); font-size: var(--text-note); line-height: 1.4; }
-  .why-trust__seal { height: 96px; width: auto; }
-  @media (min-width: 1001px) {
-    .why-trust__item + .why-trust__item { border-left: 1px solid var(--border); }
+  /* FAQ accordion (same behaviour as the program-page FAQs). */
+  .why-faq { max-width: 860px; margin-inline: auto; display: flex; flex-direction: column; gap: 0.9rem; margin-top: clamp(2rem, 3vw, 2.75rem); }
+  .why-faq__item { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .why-faq__item:hover { box-shadow: var(--shadow); }
+  .why-faq__item button {
+    width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    background: none; border: 0; cursor: pointer; text-align: left; padding: 1.35rem 1.5rem;
+    font-family: var(--font-sans); font-weight: 700; font-size: 1.25rem; color: var(--navy); line-height: 1.35;
   }
+  .why-faq__icon { display: grid; place-items: center; width: 28px; height: 28px; flex: none; color: var(--blue); transition: transform var(--dur) var(--ease); }
+  .why-faq__icon :global(svg) { width: 22px; height: 22px; }
+  .why-faq__item button[aria-expanded='true'] .why-faq__icon { transform: rotate(180deg); }
+  .why-faq__panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--dur) var(--ease); }
+  .why-faq__panel > p { overflow: hidden; color: var(--text-body); padding: 0 1.5rem; font-size: var(--text-card-body); line-height: 1.65; }
+  .why-faq__item button[aria-expanded='true'] + .why-faq__panel { grid-template-rows: 1fr; }
+  .why-faq__item button[aria-expanded='true'] + .why-faq__panel > p { padding-bottom: 1.4rem; }
 
   /* Built Around You */
   .why-built__inner { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(2rem, 5vw, 4rem); }
@@ -165,10 +201,12 @@ const trust: { lines: [string, string]; icon?: string; image?: string; note?: st
   .why-built__copy p { color: var(--text-body); font-size: var(--text-card-body); line-height: 1.65; }
   .why-built__copy p + p { margin-top: 1rem; }
 
-  /* Our Promise */
-  .why-promise { display: grid; grid-template-columns: auto 1fr; align-items: start; gap: clamp(1.5rem, 3vw, 3rem); max-width: 1000px; margin-inline: auto; }
-  .medallion--lg { width: 96px; height: 96px; }
+  /* Our Promise — copy left, photo right */
+  .why-promise { display: grid; grid-template-columns: 1.05fr 0.95fr; align-items: center; gap: clamp(2rem, 4vw, 4rem); }
+  .medallion--lg { width: 96px; height: 96px; margin-bottom: 1.4rem; }
   .medallion--lg :global(svg) { width: 46px; height: 46px; }
+  .why-promise__media { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
+  .why-promise__media img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 3; }
   .why-promise__copy h2 { font-size: var(--text-section-title); font-weight: 700; }
   .why-promise__copy .rule { margin-block: 1rem 1.4rem; }
   .why-promise__copy p { color: var(--text-body); font-size: var(--text-card-body); line-height: 1.65; }
@@ -198,7 +236,7 @@ const trust: { lines: [string, string]; icon?: string; image?: string; note?: st
   .why-cta__btn:hover { background: var(--navy-deep); }
 
   @media (max-width: 1000px) {
-    .why-trust { grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+    .why-cards { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 900px) {
     .why-intro__inner { grid-template-columns: 1fr; }
@@ -207,8 +245,8 @@ const trust: { lines: [string, string]; icon?: string; image?: string; note?: st
     .why-cards { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }
     .why-built__inner { grid-template-columns: 1fr; }
     .why-built__media { order: -1; }
-    .why-promise { grid-template-columns: 1fr; text-align: center; justify-items: center; }
-    .why-promise__copy .rule { margin-inline: auto; }
+    .why-promise { grid-template-columns: 1fr; }
+    .why-promise__media { order: -1; }
     .why-cta { flex-direction: column; min-height: 0; align-items: stretch; }
     .why-cta__img {
       position: relative; inset: auto; width: 100%; height: clamp(260px, 60vw, 400px);
@@ -218,5 +256,4 @@ const trust: { lines: [string, string]; icon?: string; image?: string; note?: st
     }
     .why-cta__copy { max-width: none; padding-block: 2rem 2.75rem; }
   }
-  @media (max-width: 560px) { .why-trust { grid-template-columns: 1fr 1fr; } }
 </style>

@@ -51,12 +51,13 @@ import { programs } from '../../data/programs';
   .program__body { padding: 1.6rem 1.6rem 1.7rem; display: flex; flex-direction: column; flex: 1; }
   .program__body h3 { font-size: var(--text-card-title); font-weight: 600; line-height: 1.15; }
   /* Tagline hugs the title (one group); blurb sits clearly below the pair */
-  .program__tagline { font-family: var(--font-serif); font-style: italic; color: var(--blue); font-weight: 500; margin-top: 0.15rem; font-size: calc(1rem + 1px); }
+  /* Tagline + CTA enlarged per the 7-9 notes. */
+  .program__tagline { font-family: var(--font-serif); font-style: italic; color: var(--blue); font-weight: 600; margin-top: 0.2rem; font-size: var(--text-card-body); }
   .program__blurb { margin-top: 0.95rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.6; flex: 1; }
   /* Compact CTA to match the guide's pill (less padding, smaller text) */
   .program .pill-link {
     margin-top: 1rem; align-self: flex-start;
-    padding: 0.4rem 0.9rem; font-size: calc(0.82rem + 1px); gap: 0.4rem;
+    padding: 0.55rem 1.1rem; font-size: var(--text-note); gap: 0.45rem;
   }
   .program .pill-link svg { width: 0.95em; height: 0.95em; }
 

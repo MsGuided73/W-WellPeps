@@ -56,6 +56,32 @@ const paths: Record<string, string> = {
   'check-circle': '<circle cx="12" cy="12" r="9"/><path d="m8.4 12 2.5 2.5 4.7-5.2"/>',
   'clipboard-check': '<rect x="6" y="4.5" width="12" height="16.5" rx="2"/><path d="M9 4.5A1.5 1.5 0 0 1 10.5 3h3A1.5 1.5 0 0 1 15 4.5V6H9V4.5Z"/><path d="m9.5 13.5 2 2 3.5-4"/>',
   tag: '<path d="M4 4h7l9 9-7 7-9-9V4Z"/><circle cx="8.2" cy="8.2" r="1.3"/>',
+
+  /* --- Trust / "We Put Patients First" set (from the client's icon sheet) --- */
+  // 50-state licensed provider network: US map outline with a medical cross
+  'map-check': '<path d="M2.6 7.2 6 5.6l4 1.4 4.6-1.6 2.4.9 4.4-1.5-1 4.6.8 3.5-3.2 2.2-3.6-.5-3.4 2.2-4-1.4-3.2 1.1-1-4.2 1-3.2-1.2-1.9Z"/><path d="M10.2 9.6h2.2v-2.2h2.4v2.2h2.2V12h-2.2v2.2h-2.4V12h-2.2V9.6Z"/>',
+  // Decades of healthcare experience: caduceus on a shield with a ribbon
+  caduceus: '<path d="M12 2.6 5.6 5v5.4c0 3.6 2.6 6.6 6.4 8 3.8-1.4 6.4-4.4 6.4-8V5L12 2.6Z"/><path d="M12 6.6v6.2"/><path d="M9.6 7.8c1.2 1 3.6 1 4.8 0"/><path d="M9.6 10.4c1.2 1 3.6 1 4.8 0"/><path d="M4.4 17.4h15.2l-1.2 2.6H5.6l-1.2-2.6Z"/>',
+  // Access to leading labs: test tubes with a magnifier
+  'flask-search': '<path d="M6 3.4h4v7.4l-2.6 6.4a1.7 1.7 0 0 0 1.6 2.4h2"/><path d="M12.4 3.4h4"/><path d="M13.4 3.4v6"/><path d="M6 3.4h4"/><circle cx="16.6" cy="14.4" r="3.4"/><path d="m19.2 17 2.2 2.2"/>',
+  // Ongoing support: headset with a chat bubble
+  headset: '<rect x="5.4" y="4" width="11" height="14" rx="2"/><path d="M8 8.6h5.8"/><path d="M8 11.4h3.6"/><path d="M16.4 8.6h1.4a2.6 2.6 0 0 1 2.6 2.6v2a2.6 2.6 0 0 1-2.6 2.6h-1"/><path d="M16.4 15.8v1.4a2.4 2.4 0 0 1-2.4 2.4h-2.6"/>',
+  // Transparent pricing: shield with a dollar tag
+  'price-shield': '<path d="M10.6 3 5 5.2v4.6c0 3.4 2.2 6.2 5.6 7.4 1-.35 1.9-.83 2.7-1.42"/><circle cx="17" cy="15" r="4.4"/><path d="M18.5 13.2h-2a1.1 1.1 0 0 0 0 2.2h1a1.1 1.1 0 0 1 0 2.2h-2"/><path d="M17 12.3v.9m0 4.5v.9"/><path d="m8.4 9.2 1.6 1.6 3-3.2"/>',
+  // LegitScript certified: flag shield with a certified rosette
+  'legit-badge': '<path d="M9.8 3 4.6 5v4.4c0 3.2 2.1 5.9 5.2 7 .7-.25 1.36-.6 1.95-1.02"/><path d="M4.6 7.4h10.4"/><path d="M9.8 3v6.6"/><path d="m14.5 15.6 1.5 1.5 3-3.2"/><path d="M16.8 9.8a4.9 4.9 0 0 1 3.5 1.4 4.9 4.9 0 0 1 0 7 4.9 4.9 0 0 1-7 0 4.9 4.9 0 0 1 0-7 4.9 4.9 0 0 1 3.5-1.4Z"/>',
+  // Cancel anytime: clock with an X
+  'clock-x': '<path d="M20.4 12a8.4 8.4 0 1 1-2.7-6.2"/><path d="M20.6 4v3.8h-3.8"/><path d="M12 7.4V12l2.6 1.6"/><path d="m16.6 16.2 3.8 3.8m0-3.8-3.8 3.8"/>',
+  // No insurance required: insurance card, struck through
+  'no-insurance': '<rect x="3" y="6.4" width="18" height="11.2" rx="2"/><path d="M6.6 11.4h3.4"/><path d="M6.6 14.2h6"/><path d="m4 19.6 16-15"/>',
+
+  /* --- Sexual wellness card set (from the client's icon sheet) --- */
+  // Improve blood flow: heart with a rising arrow
+  'heart-flow': '<path d="M12 20.4S4.6 15.6 4.6 10.2A4.4 4.4 0 0 1 12 7a4.4 4.4 0 0 1 7.4 3.2c0 1.5-.58 2.9-1.44 4.16"/><path d="M5.6 17.4c3-2.6 6.2-3.6 9.4-3.2"/><path d="M19.6 12.6 21 16.6l-4-.6"/>',
+  // Support healthy sexual function: male + female symbols with an energy bolt
+  'gender-bolt': '<circle cx="12" cy="12" r="7.4" stroke-dasharray="30 8"/><path d="m12.8 7.8-2.6 4.4h3l-1.6 4 4-4.8h-3l1.6-3.6Z"/><circle cx="7.4" cy="10.4" r="2.2"/><path d="M7.4 12.6v3.4m-1.4-1.6h2.8"/><path d="m15.6 9.6 3.4-3.4m-2.8 0h2.8v2.8"/>',
+  // Personalized treatment: clipboard + stethoscope with a check
+  'chart-check': '<path d="M6 5.6h8a1.6 1.6 0 0 1 1.6 1.6v6"/><path d="M6 5.6a1.6 1.6 0 0 0-1.6 1.6v11A1.6 1.6 0 0 0 6 19.8h5"/><path d="M8.4 5.6V4.8a1.6 1.6 0 0 1 1.6-1.6A1.6 1.6 0 0 1 11.6 4.8v.8"/><path d="M7.2 9.4h5M7.2 12.2h3.4M7.2 15h2.4"/><circle cx="17" cy="15.4" r="4"/><path d="m15.4 15.5 1.2 1.2 2.2-2.4"/>',
 };
 
 const svg = paths[name] ?? '';

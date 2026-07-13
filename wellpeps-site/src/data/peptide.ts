@@ -33,18 +33,74 @@ export interface ScienceBenefit {
   icon: string;
   title: string;
   body: string;
+  image: string;
+  alt: string;
 }
 
 export const peptideBenefits: ScienceBenefit[] = [
-  { icon: 'zap', title: 'Improved Energy', body: 'Feel more energized and ready to take on the day.' },
-  { icon: 'leaf', title: 'Healthy Aging', body: 'Support healthy aging and long-term vitality.' },
-  { icon: 'activity', title: 'Recovery Support', body: 'Aid your body’s recovery and overall resilience.' },
-  { icon: 'target', title: 'Mental Focus', body: 'Sharpen focus, clarity, and cognitive performance.' },
-  { icon: 'flame', title: 'Metabolic Health', body: 'Support a healthy metabolism and overall balance.' },
-  { icon: 'trending-down', title: 'Healthy Weight Management', body: 'Support healthy weight goals as part of a balanced lifestyle.' },
-  { icon: 'moon', title: 'Better Sleep', body: 'Promote deeper, more restorative sleep.' },
-  { icon: 'dumbbell', title: 'Lean Muscle Support', body: 'Help maintain lean muscle and physical strength.' },
-  { icon: 'sparkles', title: 'Collagen & Skin Health', body: 'Support collagen production for healthier-looking skin.' },
+  {
+    icon: 'zap',
+    title: 'Improved Energy',
+    body: 'Feel more energized and ready to take on the day.',
+    image: '/images/peptide/benefits/energy.png',
+    alt: 'A couple walking briskly along a coastal trail at sunrise',
+  },
+  {
+    icon: 'leaf',
+    title: 'Healthy Aging',
+    body: 'Support healthy aging and long-term vitality.',
+    image: '/images/peptide/benefits/aging.png',
+    alt: 'An older couple walking together through a sunlit park',
+  },
+  {
+    icon: 'activity',
+    title: 'Recovery Support',
+    body: 'Aid your body’s recovery and overall resilience.',
+    image: '/images/peptide/benefits/recovery.png',
+    alt: 'A woman stretching on a yoga mat at home',
+  },
+  {
+    icon: 'target',
+    title: 'Mental Focus',
+    body: 'Sharpen focus, clarity, and cognitive performance.',
+    image: '/images/peptide/benefits/focus.png',
+    alt: 'A man concentrating at his laptop in a bright home office',
+  },
+  {
+    icon: 'flame',
+    title: 'Metabolic Health',
+    body: 'Support a healthy metabolism and overall balance.',
+    image: '/images/peptide/benefits/metabolic.png',
+    alt: 'A woman preparing a fresh salad in her kitchen',
+  },
+  {
+    icon: 'trending-down',
+    title: 'Healthy Weight Management',
+    body: 'Support healthy weight goals as part of a balanced lifestyle.',
+    image: '/images/peptide/benefits/weight.png',
+    alt: 'A woman enjoying an active, balanced lifestyle',
+  },
+  {
+    icon: 'moon',
+    title: 'Better Sleep',
+    body: 'Promote deeper, more restorative sleep.',
+    image: '/images/peptide/benefits/sleep.png',
+    alt: 'A person sleeping peacefully in a calm bedroom',
+  },
+  {
+    icon: 'dumbbell',
+    title: 'Lean Muscle Support',
+    body: 'Help maintain lean muscle and physical strength.',
+    image: '/images/peptide/benefits/muscle.png',
+    alt: 'A person strength training with dumbbells',
+  },
+  {
+    icon: 'sparkles',
+    title: 'Collagen & Skin Health',
+    body: 'Support collagen production for healthier-looking skin.',
+    image: '/images/peptide/benefits/skin.png',
+    alt: 'A woman with healthy, radiant skin looking in the mirror',
+  },
 ];
 
 export interface PeptideProduct {

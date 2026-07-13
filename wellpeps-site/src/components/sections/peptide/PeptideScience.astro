@@ -17,13 +17,16 @@ import { peptideScience, peptideBenefits } from '../../../data/peptide';
     <p class="psci__benefits-title reveal">{peptideScience.benefitsTitle}</p>
     <div class="psci__grid reveal">
       {peptideBenefits.map((b) => (
-        <div class="psci__benefit">
-          <span class="psci__benefit-icon"><Icon name={b.icon} /></span>
-          <div>
+        <article class="card psci__benefit">
+          <div class="psci__benefit-media">
+            <img src={b.image} alt={b.alt} width="760" height="520" loading="lazy" />
+          </div>
+          <div class="psci__benefit-body">
+            <span class="psci__benefit-icon"><Icon name={b.icon} /></span>
             <h3>{b.title}</h3>
             <p>{b.body}</p>
           </div>
-        </div>
+        </article>
       ))}
     </div>
     <p class="psci__foot reveal">{peptideScience.footnote}</p>
@@ -45,13 +48,21 @@ import { peptideScience, peptideBenefits } from '../../../data/peptide';
     font-size: clamp(1.3rem, 1rem + 1.2vw, 1.9rem);
     padding-bottom: 1.25rem; border-bottom: 1px solid var(--border);
   }
-  .psci__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem 1.75rem; margin-top: 2rem; }
-  .psci__benefit { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; border-radius: var(--radius); transition: background var(--dur) var(--ease); }
-  .psci__benefit:hover { background: var(--bg-gray); }
-  .psci__benefit-icon { display: inline-grid; place-items: center; flex: none; width: 52px; height: 52px; border-radius: 50%; background: var(--bg-wellness); color: var(--blue); }
-  .psci__benefit-icon :global(svg) { width: 26px; height: 26px; }
-  .psci__benefit h3 { font-family: var(--font-sans); font-size: 1.35rem; font-weight: 700; color: var(--navy); }
-  .psci__benefit p { margin-top: 0.25rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.45; }
+  /* Image-led benefit cards (same treatment as the Hair Restoration
+     "How Treatments Work" cards): photo · medallion · title · body. */
+  .psci__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; margin-top: 2rem; }
+  .psci__benefit { overflow: hidden; display: flex; flex-direction: column; text-align: center; }
+  .psci__benefit:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .psci__benefit-media { aspect-ratio: 16 / 10; overflow: hidden; }
+  .psci__benefit-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+  .psci__benefit-body { padding: 1.75rem 1.6rem 2rem; display: flex; flex-direction: column; align-items: center; flex: 1; }
+  .psci__benefit-icon {
+    display: inline-grid; place-items: center; width: 64px; height: 64px; border-radius: 50%;
+    background: var(--bg-wellness); color: var(--blue); margin-bottom: 1rem;
+  }
+  .psci__benefit-icon :global(svg) { width: 30px; height: 30px; }
+  .psci__benefit h3 { font-family: var(--font-serif); font-size: var(--text-card-title); font-weight: 600; color: var(--navy); line-height: 1.2; }
+  .psci__benefit p { margin-top: 0.9rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.6; }
 
   .psci__foot { text-align: center; margin-top: 2rem; color: var(--text-muted); font-size: var(--text-note); }
 

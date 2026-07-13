@@ -14,6 +14,8 @@ export const sexHero = {
 };
 
 export const sexEducation = {
+  image: '/images/sexual/understanding.png',
+  alt: 'A couple sharing a relaxed, affectionate moment together at home',
   title: 'Understanding Sexual Wellness',
   paragraphs: [
     'Sexual wellness is an important part of overall health—and you’re not alone.',
@@ -31,17 +33,17 @@ export interface WorkStep {
 
 export const sexWorks: WorkStep[] = [
   {
-    icon: 'heart',
+    icon: 'heart-flow',
     title: 'Improve Blood Flow',
     body: 'Many treatment options are designed to help improve healthy blood flow, supporting physical function and sexual performance when medically appropriate.',
   },
   {
-    icon: 'zap',
+    icon: 'gender-bolt',
     title: 'Support Healthy Sexual Function',
     body: 'Personalized therapies may help support your body’s natural sexual function, enhancing confidence and helping you enjoy a more satisfying intimate experience.',
   },
   {
-    icon: 'stethoscope',
+    icon: 'chart-check',
     title: 'Personalized Treatment',
     body: 'Every treatment plan is tailored to your individual health history, symptoms, and wellness goals, with ongoing provider guidance and support throughout your journey.',
   },
@@ -115,6 +117,8 @@ export const sexProducts: SexProduct[] = [
 export const sexRecommendation = {
   title: 'You Don’t Have to Figure It Out Alone.',
   body: 'Choosing the right treatment doesn’t have to be complicated. Every WellPeps journey begins with a free Personalized Assessment reviewed by a licensed healthcare provider, who will recommend treatment options based on your symptoms, health history, and individual wellness goals.',
+  image: '/images/sexual/not-alone.png',
+  alt: 'A woman smiling confidently at home',
 };
 
 export interface SexFaq {

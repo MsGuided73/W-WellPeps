@@ -22,8 +22,9 @@ import { sexHero } from '../../../data/sexual';
 </section>
 
 <style>
-  /* Fill the first viewport below the 76px sticky nav. */
-  .sxhero { position: relative; overflow: hidden; background: #fff; min-height: calc(100vh - 76px); min-height: calc(100svh - 76px); display: flex; align-items: center; }
+  /* Standard program-hero height (matches Weight / Hair / Peptides) so the
+     next section peeks above the fold. */
+  .sxhero { position: relative; overflow: hidden; background: #fff; min-height: clamp(520px, 56vw, 780px); display: flex; align-items: center; }
   .sxhero__img {
     position: absolute; top: 0; right: 0; bottom: 0; width: 60vw; height: 100%;
     object-fit: cover; object-position: 50% 20%;

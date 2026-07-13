@@ -20,17 +20,14 @@ export const whySecondary = [
   { img: '/images/icons/why2-map.png', title: 'Licensed Providers in All 50 States' },
   { img: '/images/icons/why2-laurel.png', title: 'Decades of Healthcare Experience' },
 ];
-export const whyTrust = [
-  { img: '/images/icons/trust-lock.png', label: 'HIPAA Compliant' },
-  { img: '/images/icons/trust-shield.png', label: 'Secure' },
-  { img: '/images/icons/trust-person.png', label: 'Private' },
-];
-
-/* ---- Section 6: Every WellPeps Program Includes ---- */
+/* ---- Section 6: Every WellPeps Program Includes ----
+   Four across; icons come from the shared SVG set (the client asked for the
+   same style as the "Why Patients Choose WellPeps" icons above). */
 export const includes = [
-  { img: '/images/icons/inc-receipt.png', title: 'Transparent Pricing', body: 'Know your full program cost before you begin. No hidden fees. No surprises.' },
-  { img: '/images/icons/inc-nurse.png', title: 'Licensed Healthcare Provider Review', body: 'Every treatment begins with a licensed healthcare provider evaluation and a personalized treatment plan.' },
-  { img: '/images/icons/inc-chat.png', title: 'Ongoing Provider Support', body: 'Continue working with your provider throughout your treatment journey as your needs evolve.' },
+  { icon: 'price-shield', title: 'Transparent Pricing', body: 'Know your full program cost before you begin. No hidden fees. No surprises.' },
+  { icon: 'clipboard-check', title: 'Licensed Healthcare Provider Review', body: 'Every treatment begins with a licensed healthcare provider evaluation and a personalized treatment plan.' },
+  { icon: 'headset', title: 'Ongoing Provider Support', body: 'Continue working with your provider throughout your treatment journey as your needs evolve.' },
+  { icon: 'clock-x', title: 'Cancel Anytime', body: 'Patients can cancel anytime and request a refund, before medication is already ordered for that month.' },
 ];
 
 /* ---- Section 7: Safety, Wellness & Privacy ---- */
@@ -56,6 +53,6 @@ export const faqs = [
   { q: 'What states do you serve?', a: 'WellPeps works with licensed providers in all 50 states, offering nationwide care.' },
   { q: 'How are medications delivered?', a: 'If prescribed, medications are prepared by licensed U.S. pharmacies and shipped directly to your home in discreet, secure packaging.' },
   { q: 'Is my personal information secure?', a: 'Absolutely. Your health data is encrypted and handled under strict HIPAA standards. Your privacy is protected at every step.' },
-  { q: 'What payment methods do you accept?', a: 'You’ll see transparent, upfront pricing before you begin. Accepted payment methods are shown at checkout during onboarding.' },
+  { q: 'What payment methods do you accept?', a: 'We accept Visa, Mastercard, FSA/HSA, Apple Pay, and Google Pay. You’ll see transparent, upfront pricing before you begin.' },
   { q: 'What programs does WellPeps offer?', a: 'Weight Management, Hair Restoration, Sexual Wellness, and Wellness & Longevity are available today, with Hormone Optimization and Mental Wellness coming soon.' },
 ];
