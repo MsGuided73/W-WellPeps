@@ -3,3 +3,6 @@
 | Commit style/layout changes to git | `[x]` | CSS and Astro component changes |
 | Commit design assets and PDFs to git | `[x]` | Design Reference and Home Page files |
 | Push changes to GitHub repository | `[x]` | Push to origin main branch |
+| Start Astro development server on port 4321 | `[x]` | Launching the dev server using npm run dev |
+
+
