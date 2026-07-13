@@ -52,9 +52,10 @@ const { name, subtitle, image, alt, description, features, price, priceUnit, hre
   .sxcard__check { display: inline-grid; place-items: center; flex: none; color: var(--blue); }
   .sxcard__check :global(svg) { width: 20px; height: 20px; }
 
-  .sxcard__price { margin-top: auto; padding-top: 1.4rem; color: var(--navy); font-size: calc(1.05rem + 1px); display: flex; align-items: baseline; gap: 0.3rem; }
-  .sxcard__price strong { font-size: calc(1.9rem + 1px); font-weight: 800; letter-spacing: -0.02em; }
-  .sxcard__price span { color: var(--text-muted); font-size: calc(0.95rem + 1px); }
+  /* Price scale matches the Weight Loss cards. */
+  .sxcard__price { margin-top: auto; padding-top: 1.4rem; color: var(--text-muted); font-size: var(--price-label); display: flex; align-items: baseline; gap: 0.3rem; flex-wrap: wrap; }
+  .sxcard__price strong { font-size: var(--price-amount); font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
+  .sxcard__price span { color: var(--text-muted); font-size: var(--price-unit); }
 
   .sxcard__cta { margin-top: 1rem; background: var(--navy); color: #fff; border-radius: var(--radius-sm); box-shadow: 0 8px 18px rgba(8,43,89,0.2); }
   .sxcard__cta:hover { background: var(--navy-deep); color: #fff; transform: translateY(-2px); }

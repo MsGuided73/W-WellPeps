@@ -108,10 +108,10 @@ const { name, image, alt, benefits, description, delivery, price, priceUnit, pri
   .pcard__delivery-icon :global(svg) { width: 20px; height: 20px; filter: var(--icon-shadow); }
 
   .pcard__price { margin-top: auto; padding-top: 1.3rem; }
-  .pcard__price-label { display: block; color: var(--text-muted); font-size: calc(0.95rem + 1px); }
+  .pcard__price-label { display: block; color: var(--text-muted); font-size: var(--price-label); }
   .pcard__price-row { display: flex; align-items: baseline; gap: 0.35rem; margin-top: 0.1rem; }
-  .pcard__price-amount { font-family: var(--font-sans); font-weight: 800; letter-spacing: -0.02em; font-size: 2.4rem; color: var(--navy); line-height: 1; }
-  .pcard__price-unit { color: var(--text-muted); font-size: 1.2rem; }
+  .pcard__price-amount { font-family: var(--font-sans); font-weight: 800; letter-spacing: -0.02em; font-size: var(--price-amount); color: var(--navy); line-height: 1; }
+  .pcard__price-unit { color: var(--text-muted); font-size: var(--price-unit); }
 
   .pcard__cta { margin-top: 1.1rem; border-radius: var(--radius); }
 </style>

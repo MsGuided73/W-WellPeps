@@ -32,7 +32,13 @@ const { name, image, alt, icon, description, optionsLabel, options, price, price
       </ul>
     </div>
 
-    <p class="pcard__price">Plans from ${price}{priceUnit}</p>
+    <p class="pcard__price">
+      <span class="pcard__price-label">Plans from</span>
+      <span class="pcard__price-row">
+        <span class="pcard__price-amount">${price}</span>
+        <span class="pcard__price-unit">{priceUnit}</span>
+      </span>
+    </p>
 
     <a href={href} class="pcard__cta">Learn More <Icon name="arrow-right" /></a>
   </div>
@@ -85,8 +91,13 @@ const { name, image, alt, icon, description, optionsLabel, options, price, price
     width: 6px; height: 6px; border-radius: 50%; background: var(--blue-soft);
   }
 
-  /* Price + CTA pinned to the bottom so cards align across the row. */
-  .pcard__price { margin-top: auto; padding-top: 1.3rem; color: var(--blue); font-weight: 700; font-size: 1.0625rem; }
+  /* Price + CTA pinned to the bottom so cards align across the row.
+     Scale is shared with every other product card via the price tokens. */
+  .pcard__price { margin-top: auto; padding-top: 1.3rem; }
+  .pcard__price-label { display: block; color: var(--text-muted); font-size: var(--price-label); }
+  .pcard__price-row { display: flex; align-items: baseline; gap: 0.35rem; margin-top: 0.1rem; }
+  .pcard__price-amount { font-family: var(--font-sans); font-weight: 800; letter-spacing: -0.02em; font-size: var(--price-amount); color: var(--blue); line-height: 1; }
+  .pcard__price-unit { color: var(--text-muted); font-size: var(--price-unit); }
 
   .pcard__cta {
     position: relative;
