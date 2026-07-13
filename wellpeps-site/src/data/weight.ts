@@ -31,10 +31,10 @@ export const weightWorksIntro = {
 };
 
 export const weightWorks: WorkStep[] = [
-  { icon: 'utensils', title: 'Reduce Hunger', body: 'Helps regulate appetite signals so you feel less hungry throughout the day.' },
-  { icon: 'clock', title: 'Feel Fuller Longer', body: 'Slows stomach emptying so you stay satisfied for longer periods.' },
-  { icon: 'trending-down', title: 'Support Healthy Weight Loss', body: 'Supports sustainable weight loss when combined with healthy lifestyle changes.' },
-  { icon: 'user', title: 'Provider Guided Care', body: 'A licensed provider monitors your progress and personalizes your treatment every step of the way.' },
+  { icon: 'plate-clock', title: 'Reduce Hunger', body: 'Helps regulate appetite signals so you feel less hungry throughout the day.' },
+  { icon: 'stomach-clock', title: 'Feel Fuller Longer', body: 'Slows stomach emptying so you stay satisfied for longer periods.' },
+  { icon: 'scale-check', title: 'Support Healthy Weight Loss', body: 'Supports sustainable weight loss when combined with healthy lifestyle changes.' },
+  { icon: 'provider-chat', title: 'Provider Guided Care', body: 'A licensed provider monitors your progress and personalizes your treatment every step of the way.' },
 ];
 
 export const weightWorksNotes = [

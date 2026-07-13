@@ -58,10 +58,11 @@ const { name, image, alt, icon, description, optionsLabel, options, price, price
     position: absolute; left: 0.9rem; bottom: 0.9rem;
     display: inline-grid; place-items: center;
     width: 46px; height: 46px; border-radius: 50%;
-    background: #fff; color: var(--blue);
-    box-shadow: var(--shadow-sm);
+    background: var(--medallion-bg); border: 1px solid var(--medallion-ring);
+    color: var(--blue);
+    box-shadow: var(--medallion-shadow);
   }
-  .pcard__badge :global(svg) { width: 24px; height: 24px; }
+  .pcard__badge :global(svg) { width: 24px; height: 24px; filter: var(--icon-shadow); }
 
   .pcard__body { display: flex; flex-direction: column; flex: 1; padding: 1.5rem 1.5rem 1.6rem; }
 

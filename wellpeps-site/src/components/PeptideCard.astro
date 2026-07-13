@@ -68,9 +68,10 @@ const { name, subtitle, description, icon, photo, photoAlt, vial, price, href } 
   .pepcard__badge {
     display: inline-grid; place-items: center; flex: none;
     width: 44px; height: 44px; border-radius: 50%;
-    background: var(--bg-wellness); color: var(--blue);
+    background: var(--medallion-bg); border: 1px solid var(--medallion-ring);
+    box-shadow: var(--medallion-shadow); color: var(--blue);
   }
-  .pepcard__badge :global(svg) { width: 22px; height: 22px; }
+  .pepcard__badge :global(svg) { width: 22px; height: 22px; filter: var(--icon-shadow); }
   .pepcard__name { font-family: var(--font-serif); font-weight: 700; font-size: 1.5rem; color: var(--navy); line-height: 1.1; }
   .pepcard__subtitle { margin-top: 0.2rem; color: var(--blue); font-weight: 600; font-size: 0.98rem; }
   .pepcard__desc { margin-top: 0.9rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.55; }

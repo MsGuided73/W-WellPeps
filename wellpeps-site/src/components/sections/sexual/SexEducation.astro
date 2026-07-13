@@ -48,8 +48,14 @@ import { sexEducation, sexWorks } from '../../../data/sexual';
   .sxedu__step { position: relative; padding: 2.25rem 1.75rem 2rem; overflow: hidden; }
   .sxedu__step:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
   .sxedu__num { position: absolute; top: 1rem; right: 1.25rem; font-family: var(--font-serif); font-weight: 700; font-size: 2.6rem; color: var(--border-strong); line-height: 1; }
-  .sxedu__icon { display: inline-grid; place-items: center; width: 60px; height: 60px; border-radius: 50%; background: var(--bg-wellness); color: var(--blue); }
-  .sxedu__icon :global(svg) { width: 28px; height: 28px; }
+  .sxedu__icon {
+    display: inline-grid; place-items: center; width: 60px; height: 60px; border-radius: 50%;
+    background: var(--medallion-bg); border: 1px solid var(--medallion-ring);
+    box-shadow: var(--medallion-shadow); color: var(--blue);
+    transition: box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
+  }
+  .sxedu__step:hover .sxedu__icon { box-shadow: var(--medallion-shadow-hover); transform: translateY(-2px); }
+  .sxedu__icon :global(svg) { width: 28px; height: 28px; filter: var(--icon-shadow); }
   .sxedu__step h4 { margin-top: 1.25rem; font-family: var(--font-serif); font-weight: 600; font-size: var(--text-card-title); color: var(--navy); line-height: 1.2; }
   .sxedu__step p { margin-top: 0.8rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.6; }
 

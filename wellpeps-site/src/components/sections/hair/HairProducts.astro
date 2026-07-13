@@ -49,9 +49,11 @@ import { ONBOARDING_URL } from '../../../config';
   .hprod__band-copy { display: flex; align-items: center; gap: 1.1rem; max-width: 760px; }
   .hprod__band-icon {
     display: inline-grid; place-items: center; flex: none;
-    width: 54px; height: 54px; border-radius: 50%; background: #fff; color: var(--blue);
+    width: 54px; height: 54px; border-radius: 50%;
+    background: var(--medallion-bg); border: 1px solid var(--medallion-ring);
+    box-shadow: var(--medallion-shadow); color: var(--blue);
   }
-  .hprod__band-icon :global(svg) { width: 26px; height: 26px; }
+  .hprod__band-icon :global(svg) { width: 26px; height: 26px; filter: var(--icon-shadow); }
   .hprod__band-title { font-family: var(--font-serif); font-weight: 700; font-size: 1.4rem; color: var(--navy); }
   .hprod__band-text { margin-top: 0.25rem; color: var(--text-body); font-size: 1rem; line-height: 1.5; }
   .hprod__band-cta { flex: none; }

@@ -45,9 +45,13 @@ import { weightWhy, weightWhyIntro } from '../../../data/weight';
   .wwhy__icon {
     margin-top: -52px; position: relative; z-index: 1;
     display: inline-grid; place-items: center; width: 64px; height: 64px; border-radius: 50%;
-    background: var(--bg-wellness); color: var(--blue); box-shadow: 0 0 0 5px #fff;
+    background: var(--medallion-bg); color: var(--blue);
+    /* White collar keeps it legible over the photo seam, then the shared lift. */
+    box-shadow: 0 0 0 5px #fff, var(--medallion-shadow);
+    transition: box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
   }
-  .wwhy__icon :global(svg) { width: 30px; height: 30px; }
+  .wwhy__card:hover .wwhy__icon { box-shadow: 0 0 0 5px #fff, var(--medallion-shadow-hover); transform: translateY(-2px); }
+  .wwhy__icon :global(svg) { width: 30px; height: 30px; filter: var(--icon-shadow); }
   .wwhy__body h3 { margin-top: 1rem; font-size: var(--text-card-title); font-weight: 600; line-height: 1.2; }
   .wwhy__body p { margin-top: 0.9rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.55; }
 

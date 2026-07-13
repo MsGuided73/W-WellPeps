@@ -42,8 +42,12 @@ import { weightProducts, weightProductsIntro } from '../../../data/weight';
     background: var(--bg-wellness); border-radius: var(--radius);
     max-width: 900px; margin-inline: auto;
   }
-  .wprod__band-icon { display: inline-grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 50%; background: #fff; color: var(--blue); }
-  .wprod__band-icon :global(svg) { width: 20px; height: 20px; }
+  .wprod__band-icon {
+    display: inline-grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 50%;
+    background: var(--medallion-bg); border: 1px solid var(--medallion-ring);
+    box-shadow: var(--medallion-shadow); color: var(--blue);
+  }
+  .wprod__band-icon :global(svg) { width: 20px; height: 20px; filter: var(--icon-shadow); }
   .wprod__band p { color: var(--text-body); font-size: var(--text-note); }
   .wprod__band strong { color: var(--navy); }
 

@@ -89,9 +89,10 @@ const { name, image, alt, benefits, description, delivery, price, priceUnit, pri
   .pcard__benefit-icon {
     display: inline-grid; place-items: center; flex: none;
     width: 38px; height: 38px; border-radius: 50%;
-    background: var(--bg-wellness); color: var(--blue);
+    background: var(--medallion-bg); border: 1px solid var(--medallion-ring);
+    box-shadow: var(--medallion-shadow); color: var(--blue);
   }
-  .pcard__benefit-icon :global(svg) { width: 20px; height: 20px; }
+  .pcard__benefit-icon :global(svg) { width: 20px; height: 20px; filter: var(--icon-shadow); }
 
   .pcard__divider { height: 1px; border: 0; background: var(--border); margin: 1.3rem 0; }
 
@@ -101,9 +102,10 @@ const { name, image, alt, benefits, description, delivery, price, priceUnit, pri
   .pcard__delivery-icon {
     display: inline-grid; place-items: center; flex: none;
     width: 38px; height: 38px; border-radius: 50%;
-    background: var(--bg-wellness); color: var(--blue);
+    background: var(--medallion-bg); border: 1px solid var(--medallion-ring);
+    box-shadow: var(--medallion-shadow); color: var(--blue);
   }
-  .pcard__delivery-icon :global(svg) { width: 20px; height: 20px; }
+  .pcard__delivery-icon :global(svg) { width: 20px; height: 20px; filter: var(--icon-shadow); }
 
   .pcard__price { margin-top: auto; padding-top: 1.3rem; }
   .pcard__price-label { display: block; color: var(--text-muted); font-size: calc(0.95rem + 1px); }

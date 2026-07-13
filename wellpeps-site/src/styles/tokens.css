@@ -17,6 +17,25 @@
   --blue-hover: #366FB0;
   --blue-soft: #2EA8F7;     /* Sky accent — icon fills, subtle highlights */
 
+  /* ---- Icon medallions ----
+     Dimensional treatment shared by every circular icon on the site: a soft
+     top-lit gradient, a hairline ring, an outer drop shadow for lift, and
+     inner highlight/shade so the disc reads as a raised physical object.
+     The icon itself gets a matching drop shadow (--icon-shadow). */
+  --medallion-bg: linear-gradient(155deg, #FFFFFF 0%, #EDF4FC 48%, #D9E8F9 100%);
+  --medallion-ring: rgba(66, 132, 203, 0.22);
+  --medallion-shadow:
+    0 10px 20px -8px rgba(8, 43, 89, 0.30),
+    0 2px 5px rgba(8, 43, 89, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -3px 7px rgba(66, 132, 203, 0.13);
+  --medallion-shadow-hover:
+    0 16px 28px -10px rgba(8, 43, 89, 0.36),
+    0 3px 7px rgba(8, 43, 89, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -3px 7px rgba(66, 132, 203, 0.16);
+  --icon-shadow: drop-shadow(0 1px 1.5px rgba(8, 43, 89, 0.28));
+
   /* ---- Surfaces ---- */
   --white: #ffffff;
   --bg-gray: #F7F9FC;       /* Alternating section background */

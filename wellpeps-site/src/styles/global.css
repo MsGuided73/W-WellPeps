@@ -201,11 +201,16 @@ svg.inline-arrow    { width: 0.9em; height: 0.9em; }
 .medallion {
   display: inline-grid; place-items: center;
   width: 72px; height: 72px; border-radius: 50%;
-  background: var(--bg-wellness);
+  background: var(--medallion-bg);
+  border: 1px solid var(--medallion-ring);
+  box-shadow: var(--medallion-shadow);
   color: var(--blue);
+  transition: box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
 }
-.medallion svg { width: 34px; height: 34px; }
-.medallion img { width: 42px; height: 42px; object-fit: contain; }
+.medallion svg { width: 34px; height: 34px; filter: var(--icon-shadow); }
+.medallion img { width: 42px; height: 42px; object-fit: contain; filter: var(--icon-shadow); }
+/* Lift the medallion when its card is hovered. */
+.card:hover .medallion { box-shadow: var(--medallion-shadow-hover); transform: translateY(-2px); }
 
 /* ---- Reveal-on-scroll (progressive enhancement) ---- */
 .reveal { opacity: 0; transform: translateY(18px); }
