@@ -1,0 +1,254 @@
+---
+/**
+ * WellPeps virtual assistant — floating chat widget.
+ *
+ * Answers are retrieved from the knowledge base and cited (see
+ * `src/lib/assistant.ts`). Today that corpus is mock data; in production it is
+ * the Supabase-backed blog corpus plus facility protocols. The widget itself
+ * does not care where the answers come from.
+ */
+import Icon from './Icon.astro';
+import { ONBOARDING_URL } from '../config';
+import { SUGGESTED_QUESTIONS, ASSISTANT_GREETING } from '../lib/assistant';
+---
+<div class="wa" data-assistant>
+  <button class="wa__launcher" data-wa-toggle aria-expanded="false" aria-controls="wa-panel"
+          aria-label="Open the WellPeps assistant">
+    <span class="wa__launcher-icon"><Icon name="chat" /></span>
+    <span class="wa__launcher-label">Ask WellPeps</span>
+  </button>
+
+  <section class="wa__panel" id="wa-panel" data-wa-panel hidden aria-label="WellPeps assistant">
+    <header class="wa__head">
+      <span class="wa__avatar"><Icon name="chat" /></span>
+      <div class="wa__head-copy">
+        <p class="wa__title">WellPeps Assistant</p>
+        <p class="wa__status">Answers from our articles &amp; program info</p>
+      </div>
+      <button class="wa__close" data-wa-close aria-label="Close the assistant">
+        <Icon name="plus" />
+      </button>
+    </header>
+
+    <div class="wa__log" data-wa-log role="log" aria-live="polite">
+      <div class="wa__msg wa__msg--bot">
+        <p>{ASSISTANT_GREETING}</p>
+      </div>
+      <div class="wa__suggest" data-wa-suggest>
+        {SUGGESTED_QUESTIONS.map((q) => (
+          <button type="button" class="wa__chip" data-wa-chip>{q}</button>
+        ))}
+      </div>
+    </div>
+
+    <form class="wa__form" data-wa-form>
+      <input type="text" name="q" autocomplete="off" placeholder="Ask a question…"
+             aria-label="Ask the WellPeps assistant a question" data-wa-input />
+      <button type="submit" aria-label="Send"><Icon name="arrow-right" /></button>
+    </form>
+
+    <p class="wa__disclaimer">
+      Not medical advice. For care, <a href={ONBOARDING_URL}>start your free assessment</a>.
+    </p>
+  </section>
+</div>
+
+<style>
+  .wa { position: fixed; right: clamp(1rem, 3vw, 2rem); bottom: clamp(1rem, 3vw, 2rem); z-index: 150; }
+
+  /* ---- Launcher ---- */
+  .wa__launcher {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.85rem 1.35rem 0.85rem 0.9rem;
+    border: 0; border-radius: var(--radius-pill); cursor: pointer;
+    background: var(--navy); color: #fff;
+    font-family: var(--font-sans); font-weight: 700; font-size: calc(0.95rem + 1px);
+    box-shadow: 0 12px 28px -10px rgba(8, 43, 89, 0.55), 0 3px 8px rgba(8, 43, 89, 0.2);
+    transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  }
+  .wa__launcher:hover { transform: translateY(-2px); box-shadow: 0 18px 34px -12px rgba(8, 43, 89, 0.6); }
+  .wa__launcher-icon {
+    display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%;
+    background: var(--medallion-bg); border: 1px solid var(--medallion-ring);
+    box-shadow: var(--medallion-shadow); color: var(--blue);
+  }
+  .wa__launcher-icon :global(svg) { width: 19px; height: 19px; filter: var(--icon-shadow); }
+  .wa[data-open] .wa__launcher { display: none; }
+
+  /* ---- Panel ---- */
+  .wa__panel {
+    display: flex; flex-direction: column;
+    width: min(92vw, 400px); height: min(72vh, 580px);
+    background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg);
+    box-shadow: 0 30px 60px -20px rgba(8, 43, 89, 0.42), 0 8px 20px rgba(8, 43, 89, 0.12);
+    overflow: hidden;
+  }
+  .wa__panel[hidden] { display: none; }
+
+  .wa__head {
+    display: flex; align-items: center; gap: 0.8rem; flex: none;
+    padding: 1rem 1.1rem;
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: #fff;
+  }
+  .wa__avatar {
+    display: inline-grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 50%;
+    background: var(--medallion-bg); border: 1px solid var(--medallion-ring);
+    box-shadow: var(--medallion-shadow); color: var(--blue);
+  }
+  .wa__avatar :global(svg) { width: 21px; height: 21px; filter: var(--icon-shadow); }
+  .wa__head-copy { flex: 1; min-width: 0; }
+  .wa__title { font-family: var(--font-serif); font-weight: 700; font-size: 1.15rem; color: #fff; line-height: 1.2; }
+  .wa__status { color: var(--text-on-dark-muted); font-size: 0.8rem; margin-top: 0.1rem; }
+  .wa__close {
+    flex: none; display: grid; place-items: center; width: 32px; height: 32px;
+    background: rgba(255,255,255,0.12); border: 0; border-radius: 50%; cursor: pointer; color: #fff;
+    transition: background var(--dur) var(--ease);
+  }
+  .wa__close:hover { background: rgba(255,255,255,0.22); }
+  /* The icon set has no "x" — rotate the plus into one. */
+  .wa__close :global(svg) { width: 18px; height: 18px; transform: rotate(45deg); }
+
+  /* ---- Log ---- */
+  .wa__log { flex: 1; overflow-y: auto; padding: 1.1rem; display: flex; flex-direction: column; gap: 0.85rem; background: var(--bg-gray); }
+  .wa__msg { max-width: 88%; padding: 0.8rem 1rem; border-radius: var(--radius); line-height: 1.55; font-size: calc(0.95rem + 1px); }
+  .wa__msg--bot { align-self: flex-start; background: #fff; border: 1px solid var(--border); color: var(--text-body); box-shadow: var(--shadow-sm); }
+  .wa__msg--user { align-self: flex-end; background: var(--blue); color: #fff; }
+  .wa__msg--alert { border-color: rgba(196, 62, 62, 0.35); background: #fff6f6; }
+
+  .wa__cite { margin-top: 0.6rem; padding-top: 0.6rem; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .wa__cite-label { width: 100%; color: var(--text-muted); font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; font-weight: 700; }
+  .wa__cite a, .wa__cite span {
+    display: inline-block; padding: 0.25rem 0.6rem; border-radius: var(--radius-pill);
+    background: var(--bg-wellness); color: var(--blue); font-size: 0.82rem; font-weight: 600;
+  }
+  .wa__cite a:hover { background: var(--blue); color: #fff; }
+
+  .wa__msg-cta { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.7rem; font-weight: 700; color: var(--blue); font-size: 0.9rem; }
+  .wa__msg-cta:hover { text-decoration: underline; }
+
+  .wa__suggest { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+  .wa__chip {
+    background: #fff; border: 1px solid var(--border-strong); border-radius: var(--radius-pill);
+    padding: 0.45rem 0.8rem; cursor: pointer;
+    font-family: var(--font-sans); font-size: 0.85rem; font-weight: 600; color: var(--navy);
+    transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+  }
+  .wa__chip:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
+
+  /* ---- Composer ---- */
+  .wa__form { flex: none; display: flex; gap: 0.5rem; padding: 0.8rem; border-top: 1px solid var(--border); background: #fff; }
+  .wa__form input {
+    flex: 1; min-width: 0; padding: 0.75rem 0.9rem;
+    border: 1px solid var(--border-strong); border-radius: var(--radius-pill);
+    font-family: var(--font-sans); font-size: calc(0.95rem + 1px); color: var(--navy);
+  }
+  .wa__form input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(66, 132, 203, 0.2); }
+  .wa__form button {
+    flex: none; display: grid; place-items: center; width: 44px; height: 44px;
+    border: 0; border-radius: 50%; cursor: pointer; background: var(--blue); color: #fff;
+    transition: background var(--dur) var(--ease);
+  }
+  .wa__form button:hover { background: var(--blue-hover); }
+  .wa__form button :global(svg) { width: 20px; height: 20px; }
+
+  .wa__disclaimer { flex: none; padding: 0 0.9rem 0.8rem; background: #fff; color: var(--text-muted); font-size: 0.75rem; text-align: center; }
+
+  @media (max-width: 480px) {
+    .wa { right: 0.75rem; bottom: 0.75rem; left: 0.75rem; }
+    .wa__panel { width: 100%; height: min(76vh, 560px); }
+    .wa__launcher { width: 100%; justify-content: center; }
+  }
+</style>
+
+<script>
+  import { answerQuestion } from '../lib/assistant';
+
+  const root = document.querySelector('[data-assistant]');
+  if (root) {
+    const panel = root.querySelector('[data-wa-panel]') as HTMLElement;
+    const toggle = root.querySelector('[data-wa-toggle]') as HTMLButtonElement;
+    const closeBtn = root.querySelector('[data-wa-close]') as HTMLButtonElement;
+    const log = root.querySelector('[data-wa-log]') as HTMLElement;
+    const form = root.querySelector('[data-wa-form]') as HTMLFormElement;
+    const input = root.querySelector('[data-wa-input]') as HTMLInputElement;
+    const suggest = root.querySelector('[data-wa-suggest]') as HTMLElement;
+
+    const open = (isOpen: boolean) => {
+      panel.hidden = !isOpen;
+      toggle.setAttribute('aria-expanded', String(isOpen));
+      root.toggleAttribute('data-open', isOpen);
+      if (isOpen) input.focus();
+    };
+
+    toggle.addEventListener('click', () => open(true));
+    closeBtn.addEventListener('click', () => { open(false); toggle.focus(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !panel.hidden) { open(false); toggle.focus(); }
+    });
+
+    const escape = (s: string) =>
+      s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+    const addUser = (text: string) => {
+      const el = document.createElement('div');
+      el.className = 'wa__msg wa__msg--user';
+      el.innerHTML = `<p>${escape(text)}</p>`;
+      log.appendChild(el);
+    };
+
+    const addBot = (reply: ReturnType<typeof answerQuestion>) => {
+      const el = document.createElement('div');
+      el.className = 'wa__msg wa__msg--bot' + (reply.cta === 'emergency' ? ' wa__msg--alert' : '');
+
+      let html = `<p>${escape(reply.text)}</p>`;
+
+      if (reply.citations.length) {
+        const chips = reply.citations
+          .map((c) =>
+            c.href
+              ? `<a href="${c.href}">${escape(c.title)}</a>`
+              : `<span>${escape(c.title)}</span>`
+          )
+          .join('');
+        html += `<div class="wa__cite"><span class="wa__cite-label">Sources</span>${chips}</div>`;
+      }
+
+      if (reply.cta === 'assessment') {
+        html += `<a class="wa__msg-cta" href="/#assessment">Start your free assessment →</a>`;
+      }
+
+      el.innerHTML = html;
+      log.appendChild(el);
+    };
+
+    const ask = (question: string) => {
+      if (!question.trim()) return;
+      suggest?.remove();
+      addUser(question);
+      // Simulated latency so the demo reads like a real assistant.
+      const thinking = document.createElement('div');
+      thinking.className = 'wa__msg wa__msg--bot';
+      thinking.textContent = '…';
+      log.appendChild(thinking);
+      log.scrollTop = log.scrollHeight;
+
+      window.setTimeout(() => {
+        thinking.remove();
+        addBot(answerQuestion(question));
+        log.scrollTop = log.scrollHeight;
+      }, 450);
+    };
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const q = input.value;
+      input.value = '';
+      ask(q);
+    });
+
+    root.querySelectorAll('[data-wa-chip]').forEach((chip) =>
+      chip.addEventListener('click', () => ask(chip.textContent ?? ''))
+    );
+  }
+</script>
