@@ -42,14 +42,15 @@ import { weightWorks, weightWorksIntro, weightWorksNotes } from '../../../data/w
     margin-top: clamp(2.5rem, 4vw, 3.5rem);
   }
   .wworks__step { text-align: center; display: flex; flex-direction: column; align-items: center; }
+  /* Large icons, matching the approved Weight Loss icon sheet. */
   .wworks__icon {
-    display: inline-grid; place-items: center; width: 84px; height: 84px; border-radius: 50%;
+    display: inline-grid; place-items: center; width: 112px; height: 112px; border-radius: 50%;
     background: var(--medallion-bg); border: 1px solid var(--medallion-ring);
     box-shadow: var(--medallion-shadow); color: var(--blue);
     transition: box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
   }
   .wworks__step:hover .wworks__icon { box-shadow: var(--medallion-shadow-hover); transform: translateY(-2px); }
-  .wworks__icon :global(svg) { width: 38px; height: 38px; filter: var(--icon-shadow); }
+  .wworks__icon :global(svg) { width: 60px; height: 60px; filter: var(--icon-shadow); }
   .wworks__step h3 { margin-top: 1.4rem; font-size: var(--text-card-title); font-weight: 600; line-height: 1.2; }
   .wworks__step .rule { margin-top: 0.9rem; }
   .wworks__step p { margin-top: 0.9rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.55; }
