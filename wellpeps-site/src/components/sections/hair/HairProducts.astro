@@ -1,8 +1,6 @@
 ---
-import Icon from '../../Icon.astro';
 import ProductCard from '../../ProductCard.astro';
 import { hairProducts, hairProductsIntro } from '../../../data/hair';
-import { ONBOARDING_URL } from '../../../config';
 ---
 <section class="section section--gray" id="hair-products">
   <div class="container">
@@ -13,16 +11,6 @@ import { ONBOARDING_URL } from '../../../config';
 
     <div class="hprod__grid reveal">
       {hairProducts.map((product) => <ProductCard product={product} />)}
-    </div>
-
-    <div class="hprod__band reveal">
-      <div class="hprod__band-copy">
-        <div>
-          <p class="hprod__band-title">Personalized Programs</p>
-          <p class="hprod__band-text">Your treatment plan is customized based on your hair loss pattern, goals, medical history, and provider evaluation.</p>
-        </div>
-      </div>
-      <a href={ONBOARDING_URL} class="btn btn--primary hprod__band-cta">Find Your Program <Icon name="arrow-right" /></a>
     </div>
 
     <p class="hprod__foot reveal">{hairProductsIntro.footnote}</p>
@@ -40,25 +28,13 @@ import { ONBOARDING_URL } from '../../../config';
     margin-top: clamp(2.5rem, 4vw, 3.5rem);
   }
 
-  .hprod__band {
-    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem;
-    margin-top: 2rem; padding: 1.75rem 2rem;
-    background: var(--bg-wellness); border-radius: var(--radius-lg);
-  }
-  .hprod__band-copy { display: flex; align-items: center; gap: 1.1rem; max-width: 760px; }
-  .hprod__band-title { font-family: var(--font-serif); font-weight: 700; font-size: 1.4rem; color: var(--navy); }
-  .hprod__band-text { margin-top: 0.25rem; color: var(--text-body); font-size: 1rem; line-height: 1.5; }
-  .hprod__band-cta { flex: none; }
-
   .hprod__foot {
-    text-align: center; margin-top: 1.75rem;
+    text-align: center; margin-top: 2.5rem;
     color: var(--blue); font-weight: 700; font-size: var(--text-note);
   }
 
   @media (max-width: 1200px) { .hprod__grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 620px) {
     .hprod__grid { grid-template-columns: 1fr; max-width: 420px; margin-inline: auto; }
-    .hprod__band { flex-direction: column; align-items: flex-start; }
-    .hprod__band-cta { width: 100%; }
   }
 </style>
