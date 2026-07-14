@@ -137,14 +137,13 @@ h1, h2, h3, h4 {
   transform: translateY(-2px);
   box-shadow: 0 12px 26px rgba(66, 132, 203, 0.32);
 }
-/* Large page CTAs ("Start Your Free Assessment") use the dark navy fill —
-   the approved treatment from the Weight Loss CTA band. The compact nav
-   button keeps the brand blue. */
-.btn--primary.btn--lg {
+/* Dark navy fill — used ONLY by the bottom-of-page CTA bands. Heroes and
+   in-page section CTAs keep the brand blue .btn--primary above. */
+.btn--cta {
   background: var(--navy); color: #fff;
   box-shadow: 0 8px 20px rgba(8, 43, 89, 0.22);
 }
-.btn--primary.btn--lg:hover {
+.btn--cta:hover {
   background: var(--navy-deep); color: #fff;
   box-shadow: 0 12px 26px rgba(8, 43, 89, 0.3);
 }

@@ -51,9 +51,8 @@ import { weightWorks, weightWorksIntro, weightWorksNotes } from '../../../data/w
   }
   .wworks__note { display: flex; align-items: center; gap: 1rem; }
   .wworks__note:first-child { border-right: 1px solid var(--border); padding-right: 1.5rem; }
-  /* Notes read as blue bold copy (matching the home-page note treatment). */
-  .wworks__note p { color: var(--blue); font-weight: 700; font-size: var(--text-note); line-height: 1.5; }
-  .wworks__note strong { color: var(--blue); }
+  .wworks__note p { color: var(--text-body); font-size: var(--text-card-body); line-height: 1.5; }
+  .wworks__note strong { color: var(--navy); }
 
   @media (max-width: 1000px) { .wworks__grid { grid-template-columns: 1fr 1fr; gap: 2.25rem 1.75rem; } }
   @media (max-width: 620px) {
