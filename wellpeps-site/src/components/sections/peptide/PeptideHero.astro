@@ -9,7 +9,6 @@ import { peptideHero } from '../../../data/peptide';
 
   <div class="phero__wrap">
     <div class="phero__copy reveal">
-      <span class="phero__eyebrow"><Icon name="molecule" /> {peptideHero.eyebrow}</span>
       <h1>
         <span class="phero__line">Next-Gen Peptide<br class="db" /> &amp; Wellness Therapies.</span>
         <span class="phero__line phero__line--accent">Feel Like Yourself Again.</span>
@@ -40,15 +39,7 @@ import { peptideHero } from '../../../data/peptide';
     .db { display: inline; }
     .phero__line { white-space: nowrap; }
   }
-  .phero__eyebrow {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: var(--bg-wellness); color: var(--navy);
-    font-family: var(--font-sans); font-weight: 700; font-size: 0.9rem;
-    letter-spacing: 0.06em; text-transform: uppercase;
-    padding: 0.5rem 1rem; border-radius: var(--radius-pill);
-  }
-  .phero__eyebrow :global(svg) { width: 18px; height: 18px; color: var(--blue); }
-  .phero__copy h1 { margin-top: 1.5rem; font-size: clamp(2.6rem, 1.6rem + 3.3vw, 3.95rem); line-height: 1.06; font-weight: 700; letter-spacing: -0.025em; color: var(--navy); }
+  .phero__copy h1 { font-size: clamp(2.6rem, 1.6rem + 3.3vw, 3.95rem); line-height: 1.06; font-weight: 700; letter-spacing: -0.025em; color: var(--navy); }
   .phero__line { display: block; }
   .phero__line--accent { color: var(--blue); }
   .phero__lead { margin-top: 1.5rem; color: var(--text-body); font-size: clamp(1.1rem, 1rem + 0.4vw, 1.28rem); }

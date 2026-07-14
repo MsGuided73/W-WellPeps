@@ -13,7 +13,6 @@ import { hairHero } from '../../../data/hair';
 
   <div class="hhero__wrap">
     <div class="hhero__copy reveal">
-      <span class="hhero__eyebrow"><Icon name="droplet" /> {hairHero.eyebrow}</span>
       <h1>
         <span class="hhero__line">{hairHero.titleLead}</span>
         <span class="hhero__line hhero__line--accent">{hairHero.titleAccent}</span>
@@ -61,17 +60,7 @@ import { hairHero } from '../../../data/hair';
   /* Wide enough that "Restore Your Hair." holds one line at full title size. */
   .hhero__copy { max-width: clamp(360px, 50vw, 760px); padding-block: clamp(2.5rem, 4vw, 4.5rem); }
 
-  .hhero__eyebrow {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: var(--bg-wellness); color: var(--navy);
-    font-family: var(--font-sans); font-weight: 700; font-size: 0.9rem;
-    letter-spacing: 0.06em; text-transform: uppercase;
-    padding: 0.5rem 1rem; border-radius: var(--radius-pill);
-  }
-  .hhero__eyebrow :global(svg) { width: 18px; height: 18px; color: var(--blue); }
-
   .hhero__copy h1 {
-    margin-top: 1.5rem;
     font-size: clamp(2.75rem, 1.6rem + 4.6vw, 5rem);
     line-height: 1.03; font-weight: 700; letter-spacing: -0.025em; color: var(--navy);
   }

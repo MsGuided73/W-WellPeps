@@ -1,5 +1,4 @@
 ---
-import Icon from '../../Icon.astro';
 import { sexEducation, sexWorks } from '../../../data/sexual';
 ---
 <section class="section section--pale-blue" id="how-it-works">
@@ -21,7 +20,6 @@ import { sexEducation, sexWorks } from '../../../data/sexual';
         {sexWorks.map((s, i) => (
           <article class="card sxedu__step">
             <span class="sxedu__num">{i + 1}</span>
-            <span class="sxedu__icon"><Icon name={s.icon} /></span>
             <h4>{s.title}</h4>
             <p>{s.body}</p>
           </article>
@@ -48,16 +46,7 @@ import { sexEducation, sexWorks } from '../../../data/sexual';
   .sxedu__step { position: relative; padding: 2.25rem 1.75rem 2rem; overflow: hidden; }
   .sxedu__step:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
   .sxedu__num { position: absolute; top: 1rem; right: 1.25rem; font-family: var(--font-serif); font-weight: 700; font-size: 2.6rem; color: var(--border-strong); line-height: 1; }
-  /* Large icons, per the approved Sexual Wellness icon sheet. */
-  .sxedu__icon {
-    display: inline-grid; place-items: center; width: 112px; height: 112px; border-radius: 50%;
-    background: var(--medallion-bg); border: 1px solid var(--medallion-ring);
-    box-shadow: var(--medallion-shadow); color: var(--blue);
-    transition: box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
-  }
-  .sxedu__step:hover .sxedu__icon { box-shadow: var(--medallion-shadow-hover); transform: translateY(-2px); }
-  .sxedu__icon :global(svg) { width: 60px; height: 60px; filter: var(--icon-shadow); }
-  .sxedu__step h4 { margin-top: 1.25rem; font-family: var(--font-serif); font-weight: 600; font-size: var(--text-card-title); color: var(--navy); line-height: 1.2; }
+  .sxedu__step h4 { font-family: var(--font-serif); font-weight: 600; font-size: var(--text-card-title); color: var(--navy); line-height: 1.2; }
   .sxedu__step p { margin-top: 0.8rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.6; }
 
   @media (max-width: 900px) {

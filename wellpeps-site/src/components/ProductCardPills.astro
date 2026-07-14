@@ -25,10 +25,7 @@ const { name, image, alt, benefits, description, delivery, price, priceUnit, pri
 
     <ul class="pcard__benefits">
       {benefits.map((b) => (
-        <li class="pcard__benefit">
-          <span class="pcard__benefit-icon"><Icon name={b.icon} /></span>
-          <span>{b.label}</span>
-        </li>
+        <li class="pcard__benefit"><span>{b.label}</span></li>
       ))}
     </ul>
 
@@ -39,7 +36,6 @@ const { name, image, alt, benefits, description, delivery, price, priceUnit, pri
     <hr class="pcard__divider" />
 
     <div class="pcard__delivery">
-      <span class="pcard__delivery-icon"><Icon name={delivery.icon} /></span>
       <span>{delivery.label}</span>
     </div>
 
@@ -85,27 +81,13 @@ const { name, image, alt, benefits, description, delivery, price, priceUnit, pri
     list-style: none; padding: 0; margin: 1.25rem 0 0;
     display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem 1.25rem;
   }
-  .pcard__benefit { display: flex; align-items: center; gap: 0.65rem; font-weight: 700; color: var(--blue); font-size: calc(0.98rem + 1px); }
-  .pcard__benefit-icon {
-    display: inline-grid; place-items: center; flex: none;
-    width: 38px; height: 38px; border-radius: 50%;
-    background: var(--medallion-bg); border: 1px solid var(--medallion-ring);
-    box-shadow: var(--medallion-shadow); color: var(--blue);
-  }
-  .pcard__benefit-icon :global(svg) { width: 20px; height: 20px; filter: var(--icon-shadow); }
+  .pcard__benefit { display: flex; align-items: center; font-weight: 700; color: var(--blue); font-size: calc(0.98rem + 1px); }
 
   .pcard__divider { height: 1px; border: 0; background: var(--border); margin: 1.3rem 0; }
 
   .pcard__desc { color: var(--text-body); font-size: var(--text-card-body); line-height: 1.6; }
 
-  .pcard__delivery { display: flex; align-items: center; gap: 0.7rem; color: var(--navy); font-weight: 500; }
-  .pcard__delivery-icon {
-    display: inline-grid; place-items: center; flex: none;
-    width: 38px; height: 38px; border-radius: 50%;
-    background: var(--medallion-bg); border: 1px solid var(--medallion-ring);
-    box-shadow: var(--medallion-shadow); color: var(--blue);
-  }
-  .pcard__delivery-icon :global(svg) { width: 20px; height: 20px; filter: var(--icon-shadow); }
+  .pcard__delivery { display: flex; align-items: center; color: var(--navy); font-weight: 500; }
 
   .pcard__price { margin-top: auto; padding-top: 1.3rem; }
   .pcard__price-label { display: block; color: var(--text-muted); font-size: var(--price-label); }

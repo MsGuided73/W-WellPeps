@@ -17,7 +17,6 @@ import { ONBOARDING_URL } from '../../../config';
 
     <div class="hprod__band reveal">
       <div class="hprod__band-copy">
-        <span class="hprod__band-icon"><Icon name="user" /></span>
         <div>
           <p class="hprod__band-title">Personalized Programs</p>
           <p class="hprod__band-text">Your treatment plan is customized based on your hair loss pattern, goals, medical history, and provider evaluation.</p>
@@ -26,7 +25,7 @@ import { ONBOARDING_URL } from '../../../config';
       <a href={ONBOARDING_URL} class="btn btn--primary hprod__band-cta">Find Your Program <Icon name="arrow-right" /></a>
     </div>
 
-    <p class="hprod__foot reveal"><Icon name="shield" /> {hairProductsIntro.footnote}</p>
+    <p class="hprod__foot reveal">{hairProductsIntro.footnote}</p>
   </div>
 </section>
 
@@ -47,22 +46,14 @@ import { ONBOARDING_URL } from '../../../config';
     background: var(--bg-wellness); border-radius: var(--radius-lg);
   }
   .hprod__band-copy { display: flex; align-items: center; gap: 1.1rem; max-width: 760px; }
-  .hprod__band-icon {
-    display: inline-grid; place-items: center; flex: none;
-    width: 54px; height: 54px; border-radius: 50%;
-    background: var(--medallion-bg); border: 1px solid var(--medallion-ring);
-    box-shadow: var(--medallion-shadow); color: var(--blue);
-  }
-  .hprod__band-icon :global(svg) { width: 26px; height: 26px; filter: var(--icon-shadow); }
   .hprod__band-title { font-family: var(--font-serif); font-weight: 700; font-size: 1.4rem; color: var(--navy); }
   .hprod__band-text { margin-top: 0.25rem; color: var(--text-body); font-size: 1rem; line-height: 1.5; }
   .hprod__band-cta { flex: none; }
 
   .hprod__foot {
-    display: flex; align-items: center; justify-content: center; gap: 0.5rem;
-    margin-top: 1.75rem; color: var(--text-muted); font-size: var(--text-note);
+    text-align: center; margin-top: 1.75rem;
+    color: var(--blue); font-weight: 700; font-size: var(--text-note);
   }
-  .hprod__foot :global(svg) { width: 18px; height: 18px; color: var(--blue-soft); }
 
   @media (max-width: 1200px) { .hprod__grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 620px) {

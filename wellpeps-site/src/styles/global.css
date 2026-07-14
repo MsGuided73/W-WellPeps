@@ -137,6 +137,17 @@ h1, h2, h3, h4 {
   transform: translateY(-2px);
   box-shadow: 0 12px 26px rgba(66, 132, 203, 0.32);
 }
+/* Large page CTAs ("Start Your Free Assessment") use the dark navy fill —
+   the approved treatment from the Weight Loss CTA band. The compact nav
+   button keeps the brand blue. */
+.btn--primary.btn--lg {
+  background: var(--navy); color: #fff;
+  box-shadow: 0 8px 20px rgba(8, 43, 89, 0.22);
+}
+.btn--primary.btn--lg:hover {
+  background: var(--navy-deep); color: #fff;
+  box-shadow: 0 12px 26px rgba(8, 43, 89, 0.3);
+}
 .btn--secondary {
   background: #fff; color: var(--blue);
   border-color: var(--blue);
@@ -198,19 +209,22 @@ svg.tiny            { width: 14px; height: 14px; }
 svg.inline-arrow    { width: 0.9em; height: 0.9em; }
 
 /* ---- Icon medallion (round tinted badge behind an outline icon) ---- */
+/* Flat white disc with a blue outline icon — reads clean at rest and gains
+   depth only on hover (the treatment used in "Your Safety, Wellness & Privacy
+   Come First", which is the approved look). */
 .medallion {
   display: inline-grid; place-items: center;
   width: 72px; height: 72px; border-radius: 50%;
-  background: var(--medallion-bg);
-  border: 1px solid var(--medallion-ring);
-  box-shadow: var(--medallion-shadow);
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
   color: var(--blue);
   transition: box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
 }
-.medallion svg { width: 34px; height: 34px; filter: var(--icon-shadow); }
-.medallion img { width: 42px; height: 42px; object-fit: contain; filter: var(--icon-shadow); }
-/* Lift the medallion when its card is hovered. */
-.card:hover .medallion { box-shadow: var(--medallion-shadow-hover); transform: translateY(-2px); }
+.medallion svg { width: 34px; height: 34px; }
+.medallion img { width: 42px; height: 42px; object-fit: contain; }
+/* Depth appears on hover. */
+.card:hover .medallion { box-shadow: var(--medallion-shadow); transform: translateY(-2px); }
 
 /* ---- Reveal-on-scroll (progressive enhancement) ---- */
 .reveal { opacity: 0; transform: translateY(18px); }

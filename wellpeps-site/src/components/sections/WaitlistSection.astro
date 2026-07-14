@@ -22,7 +22,6 @@ const {
 <section class="wls">
   <div class="container wls__inner">
     <div class="wls__copy reveal">
-      <span class="wls__eyebrow"><Icon name={eyebrowIcon} /> Coming Soon</span>
       <h1>
         <span class="wls__line">{titleLead}</span>
         <span class="wls__line wls__line--accent">{titleAccent}</span>
@@ -68,16 +67,7 @@ const {
   .wls__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); align-items: center; gap: clamp(2rem, 5vw, 4.5rem); }
   .wls__copy { max-width: 620px; }
 
-  .wls__eyebrow {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: var(--bg-wellness); color: var(--blue);
-    font-family: var(--font-sans); font-weight: 700; font-size: 0.85rem;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    padding: 0.5rem 1rem; border-radius: var(--radius-pill);
-  }
-  .wls__eyebrow :global(svg) { width: 18px; height: 18px; }
-
-  .wls__copy h1 { margin-top: 1.4rem; font-size: clamp(2.75rem, 1.7rem + 4vw, 4.6rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.025em; color: var(--navy); }
+  .wls__copy h1 { font-size: clamp(2.75rem, 1.7rem + 4vw, 4.6rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.025em; color: var(--navy); }
   .wls__line { display: block; }
   .wls__line--accent { color: var(--blue); }
 

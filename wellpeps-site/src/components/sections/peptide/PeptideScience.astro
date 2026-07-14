@@ -1,5 +1,4 @@
 ---
-import Icon from '../../Icon.astro';
 import { peptideScience, peptideBenefits } from '../../../data/peptide';
 ---
 <section class="section" id="science">
@@ -22,7 +21,6 @@ import { peptideScience, peptideBenefits } from '../../../data/peptide';
             <img src={b.image} alt={b.alt} width="760" height="520" loading="lazy" />
           </div>
           <div class="psci__benefit-body">
-            <span class="psci__benefit-icon"><Icon name={b.icon} /></span>
             <h3>{b.title}</h3>
             <p>{b.body}</p>
           </div>
@@ -56,18 +54,10 @@ import { peptideScience, peptideBenefits } from '../../../data/peptide';
   .psci__benefit-media { aspect-ratio: 16 / 10; overflow: hidden; }
   .psci__benefit-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
   .psci__benefit-body { padding: 1.75rem 1.6rem 2rem; display: flex; flex-direction: column; align-items: center; flex: 1; }
-  .psci__benefit-icon {
-    display: inline-grid; place-items: center; width: 64px; height: 64px; border-radius: 50%;
-    background: var(--medallion-bg); border: 1px solid var(--medallion-ring);
-    box-shadow: var(--medallion-shadow); color: var(--blue); margin-bottom: 1rem;
-    transition: box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
-  }
-  .psci__benefit:hover .psci__benefit-icon { box-shadow: var(--medallion-shadow-hover); transform: translateY(-2px); }
-  .psci__benefit-icon :global(svg) { width: 30px; height: 30px; filter: var(--icon-shadow); }
   .psci__benefit h3 { font-family: var(--font-serif); font-size: var(--text-card-title); font-weight: 600; color: var(--navy); line-height: 1.2; }
   .psci__benefit p { margin-top: 0.9rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.6; }
 
-  .psci__foot { text-align: center; margin-top: 2rem; color: var(--text-muted); font-size: var(--text-note); }
+  .psci__foot { text-align: center; margin-top: 2rem; color: var(--blue); font-weight: 700; font-size: var(--text-note); }
 
   @media (max-width: 900px) {
     .psci__top { grid-template-columns: 1fr; }

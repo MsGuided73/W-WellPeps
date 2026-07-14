@@ -1,5 +1,4 @@
 ---
-import Icon from '../../Icon.astro';
 import { weightWorks, weightWorksIntro, weightWorksNotes } from '../../../data/weight';
 ---
 <section class="section section--ivory" id="how-it-works">
@@ -12,7 +11,6 @@ import { weightWorks, weightWorksIntro, weightWorksNotes } from '../../../data/w
     <div class="wworks__grid reveal">
       {weightWorks.map((step) => (
         <article class="wworks__step">
-          <span class="wworks__icon"><Icon name={step.icon} /></span>
           <h3>{step.title}</h3>
           <hr class="rule" />
           <p>{step.body}</p>
@@ -23,7 +21,6 @@ import { weightWorks, weightWorksIntro, weightWorksNotes } from '../../../data/w
     <div class="wworks__notes reveal">
       {weightWorksNotes.map((n) => (
         <div class="wworks__note">
-          <span class="wworks__note-icon"><Icon name={n.icon} /></span>
           <p><strong>{n.lead}</strong> {n.body}</p>
         </div>
       ))}
@@ -42,16 +39,7 @@ import { weightWorks, weightWorksIntro, weightWorksNotes } from '../../../data/w
     margin-top: clamp(2.5rem, 4vw, 3.5rem);
   }
   .wworks__step { text-align: center; display: flex; flex-direction: column; align-items: center; }
-  /* Large icons, matching the approved Weight Loss icon sheet. */
-  .wworks__icon {
-    display: inline-grid; place-items: center; width: 112px; height: 112px; border-radius: 50%;
-    background: var(--medallion-bg); border: 1px solid var(--medallion-ring);
-    box-shadow: var(--medallion-shadow); color: var(--blue);
-    transition: box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
-  }
-  .wworks__step:hover .wworks__icon { box-shadow: var(--medallion-shadow-hover); transform: translateY(-2px); }
-  .wworks__icon :global(svg) { width: 60px; height: 60px; filter: var(--icon-shadow); }
-  .wworks__step h3 { margin-top: 1.4rem; font-size: var(--text-card-title); font-weight: 600; line-height: 1.2; }
+  .wworks__step h3 { font-size: var(--text-card-title); font-weight: 600; line-height: 1.2; }
   .wworks__step .rule { margin-top: 0.9rem; }
   .wworks__step p { margin-top: 0.9rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.55; }
 
@@ -63,10 +51,9 @@ import { weightWorks, weightWorksIntro, weightWorksNotes } from '../../../data/w
   }
   .wworks__note { display: flex; align-items: center; gap: 1rem; }
   .wworks__note:first-child { border-right: 1px solid var(--border); padding-right: 1.5rem; }
-  .wworks__note-icon { display: inline-grid; place-items: center; flex: none; width: 48px; height: 48px; border-radius: 50%; background: var(--bg-wellness); color: var(--blue); }
-  .wworks__note-icon :global(svg) { width: 24px; height: 24px; }
-  .wworks__note p { color: var(--text-body); font-size: var(--text-card-body); line-height: 1.5; }
-  .wworks__note strong { color: var(--navy); }
+  /* Notes read as blue bold copy (matching the home-page note treatment). */
+  .wworks__note p { color: var(--blue); font-weight: 700; font-size: var(--text-note); line-height: 1.5; }
+  .wworks__note strong { color: var(--blue); }
 
   @media (max-width: 1000px) { .wworks__grid { grid-template-columns: 1fr 1fr; gap: 2.25rem 1.75rem; } }
   @media (max-width: 620px) {

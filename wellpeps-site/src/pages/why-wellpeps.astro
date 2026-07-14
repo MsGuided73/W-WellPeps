@@ -62,7 +62,6 @@ const faqs = [
       <div class="why-cards reveal">
         {trustCards.map((c) => (
           <article class="card why-card">
-            <span class="medallion"><Icon name={c.icon} /></span>
             <h3>{c.title}</h3>
             <p>{c.body}</p>
           </article>
@@ -78,7 +77,6 @@ const faqs = [
       <div class="why-cards reveal">
         {patientsFirstCards.map((c) => (
           <article class="card why-card">
-            <span class="medallion"><Icon name={c.icon} /></span>
             <h3>{c.title}</h3>
             <p>{c.body}</p>
           </article>
@@ -106,7 +104,6 @@ const faqs = [
   <section class="section">
     <div class="container why-promise">
       <div class="why-promise__copy reveal">
-        <span class="medallion medallion--lg"><Icon name="heart" /></span>
         <h2>Our Promise</h2>
         <hr class="rule rule--left" />
         <p>We’re honored every time a patient chooses WellPeps.</p>
@@ -172,7 +169,7 @@ const faqs = [
   .why-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; margin-top: clamp(2rem, 3vw, 2.75rem); }
   .why-card { padding: 2.5rem 2rem; text-align: center; display: flex; flex-direction: column; align-items: center; }
   .why-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-  .why-card h3 { margin-top: 1.4rem; font-size: var(--text-card-title); font-weight: 600; color: var(--navy); line-height: 1.2; }
+  .why-card h3 { font-size: var(--text-card-title); font-weight: 600; color: var(--navy); line-height: 1.2; }
   .why-card p { margin-top: 1rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.6; }
 
   /* FAQ accordion (same behaviour as the program-page FAQs). */
@@ -203,8 +200,6 @@ const faqs = [
 
   /* Our Promise — copy left, photo right */
   .why-promise { display: grid; grid-template-columns: 1.05fr 0.95fr; align-items: center; gap: clamp(2rem, 4vw, 4rem); }
-  .medallion--lg { width: 96px; height: 96px; margin-bottom: 1.4rem; }
-  .medallion--lg :global(svg) { width: 46px; height: 46px; }
   .why-promise__media { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
   .why-promise__media img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 3; }
   .why-promise__copy h2 { font-size: var(--text-section-title); font-weight: 700; }

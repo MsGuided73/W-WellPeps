@@ -16,7 +16,7 @@ import { sexProducts, sexProductsIntro } from '../../../data/sexual';
       {sexProducts.map((product) => <SexProductCard product={product} />)}
     </div>
 
-    <p class="sxprod__foot reveal"><Icon name="shield-check" /> {sexProductsIntro.footnote}</p>
+    <p class="sxprod__foot reveal">{sexProductsIntro.footnote}</p>
   </div>
 </section>
 
@@ -25,8 +25,7 @@ import { sexProducts, sexProductsIntro } from '../../../data/sexual';
   .sxprod__head h2 { font-size: var(--text-section-title); font-weight: 700; }
   .sxprod__lead { margin-top: 1rem; font-size: var(--text-lead); color: var(--text-body); }
   .sxprod__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: clamp(2.5rem, 4vw, 3.5rem); }
-  .sxprod__foot { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 2rem; color: var(--text-muted); font-size: var(--text-note); }
-  .sxprod__foot :global(svg) { width: 18px; height: 18px; color: var(--blue); }
+  .sxprod__foot { text-align: center; margin-top: 2rem; color: var(--blue); font-weight: 700; font-size: var(--text-note); }
 
   @media (max-width: 1200px) { .sxprod__grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 620px) { .sxprod__grid { grid-template-columns: 1fr; max-width: 420px; margin-inline: auto; } }
