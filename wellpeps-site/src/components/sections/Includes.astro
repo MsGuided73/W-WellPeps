@@ -11,9 +11,8 @@ import { includes } from '../../data/content';
     <div class="includes__grid reveal">
       {includes.map((c) => (
         <article class="card includes__card">
-          <span class="medallion"><Icon name={c.icon} /></span>
-          <hr class="rule" />
           <h3>{c.title}</h3>
+          <hr class="rule" />
           <p>{c.body}</p>
           <a href="/why-wellpeps" class="pill-link">Learn More <Icon name="arrow-right" /></a>
         </article>
@@ -41,7 +40,7 @@ import { includes } from '../../data/content';
   }
   .includes__card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
   .includes__card .rule { margin-top: 1.1rem; }
-  .includes__card h3 { font-size: var(--text-card-title); font-weight: 600; margin-top: 0.9rem; }
+  .includes__card h3 { font-size: var(--text-card-title); font-weight: 600; margin-top: 0; }
   .includes__card p { margin-top: 0.8rem; color: var(--text-body); font-size: var(--text-card-body); flex: 1; }
   /* Enlarged per the 7-9 notes ("enlarge button font, for these"). */
   .includes__card .pill-link { margin-top: 1.25rem; font-size: var(--text-card-body); padding: 0.55rem 1.1rem; }

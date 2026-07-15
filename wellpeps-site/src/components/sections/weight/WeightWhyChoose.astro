@@ -1,4 +1,5 @@
 ---
+import Icon from '../../Icon.astro';
 import { weightWhy, weightWhyIntro } from '../../../data/weight';
 ---
 <section class="section" id="why">
@@ -19,6 +20,10 @@ import { weightWhy, weightWhyIntro } from '../../../data/weight';
         </article>
       ))}
     </div>
+
+    <p class="wwhy__more reveal">
+      <a href="/why-wellpeps" class="arrow-link">Explore all the reasons Patients choose WellPeps <Icon name="arrow-right" /></a>
+    </p>
   </div>
 </section>
 
@@ -41,6 +46,10 @@ import { weightWhy, weightWhyIntro } from '../../../data/weight';
   .wwhy__body { padding: 1.75rem; display: flex; flex-direction: column; align-items: center; }
   .wwhy__body h3 { font-size: var(--text-card-title); font-weight: 600; line-height: 1.2; }
   .wwhy__body p { margin-top: 0.9rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.55; }
+
+  /* Link through to the full Why WellPeps page (matches the home page). */
+  .wwhy__more { text-align: center; margin-top: 2rem; }
+  .wwhy__more .arrow-link { font-size: var(--text-lead); font-weight: 700; }
 
   @media (max-width: 900px) {
     .wwhy__grid { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }

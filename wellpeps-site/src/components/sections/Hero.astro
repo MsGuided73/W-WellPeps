@@ -1,4 +1,5 @@
 ---
+import Icon from '../Icon.astro';
 import { ONBOARDING_URL } from '../../config';
 ---
 <section class="hero">
@@ -14,8 +15,8 @@ import { ONBOARDING_URL } from '../../config';
       <hr class="rule rule--left" />
       <p class="hero__lead">Personalized treatment plans, licensed healthcare providers, and ongoing support—all from the comfort of home.</p>
       <div class="hero__actions">
-        <a href={ONBOARDING_URL} class="btn btn--primary btn--lg">Start Your Free Assessment</a>
-        <a href="/#programs" class="btn btn--secondary btn--lg">Explore Our Programs</a>
+        <a href={ONBOARDING_URL} class="btn btn--primary btn--lg">Start Free Online Assessment</a>
+        <a href="/#programs" class="btn btn--secondary btn--lg">Explore Treatment Options <Icon name="arrow-right" /></a>
       </div>
     </div>
   </div>

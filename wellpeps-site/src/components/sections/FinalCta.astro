@@ -38,8 +38,8 @@ import { ONBOARDING_URL } from '../../config';
     height: 100%;
     object-fit: cover;
     object-position: center 12%;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.55) 20%, #000 38%);
-            mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.55) 20%, #000 38%);
+    -webkit-mask-image: linear-gradient(to right, transparent 4%, rgba(0,0,0,0.4) 26%, #000 54%);
+            mask-image: linear-gradient(to right, transparent 4%, rgba(0,0,0,0.4) 26%, #000 54%);
   }
 
   .finalcta__wrap {
@@ -50,7 +50,7 @@ import { ONBOARDING_URL } from '../../config';
   .finalcta__copy { max-width: clamp(340px, 44vw, 580px); padding-block: clamp(2.5rem, 4vw, 4.25rem); }
   .finalcta__copy h2 { font-size: clamp(2.1rem, 1.3rem + 3vw, 3.6rem); font-weight: 700; letter-spacing: -0.02em; color: var(--navy); line-height: 1.08; }
   .finalcta__btn { margin-top: 1.5rem; align-self: flex-start; }
-  .finalcta__note { margin-top: 1rem; color: var(--text-muted); font-size: var(--text-note); }
+  .finalcta__note { margin-top: 1rem; color: var(--navy); font-weight: 700; font-size: var(--text-note); }
 
   @media (max-width: 900px) {
     .finalcta { flex-direction: column; min-height: 0; align-items: stretch; }

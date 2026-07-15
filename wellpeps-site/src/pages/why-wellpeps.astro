@@ -111,7 +111,7 @@ const faqs = [
         <p>Whether you’re taking your first step toward better wellness or continuing a journey you’ve already begun, we’re here to support you.</p>
       </div>
       <div class="why-promise__media reveal">
-        <img src="/images/about/hero.png" width="820" height="620" alt="The WellPeps care team" loading="lazy" />
+        <img src="/images/about/our-promise.png" width="1536" height="1024" alt="The WellPeps promise — personalized, provider-guided wellness care" loading="lazy" />
       </div>
     </div>
   </section>
@@ -150,10 +150,13 @@ const faqs = [
 </BaseLayout>
 
 <style>
-  /* Intro — image column widened so the hero photo reads larger. */
-  .why-intro__inner { display: grid; grid-template-columns: 0.9fr 1.1fr; align-items: center; gap: clamp(2rem, 4vw, 3.5rem); }
-  .why-intro__copy { max-width: 620px; }
-  .why-intro__copy h1 { font-size: clamp(2.75rem, 1.6rem + 4.6vw, 5rem); font-weight: 700; letter-spacing: -0.02em; color: var(--navy); line-height: 1.02; }
+  /* Intro. The headline must break only at its explicit <br> — "Why we Founded"
+     on line 1, "WellPeps" on line 2 — so it is sized in cqw against the copy
+     column rather than in vw. Viewport units let it outgrow the column and wrap
+     to a third line at mid-desktop widths. */
+  .why-intro__inner { display: grid; grid-template-columns: 1.05fr 0.95fr; align-items: center; gap: clamp(2rem, 4vw, 3.5rem); }
+  .why-intro__copy { container-type: inline-size; max-width: 760px; }
+  .why-intro__copy h1 { font-size: clamp(2.5rem, 11.5cqw, 5rem); font-weight: 700; letter-spacing: -0.02em; color: var(--navy); line-height: 1.02; }
   .why-intro__subhead { margin-top: 1.5rem; font-family: var(--font-serif); font-weight: 700; font-size: clamp(1.3rem, 1.05rem + 1vw, 1.8rem); color: var(--navy); line-height: 1.3; }
   .why-intro__copy p:not(.why-intro__subhead):not(.why-intro__closer) { margin-top: 1rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.7; }
   .why-intro__closer { margin-top: 1.4rem; font-family: var(--font-serif); font-weight: 700; color: var(--navy); font-size: var(--text-lead); }
@@ -235,6 +238,9 @@ const faqs = [
   }
   @media (max-width: 900px) {
     .why-intro__inner { grid-template-columns: 1fr; }
+    /* Stacked, the copy column spans the full container, so the cqw-based
+       headline would balloon. Hold it near its previous stacked size. */
+    .why-intro__copy h1 { font-size: clamp(2rem, 12cqw, 3.9rem); }
     .why-intro__media { order: -1; }
     .why-intro__media img { aspect-ratio: 3 / 2; }
     .why-cards { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }

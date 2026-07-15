@@ -19,10 +19,10 @@ import { peptideCta } from '../../../data/peptide';
 <style>
   .pcta { position: relative; overflow: hidden; background: var(--bg-soft-ivory); display: flex; align-items: center; min-height: clamp(560px, 52vw, 800px); }
   .pcta__img {
-    position: absolute; top: 0; left: 0; bottom: 0; width: 52vw; height: 100%;
+    position: absolute; top: 0; left: 0; bottom: 0; width: 56vw; height: 100%;
     object-fit: cover; object-position: 50% 18%;
-    -webkit-mask-image: linear-gradient(to right, #000 52%, rgba(0,0,0,0.25) 80%, transparent 100%);
-            mask-image: linear-gradient(to right, #000 52%, rgba(0,0,0,0.25) 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, #000 46%, rgba(0,0,0,0.4) 74%, transparent 96%);
+            mask-image: linear-gradient(to right, #000 46%, rgba(0,0,0,0.4) 74%, transparent 96%);
   }
   .pcta__wrap { position: relative; z-index: 2; width: 100%; max-width: var(--content-max); margin-inline: auto; padding-inline: var(--gutter); }
   .pcta__copy { max-width: clamp(340px, 42vw, 560px); margin-left: auto; padding-block: clamp(2.5rem, 4vw, 4.25rem); }
@@ -30,7 +30,7 @@ import { peptideCta } from '../../../data/peptide';
   .pcta__copy .rule { margin-block: 1.25rem; }
   .pcta__lead { color: var(--text-body); font-size: var(--text-lead); max-width: 42ch; }
   .pcta__btn { margin-top: 1.75rem; align-self: flex-start; }
-  .pcta__note { margin-top: 1rem; color: var(--text-muted); font-size: var(--text-note); }
+  .pcta__note { margin-top: 1rem; color: var(--navy); font-weight: 700; font-size: var(--text-note); }
 
   @media (max-width: 900px) {
     .pcta { flex-direction: column; min-height: 0; align-items: stretch; }
