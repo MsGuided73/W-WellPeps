@@ -51,6 +51,8 @@ export interface Article {
   reading_minutes: number;
   published_at: string | null;
   position: number;
+  /** 1-based slot in the hub's Featured Articles row; null when not featured. */
+  featured_position: number | null;
 }
 
 /** An article joined to its category, which is how every page consumes it. */
@@ -61,7 +63,26 @@ export interface ArticleWithCategory extends Article {
 const ARTICLE_FIELDS =
   'id, category_id, slug, title, seo_title, meta_title, meta_description, ' +
   'url_path, lede_html, body_html, key_takeaways, cta_title, cta_html, ' +
-  'disclaimer_html, reading_minutes, published_at, position';
+  'disclaimer_html, reading_minutes, published_at, position, featured_position';
+
+/**
+ * Icon per category, for the hub's category list and featured cards.
+ * Presentation only, so it lives in code rather than the database — but it is
+ * keyed by slug, so a new category degrades to a sensible default instead of
+ * breaking the build.
+ */
+const CATEGORY_ICONS: Record<string, string> = {
+  'weight-management': 'scale-check',
+  'sexual-wellness': 'gender-bolt',
+  'hair-restoration': 'sprout',
+  'peptides-wellness': 'molecule',
+  'wellness-foundations': 'leaf',
+  'telehealth-resources': 'lock',
+};
+
+export function categoryIcon(slug: string): string {
+  return CATEGORY_ICONS[slug] ?? 'heart';
+}
 
 let cache: Promise<{ categories: Category[]; articles: ArticleWithCategory[] }> | null = null;
 
@@ -112,6 +133,13 @@ export async function getCategoriesWithArticles(): Promise<
   return categories
     .map((c) => ({ ...c, articles: articles.filter((a) => a.category_id === c.id) }))
     .filter((c) => c.articles.length > 0);
+}
+
+/** Hand-picked articles for the hub's Featured row, in slot order. */
+export async function getFeaturedArticles(): Promise<ArticleWithCategory[]> {
+  return (await load()).articles
+    .filter((a) => a.featured_position !== null)
+    .sort((a, b) => (a.featured_position ?? 0) - (b.featured_position ?? 0));
 }
 
 /**

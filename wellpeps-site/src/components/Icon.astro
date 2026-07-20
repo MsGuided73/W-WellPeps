@@ -98,6 +98,11 @@ const paths: Record<string, string> = {
   'chart-check': '<rect x="3.2" y="4.8" width="10.4" height="14.6" rx="2"/><path d="M6.6 4.8V4.2a1.8 1.8 0 0 1 3.6 0v.6"/><path d="M8.4 7.6v3.4M6.7 9.3h3.4"/><path d="M5.6 13.6h5.6M5.6 16.2h3.6"/><path d="M16 3.4v3.2a2.9 2.9 0 0 0 5.8 0V3.4"/><path d="M18.9 9.5v2.4"/><circle cx="18.2" cy="15.6" r="3.7"/><path d="m16.7 15.7 1.1 1.1 2.3-2.5"/>',
 };
 
+// --- Wellness Learning Center ---
+paths.star =
+  '<path d="M12 3.6l2.6 5.3 5.8.85-4.2 4.1 1 5.75L12 16.9l-5.2 2.7 1-5.75-4.2-4.1 5.8-.85L12 3.6Z"/>';
+paths.search = '<circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/>';
+
 const svg = paths[name] ?? '';
 ---
 <svg class={`ic ${cls}`.trim()} viewBox="0 0 24 24" fill="none" stroke="currentColor"

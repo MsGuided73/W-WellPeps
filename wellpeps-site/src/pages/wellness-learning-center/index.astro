@@ -2,198 +2,452 @@
 /**
  * Wellness Learning Center — hub.
  *
- * Browsing is organised by category rather than reverse-chronologically: this
- * is an evergreen reference library, not a news feed, so "which topic am I
- * here for" is the question worth answering first. The jump links let someone
- * arriving from a program page reach their topic without scrolling past five
- * unrelated sections.
+ * Follows the approved landing mockup: hero with a photo collage and trust
+ * markers, article search, a hand-picked Featured row, then the full library
+ * as collapsible category rows.
+ *
+ * The library is rendered as accordions rather than six long stacked grids so
+ * the whole catalogue is scannable in one screen — with 45 articles the flat
+ * layout pushed the last categories well below the fold. Every article link is
+ * in the HTML regardless of open/closed state, so search engines still see the
+ * full library and the page works without JavaScript (details/summary).
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
 import { ONBOARDING_URL } from '../../config';
-import { getCategoriesWithArticles } from '../../lib/blog';
+import { getCategoriesWithArticles, getFeaturedArticles, categoryIcon } from '../../lib/blog';
 
 const categories = await getCategoriesWithArticles();
+const featured = await getFeaturedArticles();
 const totalArticles = categories.reduce((n, c) => n + c.articles.length, 0);
+
+const trustMarkers = [
+  { icon: 'shield-check', label: 'Physician\nReviewed' },
+  { icon: 'lock', label: 'Trusted\nInformation' },
+  { icon: 'user-check', label: 'Personalized\nApproach' },
+];
+
+// Flat index for the client-side search box.
+const searchIndex = categories.flatMap((c) =>
+  c.articles.map((a) => ({
+    t: a.title,
+    d: a.meta_description ?? '',
+    c: c.name,
+    u: a.url_path,
+    m: a.reading_minutes,
+  }))
+);
 ---
 
 <BaseLayout
   title="Wellness Learning Center | WellPeps"
-  description="Evidence-informed guides on weight management, sexual wellness, hair restoration, peptide therapies, and everyday wellness — written for patients, reviewed for accuracy."
+  description="A growing library of physician-reviewed educational resources on weight management, sexual wellness, hair restoration, peptide therapies, and everyday wellness."
 >
   <section class="lc-hero">
     <div class="container lc-hero__inner">
       <div class="lc-hero__text">
-        <p class="lc-hero__eyebrow">Wellness Learning Center</p>
-        <h1 class="lc-hero__title">
-          Understand your options <span class="accent">before</span> you decide.
-        </h1>
+        <h1 class="lc-hero__title">Wellness<br />Learning Center</h1>
         <p class="lc-hero__lede">
-          Clear, evidence-informed guides on the treatments we offer and the
-          habits that support them — {totalArticles} articles across
-          {categories.length} topics, written in plain language and reviewed for
-          medical accuracy.
+          A growing library of physician-reviewed educational resources to help
+          you make informed decisions about your health and wellness.
         </p>
-        <nav class="lc-jump" aria-label="Browse topics">
-          {categories.map((c) => (
-            <a href={`#${c.slug}`} class="lc-jump__chip">{c.name}</a>
+        <ul class="lc-trust">
+          {trustMarkers.map((m) => (
+            <li>
+              <Icon name={m.icon} />
+              <span>{m.label}</span>
+            </li>
           ))}
-        </nav>
+        </ul>
       </div>
-      <div class="lc-hero__media">
+
+      <div class="lc-collage">
         <img
+          class="lc-collage__main"
+          src="/images/learning-center/couple.webp"
+          alt="" width="1400" height="933" loading="eager" fetchpriority="high"
+        />
+        <img
+          class="lc-collage__top"
           src="/images/learning-center/hub-hero.webp"
-          alt=""
-          width="1254"
-          height="1254"
-          loading="eager"
-          fetchpriority="high"
+          alt="" width="1254" height="1254" loading="eager"
+        />
+        <img
+          class="lc-collage__bottom"
+          src="/images/learning-center/consult.webp"
+          alt="" width="900" height="900" loading="eager"
         />
       </div>
     </div>
   </section>
 
   <div class="container lc-body">
-    {categories.map((category) => (
-      <section class="lc-cat" id={category.slug} aria-labelledby={`${category.slug}-h`}>
-        <header class="lc-cat__head">
-          <h2 class="lc-cat__title" id={`${category.slug}-h`}>{category.name}</h2>
-          {category.description && <p class="lc-cat__desc">{category.description}</p>}
-        </header>
+    <form class="lc-search" role="search" onsubmit="return false">
+      <Icon name="search" />
+      <label class="sr-only" for="lc-q">Search articles</label>
+      <input
+        id="lc-q" type="search" placeholder="Search articles…"
+        autocomplete="off" data-search
+      />
+    </form>
 
-        <ul class="lc-grid">
-          {category.articles.map((article) => (
-            <li class="lc-card">
-              <a class="lc-card__link" href={article.url_path}>
-                <h3 class="lc-card__title">{article.title}</h3>
-                {article.meta_description && (
-                  <p class="lc-card__desc">{article.meta_description}</p>
+    <!-- Search results replace the featured + library sections while typing. -->
+    <section class="lc-results" data-results hidden aria-live="polite">
+      <h2 class="lc-results__title" data-results-title></h2>
+      <ul class="lc-results__list" data-results-list></ul>
+    </section>
+
+    <div data-browse>
+      {featured.length > 0 && (
+        <section class="lc-featured" aria-labelledby="featured-h">
+          <header class="lc-featured__head">
+            <h2 id="featured-h"><Icon name="star" />Featured Articles</h2>
+            <a class="lc-featured__all" href="#library">
+              View all articles <Icon name="arrow-right" />
+            </a>
+          </header>
+
+          <ul class="lc-featured__grid">
+            {featured.map((a) => (
+              <li>
+                <a class="lc-fcard" href={a.url_path}>
+                  <span class="lc-fcard__icon"><Icon name={categoryIcon(a.category.slug)} /></span>
+                  <span class="lc-fcard__cat">{a.category.name}</span>
+                  <span class="lc-fcard__title">{a.title}</span>
+                  {a.meta_description && <span class="lc-fcard__desc">{a.meta_description}</span>}
+                  <span class="lc-fcard__meta">
+                    <Icon name="clock" />{a.reading_minutes} min read
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <section class="lc-library" id="library" aria-label="Browse all articles">
+        {categories.map((category) => (
+          <details class="lc-cat" name="lc-library">
+            <summary class="lc-cat__row">
+              <span class="lc-cat__icon"><Icon name={categoryIcon(category.slug)} /></span>
+              <span class="lc-cat__text">
+                <span class="lc-cat__name">{category.name}</span>
+                {category.description && (
+                  <span class="lc-cat__desc">{category.description}</span>
                 )}
-                <span class="lc-card__meta">{article.reading_minutes} min read</span>
-              </a>
-            </li>
-          ))}
-        </ul>
+              </span>
+              <span class="lc-cat__count">
+                {category.articles.length} {category.articles.length === 1 ? 'Article' : 'Articles'}
+              </span>
+              <span class="lc-cat__chev"><Icon name="chevron-down" /></span>
+            </summary>
+
+            <ul class="lc-cat__list">
+              {category.articles.map((a) => (
+                <li>
+                  <a href={a.url_path}>
+                    <span class="lc-cat__link-title">{a.title}</span>
+                    <span class="lc-cat__link-meta">{a.reading_minutes} min</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </details>
+        ))}
       </section>
-    ))}
+    </div>
 
     <section class="lc-cta">
-      <div>
-        <h2>Still deciding what's right for you?</h2>
+      <img class="lc-cta__mark" src="/images/w-mark.png" alt="" width="72" height="72" loading="lazy" />
+      <div class="lc-cta__text">
+        <h2>Personalized care starts with the right medical evaluation.</h2>
         <p>
-          Complete your free assessment and a licensed provider will review your
-          health history and goals to recommend a personalized plan.
+          Complete an assessment and a licensed healthcare provider will review
+          your information to determine the best next steps for your wellness journey.
         </p>
       </div>
-      <a href={ONBOARDING_URL} class="btn btn--primary btn--lg btn--cta">
+      <a href={ONBOARDING_URL} class="btn btn--primary btn--cta lc-cta__btn">
         Start Free Assessment
-        <Icon name="arrow-right" />
       </a>
     </section>
+
+    <p class="lc-disclaimer">
+      Information on this site is for educational purposes only and is not a
+      substitute for professional medical advice, diagnosis, or treatment.
+      {totalArticles} articles across {categories.length} topics.
+    </p>
   </div>
 </BaseLayout>
 
+<script is:inline define:vars={{ searchIndex }}>
+  (() => {
+    const input = document.querySelector('[data-search]');
+    const browse = document.querySelector('[data-browse]');
+    const results = document.querySelector('[data-results]');
+    const list = document.querySelector('[data-results-list]');
+    const title = document.querySelector('[data-results-title]');
+    if (!input || !browse || !results || !list || !title) return;
+
+    const esc = (s) =>
+      s.replace(/[&<>"']/g, (c) =>
+        ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]
+      );
+
+    const render = (q) => {
+      const terms = q.toLowerCase().split(/\s+/).filter(Boolean);
+      if (!terms.length) {
+        results.hidden = true;
+        browse.hidden = false;
+        return;
+      }
+      // Every term must appear somewhere in the title, description or category,
+      // so extra words narrow the result set rather than widening it.
+      const hits = searchIndex.filter((a) => {
+        const hay = `${a.t} ${a.d} ${a.c}`.toLowerCase();
+        return terms.every((t) => hay.includes(t));
+      });
+
+      browse.hidden = true;
+      results.hidden = false;
+      title.textContent = hits.length
+        ? `${hits.length} ${hits.length === 1 ? 'article' : 'articles'} matching “${q}”`
+        : `No articles matching “${q}”`;
+      list.innerHTML = hits
+        .map(
+          (a) => `<li><a href="${esc(a.u)}">
+            <span class="lc-cat__link-title">${esc(a.t)}</span>
+            <span class="lc-cat__link-meta">${esc(a.c)} · ${a.m} min</span>
+          </a></li>`
+        )
+        .join('');
+    };
+
+    let timer;
+    input.addEventListener('input', () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => render(input.value.trim()), 120);
+    });
+  })();
+</script>
+
 <style>
-  /* ---- Hero ---- */
-  .lc-hero {
-    background: linear-gradient(180deg, var(--hero-tint) 0%, var(--white) 100%);
-    padding-block: clamp(2.5rem, 1.5rem + 4vw, 5rem);
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
   }
+
+  /* ---- Hero ---- */
+  .lc-hero { background: var(--bg-pale-blue); padding-block: clamp(2rem, 1.2rem + 3vw, 3.5rem); }
   .lc-hero__inner {
-    display: grid; gap: clamp(2rem, 1rem + 4vw, 4rem);
+    display: grid; gap: clamp(1.5rem, 1rem + 3vw, 3rem);
     grid-template-columns: minmax(0, 1fr); align-items: center;
   }
   @media (min-width: 56rem) {
-    .lc-hero__inner { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); }
-  }
-  .lc-hero__eyebrow {
-    font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.08em;
-    text-transform: uppercase; color: var(--blue); margin-bottom: 0.85rem;
+    .lc-hero__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); }
   }
   .lc-hero__title {
-    font-size: clamp(2.4rem, 1.5rem + 3.6vw, 3.75rem);
-    color: var(--navy); margin-bottom: 1.1rem;
+    font-size: clamp(2.5rem, 1.4rem + 4.4vw, 4rem);
+    color: var(--navy); line-height: 1.04;
   }
   .lc-hero__lede {
-    font-size: 1.0625rem; line-height: 1.7; max-width: 34rem;
-    color: var(--text-body);
-  }
-  .lc-hero__media img {
-    width: 100%; border-radius: 18px;
-    box-shadow: 0 18px 40px -18px rgba(8, 43, 89, 0.35);
+    margin-top: 1.1rem; max-width: 30rem;
+    font-size: 0.9375rem; line-height: 1.65; color: var(--text-body);
   }
 
-  /* ---- Topic jump links ---- */
-  .lc-jump { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.75rem; }
-  .lc-jump__chip {
-    padding: 0.5rem 0.9rem; border-radius: 999px;
-    background: var(--white); border: 1px solid #D9E4F0;
-    font-size: 0.875rem; font-weight: 500; color: var(--navy);
-    transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease),
-                transform var(--dur) var(--ease);
+  .lc-trust {
+    display: flex; flex-wrap: wrap; gap: 1.75rem;
+    list-style: none; padding: 0; margin: 1.75rem 0 0;
   }
-  .lc-jump__chip:hover {
-    border-color: var(--blue); color: var(--blue); transform: translateY(-1px);
+  .lc-trust li { display: flex; align-items: center; gap: 0.55rem; }
+  .lc-trust :global(svg) { width: 22px; height: 22px; color: var(--navy); flex: none; }
+  .lc-trust span {
+    font-size: 0.8125rem; font-weight: 600; color: var(--navy);
+    line-height: 1.25; white-space: pre-line;
   }
 
-  /* ---- Category sections ---- */
-  .lc-body { padding-block: var(--space-section); }
-  .lc-cat { margin-bottom: clamp(3rem, 2rem + 3vw, 4.5rem); scroll-margin-top: 6rem; }
-  .lc-cat:last-of-type { margin-bottom: 0; }
-  .lc-cat__head {
-    padding-bottom: 1rem; margin-bottom: 1.75rem;
-    border-bottom: 2px solid var(--blue);
+  /* ---- Hero collage: one tall image beside two stacked ---- */
+  .lc-collage {
+    display: grid; gap: 0.75rem;
+    grid-template-columns: 1.9fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    aspect-ratio: 16 / 9;
   }
-  .lc-cat__title { font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.125rem); color: var(--navy); }
-  .lc-cat__desc {
-    margin-top: 0.5rem; font-size: 0.9375rem; max-width: 46rem;
-    color: var(--text-muted, #5A6B80);
+  .lc-collage img {
+    width: 100%; height: 100%; object-fit: cover;
+    border-radius: 12px;
+  }
+  .lc-collage__main { grid-row: 1 / 3; }
+
+  /* ---- Search ---- */
+  .lc-body { padding-block: clamp(1.75rem, 1.2rem + 2vw, 2.75rem) var(--space-section); }
+  .lc-search {
+    position: relative; display: flex; align-items: center;
+    margin-bottom: 2.5rem;
+  }
+  .lc-search :global(svg) {
+    position: absolute; left: 1rem; width: 18px; height: 18px;
+    color: var(--text-muted, #5A6B80); pointer-events: none;
+  }
+  .lc-search input {
+    width: 100%; padding: 0.9rem 1rem 0.9rem 2.9rem;
+    font: inherit; font-size: 0.9375rem; color: var(--text-body);
+    background: var(--white);
+    border: 1px solid #DCE5F0; border-radius: 10px;
+    transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  }
+  .lc-search input::placeholder { color: #93A3B8; }
+  .lc-search input:focus {
+    outline: none; border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(0, 119, 190, 0.14);
   }
 
-  .lc-grid {
-    display: grid; gap: 1.25rem; list-style: none; padding: 0; margin: 0;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 17.5rem), 1fr));
+  /* ---- Featured ---- */
+  .lc-featured__head {
+    display: flex; flex-wrap: wrap; align-items: center;
+    justify-content: space-between; gap: 0.75rem; margin-bottom: 1.1rem;
   }
-  .lc-card { display: flex; }
-  .lc-card__link {
-    display: flex; flex-direction: column; gap: 0.6rem;
-    width: 100%; padding: 1.4rem 1.5rem;
-    background: var(--card); border: 1px solid #E4EAF2; border-radius: 14px;
-    color: inherit;
+  .lc-featured__head h2 {
+    display: flex; align-items: center; gap: 0.55rem;
+    font-size: 1.3125rem; color: var(--navy);
+  }
+  .lc-featured__head :global(svg) { width: 20px; height: 20px; color: var(--blue); }
+  .lc-featured__all {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-size: 0.875rem; font-weight: 600;
+  }
+  .lc-featured__all :global(svg) { width: 15px; height: 15px; }
+
+  .lc-featured__grid {
+    display: grid; gap: 1rem; list-style: none; padding: 0; margin: 0 0 2.75rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  }
+  .lc-fcard {
+    position: relative; display: flex; flex-direction: column; height: 100%;
+    padding: 1.35rem 1.4rem; color: inherit;
+    background: var(--white); border: 1px solid #E4EAF2; border-radius: 14px;
     transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease),
                 transform var(--dur) var(--ease);
   }
-  .lc-card__link:hover {
-    border-color: var(--blue);
-    box-shadow: 0 14px 28px -16px rgba(8, 43, 89, 0.35);
-    transform: translateY(-2px);
-    color: inherit;
+  .lc-fcard:hover {
+    border-color: var(--blue); transform: translateY(-2px);
+    box-shadow: 0 14px 28px -16px rgba(8, 43, 89, 0.35); color: inherit;
   }
-  .lc-card__title {
-    font-size: 1.125rem; line-height: 1.3; color: var(--navy);
+  .lc-fcard__icon {
+    position: absolute; top: 1.2rem; right: 1.2rem;
+    display: grid; place-items: center; width: 42px; height: 42px;
+    border-radius: 50%; background: var(--bg-pale-blue);
   }
-  .lc-card__link:hover .lc-card__title { color: var(--blue); }
-  .lc-card__desc {
-    font-size: 0.875rem; line-height: 1.55;
+  .lc-fcard__icon :global(svg) { width: 20px; height: 20px; color: var(--blue); }
+  .lc-fcard__cat {
+    font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--blue);
+  }
+  .lc-fcard__title {
+    margin-top: 0.5rem; padding-right: 3rem;
+    font-family: var(--font-serif); font-weight: 600; font-size: 1.125rem;
+    line-height: 1.25; color: var(--navy);
+  }
+  .lc-fcard__desc {
+    margin-top: 0.6rem; font-size: 0.8125rem; line-height: 1.55;
     color: var(--text-muted, #5A6B80);
-    /* Keep cards on a tidy grid regardless of description length. */
     display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
     overflow: hidden;
   }
-  .lc-card__meta {
-    margin-top: auto; padding-top: 0.4rem;
-    font-size: 0.8125rem; font-weight: 500; color: var(--blue);
+  .lc-fcard__meta {
+    display: flex; align-items: center; gap: 0.35rem;
+    margin-top: auto; padding-top: 0.9rem;
+    font-size: 0.75rem; color: var(--text-muted, #5A6B80);
   }
+  .lc-fcard__meta :global(svg) { width: 14px; height: 14px; }
+
+  /* ---- Library accordion ---- */
+  .lc-library {
+    border: 1px solid #E4EAF2; border-radius: 14px; overflow: hidden;
+    background: var(--white);
+  }
+  .lc-cat + .lc-cat { border-top: 1px solid #E4EAF2; }
+  .lc-cat__row {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1.15rem 1.4rem; cursor: pointer; list-style: none;
+    transition: background var(--dur) var(--ease);
+  }
+  .lc-cat__row::-webkit-details-marker { display: none; }
+  .lc-cat__row:hover { background: var(--bg-pale-blue); }
+  .lc-cat__icon {
+    display: grid; place-items: center; flex: none;
+    width: 46px; height: 46px; border-radius: 12px; background: var(--bg-pale-blue);
+  }
+  .lc-cat__icon :global(svg) { width: 22px; height: 22px; color: var(--blue); }
+  .lc-cat__text { flex: 1; min-width: 0; }
+  .lc-cat__name {
+    display: block; font-family: var(--font-serif); font-weight: 600;
+    font-size: 1.0625rem; color: var(--navy);
+  }
+  .lc-cat__desc {
+    display: block; margin-top: 0.2rem; max-width: 44rem;
+    font-size: 0.8125rem; line-height: 1.5; color: var(--text-muted, #5A6B80);
+  }
+  .lc-cat__count {
+    flex: none; font-size: 0.8125rem; font-weight: 600; color: var(--navy);
+  }
+  .lc-cat__chev { flex: none; display: grid; place-items: center; }
+  .lc-cat__chev :global(svg) {
+    width: 18px; height: 18px; color: var(--text-muted, #5A6B80);
+    transition: transform var(--dur) var(--ease);
+  }
+  .lc-cat[open] .lc-cat__chev :global(svg) { transform: rotate(180deg); }
+
+  .lc-cat__list {
+    list-style: none; padding: 0 1.4rem 1.1rem 5.4rem; margin: 0;
+    display: grid; gap: 0.15rem;
+  }
+  .lc-cat__list a {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 1rem; padding: 0.5rem 0.6rem; margin-left: -0.6rem;
+    border-radius: 8px; color: var(--text-body);
+    transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+  }
+  .lc-cat__list a:hover { background: var(--bg-pale-blue); color: var(--blue); }
+  .lc-cat__link-title { font-size: 0.9375rem; line-height: 1.45; }
+  .lc-cat__link-meta {
+    flex: none; font-size: 0.75rem; color: var(--text-muted, #5A6B80);
+  }
+  @media (max-width: 40rem) {
+    .lc-cat__desc, .lc-cat__count { display: none; }
+    .lc-cat__list { padding-left: 1.4rem; }
+  }
+
+  /* ---- Search results ---- */
+  .lc-results__title { font-size: 1.0625rem; color: var(--navy); margin-bottom: 0.9rem; }
+  .lc-results__list {
+    list-style: none; padding: 0.4rem; margin: 0;
+    border: 1px solid #E4EAF2; border-radius: 14px; background: var(--white);
+  }
+  .lc-results__list a {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 1rem; padding: 0.7rem 0.9rem; border-radius: 8px; color: var(--text-body);
+    transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+  }
+  .lc-results__list a:hover { background: var(--bg-pale-blue); color: var(--blue); }
 
   /* ---- Closing CTA ---- */
   .lc-cta {
-    display: flex; flex-wrap: wrap; align-items: center;
-    justify-content: space-between; gap: 1.5rem;
-    margin-top: clamp(3rem, 2rem + 3vw, 4.5rem);
-    padding: clamp(1.75rem, 1.2rem + 2vw, 2.5rem);
-    background: var(--bg-pale-blue); border-radius: 16px;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem;
+    margin-top: clamp(2rem, 1.5rem + 2vw, 3rem);
+    padding: clamp(1.4rem, 1rem + 1.5vw, 2rem);
+    background: var(--bg-pale-blue); border-radius: 14px;
   }
-  .lc-cta > div { flex: 1 1 24rem; }
-  .lc-cta h2 { font-size: clamp(1.5rem, 1.2rem + 1vw, 1.875rem); color: var(--navy); }
-  .lc-cta p { margin-top: 0.5rem; font-size: 0.9375rem; max-width: 38rem; }
+  .lc-cta__mark { width: 56px; height: auto; flex: none; }
+  .lc-cta__text { flex: 1 1 22rem; }
+  .lc-cta h2 { font-size: clamp(1.0625rem, 1rem + 0.4vw, 1.25rem); color: var(--navy); }
+  .lc-cta p {
+    margin-top: 0.35rem; font-size: 0.8125rem; line-height: 1.55;
+    max-width: 34rem; color: var(--text-muted, #5A6B80);
+  }
+  .lc-cta__btn { flex: none; }
+
+  .lc-disclaimer {
+    margin-top: 1.5rem; text-align: center;
+    font-size: 0.75rem; line-height: 1.6; color: var(--text-muted, #5A6B80);
+  }
 </style>
