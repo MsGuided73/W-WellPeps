@@ -129,7 +129,9 @@ export const hairProducts: Product[] = [
     href: '/#assessment-stub',
   },
   {
-    name: 'Advanced Liposomal Formulas',
+    // NBSP binds "Advanced Liposomal" so the title breaks as
+    // "Advanced Liposomal" / "Formulas" rather than stranding "Advanced".
+    name: 'Advanced Liposomal Formulas',
     image: '/images/hair/product-advanced.webp',
     alt: 'Advanced liposomal hair restoration formulas — dropper solution and foam pump',
     icon: 'molecule',
