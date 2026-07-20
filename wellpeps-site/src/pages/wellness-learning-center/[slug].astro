@@ -1,0 +1,273 @@
+---
+/**
+ * Wellness Learning Center — article page.
+ *
+ * Layout follows the approved mockup: a two-column reading view with the
+ * article on the left and a sticky rail carrying the "Personalized Care" CTA
+ * and the medical disclaimer. Those two blocks, plus Key Takeaways, are stored
+ * as their own columns rather than inside body_html, so the design can place
+ * them independently of the prose.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import { ONBOARDING_URL } from '../../config';
+import { getArticles, getRelatedArticles, type ArticleWithCategory } from '../../lib/blog';
+import { withToc } from '../../lib/toc';
+
+export async function getStaticPaths() {
+  const articles = await getArticles();
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+interface Props {
+  article: ArticleWithCategory;
+}
+
+const { article } = Astro.props;
+const { html: bodyHtml, toc } = withToc(article.body_html);
+const related = await getRelatedArticles(article);
+
+const updated = article.published_at
+  ? new Date(article.published_at).toLocaleDateString('en-US', {
+      month: 'long',
+      year: 'numeric',
+    })
+  : null;
+---
+
+<BaseLayout
+  title={article.meta_title ?? article.seo_title ?? article.title}
+  description={article.meta_description ?? undefined}
+>
+  <div class="container article-shell">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/wellness-learning-center">Wellness Learning Center</a></li>
+        <li aria-current="page">{article.category.name}</li>
+      </ol>
+    </nav>
+
+    <div class="article-grid">
+      <article class="article">
+        <header class="article__head">
+          <p class="article__eyebrow">{article.category.name}</p>
+          <h1 class="article__title">{article.title}</h1>
+          <p class="article__meta">
+            {updated && <span>Updated {updated}</span>}
+            {updated && <span aria-hidden="true">·</span>}
+            <span>{article.reading_minutes} min read</span>
+          </p>
+        </header>
+
+        <div class="article__lede" set:html={article.lede_html} />
+
+        {toc.length > 1 && (
+          <nav class="toc" aria-label="In this article">
+            <h2 class="toc__title">In this article</h2>
+            <ul class="toc__list">
+              {toc.map((entry) => (
+                <li><a href={`#${entry.id}`}>{entry.text}</a></li>
+              ))}
+            </ul>
+          </nav>
+        )}
+
+        <div class="prose" set:html={bodyHtml} />
+
+        {article.key_takeaways.length > 0 && (
+          <section class="takeaways" aria-labelledby="key-takeaways">
+            <h2 class="takeaways__title" id="key-takeaways">Key Takeaways</h2>
+            <ul>
+              {article.key_takeaways.map((point) => <li>{point}</li>)}
+            </ul>
+          </section>
+        )}
+
+        {related.length > 0 && (
+          <section class="related" aria-labelledby="related-articles">
+            <h2 class="related__title" id="related-articles">Related Articles</h2>
+            <ul class="related__list">
+              {related.map((item) => (
+                <li>
+                  <a href={item.url_path}>{item.title}</a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+      </article>
+
+      <aside class="rail" aria-label="Get started">
+        {article.cta_html && (
+          <div class="rail__card rail__card--cta">
+            <h2 class="rail__title">{article.cta_title}</h2>
+            <div class="rail__body" set:html={article.cta_html} />
+            <a href={ONBOARDING_URL} class="btn btn--primary btn--cta rail__btn">
+              Start Free Assessment
+              <Icon name="arrow-right" />
+            </a>
+          </div>
+        )}
+
+        {article.disclaimer_html && (
+          <div class="rail__card">
+            <h2 class="rail__title rail__title--sm">Medical Disclaimer</h2>
+            <div class="rail__body" set:html={article.disclaimer_html} />
+          </div>
+        )}
+      </aside>
+    </div>
+
+    <section class="endcta">
+      <div class="endcta__text">
+        <h2>Ready to Start Your Wellness Journey?</h2>
+        <p>
+          Complete your free assessment and a licensed provider will review your
+          information to create a plan that's right for you.
+        </p>
+      </div>
+      <a href={ONBOARDING_URL} class="btn btn--primary btn--lg btn--cta">
+        Start Free Assessment
+        <Icon name="arrow-right" />
+      </a>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .article-shell { padding-block: clamp(1.5rem, 1rem + 2vw, 2.75rem) var(--space-section); }
+
+  /* ---- Breadcrumb ---- */
+  .crumbs ol {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem;
+    list-style: none; padding: 0; margin: 0 0 1.75rem;
+    font-size: 0.875rem; color: var(--text-muted, #5A6B80);
+  }
+  .crumbs li + li::before {
+    content: '›'; margin-right: 0.5rem; color: #9AAABD;
+  }
+  .crumbs a { color: var(--text-muted, #5A6B80); }
+  .crumbs a:hover { color: var(--blue); }
+
+  /* ---- Two-column reading view ---- */
+  .article-grid {
+    display: grid; gap: clamp(2rem, 1rem + 4vw, 4rem);
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+  @media (min-width: 62rem) {
+    .article-grid { grid-template-columns: minmax(0, 1fr) 20.5rem; }
+  }
+
+  /* ---- Article header ---- */
+  .article__eyebrow {
+    font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--blue); margin-bottom: 0.75rem;
+  }
+  .article__title {
+    font-size: clamp(2.25rem, 1.4rem + 3.4vw, 3.5rem);
+    color: var(--navy); margin-bottom: 0.85rem;
+  }
+  .article__meta {
+    display: flex; flex-wrap: wrap; gap: 0.6rem;
+    font-size: 0.9375rem; color: var(--text-muted, #5A6B80);
+  }
+
+  .article__lede { margin-top: 1.75rem; }
+  .article__lede :global(p) {
+    font-size: 1.0625rem; line-height: 1.7; margin-bottom: 1rem;
+  }
+  .article__lede :global(p:last-child) { margin-bottom: 0; }
+
+  /* ---- Table of contents ---- */
+  .toc {
+    margin: 2rem 0 2.5rem; padding: 1.25rem 1.5rem;
+    background: var(--bg-pale-blue); border-radius: 12px;
+  }
+  .toc__title {
+    font-size: 1.0625rem; color: var(--navy); margin-bottom: 0.75rem;
+  }
+  .toc__list {
+    display: flex; flex-wrap: wrap; gap: 0.4rem 0.9rem;
+    list-style: none; padding: 0; margin: 0;
+    font-size: 0.9375rem;
+  }
+  /* Dot separators between wrapped links, as in the mockup. */
+  .toc__list li + li::before {
+    content: '·'; margin-right: 0.9rem; color: #9AAABD;
+  }
+  .toc__list li { display: flex; align-items: center; }
+
+  /* ---- Prose ---- */
+  .prose :global(h2) {
+    font-size: clamp(1.5rem, 1.2rem + 1vw, 1.875rem);
+    color: var(--navy);
+    margin: 2.5rem 0 0.85rem;
+    scroll-margin-top: 6rem; /* clears the sticky nav on anchor jumps */
+  }
+  .prose :global(h3) {
+    font-size: 1.25rem; color: var(--navy); margin: 1.75rem 0 0.6rem;
+  }
+  .prose :global(p) { margin-bottom: 1rem; }
+  .prose :global(ul) { margin: 0 0 1.25rem; padding-left: 1.25rem; }
+  .prose :global(li) { margin-bottom: 0.4rem; }
+  /* Hairline under each section, matching the mockup's rhythm. */
+  .prose :global(h2:not(:first-child)) {
+    border-top: 1px solid #E4EAF2; padding-top: 2.25rem;
+  }
+
+  /* ---- Key takeaways ---- */
+  .takeaways {
+    margin-top: 2.75rem; padding: 1.75rem 2rem;
+    background: var(--bg-pale-blue); border-radius: 14px;
+  }
+  .takeaways__title { font-size: 1.375rem; color: var(--navy); margin-bottom: 0.9rem; }
+  .takeaways ul { margin: 0; padding-left: 1.2rem; }
+  .takeaways li { margin-bottom: 0.5rem; }
+  .takeaways li:last-child { margin-bottom: 0; }
+
+  /* ---- Related ---- */
+  .related { margin-top: 2.75rem; }
+  .related__title { font-size: 1.375rem; color: var(--navy); margin-bottom: 1rem; }
+  .related__list {
+    display: grid; gap: 1rem; list-style: none; padding: 0; margin: 0;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  }
+  .related__list li { padding-left: 1.25rem; border-left: 1px solid #E4EAF2; }
+  .related__list li:first-child { padding-left: 0; border-left: 0; }
+  .related__list a { font-size: 0.9375rem; line-height: 1.5; }
+
+  /* ---- Sticky rail ---- */
+  .rail { display: grid; gap: 1.25rem; }
+  @media (min-width: 62rem) {
+    .rail { position: sticky; top: 6rem; }
+  }
+  .rail__card {
+    padding: 1.5rem; border-radius: 14px;
+    background: var(--bg-pale-blue);
+  }
+  .rail__card--cta { background: var(--bg-cool-blue); }
+  .rail__title { font-size: 1.25rem; color: var(--navy); margin-bottom: 0.75rem; }
+  .rail__title--sm { font-size: 1.0625rem; }
+  .rail__body :global(p) {
+    font-size: 0.9375rem; line-height: 1.6; margin-bottom: 0.75rem;
+  }
+  .rail__body :global(p:last-child) { margin-bottom: 0; }
+  .rail__btn { width: 100%; margin-top: 1.25rem; }
+
+  /* ---- Closing CTA ---- */
+  .endcta {
+    display: flex; flex-wrap: wrap; align-items: center;
+    justify-content: space-between; gap: 1.5rem;
+    margin-top: clamp(3rem, 2rem + 3vw, 4.5rem);
+    padding: clamp(1.75rem, 1.2rem + 2vw, 2.5rem);
+    background: var(--bg-pale-blue); border-radius: 16px;
+  }
+  .endcta__text { flex: 1 1 22rem; }
+  .endcta h2 { font-size: clamp(1.5rem, 1.2rem + 1vw, 1.875rem); color: var(--navy); }
+  .endcta p { margin-top: 0.5rem; font-size: 0.9375rem; max-width: 34rem; }
+</style>

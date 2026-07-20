@@ -6,6 +6,11 @@ wellpeps-site/.vercel/
 wellpeps-site/.netlify/
 node_modules/
 
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
 # Temp / working files
 wellpeps-site/src/_raw_programs/
 wellpeps-site/_shot.mjs

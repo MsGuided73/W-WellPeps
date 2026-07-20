@@ -1,0 +1,199 @@
+---
+/**
+ * Wellness Learning Center — hub.
+ *
+ * Browsing is organised by category rather than reverse-chronologically: this
+ * is an evergreen reference library, not a news feed, so "which topic am I
+ * here for" is the question worth answering first. The jump links let someone
+ * arriving from a program page reach their topic without scrolling past five
+ * unrelated sections.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import { ONBOARDING_URL } from '../../config';
+import { getCategoriesWithArticles } from '../../lib/blog';
+
+const categories = await getCategoriesWithArticles();
+const totalArticles = categories.reduce((n, c) => n + c.articles.length, 0);
+---
+
+<BaseLayout
+  title="Wellness Learning Center | WellPeps"
+  description="Evidence-informed guides on weight management, sexual wellness, hair restoration, peptide therapies, and everyday wellness — written for patients, reviewed for accuracy."
+>
+  <section class="lc-hero">
+    <div class="container lc-hero__inner">
+      <div class="lc-hero__text">
+        <p class="lc-hero__eyebrow">Wellness Learning Center</p>
+        <h1 class="lc-hero__title">
+          Understand your options <span class="accent">before</span> you decide.
+        </h1>
+        <p class="lc-hero__lede">
+          Clear, evidence-informed guides on the treatments we offer and the
+          habits that support them — {totalArticles} articles across
+          {categories.length} topics, written in plain language and reviewed for
+          medical accuracy.
+        </p>
+        <nav class="lc-jump" aria-label="Browse topics">
+          {categories.map((c) => (
+            <a href={`#${c.slug}`} class="lc-jump__chip">{c.name}</a>
+          ))}
+        </nav>
+      </div>
+      <div class="lc-hero__media">
+        <img
+          src="/images/learning-center/hub-hero.webp"
+          alt=""
+          width="1254"
+          height="1254"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+    </div>
+  </section>
+
+  <div class="container lc-body">
+    {categories.map((category) => (
+      <section class="lc-cat" id={category.slug} aria-labelledby={`${category.slug}-h`}>
+        <header class="lc-cat__head">
+          <h2 class="lc-cat__title" id={`${category.slug}-h`}>{category.name}</h2>
+          {category.description && <p class="lc-cat__desc">{category.description}</p>}
+        </header>
+
+        <ul class="lc-grid">
+          {category.articles.map((article) => (
+            <li class="lc-card">
+              <a class="lc-card__link" href={article.url_path}>
+                <h3 class="lc-card__title">{article.title}</h3>
+                {article.meta_description && (
+                  <p class="lc-card__desc">{article.meta_description}</p>
+                )}
+                <span class="lc-card__meta">{article.reading_minutes} min read</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+
+    <section class="lc-cta">
+      <div>
+        <h2>Still deciding what's right for you?</h2>
+        <p>
+          Complete your free assessment and a licensed provider will review your
+          health history and goals to recommend a personalized plan.
+        </p>
+      </div>
+      <a href={ONBOARDING_URL} class="btn btn--primary btn--lg btn--cta">
+        Start Free Assessment
+        <Icon name="arrow-right" />
+      </a>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  /* ---- Hero ---- */
+  .lc-hero {
+    background: linear-gradient(180deg, var(--hero-tint) 0%, var(--white) 100%);
+    padding-block: clamp(2.5rem, 1.5rem + 4vw, 5rem);
+  }
+  .lc-hero__inner {
+    display: grid; gap: clamp(2rem, 1rem + 4vw, 4rem);
+    grid-template-columns: minmax(0, 1fr); align-items: center;
+  }
+  @media (min-width: 56rem) {
+    .lc-hero__inner { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); }
+  }
+  .lc-hero__eyebrow {
+    font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--blue); margin-bottom: 0.85rem;
+  }
+  .lc-hero__title {
+    font-size: clamp(2.4rem, 1.5rem + 3.6vw, 3.75rem);
+    color: var(--navy); margin-bottom: 1.1rem;
+  }
+  .lc-hero__lede {
+    font-size: 1.0625rem; line-height: 1.7; max-width: 34rem;
+    color: var(--text-body);
+  }
+  .lc-hero__media img {
+    width: 100%; border-radius: 18px;
+    box-shadow: 0 18px 40px -18px rgba(8, 43, 89, 0.35);
+  }
+
+  /* ---- Topic jump links ---- */
+  .lc-jump { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.75rem; }
+  .lc-jump__chip {
+    padding: 0.5rem 0.9rem; border-radius: 999px;
+    background: var(--white); border: 1px solid #D9E4F0;
+    font-size: 0.875rem; font-weight: 500; color: var(--navy);
+    transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease),
+                transform var(--dur) var(--ease);
+  }
+  .lc-jump__chip:hover {
+    border-color: var(--blue); color: var(--blue); transform: translateY(-1px);
+  }
+
+  /* ---- Category sections ---- */
+  .lc-body { padding-block: var(--space-section); }
+  .lc-cat { margin-bottom: clamp(3rem, 2rem + 3vw, 4.5rem); scroll-margin-top: 6rem; }
+  .lc-cat:last-of-type { margin-bottom: 0; }
+  .lc-cat__head {
+    padding-bottom: 1rem; margin-bottom: 1.75rem;
+    border-bottom: 2px solid var(--blue);
+  }
+  .lc-cat__title { font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.125rem); color: var(--navy); }
+  .lc-cat__desc {
+    margin-top: 0.5rem; font-size: 0.9375rem; max-width: 46rem;
+    color: var(--text-muted, #5A6B80);
+  }
+
+  .lc-grid {
+    display: grid; gap: 1.25rem; list-style: none; padding: 0; margin: 0;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 17.5rem), 1fr));
+  }
+  .lc-card { display: flex; }
+  .lc-card__link {
+    display: flex; flex-direction: column; gap: 0.6rem;
+    width: 100%; padding: 1.4rem 1.5rem;
+    background: var(--card); border: 1px solid #E4EAF2; border-radius: 14px;
+    color: inherit;
+    transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease),
+                transform var(--dur) var(--ease);
+  }
+  .lc-card__link:hover {
+    border-color: var(--blue);
+    box-shadow: 0 14px 28px -16px rgba(8, 43, 89, 0.35);
+    transform: translateY(-2px);
+    color: inherit;
+  }
+  .lc-card__title {
+    font-size: 1.125rem; line-height: 1.3; color: var(--navy);
+  }
+  .lc-card__link:hover .lc-card__title { color: var(--blue); }
+  .lc-card__desc {
+    font-size: 0.875rem; line-height: 1.55;
+    color: var(--text-muted, #5A6B80);
+    /* Keep cards on a tidy grid regardless of description length. */
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .lc-card__meta {
+    margin-top: auto; padding-top: 0.4rem;
+    font-size: 0.8125rem; font-weight: 500; color: var(--blue);
+  }
+
+  /* ---- Closing CTA ---- */
+  .lc-cta {
+    display: flex; flex-wrap: wrap; align-items: center;
+    justify-content: space-between; gap: 1.5rem;
+    margin-top: clamp(3rem, 2rem + 3vw, 4.5rem);
+    padding: clamp(1.75rem, 1.2rem + 2vw, 2.5rem);
+    background: var(--bg-pale-blue); border-radius: 16px;
+  }
+  .lc-cta > div { flex: 1 1 24rem; }
+  .lc-cta h2 { font-size: clamp(1.5rem, 1.2rem + 1vw, 1.875rem); color: var(--navy); }
+  .lc-cta p { margin-top: 0.5rem; font-size: 0.9375rem; max-width: 38rem; }
+</style>
