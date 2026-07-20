@@ -145,7 +145,7 @@ const updated = article.published_at
   .crumbs ol {
     display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem;
     list-style: none; padding: 0; margin: 0 0 1.75rem;
-    font-size: 0.875rem; color: var(--text-muted, #5A6B80);
+    font-size: var(--text-body-size); color: var(--text-muted, #5A6B80);
   }
   .crumbs li + li::before {
     content: '›'; margin-right: 0.5rem; color: #9AAABD;
@@ -165,21 +165,21 @@ const updated = article.published_at
 
   /* ---- Article header ---- */
   .article__eyebrow {
-    font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.08em;
+    font-size: var(--text-body-size); font-weight: 700; letter-spacing: 0.05em;
     text-transform: uppercase; color: var(--blue); margin-bottom: 0.75rem;
   }
   .article__title {
-    font-size: clamp(2.25rem, 1.4rem + 3.4vw, 3.5rem);
+    font-size: var(--text-h2);
     color: var(--navy); margin-bottom: 0.85rem;
   }
   .article__meta {
     display: flex; flex-wrap: wrap; gap: 0.6rem;
-    font-size: 0.9375rem; color: var(--text-muted, #5A6B80);
+    font-size: var(--text-body-size); color: var(--text-muted, #5A6B80);
   }
 
   .article__lede { margin-top: 1.75rem; }
   .article__lede :global(p) {
-    font-size: 1.0625rem; line-height: 1.7; margin-bottom: 1rem;
+    font-size: var(--text-lead); line-height: 1.65; margin-bottom: 1rem;
   }
   .article__lede :global(p:last-child) { margin-bottom: 0; }
 
@@ -189,12 +189,12 @@ const updated = article.published_at
     background: var(--bg-pale-blue); border-radius: 12px;
   }
   .toc__title {
-    font-size: 1.0625rem; color: var(--navy); margin-bottom: 0.75rem;
+    font-size: var(--text-card-title); color: var(--navy); margin-bottom: 0.75rem;
   }
   .toc__list {
-    display: flex; flex-wrap: wrap; gap: 0.4rem 0.9rem;
+    display: flex; flex-wrap: wrap; gap: 0.5rem 0.9rem;
     list-style: none; padding: 0; margin: 0;
-    font-size: 0.9375rem;
+    font-size: var(--text-body-size);
   }
   /* Dot separators between wrapped links, as in the mockup. */
   .toc__list li + li::before {
@@ -202,15 +202,18 @@ const updated = article.published_at
   }
   .toc__list li { display: flex; align-items: center; }
 
-  /* ---- Prose ---- */
+  /* ---- Prose ----
+     Every size below is expressed as a ratio of --text-body-size (19px), so
+     the article scale hangs off the body text rather than off loose rem
+     values. Body copy itself inherits the 19px floor. */
   .prose :global(h2) {
-    font-size: clamp(1.5rem, 1.2rem + 1vw, 1.875rem);
+    font-size: calc(var(--text-body-size) * 1.55);
     color: var(--navy);
     margin: 2.5rem 0 0.85rem;
     scroll-margin-top: 6rem; /* clears the sticky nav on anchor jumps */
   }
   .prose :global(h3) {
-    font-size: 1.25rem; color: var(--navy); margin: 1.75rem 0 0.6rem;
+    font-size: var(--text-h3); color: var(--navy); margin: 1.75rem 0 0.6rem;
   }
   .prose :global(p) { margin-bottom: 1rem; }
   .prose :global(ul) { margin: 0 0 1.25rem; padding-left: 1.25rem; }
@@ -225,21 +228,21 @@ const updated = article.published_at
     margin-top: 2.75rem; padding: 1.75rem 2rem;
     background: var(--bg-pale-blue); border-radius: 14px;
   }
-  .takeaways__title { font-size: 1.375rem; color: var(--navy); margin-bottom: 0.9rem; }
+  .takeaways__title { font-size: calc(var(--text-body-size) * 1.3); color: var(--navy); margin-bottom: 0.9rem; }
   .takeaways ul { margin: 0; padding-left: 1.2rem; }
   .takeaways li { margin-bottom: 0.5rem; }
   .takeaways li:last-child { margin-bottom: 0; }
 
   /* ---- Related ---- */
   .related { margin-top: 2.75rem; }
-  .related__title { font-size: 1.375rem; color: var(--navy); margin-bottom: 1rem; }
+  .related__title { font-size: calc(var(--text-body-size) * 1.3); color: var(--navy); margin-bottom: 1rem; }
   .related__list {
     display: grid; gap: 1rem; list-style: none; padding: 0; margin: 0;
-    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
   }
   .related__list li { padding-left: 1.25rem; border-left: 1px solid #E4EAF2; }
   .related__list li:first-child { padding-left: 0; border-left: 0; }
-  .related__list a { font-size: 0.9375rem; line-height: 1.5; }
+  .related__list a { font-size: var(--text-body-size); line-height: 1.5; }
 
   /* ---- Sticky rail ---- */
   .rail { display: grid; gap: 1.25rem; }
@@ -251,10 +254,10 @@ const updated = article.published_at
     background: var(--bg-pale-blue);
   }
   .rail__card--cta { background: var(--bg-cool-blue); }
-  .rail__title { font-size: 1.25rem; color: var(--navy); margin-bottom: 0.75rem; }
-  .rail__title--sm { font-size: 1.0625rem; }
+  .rail__title { font-size: calc(var(--text-body-size) * 1.2); color: var(--navy); margin-bottom: 0.75rem; }
+  .rail__title--sm { font-size: calc(var(--text-body-size) * 1.1); }
   .rail__body :global(p) {
-    font-size: 0.9375rem; line-height: 1.6; margin-bottom: 0.75rem;
+    font-size: var(--text-body-size); line-height: 1.6; margin-bottom: 0.75rem;
   }
   .rail__body :global(p:last-child) { margin-bottom: 0; }
   .rail__btn { width: 100%; margin-top: 1.25rem; }
@@ -268,6 +271,6 @@ const updated = article.published_at
     background: var(--bg-pale-blue); border-radius: 16px;
   }
   .endcta__text { flex: 1 1 22rem; }
-  .endcta h2 { font-size: clamp(1.5rem, 1.2rem + 1vw, 1.875rem); color: var(--navy); }
-  .endcta p { margin-top: 0.5rem; font-size: 0.9375rem; max-width: 34rem; }
+  .endcta h2 { font-size: calc(var(--text-body-size) * 1.55); color: var(--navy); }
+  .endcta p { margin-top: 0.5rem; font-size: var(--text-body-size); max-width: 38rem; }
 </style>
