@@ -17,9 +17,8 @@ import { sexEducation, sexWorks } from '../../../data/sexual';
 
     <div class="sxedu__works reveal">
       <div class="sxedu__grid">
-        {sexWorks.map((s, i) => (
+        {sexWorks.map((s) => (
           <article class="card sxedu__step">
-            <span class="sxedu__num">{i + 1}</span>
             <h4>{s.title}</h4>
             <hr class="rule rule--left" />
             <p>{s.body}</p>
@@ -44,9 +43,8 @@ import { sexEducation, sexWorks } from '../../../data/sexual';
   .sxedu__works { margin-top: clamp(2.5rem, 4vw, 3.5rem); }
 
   .sxedu__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; text-align: left; }
-  .sxedu__step { position: relative; padding: 2.25rem 1.75rem 2rem; overflow: hidden; }
+  .sxedu__step { position: relative; padding: 1.75rem 1.75rem 2rem; overflow: hidden; }
   .sxedu__step:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-  .sxedu__num { position: absolute; top: 1rem; right: 1.25rem; font-family: var(--font-serif); font-weight: 700; font-size: 2.6rem; color: var(--border-strong); line-height: 1; }
   .sxedu__step h4 { font-family: var(--font-serif); font-weight: 600; font-size: var(--text-card-title); color: var(--navy); line-height: 1.2; }
   .sxedu__step .rule { margin-top: 0.9rem; }
   .sxedu__step p { margin-top: 0.8rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.6; }
