@@ -15,7 +15,7 @@ export const weightHero = {
   titleAccent: 'Personalized.',
   lead:
     'Physician-guided GLP-1 weight management that includes semaglutide or tirzepatide, combined with personalized support to help you achieve sustainable results.',
-  image: '/images/weight/hero-woman.png',
+  image: '/images/weight/hero-woman.webp',
   alt: 'A fit, smiling woman standing with arms crossed',
 };
 
@@ -56,21 +56,21 @@ export const weightWhyIntro = {
 
 export const weightWhy: WhyCard[] = [
   {
-    image: '/images/weight/why-doctor.png',
+    image: '/images/weight/why-doctor.webp',
     alt: 'A licensed provider on a telehealth call',
     icon: 'stethoscope',
     title: 'Personalized Care & Coaching',
     body: 'Licensed healthcare providers are available free-of-charge for scheduled follow-ups to discuss your GLP-1 treatment.',
   },
   {
-    image: '/images/weight/why-lab.png',
+    image: '/images/weight/why-lab.webp',
     alt: 'A lab nurse preparing a test',
     icon: 'flask',
     title: 'Quest® & Labcorp® Access',
     body: 'Available nationwide for free-of-charge initial and follow-up tests for qualified patients.',
   },
   {
-    image: '/images/weight/why-flag.png',
+    image: '/images/weight/why-flag.webp',
     alt: 'A United States flag',
     icon: 'shield-check',
     title: 'Made in America Medications',
@@ -106,7 +106,7 @@ export const weightProductsIntro = {
 export const weightProducts: PillProduct[] = [
   {
     name: 'Compounded Semaglutide',
-    image: '/images/weight/product-semaglutide.png',
+    image: '/images/weight/product-semaglutide.webp',
     alt: 'Compounded semaglutide injection vial',
     benefits: [
       { label: 'Weight Loss', icon: 'trending-down' },
@@ -123,7 +123,7 @@ export const weightProducts: PillProduct[] = [
   },
   {
     name: 'Compounded Tirzepatide',
-    image: '/images/weight/product-tirzepatide.png',
+    image: '/images/weight/product-tirzepatide.webp',
     alt: 'Compounded tirzepatide injection vial',
     benefits: [
       { label: 'Weight Loss', icon: 'trending-down' },
@@ -140,7 +140,7 @@ export const weightProducts: PillProduct[] = [
   },
   {
     name: 'Oral Semaglutide',
-    image: '/images/weight/product-oral.png',
+    image: '/images/weight/product-oral.webp',
     alt: 'Oral semaglutide tablets',
     benefits: [
       { label: 'Weight Loss', icon: 'trending-down' },
@@ -201,6 +201,6 @@ export const weightCta = {
   title: 'Ready to Start Your Weight Loss Journey?',
   lead: 'Begin your personalized, provider-guided weight loss journey today.',
   note: 'It only takes a few minutes.',
-  image: '/images/weight/cta-woman.png',
+  image: '/images/weight/cta-woman.webp',
   alt: 'A smiling woman walking on a coastal trail at sunrise',
 };

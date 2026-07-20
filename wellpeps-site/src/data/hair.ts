@@ -17,7 +17,7 @@ export const hairHero = {
   titleAccent: 'Restore Your Confidence.',
   lead:
     'Advanced, FDA-approved treatments and expert care to help you achieve visibly thicker, healthier hair.',
-  image: '/images/hair/hero-couple.png',
+  image: '/images/hair/hero-couple.webp',
   alt: 'A smiling couple walking together outside their home at golden hour',
 };
 
@@ -34,21 +34,21 @@ export const hairWorks: HairWorkStep[] = [
     icon: 'sprout',
     title: 'Support Healthy Hair Growth',
     body: 'Certain treatments help stimulate hair follicles and support healthier, fuller-looking hair over time.',
-    image: '/images/hair/works-growth.png',
+    image: '/images/hair/works-growth.webp',
     alt: 'A man checking his hair growth in the mirror',
   },
   {
     icon: 'shield-check',
     title: 'Help Reduce Hair Loss',
     body: 'Some therapies are designed to help reduce ongoing hair loss by addressing common underlying causes.',
-    image: '/images/hair/works-reduce.png',
+    image: '/images/hair/works-reduce.webp',
     alt: 'A woman brushing her long, healthy hair',
   },
   {
     icon: 'user',
     title: 'Personalized Treatment',
     body: 'Your licensed healthcare provider will recommend treatment options based on your hair loss pattern, medical history, treatment goals, and lifestyle.',
-    image: '/images/hair/works-personalized.png',
+    image: '/images/hair/works-personalized.webp',
     alt: 'A woman on a telehealth video call with a licensed provider',
   },
 ];
@@ -183,6 +183,6 @@ export const hairCta = {
   title: 'Ready to Start Your Hair Restoration Journey?',
   lead: 'Begin your personalized, provider-guided hair restoration journey today.',
   note: 'It only takes a few minutes.',
-  image: '/images/hair/cta-man.png',
+  image: '/images/hair/cta-man.webp',
   alt: 'A smiling man running his hand through his healthy hair',
 };

@@ -2,11 +2,11 @@
 
 /* ---- Section 5: Your Wellness Journey (5 steps) ---- */
 export const journeySteps = [
-  { n: 1, title: 'Complete Your Free Health Assessment', body: 'Answer a few quick questions about your health and wellness goals.', image: '/images/journey-1.jpg', alt: 'Woman completing an online health assessment on a laptop' },
-  { n: 2, title: 'Licensed Medical Provider Review', body: 'A licensed medical provider reviews your information to determine the best next steps.', image: '/images/journey-2.jpg', alt: 'Provider reviewing patient information on a laptop' },
-  { n: 3, title: 'Receive Your Custom Treatment Plan', body: 'If approved, your provider creates a personalized treatment plan tailored to your goals.', image: '/images/journey-3.jpg', alt: 'Woman reading her treatment plan on a tablet' },
-  { n: 4, title: 'Discreet Home Delivery', body: 'If prescribed, medication is shipped directly to your home in discreet, secure packaging.', image: '/images/journey-4.jpg', alt: 'Person opening a discreet WellPeps delivery box' },
-  { n: 5, title: 'Ongoing Provider Support', body: 'Continue working with your provider as your needs evolve over time.', image: '/images/journey-5.jpg', alt: 'Woman on a follow-up video visit at home' },
+  { n: 1, title: 'Complete Your Free Health Assessment', body: 'Answer a few quick questions about your health and wellness goals.', image: '/images/journey-1.webp', alt: 'Woman completing an online health assessment on a laptop' },
+  { n: 2, title: 'Licensed Medical Provider Review', body: 'A licensed medical provider reviews your information to determine the best next steps.', image: '/images/journey-2.webp', alt: 'Provider reviewing patient information on a laptop' },
+  { n: 3, title: 'Receive Your Custom Treatment Plan', body: 'If approved, your provider creates a personalized treatment plan tailored to your goals.', image: '/images/journey-3.webp', alt: 'Woman reading her treatment plan on a tablet' },
+  { n: 4, title: 'Discreet Home Delivery', body: 'If prescribed, medication is shipped directly to your home in discreet, secure packaging.', image: '/images/journey-4.webp', alt: 'Person opening a discreet WellPeps delivery box' },
+  { n: 5, title: 'Ongoing Provider Support', body: 'Continue working with your provider as your needs evolve over time.', image: '/images/journey-5.webp', alt: 'Woman on a follow-up video visit at home' },
 ];
 
 /* ---- Section 2: Why Patients Choose WellPeps ---- */
@@ -40,9 +40,9 @@ export const safety = [
 
 /* ---- Section 8: Wellness Insights & Resources (blog) ---- */
 export const insights = [
-  { title: 'Understanding GLP-1 Weight Management', body: 'Learn how GLP-1 medications work, who they’re for, and what results you can expect with a personalized plan.', image: '/images/insight-glp1.jpg', alt: 'Woman running outdoors', href: '#insight-glp1' },
-  { title: 'How Peptide Therapies May Support Recovery & Vitality', body: 'Discover the potential benefits of peptide therapies for energy, recovery, and overall wellness.', image: '/images/insight-peptide.jpg', alt: 'Peptide medication vial on a counter', href: '#insight-peptides' },
-  { title: 'Understanding Hair Loss Treatment Options', body: 'Explore proven solutions for thinning hair and hair loss, and how personalized treatment can help you see real results.', image: '/images/insight-hair.jpg', alt: 'Man examining his hairline in a mirror', href: '#insight-hair' },
+  { title: 'Understanding GLP-1 Weight Management', body: 'Learn how GLP-1 medications work, who they’re for, and what results you can expect with a personalized plan.', image: '/images/insight-glp1.webp', alt: 'Woman running outdoors', href: '#insight-glp1' },
+  { title: 'How Peptide Therapies May Support Recovery & Vitality', body: 'Discover the potential benefits of peptide therapies for energy, recovery, and overall wellness.', image: '/images/insight-peptide.webp', alt: 'Peptide medication vial on a counter', href: '#insight-peptides' },
+  { title: 'Understanding Hair Loss Treatment Options', body: 'Explore proven solutions for thinning hair and hair loss, and how personalized treatment can help you see real results.', image: '/images/insight-hair.webp', alt: 'Man examining his hairline in a mirror', href: '#insight-hair' },
 ];
 
 /* ---- Section 9: Common Questions (FAQ) ---- */

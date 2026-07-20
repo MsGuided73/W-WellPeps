@@ -9,12 +9,12 @@ export const sexHero = {
   titleAccent: 'Regain & Reconnect.',
   lead:
     'Personalized treatment options designed to help improve erectile function, restore confidence, and strengthen intimacy—all from the privacy of home.',
-  image: '/images/sexual/hero-couple.png',
+  image: '/images/sexual/hero-couple.webp',
   alt: 'A couple embracing tenderly at home in the evening',
 };
 
 export const sexEducation = {
-  image: '/images/sexual/understanding.png',
+  image: '/images/sexual/understanding.webp',
   alt: 'A couple sharing a relaxed, affectionate moment together at home',
   title: 'Understanding Sexual Wellness',
   paragraphs: [
@@ -123,7 +123,7 @@ export const sexProducts: SexProduct[] = [
 export const sexRecommendation = {
   title: 'You Don’t Have to Figure It Out Alone.',
   body: 'Choosing the right treatment doesn’t have to be complicated. Every WellPeps journey begins with a free Personalized Assessment reviewed by a licensed healthcare provider, who will recommend treatment options based on your symptoms, health history, and individual wellness goals.',
-  image: '/images/sexual/not-alone.png',
+  image: '/images/sexual/not-alone.webp',
   alt: 'A woman smiling confidently at home',
 };
 
@@ -164,6 +164,6 @@ export const sexCta = {
   titleAccent: 'Confidence?',
   lead: 'Begin your personalized, provider-guided sexual wellness journey today—privately and on your terms.',
   note: 'It only takes a few minutes.',
-  image: '/images/sexual/cta-couple.png',
+  image: '/images/sexual/cta-couple.webp',
   alt: 'A relaxed, happy couple together at home',
 };
