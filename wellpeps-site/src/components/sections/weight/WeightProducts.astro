@@ -13,6 +13,7 @@ import { weightProducts, weightProductsIntro } from '../../../data/weight';
     <div class="wprod__grid reveal">
       {weightProducts.map((product) => (
         <StandardProductCard
+          cover
           image={product.image}
           alt={product.alt}
           name={product.name}
