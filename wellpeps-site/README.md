@@ -15,7 +15,39 @@ npm install        # once
 npm run dev        # local dev at http://localhost:4321
 npm run build      # static output to ./dist
 npm run preview    # serve the built ./dist
+npm run images     # convert newly-delivered photos to WebP
 ```
+
+## Adding new images
+
+Design delivers photography as PNG. **Do not commit PNG/JPG photos** — PNG is
+lossless and built for flat-colour graphics, so a photo lands 30-40x larger than
+it needs to be. One real example: a hero photo went from 2.74 MB to 71 KB with no
+visible difference and no change in dimensions.
+
+Workflow when a new batch arrives:
+
+```bash
+# 1. Drop the delivered files into public/images/<section>/
+# 2. Preview what will change
+npm run images -- --dry
+
+# 3. Convert (originals are removed once the output is verified)
+npm run images
+
+# 4. Reference the .webp path in the relevant data/*.ts, then
+npm run build
+```
+
+Notes:
+- **Dimensions are never changed.** Delivered sizes (~1300-1500px) are already
+  correct; this is only a format change.
+- **Logos and icons are skipped automatically** — lossy compression softens
+  crisp edges and saves almost nothing. They stay as lossless PNG.
+- Use lowercase-with-hyphens filenames, no spaces (spaces must be URL-encoded
+  and trip up some tooling).
+- `--dir=public/images/peptide` limits the run to one folder; `--keep` retains
+  the originals.
 
 ## Structure
 ```

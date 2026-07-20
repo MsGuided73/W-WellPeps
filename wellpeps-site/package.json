@@ -8,13 +8,15 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "seed:articles": "node scripts/seed-articles.mjs"
+    "seed:articles": "node scripts/seed-articles.mjs",
+    "images": "node scripts/convert-images.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.110.7",
     "astro": "^4.16.18"
   },
   "devDependencies": {
-    "playwright": "^1.61.1"
+    "playwright": "^1.61.1",
+    "sharp": "^0.33.5"
   }
 }
