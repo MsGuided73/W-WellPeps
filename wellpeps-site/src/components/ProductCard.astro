@@ -13,7 +13,10 @@ interface Props {
   product: Product;
 }
 const { product } = Astro.props;
-const { name, image, alt, icon, description, optionsLabel, options, price, priceUnit, href } = product;
+const {
+  name, image, alt, icon, description, optionsLabel, options,
+  methodOfUse, price, priceUnit, href,
+} = product;
 ---
 <article class="pcard">
   <div class="pcard__media">
@@ -31,15 +34,20 @@ const { name, image, alt, icon, description, optionsLabel, options, price, price
       </ul>
     </div>
 
+    <div class="pcard__method">
+      <p class="pcard__method-label">Method of Use</p>
+      <p class="pcard__method-value">{methodOfUse}</p>
+    </div>
+
     <p class="pcard__price">
-      <span class="pcard__price-label">Plans from</span>
+      <span class="pcard__price-label">Starting at</span>
       <span class="pcard__price-row">
         <span class="pcard__price-amount">${price}</span>
         <span class="pcard__price-unit">{priceUnit}</span>
       </span>
     </p>
 
-    <a href={href} class="pcard__cta">Start Your Free Assessment <Icon name="arrow-right" /></a>
+    <a href={href} class="pcard__cta">Start Free Assessment <Icon name="arrow-right" /></a>
   </div>
 </article>
 
@@ -80,25 +88,40 @@ const { name, image, alt, icon, description, optionsLabel, options, price, price
     width: 6px; height: 6px; border-radius: 50%; background: var(--blue-soft);
   }
 
+  /* Method of use — its own band, separated by hairlines as in the mockup. */
+  .pcard__method {
+    margin-top: 1.15rem; padding-top: 1.1rem;
+    border-top: 1px solid var(--border);
+  }
+  .pcard__method-label { font-weight: 700; color: var(--navy); font-size: var(--text-body-size); }
+  .pcard__method-value { margin-top: 0.2rem; color: var(--text-body); font-size: var(--text-body-size); }
+
   /* Price + CTA pinned to the bottom so cards align across the row.
      Scale is shared with every other product card via the price tokens. */
-  .pcard__price { margin-top: auto; padding-top: 1.3rem; }
+  .pcard__price {
+    margin-top: auto; padding-top: 1.1rem;
+    border-top: 1px solid var(--border);
+  }
   .pcard__price-label { display: block; color: var(--text-muted); font-size: var(--price-label); }
   .pcard__price-row { display: flex; align-items: baseline; gap: 0.35rem; margin-top: 0.1rem; }
-  .pcard__price-amount { font-family: var(--font-sans); font-weight: 800; letter-spacing: -0.02em; font-size: var(--price-amount); color: var(--blue); line-height: 1; }
+  .pcard__price-amount { font-family: var(--font-sans); font-weight: 800; letter-spacing: -0.02em; font-size: var(--price-amount); color: var(--navy); line-height: 1; }
   .pcard__price-unit { color: var(--text-muted); font-size: var(--price-unit); }
 
+  /* Filled CTA per the WellPeps Product Card Standard: Ocean Boat Blue,
+     white text, 48px tall, 16px radius. */
   .pcard__cta {
     position: relative;
     display: flex; align-items: center; justify-content: center;
-    margin-top: 0.9rem; width: 100%;
-    padding: 0.85rem 2.6rem;
-    border: 1.5px solid var(--border-strong); border-radius: var(--radius-sm);
-    color: var(--blue); font-family: var(--font-sans); font-weight: 600; font-size: var(--text-body-size);
+    margin-top: 1rem; width: 100%;
+    min-height: 48px; padding: 0.75rem 2.6rem;
+    /* The arrow is absolutely positioned, so the label must not wrap into it. */
+    white-space: nowrap;
+    background: var(--blue); border-radius: 16px;
+    color: #fff; font-family: var(--font-sans); font-weight: 600; font-size: var(--text-body-size);
     text-align: center; line-height: 1.3;
-    transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+    transition: background var(--dur) var(--ease);
   }
   .pcard__cta :global(svg) { position: absolute; right: 1.1rem; width: 1.05em; height: 1.05em; transition: transform var(--dur) var(--ease); }
-  .pcard__cta:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .pcard__cta:hover { background: var(--blue-hover); color: #fff; }
   .pcard__cta:hover :global(svg) { transform: translateX(3px); }
 </style>

@@ -69,6 +69,14 @@ export interface Product {
   description: string;
   optionsLabel: string;
   options: string[];
+  /**
+   * Delivery method, per the WellPeps Product Card Standard. That standard
+   * defines a fixed label set (Injection / Oral Capsule / Oral Tablet /
+   * Oral Pill / Topical Solution / Topical Foam / Topical Spray / Topical Gel);
+   * the hair mockup uses two values outside it — see the note on Combination
+   * Therapy below.
+   */
+  methodOfUse: string;
   price: string; // numeric string or "XX" placeholder
   priceUnit: string;
   href: string;
@@ -77,58 +85,63 @@ export interface Product {
 export const hairProducts: Product[] = [
   {
     name: 'Topical Treatments',
-    image: '/images/hair/product-topical.png',
-    alt: 'Compounded topical hair restoration medications — solution, foam and dropper',
+    image: '/images/hair/product-topical.webp',
+    alt: 'Compounded topical hair restoration medications — dropper solution, foam pump and bottle',
     icon: 'droplet',
     description:
-      'Compounded topical medications applied directly to the scalp to help support healthier, fuller-looking hair.',
-    optionsLabel: 'Common options include:',
+      'Supports healthier, fuller-looking hair with medications applied directly to the scalp.',
+    optionsLabel: 'Common Formulations Include',
     options: ['Minoxidil + Finasteride', 'Minoxidil + Fluocinolone + Tretinoin'],
+    methodOfUse: 'Topical Solution / Topical Foam',
     price: '79',
     priceUnit: '/month',
     href: '/#assessment-stub',
   },
   {
     name: 'Oral Treatments',
-    image: '/images/hair/product-oral.png',
-    alt: 'Compounded oral hair restoration capsules with a glass of water',
+    image: '/images/hair/product-oral.webp',
+    alt: 'A compounded oral hair restoration medication bottle with capsules and a glass of water',
     icon: 'pill',
-    description: 'Convenient once-daily oral medications prescribed by your provider.',
-    optionsLabel: 'Common options include:',
-    options: ['Minoxidil + Biotin', 'Oral Minoxidil', 'Dutasteride'],
+    description: 'Supports healthier hair growth through convenient oral medications.',
+    optionsLabel: 'Common Formulations Include',
+    options: ['Oral Minoxidil', 'Minoxidil + Biotin', 'Dutasteride'],
+    methodOfUse: 'Oral Capsule',
     price: '59',
     priceUnit: '/month',
     href: '/#assessment-stub',
   },
   {
     name: 'Combination Therapy',
-    image: '/images/hair/product-combo.png',
+    image: '/images/hair/product-combo.webp',
     alt: 'A combination of topical and oral hair restoration medications',
     icon: 'venn',
-    description:
-      'Topical and oral treatments working together to provide more comprehensive hair restoration support.',
-    optionsLabel: 'Common options include:',
+    description: 'Combines topical and oral medications for a comprehensive approach.',
+    optionsLabel: 'Common Formulations Include',
     options: [
       'Topical Minoxidil + Finasteride + Oral Minoxidil',
       'Minoxidil + Finasteride + Biotin',
     ],
-    price: '79',
+    // Outside the standard label set by design: this pathway is two delivery
+    // methods at once, which the fixed list has no single term for.
+    methodOfUse: 'Topical + Oral',
+    price: '99',
     priceUnit: '/month',
     href: '/#assessment-stub',
   },
   {
     name: 'Advanced Liposomal Formulas',
-    image: '/images/hair/product-advanced.png',
-    alt: 'Advanced liposomal hair restoration formulas — solution and foam',
+    image: '/images/hair/product-advanced.webp',
+    alt: 'Advanced liposomal hair restoration formulas — dropper solution and foam pump',
     icon: 'molecule',
     description:
-      'Next-generation liposomal delivery systems with advanced multi-ingredient formulations for enhanced results.',
-    optionsLabel: 'Common options include:',
+      'Next-generation delivery systems designed for enhanced absorption and results.',
+    optionsLabel: 'Common Formulations Include',
     options: [
       'Minoxidil + Fluocinolone + Tretinoin',
       'Minoxidil + Finasteride + Fluocinolone + Tretinoin',
     ],
-    price: 'XX',
+    methodOfUse: 'Topical Solution',
+    price: '109',
     priceUnit: '/month',
     href: '/#assessment-stub',
   },
