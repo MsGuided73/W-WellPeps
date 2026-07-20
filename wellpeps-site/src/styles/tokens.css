@@ -130,6 +130,11 @@
 
   --text-note:          var(--text-body-size);         /* footnotes, captions, helper lines — unchanged at 19px */
   --text-footer:        var(--text-body-size);         /* footer base body text — was 16px */
+  /* The one approved step below the 19px floor. At 19px the legal links and
+     the HIPAA badge measure 1314px against a 1238px row, so the badge wrapped
+     to its own line; 17px brings the row to 1188px and it fits from 1280px up.
+     Scoped to the footer's legal/disclaimer block — do not reuse for page copy. */
+  --text-legal:         1.0625rem;                     /* 17px */
 
   /* ---- Spacing rhythm ----
      Design Note: give the page a magazine-like rhythm — generous vertical
