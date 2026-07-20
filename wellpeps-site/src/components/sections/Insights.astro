@@ -15,6 +15,7 @@ import { insights } from '../../data/content';
           <div class="insight__media"><img src={a.image} width="780" height="520" alt={a.alt} loading="lazy" /></div>
           <div class="insight__body">
             <h3>{a.title}</h3>
+            <hr class="rule rule--left" />
             <p>{a.body}</p>
             <a href={a.href} class="pill-link">Read More <Icon name="arrow-right" /></a>
           </div>
@@ -40,6 +41,7 @@ import { insights } from '../../data/content';
   .insight:hover .insight__media img { transform: scale(1.04); }
   .insight__body { padding: 1.6rem 1.6rem 1.8rem; display: flex; flex-direction: column; flex: 1; }
   .insight__body h3 { font-size: var(--text-card-title); font-weight: 600; line-height: 1.25; }
+  .insight__body .rule { margin-top: 0.9rem; }
   .insight__body p { margin-top: 0.8rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.6; flex: 1; }
   /* Enlarged per the 7-9 notes ("enlarge button font, for these"). */
   .insight .pill-link { margin-top: 1.3rem; align-self: flex-start; font-size: var(--text-card-body); padding: 0.55rem 1.1rem; }

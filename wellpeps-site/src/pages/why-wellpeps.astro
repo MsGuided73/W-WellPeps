@@ -63,6 +63,7 @@ const faqs = [
         {trustCards.map((c) => (
           <article class="card why-card">
             <h3>{c.title}</h3>
+            <hr class="rule" />
             <p>{c.body}</p>
           </article>
         ))}
@@ -78,6 +79,7 @@ const faqs = [
         {patientsFirstCards.map((c) => (
           <article class="card why-card">
             <h3>{c.title}</h3>
+            <hr class="rule" />
             <p>{c.body}</p>
           </article>
         ))}
@@ -173,6 +175,7 @@ const faqs = [
   .why-card { padding: 2.5rem 2rem; text-align: center; display: flex; flex-direction: column; align-items: center; }
   .why-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
   .why-card h3 { font-size: var(--text-card-title); font-weight: 600; color: var(--navy); line-height: 1.2; }
+  .why-card .rule { margin-top: 1rem; }
   .why-card p { margin-top: 1rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.6; }
 
   /* FAQ accordion (same behaviour as the program-page FAQs). */

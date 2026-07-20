@@ -15,6 +15,7 @@ import { weightWhy, weightWhyIntro } from '../../../data/weight';
           <div class="wwhy__media"><img src={c.image} alt={c.alt} width="760" height="651" loading="lazy" /></div>
           <div class="wwhy__body">
             <h3>{c.title}</h3>
+            <hr class="rule" />
             <p>{c.body}</p>
           </div>
         </article>
@@ -45,6 +46,7 @@ import { weightWhy, weightWhyIntro } from '../../../data/weight';
   .wwhy__media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; }
   .wwhy__body { padding: 1.75rem; display: flex; flex-direction: column; align-items: center; }
   .wwhy__body h3 { font-size: var(--text-card-title); font-weight: 600; line-height: 1.2; }
+  .wwhy__body .rule { margin-top: 0.9rem; }
   .wwhy__body p { margin-top: 0.9rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.55; }
 
   /* Link through to the full Why WellPeps page (matches the home page). */

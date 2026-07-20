@@ -21,6 +21,7 @@ import { sexEducation, sexWorks } from '../../../data/sexual';
           <article class="card sxedu__step">
             <span class="sxedu__num">{i + 1}</span>
             <h4>{s.title}</h4>
+            <hr class="rule rule--left" />
             <p>{s.body}</p>
           </article>
         ))}
@@ -47,6 +48,7 @@ import { sexEducation, sexWorks } from '../../../data/sexual';
   .sxedu__step:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
   .sxedu__num { position: absolute; top: 1rem; right: 1.25rem; font-family: var(--font-serif); font-weight: 700; font-size: 2.6rem; color: var(--border-strong); line-height: 1; }
   .sxedu__step h4 { font-family: var(--font-serif); font-weight: 600; font-size: var(--text-card-title); color: var(--navy); line-height: 1.2; }
+  .sxedu__step .rule { margin-top: 0.9rem; }
   .sxedu__step p { margin-top: 0.8rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.6; }
 
   @media (max-width: 900px) {

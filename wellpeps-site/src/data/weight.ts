@@ -33,13 +33,12 @@ export const weightWorksIntro = {
 export const weightWorks: WorkStep[] = [
   { icon: 'plate-clock', title: 'Reduce Hunger', body: 'Helps regulate appetite signals so you feel less hungry throughout the day.' },
   { icon: 'stomach-clock', title: 'Feel Fuller Longer', body: 'Slows stomach emptying so you stay satisfied for longer periods.' },
-  { icon: 'scale-check', title: 'Support Healthy Weight Loss', body: 'Supports sustainable weight loss when combined with healthy lifestyle changes.' },
-  { icon: 'provider-chat', title: 'Provider Guided Care', body: 'A licensed provider monitors your progress and personalizes your treatment every step of the way.' },
+  { icon: 'scale-check', title: 'Support Weight Loss', body: 'Helps sustain weight loss when combined with healthy lifestyle changes.' },
 ];
 
 export const weightWorksNotes = [
   { icon: 'shield-check', lead: 'Personalized for you.', body: 'Every treatment plan is tailored to your health history, goals, and provider evaluation.' },
-  { icon: 'heart', lead: 'You’re never alone.', body: 'We’re with you every step of the way.' },
+  { icon: 'heart-flow', lead: 'You’re never alone.', body: 'We’re with you at every step of your wellness journey.' },
 ];
 
 export interface WhyCard {
