@@ -56,6 +56,8 @@ export interface SexProduct {
   alt: string;
   description: string;
   features: string[];
+  /** Delivery method, per the WellPeps Product Card Standard. */
+  methodOfUse: string;
   price: string;
   priceUnit: string;
   href: string;
@@ -71,10 +73,11 @@ export const sexProducts: SexProduct[] = [
   {
     name: 'Daily Boost',
     subtitle: 'Tadalafil Daily',
-    image: '/images/sexual/product-daily.png',
+    image: '/images/sexual/product-daily.webp',
     alt: 'Daily Boost — tadalafil daily oral medication',
     description: 'Low-dose daily support to help you feel ready, confident, and in control every day.',
     features: ['Supports daily confidence', 'Designed for ongoing spontaneity', 'Easy daily routine'],
+    methodOfUse: 'Oral Tablet',
     price: '69',
     priceUnit: '/month',
     href: '/#assessment-stub',
@@ -82,10 +85,11 @@ export const sexProducts: SexProduct[] = [
   {
     name: 'Go Long',
     subtitle: 'Silodosin + Tadalafil',
-    image: '/images/sexual/product-golong.png',
+    image: '/images/sexual/product-golong.webp',
     alt: 'Go Long — silodosin + tadalafil oral medication',
     description: 'Designed to help support longer-lasting performance and confidence when it matters most.',
     features: ['Supports longer-lasting results', 'Works when you need it', 'Provider-guided treatment'],
+    methodOfUse: 'Oral Tablet',
     price: '89',
     priceUnit: '/month',
     href: '/#assessment-stub',
@@ -93,10 +97,11 @@ export const sexProducts: SexProduct[] = [
   {
     name: 'Double Powered',
     subtitle: 'Sildenafil + Tadalafil',
-    image: '/images/sexual/product-double.png',
+    image: '/images/sexual/product-double.webp',
     alt: 'Double Powered — sildenafil + tadalafil oral medication',
     description: 'A powerful combination designed to enhance performance and increase confidence.',
     features: ['Dual-action formula', 'Enhanced effectiveness', 'Clinically guided'],
+    methodOfUse: 'Oral Tablet',
     price: '99',
     priceUnit: '/month',
     href: '/#assessment-stub',
@@ -104,10 +109,11 @@ export const sexProducts: SexProduct[] = [
   {
     name: 'Quadruple Powered',
     subtitle: 'Advanced Combination',
-    image: '/images/sexual/product-quadruple.png',
+    image: '/images/sexual/product-quadruple.webp',
     alt: 'Quadruple Powered — advanced combination oral medication',
     description: 'Advanced single-dose combinations for those who need maximum support.',
     features: ['Maximum support', 'Advanced formulation', 'Provider-supervised'],
+    methodOfUse: 'Oral Tablet',
     price: '129',
     priceUnit: '/month',
     href: '/#assessment-stub',

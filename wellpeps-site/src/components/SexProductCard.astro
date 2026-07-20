@@ -9,7 +9,10 @@ import type { SexProduct } from '../data/sexual';
 
 interface Props { product: SexProduct; }
 const { product } = Astro.props;
-const { name, subtitle, image, alt, description, features, price, priceUnit, href } = product;
+const {
+  name, subtitle, image, alt, description, features,
+  methodOfUse, price, priceUnit, href,
+} = product;
 ---
 <article class="sxcard">
   <div class="sxcard__media"><img src={image} alt={alt} width="720" height="520" loading="lazy" /></div>
@@ -18,6 +21,10 @@ const { name, subtitle, image, alt, description, features, price, priceUnit, hre
     <p class="sxcard__subtitle">{subtitle}</p>
     <p class="sxcard__desc">{description}</p>
     <hr class="sxcard__divider" />
+    <p class="sxcard__method">
+      <span class="sxcard__method-label">Method of Use</span>
+      <span>{methodOfUse}</span>
+    </p>
     <ul class="sxcard__features">
       {features.map((f) => (
         <li><span class="sxcard__check"><Icon name="check-circle" /></span>{f}</li>
@@ -46,6 +53,9 @@ const { name, subtitle, image, alt, description, features, price, priceUnit, hre
   .sxcard__desc { margin-top: 0.85rem; color: var(--text-body); font-size: var(--text-body-size); line-height: 1.55; }
 
   .sxcard__divider { height: 1px; border: 0; background: var(--border); margin: 1.25rem 0; }
+
+  .sxcard__method { margin-bottom: 1rem; font-size: var(--text-body-size); color: var(--text-body); }
+  .sxcard__method-label { display: block; font-weight: 700; color: var(--navy); }
 
   .sxcard__features { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.6rem; }
   .sxcard__features li { display: flex; align-items: center; gap: 0.6rem; color: var(--text-body); font-size: var(--text-body-size); }
