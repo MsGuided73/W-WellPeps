@@ -30,13 +30,13 @@ import { sexFaqs } from '../../../data/sexual';
   .sxfaq__item button {
     width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
     background: none; border: 0; cursor: pointer; text-align: left; padding: 1.35rem 1.5rem;
-    font-family: var(--font-sans); font-weight: 700; font-size: 1.25rem; color: var(--navy); line-height: 1.35;
+    font-family: var(--font-sans); font-weight: 700; font-size: var(--text-faq-q); color: var(--navy); line-height: 1.35;
   }
   .sxfaq__icon { display: grid; place-items: center; width: 28px; height: 28px; flex: none; color: var(--blue); transition: transform var(--dur) var(--ease); }
   .sxfaq__icon :global(svg) { width: 22px; height: 22px; }
   .sxfaq__item button[aria-expanded='true'] .sxfaq__icon { transform: rotate(180deg); }
   .sxfaq__panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--dur) var(--ease); }
-  .sxfaq__panel > p { overflow: hidden; color: var(--text-body); padding: 0 1.5rem; font-size: var(--text-card-body); line-height: 1.65; }
+  .sxfaq__panel > p { overflow: hidden; color: var(--text-body); padding: 0 1.5rem; font-size: var(--text-faq-a); line-height: 1.65; }
   .sxfaq__item button[aria-expanded='true'] + .sxfaq__panel { grid-template-rows: 1fr; }
   .sxfaq__item button[aria-expanded='true'] + .sxfaq__panel > p { padding-bottom: 1.4rem; }
 

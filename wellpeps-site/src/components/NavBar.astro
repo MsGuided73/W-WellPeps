@@ -51,7 +51,7 @@ import { NAV_LINKS, ONBOARDING_URL } from '../config';
     margin-inline: auto;
   }
   .nav__links a {
-    font-family: var(--font-sans); font-weight: 500; font-size: 1.125rem;
+    font-family: var(--font-sans); font-weight: 500; font-size: var(--text-body-size);
     color: var(--navy); position: relative; padding: 0.25rem 0;
   }
   .nav__links a::after {
@@ -61,7 +61,7 @@ import { NAV_LINKS, ONBOARDING_URL } from '../config';
   .nav__links a:hover { color: var(--blue); }
   .nav__links a:hover::after { right: 0; }
 
-  .nav__cta-btn { padding: 0.7rem 1.25rem; font-size: 0.98rem; }
+  .nav__cta-btn { padding: 0.7rem 1.25rem; font-size: var(--text-body-size); }
   .nav__links-cta { display: none; }
 
   .nav__toggle {
@@ -84,7 +84,7 @@ import { NAV_LINKS, ONBOARDING_URL } from '../config';
       transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
       margin: 0;
     }
-    .nav__links a { width: 100%; padding: 0.9rem 0; border-bottom: 1px solid var(--border); font-size: 1.1rem; }
+    .nav__links a { width: 100%; padding: 0.9rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-body-size); }
     :global(.nav.nav-open) .nav__links { transform: none; opacity: 1; pointer-events: auto; }
     .nav__cta { display: none; }
     .nav__links-cta { display: inline-flex; width: 100%; margin-top: 1.1rem; border-bottom: 0; }

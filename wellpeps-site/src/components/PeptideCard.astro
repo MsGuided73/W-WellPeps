@@ -73,7 +73,7 @@ const { name, subtitle, description, icon, photo, photoAlt, vial, price, href } 
   }
   .pepcard__badge :global(svg) { width: 22px; height: 22px; filter: var(--icon-shadow); }
   .pepcard__name { font-family: var(--font-serif); font-weight: 700; font-size: 1.5rem; color: var(--navy); line-height: 1.1; }
-  .pepcard__subtitle { margin-top: 0.2rem; color: var(--blue); font-weight: 600; font-size: 0.98rem; }
+  .pepcard__subtitle { margin-top: 0.2rem; color: var(--blue); font-weight: 600; font-size: var(--text-body-size); }
   .pepcard__desc { margin-top: 0.9rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.55; }
 
   .pepcard__divider { height: 1px; border: 0; background: var(--border); margin: 1.2rem 0; }
@@ -88,7 +88,7 @@ const { name, subtitle, description, icon, photo, photoAlt, vial, price, href } 
     display: inline-flex; align-items: center; gap: 0.5rem; flex: none;
     padding: 0.7rem 1.25rem;
     border: 1.5px solid var(--border-strong); border-radius: var(--radius-sm);
-    color: var(--blue); font-family: var(--font-sans); font-weight: 600; font-size: 0.98rem;
+    color: var(--blue); font-family: var(--font-sans); font-weight: 600; font-size: var(--text-body-size);
     transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
   }
   .pepcard__cta :global(svg) { width: 1em; height: 1em; transition: transform var(--dur) var(--ease); }

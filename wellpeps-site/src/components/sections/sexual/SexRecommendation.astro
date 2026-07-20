@@ -2,12 +2,17 @@
 import Icon from '../../Icon.astro';
 import { ONBOARDING_URL } from '../../../config';
 import { sexRecommendation } from '../../../data/sexual';
+
+// Break the heading after "Figure" so it reads on two lines on desktop
+// ("You Don't Have to Figure" / "It Out Alone."). The <br> is hidden on
+// mobile (see styles) so the text wraps naturally on small screens.
+const [titleHead, titleTail] = sexRecommendation.title.split(/(?<=Figure)\s+/);
 ---
 <section class="section section--pale-blue sxrec-wrap">
   <!-- Copy left, photo right (per the approved 7-10 notes). -->
   <div class="container sxrec__inner">
     <div class="sxrec reveal">
-      <h2>{sexRecommendation.title}</h2>
+      <h2>{titleHead}{titleTail && (<Fragment><br class="sxrec__brk" />{' '}{titleTail}</Fragment>)}</h2>
       <hr class="rule rule--left" />
       <p>{sexRecommendation.body}</p>
       <a href={ONBOARDING_URL} class="btn btn--primary btn--lg">Start Your Free Personalized Assessment <Icon name="arrow-right" /></a>
@@ -34,5 +39,7 @@ import { sexRecommendation } from '../../../data/sexual';
   @media (max-width: 900px) {
     .sxrec__inner { grid-template-columns: 1fr; }
     .sxrec__media { order: -1; }
+    /* Drop the forced break so the heading wraps naturally on mobile. */
+    .sxrec__brk { display: none; }
   }
 </style>

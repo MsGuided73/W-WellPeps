@@ -11,10 +11,10 @@
   --navy-deep: #061F42;     /* Footer base / deepest panels */
 
   /* Working blue — MASTER Guide OVERRIDE.
-     Client-approved brand blue — replaces the earlier electric blue
-     (#0B5CEF) across CTAs, links, icons and accent words. */
-  --blue: #4284CB;
-  --blue-hover: #366FB0;
+     Client-approved brand blue across CTAs, links, icons and accent words.
+     4.8:1 on white, so it clears AA for normal-size text as well as buttons. */
+  --blue: #0077BE;
+  --blue-hover: #005E96;
   --blue-soft: #2EA8F7;     /* Sky accent — icon fills, subtle highlights */
 
   /* ---- Icon medallions ----
@@ -23,17 +23,17 @@
      inner highlight/shade so the disc reads as a raised physical object.
      The icon itself gets a matching drop shadow (--icon-shadow). */
   --medallion-bg: linear-gradient(155deg, #FFFFFF 0%, #EDF4FC 48%, #D9E8F9 100%);
-  --medallion-ring: rgba(66, 132, 203, 0.22);
+  --medallion-ring: rgba(0, 119, 190, 0.22);
   --medallion-shadow:
     0 10px 20px -8px rgba(8, 43, 89, 0.30),
     0 2px 5px rgba(8, 43, 89, 0.10),
     inset 0 1px 0 rgba(255, 255, 255, 0.95),
-    inset 0 -3px 7px rgba(66, 132, 203, 0.13);
+    inset 0 -3px 7px rgba(0, 119, 190, 0.13);
   --medallion-shadow-hover:
     0 16px 28px -10px rgba(8, 43, 89, 0.36),
     0 3px 7px rgba(8, 43, 89, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.95),
-    inset 0 -3px 7px rgba(66, 132, 203, 0.16);
+    inset 0 -3px 7px rgba(0, 119, 190, 0.16);
   --icon-shadow: drop-shadow(0 1px 1.5px rgba(8, 43, 89, 0.28));
 
   /* ---- Surfaces ---- */
@@ -98,9 +98,13 @@
   --text-hero: clamp(2.75rem, 1.6rem + 5.2vw, 5rem);
   --text-h2: clamp(2.1rem, 1.3rem + 3.2vw, 3.5rem);
   --text-h3: clamp(1.3rem, 1.05rem + 1vw, 1.65rem);
-  --text-lead: clamp(1.05rem, 0.98rem + 0.4vw, 1.3rem);
+  --text-lead: clamp(1.1875rem, 1.1rem + 0.4vw, 1.4rem);
   --text-body-size: 1.1875rem;    /* 19px */
-  --text-small: 0.9375rem;        /* 15px */
+  /* Type floor: 19px. Nothing on the site is set below the body size, so
+     --text-small is now the same size as body and differs only in the role
+     it names. Kept as a token so the many call sites stay semantic and a
+     future step-down (if one is approved) is a one-line change here. */
+  --text-small: 1.1875rem;        /* 19px — was 15px */
 
   /* ---- Semantic type roles ----
      Prefer these role tokens in components — and on ALL new pages (Treatment
@@ -113,12 +117,19 @@
   --text-card-title:    calc(var(--text-h3) + 2px);    /* titles inside any card */
   --text-card-body:     var(--text-lead);              /* body copy inside cards + lead paragraphs */
   /* Product-card pricing — one scale across every program's cards. */
-  --price-label:        calc(var(--text-small) + 1px); /* "Plans from" / "Starting at" */
+  --price-label:        var(--text-body-size);         /* "Plans from" / "Starting at" — was 16px */
   --price-amount:       2.4rem;                        /* the dollar figure */
   --price-unit:         1.2rem;                        /* "/month" */
 
-  --text-note:          calc(var(--text-small) + 4px); /* footnotes, captions, helper lines */
-  --text-footer:        calc(var(--text-small) + 1px); /* footer base body text */
+  /* FAQ / accordion type — questions and answers read at or above the page
+     body size (19px) at every viewport, so nothing in an FAQ is ever set
+     smaller than ordinary body copy. Weight is owned by the component;
+     these tokens only carry size. */
+  --text-faq-q:         clamp(1.375rem, 1.25rem + 0.55vw, 1.6rem);   /* 22px → 25.6px */
+  --text-faq-a:         clamp(1.1875rem, 1.1rem + 0.45vw, 1.375rem); /* 19px → 22px  */
+
+  --text-note:          var(--text-body-size);         /* footnotes, captions, helper lines — unchanged at 19px */
+  --text-footer:        var(--text-body-size);         /* footer base body text — was 16px */
 
   /* ---- Spacing rhythm ----
      Design Note: give the page a magazine-like rhythm — generous vertical

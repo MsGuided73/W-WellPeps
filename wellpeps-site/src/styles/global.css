@@ -45,7 +45,16 @@ h1, h2, h3, h4 {
   line-height: 1.08;
   font-weight: 600;
   letter-spacing: -0.01em;
+  /* Even out the lines rather than stranding a single word on the last one.
+     Headings that already fit on one line are unaffected. */
+  text-wrap: balance;
 }
+
+/* Orphan control for body copy. `pretty` only reflows the closing lines, so the
+   measure of long paragraphs is unchanged. Where a sentence is a few pixels shy
+   of fitting, widen its column instead — this is the fallback for prose whose
+   column should not grow. */
+p, li, figcaption, blockquote { text-wrap: pretty; }
 
 /* Vivid accent word inside serif headlines ("Simplified.", "WellPeps") */
 .accent { color: var(--blue); }
@@ -114,10 +123,10 @@ h1, h2, h3, h4 {
   display: inline-flex; align-items: center; justify-content: center;
   gap: 0.55rem;
   font-family: var(--font-sans);
-  font-weight: 600;
-  font-size: 1.0625rem;
+  font-weight: 700;
+  font-size: 1.1875rem;
   line-height: 1;
-  padding: 1rem 1.6rem;
+  padding: 1rem 1.7rem;
   border-radius: var(--radius-sm);
   border: 2px solid transparent;
   cursor: pointer;
@@ -130,12 +139,12 @@ h1, h2, h3, h4 {
 
 .btn--primary {
   background: var(--blue); color: #fff;
-  box-shadow: 0 8px 20px rgba(66, 132, 203, 0.25);
+  box-shadow: 0 8px 20px rgba(0, 119, 190, 0.25);
 }
 .btn--primary:hover {
   background: var(--blue-hover); color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 12px 26px rgba(66, 132, 203, 0.32);
+  box-shadow: 0 12px 26px rgba(0, 119, 190, 0.32);
 }
 /* Dark navy fill — used ONLY by the bottom-of-page CTA bands. Heroes and
    in-page section CTAs keep the brand blue .btn--primary above. */
@@ -145,6 +154,7 @@ h1, h2, h3, h4 {
 }
 .btn--cta:hover {
   background: var(--navy-deep); color: #fff;
+  transform: translateY(-2px);
   box-shadow: 0 12px 26px rgba(8, 43, 89, 0.3);
 }
 .btn--secondary {
@@ -155,7 +165,7 @@ h1, h2, h3, h4 {
   background: var(--blue); color: #fff;
   transform: translateY(-2px);
 }
-.btn--lg { padding: 1.15rem 2rem; font-size: 1.125rem; }
+.btn--lg { padding: 1.15rem 2.1rem; font-size: 1.3125rem; }
 .btn--block { width: 100%; }
 
 /* Ghost pill link used on cards ("Explore Program →") */

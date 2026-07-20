@@ -58,8 +58,6 @@ const legal = [
         <div class="footer__logo">
           <img src="/images/logo-white.png" alt="WellPeps" width="250" height="52" />
         </div>
-        <h3 class="footer__headline">Wellness Starts with Knowledge</h3>
-        <p class="footer__sub">Get expert wellness insights, program updates, and exclusive offers—delivered to your inbox.</p>
       </div>
 
       <form class="newsletter" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
@@ -69,7 +67,7 @@ const legal = [
             <Icon name="mail" class="newsletter__icon" />
             <input type="email" name="email" required placeholder="Enter your email address" aria-label="Email address" />
           </div>
-          <button type="submit" class="newsletter__btn">Get Free Wellness Insights<br />Delivered Monthly</button>
+          <button type="submit" class="newsletter__btn">Get Free Wellness Tips Monthly</button>
         </div>
         <p class="newsletter__note"><Icon name="lock" class="tiny" /> We respect your privacy. Unsubscribe anytime.</p>
       </form>
@@ -142,8 +140,6 @@ const legal = [
     align-items: center;
   }
   .footer__logo { margin-bottom: 1.4rem; }
-  .footer__headline { font-family: var(--font-serif); color: #fff; font-size: calc(1.55rem + 1px); font-weight: 600; }
-  .footer__sub { color: var(--text-on-dark-muted); margin-top: 0.7rem; max-width: 42ch; line-height: 1.6; }
 
   .newsletter__row {
     display: flex; background: rgba(255,255,255,0.04);
@@ -153,15 +149,19 @@ const legal = [
   .newsletter__icon { width: 20px; height: 20px; color: var(--blue-soft); flex: none; }
   .newsletter__field input {
     flex: 1; background: none; border: 0; color: #fff; font-family: var(--font-sans);
-    font-size: calc(1rem + 1px); padding: 1.05rem 0;
+    font-size: var(--text-body-size); padding: 1.05rem 0;
   }
   .newsletter__field input::placeholder { color: #93a6c4; }
   .newsletter__field input:focus { outline: none; }
   .newsletter__btn {
     border: 0; cursor: pointer;
     background: #fff; color: var(--navy);
-    font-family: var(--font-sans); font-weight: 700; font-size: calc(0.9rem + 1px); line-height: 1.25;
-    padding: 0.6rem 1.4rem; transition: background var(--dur) var(--ease);
+    /* Deliberate exception to the 19px type floor: this button sits inside the
+       newsletter row next to the email input, and at body size the bold label
+       crowds the field. Sized down to 17px and given a little more side padding
+       so the button keeps its presence without squeezing the input. */
+    font-family: var(--font-sans); font-weight: 700; font-size: 1.0625rem; line-height: 1.25;
+    padding: 0.6rem 1.6rem; transition: background var(--dur) var(--ease);
   }
   .newsletter__btn:hover { background: #e8f1fd; color: var(--navy); }
   .newsletter__note { display: flex; align-items: center; gap: 0.4rem; color: var(--text-on-dark-muted); margin-top: 0.7rem; }
@@ -174,12 +174,12 @@ const legal = [
     display: grid; grid-template-columns: repeat(5, 1fr); gap: 2rem;
   }
   .footer__col h4 {
-    font-family: var(--font-sans); font-weight: 700; font-size: calc(0.8rem + 1px); letter-spacing: 0.08em;
+    font-family: var(--font-sans); font-weight: 700; font-size: var(--text-body-size); letter-spacing: 0.08em;
     text-transform: uppercase; color: var(--blue-soft); margin-bottom: 1.1rem;
   }
   .footer__col ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; }
   .footer__col a { color: #cdd8ea; }
-  .footer__soon { display: block; font-size: calc(0.72rem + 1px); font-style: italic; color: #8296b5; }
+  .footer__soon { display: block; font-size: var(--text-body-size); font-style: italic; color: #8296b5; }
 
   .footer__contact ul li { display: flex; gap: 0.65rem; align-items: flex-start; line-height: 1.45; }
   .footer__cicon { width: 18px; height: 18px; color: var(--blue-soft); margin-top: 2px; flex: none; }
@@ -187,11 +187,11 @@ const legal = [
 
   .footer__legal { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; }
   .footer__legal ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 1.5rem; }
-  .footer__legal a { color: #cdd8ea; font-size: calc(0.82rem + 1px); }
-  .footer__hipaa { display: inline-flex; align-items: center; gap: 0.4rem; color: #cdd8ea; font-size: calc(0.78rem + 1px); letter-spacing: 0.05em; }
+  .footer__legal a { color: #cdd8ea; font-size: var(--text-body-size); }
+  .footer__hipaa { display: inline-flex; align-items: center; gap: 0.4rem; color: #cdd8ea; font-size: var(--text-body-size); letter-spacing: 0.05em; }
 
-  .footer__disclaimer { color: #8296b5; font-size: 0.78rem; line-height: 1.6; text-align: center; max-width: 80ch; margin: 1.6rem auto 0; }
-  .footer__copy { text-align: center; color: #8296b5; font-size: 0.8rem; margin-top: 0.8rem; }
+  .footer__disclaimer { color: #8296b5; font-size: var(--text-body-size); line-height: 1.6; text-align: center; max-width: 80ch; margin: 1.6rem auto 0; }
+  .footer__copy { text-align: center; color: #8296b5; font-size: var(--text-body-size); margin-top: 0.8rem; }
 
   @media (max-width: 900px) {
     .footer__top { grid-template-columns: 1fr; }

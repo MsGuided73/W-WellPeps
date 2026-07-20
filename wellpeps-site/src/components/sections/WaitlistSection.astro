@@ -71,23 +71,25 @@ const {
   .wls__line { display: block; }
   .wls__line--accent { color: var(--blue); }
 
-  .wls__subhead { margin-top: 1.5rem; font-family: var(--font-sans); font-weight: 700; color: var(--navy); font-size: 1.15rem; }
+  .wls__subhead { margin-top: 1.5rem; font-family: var(--font-sans); font-weight: 700; color: var(--navy); font-size: var(--text-body-size); }
 
   .wls__form-title { margin-top: 1.6rem; font-family: var(--font-sans); font-weight: 700; color: var(--navy); font-size: 1.5rem; letter-spacing: -0.01em; }
-  .wls__lead { margin-top: 0.6rem; color: var(--text-body); font-size: 1.05rem; line-height: 1.6; max-width: 44ch; }
+  .wls__lead { margin-top: 0.6rem; color: var(--text-body); font-size: var(--text-body-size); line-height: 1.6; max-width: 44ch; }
 
-  .wls__form { margin-top: 1.5rem; max-width: 480px; }
+  /* 480px stranded "shared." from the reassurance note on its own line — that
+     sentence measures 487px. Widened so the note sits on one line. */
+  .wls__form { margin-top: 1.5rem; max-width: 520px; }
   .wls__field { position: relative; margin-bottom: 0.9rem; }
   .wls__field-icon { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); display: grid; place-items: center; }
   .wls__field-icon :global(svg) { width: 20px; height: 20px; }
   .wls__field input {
     width: 100%; padding: 1rem 1rem 1rem 2.9rem;
-    font-family: var(--font-sans); font-size: 1.05rem; color: var(--navy);
+    font-family: var(--font-sans); font-size: var(--text-body-size); color: var(--navy);
     background: #fff; border: 1.5px solid var(--border-strong); border-radius: var(--radius-sm);
     transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
   }
   .wls__field input::placeholder { color: var(--text-muted); }
-  .wls__field input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(66, 132, 203, 0.2); }
+  .wls__field input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0, 119, 190, 0.2); }
   .wls__field input:user-invalid { border-color: var(--error); }
 
   .wls__submit { margin-top: 0.3rem; }
@@ -98,8 +100,8 @@ const {
   .wls__success { display: flex; align-items: flex-start; gap: 1rem; margin-top: 1.5rem; max-width: 480px; padding: 1.4rem 1.5rem; background: var(--bg-soft-mint); border: 1px solid #bfe6cf; border-radius: var(--radius); }
   .wls__success-icon { display: inline-grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--success); color: #fff; }
   .wls__success-icon :global(svg) { width: 22px; height: 22px; }
-  .wls__success-title { font-family: var(--font-sans); font-weight: 700; color: var(--navy); font-size: 1.15rem; }
-  .wls__success-body { margin-top: 0.25rem; color: var(--text-body); font-size: 1rem; line-height: 1.55; }
+  .wls__success-title { font-family: var(--font-sans); font-weight: 700; color: var(--navy); font-size: var(--text-body-size); }
+  .wls__success-body { margin-top: 0.25rem; color: var(--text-body); font-size: var(--text-body-size); line-height: 1.55; }
 
   .wls__media { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
   .wls__media img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 4.4; }

@@ -42,18 +42,21 @@ const { name, subtitle, image, alt, description, features, price, priceUnit, hre
 
   .sxcard__body { display: flex; flex-direction: column; flex: 1; padding: 1.5rem 1.5rem 1.6rem; }
   .sxcard__name { font-family: var(--font-serif); font-weight: 700; font-size: calc(1.6rem + 1px); color: var(--navy); line-height: 1.1; }
-  .sxcard__subtitle { margin-top: 0.35rem; color: var(--blue); font-weight: 700; font-size: calc(0.85rem + 1px); letter-spacing: 0.06em; text-transform: uppercase; }
-  .sxcard__desc { margin-top: 0.85rem; color: var(--text-body); font-size: calc(1rem + 1px); line-height: 1.55; }
+  .sxcard__subtitle { margin-top: 0.35rem; color: var(--blue); font-weight: 700; font-size: var(--text-body-size); letter-spacing: 0.06em; text-transform: uppercase; }
+  .sxcard__desc { margin-top: 0.85rem; color: var(--text-body); font-size: var(--text-body-size); line-height: 1.55; }
 
   .sxcard__divider { height: 1px; border: 0; background: var(--border); margin: 1.25rem 0; }
 
   .sxcard__features { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.6rem; }
-  .sxcard__features li { display: flex; align-items: center; gap: 0.6rem; color: var(--text-body); font-size: calc(0.98rem + 1px); }
+  .sxcard__features li { display: flex; align-items: center; gap: 0.6rem; color: var(--text-body); font-size: var(--text-body-size); }
   .sxcard__check { display: inline-grid; place-items: center; flex: none; color: var(--blue); }
   .sxcard__check :global(svg) { width: 20px; height: 20px; }
 
   /* Price scale matches the Weight Loss cards. */
-  .sxcard__price { margin-top: auto; padding-top: 1.4rem; color: var(--text-muted); font-size: var(--price-label); display: flex; align-items: baseline; gap: 0.3rem; flex-wrap: wrap; }
+  /* Inline rather than flex: as flex items the amount and the unit were
+     separate boxes and wrapped apart on narrow cards ("$69" / "/month"). Inline
+     there is no whitespace between them, so they can never be split. */
+  .sxcard__price { margin-top: auto; padding-top: 1.4rem; color: var(--text-muted); font-size: var(--price-label); }
   .sxcard__price strong { font-size: var(--price-amount); font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
   .sxcard__price span { color: var(--text-muted); font-size: var(--price-unit); }
 
