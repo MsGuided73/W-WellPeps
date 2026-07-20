@@ -1,5 +1,5 @@
 ---
-import { peptideScience, peptideBenefits } from '../../../data/peptide';
+import { peptideScience } from '../../../data/peptide';
 ---
 <section class="section" id="science">
   <div class="container">
@@ -12,23 +12,6 @@ import { peptideScience, peptideBenefits } from '../../../data/peptide';
         {peptideScience.paragraphs.map((p) => <p>{p}</p>)}
       </div>
     </div>
-
-    <p class="psci__benefits-title reveal">{peptideScience.benefitsTitle}</p>
-    <div class="psci__grid reveal">
-      {peptideBenefits.map((b) => (
-        <article class="card psci__benefit">
-          <div class="psci__benefit-media">
-            <img src={b.image} alt={b.alt} width="760" height="520" loading="lazy" />
-          </div>
-          <div class="psci__benefit-body">
-            <h3>{b.title}</h3>
-            <hr class="rule" />
-            <p>{b.body}</p>
-          </div>
-        </article>
-      ))}
-    </div>
-    <p class="psci__foot reveal">{peptideScience.footnote}</p>
   </div>
 </section>
 
@@ -41,29 +24,7 @@ import { peptideScience, peptideBenefits } from '../../../data/peptide';
   .psci__media { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
   .psci__media img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 3 / 2; }
 
-  .psci__benefits-title {
-    text-align: center; margin-top: clamp(3rem, 5vw, 4.5rem);
-    font-family: var(--font-serif); font-weight: 700; color: var(--navy);
-    font-size: clamp(1.7rem, 1.2rem + 1.9vw, 2.6rem);
-    padding-bottom: 1.25rem; border-bottom: 1px solid var(--border);
-  }
-  /* Image-led benefit cards (same treatment as the Hair Restoration
-     "How Treatments Work" cards): photo · medallion · title · body. */
-  .psci__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; margin-top: 2rem; }
-  .psci__benefit { overflow: hidden; display: flex; flex-direction: column; text-align: center; }
-  .psci__benefit:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-  .psci__benefit-media { aspect-ratio: 16 / 10; overflow: hidden; }
-  .psci__benefit-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
-  .psci__benefit-body { padding: 1.75rem 1.6rem 2rem; display: flex; flex-direction: column; align-items: center; flex: 1; }
-  .psci__benefit h3 { font-family: var(--font-serif); font-size: var(--text-card-title); font-weight: 600; color: var(--navy); line-height: 1.2; }
-  .psci__benefit .rule { margin-top: 0.9rem; }
-  .psci__benefit p { margin-top: 0.9rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.6; }
-
-  .psci__foot { text-align: center; margin-top: 2rem; color: var(--blue); font-weight: 700; font-size: var(--text-note); }
-
   @media (max-width: 900px) {
     .psci__top { grid-template-columns: 1fr; }
-    .psci__grid { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }
   }
-  @media (max-width: 900px) and (min-width: 620px) { .psci__grid { grid-template-columns: 1fr 1fr; max-width: none; } }
 </style>

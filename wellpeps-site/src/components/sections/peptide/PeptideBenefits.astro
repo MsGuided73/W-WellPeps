@@ -1,0 +1,101 @@
+---
+/**
+ * Potential Benefits band: white panel floating on a tinted section so it
+ * separates cleanly from the white science band above and the gray
+ * products band below. Checklist copy left, lifestyle photo right.
+ */
+import Icon from '../../Icon.astro';
+import { peptideScience, peptideBenefits } from '../../../data/peptide';
+---
+<section class="section section--cool-blue" id="benefits">
+  <div class="container">
+    <div class="pben reveal">
+      <div class="pben__copy">
+        <h2 class="pben__title">{peptideScience.benefitsTitle}</h2>
+        <p class="pben__lead">{peptideScience.benefitsLead}</p>
+
+        <ul class="pben__list">
+          {peptideBenefits.map((b) => (
+            <li class="pben__item">
+              <span class="pben__tick"><Icon name="check" /></span>
+              <div>
+                <h3>{b.title}</h3>
+                <p>{b.body}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        <p class="pben__foot">
+          <span class="pben__foot-icon"><Icon name="info" /></span>
+          <span>{peptideScience.footnote}</span>
+        </p>
+      </div>
+
+      <div class="pben__media">
+        <img src={peptideScience.benefitsImage} alt={peptideScience.benefitsAlt} width="880" height="1120" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* White panel on the tinted section, with its own internal padding so the
+     content never crowds the panel edge. */
+  .pben {
+    display: grid; grid-template-columns: 1.75fr 0.8fr;
+    gap: clamp(2rem, 3vw, 3rem); align-items: center;
+    background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow);
+    padding: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .pben__title { font-family: var(--font-serif); font-weight: 700; color: var(--navy); font-size: clamp(1.9rem, 1.3rem + 2vw, 2.9rem); line-height: 1.12; }
+  .pben__lead { margin-top: 0.9rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.6; max-width: 46ch; }
+
+  /* Column-major flow so the list reads DOWN each column: items 1-4 fill
+     column one, items 5-8 fill column two. Row-major flow would scramble
+     that reading order — see the ordering note in data/peptide.ts. */
+  .pben__list {
+    list-style: none; margin: clamp(1.75rem, 3vw, 2.5rem) 0 0; padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, auto);
+    grid-auto-flow: column;
+    column-gap: clamp(2rem, 3vw, 3rem);
+    row-gap: 0.5rem;
+  }
+  /* No rules or dividers — the columns are separated by whitespace alone. */
+  .pben__item { display: flex; gap: 0.85rem; padding: 0.85rem 0; }
+
+  .pben__tick {
+    flex: none; display: inline-grid; place-items: center;
+    width: 24px; height: 24px; margin-top: 0.1rem;
+    border-radius: 50%; background: var(--blue); color: #fff;
+  }
+  .pben__tick :global(svg) { width: 15px; height: 15px; stroke-width: 3; }
+
+  /* One notch below --text-card-title so the longest labels ("Mental Focus
+     & Clarity", "Collagen & Skin Health") stay on a single line. */
+  .pben__item h3 { font-family: var(--font-serif); font-weight: 600; font-size: var(--text-h3); color: var(--navy); line-height: 1.25; text-wrap: balance; }
+  .pben__item p { margin-top: 0.35rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.55; }
+
+  .pben__foot {
+    display: flex; gap: 0.85rem; align-items: flex-start;
+    margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);
+    color: var(--text-body); font-size: var(--text-note); line-height: 1.6;
+  }
+  .pben__foot-icon { flex: none; display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--border-strong); color: var(--blue); }
+  .pben__foot-icon :global(svg) { width: 15px; height: 15px; }
+
+  .pben__media { border-radius: var(--radius); overflow: hidden; align-self: stretch; }
+  .pben__media img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+
+  @media (max-width: 1000px) {
+    .pben { grid-template-columns: 1fr; }
+    .pben__media { order: -1; }
+    .pben__media img { aspect-ratio: 3 / 2; }
+  }
+  @media (max-width: 620px) {
+    .pben__list { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; }
+  }
+</style>
