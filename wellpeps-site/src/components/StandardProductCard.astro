@@ -27,19 +27,25 @@ interface Props {
   priceNote?: string;
   href: string;
   cta?: string;
+  /** Optional WellPeps product name shown in blue under the title (Sexual Wellness only). */
+  productName?: string;
+  /** Full-bleed cover media for photographic shots instead of the white "contain" vial box. */
+  cover?: boolean;
 }
 const {
   image, alt, name, description, form, features,
   price, priceUnit, priceNote, href, cta = 'Start Free Assessment',
+  productName, cover = false,
 } = Astro.props;
 ---
-<article class="scard">
+<article class:list={['scard', { 'scard--cover': cover }]}>
   <div class="scard__media">
     <img src={image} alt={alt} width="720" height="540" loading="lazy" />
   </div>
 
   <div class="scard__body">
     <h3 class="scard__name">{name}</h3>
+    {productName && <p class="scard__product">{productName}</p>}
     <p class="scard__desc">{description}</p>
 
     <hr class="scard__divider" />
@@ -89,6 +95,13 @@ const {
   }
   .scard:hover .scard__media img { transform: scale(1.03); }
 
+  /* Cover variant: full-bleed photographic shots (e.g. Sexual Wellness). */
+  .scard--cover .scard__media {
+    min-height: 0; height: auto; aspect-ratio: 4 / 3;
+    padding: 0; display: block; background: var(--bg-gray);
+  }
+  .scard--cover .scard__media img { width: 100%; height: 100%; object-fit: cover; }
+
   .scard__body { display: flex; flex-direction: column; flex: 1; padding: 1.6rem 1.5rem 1.5rem; }
 
   /* Name + description each carry the reference's hanging blue bullet. */
@@ -107,6 +120,9 @@ const {
     font-weight: 700; letter-spacing: normal;
     font-size: 1.7rem; color: var(--navy); line-height: 1.18;
   }
+  /* Blue WellPeps product name under the title (Sexual Wellness only). */
+  .scard__product { margin-top: 0.4rem; padding-left: 1.15rem; color: var(--blue); font-weight: 700; font-size: var(--text-body-size); letter-spacing: 0.02em; }
+
   .scard__desc { margin-top: 0.85rem; color: var(--text-body); font-size: calc(var(--text-card-body) - 1px); line-height: 1.55; }
 
   .scard__divider { height: 1px; border: 0; background: var(--border); margin: 1.35rem 0; }

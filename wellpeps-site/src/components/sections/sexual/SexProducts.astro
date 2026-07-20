@@ -1,6 +1,5 @@
 ---
-import Icon from '../../Icon.astro';
-import SexProductCard from '../../SexProductCard.astro';
+import StandardProductCard from '../../StandardProductCard.astro';
 import { sexProducts, sexProductsIntro } from '../../../data/sexual';
 ---
 <!-- White background: the pale-blue education section sits directly above, and
@@ -13,7 +12,21 @@ import { sexProducts, sexProductsIntro } from '../../../data/sexual';
     </div>
 
     <div class="sxprod__grid reveal">
-      {sexProducts.map((product) => <SexProductCard product={product} />)}
+      {sexProducts.map((product) => (
+        <StandardProductCard
+          cover
+          image={product.image}
+          alt={product.alt}
+          name={product.name}
+          productName={product.subtitle}
+          description={product.description}
+          form={product.methodOfUse}
+          features={product.features}
+          price={product.price}
+          priceUnit={product.priceUnit}
+          href={product.href}
+        />
+      ))}
     </div>
 
     <p class="sxprod__foot reveal">{sexProductsIntro.footnote}</p>
