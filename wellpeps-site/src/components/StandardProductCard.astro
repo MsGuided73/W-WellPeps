@@ -104,16 +104,12 @@ const {
 
   .scard__body { display: flex; flex-direction: column; flex: 1; padding: 1.6rem 1.5rem 1.5rem; }
 
-  /* Name + description each carry the reference's hanging blue bullet. */
-  .scard__name,
+  /* Description keeps the reference's hanging blue bullet; the title is flush. */
   .scard__desc { position: relative; padding-left: 1.15rem; }
-  .scard__name::before,
   .scard__desc::before {
-    content: ''; position: absolute; left: 0;
+    content: ''; position: absolute; left: 0; top: 0.6em;
     width: 7px; height: 7px; border-radius: 50%; background: var(--blue);
   }
-  .scard__name::before { top: 0.62em; }
-  .scard__desc::before { top: 0.6em; }
 
   .scard__name {
     font-family: var(--font-serif);
@@ -121,7 +117,7 @@ const {
     font-size: 1.7rem; color: var(--navy); line-height: 1.18;
   }
   /* Blue WellPeps product name under the title (Sexual Wellness only). */
-  .scard__product { margin-top: 0.4rem; padding-left: 1.15rem; color: var(--blue); font-weight: 700; font-size: var(--text-body-size); letter-spacing: 0.02em; }
+  .scard__product { margin-top: 0.4rem; color: var(--blue); font-weight: 700; font-size: var(--text-body-size); letter-spacing: 0.02em; }
 
   .scard__desc { margin-top: 0.85rem; color: var(--text-body); font-size: calc(var(--text-card-body) - 1px); line-height: 1.55; }
 
