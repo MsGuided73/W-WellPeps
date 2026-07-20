@@ -1,0 +1,145 @@
+---
+/**
+ * StandardProductCard — the approved "Semaglutide" reference card standard.
+ *
+ * Structure (top → bottom):
+ *   image · • name · • description · hairline · form label ·
+ *   check-circle feature list · hairline · "Starting at $X /unit" ·
+ *   filled "Start Free Assessment" CTA.
+ *
+ * Shared across every non-Hair-Restoration program page so the product grids
+ * read as one system. Each page adapts its own data shape into these props.
+ */
+import Icon from './Icon.astro';
+
+interface Props {
+  image: string;
+  alt: string;
+  name: string;
+  description: string;
+  /** Delivery method, shown as the bold band label (e.g. "Weekly Injection"). */
+  form: string;
+  /** Benefit checklist — rendered with check-circle icons. */
+  features: string[];
+  price: string;
+  priceUnit: string;
+  /** When present, appends a "*" to the unit to key the page's legal footnote. */
+  priceNote?: string;
+  href: string;
+  cta?: string;
+}
+const {
+  image, alt, name, description, form, features,
+  price, priceUnit, priceNote, href, cta = 'Start Free Assessment',
+} = Astro.props;
+---
+<article class="scard">
+  <div class="scard__media">
+    <img src={image} alt={alt} width="720" height="540" loading="lazy" />
+  </div>
+
+  <div class="scard__body">
+    <h3 class="scard__name">{name}</h3>
+    <p class="scard__desc">{description}</p>
+
+    <hr class="scard__divider" />
+
+    <p class="scard__form">{form}</p>
+    <ul class="scard__features">
+      {features.map((f) => (
+        <li><span class="scard__check"><Icon name="check-circle" /></span>{f}</li>
+      ))}
+    </ul>
+
+    <div class="scard__price">
+      <span class="scard__price-label">Starting at</span>
+      <span class="scard__price-row">
+        <span class="scard__price-amount">${price}</span>
+        <span class="scard__price-unit">{priceUnit}{priceNote ? '*' : ''}</span>
+      </span>
+    </div>
+
+    <a href={href} class="scard__cta">{cta} <Icon name="arrow-right" /></a>
+  </div>
+</article>
+
+<style>
+  .scard {
+    display: flex; flex-direction: column;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  }
+  .scard:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+
+  /* Product shots are portrait vials on white — contain them on a white field
+     so the full bottle floats without cropping. */
+  /* Explicit height on the IMAGE (never a percentage) reliably sizes the
+     vial; min-height keeps the three media boxes aligned across the row. */
+  .scard__media {
+    min-height: clamp(240px, 20vw, 300px); overflow: hidden; background: #fff;
+    display: grid; place-items: center; padding: 1.1rem 1.5rem 0.9rem;
+  }
+  .scard__media img {
+    height: clamp(190px, 15.5vw, 240px); width: auto; max-width: 100%;
+    object-fit: contain; transition: transform 0.5s var(--ease);
+  }
+  .scard:hover .scard__media img { transform: scale(1.03); }
+
+  .scard__body { display: flex; flex-direction: column; flex: 1; padding: 1.6rem 1.5rem 1.5rem; }
+
+  /* Name + description each carry the reference's hanging blue bullet. */
+  .scard__name,
+  .scard__desc { position: relative; padding-left: 1.15rem; }
+  .scard__name::before,
+  .scard__desc::before {
+    content: ''; position: absolute; left: 0;
+    width: 7px; height: 7px; border-radius: 50%; background: var(--blue);
+  }
+  .scard__name::before { top: 0.62em; }
+  .scard__desc::before { top: 0.6em; }
+
+  .scard__name {
+    font-family: var(--font-sans);
+    font-weight: 700; letter-spacing: -0.02em;
+    font-size: 1.75rem; color: var(--navy); line-height: 1.12;
+  }
+  .scard__desc { margin-top: 0.85rem; color: var(--text-body); font-size: calc(var(--text-card-body) - 1px); line-height: 1.55; }
+
+  .scard__divider { height: 1px; border: 0; background: var(--border); margin: 1.35rem 0; }
+
+  .scard__form { font-weight: 800; color: var(--navy); font-size: var(--text-body-size); letter-spacing: -0.01em; }
+
+  .scard__features { list-style: none; padding: 0; margin: 1rem 0 0; display: flex; flex-direction: column; gap: 0.7rem; }
+  .scard__features li { display: flex; align-items: center; gap: 0.65rem; color: var(--text-body); font-size: var(--text-body-size); }
+  .scard__check { display: inline-grid; place-items: center; flex: none; color: var(--blue); }
+  .scard__check :global(svg) { width: 20px; height: 20px; }
+
+  /* Price + CTA pinned to the bottom so cards align across the row.
+     The border-top is the reference's second hairline (checklist → price). */
+  .scard__price { margin-top: auto; padding-top: 1.35rem; border-top: 1px solid var(--border); }
+  .scard__price-label { display: block; color: var(--text-muted); font-size: var(--price-label); }
+  .scard__price-row { display: flex; align-items: baseline; gap: 0.35rem; margin-top: 0.1rem; }
+  .scard__price-amount { font-family: var(--font-sans); font-weight: 800; letter-spacing: -0.02em; font-size: var(--price-amount); color: var(--navy); line-height: 1; }
+  .scard__price-unit { color: var(--text-muted); font-size: var(--price-unit); }
+
+  /* Filled CTA per the WellPeps Product Card Standard: Ocean Boat Blue,
+     white text, 48px tall, 16px radius, arrow pinned right. */
+  .scard__cta {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 1.1rem; width: 100%;
+    min-height: 48px; padding: 0.75rem 2.6rem;
+    white-space: nowrap;
+    background: var(--blue); border-radius: 16px;
+    color: #fff; font-family: var(--font-sans); font-weight: 600; font-size: var(--text-body-size);
+    text-align: center; line-height: 1.3;
+    transition: background var(--dur) var(--ease);
+  }
+  .scard__cta :global(svg) { position: absolute; right: 1.1rem; width: 1.05em; height: 1.05em; transition: transform var(--dur) var(--ease); }
+  .scard__cta:hover { background: var(--blue-hover); color: #fff; }
+  .scard__cta:hover :global(svg) { transform: translateX(3px); }
+</style>

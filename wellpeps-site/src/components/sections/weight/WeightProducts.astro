@@ -1,6 +1,6 @@
 ---
 import Icon from '../../Icon.astro';
-import ProductCardPills from '../../ProductCardPills.astro';
+import StandardProductCard from '../../StandardProductCard.astro';
 import { weightProducts, weightProductsIntro } from '../../../data/weight';
 ---
 <section class="section section--gray" id="weight-products">
@@ -11,7 +11,20 @@ import { weightProducts, weightProductsIntro } from '../../../data/weight';
     </div>
 
     <div class="wprod__grid reveal">
-      {weightProducts.map((product) => <ProductCardPills product={product} />)}
+      {weightProducts.map((product) => (
+        <StandardProductCard
+          image={product.image}
+          alt={product.alt}
+          name={product.name}
+          description={product.description}
+          form={product.delivery.label}
+          features={product.benefits.map((b) => b.label)}
+          price={product.price}
+          priceUnit={product.priceUnit}
+          priceNote={product.priceNote}
+          href={product.href}
+        />
+      ))}
     </div>
 
     <p class="wprod__pricenote reveal">{weightProductsIntro.priceFootnote}</p>
