@@ -22,7 +22,8 @@ import { peptideProducts, peptideProductsIntro, peptideProductsFootnote } from '
      a readable measure. */
   .pprod__head { text-align: center; margin-inline: auto; }
   .pprod__head h2 { font-size: var(--text-section-title); font-weight: 700; }
-  .pprod__lead { margin-top: 1rem; font-size: var(--text-lead); color: var(--text-body); max-width: 820px; margin-inline: auto; }
+  /* 1000px holds the lead to three lines; it turns four below ~960px. */
+  .pprod__lead { margin-top: 1rem; font-size: var(--text-lead); color: var(--text-body); max-width: 1000px; margin-inline: auto; }
 
   .pprod__grid {
     display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem;
