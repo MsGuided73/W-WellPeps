@@ -13,13 +13,16 @@
  */
 import { createClient } from '@supabase/supabase-js';
 
-const url = import.meta.env.SUPABASE_URL;
-const key = import.meta.env.SUPABASE_PUBLISHABLE_KEY;
+// Locally these come from .env; on the deploy host they are set as build-time
+// environment variables, which only reach us via process.env.
+const url = import.meta.env.SUPABASE_URL ?? process.env.SUPABASE_URL;
+const key = import.meta.env.SUPABASE_PUBLISHABLE_KEY ?? process.env.SUPABASE_PUBLISHABLE_KEY;
 
 if (!url || !key) {
   throw new Error(
     'Missing SUPABASE_URL / SUPABASE_PUBLISHABLE_KEY.\n' +
-      'Copy wellpeps-site/.env.example to .env before building.'
+      'Locally: copy wellpeps-site/.env.example to .env.\n' +
+      'On the deploy host: set both as build-time environment variables.'
   );
 }
 
