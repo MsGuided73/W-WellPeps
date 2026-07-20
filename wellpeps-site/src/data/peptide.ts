@@ -64,6 +64,10 @@ export interface PeptideProduct {
   photo: string;
   photoAlt: string;
   vial: string;
+  /** Delivery method, per the WellPeps Product Card Standard. */
+  methodOfUse: string;
+  /** Three key benefits, drawn from the description copy. */
+  features: string[];
   price: string;
   href: string;
 }
@@ -83,6 +87,8 @@ export const peptideProducts: PeptideProduct[] = [
     photo: '/images/peptide/photo-sermorelin.webp',
     photoAlt: 'A man pausing during a mountain hike at sunrise',
     vial: '/images/peptide/vial-sermorelin.webp',
+    methodOfUse: 'Subcutaneous Injection',
+    features: ['Lean muscle support', 'Recovery & sleep quality', 'Healthy aging'],
     price: '149',
     href: '/#assessment-stub',
   },
@@ -94,6 +100,8 @@ export const peptideProducts: PeptideProduct[] = [
     photo: '/images/peptide/photo-nad.webp',
     photoAlt: 'A woman relaxing with a coffee by a bright window',
     vial: '/images/peptide/vial-nad.webp',
+    methodOfUse: 'Injection',
+    features: ['Cellular energy', 'Mental clarity', 'Healthy aging'],
     price: '169',
     href: '/#assessment-stub',
   },
@@ -105,6 +113,8 @@ export const peptideProducts: PeptideProduct[] = [
     photo: '/images/peptide/photo-glutathione.webp',
     photoAlt: 'A woman with glowing skin in soft natural light',
     vial: '/images/peptide/vial-glutathione.webp',
+    methodOfUse: 'Injection',
+    features: ['Antioxidant protection', 'Immune health', 'Detoxification support'],
     price: '129',
     href: '/#assessment-stub',
   },
@@ -116,6 +126,8 @@ export const peptideProducts: PeptideProduct[] = [
     photo: '/images/peptide/photo-mic.webp',
     photoAlt: 'A woman running along a palm-lined coastal path',
     vial: '/images/peptide/vial-mic.webp',
+    methodOfUse: 'Injection',
+    features: ['Metabolic support', 'Fat utilization', 'Natural energy'],
     price: '119',
     href: '/#assessment-stub',
   },
@@ -127,6 +139,8 @@ export const peptideProducts: PeptideProduct[] = [
     photo: '/images/peptide/photo-lipoc.webp',
     photoAlt: 'A woman meditating outdoors by a lake at golden hour',
     vial: '/images/peptide/vial-lipoc.webp',
+    methodOfUse: 'Injection',
+    features: ['Metabolic wellness', 'Energy support', 'Complements nutrition'],
     price: '109',
     href: '/#assessment-stub',
   },
@@ -138,6 +152,8 @@ export const peptideProducts: PeptideProduct[] = [
     photo: '/images/peptide/photo-methylene.webp',
     photoAlt: 'A man reading a book in warm evening light',
     vial: '/images/peptide/vial-methylene.webp',
+    methodOfUse: 'Oral',
+    features: ['Mitochondrial support', 'Mental clarity', 'Mood & cellular health'],
     price: '79',
     href: '/#assessment-stub',
   },

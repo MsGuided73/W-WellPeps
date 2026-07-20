@@ -1,15 +1,17 @@
 ---
 /**
  * PeptideCard — approved Peptides & Wellness card design.
- * Lifestyle photo · icon badge · name + subtitle · description · vial image ·
- * "Starting at $X/mo" · outlined "Learn More".
+ * Top (unchanged): lifestyle photo · icon badge · name + subtitle · description ·
+ * vial image bridging the seam on the right.
+ * Bottom (aligned to the WellPeps Product Card Standard): method-of-use label ·
+ * check-circle benefits · "Starting at $X /month" · filled "Start Free Assessment".
  */
 import Icon from './Icon.astro';
 import type { PeptideProduct } from '../data/peptide';
 
 interface Props { product: PeptideProduct; }
 const { product } = Astro.props;
-const { name, subtitle, description, icon, photo, photoAlt, vial, price, href } = product;
+const { name, subtitle, description, icon, photo, photoAlt, vial, methodOfUse, features, price, href } = product;
 ---
 <article class="pepcard">
   <div class="pepcard__photo"><img src={photo} alt={photoAlt} width="760" height="428" loading="lazy" /></div>
@@ -29,12 +31,22 @@ const { name, subtitle, description, icon, photo, photoAlt, vial, price, href } 
 
     <hr class="pepcard__divider" />
 
+    <p class="pepcard__method">{methodOfUse}</p>
+    <ul class="pepcard__features">
+      {features.map((f) => (
+        <li><span class="pepcard__check"><Icon name="check-circle" /></span>{f}</li>
+      ))}
+    </ul>
+
     <div class="pepcard__foot">
       <div class="pepcard__price">
-        <span>Starting at</span>
-        <strong>${price}<span>/mo</span></strong>
+        <span class="pepcard__price-label">Starting at</span>
+        <span class="pepcard__price-row">
+          <span class="pepcard__price-amount">${price}</span>
+          <span class="pepcard__price-unit">/month</span>
+        </span>
       </div>
-      <a href={href} class="pepcard__cta">Learn More <Icon name="arrow-right" /></a>
+      <a href={href} class="pepcard__cta">Start Free Assessment <Icon name="arrow-right" /></a>
     </div>
   </div>
 </article>
@@ -53,16 +65,16 @@ const { name, subtitle, description, icon, photo, photoAlt, vial, price, href } 
   .pepcard__photo { aspect-ratio: 16 / 9; overflow: hidden; }
   .pepcard__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; }
 
-  /* Vial straddles the photo/body seam on the right (over the background edge,
-     anchored to the body so it lands consistently regardless of photo height). */
+  /* Vial straddles the photo/body seam on the right (unchanged). */
   .pepcard__vial {
     position: absolute; right: 1.1rem; top: -86px;
     width: auto; height: clamp(170px, 14vw, 208px); object-fit: contain;
     z-index: 2; pointer-events: none;
   }
 
-  .pepcard__body { position: relative; display: flex; flex-direction: column; flex: 1; padding: 1.4rem 1.5rem 1.4rem; }
-  .pepcard__main { flex: 1; padding-right: 118px; }
+  .pepcard__body { position: relative; display: flex; flex-direction: column; flex: 1; padding: 1.4rem 1.5rem 1.5rem; }
+  /* Only the head + description need clearance for the floating vial. */
+  .pepcard__main { padding-right: 118px; }
 
   .pepcard__head { display: flex; align-items: flex-start; gap: 0.85rem; }
   .pepcard__badge {
@@ -73,26 +85,39 @@ const { name, subtitle, description, icon, photo, photoAlt, vial, price, href } 
   }
   .pepcard__badge :global(svg) { width: 22px; height: 22px; filter: var(--icon-shadow); }
   .pepcard__name { font-family: var(--font-serif); font-weight: 700; font-size: 1.5rem; color: var(--navy); line-height: 1.1; }
-  .pepcard__subtitle { margin-top: 0.2rem; color: var(--blue); font-weight: 600; font-size: var(--text-body-size); }
-  .pepcard__desc { margin-top: 0.9rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.55; }
+  .pepcard__subtitle { margin-top: 0.2rem; color: var(--blue); font-weight: 700; font-size: var(--text-body-size); }
+  .pepcard__desc { margin-top: 0.9rem; color: var(--text-body); font-size: calc(var(--text-card-body) - 1px); line-height: 1.55; }
 
   .pepcard__divider { height: 1px; border: 0; background: var(--border); margin: 1.2rem 0; }
 
-  .pepcard__foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-  /* Price scale matches the Weight Loss cards. */
-  .pepcard__price span { display: block; color: var(--text-muted); font-size: var(--price-label); }
-  .pepcard__price strong { color: var(--blue); font-size: var(--price-amount); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
-  .pepcard__price strong span { display: inline; color: var(--text-muted); font-size: var(--price-unit); font-weight: 500; }
+  /* Method + benefits — matches the Weight Loss / Sexual Wellness cards. */
+  .pepcard__method { font-weight: 800; color: var(--navy); font-size: var(--text-body-size); letter-spacing: -0.01em; }
+  .pepcard__features { list-style: none; padding: 0; margin: 1rem 0 0; display: flex; flex-direction: column; gap: 0.7rem; }
+  .pepcard__features li { display: flex; align-items: center; gap: 0.65rem; color: var(--text-body); font-size: var(--text-body-size); }
+  .pepcard__check { display: inline-grid; place-items: center; flex: none; color: var(--blue); }
+  .pepcard__check :global(svg) { width: 20px; height: 20px; }
 
+  /* Price + CTA pinned to the bottom so cards align across the row. */
+  .pepcard__foot { margin-top: auto; padding-top: 1.35rem; border-top: 1px solid var(--border); }
+  .pepcard__price-label { display: block; color: var(--text-muted); font-size: var(--price-label); }
+  .pepcard__price-row { display: flex; align-items: baseline; gap: 0.35rem; margin-top: 0.1rem; }
+  .pepcard__price-amount { font-family: var(--font-sans); font-weight: 800; letter-spacing: -0.02em; font-size: var(--price-amount); color: var(--navy); line-height: 1; }
+  .pepcard__price-unit { color: var(--text-muted); font-size: var(--price-unit); }
+
+  /* Filled electric-blue CTA per the WellPeps Product Card Standard. */
   .pepcard__cta {
-    display: inline-flex; align-items: center; gap: 0.5rem; flex: none;
-    padding: 0.7rem 1.25rem;
-    border: 1.5px solid var(--border-strong); border-radius: var(--radius-sm);
-    color: var(--blue); font-family: var(--font-sans); font-weight: 600; font-size: var(--text-body-size);
-    transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 1.1rem; width: 100%;
+    min-height: 48px; padding: 0.75rem 2.6rem;
+    white-space: nowrap;
+    background: var(--blue); border-radius: 16px;
+    color: #fff; font-family: var(--font-sans); font-weight: 600; font-size: var(--text-body-size);
+    text-align: center; line-height: 1.3;
+    transition: background var(--dur) var(--ease);
   }
-  .pepcard__cta :global(svg) { width: 1em; height: 1em; transition: transform var(--dur) var(--ease); }
-  .pepcard__cta:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .pepcard__cta :global(svg) { position: absolute; right: 1.1rem; width: 1.05em; height: 1.05em; transition: transform var(--dur) var(--ease); }
+  .pepcard__cta:hover { background: var(--blue-hover); color: #fff; }
   .pepcard__cta:hover :global(svg) { transform: translateX(3px); }
 
   @media (max-width: 460px) {
