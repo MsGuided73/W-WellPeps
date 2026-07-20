@@ -27,7 +27,7 @@ export const peptideScience = {
   alt: 'Two women smiling and flexing after a workout outdoors',
   benefitsTitle: 'Potential Benefits of Peptide & Wellness Therapies',
   benefitsLead: 'Advanced therapies designed to help you look, feel, and perform your best—inside and out.',
-  benefitsImage: '/images/peptide/benefits-woman.png',
+  benefitsImage: '/images/peptide/benefits-woman.webp',
   benefitsAlt: 'A woman sitting on a yoga mat in a bright studio after a workout',
   footnote: '*Potential benefits vary by therapy and individual. Treatment recommendations are based on your provider evaluation and medical history.',
 };
