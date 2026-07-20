@@ -40,9 +40,9 @@ export const safety = [
 
 /* ---- Section 8: Wellness Insights & Resources (blog) ---- */
 export const insights = [
-  { title: 'Understanding GLP-1 Weight Management', body: 'Learn how GLP-1 medications work, who they’re for, and what results you can expect with a personalized plan.', image: '/images/insight-glp1.webp', alt: 'Woman running outdoors', href: '#insight-glp1' },
-  { title: 'How Peptide Therapies May Support Recovery & Vitality', body: 'Discover the potential benefits of peptide therapies for energy, recovery, and overall wellness.', image: '/images/insight-peptide.webp', alt: 'Peptide medication vial on a counter', href: '#insight-peptides' },
-  { title: 'Understanding Hair Loss Treatment Options', body: 'Explore proven solutions for thinning hair and hair loss, and how personalized treatment can help you see real results.', image: '/images/insight-hair.webp', alt: 'Man examining his hairline in a mirror', href: '#insight-hair' },
+  { title: 'Understanding GLP-1 Weight Management', body: 'Learn how GLP-1 medications work, who they’re for, and what results you can expect with a personalized plan.', image: '/images/insight-glp1.webp', alt: 'Woman running outdoors', href: '/wellness-learning-center/understanding-glp1-medications' },
+  { title: 'How Peptide Therapies May Support Recovery & Vitality', body: 'Discover the potential benefits of peptide therapies for energy, recovery, and overall wellness.', image: '/images/insight-peptide.webp', alt: 'Peptide medication vial on a counter', href: '/wellness-learning-center/what-are-peptides' },
+  { title: 'Understanding Hair Loss Treatment Options', body: 'Explore proven solutions for thinning hair and hair loss, and how personalized treatment can help you see real results.', image: '/images/insight-hair.webp', alt: 'Man examining his hairline in a mirror', href: '/wellness-learning-center/understanding-hair-loss' },
 ];
 
 /* ---- Section 9: Common Questions (FAQ) ---- */
