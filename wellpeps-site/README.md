@@ -42,8 +42,9 @@ Questions (FAQ) · 10. Final CTA.
 
 ## Design system
 Follows **`Design Reference/WellPeps_Brand_Design_System_v2_MASTER-aligned.md`**:
-editorial serif headings (Lora), Inter body, navy `#082B59` headings, vivid
-working blue `#0B5CEF`. Tokens live in `src/styles/tokens.css`.
+editorial serif headings (Lora), Inter body, navy `#082B59` headings, and
+working blue `#0077BE` for CTAs, links and accent words. Tokens live in
+`src/styles/tokens.css`.
 
 ## TODO before launch
 - [ ] Replace `ONBOARDING_URL` in `src/config.ts` with the real OpenLoops link
