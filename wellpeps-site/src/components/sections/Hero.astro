@@ -5,8 +5,8 @@ import { ONBOARDING_URL } from '../../config';
 <section class="hero">
   <!-- Image is a direct child of the full-width section so it can bleed to the
        right edge of the viewport (not clipped by the centered text wrapper). -->
-  <img class="hero__img" src="/images/hero-couple.webp" width="1500" height="1000"
-       alt="A couple walking together on a coastal trail at sunrise"
+  <img class="hero__img" src="/images/hero-couple-coast.webp" width="1666" height="944"
+       alt="A smiling couple walking arm in arm along a coastal trail at sunset"
        fetchpriority="high" />
 
   <div class="hero__wrap">
@@ -39,7 +39,10 @@ import { ONBOARDING_URL } from '../../config';
     width: 60vw;
     height: 100%;
     object-fit: cover;
-    object-position: 60% center;
+    /* Source is 16:9 — wider than this frame, so `cover` crops left/right and
+       never the heads. The couple sits in the right third of the photo; hold
+       the crop window right so they stay put and the ocean fills the feather. */
+    object-position: 85% center;
     -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.2) 20%, #000 46%);
             mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.2) 20%, #000 46%);
   }
@@ -90,7 +93,9 @@ import { ONBOARDING_URL } from '../../config';
     .hero { flex-direction: column; min-height: 0; align-items: stretch; }
     .hero__img {
       position: relative; inset: auto; width: 100%; height: clamp(240px, 60vw, 380px);
-      object-position: center;
+      /* Full-width band is wider than 16:9, so the crop is vertical here —
+         bias up to keep the couple's faces off the bottom edge. */
+      object-position: center 30%;
       -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 100%);
               mask-image: linear-gradient(to bottom, #000 62%, transparent 100%);
     }

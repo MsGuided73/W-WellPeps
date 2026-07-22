@@ -177,14 +177,19 @@ const legal = [
 </footer>
 
 <style>
-  /* Palette sampled from the approved comp. Scoped to the footer so the
-     global tokens (which describe the navy footer this replaced) stay put. */
+  /* The comp originally supplied its own indigo blue (#1C60D3) and a near-twin
+     navy. Both are now aliased to the global brand tokens so the footer speaks
+     the same colour language as the rest of the site — the newsletter button
+     is the same action blue as every other CTA.
+     --f-muted is the one deliberate exception: the footer sits on a tinted
+     gradient (down to #DEE9FC), where --text-muted (#7A8899) drops to 3.0:1
+     and fails AA. #5A6A8A holds 4.5:1 against the darkest stop. */
   .footer {
-    --f-blue: #1C60D3;        /* headings, icons, newsletter button */
-    --f-blue-hover: #1350B8;
-    --f-navy: #0A1C46;        /* link + badge text */
-    --f-muted: #5A6A8A;       /* hours, disclaimer, copyright */
-    --f-rule: rgba(28, 96, 211, 0.14);
+    --f-blue: var(--blue);         /* headings, icons, newsletter button */
+    --f-blue-hover: var(--blue-hover);
+    --f-navy: var(--navy);         /* link + badge text */
+    --f-muted: #5A6A8A;            /* hours, disclaimer, copyright — see above */
+    --f-rule: rgba(0, 119, 190, 0.14);
 
     position: relative;
     isolation: isolate;
