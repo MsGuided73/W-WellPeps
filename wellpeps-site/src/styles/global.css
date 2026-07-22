@@ -146,17 +146,9 @@ p, li, figcaption, blockquote { text-wrap: pretty; }
   transform: translateY(-2px);
   box-shadow: 0 12px 26px rgba(0, 119, 190, 0.32);
 }
-/* Dark navy fill — used ONLY by the bottom-of-page CTA bands. Heroes and
-   in-page section CTAs keep the brand blue .btn--primary above. */
-.btn--cta {
-  background: var(--navy); color: #fff;
-  box-shadow: 0 8px 20px rgba(8, 43, 89, 0.22);
-}
-.btn--cta:hover {
-  background: var(--navy-deep); color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 26px rgba(8, 43, 89, 0.3);
-}
+/* NOTE: .btn--cta (a dark navy fill for bottom-of-page CTA bands) was removed.
+   Every "Start Your Free Assessment" button on the site — hero, in-page and
+   bottom-of-page — is now the one brand blue .btn--primary above. */
 .btn--secondary {
   background: #fff; color: var(--blue);
   border-color: var(--blue);
