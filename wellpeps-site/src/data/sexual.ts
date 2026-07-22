@@ -164,6 +164,6 @@ export const sexCta = {
   titleAccent: 'Confidence?',
   lead: 'Begin your personalized, provider-guided sexual wellness journey today—privately and on your terms.',
   note: 'It only takes a few minutes.',
-  image: '/images/sexual/cta-couple.webp',
-  alt: 'A relaxed, happy couple together at home',
+  image: '/images/sexual/cta-couple-bed.webp',
+  alt: 'A relaxed, smiling couple resting together in bed at home',
 };
