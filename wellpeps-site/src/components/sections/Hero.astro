@@ -11,7 +11,7 @@ import { ONBOARDING_URL } from '../../config';
 
   <div class="hero__wrap">
     <div class="hero__copy reveal">
-      <h1><span class="hero__line">Personalized</span><span class="hero__rotator" data-rotator><span class="hero__rotate-word" style="color:#0F84C7">Wellness.</span></span><span class="hero__line">Simplified.</span></h1>
+      <h1><span class="hero__line">Personalized</span><span class="hero__rotator" data-rotator><span class="hero__rotate-word">Wellness.</span></span><span class="hero__line">Simplified.</span></h1>
       <hr class="rule rule--left" />
       <p class="hero__lead">Personalized treatment plans, licensed healthcare providers, and ongoing support—all from the comfort of home.</p>
       <div class="hero__actions">
@@ -72,6 +72,9 @@ import { ONBOARDING_URL } from '../../config';
   .hero__line { display: block; }
   .hero__rotator { display: block; }
   .hero__rotate-word {
+    /* The rotating word is the hero's accent — it tracks the brand action blue
+       from the token, never a hard-coded copy of it. */
+    color: var(--blue);
     display: inline-block;
     white-space: nowrap;
     transform-origin: left center;
@@ -105,15 +108,12 @@ import { ONBOARDING_URL } from '../../config';
 </style>
 
 <script>
-  // Rotating hero word — swaps text + color every 3s with a fade/slide.
+  // Rotating hero word — swaps text every 3s with a fade/slide. Colour is NOT
+  // set here: .hero__rotate-word carries var(--blue) so the word always tracks
+  // the brand action blue rather than a copy of it.
   const ROTATE_WORDS = [
-    { text: 'Wellness.',          color: '#0F84C7' }, // sky blue
-    { text: 'Weight Loss.',       color: '#0F84C7' }, // sky blue
-    { text: 'Hair Growth.',       color: '#0F84C7' }, // sky blue
-    { text: 'Sexual Wellness.',   color: '#0F84C7' }, // sky blue
-    { text: 'Healthy Aging.',     color: '#0F84C7' }, // sky blue
-    { text: 'Energy & Vitality.', color: '#0F84C7' }, // sky blue
-    { text: 'Recovery.',          color: '#0F84C7' }, // sky blue
+    'Wellness.', 'Weight Loss.', 'Hair Growth.', 'Sexual Wellness.',
+    'Healthy Aging.', 'Energy & Vitality.', 'Recovery.',
   ];
   const INTERVAL_MS = 3000;
 
@@ -150,8 +150,8 @@ import { ONBOARDING_URL } from '../../config';
       word.classList.add('is-out');
       setTimeout(() => {
         i = (i + 1) % ROTATE_WORDS.length;
-        word.textContent = ROTATE_WORDS[i].text;
-        word.style.color = ROTATE_WORDS[i].color;
+        word.textContent = ROTATE_WORDS[i];
+
         fitWord();                    // scale while invisible, then fade in
         word.classList.remove('is-out');
       }, OUT_MS);

@@ -139,12 +139,12 @@ p, li, figcaption, blockquote { text-wrap: pretty; }
 
 .btn--primary {
   background: var(--blue); color: #fff;
-  box-shadow: 0 8px 20px rgba(0, 119, 190, 0.25);
+  box-shadow: 0 8px 20px rgba(21, 118, 196, 0.25);
 }
 .btn--primary:hover {
   background: var(--blue-hover); color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 12px 26px rgba(0, 119, 190, 0.32);
+  box-shadow: 0 12px 26px rgba(21, 118, 196, 0.32);
 }
 /* NOTE: .btn--cta (a dark navy fill for bottom-of-page CTA bands) was removed.
    Every "Start Your Free Assessment" button on the site — hero, in-page and

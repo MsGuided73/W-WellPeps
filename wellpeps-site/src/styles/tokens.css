@@ -10,11 +10,12 @@
   --navy: #082B59;          /* Logo navy — headlines, nav, footer, premium elements */
   --navy-deep: #061F42;     /* Footer base / deepest panels */
 
-  /* Working blue — MASTER Guide OVERRIDE.
-     Client-approved brand blue across CTAs, links, icons and accent words.
-     4.8:1 on white, so it clears AA for normal-size text as well as buttons. */
-  --blue: #0077BE;
-  --blue-hover: #005E96;
+  /* Working blue — client-approved brand blue across CTAs, links, icons and
+     accent words (including the hero's rotating word). 4.75:1 on white, so it
+     clears AA for normal-size text as well as buttons; the hover step is
+     6.8:1. Superseded #0077BE. */
+  --blue: #1576C4;
+  --blue-hover: #115E9C;
   --blue-soft: #2EA8F7;     /* Sky accent — icon fills, subtle highlights */
 
   /* ---- Icon medallions ----
@@ -23,17 +24,17 @@
      inner highlight/shade so the disc reads as a raised physical object.
      The icon itself gets a matching drop shadow (--icon-shadow). */
   --medallion-bg: linear-gradient(155deg, #FFFFFF 0%, #EDF4FC 48%, #D9E8F9 100%);
-  --medallion-ring: rgba(0, 119, 190, 0.22);
+  --medallion-ring: rgba(21, 118, 196, 0.22);
   --medallion-shadow:
     0 10px 20px -8px rgba(8, 43, 89, 0.30),
     0 2px 5px rgba(8, 43, 89, 0.10),
     inset 0 1px 0 rgba(255, 255, 255, 0.95),
-    inset 0 -3px 7px rgba(0, 119, 190, 0.13);
+    inset 0 -3px 7px rgba(21, 118, 196, 0.13);
   --medallion-shadow-hover:
     0 16px 28px -10px rgba(8, 43, 89, 0.36),
     0 3px 7px rgba(8, 43, 89, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.95),
-    inset 0 -3px 7px rgba(0, 119, 190, 0.16);
+    inset 0 -3px 7px rgba(21, 118, 196, 0.16);
   --icon-shadow: drop-shadow(0 1px 1.5px rgba(8, 43, 89, 0.28));
 
   /* ---- Surfaces ---- */
