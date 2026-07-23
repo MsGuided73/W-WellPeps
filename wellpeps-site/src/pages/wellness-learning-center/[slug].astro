@@ -10,6 +10,8 @@
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
+import PeptideTherapies from '../../components/sections/PeptideTherapies.astro';
+import SexualTreatmentOptions from '../../components/sections/SexualTreatmentOptions.astro';
 import { ONBOARDING_URL } from '../../config';
 import { getArticles, getRelatedArticles, type ArticleWithCategory } from '../../lib/blog';
 import { withToc } from '../../lib/toc';
@@ -29,6 +31,12 @@ interface Props {
 const { article } = Astro.props;
 const { html: bodyHtml, toc } = withToc(article.body_html);
 const related = await getRelatedArticles(article);
+
+/* Treatment inserts are scoped per category; matching on the name keeps
+   this stable if a slug ever changes. Each renders between the article's
+   closing prose section and Key Takeaways. */
+const showTherapies = article.category.name.toLowerCase().includes('peptide');
+const showSexualTreatments = article.category.name.toLowerCase().includes('sexual');
 
 const updated = article.published_at
   ? new Date(article.published_at).toLocaleDateString('en-US', {
@@ -77,6 +85,10 @@ const updated = article.published_at
         )}
 
         <div class="prose" set:html={bodyHtml} />
+
+        {showTherapies && <PeptideTherapies />}
+
+        {showSexualTreatments && <SexualTreatmentOptions />}
 
         {article.key_takeaways.length > 0 && (
           <section class="takeaways" aria-labelledby="key-takeaways">

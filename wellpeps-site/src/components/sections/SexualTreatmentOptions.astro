@@ -1,0 +1,203 @@
+---
+/**
+ * Sexual Wellness Treatment Options — four-card treatment grid plus the
+ * "Everything Included." bar, implemented from the approved Claude Design
+ * comp ("Sexual Wellness Treatment Options.dc.html"). Rendered inside the
+ * article column on Sexual Wellness learning-center articles, between the
+ * prose and Key Takeaways, so the grid is tuned to a two-up layout at
+ * article width rather than the comp's four-up full-bleed.
+ *
+ * Per the comp, the medication name is the card title and the WellPeps
+ * marketing name is the blue tagline — the reverse of the Sexual Wellness
+ * page's product grid, which keeps its own approved order.
+ */
+import EverythingIncludedBar from './EverythingIncludedBar.astro';
+import { sexProducts } from '../../data/sexual';
+---
+
+<section class="sxopts" aria-labelledby="sexual-treatment-options-title">
+  <h2 class="sxopts__title" id="sexual-treatment-options-title">Sexual Wellness Treatment Options</h2>
+  <p class="sxopts__intro">
+    WellPeps offers provider-guided solutions to support your performance,
+    confidence, and overall well-being. Your provider will recommend the
+    treatment that&rsquo;s right for you after reviewing your health history.
+  </p>
+
+  <div class="sxopts__grid">
+    {sexProducts.map((p) => (
+      <article class="socard">
+        <img class="socard__media" src={p.image} alt={p.alt} loading="lazy" decoding="async" />
+        <div class="socard__body">
+          <h3 class="socard__name">{p.subtitle}</h3>
+          <p class="socard__tagline">{p.name}</p>
+          <p class="socard__desc">{p.description}</p>
+          <p class="socard__form">{p.methodOfUse}</p>
+          <ul class="socard__features">
+            {p.features.map((f) => (
+              <li>
+                <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="var(--blue)"></circle><path d="M6 10.3l2.5 2.5 5.5-5.6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="socard__pricing">
+            <span class="socard__price-label">Starting at</span>
+            <span class="socard__price-row">
+              <span class="socard__price">${p.price}</span>
+              <span class="socard__price-unit">{p.priceUnit}</span>
+            </span>
+          </div>
+          <a href="/sexual-wellness" class="socard__cta">Learn More</a>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <EverythingIncludedBar />
+</section>
+
+<style>
+  .sxopts {
+    margin-top: 2.75rem;
+    padding-top: 2.25rem;
+    border-top: 1px solid var(--border);
+  }
+  .sxopts__title {
+    font-family: var(--font-serif);
+    font-size: calc(var(--text-body-size) * 1.55);
+    color: var(--navy);
+    margin-bottom: 0.85rem;
+  }
+  .sxopts__intro {
+    font-size: var(--text-body-size);
+    line-height: 1.6;
+    margin-bottom: 1.75rem;
+  }
+
+  /* ---- Card grid: two-up at article width, one column on small screens ---- */
+  .sxopts__grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+  }
+  @media (max-width: 40rem) {
+    .sxopts__grid { grid-template-columns: minmax(0, 1fr); }
+  }
+
+  .socard {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  /* Full-bleed photographic cover, at the comp's roughly 8:5 crop. */
+  .socard__media {
+    display: block;
+    width: 100%;
+    aspect-ratio: 8 / 5;
+    object-fit: cover;
+  }
+
+  .socard__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1.1rem 1.25rem 1.25rem;
+  }
+  .socard__name {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: var(--text-card-title);
+    color: var(--navy);
+    margin: 0;
+  }
+  .socard__tagline {
+    margin: 0.2rem 0 0;
+    font-weight: 700;
+    font-size: var(--text-body-size);
+    color: var(--blue);
+  }
+  /* Description keeps the comp's hanging blue bullet; flexing it pins the
+     form band, checklist, price, and CTA to the bottom so cards align. */
+  .socard__desc {
+    position: relative;
+    margin: 0.75rem 0 0;
+    padding-left: 1.05rem;
+    font-size: var(--text-body-size);
+    line-height: 1.55;
+    text-wrap: pretty;
+    flex: 1;
+  }
+  .socard__desc::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--blue);
+  }
+
+  .socard__form {
+    border-top: 1px solid var(--border);
+    margin: 1rem 0 0;
+    padding-top: 0.85rem;
+    font-weight: 700;
+    font-size: var(--text-body-size);
+    color: var(--navy);
+  }
+
+  .socard__features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin: 0.85rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .socard__features li { display: flex; align-items: center; gap: 0.6rem; }
+  .socard__features svg { flex: none; }
+  .socard__features span { font-size: var(--text-body-size); }
+
+  .socard__pricing {
+    border-top: 1px solid var(--border);
+    margin-top: 1rem;
+    padding-top: 0.85rem;
+  }
+  .socard__price-label {
+    display: block;
+    font-size: var(--price-label);
+    color: var(--text-muted);
+  }
+  .socard__price-row { display: flex; align-items: baseline; gap: 0.25rem; }
+  .socard__price {
+    font-weight: 800;
+    font-size: var(--price-amount);
+    color: var(--navy);
+  }
+  .socard__price-unit { font-size: var(--price-unit); color: var(--text-muted); }
+
+  /* CTA — outlined per the comp, brand-blue fill on hover (client direction). */
+  .socard__cta {
+    display: block;
+    margin-top: 1.1rem;
+    text-align: center;
+    padding: 0.8rem 0;
+    border: 1.5px solid var(--blue);
+    border-radius: 9px;
+    background: #fff;
+    font-weight: 600;
+    font-size: var(--text-body-size);
+    color: var(--blue);
+    transition: background var(--dur-fast), color var(--dur-fast);
+  }
+  .socard__cta:hover {
+    background: var(--blue);
+    color: #F2F7FE;
+  }
+</style>
