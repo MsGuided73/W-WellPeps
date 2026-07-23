@@ -113,6 +113,14 @@ const plans: Plan[] = [
 
 <style>
   .htopts {
+  /* One knob shrinks the treatment cards as a unit. `zoom` reflows and
+     collapses the layout box (unlike transform: scale), so the grid genuinely
+     takes less vertical space while every element inside — photo, type,
+     padding, gaps, price, button — scales together proportionally. The section
+     title, intro and Everything-Included bar sit outside the grid and are
+     unaffected. 1 = original size. */
+  --so-scale: 0.82;
+
     margin-top: 2.75rem;
     padding-top: 2.25rem;
     border-top: 1px solid var(--border);
@@ -136,6 +144,7 @@ const plans: Plan[] = [
      comp's 4-across only fits a full-bleed canvas; inside the article
      column two-up keeps the formulation bullets readable. ---- */
   .htopts__grid {
+    zoom: var(--so-scale);
     display: grid;
     gap: 1.25rem;
     grid-template-columns: minmax(0, 1fr);

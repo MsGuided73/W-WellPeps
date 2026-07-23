@@ -116,6 +116,14 @@ const plans: Plan[] = [
 
 <style>
   .wtopts {
+  /* One knob shrinks the treatment cards as a unit. `zoom` reflows and
+     collapses the layout box (unlike transform: scale), so the grid genuinely
+     takes less vertical space while every element inside — photo, type,
+     padding, gaps, price, button — scales together proportionally. The section
+     title, intro and Everything-Included bar sit outside the grid and are
+     unaffected. 1 = original size. */
+  --so-scale: 0.82;
+
     margin-top: 2.75rem;
     padding-top: 2.25rem;
     border-top: 1px solid var(--border);
@@ -138,6 +146,7 @@ const plans: Plan[] = [
 
   /* ---- Plan grid: three-up when the column allows, otherwise stacked ---- */
   .wtopts__grid {
+    zoom: var(--so-scale);
     display: grid;
     gap: 1.25rem;
     grid-template-columns: minmax(0, 1fr);
