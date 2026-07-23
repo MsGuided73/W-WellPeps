@@ -1,0 +1,127 @@
+---
+import LegalLayout from '../components/LegalLayout.astro';
+---
+<LegalLayout
+  title="Accessibility Statement"
+  description="WellPeps' commitment to digital accessibility and how to reach us if you encounter a barrier."
+>
+  <div class="callout">
+    <strong>Read first — the statement is only as good as the audit behind it</strong>
+    <p>
+      An accessibility statement is a factual representation. Before this page goes live, WellPeps
+      must commission a WCAG 2.1 AA evaluation (automated scan plus a manual keyboard and
+      screen-reader pass at minimum) — the conformance wording in Section 2 depends entirely on that
+      outcome.
+    </p>
+  </div>
+
+  <p class="legal__meta">
+    Statement Date: <span class="ph">[CLIENT: date first published]</span><br />
+    Last Reviewed: <span class="ph">[CLIENT: same as statement date for v1]</span>
+  </p>
+
+  <h2>1. Our Commitment</h2>
+  <p>
+    WellPeps is committed to making our website and services accessible to everyone, including
+    people with disabilities. We believe access to telehealth information and care should not depend
+    on ability, and we work to provide an experience that is perceivable, operable, understandable,
+    and robust for all visitors.
+  </p>
+
+  <h2>2. Conformance Status</h2>
+  <p>
+    The Web Content Accessibility Guidelines (WCAG) define requirements to improve accessibility for
+    people with disabilities, at three levels of conformance: A, AA, and AAA.
+  </p>
+  <p>
+    <span class="ph">[CLIENT/VENDOR: choose one based on the audit outcome — do not publish the stronger claim without evidence]</span>
+  </p>
+  <ul>
+    <li>
+      <strong>Option A</strong> (only if a completed audit supports it): &ldquo;This website is
+      fully conformant with WCAG 2.1 Level AA.&rdquo;
+    </li>
+    <li>
+      <strong>Option B</strong> (the honest default for most sites at launch): &ldquo;This website
+      is partially conformant with WCAG 2.1 Level AA, meaning some parts of the content do not yet
+      fully conform. We are actively working to achieve full conformance.&rdquo;
+    </li>
+  </ul>
+
+  <h2>3. Measures We Take</h2>
+  <p>
+    WellPeps takes the following measures to support accessibility:
+    <span class="ph">[CLIENT: keep only the items that are actually true — each is a factual claim]</span>
+  </p>
+  <ul>
+    <li>Include accessibility in our design and development standards for all new pages;</li>
+    <li>
+      Test with automated tools (<span class="ph">[CLIENT: e.g., axe, Lighthouse, WAVE]</span>) and
+      manual keyboard and screen-reader review
+      (<span class="ph">[CLIENT: which screen readers — NVDA, JAWS, VoiceOver]</span>);
+    </li>
+    <li>
+      Maintain semantic HTML, sufficient color contrast, visible focus states, and support for
+      reduced-motion preferences;
+    </li>
+    <li>
+      <span class="ph">[CLIENT: if applicable]</span> Engage an external accessibility vendor
+      (<span class="ph">[CLIENT: vendor name]</span>) for periodic evaluation;
+    </li>
+    <li>
+      Train our design and engineering team on accessible development practices.
+      <span class="ph">[CLIENT: confirm or delete]</span>
+    </li>
+  </ul>
+
+  <h2>4. Compatibility</h2>
+  <p>
+    This website is designed to be compatible with recent versions of major browsers (Chrome,
+    Firefox, Safari, Edge) and with common assistive technologies, including screen readers and
+    screen-magnification software, on desktop and mobile.
+  </p>
+
+  <h2>5. Known Limitations</h2>
+  <p>
+    Despite our efforts, some content may not yet be fully accessible. Known limitations as of the
+    statement date:
+    <span class="ph">[CLIENT/VENDOR: populate from the audit findings with a fix timeline for each; if the audit finds none, state &ldquo;No known limitations at this time.&rdquo;]</span>
+  </p>
+
+  <h2>6. Alternative Access</h2>
+  <p>
+    If any part of this website is difficult to use, you can complete every step of the WellPeps
+    process — including consultations, ordering, and account changes — by phone with our support
+    team at <a href="tel:+18339357377">(833) 935-7377</a> (Mon–Fri, 9am–6pm ET).
+    <span class="ph">[CLIENT: confirm phone support genuinely covers the full signup-to-refill journey; if any step is web-only, either fix that or narrow this sentence]</span>
+  </p>
+
+  <h2>7. Feedback and Contact</h2>
+  <p>
+    We welcome feedback on the accessibility of this website. If you encounter an accessibility
+    barrier, please contact us:
+  </p>
+  <ul>
+    <li>
+      Email:
+      <span class="ph">[CLIENT: dedicated monitored address — accessibility@wellpeps.com recommended]</span>
+    </li>
+    <li>Phone: <a href="tel:+18339357377">(833) 935-7377</a></li>
+    <li><span class="ph">[CLIENT: postal address for formal correspondence]</span></li>
+  </ul>
+  <p>
+    We aim to respond to accessibility feedback within
+    <span class="ph">[CLIENT: e.g., 3 business days]</span> and to propose a resolution or
+    accessible alternative within <span class="ph">[CLIENT: e.g., 10 business days]</span>. This
+    statement is reviewed and updated
+    <span class="ph">[CLIENT: cadence — annually at minimum, and after any major redesign]</span>.
+  </p>
+
+  <h2>8. Enforcement and Formal Complaints</h2>
+  <p>
+    If you are not satisfied with our response, you may escalate your concern to
+    <span class="ph">[CLIENT: internal escalation contact/title]</span>. U.S. users may also contact
+    the U.S. Department of Justice regarding ADA concerns.
+    <span class="ph">[COUNSEL: confirm whether to keep the DOJ reference — included here as the transparent default]</span>
+  </p>
+</LegalLayout>

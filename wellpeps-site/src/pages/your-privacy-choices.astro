@@ -1,0 +1,88 @@
+---
+import LegalLayout from '../components/LegalLayout.astro';
+---
+<LegalLayout
+  title="Your Privacy Choices"
+  description="Do Not Sell or Share My Personal Information — exercise your state privacy rights."
+  subtitle="Do Not Sell or Share My Personal Information / Limit the Use of My Sensitive Personal Information"
+>
+  <div class="callout">
+    <strong>Pre-launch blocker — this page must actually work</strong>
+    <p>
+      The compliance audit flagged that a labeled-but-dead CCPA link is arguably worse than none,
+      because it represents a right that doesn&rsquo;t function. Before launch the client must
+      supply: (1) the working opt-out mechanism below (form endpoint or processed email queue),
+      (2) who processes requests within 15 business days, and (3) confirmation that the site honors
+      Global Privacy Control signals.
+    </p>
+  </div>
+
+  <h2>Your Right to Opt Out</h2>
+  <p>
+    If you are a resident of California or another state with a comparable privacy law, you have
+    the right to opt out of the &ldquo;sale&rdquo; of your personal information and of
+    &ldquo;sharing&rdquo; / processing for targeted advertising. &ldquo;Sharing&rdquo; includes
+    common website practices like sending browsing data to advertising platforms through cookies
+    and pixels — it does not require money to change hands.
+  </p>
+  <p>
+    <span class="ph">[CLIENT: pending the cookie/pixel inventory, state accurately whether WellPeps sells or shares personal information. If advertising pixels are active, the answer is likely &ldquo;we share&rdquo; and the opt-out below must disable those tags.]</span>
+  </p>
+
+  <h2>How to Submit Your Request</h2>
+  <ul>
+    <li>
+      <strong>Online:</strong>
+      <span class="ph">[CLIENT: working opt-out form or cookie-preference control — this button must actually disable non-essential tags]</span>
+    </li>
+    <li>
+      <strong>Email:</strong>
+      <span class="ph">[CLIENT: privacy request email, e.g., privacy@wellpeps.com]</span> with the
+      subject &ldquo;Opt-Out Request&rdquo;
+    </li>
+    <li><strong>Phone:</strong> <a href="tel:+18339357377">(833) 935-7377</a> (Mon–Fri, 9am–6pm ET)</li>
+  </ul>
+  <p>
+    We will honor opt-out requests within 15 business days. You do not need an account to submit a
+    request, and we only ask for the information needed to locate your data.
+  </p>
+
+  <h2>Global Privacy Control</h2>
+  <p>
+    Our website recognizes the Global Privacy Control (GPC) browser signal as a valid opt-out of
+    sale/sharing for the browser you are using, as required by California law.
+    <span class="ph">[CLIENT: confirm engineering has implemented GPC handling before launch — this sentence is a factual claim]</span>
+  </p>
+
+  <h2>Sensitive Personal Information</h2>
+  <p>
+    Health-related information you provide is sensitive personal information. We use it only to
+    provide the services you request and for purposes permitted by law, and — where state law
+    provides a right to limit — you may direct us to restrict its use to those purposes using the
+    contact methods above. Protected health information is additionally governed by our
+    <a href="/notice-of-privacy-practices">Notice of Privacy Practices</a>.
+  </p>
+
+  <h2>Authorized Agents</h2>
+  <p>
+    You may designate an authorized agent to submit requests on your behalf. We will require the
+    agent to demonstrate written authorization, and we may verify your identity directly.
+  </p>
+
+  <h2>No Discrimination</h2>
+  <p>
+    We will not deny you services, charge you a different price, or provide a different level of
+    quality because you exercised any privacy right.
+  </p>
+
+  <h2>Other Privacy Rights</h2>
+  <p>
+    To exercise access, deletion, correction, or portability rights, see Section 7 of our
+    <a href="/privacy-policy">Privacy Policy</a> or use the contact methods on this page.
+  </p>
+
+  <h2>Request Metrics</h2>
+  <p>
+    <span class="ph">[CLIENT: if annual request volume exceeds the CCPA metrics threshold, publish request statistics here each year — assign an owner to track volumes]</span>
+  </p>
+</LegalLayout>

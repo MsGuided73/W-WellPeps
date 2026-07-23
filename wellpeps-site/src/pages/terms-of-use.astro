@@ -1,0 +1,225 @@
+---
+import LegalLayout from '../components/LegalLayout.astro';
+---
+<LegalLayout
+  title="Terms of Use"
+  description="The terms that govern your use of the WellPeps website and platform."
+>
+  <p class="legal__meta">
+    Effective Date: <span class="ph">[CLIENT: production launch date]</span><br />
+    Last Updated: <span class="ph">[CLIENT: same as effective date for v1]</span>
+  </p>
+
+  <h2>1. Acceptance of These Terms</h2>
+  <p>
+    These Terms of Use (&ldquo;Terms&rdquo;) are a binding agreement between you and
+    <span class="ph">[CLIENT: exact legal entity name, e.g., WellPeps, Inc., a Delaware corporation]</span>,
+    together with its affiliates (&ldquo;WellPeps,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or
+    &ldquo;our&rdquo;), governing your access to and use of the website located at
+    <span class="ph">[CLIENT: production domain]</span>, our patient portal, and related services
+    (collectively, the &ldquo;Platform&rdquo;). By accessing or using the Platform, you agree to
+    these Terms. If you do not agree, do not use the Platform.
+  </p>
+
+  <h2>2. What WellPeps Is — and Is Not</h2>
+  <p>
+    WellPeps is a technology platform that connects individuals with independent, licensed
+    healthcare providers and licensed pharmacy partners. WellPeps itself does not practice medicine
+    or pharmacy and does not provide medical advice, diagnosis, or treatment. All medical services
+    available through the Platform are provided by
+    <span class="ph">[CLIENT: name(s) of the affiliated professional entity/medical group(s) — must match the corporate-structure answer given for the Notice of Privacy Practices]</span>,
+    independent practices whose providers exercise independent clinical judgment. All prescriptions
+    are filled by independent licensed pharmacies, including compounding pharmacies.
+  </p>
+  <div class="callout">
+    <strong>Open legal question — corporate structure</strong>
+    <p>
+      The description above assumes a standard &ldquo;friendly PC&rdquo; telehealth structure.
+      Counsel must confirm the actual structure before launch — it changes this section, the Notice
+      of Privacy Practices framing, and the medical-disclaimer language sitewide.
+    </p>
+  </div>
+
+  <h2>3. Not for Medical Emergencies</h2>
+  <p>
+    The Platform is not intended for medical emergencies. If you are experiencing a medical
+    emergency, call 911 or go to the nearest emergency room immediately. If you are experiencing a
+    mental health crisis, call or text 988 (Suicide &amp; Crisis Lifeline).
+  </p>
+
+  <h2>4. Eligibility</h2>
+  <p>
+    You must be at least 18 years old, reside in a U.S. state where the services you request are
+    available, and be able to form a binding contract to use the Platform. The services are
+    available in <span class="ph">[CLIENT: confirm actual state footprint — the site currently claims &ldquo;all 50 states&rdquo;; per the compliance audit this claim needs licensure verification]</span>.
+  </p>
+
+  <h2>5. Telehealth Services and Informed Consent</h2>
+  <p>
+    Before receiving any telehealth consultation, you will be asked to review and accept a separate
+    Telehealth Informed Consent describing the nature, benefits, and limitations of telehealth care.
+    <span class="ph">[CLIENT: confirm a standalone Telehealth Informed Consent exists in the intake flow; several states require specific consent language]</span>
+    A consultation does not guarantee that a provider will issue a prescription; treatment decisions
+    are made solely by the provider based on their clinical judgment.
+  </p>
+
+  <h2>6. Prescription Products, Including Compounded Medications</h2>
+  <p>
+    Some products available through the Platform are compounded medications prepared by licensed
+    compounding pharmacies. Compounded medications are not FDA-approved. The FDA does not review
+    compounded drugs for safety, effectiveness, or quality before they are dispensed. Registration
+    of a compounding facility with the FDA is not a determination by the FDA that any drug produced
+    there is safe or effective.
+  </p>
+
+  <h2>7. Accounts and Security</h2>
+  <p>
+    You are responsible for maintaining the confidentiality of your account credentials and for all
+    activity under your account. You agree to provide accurate, current information — including your
+    legal name, date of birth, and shipping address — and to update it promptly. Notify us
+    immediately at <a href="mailto:hello@wellpeps.com">hello@wellpeps.com</a> of any unauthorized
+    use.
+  </p>
+
+  <h2>8. Plans, Pricing, Billing, Renewal, and Cancellation</h2>
+  <div class="callout">
+    <strong>Highest-risk section — must match actual billing (audit requirement #2)</strong>
+    <p>
+      The FTC &ldquo;clear and conspicuous&rdquo; standard and roughly 25 state auto-renewal laws
+      require the real terms to be disclosed here and at checkout with equal prominence to the
+      advertised price. Required from the client, per plan: (a) true recurring charge and frequency;
+      (b) minimum commitment term and total contract price; (c) auto-renewal behavior and renewal
+      price; (d) exact cancellation mechanics and deadline; (e) refund policy; (f) any early
+      termination fee.
+    </p>
+  </div>
+  <p>
+    Plan pricing, billing frequency, commitment terms, renewal terms, and cancellation instructions
+    are stated at checkout and summarized here:
+    <span class="ph">[CLIENT: insert the finalized plan table once counsel approves the pricing-disclosure language]</span>.
+    You may cancel by
+    <span class="ph">[CLIENT: cancellation method(s) — note: California and several other states require an online cancellation mechanism if signup was online]</span>.
+  </p>
+
+  <h2>9. Acceptable Use</h2>
+  <p>You agree not to:</p>
+  <ul>
+    <li>Provide false or misleading health or identity information to obtain services or prescriptions;</li>
+    <li>Use the Platform on behalf of another person or share, resell, or transfer any medication received;</li>
+    <li>Access or attempt to access another user&rsquo;s account or any non-public area of the Platform;</li>
+    <li>Scrape, reverse-engineer, or interfere with the Platform, or introduce malicious code;</li>
+    <li>Use the Platform in violation of any applicable law.</li>
+  </ul>
+  <p>
+    We may suspend or terminate accounts that violate these Terms, subject to appropriate
+    continuity-of-care handling by the treating provider.
+  </p>
+
+  <h2>10. Intellectual Property</h2>
+  <p>
+    The Platform and its content (excluding your personal information) are owned by
+    <span class="ph">[CLIENT: entity that holds the IP]</span> or its licensors and are protected by
+    intellectual-property laws. We grant you a limited, revocable, non-exclusive, non-transferable
+    license to use the Platform for personal, non-commercial purposes. &ldquo;WellPeps&rdquo; and
+    associated logos are trademarks of
+    <span class="ph">[CLIENT: trademark owner; confirm whether registrations are filed]</span>.
+  </p>
+
+  <h2>11. Communications and Text Messages</h2>
+  <p>
+    By providing your phone number, you consent to receive service-related calls and text messages
+    from us and our providers and pharmacy partners.
+    <span class="ph">[CLIENT: if marketing texts will be sent, a separate TCPA-compliant opt-in with STOP/HELP language, message frequency, and rate disclosures is required — confirm whether an SMS marketing program exists]</span>
+    Message and data rates may apply. Reply STOP to opt out of texts.
+  </p>
+
+  <h2>12. Privacy</h2>
+  <p>
+    Your use of the Platform is also governed by our
+    <a href="/privacy-policy">Privacy Policy</a> and, with respect to protected health information,
+    the <a href="/notice-of-privacy-practices">Notice of Privacy Practices</a>. For California
+    residents, our <a href="/your-privacy-choices">Do Not Sell or Share My Personal Information</a>
+    page describes your opt-out rights.
+  </p>
+
+  <h2>13. Disclaimers</h2>
+  <p>
+    EXCEPT AS EXPRESSLY STATED, THE PLATFORM IS PROVIDED &ldquo;AS IS&rdquo; AND &ldquo;AS
+    AVAILABLE&rdquo; WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WELLPEPS DOES NOT
+    WARRANT ANY PARTICULAR HEALTH OUTCOME. THIS SECTION DOES NOT LIMIT ANY WARRANTY OR RIGHT THAT
+    CANNOT BE DISCLAIMED UNDER APPLICABLE LAW.
+  </p>
+
+  <h2>14. Limitation of Liability</h2>
+  <p>
+    TO THE MAXIMUM EXTENT PERMITTED BY LAW, WELLPEPS AND ITS OFFICERS, DIRECTORS, EMPLOYEES, AND
+    AGENTS WILL NOT BE LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES,
+    AND OUR AGGREGATE LIABILITY ARISING OUT OF THE PLATFORM WILL NOT EXCEED
+    <span class="ph">[CLIENT/COUNSEL: cap — commonly the amounts paid in the prior 12 months or $100, whichever is greater]</span>.
+    THIS LIMITATION DOES NOT APPLY TO LIABILITY THAT CANNOT BE LIMITED BY LAW, AND NOTHING IN THESE
+    TERMS LIMITS THE PROFESSIONAL RESPONSIBILITY OF TREATING PROVIDERS.
+  </p>
+
+  <h2>15. Indemnification</h2>
+  <p>
+    You agree to indemnify and hold harmless WellPeps from claims arising out of your violation of
+    these Terms, your misuse of the Platform, or your provision of false information, except to the
+    extent caused by our own negligence or misconduct.
+  </p>
+
+  <h2>16. Dispute Resolution</h2>
+  <div class="callout">
+    <strong>Open legal question — arbitration is a business decision, not a default</strong>
+    <p>
+      Client and counsel must choose: (a) courts only, (b) arbitration with class waiver plus a
+      30-day opt-out, or (c) a small-claims carve-out variant — and select the arbitral forum (AAA
+      Consumer Rules / JAMS) and fee allocation. Arbitration clauses in healthcare-adjacent consumer
+      contracts draw regulator scrutiny, and mass-arbitration risk can invert the cost benefit.
+    </p>
+  </div>
+  <p>
+    <span class="ph">[COUNSEL: insert the selected dispute-resolution clause. If arbitration is chosen it must include an informal-resolution first step with a notice address, small-claims carve-out, consumer fee allocation, 30-day opt-out mechanism, and severability of the class waiver.]</span>
+  </p>
+
+  <h2>17. Governing Law</h2>
+  <p>
+    These Terms are governed by the laws of
+    <span class="ph">[CLIENT/COUNSEL: state — usually the platform entity&rsquo;s home state]</span>,
+    without regard to conflict-of-law rules.
+  </p>
+
+  <h2>18. Changes to These Terms</h2>
+  <p>
+    We may update these Terms from time to time. Material changes will be notified by
+    <span class="ph">[CLIENT: notice method — email and/or in-account banner]</span> at least
+    <span class="ph">[CLIENT: notice period, e.g., 30 days]</span> before taking effect. Continued
+    use after the effective date constitutes acceptance. Changes to auto-renewal or pricing terms
+    will be disclosed in the manner required by applicable state law.
+  </p>
+
+  <h2>19. Termination</h2>
+  <p>
+    You may stop using the Platform and close your account at any time by contacting
+    <a href="mailto:hello@wellpeps.com">hello@wellpeps.com</a>. Termination does not by itself
+    cancel an active paid plan — see Section 8 for cancellation. Sections that by their nature
+    survive termination (including Sections 10 and 13–17) survive.
+  </p>
+
+  <h2>20. Miscellaneous</h2>
+  <p>
+    If any provision of these Terms is held unenforceable, the remainder remains in effect. These
+    Terms, together with the Privacy Policy, Notice of Privacy Practices, Telehealth Informed
+    Consent, and any plan-specific terms presented at checkout, are the entire agreement between you
+    and WellPeps regarding the Platform. You may not assign these Terms; we may assign them in
+    connection with a merger, acquisition, or sale of assets with notice to you.
+  </p>
+
+  <h2>21. Contact</h2>
+  <p>
+    <span class="ph">[CLIENT: legal entity name]</span><br />
+    <span class="ph">[CLIENT: registered business address]</span><br />
+    Email: <a href="mailto:hello@wellpeps.com">hello@wellpeps.com</a> &nbsp;|&nbsp; Phone:
+    <a href="tel:+18339357377">(833) 935-7377</a> (Mon–Fri, 9am–6pm ET)
+  </p>
+</LegalLayout>
