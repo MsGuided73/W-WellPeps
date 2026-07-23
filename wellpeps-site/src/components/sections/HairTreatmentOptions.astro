@@ -1,0 +1,243 @@
+---
+/**
+ * Hair Restoration Treatment Options — four-plan card grid plus the
+ * "Everything Included." bar, implemented from the approved Claude Design
+ * comp ("Hair Treatment Options.dc.html"). Rendered inside the article
+ * column on Hair Restoration learning-center articles, between the prose
+ * and Key Takeaways.
+ *
+ * Plan copy, pricing and photos mirror the Hair Restoration page's product
+ * cards (src/data/hair.ts) so the two surfaces never drift; the feature
+ * lists carry the comp's formulation bullets. Photos are full-bleed cover
+ * shots, matching how ProductCard treats the same images.
+ */
+import EverythingIncludedBar from './EverythingIncludedBar.astro';
+
+interface Plan {
+  name: string;
+  image: string;
+  alt: string;
+  description: string;
+  price: number;
+  features: string[];
+}
+
+const plans: Plan[] = [
+  {
+    name: 'Topical Treatments',
+    image: '/images/hair/product-topical.webp',
+    alt: 'Compounded topical hair restoration medications — dropper solution, foam pump and bottle',
+    description:
+      'Supports healthier, fuller-looking hair with medications applied directly to the scalp.',
+    price: 79,
+    features: [
+      'Minoxidil + Finasteride',
+      'Minoxidil + Fluocinolone + Tretinoin',
+      'Topical solution or foam',
+    ],
+  },
+  {
+    name: 'Oral Treatments',
+    image: '/images/hair/product-oral.webp',
+    alt: 'A compounded oral hair restoration medication bottle with capsules and a glass of water',
+    description: 'Supports healthier hair growth through convenient oral medications.',
+    price: 59,
+    features: ['Oral Minoxidil', 'Minoxidil + Biotin', 'Dutasteride'],
+  },
+  {
+    name: 'Combination Therapy',
+    image: '/images/hair/product-combo.webp',
+    alt: 'A combination of topical and oral hair restoration medications',
+    description: 'Combines topical and oral medications for a comprehensive approach.',
+    price: 99,
+    features: [
+      'Topical Minoxidil + Finasteride + Oral Minoxidil',
+      'Minoxidil + Finasteride + Biotin',
+    ],
+  },
+  {
+    name: 'Advanced Liposomal Formulas',
+    image: '/images/hair/product-advanced.webp',
+    alt: 'Advanced liposomal hair restoration formulas — dropper solution and foam pump',
+    description:
+      'Next-generation delivery systems designed for enhanced absorption and results.',
+    price: 109,
+    features: [
+      'Minoxidil + Fluocinolone + Tretinoin',
+      'Minoxidil + Finasteride + Fluocinolone + Tretinoin',
+    ],
+  },
+];
+---
+
+<section class="htopts" aria-labelledby="hair-treatment-options-title">
+  <h2 class="htopts__title" id="hair-treatment-options-title">Hair Restoration Treatment Options</h2>
+  <p class="htopts__intro">
+    WellPeps offers clinically backed solutions designed to support hair
+    regrowth and a healthier scalp. Your provider will recommend the approach
+    that&rsquo;s right for you after reviewing your health history.
+  </p>
+
+  <div class="htopts__grid">
+    {plans.map((p) => (
+      <article class="hocard">
+        <div class="hocard__media">
+          <img src={p.image} alt={p.alt} width="720" height="495" loading="lazy" decoding="async" />
+        </div>
+        <div class="hocard__body">
+          <h3 class="hocard__name">{p.name}</h3>
+          <p class="hocard__desc">{p.description}</p>
+          <div class="hocard__pricing">
+            <span class="hocard__price-label">Starting at</span>
+            <span class="hocard__price-row">
+              <span class="hocard__price">${p.price}</span>
+              <span class="hocard__price-unit">/month</span>
+            </span>
+          </div>
+          <ul class="hocard__features">
+            {p.features.map((f) => (
+              <li class="hocard__feature">
+                <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="var(--blue)"></circle><path d="M6 10.3l2.5 2.5 5.5-5.6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+          <a href="/hair-restoration" class="hocard__cta">Learn More</a>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <EverythingIncludedBar />
+</section>
+
+<style>
+  .htopts {
+    margin-top: 2.75rem;
+    padding-top: 2.25rem;
+    border-top: 1px solid var(--border);
+    /* Container so the plan grid tracks the article column, not the viewport —
+       the column narrows when the sticky rail sits beside it. */
+    container-type: inline-size;
+  }
+  .htopts__title {
+    font-family: var(--font-serif);
+    font-size: calc(var(--text-body-size) * 1.55);
+    color: var(--navy);
+    margin-bottom: 0.85rem;
+  }
+  .htopts__intro {
+    font-size: var(--text-body-size);
+    line-height: 1.6;
+    margin-bottom: 1.75rem;
+  }
+
+  /* ---- Plan grid: 2×2 when the column allows, otherwise stacked. The
+     comp's 4-across only fits a full-bleed canvas; inside the article
+     column two-up keeps the formulation bullets readable. ---- */
+  .htopts__grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: stretch;
+  }
+  @container (min-width: 34rem) {
+    .htopts__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  .hocard {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  /* Full-bleed cover shots, matching ProductCard on the Hair page. */
+  .hocard__media {
+    position: relative;
+    aspect-ratio: 16 / 11;
+    overflow: hidden;
+    background: var(--bg-gray);
+  }
+  .hocard__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hocard__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1.1rem 1.25rem 1.25rem;
+  }
+  .hocard__name {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: var(--text-card-title);
+    color: var(--navy);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .hocard__desc {
+    margin: 0.6rem 0 0;
+    font-size: var(--text-card-body);
+    line-height: 1.5;
+  }
+
+  .hocard__pricing {
+    margin-top: 0.85rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border);
+  }
+  .hocard__price-label {
+    display: block;
+    font-size: var(--price-label);
+    color: var(--text-muted);
+  }
+  .hocard__price-row { display: flex; align-items: baseline; gap: 0.25rem; }
+  .hocard__price {
+    font-weight: 800;
+    font-size: var(--price-amount);
+    color: var(--navy);
+  }
+  .hocard__price-unit { font-size: var(--price-unit); color: var(--text-muted); }
+
+  .hocard__features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+    flex: 1;
+  }
+  .hocard__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+  .hocard__feature svg { flex: none; margin-top: 0.1rem; }
+  .hocard__feature span { font-size: var(--text-body-size); line-height: 1.35; }
+
+  /* CTA — outlined per the comp, brand-blue fill on hover (client direction). */
+  .hocard__cta {
+    display: block;
+    margin-top: 1.1rem;
+    text-align: center;
+    padding: 0.8rem 0;
+    border: 1.5px solid var(--blue);
+    border-radius: 9px;
+    background: #fff;
+    font-weight: 600;
+    font-size: var(--text-body-size);
+    color: var(--blue);
+    transition: background var(--dur-fast), color var(--dur-fast);
+  }
+  .hocard__cta:hover {
+    background: var(--blue);
+    color: #F2F7FE;
+  }
+</style>

@@ -10,8 +10,10 @@
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
+import HairTreatmentOptions from '../../components/sections/HairTreatmentOptions.astro';
 import PeptideTherapies from '../../components/sections/PeptideTherapies.astro';
 import SexualTreatmentOptions from '../../components/sections/SexualTreatmentOptions.astro';
+import WeightTreatmentOptions from '../../components/sections/WeightTreatmentOptions.astro';
 import { ONBOARDING_URL } from '../../config';
 import { getArticles, getRelatedArticles, type ArticleWithCategory } from '../../lib/blog';
 import { withToc } from '../../lib/toc';
@@ -37,6 +39,8 @@ const related = await getRelatedArticles(article);
    closing prose section and Key Takeaways. */
 const showTherapies = article.category.name.toLowerCase().includes('peptide');
 const showSexualTreatments = article.category.name.toLowerCase().includes('sexual');
+const showWeightTreatments = article.category.name.toLowerCase().includes('weight');
+const showHairTreatments = article.category.name.toLowerCase().includes('hair');
 
 const updated = article.published_at
   ? new Date(article.published_at).toLocaleDateString('en-US', {
@@ -89,6 +93,10 @@ const updated = article.published_at
         {showTherapies && <PeptideTherapies />}
 
         {showSexualTreatments && <SexualTreatmentOptions />}
+
+        {showWeightTreatments && <WeightTreatmentOptions />}
+
+        {showHairTreatments && <HairTreatmentOptions />}
 
         {article.key_takeaways.length > 0 && (
           <section class="takeaways" aria-labelledby="key-takeaways">
