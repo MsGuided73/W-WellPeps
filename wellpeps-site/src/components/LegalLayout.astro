@@ -3,15 +3,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 /* Shared shell for the five footer legal pages (Privacy Policy, Terms of Use,
    NPP, Accessibility, Your Privacy Choices). Every page renders a DRAFT
-   banner and highlights unresolved [CLIENT: …] fields until counsel signs
-   off — the banner and .ph highlights are removed together at publication. */
+   banner, a plain-English "what we need from you" box, and colour-coded
+   inline markers so a non-technical client can tell their own to-dos apart
+   from web-team and lawyer items. All of it is removed at publication.
+
+   Marker colours (see .ph--* below and the legend in the banner):
+     • red   .ph--you   → the client must supply this (a fact only they know)
+     • blue  .ph--web   → the WellPeps web team handles this (technical)
+     • amber .ph--legal → a lawyer must decide/confirm this
+
+   clientNeeds: plain-language bullets shown in the top summary box — list ONLY
+   the red "you provide" items so the client sees their short list at a glance. */
 
 interface Props {
   title: string;
   description: string;
   subtitle?: string;
+  clientNeeds?: string[];
 }
-const { title, description, subtitle } = Astro.props;
+const { title, description, subtitle, clientNeeds = [] } = Astro.props;
 ---
 <BaseLayout title={`${title} — WellPeps`} description={description}>
   <article class="legal">
@@ -24,14 +34,28 @@ const { title, description, subtitle } = Astro.props;
 
     <div class="container legal__body">
       <div class="callout" role="note">
-        <strong>Draft — attorney review required before publication.</strong>
+        <strong>Draft for review — not a live legal notice yet.</strong>
         <p>
-          This page is a working template. Highlighted fields mark information
-          WellPeps must supply before launch, and the whole document requires
-          sign-off by licensed counsel. Do not treat this draft as a live legal
-          notice.
+          This page is a working template. The highlighted items below still
+          need to be filled in, and a lawyer must sign off before it goes live.
+          Each highlight is colour-coded by who handles it:
         </p>
+        <ul class="legend">
+          <li><span class="ph ph--you">You provide</span> — a detail only you know (an address, an email, a date).</li>
+          <li><span class="ph ph--web">Web team</span> — a technical item the WellPeps web team completes. Nothing for you to do.</li>
+          <li><span class="ph ph--legal">Lawyer</span> — a wording or legal decision for your attorney.</li>
+        </ul>
       </div>
+
+      {clientNeeds.length > 0 && (
+        <div class="needbox" role="note">
+          <strong>What we need from you on this page</strong>
+          <p>Just these items — everything else is handled by the web team or your lawyer:</p>
+          <ul>
+            {clientNeeds.map((need) => <li>{need}</li>)}
+          </ul>
+        </div>
+      )}
 
       <slot />
     </div>
@@ -65,16 +89,40 @@ const { title, description, subtitle } = Astro.props;
   .legal__body li { margin-bottom: 0.5rem; }
   .legal__meta { color: var(--text-body); font-size: 0.95rem; }
 
-  /* [CLIENT: …] placeholder fields — visually unmissable on purpose. */
+  /* Inline draft markers — unmissable on purpose, colour-coded by who acts.
+     Base .ph carries shape; a .ph--* modifier carries the colour. A bare .ph
+     (no modifier) falls back to the red "you" treatment. */
   .ph {
-    background: #fdecec;
-    color: #b3261e;
     font-weight: 600;
     border-radius: 4px;
-    padding: 0.05em 0.3em;
+    padding: 0.05em 0.35em;
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
+    background: #fdecec;
+    color: #b3261e;
   }
+  .ph--you   { background: #fdecec; color: #b3261e; }  /* red   — client supplies */
+  .ph--web   { background: #e6f0fb; color: #1560a8; }  /* blue  — web team handles */
+  .ph--legal { background: #fff3df; color: #97590b; }  /* amber — lawyer decides   */
+
+  /* "What we need from you" summary — the client's short list up top. */
+  .needbox {
+    border: 1px solid #f4c9c6;
+    border-left: 5px solid #b3261e;
+    background: #fef6f6;
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    margin: 1.4rem 0 2rem;
+  }
+  .needbox strong { display: block; color: #b3261e; margin-bottom: 0.5rem; }
+  .needbox p { font-size: 0.95rem; margin-bottom: 0.6rem; }
+  .needbox ul { margin: 0; padding-left: 1.3rem; }
+  .needbox li { margin-bottom: 0.4rem; }
+
+  /* Colour legend inside the draft banner. */
+  .legend { list-style: none; padding: 0; margin: 0.8rem 0 0; }
+  .legend li { margin-bottom: 0.45rem; font-size: 0.95rem; }
+  .legend .ph { white-space: nowrap; }
 
   /* Open-question / instruction callouts. */
   .callout {

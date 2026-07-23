@@ -1,32 +1,49 @@
 ---
 import LegalLayout from '../components/LegalLayout.astro';
+
+const clientNeeds = [
+  'Your company\'s exact legal name.',
+  'The names of the professional / medical entities that actually provide care through WellPeps (e.g. "WellPeps Medical Group, P.A." and any state affiliates).',
+  'Whether any WellPeps service involves substance-use-disorder treatment — a simple yes or no.',
+  'The name or title of your designated HIPAA Privacy Official.',
+  'A mailing address and an email for your privacy office.',
+  'The date this notice goes live.',
+];
 ---
 <LegalLayout
   title="Notice of Privacy Practices"
   description="How medical information about you may be used and disclosed, and how you can get access to this information."
   subtitle="THIS NOTICE DESCRIBES HOW MEDICAL INFORMATION ABOUT YOU MAY BE USED AND DISCLOSED AND HOW YOU CAN GET ACCESS TO THIS INFORMATION. PLEASE REVIEW IT CAREFULLY."
+  clientNeeds={clientNeeds}
 >
+  <div class="callout callout--note">
+    <strong>One big question for your lawyer comes first — it changes the whole page</strong>
+    <p>
+      This draft is written as if WellPeps and its affiliated medical practices issue this notice
+      together. If your lawyer decides WellPeps is only a technology vendor to independent practices,
+      then the practices issue the notice on their own and WellPeps comes off it. That decision
+      depends on your corporate structure, so we need that from you and a ruling from your attorney
+      before the rest of the page is final.
+    </p>
+  </div>
+
   <p class="legal__meta">
-    Effective Date: <span class="ph">[CLIENT: production launch date]</span>
+    Effective Date: <span class="ph ph--you">You provide: the date this goes live</span>
   </p>
 
   <div class="callout">
-    <strong>Open legal question — who issues this notice? (Resolve first: it changes the whole framing.)</strong>
+    <strong>The issuer decision</strong>
     <p>
-      This draft is written as a joint notice covering WellPeps and its affiliated professional
-      entities as an Organized Health Care Arrangement. If counsel determines WellPeps is purely a
-      technology vendor (business associate) to independent practices, the notice must instead be
-      issued solely by the professional entities, and WellPeps is removed as an issuer. This is the
-      single highest-priority question for counsel.
-      <span class="ph">[CLIENT: provide corporate structure / counsel determination]</span>
+      <span class="ph ph--legal">Lawyer: decide who officially issues this notice — WellPeps together with the medical entities, or the medical entities alone.</span>
+      <span class="ph ph--you">You provide: your corporate structure (which company employs the providers, and the professional entity names) so your lawyer can make that call.</span>
     </p>
   </div>
 
   <h2>Who We Are</h2>
   <p>
-    This notice covers <span class="ph">[CLIENT: legal entity name]</span> and the affiliated
+    This notice covers <span class="ph ph--you">You provide: your company's legal name</span> and the affiliated
     professional entities providing care through the WellPeps platform:
-    <span class="ph">[CLIENT: list professional entities, e.g., WellPeps Medical Group, P.A., and state affiliates]</span>
+    <span class="ph ph--you">You provide: the professional entity names, e.g. WellPeps Medical Group, P.A. and state affiliates</span>
     (together, &ldquo;we&rdquo;). We are required by law to maintain the privacy of your protected
     health information (&ldquo;PHI&rdquo;), give you this notice of our legal duties and privacy
     practices, and follow the terms of the notice currently in effect.
@@ -48,11 +65,10 @@ import LegalLayout from '../components/LegalLayout.astro';
     <li>Any other use not described in this notice. You may revoke an authorization at any time, in writing, except to the extent we have already relied on it.</li>
   </ul>
   <div class="callout">
-    <strong>Counsel question — 42 CFR Part 2</strong>
+    <strong>A second question for your lawyer</strong>
     <p>
-      Do any current or planned services involve substance-use-disorder treatment records? If yes,
-      Part 2&rsquo;s stricter consent rules apply and this notice needs a dedicated section.
-      <span class="ph">[CLIENT: answer yes/no]</span>
+      <span class="ph ph--you">You confirm: do any current or planned services involve substance-use-disorder treatment? A simple yes or no.</span>
+      <span class="ph ph--legal">Lawyer: if yes, 42 CFR Part 2's stricter consent rules apply and this notice needs a dedicated section.</span>
     </p>
   </div>
 
@@ -80,9 +96,9 @@ import LegalLayout from '../components/LegalLayout.astro';
     against you for filing a complaint.
   </p>
   <p>
-    Privacy Official: <span class="ph">[CLIENT: name/title of designated HIPAA Privacy Official]</span><br />
-    <span class="ph">[CLIENT: privacy office mailing address]</span><br />
-    Email: <span class="ph">[CLIENT: privacy contact email]</span> &nbsp;|&nbsp; Phone:
+    Privacy Official: <span class="ph ph--you">You provide: the name or title of your HIPAA Privacy Official</span><br />
+    <span class="ph ph--you">You provide: your privacy office mailing address</span><br />
+    Email: <span class="ph ph--you">You provide: a privacy contact email</span> &nbsp;|&nbsp; Phone:
     <a href="tel:+18339357377">(833) 935-7377</a>
   </p>
   <p>

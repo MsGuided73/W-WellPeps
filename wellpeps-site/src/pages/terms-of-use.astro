@@ -1,22 +1,36 @@
 ---
 import LegalLayout from '../components/LegalLayout.astro';
+
+const clientNeeds = [
+  'Your company\'s exact legal name and the U.S. state it\'s incorporated in.',
+  'Your website\'s live domain (e.g. wellpeps.com).',
+  'The names of the medical entities that provide care through WellPeps (the same names used on the Notice of Privacy Practices).',
+  'Which U.S. states you are actually licensed to operate in — the site currently claims "all 50 states."',
+  'Confirmation that a Telehealth Informed Consent appears in the signup flow before a consultation.',
+  'For each plan: the real recurring price and how often it charges, any minimum commitment, what happens at renewal, exactly how a customer cancels, your refund policy, and any early-termination fee.',
+  'Who owns the WellPeps name, logo, and website content (for the trademark / intellectual-property lines), and whether any trademarks are registered.',
+  'Whether you send marketing text messages — a simple yes or no.',
+  'How, and how far in advance, you\'ll notify people when these terms change.',
+  'The date this goes live.',
+];
 ---
 <LegalLayout
   title="Terms of Use"
   description="The terms that govern your use of the WellPeps website and platform."
+  clientNeeds={clientNeeds}
 >
   <p class="legal__meta">
-    Effective Date: <span class="ph">[CLIENT: production launch date]</span><br />
-    Last Updated: <span class="ph">[CLIENT: same as effective date for v1]</span>
+    Effective Date: <span class="ph ph--you">You provide: the date this goes live</span><br />
+    Last Updated: <span class="ph ph--you">You provide: same as the date above for the first version</span>
   </p>
 
   <h2>1. Acceptance of These Terms</h2>
   <p>
     These Terms of Use (&ldquo;Terms&rdquo;) are a binding agreement between you and
-    <span class="ph">[CLIENT: exact legal entity name, e.g., WellPeps, Inc., a Delaware corporation]</span>,
+    <span class="ph ph--you">You provide: your exact legal name, e.g. WellPeps, Inc., a Delaware corporation</span>,
     together with its affiliates (&ldquo;WellPeps,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or
     &ldquo;our&rdquo;), governing your access to and use of the website located at
-    <span class="ph">[CLIENT: production domain]</span>, our patient portal, and related services
+    <span class="ph ph--you">You provide: your live domain</span>, our patient portal, and related services
     (collectively, the &ldquo;Platform&rdquo;). By accessing or using the Platform, you agree to
     these Terms. If you do not agree, do not use the Platform.
   </p>
@@ -27,16 +41,15 @@ import LegalLayout from '../components/LegalLayout.astro';
     healthcare providers and licensed pharmacy partners. WellPeps itself does not practice medicine
     or pharmacy and does not provide medical advice, diagnosis, or treatment. All medical services
     available through the Platform are provided by
-    <span class="ph">[CLIENT: name(s) of the affiliated professional entity/medical group(s) — must match the corporate-structure answer given for the Notice of Privacy Practices]</span>,
+    <span class="ph ph--you">You provide: the names of the affiliated medical group(s) — must match the names used on the Notice of Privacy Practices</span>,
     independent practices whose providers exercise independent clinical judgment. All prescriptions
     are filled by independent licensed pharmacies, including compounding pharmacies.
   </p>
-  <div class="callout">
-    <strong>Open legal question — corporate structure</strong>
+  <div class="callout callout--note">
+    <strong>Depends on your lawyer's corporate-structure decision</strong>
     <p>
-      The description above assumes a standard &ldquo;friendly PC&rdquo; telehealth structure.
-      Counsel must confirm the actual structure before launch — it changes this section, the Notice
-      of Privacy Practices framing, and the medical-disclaimer language sitewide.
+      The description above assumes a standard telehealth company structure.
+      <span class="ph ph--legal">Lawyer: confirm the actual corporate structure before launch — it changes this section, the Notice of Privacy Practices framing, and the medical-disclaimer wording across the whole site.</span>
     </p>
   </div>
 
@@ -51,14 +64,14 @@ import LegalLayout from '../components/LegalLayout.astro';
   <p>
     You must be at least 18 years old, reside in a U.S. state where the services you request are
     available, and be able to form a binding contract to use the Platform. The services are
-    available in <span class="ph">[CLIENT: confirm actual state footprint — the site currently claims &ldquo;all 50 states&rdquo;; per the compliance audit this claim needs licensure verification]</span>.
+    available in <span class="ph ph--you">You confirm: the states you are actually licensed in. The site currently claims &ldquo;all 50 states&rdquo; — that needs to be verified against your licensing before launch.</span>.
   </p>
 
   <h2>5. Telehealth Services and Informed Consent</h2>
   <p>
     Before receiving any telehealth consultation, you will be asked to review and accept a separate
     Telehealth Informed Consent describing the nature, benefits, and limitations of telehealth care.
-    <span class="ph">[CLIENT: confirm a standalone Telehealth Informed Consent exists in the intake flow; several states require specific consent language]</span>
+    <span class="ph ph--you">You confirm: a standalone Telehealth Informed Consent exists in the signup flow. Several states require specific consent language.</span>
     A consultation does not guarantee that a provider will issue a prescription; treatment decisions
     are made solely by the provider based on their clinical judgment.
   </p>
@@ -83,22 +96,20 @@ import LegalLayout from '../components/LegalLayout.astro';
 
   <h2>8. Plans, Pricing, Billing, Renewal, and Cancellation</h2>
   <div class="callout">
-    <strong>Highest-risk section — must match actual billing (audit requirement #2)</strong>
+    <strong>The highest-risk section — the terms here must match what you actually charge</strong>
     <p>
-      The FTC &ldquo;clear and conspicuous&rdquo; standard and roughly 25 state auto-renewal laws
-      require the real terms to be disclosed here and at checkout with equal prominence to the
-      advertised price. Required from the client, per plan: (a) true recurring charge and frequency;
-      (b) minimum commitment term and total contract price; (c) auto-renewal behavior and renewal
-      price; (d) exact cancellation mechanics and deadline; (e) refund policy; (f) any early
-      termination fee.
+      Federal rules and about 25 state auto-renewal laws require the real billing terms to be shown
+      here and at checkout, just as prominently as the advertised price. Getting this wrong is a
+      common source of legal trouble, so the details below have to be exact.
+      <span class="ph ph--you">You provide, for each plan: the true recurring charge and how often it bills; any minimum commitment and total price; what happens at renewal and the renewal price; exactly how and by when a customer cancels; your refund policy; and any early-termination fee.</span>
     </p>
   </div>
   <p>
     Plan pricing, billing frequency, commitment terms, renewal terms, and cancellation instructions
     are stated at checkout and summarized here:
-    <span class="ph">[CLIENT: insert the finalized plan table once counsel approves the pricing-disclosure language]</span>.
+    <span class="ph ph--you">You provide: the finalized plan table (your lawyer approves the wording once you supply the numbers)</span>.
     You may cancel by
-    <span class="ph">[CLIENT: cancellation method(s) — note: California and several other states require an online cancellation mechanism if signup was online]</span>.
+    <span class="ph ph--you">You provide: how a customer cancels. Note: California and several other states require an online cancellation option if signup was online.</span>.
   </p>
 
   <h2>9. Acceptable Use</h2>
@@ -118,18 +129,18 @@ import LegalLayout from '../components/LegalLayout.astro';
   <h2>10. Intellectual Property</h2>
   <p>
     The Platform and its content (excluding your personal information) are owned by
-    <span class="ph">[CLIENT: entity that holds the IP]</span> or its licensors and are protected by
+    <span class="ph ph--you">You provide: the company that owns the website and content</span> or its licensors and are protected by
     intellectual-property laws. We grant you a limited, revocable, non-exclusive, non-transferable
     license to use the Platform for personal, non-commercial purposes. &ldquo;WellPeps&rdquo; and
     associated logos are trademarks of
-    <span class="ph">[CLIENT: trademark owner; confirm whether registrations are filed]</span>.
+    <span class="ph ph--you">You provide: the trademark owner, and whether any registrations are filed</span>.
   </p>
 
   <h2>11. Communications and Text Messages</h2>
   <p>
     By providing your phone number, you consent to receive service-related calls and text messages
     from us and our providers and pharmacy partners.
-    <span class="ph">[CLIENT: if marketing texts will be sent, a separate TCPA-compliant opt-in with STOP/HELP language, message frequency, and rate disclosures is required — confirm whether an SMS marketing program exists]</span>
+    <span class="ph ph--you">You confirm: whether you send marketing texts. If yes, a separate text-marketing opt-in with STOP/HELP wording, message frequency, and rate disclosures is legally required — tell us and the web team will add it.</span>
     Message and data rates may apply. Reply STOP to opt out of texts.
   </p>
 
@@ -156,7 +167,7 @@ import LegalLayout from '../components/LegalLayout.astro';
     TO THE MAXIMUM EXTENT PERMITTED BY LAW, WELLPEPS AND ITS OFFICERS, DIRECTORS, EMPLOYEES, AND
     AGENTS WILL NOT BE LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES,
     AND OUR AGGREGATE LIABILITY ARISING OUT OF THE PLATFORM WILL NOT EXCEED
-    <span class="ph">[CLIENT/COUNSEL: cap — commonly the amounts paid in the prior 12 months or $100, whichever is greater]</span>.
+    <span class="ph ph--legal">Lawyer: set the liability cap — commonly the amounts paid in the prior 12 months, or $100, whichever is greater.</span>.
     THIS LIMITATION DOES NOT APPLY TO LIABILITY THAT CANNOT BE LIMITED BY LAW, AND NOTHING IN THESE
     TERMS LIMITS THE PROFESSIONAL RESPONSIBILITY OF TREATING PROVIDERS.
   </p>
@@ -169,31 +180,28 @@ import LegalLayout from '../components/LegalLayout.astro';
   </p>
 
   <h2>16. Dispute Resolution</h2>
-  <div class="callout">
-    <strong>Open legal question — arbitration is a business decision, not a default</strong>
+  <div class="callout callout--note">
+    <strong>A business-and-legal decision — not a default</strong>
     <p>
-      Client and counsel must choose: (a) courts only, (b) arbitration with class waiver plus a
-      30-day opt-out, or (c) a small-claims carve-out variant — and select the arbitral forum (AAA
-      Consumer Rules / JAMS) and fee allocation. Arbitration clauses in healthcare-adjacent consumer
-      contracts draw regulator scrutiny, and mass-arbitration risk can invert the cost benefit.
+      <span class="ph ph--legal">Lawyer + client: choose how disputes are handled — (a) courts only, (b) arbitration with a class waiver and a 30-day opt-out, or (c) a small-claims carve-out variant — and pick the arbitration forum and who pays the fees. Arbitration clauses in healthcare-adjacent contracts draw regulator scrutiny.</span>
     </p>
   </div>
   <p>
-    <span class="ph">[COUNSEL: insert the selected dispute-resolution clause. If arbitration is chosen it must include an informal-resolution first step with a notice address, small-claims carve-out, consumer fee allocation, 30-day opt-out mechanism, and severability of the class waiver.]</span>
+    <span class="ph ph--legal">Lawyer: insert the chosen dispute-resolution clause. If arbitration is chosen it must include an informal-resolution first step with a notice address, a small-claims carve-out, consumer fee allocation, a 30-day opt-out mechanism, and severability of the class waiver.</span>
   </p>
 
   <h2>17. Governing Law</h2>
   <p>
     These Terms are governed by the laws of
-    <span class="ph">[CLIENT/COUNSEL: state — usually the platform entity&rsquo;s home state]</span>,
+    <span class="ph ph--legal">Lawyer: the governing-law state — usually the company's home state.</span>,
     without regard to conflict-of-law rules.
   </p>
 
   <h2>18. Changes to These Terms</h2>
   <p>
     We may update these Terms from time to time. Material changes will be notified by
-    <span class="ph">[CLIENT: notice method — email and/or in-account banner]</span> at least
-    <span class="ph">[CLIENT: notice period, e.g., 30 days]</span> before taking effect. Continued
+    <span class="ph ph--you">You provide: how you'll notify people — email, an in-account banner, or both</span> at least
+    <span class="ph ph--you">You provide: how much advance notice, e.g. 30 days</span> before taking effect. Continued
     use after the effective date constitutes acceptance. Changes to auto-renewal or pricing terms
     will be disclosed in the manner required by applicable state law.
   </p>
@@ -217,8 +225,8 @@ import LegalLayout from '../components/LegalLayout.astro';
 
   <h2>21. Contact</h2>
   <p>
-    <span class="ph">[CLIENT: legal entity name]</span><br />
-    <span class="ph">[CLIENT: registered business address]</span><br />
+    <span class="ph ph--you">You provide: your company's legal name</span><br />
+    <span class="ph ph--you">You provide: your registered business address</span><br />
     Email: <a href="mailto:hello@wellpeps.com">hello@wellpeps.com</a> &nbsp;|&nbsp; Phone:
     <a href="tel:+18339357377">(833) 935-7377</a> (Mon–Fri, 9am–6pm ET)
   </p>

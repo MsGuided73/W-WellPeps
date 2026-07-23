@@ -1,23 +1,32 @@
 ---
 import LegalLayout from '../components/LegalLayout.astro';
+
+const clientNeeds = [
+  'The date this statement is first published (your launch date).',
+  'A dedicated email address for accessibility questions (we recommend accessibility@wellpeps.com — you decide if it should forward to an inbox you already check).',
+  'A mailing address where formal written accessibility requests should go.',
+  'How quickly you commit to acknowledging feedback (e.g. 3 business days) and proposing a fix or workaround (e.g. 10 business days).',
+  'Who a complaint escalates to internally if the person is not satisfied — a name or a title (e.g. "Head of Operations").',
+  'Confirmation that a customer really can do everything by phone — sign up, order, and manage their account — since the statement promises that as the accessible alternative.',
+];
 ---
 <LegalLayout
   title="Accessibility Statement"
   description="WellPeps' commitment to digital accessibility and how to reach us if you encounter a barrier."
+  clientNeeds={clientNeeds}
 >
-  <div class="callout">
-    <strong>Read first — the statement is only as good as the audit behind it</strong>
+  <div class="callout callout--note">
+    <strong>Before this page can go live</strong>
     <p>
-      An accessibility statement is a factual representation. Before this page goes live, WellPeps
-      must commission a WCAG 2.1 AA evaluation (automated scan plus a manual keyboard and
-      screen-reader pass at minimum) — the conformance wording in Section 2 depends entirely on that
-      outcome.
+      An accessibility statement is a promise, so it has to be backed by a check of the
+      site. The WellPeps web team will run that check (an accessibility audit) and fill in
+      the technical parts below. The blue items are theirs — not something you need to answer.
     </p>
   </div>
 
   <p class="legal__meta">
-    Statement Date: <span class="ph">[CLIENT: date first published]</span><br />
-    Last Reviewed: <span class="ph">[CLIENT: same as statement date for v1]</span>
+    Statement Date: <span class="ph ph--you">You provide: the date this goes live</span><br />
+    Last Reviewed: <span class="ph ph--you">You provide: same as the date above for the first version</span>
   </p>
 
   <h2>1. Our Commitment</h2>
@@ -30,11 +39,11 @@ import LegalLayout from '../components/LegalLayout.astro';
 
   <h2>2. Conformance Status</h2>
   <p>
-    The Web Content Accessibility Guidelines (WCAG) define requirements to improve accessibility for
-    people with disabilities, at three levels of conformance: A, AA, and AAA.
+    The Web Content Accessibility Guidelines (WCAG) are the recognized standard for making websites
+    usable by people with disabilities. Sites are measured against three levels: A, AA, and AAA.
   </p>
   <p>
-    <span class="ph">[CLIENT/VENDOR: choose one based on the audit outcome — do not publish the stronger claim without evidence]</span>
+    <span class="ph ph--web">Web team: pick the correct sentence below after the audit — never publish the stronger claim without evidence to back it.</span>
   </p>
   <ul>
     <li>
@@ -50,27 +59,22 @@ import LegalLayout from '../components/LegalLayout.astro';
 
   <h2>3. Measures We Take</h2>
   <p>
-    WellPeps takes the following measures to support accessibility:
-    <span class="ph">[CLIENT: keep only the items that are actually true — each is a factual claim]</span>
+    WellPeps takes the following measures to support accessibility.
+    <span class="ph ph--web">Web team: keep only the lines that are actually true — each one is a factual claim the company is making.</span>
   </p>
   <ul>
     <li>Include accessibility in our design and development standards for all new pages;</li>
     <li>
-      Test with automated tools (<span class="ph">[CLIENT: e.g., axe, Lighthouse, WAVE]</span>) and
-      manual keyboard and screen-reader review
-      (<span class="ph">[CLIENT: which screen readers — NVDA, JAWS, VoiceOver]</span>);
+      Test with automated tools and manual keyboard and screen-reader review.
+      <span class="ph ph--web">Web team: name the tools and screen readers actually used (e.g. axe, Lighthouse; NVDA, VoiceOver).</span>
     </li>
     <li>
       Maintain semantic HTML, sufficient color contrast, visible focus states, and support for
       reduced-motion preferences;
     </li>
     <li>
-      <span class="ph">[CLIENT: if applicable]</span> Engage an external accessibility vendor
-      (<span class="ph">[CLIENT: vendor name]</span>) for periodic evaluation;
-    </li>
-    <li>
       Train our design and engineering team on accessible development practices.
-      <span class="ph">[CLIENT: confirm or delete]</span>
+      <span class="ph ph--web">Web team: confirm this is true, or remove the line.</span>
     </li>
   </ul>
 
@@ -83,9 +87,8 @@ import LegalLayout from '../components/LegalLayout.astro';
 
   <h2>5. Known Limitations</h2>
   <p>
-    Despite our efforts, some content may not yet be fully accessible. Known limitations as of the
-    statement date:
-    <span class="ph">[CLIENT/VENDOR: populate from the audit findings with a fix timeline for each; if the audit finds none, state &ldquo;No known limitations at this time.&rdquo;]</span>
+    Despite our efforts, some content may not yet be fully accessible.
+    <span class="ph ph--web">Web team: list any known issues found in the audit, each with a target fix date. If the audit finds none, write &ldquo;No known limitations at this time.&rdquo;</span>
   </p>
 
   <h2>6. Alternative Access</h2>
@@ -93,7 +96,7 @@ import LegalLayout from '../components/LegalLayout.astro';
     If any part of this website is difficult to use, you can complete every step of the WellPeps
     process — including consultations, ordering, and account changes — by phone with our support
     team at <a href="tel:+18339357377">(833) 935-7377</a> (Mon–Fri, 9am–6pm ET).
-    <span class="ph">[CLIENT: confirm phone support genuinely covers the full signup-to-refill journey; if any step is web-only, either fix that or narrow this sentence]</span>
+    <span class="ph ph--you">You confirm: that phone support really can handle the whole journey, from signup to refill. If any step is web-only, tell us and we'll soften this sentence.</span>
   </p>
 
   <h2>7. Feedback and Contact</h2>
@@ -102,26 +105,23 @@ import LegalLayout from '../components/LegalLayout.astro';
     barrier, please contact us:
   </p>
   <ul>
-    <li>
-      Email:
-      <span class="ph">[CLIENT: dedicated monitored address — accessibility@wellpeps.com recommended]</span>
-    </li>
+    <li>Email: <span class="ph ph--you">You provide: a monitored accessibility email address</span></li>
     <li>Phone: <a href="tel:+18339357377">(833) 935-7377</a></li>
-    <li><span class="ph">[CLIENT: postal address for formal correspondence]</span></li>
+    <li>Mail: <span class="ph ph--you">You provide: a mailing address for written requests</span></li>
   </ul>
   <p>
     We aim to respond to accessibility feedback within
-    <span class="ph">[CLIENT: e.g., 3 business days]</span> and to propose a resolution or
-    accessible alternative within <span class="ph">[CLIENT: e.g., 10 business days]</span>. This
-    statement is reviewed and updated
-    <span class="ph">[CLIENT: cadence — annually at minimum, and after any major redesign]</span>.
+    <span class="ph ph--you">You provide: e.g. 3 business days</span> and to propose a resolution or
+    accessible alternative within <span class="ph ph--you">You provide: e.g. 10 business days</span>.
+    This statement is reviewed and updated
+    <span class="ph ph--you">You provide: how often — yearly at minimum, and after any major redesign</span>.
   </p>
 
   <h2>8. Enforcement and Formal Complaints</h2>
   <p>
     If you are not satisfied with our response, you may escalate your concern to
-    <span class="ph">[CLIENT: internal escalation contact/title]</span>. U.S. users may also contact
+    <span class="ph ph--you">You provide: who this goes to internally — a name or job title</span>. U.S. users may also contact
     the U.S. Department of Justice regarding ADA concerns.
-    <span class="ph">[COUNSEL: confirm whether to keep the DOJ reference — included here as the transparent default]</span>
+    <span class="ph ph--legal">Lawyer: confirm whether to keep the Department of Justice reference — included here as the transparent default.</span>
   </p>
 </LegalLayout>

@@ -1,19 +1,25 @@
 ---
 import LegalLayout from '../components/LegalLayout.astro';
+
+const clientNeeds = [
+  'A privacy-request email address (we recommend privacy@wellpeps.com).',
+  'Who inside your company owns these opt-out requests and makes sure they are handled within 15 business days.',
+  'Once a year, who will track how many requests came in (only required if you get a large volume).',
+];
 ---
 <LegalLayout
   title="Your Privacy Choices"
   description="Do Not Sell or Share My Personal Information — exercise your state privacy rights."
   subtitle="Do Not Sell or Share My Personal Information / Limit the Use of My Sensitive Personal Information"
+  clientNeeds={clientNeeds}
 >
-  <div class="callout">
-    <strong>Pre-launch blocker — this page must actually work</strong>
+  <div class="callout callout--note">
+    <strong>Before this page can go live, the opt-out button has to actually work</strong>
     <p>
-      The compliance audit flagged that a labeled-but-dead CCPA link is arguably worse than none,
-      because it represents a right that doesn&rsquo;t function. Before launch the client must
-      supply: (1) the working opt-out mechanism below (form endpoint or processed email queue),
-      (2) who processes requests within 15 business days, and (3) confirmation that the site honors
-      Global Privacy Control signals.
+      This page promises visitors a right — to opt out of their data being sold or shared. A link
+      that says that but doesn't do anything is worse than no link at all. The web team needs to
+      build the working opt-out control and confirm the site respects browser privacy signals
+      (the blue items below); you supply the contact details (the red items).
     </p>
   </div>
 
@@ -26,18 +32,18 @@ import LegalLayout from '../components/LegalLayout.astro';
     and pixels — it does not require money to change hands.
   </p>
   <p>
-    <span class="ph">[CLIENT: pending the cookie/pixel inventory, state accurately whether WellPeps sells or shares personal information. If advertising pixels are active, the answer is likely &ldquo;we share&rdquo; and the opt-out below must disable those tags.]</span>
+    <span class="ph ph--web">Web team: list the site's cookies and advertising pixels, then state accurately whether WellPeps sells or shares data. If ad pixels are active, the answer is likely &ldquo;we share,&rdquo; and the opt-out button below must switch those tags off.</span>
   </p>
 
   <h2>How to Submit Your Request</h2>
   <ul>
     <li>
       <strong>Online:</strong>
-      <span class="ph">[CLIENT: working opt-out form or cookie-preference control — this button must actually disable non-essential tags]</span>
+      <span class="ph ph--web">Web team: a working opt-out button or cookie-preference control that genuinely disables non-essential tags.</span>
     </li>
     <li>
       <strong>Email:</strong>
-      <span class="ph">[CLIENT: privacy request email, e.g., privacy@wellpeps.com]</span> with the
+      <span class="ph ph--you">You provide: a privacy-request email (e.g. privacy@wellpeps.com)</span> with the
       subject &ldquo;Opt-Out Request&rdquo;
     </li>
     <li><strong>Phone:</strong> <a href="tel:+18339357377">(833) 935-7377</a> (Mon–Fri, 9am–6pm ET)</li>
@@ -51,7 +57,7 @@ import LegalLayout from '../components/LegalLayout.astro';
   <p>
     Our website recognizes the Global Privacy Control (GPC) browser signal as a valid opt-out of
     sale/sharing for the browser you are using, as required by California law.
-    <span class="ph">[CLIENT: confirm engineering has implemented GPC handling before launch — this sentence is a factual claim]</span>
+    <span class="ph ph--web">Web team: confirm this browser-signal handling is actually built before launch — this sentence is a factual claim.</span>
   </p>
 
   <h2>Sensitive Personal Information</h2>
@@ -83,6 +89,6 @@ import LegalLayout from '../components/LegalLayout.astro';
 
   <h2>Request Metrics</h2>
   <p>
-    <span class="ph">[CLIENT: if annual request volume exceeds the CCPA metrics threshold, publish request statistics here each year — assign an owner to track volumes]</span>
+    <span class="ph ph--you">You provide: if you receive a large volume of privacy requests each year, decide who will publish the yearly totals here. Most businesses are below the threshold and can leave this out.</span>
   </p>
 </LegalLayout>
