@@ -6,7 +6,7 @@
 # Node builds the static output; nginx serves it. No Node runtime in prod.
 
 # --- Build stage -------------------------------------------------------------
-FROM node:20-alpine AS build
+FROM node:22-alpine AS build
 WORKDIR /app
 
 # Learning-center content is fetched from Supabase at BUILD time

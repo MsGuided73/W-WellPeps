@@ -4,7 +4,7 @@
 # set the Base Directory to /wellpeps-site.
 
 # --- Build stage -------------------------------------------------------------
-FROM node:20-alpine AS build
+FROM node:22-alpine AS build
 WORKDIR /app
 
 # Learning-center content is fetched from Supabase at BUILD time
