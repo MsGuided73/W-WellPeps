@@ -134,15 +134,6 @@ const therapies: Therapy[] = [
 
 <style>
   .therapies {
-    zoom: var(--so-scale);
-  /* One knob shrinks the whole treatment block as a unit. `zoom` reflows and
-     collapses the layout box (unlike transform: scale), so the grid genuinely
-     takes less vertical space while every element inside — photo, type,
-     padding, gaps, price, button — scales together proportionally. The section
-     title, intro and Everything-Included bar sit outside the grid and are
-     unaffected. 1 = original size. */
-  --so-scale: 0.82;
-
     margin-top: 2.75rem;
     padding-top: 2.25rem;
     border-top: 1px solid var(--border);
