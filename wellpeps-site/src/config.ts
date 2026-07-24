@@ -10,6 +10,14 @@
  */
 export const ONBOARDING_URL = '#assessment-stub'; // ← swap for OpenLoops URL
 
+/**
+ * Existing-patient login. Points at the telehealth company's patient-portal
+ * sub-pages. Opens in a new tab (external property).
+ *
+ * TODO (client): replace the stub below with the real patient-portal URL.
+ */
+export const PATIENT_PORTAL_URL = '#patient-portal-stub'; // ← swap for portal URL
+
 /** Build an onboarding link, optionally pre-selecting a program. */
 export function assessmentUrl(programSlug?: string): string {
   if (ONBOARDING_URL.startsWith('#')) return ONBOARDING_URL;
