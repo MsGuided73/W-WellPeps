@@ -1,5 +1,6 @@
 ---
 import ProductCard from '../../ProductCard.astro';
+import EverythingIncludedStrip from '../../EverythingIncludedStrip.astro';
 import { hairProducts, hairProductsIntro } from '../../../data/hair';
 ---
 <section class="section section--gray" id="hair-products">
@@ -14,6 +15,8 @@ import { hairProducts, hairProductsIntro } from '../../../data/hair';
     </div>
 
     <p class="hprod__foot reveal">{hairProductsIntro.footnote}</p>
+
+    <EverythingIncludedStrip />
   </div>
 </section>
 

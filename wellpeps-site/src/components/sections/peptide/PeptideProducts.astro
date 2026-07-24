@@ -1,5 +1,6 @@
 ---
 import PeptideCard from '../../PeptideCard.astro';
+import EverythingIncludedStrip from '../../EverythingIncludedStrip.astro';
 import { peptideProducts, peptideProductsIntro, peptideProductsFootnote } from '../../../data/peptide';
 ---
 <section class="section section--gray" id="peptide-products">
@@ -14,6 +15,8 @@ import { peptideProducts, peptideProductsIntro, peptideProductsFootnote } from '
     </div>
 
     <p class="pprod__foot reveal">{peptideProductsFootnote}</p>
+
+    <EverythingIncludedStrip />
   </div>
 </section>
 

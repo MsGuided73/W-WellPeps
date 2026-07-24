@@ -1,6 +1,7 @@
 ---
 import Icon from '../../Icon.astro';
 import StandardProductCard from '../../StandardProductCard.astro';
+import EverythingIncludedStrip from '../../EverythingIncludedStrip.astro';
 import { weightProducts, weightProductsIntro } from '../../../data/weight';
 ---
 <section class="section section--gray" id="weight-products">
@@ -29,6 +30,8 @@ import { weightProducts, weightProductsIntro } from '../../../data/weight';
     </div>
 
     <p class="wprod__pricenote reveal">{weightProductsIntro.priceFootnote}</p>
+
+    <EverythingIncludedStrip />
 
     <div class="wprod__band reveal">
       <span class="wprod__band-icon"><Icon name="shield" /></span>
