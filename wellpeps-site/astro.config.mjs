@@ -4,7 +4,8 @@ import { defineConfig } from 'astro/config';
 // All PHI, accounts, and onboarding live on the OpenLoops platform;
 // this site is the brand-facing "window dressing" that links out to it.
 export default defineConfig({
-  site: 'https://www.wellpeps.com',
+  // Canonical is the apex domain; www 301-redirects to it at the edge/server.
+  site: 'https://wellpeps.com',
   server: {
     port: process.env.PORT ? Number(process.env.PORT) : 4321,
   },

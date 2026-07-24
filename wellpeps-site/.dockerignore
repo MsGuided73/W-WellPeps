@@ -1,0 +1,11 @@
+node_modules
+dist
+.astro
+.vercel
+.netlify
+*.log
+.env
+.env.*
+!.env.example
+_shot.mjs
+.DS_Store

@@ -1,22 +1,23 @@
 /**
  * Central site configuration.
  *
- * WellPeps is the brand-facing marketing site. The actual telehealth
- * intake / assessment / onboarding is operated by OpenLoops. Every
+ * wellpeps.com is the brand-facing marketing site. The telehealth platform
+ * (intake / assessment / onboarding / patient portal) runs on the
+ * store.wellpeps.com subdomain and is a separate deployment. Every
  * "Start Your Free Assessment" CTA points at ONBOARDING_URL.
  *
- * TODO (client): replace the stub below with the real OpenLoops onboarding
- * URL. If OpenLoops supports per-program deep links, use assessmentUrl().
+ * TODO (client): replace the stub below with the real store.wellpeps.com
+ * onboarding URL. If it supports per-program deep links, use assessmentUrl().
  */
-export const ONBOARDING_URL = '#assessment-stub'; // ← swap for OpenLoops URL
+export const ONBOARDING_URL = '#assessment-stub'; // ← swap for store.wellpeps.com onboarding URL
 
 /**
- * Existing-patient login. Points at the telehealth company's patient-portal
- * sub-pages. Opens in a new tab (external property).
+ * Existing-patient login on the telehealth platform (a store.wellpeps.com
+ * sub-page). Opens in a new tab (external property).
  *
- * TODO (client): replace the stub below with the real patient-portal URL.
+ * TODO (client): replace the stub below with the real portal URL.
  */
-export const PATIENT_PORTAL_URL = '#patient-portal-stub'; // ← swap for portal URL
+export const PATIENT_PORTAL_URL = '#patient-portal-stub'; // ← swap for store.wellpeps.com portal URL
 
 /** Build an onboarding link, optionally pre-selecting a program. */
 export function assessmentUrl(programSlug?: string): string {
