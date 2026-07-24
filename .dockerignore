@@ -1,0 +1,27 @@
+# Keep the root build context small. Design-asset folders are untracked, so a
+# git-based build (Coolify) won't include them anyway; these guards cover local
+# `docker build .` from the repo root too.
+**/node_modules
+**/dist
+**/.astro
+**/.vercel
+**/.netlify
+**/*.log
+**/.env
+**/.env.*
+!**/.env.example
+**/_shot.mjs
+.git
+.DS_Store
+
+# Design deliverables / source docs — not needed to build the site.
+Home Page/
+Learning Center/
+Logo/
+__Revisions/
+Sub-Category Programs/
+knowledge-base/
+docs/
+*.pdf
+*.zip
+*.csv
