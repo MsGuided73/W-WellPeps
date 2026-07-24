@@ -4,7 +4,17 @@
  * Everything Included Strip.dc.html). A warm-ivory band with a serif
  * headline block and seven included-item columns. Mounted at the bottom
  * of each treatment area's product section.
+ *
+ * `stacked` forces the strip's mobile presentation (intro on top, items in
+ * a two-column grid) regardless of viewport — used in the learning-center
+ * article rail, whose column is mobile-width even on desktop.
  */
+interface Props {
+  stacked?: boolean;
+}
+
+const { stacked = false } = Astro.props;
+
 const items = [
   { label: 'Prescription Medication', src: '/images/icons/included/meds.png' },
   { label: 'Licensed Provider Evaluation', src: '/images/icons/included/provider.png' },
@@ -15,7 +25,7 @@ const items = [
   { label: 'Cancel Anytime*', src: '/images/icons/included/cancel.png' },
 ];
 ---
-<div class="included reveal">
+<div class:list={['included', 'reveal', { 'included--stacked': stacked }]}>
   <div class="included__intro">
     <p class="included__headline">Everything Included.</p>
     <p class="included__sub">One simple monthly price.<br />No surprises.</p>
@@ -94,4 +104,14 @@ const items = [
     /* 7 items in 2 columns: center the odd one out. */
     .included__item:last-child { grid-column: 1 / -1; }
   }
+
+  /* Stacked variant: the two-column mobile presentation at any viewport,
+     with spacing left to the parent (the article rail's grid gap). */
+  .included--stacked { flex-direction: column; gap: 1.75rem; text-align: center; margin-top: 0; }
+  .included--stacked .included__intro { align-items: center; }
+  .included--stacked .included__items {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem 0;
+  }
+  .included--stacked .included__item { border-left: 0; }
+  .included--stacked .included__item:last-child { grid-column: 1 / -1; }
 </style>

@@ -1,18 +1,16 @@
 ---
 /**
- * Hair Restoration Treatment Options — four-plan card grid plus the
- * "Everything Included." bar, implemented from the approved Claude Design
- * comp ("Hair Treatment Options.dc.html"). Rendered inside the article
- * column on Hair Restoration learning-center articles, between the prose
- * and Key Takeaways.
+ * Hair Restoration Treatment Options — four-plan card grid implemented from
+ * the approved Claude Design comp ("Hair Treatment Options.dc.html").
+ * Rendered inside the article column on Hair Restoration learning-center
+ * articles, between the prose and Key Takeaways. The comp's "Everything
+ * Included." bar renders in the article rail instead (client direction).
  *
  * Plan copy, pricing and photos mirror the Hair Restoration page's product
  * cards (src/data/hair.ts) so the two surfaces never drift; the feature
  * lists carry the comp's formulation bullets. Photos are full-bleed cover
  * shots, matching how ProductCard treats the same images.
  */
-import EverythingIncludedBar from './EverythingIncludedBar.astro';
-
 interface Plan {
   name: string;
   image: string;
@@ -107,8 +105,6 @@ const plans: Plan[] = [
       </article>
     ))}
   </div>
-
-  <EverythingIncludedBar />
 </section>
 
 <style>

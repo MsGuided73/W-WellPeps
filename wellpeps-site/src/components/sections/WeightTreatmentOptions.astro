@@ -1,10 +1,11 @@
 ---
 /**
- * Weight Management Treatment Options — three-plan card grid plus the
- * "Everything Included." bar, implemented from the approved Claude Design
- * comp ("WellPeps Treatment Options.dc.html", option 1a). Rendered inside
- * the article column on Weight Management learning-center articles, between
- * the prose and Key Takeaways.
+ * Weight Management Treatment Options — three-plan card grid implemented
+ * from the approved Claude Design comp ("WellPeps Treatment Options.dc.html",
+ * option 1a). Rendered inside the article column on Weight Management
+ * learning-center articles, between the prose and Key Takeaways. The comp's
+ * "Everything Included." bar renders in the article rail instead (client
+ * direction).
  *
  * Plan photos reuse the Weight Loss page's product vial shots per the comp's
  * upload note ("Use Correct Pics from Weight Loss Page"), with the same
@@ -12,8 +13,6 @@
  * page's 52-week "*" footnote, which the comp omits, so the legal treatment
  * matches everywhere the prices appear.
  */
-import EverythingIncludedBar from './EverythingIncludedBar.astro';
-
 interface PlanFeature {
   text: string;
   /** First feature per the comp — rendered as a filled blue pill. */
@@ -110,8 +109,6 @@ const plans: Plan[] = [
     * Starting price reflects a 52-week plan. Actual pricing depends on your
     provider&rsquo;s recommended plan.
   </p>
-
-  <EverythingIncludedBar />
 </section>
 
 <style>

@@ -1,8 +1,9 @@
 ---
 /**
- * Sexual Wellness Treatment Options — four-card treatment grid plus the
- * "Everything Included." bar, implemented from the approved Claude Design
- * comp ("Sexual Wellness Treatment Options.dc.html"). Rendered inside the
+ * Sexual Wellness Treatment Options — four-card treatment grid implemented
+ * from the approved Claude Design comp ("Sexual Wellness Treatment
+ * Options.dc.html"). The comp's "Everything Included." bar renders in the
+ * article rail instead (client direction). Rendered inside the
  * article column on Sexual Wellness learning-center articles, between the
  * prose and Key Takeaways, so the grid is tuned to a two-up layout at
  * article width rather than the comp's four-up full-bleed.
@@ -11,7 +12,6 @@
  * marketing name is the blue tagline — the reverse of the Sexual Wellness
  * page's product grid, which keeps its own approved order.
  */
-import EverythingIncludedBar from './EverythingIncludedBar.astro';
 import { sexProducts } from '../../data/sexual';
 ---
 
@@ -52,8 +52,6 @@ import { sexProducts } from '../../data/sexual';
       </article>
     ))}
   </div>
-
-  <EverythingIncludedBar />
 </section>
 
 <style>

@@ -10,6 +10,7 @@
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
+import EverythingIncludedStrip from '../../components/EverythingIncludedStrip.astro';
 import HairTreatmentOptions from '../../components/sections/HairTreatmentOptions.astro';
 import PeptideTherapies from '../../components/sections/PeptideTherapies.astro';
 import SexualTreatmentOptions from '../../components/sections/SexualTreatmentOptions.astro';
@@ -41,6 +42,10 @@ const showTherapies = article.category.name.toLowerCase().includes('peptide');
 const showSexualTreatments = article.category.name.toLowerCase().includes('sexual');
 const showWeightTreatments = article.category.name.toLowerCase().includes('weight');
 const showHairTreatments = article.category.name.toLowerCase().includes('hair');
+/* The "Everything Included." bar accompanies every treatment insert, but in
+   the rail (client direction) rather than below the insert's product cards. */
+const showIncludedBar =
+  showTherapies || showSexualTreatments || showWeightTreatments || showHairTreatments;
 
 const updated = article.published_at
   ? new Date(article.published_at).toLocaleDateString('en-US', {
@@ -132,6 +137,8 @@ const updated = article.published_at
             </a>
           </div>
         )}
+
+        {showIncludedBar && <EverythingIncludedStrip stacked />}
 
         {article.disclaimer_html && (
           <div class="rail__card">
