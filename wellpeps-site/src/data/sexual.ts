@@ -4,6 +4,8 @@
  * "WellPeps Sexual Wellness Secondary Page" and FAQ docs.
  */
 
+import { SEXUAL_ONBOARDING_URL } from '../config';
+
 export const sexHero = {
   titleLead: 'Sexual Wellness For Every Need.',
   titleAccent: 'Regain & Reconnect.',
@@ -80,7 +82,7 @@ export const sexProducts: SexProduct[] = [
     methodOfUse: 'Oral Tablet',
     price: '69',
     priceUnit: '/month',
-    href: '/#assessment-stub',
+    href: SEXUAL_ONBOARDING_URL,
   },
   {
     name: 'Go Long',
@@ -92,7 +94,7 @@ export const sexProducts: SexProduct[] = [
     methodOfUse: 'Oral Tablet',
     price: '89',
     priceUnit: '/month',
-    href: '/#assessment-stub',
+    href: SEXUAL_ONBOARDING_URL,
   },
   {
     name: 'Double Powered',
@@ -104,7 +106,7 @@ export const sexProducts: SexProduct[] = [
     methodOfUse: 'Oral Tablet',
     price: '99',
     priceUnit: '/month',
-    href: '/#assessment-stub',
+    href: SEXUAL_ONBOARDING_URL,
   },
   {
     name: 'Quadruple Powered',
@@ -116,7 +118,7 @@ export const sexProducts: SexProduct[] = [
     methodOfUse: 'Oral Tablet',
     price: '129',
     priceUnit: '/month',
-    href: '/#assessment-stub',
+    href: SEXUAL_ONBOARDING_URL,
   },
 ];
 

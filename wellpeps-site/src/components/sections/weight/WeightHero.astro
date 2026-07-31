@@ -1,6 +1,6 @@
 ---
 import Icon from '../../Icon.astro';
-import { ONBOARDING_URL } from '../../../config';
+import { WEIGHT_ONBOARDING_URL } from '../../../config';
 import { weightHero } from '../../../data/weight';
 ---
 <section class="whero">
@@ -16,7 +16,7 @@ import { weightHero } from '../../../data/weight';
       <hr class="rule rule--left" />
       <p class="whero__lead">{weightHero.lead}</p>
       <div class="whero__actions">
-        <a href={ONBOARDING_URL} class="btn btn--primary btn--lg">Start Free Online Assessment</a>
+        <a href={WEIGHT_ONBOARDING_URL} class="btn btn--primary btn--lg">Start Free Online Assessment</a>
         <a href="#weight-products" class="btn btn--secondary btn--lg">Explore Treatment Options <Icon name="arrow-right" /></a>
       </div>
     </div>

@@ -10,6 +10,8 @@
  * DB notes these are 52-week starting prices (reflected in the "*" footnote).
  */
 
+import { WEIGHT_ONBOARDING_URL } from '../config';
+
 export const weightHero = {
   titleLead: 'GLP-1 Weight Management',
   titleAccent: 'Personalized.',
@@ -119,7 +121,7 @@ export const weightProducts: PillProduct[] = [
     price: '179',
     priceUnit: '/month',
     priceNote: '52-week starting price',
-    href: '/#assessment-stub',
+    href: WEIGHT_ONBOARDING_URL,
   },
   {
     name: 'Compounded Tirzepatide',
@@ -136,7 +138,7 @@ export const weightProducts: PillProduct[] = [
     price: '269',
     priceUnit: '/month',
     priceNote: '52-week starting price',
-    href: '/#assessment-stub',
+    href: WEIGHT_ONBOARDING_URL,
   },
   {
     name: 'Oral Semaglutide',
@@ -153,7 +155,7 @@ export const weightProducts: PillProduct[] = [
     price: '209',
     priceUnit: '/month',
     priceNote: '52-week starting price',
-    href: '/#assessment-stub',
+    href: WEIGHT_ONBOARDING_URL,
   },
 ];
 

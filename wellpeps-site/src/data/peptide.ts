@@ -7,6 +7,8 @@
  * Wellness mockups; benefits from WellPeps_Medication_Master_Database_v1.
  */
 
+import { PEPTIDE_ONBOARDING_URL } from '../config';
+
 export const peptideHero = {
   eyebrow: 'Peptide Therapies',
   titleLead: 'Next-Gen Peptide & Wellness Therapies',
@@ -90,7 +92,7 @@ export const peptideProducts: PeptideProduct[] = [
     methodOfUse: 'Subcutaneous Injection',
     features: ['Lean muscle support', 'Recovery & sleep quality', 'Healthy aging'],
     price: '149',
-    href: '/#assessment-stub',
+    href: PEPTIDE_ONBOARDING_URL,
   },
   {
     name: 'NAD+',
@@ -103,7 +105,7 @@ export const peptideProducts: PeptideProduct[] = [
     methodOfUse: 'Injection',
     features: ['Cellular energy', 'Mental clarity', 'Healthy aging'],
     price: '169',
-    href: '/#assessment-stub',
+    href: PEPTIDE_ONBOARDING_URL,
   },
   {
     name: 'Glutathione',
@@ -116,7 +118,7 @@ export const peptideProducts: PeptideProduct[] = [
     methodOfUse: 'Injection',
     features: ['Antioxidant protection', 'Immune health', 'Detoxification support'],
     price: '129',
-    href: '/#assessment-stub',
+    href: PEPTIDE_ONBOARDING_URL,
   },
   {
     name: 'MIC + B12',
@@ -129,7 +131,7 @@ export const peptideProducts: PeptideProduct[] = [
     methodOfUse: 'Injection',
     features: ['Metabolic support', 'Fat utilization', 'Natural energy'],
     price: '119',
-    href: '/#assessment-stub',
+    href: PEPTIDE_ONBOARDING_URL,
   },
   {
     name: 'Lipo-C',
@@ -142,7 +144,7 @@ export const peptideProducts: PeptideProduct[] = [
     methodOfUse: 'Injection',
     features: ['Metabolic wellness', 'Energy support', 'Complements nutrition'],
     price: '109',
-    href: '/#assessment-stub',
+    href: PEPTIDE_ONBOARDING_URL,
   },
   {
     name: 'Methylene Blue',
@@ -155,7 +157,7 @@ export const peptideProducts: PeptideProduct[] = [
     methodOfUse: 'Oral',
     features: ['Mitochondrial support', 'Mental clarity', 'Mood & cellular health'],
     price: '79',
-    href: '/#assessment-stub',
+    href: PEPTIDE_ONBOARDING_URL,
   },
 ];
 

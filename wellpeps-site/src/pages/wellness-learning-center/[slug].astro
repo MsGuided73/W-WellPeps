@@ -15,7 +15,12 @@ import HairTreatmentOptions from '../../components/sections/HairTreatmentOptions
 import PeptideTherapies from '../../components/sections/PeptideTherapies.astro';
 import SexualTreatmentOptions from '../../components/sections/SexualTreatmentOptions.astro';
 import WeightTreatmentOptions from '../../components/sections/WeightTreatmentOptions.astro';
-import { ONBOARDING_URL } from '../../config';
+import {
+  ONBOARDING_URL,
+  PEPTIDE_ONBOARDING_URL,
+  SEXUAL_ONBOARDING_URL,
+  WEIGHT_ONBOARDING_URL,
+} from '../../config';
 import { getArticles, getRelatedArticles, type ArticleWithCategory } from '../../lib/blog';
 import { withToc } from '../../lib/toc';
 
@@ -46,6 +51,16 @@ const showHairTreatments = article.category.name.toLowerCase().includes('hair');
    the rail (client direction) rather than below the insert's product cards. */
 const showIncludedBar =
   showTherapies || showSexualTreatments || showWeightTreatments || showHairTreatments;
+
+/* Categories whose intake is live deep-link straight to it; the rest still
+   fall back to the generic onboarding URL until their intake URLs land. */
+const assessmentHref = showSexualTreatments
+  ? SEXUAL_ONBOARDING_URL
+  : showWeightTreatments
+    ? WEIGHT_ONBOARDING_URL
+    : showTherapies
+      ? PEPTIDE_ONBOARDING_URL
+      : ONBOARDING_URL;
 
 const updated = article.published_at
   ? new Date(article.published_at).toLocaleDateString('en-US', {
@@ -131,7 +146,7 @@ const updated = article.published_at
           <div class="rail__card rail__card--cta">
             <h2 class="rail__title">{article.cta_title}</h2>
             <div class="rail__body" set:html={article.cta_html} />
-            <a href={ONBOARDING_URL} class="btn btn--primary rail__btn">
+            <a href={assessmentHref} class="btn btn--primary rail__btn">
               Start Free Assessment
               <Icon name="arrow-right" />
             </a>
@@ -157,7 +172,7 @@ const updated = article.published_at
           information to create a plan that's right for you.
         </p>
       </div>
-      <a href={ONBOARDING_URL} class="btn btn--primary btn--lg">
+      <a href={assessmentHref} class="btn btn--primary btn--lg">
         Start Free Assessment
         <Icon name="arrow-right" />
       </a>

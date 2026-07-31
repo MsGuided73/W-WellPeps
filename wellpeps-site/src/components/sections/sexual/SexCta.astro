@@ -1,6 +1,6 @@
 ---
 import Icon from '../../Icon.astro';
-import { ONBOARDING_URL } from '../../../config';
+import { SEXUAL_ONBOARDING_URL } from '../../../config';
 import { sexCta } from '../../../data/sexual';
 ---
 <section class="sxcta">
@@ -10,7 +10,7 @@ import { sexCta } from '../../../data/sexual';
       <h2>{sexCta.title}<br /><span class="accent">{sexCta.titleAccent}</span></h2>
       <hr class="rule rule--left" />
       <p class="sxcta__lead">{sexCta.lead}</p>
-      <a href={ONBOARDING_URL} class="btn btn--primary btn--lg sxcta__btn">Start Your Free Assessment <Icon name="arrow-right" /></a>
+      <a href={SEXUAL_ONBOARDING_URL} class="btn btn--primary btn--lg sxcta__btn">Start Your Free Assessment <Icon name="arrow-right" /></a>
       <p class="sxcta__note">{sexCta.note}</p>
     </div>
   </div>
