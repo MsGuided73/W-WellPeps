@@ -39,6 +39,18 @@ export const PEPTIDE_ONBOARDING_URL = ONBOARDING_URL;
 export const HAIR_COMING_SOON = true;
 
 /**
+ * Hero-CTA gates for the two programs whose intake is built but not open.
+ *
+ * Their hero "Start Free Online Assessment" buttons render as a non-interactive
+ * Coming Soon state while these are true. Narrower than HAIR_COMING_SOON: these
+ * cover the hero CTA only, not the product cards or an announcement band.
+ *
+ * Flip to false at launch, alongside the intake URLs above.
+ */
+export const SEXUAL_HERO_COMING_SOON = true;
+export const PEPTIDE_HERO_COMING_SOON = true;
+
+/**
  * Existing-patient login on the telehealth platform (a store.wellpeps.com
  * sub-page). Opens in a new tab (external property).
  *

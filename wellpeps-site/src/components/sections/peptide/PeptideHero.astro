@@ -1,6 +1,6 @@
 ---
 import Icon from '../../Icon.astro';
-import { PEPTIDE_ONBOARDING_URL } from '../../../config';
+import { PEPTIDE_ONBOARDING_URL, PEPTIDE_HERO_COMING_SOON } from '../../../config';
 import { peptideHero } from '../../../data/peptide';
 ---
 <section class="phero">
@@ -16,7 +16,9 @@ import { peptideHero } from '../../../data/peptide';
       <hr class="rule rule--left" />
       <p class="phero__lead">Advanced peptide therapies and personalized protocols,<br class="db" /> designed to optimize performance, support recovery,<br class="db" /> and help you feel your best.</p>
       <div class="phero__actions">
-        <a href={PEPTIDE_ONBOARDING_URL} class="btn btn--primary btn--lg">Start Free Online Assessment</a>
+        {PEPTIDE_HERO_COMING_SOON
+          ? <span class="btn btn--primary btn--lg btn--soon"><Icon name="clock" /> Assessments Opening Soon</span>
+          : <a href={PEPTIDE_ONBOARDING_URL} class="btn btn--primary btn--lg">Start Free Online Assessment</a>}
         <a href="#peptide-products" class="btn btn--secondary btn--lg">Explore Treatment Options <Icon name="arrow-right" /></a>
       </div>
     </div>

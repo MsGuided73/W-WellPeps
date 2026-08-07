@@ -160,6 +160,25 @@ p, li, figcaption, blockquote { text-wrap: pretty; }
 .btn--lg { padding: 1.15rem 2.1rem; font-size: 1.3125rem; }
 .btn--block { width: 100%; }
 
+/* Pre-launch state for a CTA whose destination is not open yet.
+   Apply to a <span>, never a disabled <a> — there is nothing to navigate to,
+   so the element should not be a link, be focusable, or appear in the
+   accessibility tree as one. Holds still on hover: lift is an affordance and
+   this button has no action behind it. */
+.btn--soon {
+  background: var(--bg-light-blue-gray);
+  color: var(--text-muted);
+  border-color: var(--border-strong);
+  box-shadow: none;
+  cursor: default;
+}
+.btn--soon:hover {
+  background: var(--bg-light-blue-gray);
+  color: var(--text-muted);
+  transform: none;
+  box-shadow: none;
+}
+
 /* Ghost pill link used on cards ("Explore Program →") */
 .pill-link {
   display: inline-flex; align-items: center; gap: 0.5rem;
