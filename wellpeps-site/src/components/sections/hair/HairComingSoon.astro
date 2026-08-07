@@ -1,0 +1,244 @@
+---
+/**
+ * Hair Restoration — "Coming Soon" announcement band.
+ *
+ * Sits directly under the hero while HAIR_COMING_SOON is true. Deliberately the
+ * darkest surface on an otherwise white/cream page so it reads as a state
+ * change rather than another content section: deep-navy anchor, the gold
+ * hairline the brand reserves for accents, a raised medallion icon, and the
+ * Lora serif used for section titles everywhere else.
+ *
+ * The notify form mirrors WaitlistSection's markup and inline-confirm behaviour
+ * so both signup surfaces get wired to the real ESP in one pass at launch.
+ */
+import Icon from '../../Icon.astro';
+---
+<section class="hcs" id="hair-notify" aria-labelledby="hcs-title">
+  <div class="container hcs__inner">
+    <div class="hcs__copy">
+      <span class="hcs__medallion" aria-hidden="true"><Icon name="sparkles" /></span>
+
+      <p class="hcs__eyebrow">Launching Soon</p>
+      <h2 id="hcs-title" class="hcs__title">Hair Restoration is almost here.</h2>
+      <hr class="hcs__rule" />
+      <p class="hcs__lead">
+        We’re putting the finishing touches on our provider-guided hair
+        restoration program. Treatment options and pricing are shown below so
+        you know exactly what to expect — assessments open at launch.
+      </p>
+    </div>
+
+    <div class="hcs__panel">
+      <p class="hcs__panel-title">Be first to know</p>
+      <p class="hcs__panel-lead">We’ll email you the moment assessments open. No spam, ever.</p>
+
+      <!-- TODO (client): wire `action`/handler to the real notification list
+           (ESP), same endpoint as WaitlistSection + the footer newsletter.
+           Until then this confirms inline and the address is NOT stored. -->
+      <form class="hcs__form" data-hair-notify novalidate>
+        <label class="hcs__sr-only" for="hcs-email">Email address</label>
+        <div class="hcs__field">
+          <span class="hcs__field-icon" aria-hidden="true"><Icon name="mail" /></span>
+          <input
+            id="hcs-email" type="email" name="email" autocomplete="email"
+            placeholder="Email Address" required
+          />
+        </div>
+        <button type="submit" class="hcs__submit">
+          Notify Me <Icon name="arrow-right" />
+        </button>
+      </form>
+
+      <p class="hcs__note"><Icon name="lock" /> Your information is secure and will never be shared.</p>
+
+      <div class="hcs__success" data-hair-notify-success hidden role="status">
+        <span class="hcs__success-icon" aria-hidden="true"><Icon name="check" /></span>
+        <div>
+          <p class="hcs__success-title">You’re on the list!</p>
+          <p class="hcs__success-body">We’ll be in touch the moment Hair Restoration goes live.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hcs {
+    position: relative;
+    background: var(--bg-deep-navy);
+    padding-block: clamp(2.5rem, 3.5vw, 4rem);
+    overflow: hidden;
+  }
+  /* Soft top-lit wash so the band has depth rather than reading as a flat fill. */
+  .hcs::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(120% 90% at 18% 0%, rgba(46, 168, 247, 0.20), transparent 62%),
+      radial-gradient(90% 80% at 100% 100%, rgba(21, 118, 196, 0.18), transparent 58%);
+    pointer-events: none;
+  }
+
+  .hcs__inner {
+    position: relative; z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.95fr);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 4.5rem);
+  }
+
+  .hcs__copy { max-width: 40ch; }
+
+  /* Shares the site-wide medallion treatment so the disc reads as the same
+     physical object used for every other circular icon. */
+  .hcs__medallion {
+    display: inline-grid; place-items: center;
+    width: 60px; height: 60px; border-radius: 50%;
+    background: var(--medallion-bg);
+    border: 1px solid var(--medallion-ring);
+    box-shadow: var(--medallion-shadow);
+    color: var(--blue);
+  }
+  .hcs__medallion :global(svg) { width: 30px; height: 30px; filter: var(--icon-shadow); }
+
+  .hcs__eyebrow {
+    margin-top: 1.15rem;
+    font-family: var(--font-sans); font-weight: 700;
+    font-size: var(--text-small);
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .hcs__title {
+    margin-top: 0.5rem;
+    font-family: var(--font-serif); font-weight: 700;
+    font-size: var(--text-section-title);
+    line-height: 1.12; letter-spacing: -0.015em;
+    color: #fff;
+  }
+
+  /* The thin gold divider the brand reserves for accent moments. */
+  .hcs__rule {
+    width: 76px; height: 3px; margin: 1.15rem 0 0;
+    border: 0; border-radius: 2px; background: var(--gold);
+  }
+
+  .hcs__lead {
+    margin-top: 1.15rem;
+    color: var(--text-on-dark);
+    font-size: var(--text-card-body); line-height: 1.6;
+  }
+
+  /* Raised light panel — the signup lifts off the navy rather than sitting in it. */
+  .hcs__panel {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: clamp(1.6rem, 2.4vw, 2.25rem);
+    box-shadow: var(--shadow-lg);
+  }
+  .hcs__panel-title {
+    font-family: var(--font-serif); font-weight: 700;
+    font-size: var(--text-card-title); color: var(--navy); line-height: 1.2;
+  }
+  .hcs__panel-lead {
+    margin-top: 0.5rem; color: var(--text-body);
+    font-size: var(--text-body-size); line-height: 1.55;
+  }
+
+  .hcs__form { display: flex; gap: 0.75rem; margin-top: 1.35rem; }
+  .hcs__field { position: relative; flex: 1 1 auto; min-width: 0; }
+  .hcs__field-icon {
+    position: absolute; left: 1rem; top: 50%; transform: translateY(-50%);
+    display: grid; place-items: center; color: var(--text-muted);
+  }
+  .hcs__field-icon :global(svg) { width: 20px; height: 20px; }
+  .hcs__field input {
+    width: 100%; min-height: 52px;
+    padding: 0.9rem 1rem 0.9rem 2.9rem;
+    font-family: var(--font-sans); font-size: var(--text-body-size); color: var(--navy);
+    background: #fff;
+    border: 1.5px solid var(--border-strong); border-radius: var(--radius-sm);
+    transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  }
+  .hcs__field input::placeholder { color: var(--text-muted); }
+  .hcs__field input:focus {
+    outline: none; border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(21, 118, 196, 0.2);
+  }
+  .hcs__field input:user-invalid { border-color: var(--error); }
+
+  .hcs__submit {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    flex: none; min-height: 52px; padding: 0.9rem 1.5rem;
+    white-space: nowrap; cursor: pointer;
+    background: var(--blue); border: 0; border-radius: var(--radius-sm);
+    color: #fff; font-family: var(--font-sans); font-weight: 600;
+    font-size: var(--text-body-size);
+    transition: background var(--dur) var(--ease);
+  }
+  .hcs__submit :global(svg) {
+    width: 1.05em; height: 1.05em;
+    transition: transform var(--dur) var(--ease);
+  }
+  .hcs__submit:hover { background: var(--blue-hover); }
+  .hcs__submit:hover :global(svg) { transform: translateX(3px); }
+  .hcs__submit:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 2px; }
+
+  .hcs__note {
+    display: flex; align-items: center; gap: 0.45rem;
+    margin-top: 0.9rem; color: var(--text-muted); font-size: var(--text-note);
+  }
+  .hcs__note :global(svg) { width: 15px; height: 15px; }
+
+  .hcs__success[hidden] { display: none; }
+  .hcs__success {
+    display: flex; align-items: flex-start; gap: 1rem; margin-top: 1.25rem;
+    padding: 1.25rem 1.35rem;
+    background: var(--bg-soft-mint); border: 1px solid #bfe6cf;
+    border-radius: var(--radius);
+  }
+  .hcs__success-icon {
+    display: inline-grid; place-items: center; flex: none;
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--success); color: #fff;
+  }
+  .hcs__success-icon :global(svg) { width: 22px; height: 22px; }
+  .hcs__success-title {
+    font-family: var(--font-sans); font-weight: 700;
+    color: var(--navy); font-size: var(--text-body-size);
+  }
+  .hcs__success-body {
+    margin-top: 0.25rem; color: var(--text-body);
+    font-size: var(--text-body-size); line-height: 1.55;
+  }
+
+  .hcs__sr-only {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+  }
+
+  @media (max-width: 900px) {
+    .hcs__inner { grid-template-columns: 1fr; gap: 2rem; }
+    .hcs__copy { max-width: none; }
+  }
+  @media (max-width: 520px) {
+    .hcs__form { flex-direction: column; }
+    .hcs__submit { justify-content: center; width: 100%; }
+  }
+</style>
+
+<script>
+  // Notify form — inline confirmation only; no backend wired yet.
+  // Mirrors WaitlistSection so both get pointed at the real ESP together.
+  document.querySelectorAll('[data-hair-notify]').forEach((form) => {
+    const success = form.parentElement?.querySelector('[data-hair-notify-success]');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!(form as HTMLFormElement).reportValidity()) return;
+      // TODO (client): POST the email to the real notification list.
+      (form as HTMLFormElement).hidden = true;
+      if (success) (success as HTMLElement).hidden = false;
+    });
+  });
+</script>

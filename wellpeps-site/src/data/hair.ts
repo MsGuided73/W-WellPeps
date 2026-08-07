@@ -9,7 +9,12 @@
  * NOTE (client): "Advanced Liposomal Formulas" pricing is still a placeholder
  * ("$XX") in the source product information — leave as-is until a real number
  * is provided.
+ *
+ * Card CTAs read from ONBOARDING_URL rather than repeating a literal, so the
+ * single config swap at launch reaches them. While HAIR_COMING_SOON is true the
+ * cards render a disabled Coming Soon state and the href is not used at all.
  */
+import { ONBOARDING_URL } from '../config';
 
 export const hairHero = {
   eyebrow: 'Hair Restoration',
@@ -95,7 +100,7 @@ export const hairProducts: Product[] = [
     methodOfUse: 'Topical Solution / Topical Foam',
     price: '79',
     priceUnit: '/month',
-    href: '/#assessment-stub',
+    href: ONBOARDING_URL,
   },
   {
     name: 'Oral Treatments',
@@ -108,7 +113,7 @@ export const hairProducts: Product[] = [
     methodOfUse: 'Oral Capsule',
     price: '59',
     priceUnit: '/month',
-    href: '/#assessment-stub',
+    href: ONBOARDING_URL,
   },
   {
     name: 'Combination Therapy',
@@ -126,7 +131,7 @@ export const hairProducts: Product[] = [
     methodOfUse: 'Topical + Oral',
     price: '99',
     priceUnit: '/month',
-    href: '/#assessment-stub',
+    href: ONBOARDING_URL,
   },
   {
     // NBSP binds "Advanced Liposomal" so the title breaks as
@@ -145,7 +150,7 @@ export const hairProducts: Product[] = [
     methodOfUse: 'Topical Solution',
     price: '109',
     priceUnit: '/month',
-    href: '/#assessment-stub',
+    href: ONBOARDING_URL,
   },
 ];
 
@@ -185,6 +190,13 @@ export const hairCta = {
   title: 'Ready to Start Your Hair Restoration Journey?',
   lead: 'Begin your personalized, provider-guided hair restoration journey today.',
   note: 'It only takes a few minutes.',
+  // Pre-launch copy, used while HAIR_COMING_SOON is true. The live copy above
+  // promises something the program cannot yet deliver, so it is swapped rather
+  // than left to invite an assessment that does not exist.
+  soonTitle: 'Be First to Start Your Hair Restoration Journey',
+  soonLead:
+    'Our provider-guided hair restoration program opens soon. Join the list and we’ll let you know the moment assessments are available.',
+  soonNote: 'No spam — just one email when we go live.',
   image: '/images/hair/cta-man.webp',
   alt: 'A smiling man running his hand through his healthy hair',
 };

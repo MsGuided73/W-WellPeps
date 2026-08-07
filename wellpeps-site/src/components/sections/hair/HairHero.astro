@@ -1,6 +1,6 @@
 ---
 import Icon from '../../Icon.astro';
-import { ONBOARDING_URL } from '../../../config';
+import { ONBOARDING_URL, HAIR_COMING_SOON } from '../../../config';
 import { hairHero } from '../../../data/hair';
 ---
 <section class="hhero">
@@ -20,7 +20,9 @@ import { hairHero } from '../../../data/hair';
       <hr class="rule rule--left" />
       <p class="hhero__lead">{hairHero.lead}</p>
       <div class="hhero__actions">
-        <a href={ONBOARDING_URL} class="btn btn--primary btn--lg">Start Free Online Assessment</a>
+        {HAIR_COMING_SOON
+          ? <a href="#hair-notify" class="btn btn--primary btn--lg">Get Launch Updates</a>
+          : <a href={ONBOARDING_URL} class="btn btn--primary btn--lg">Start Free Online Assessment</a>}
         <a href="#hair-products" class="btn btn--secondary btn--lg">Explore Treatment Options <Icon name="arrow-right" /></a>
       </div>
     </div>

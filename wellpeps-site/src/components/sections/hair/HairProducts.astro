@@ -2,6 +2,7 @@
 import ProductCard from '../../ProductCard.astro';
 import EverythingIncludedStrip from '../../EverythingIncludedStrip.astro';
 import { hairProducts, hairProductsIntro } from '../../../data/hair';
+import { HAIR_COMING_SOON } from '../../../config';
 ---
 <section class="section section--gray" id="hair-products">
   <div class="container">
@@ -11,7 +12,7 @@ import { hairProducts, hairProductsIntro } from '../../../data/hair';
     </div>
 
     <div class="hprod__grid reveal">
-      {hairProducts.map((product) => <ProductCard product={product} />)}
+      {hairProducts.map((product) => <ProductCard product={product} comingSoon={HAIR_COMING_SOON} />)}
     </div>
 
     <p class="hprod__foot reveal">{hairProductsIntro.footnote}</p>

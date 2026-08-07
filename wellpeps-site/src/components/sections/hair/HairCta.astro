@@ -1,5 +1,5 @@
 ---
-import { ONBOARDING_URL } from '../../../config';
+import { ONBOARDING_URL, HAIR_COMING_SOON } from '../../../config';
 import { hairCta } from '../../../data/hair';
 ---
 <section class="hcta">
@@ -10,10 +10,12 @@ import { hairCta } from '../../../data/hair';
 
   <div class="hcta__wrap">
     <div class="hcta__copy reveal">
-      <h2>{hairCta.title}</h2>
-      <p class="hcta__lead">{hairCta.lead}</p>
-      <a href={ONBOARDING_URL} class="btn btn--primary btn--lg hcta__btn">Start Your Free Assessment</a>
-      <p class="hcta__note">{hairCta.note}</p>
+      <h2>{HAIR_COMING_SOON ? hairCta.soonTitle : hairCta.title}</h2>
+      <p class="hcta__lead">{HAIR_COMING_SOON ? hairCta.soonLead : hairCta.lead}</p>
+      {HAIR_COMING_SOON
+        ? <a href="#hair-notify" class="btn btn--primary btn--lg hcta__btn">Get Launch Updates</a>
+        : <a href={ONBOARDING_URL} class="btn btn--primary btn--lg hcta__btn">Start Your Free Assessment</a>}
+      <p class="hcta__note">{HAIR_COMING_SOON ? hairCta.soonNote : hairCta.note}</p>
     </div>
   </div>
 </section>

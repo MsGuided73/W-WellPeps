@@ -30,6 +30,15 @@ export const WEIGHT_ONBOARDING_URL = ONBOARDING_URL;
 export const PEPTIDE_ONBOARDING_URL = ONBOARDING_URL;
 
 /**
+ * Hair Restoration has not launched yet. While true, the program page shows a
+ * "Coming Soon" announcement band, its product cards carry a Coming Soon ribbon
+ * with the CTA disabled, and the hero / bottom CTAs are replaced.
+ *
+ * Flip to false at launch — that is the whole switch. See docs/PRE-LAUNCH.md.
+ */
+export const HAIR_COMING_SOON = true;
+
+/**
  * Existing-patient login on the telehealth platform (a store.wellpeps.com
  * sub-page). Opens in a new tab (external property).
  *

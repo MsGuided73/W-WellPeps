@@ -11,16 +11,19 @@ import type { Product } from '../data/hair';
 
 interface Props {
   product: Product;
+  /** Pre-launch state: ribbon on the image, CTA replaced by a static label. */
+  comingSoon?: boolean;
 }
-const { product } = Astro.props;
+const { product, comingSoon = false } = Astro.props;
 const {
   name, image, alt, icon, description, optionsLabel, options,
   methodOfUse, price, priceUnit, href,
 } = product;
 ---
-<article class="pcard">
+<article class:list={['pcard', comingSoon && 'pcard--soon']}>
   <div class="pcard__media">
     <img src={image} alt={alt} width="720" height="540" loading="lazy" />
+    {comingSoon && <span class="pcard__ribbon">Coming Soon</span>}
   </div>
 
   <div class="pcard__body">
@@ -47,7 +50,9 @@ const {
       </span>
     </p>
 
-    <a href={href} class="pcard__cta">Start Free Assessment <Icon name="arrow-right" /></a>
+    {comingSoon
+      ? <span class="pcard__cta pcard__cta--soon"><Icon name="clock" /> Coming Soon</span>
+      : <a href={href} class="pcard__cta">Start Free Assessment <Icon name="arrow-right" /></a>}
   </div>
 </article>
 
@@ -124,4 +129,45 @@ const {
   .pcard__cta :global(svg) { position: absolute; right: 1.1rem; width: 1.05em; height: 1.05em; transition: transform var(--dur) var(--ease); }
   .pcard__cta:hover { background: var(--blue-hover); color: #fff; }
   .pcard__cta:hover :global(svg) { transform: translateX(3px); }
+
+  /* ---- Pre-launch (Coming Soon) state ----
+     The card keeps its full content — image, formulations, pricing — so the
+     program still sells itself; only the action is withheld. */
+
+  /* Navy ribbon on the image corner. Navy (not blue) so it reads as a status
+     flag rather than another CTA competing with the live programs' buttons. */
+  .pcard__ribbon {
+    position: absolute; top: 0.9rem; left: 0.9rem;
+    padding: 0.4rem 0.85rem;
+    background: var(--navy); color: #fff;
+    font-family: var(--font-sans); font-weight: 700;
+    font-size: var(--text-small);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 2px 10px rgba(8, 43, 89, 0.35);
+  }
+
+  /* A <span>, not a disabled <a> — nothing to click, nothing to focus, and no
+     misleading link in the tab order or the accessibility tree. */
+  .pcard__cta--soon {
+    gap: 0.5rem;
+    background: var(--bg-light-blue-gray);
+    color: var(--text-muted);
+    cursor: default;
+    box-shadow: inset 0 0 0 1px var(--border-strong);
+  }
+  .pcard__cta--soon :global(svg) {
+    position: static; width: 1.05em; height: 1.05em; transition: none;
+  }
+  .pcard--soon:hover .pcard__cta--soon { background: var(--bg-light-blue-gray); }
+
+  /* Lift is a live-product affordance; hold the pre-launch cards still. */
+  .pcard--soon:hover { transform: none; box-shadow: var(--shadow-sm); }
+  .pcard--soon:hover .pcard__media img { transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pcard, .pcard__media img, .pcard__cta, .pcard__cta :global(svg) { transition: none; }
+    .pcard:hover { transform: none; }
+    .pcard:hover .pcard__media img { transform: none; }
+  }
 </style>
