@@ -12,20 +12,22 @@
 export const ONBOARDING_URL = '#assessment-stub'; // ← swap for store.wellpeps.com onboarding URL
 
 /**
- * Sexual Wellness intake. This program is live on the telehealth platform and
- * deep-links straight to its intake product, so its CTAs use this instead of
- * the generic ONBOARDING_URL stub. Other programs follow as they go live.
+ * Per-program intake deep links.
+ *
+ * DISABLED PRE-LAUNCH. Testing against the live intake.wellpeps.com backend is
+ * complete, so every program CTA falls back to the ONBOARDING_URL stub — no one
+ * can start an order or purchase until we launch.
+ *
+ * To re-enable at launch, restore the real URLs kept alongside each constant:
+ *   SEXUAL  → https://intake.wellpeps.com/intake?productId=UHJvZHVjdDoxNjg%3D
+ *   WEIGHT  → https://intake.wellpeps.com/intake?productId=UHJvZHVjdDoxNDQ%3D
+ *   PEPTIDE → https://intake.wellpeps.com/intake?productId=UHJvZHVjdDoxNzg%3D
  */
-export const SEXUAL_ONBOARDING_URL =
-  'https://intake.wellpeps.com/intake?productId=UHJvZHVjdDoxNjg%3D';
+export const SEXUAL_ONBOARDING_URL = ONBOARDING_URL;
 
-/** Weight Loss intake — same arrangement as SEXUAL_ONBOARDING_URL above. */
-export const WEIGHT_ONBOARDING_URL =
-  'https://intake.wellpeps.com/intake?productId=UHJvZHVjdDoxNDQ%3D';
+export const WEIGHT_ONBOARDING_URL = ONBOARDING_URL;
 
-/** Peptide Wellness intake — same arrangement as SEXUAL_ONBOARDING_URL above. */
-export const PEPTIDE_ONBOARDING_URL =
-  'https://intake.wellpeps.com/intake?productId=UHJvZHVjdDoxNzg%3D';
+export const PEPTIDE_ONBOARDING_URL = ONBOARDING_URL;
 
 /**
  * Existing-patient login on the telehealth platform (a store.wellpeps.com
