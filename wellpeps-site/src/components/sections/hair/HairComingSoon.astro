@@ -32,9 +32,8 @@ import Icon from '../../Icon.astro';
       <p class="hcs__panel-title">Be first to know</p>
       <p class="hcs__panel-lead">We’ll email you the moment assessments open. No spam, ever.</p>
 
-      <!-- TODO (client): wire `action`/handler to the real notification list
-           (ESP), same endpoint as WaitlistSection + the footer newsletter.
-           Until then this confirms inline and the address is NOT stored. -->
+      <!-- Posts to the notify-signup Edge Function (see src/lib/notify.ts),
+           which is the only writer of the notify_signups table. -->
       <form class="hcs__form" data-hair-notify novalidate>
         <label class="hcs__sr-only" for="hcs-email">Email address</label>
         <div class="hcs__field">
@@ -44,11 +43,17 @@ import Icon from '../../Icon.astro';
             placeholder="Email Address" required
           />
         </div>
+        <!-- Honeypot: off-screen and skipped by keyboard/AT, so only bots fill it. -->
+        <div class="hcs__sr-only" aria-hidden="true">
+          <label for="hcs-company">Company</label>
+          <input id="hcs-company" type="text" name="company" tabindex="-1" autocomplete="off" />
+        </div>
         <button type="submit" class="hcs__submit">
           Notify Me <Icon name="arrow-right" />
         </button>
       </form>
 
+      <p class="hcs__error" data-hair-notify-error hidden role="alert"></p>
       <p class="hcs__note"><Icon name="lock" /> Your information is secure and will never be shared.</p>
 
       <div class="hcs__success" data-hair-notify-success hidden role="status">
@@ -218,6 +223,12 @@ import Icon from '../../Icon.astro';
     clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
   }
 
+  .hcs__error[hidden] { display: none; }
+  .hcs__error {
+    margin-top: 0.9rem; color: var(--error);
+    font-size: var(--text-note); line-height: 1.5;
+  }
+
   @media (max-width: 900px) {
     .hcs__inner { grid-template-columns: 1fr; gap: 2rem; }
     .hcs__copy { max-width: none; }
@@ -229,16 +240,41 @@ import Icon from '../../Icon.astro';
 </style>
 
 <script>
-  // Notify form — inline confirmation only; no backend wired yet.
-  // Mirrors WaitlistSection so both get pointed at the real ESP together.
-  document.querySelectorAll('[data-hair-notify]').forEach((form) => {
-    const success = form.parentElement?.querySelector('[data-hair-notify-success]');
-    form.addEventListener('submit', (e) => {
+  import { submitSignup } from '../../../lib/notify';
+
+  document.querySelectorAll<HTMLFormElement>('[data-hair-notify]').forEach((form) => {
+    const scope = form.parentElement;
+    const success = scope?.querySelector<HTMLElement>('[data-hair-notify-success]');
+    const errorEl = scope?.querySelector<HTMLElement>('[data-hair-notify-error]');
+    const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      if (!(form as HTMLFormElement).reportValidity()) return;
-      // TODO (client): POST the email to the real notification list.
-      (form as HTMLFormElement).hidden = true;
-      if (success) (success as HTMLElement).hidden = false;
+      if (!form.reportValidity()) return;
+
+      const data = new FormData(form);
+      if (errorEl) errorEl.hidden = true;
+      // Guard against double-submit while the request is in flight.
+      if (submit) { submit.disabled = true; submit.textContent = 'Sending…'; }
+
+      const result = await submitSignup({
+        email: String(data.get('email') ?? ''),
+        source: 'hair_notify',
+        company: String(data.get('company') ?? ''),
+      });
+
+      if (result.ok) {
+        form.hidden = true;
+        if (success) success.hidden = false;
+        return;
+      }
+
+      // Keep the form up and populated so the visitor can retry.
+      if (submit) { submit.disabled = false; submit.textContent = 'Notify Me'; }
+      if (errorEl) {
+        errorEl.textContent = result.message ?? '';
+        errorEl.hidden = false;
+      }
     });
   });
 </script>

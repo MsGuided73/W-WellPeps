@@ -1,4 +1,6 @@
 /** Wellness program cards (Section 4). Order matches the MASTER Guide. */
+import { HAIR_COMING_SOON } from '../config';
+
 export interface Program {
   slug: string;
   title: string;
@@ -28,8 +30,13 @@ export const programs: Program[] = [
     blurb: 'Provider-guided treatments to help regrow hair and restore natural confidence.',
     image: '/images/program-hair.webp',
     imageAlt: 'Smiling man outdoors',
-    status: 'live',
-    href: '/hair-restoration',
+    // Derived from the one launch switch so this card, the program page band,
+    // and the product-card ribbons all flip together. Renders exactly like the
+    // Hormone Optimization and Mental Wellness cards while true.
+    status: HAIR_COMING_SOON ? 'coming-soon' : 'live',
+    // Points at the notify band rather than the top of the page, so the card's
+    // "Notify Me" CTA lands on the form it promises.
+    href: HAIR_COMING_SOON ? '/hair-restoration#hair-notify' : '/hair-restoration',
   },
   {
     slug: 'sexual-wellness',

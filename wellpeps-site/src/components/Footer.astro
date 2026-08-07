@@ -74,8 +74,15 @@ const legal = [
         <img src="/images/logo-full-v2.png" alt="WellPeps" class="footer__logo" width="600" height="125" />
       </div>
 
-      <form class="newsletter" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <p class="visually-hidden"><label>Leave blank: <input name="bot-field" /></label></p>
+      <!-- Posts to the notify-signup Edge Function (see src/lib/notify.ts).
+           Previously carried data-netlify attributes, but this site deploys to
+           Coolify/nginx, not Netlify — those did nothing and the plain POST had
+           no handler to reach. -->
+      <form class="newsletter" name="newsletter" data-newsletter novalidate>
+        <p class="visually-hidden" aria-hidden="true">
+          <label for="nl-company">Company</label>
+          <input id="nl-company" name="company" tabindex="-1" autocomplete="off" />
+        </p>
         <div class="newsletter__row">
           <div class="newsletter__field">
             <svg class="newsletter__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -91,7 +98,12 @@ const legal = [
           </svg>
           One email each month. No spam. Unsubscribe anytime.
         </p>
+        <p class="newsletter__error" data-newsletter-error hidden role="alert"></p>
       </form>
+
+      <p class="newsletter__success" data-newsletter-success hidden role="status">
+        You’re subscribed — watch your inbox for next month’s wellness tips.
+      </p>
     </div>
 
     <hr class="footer__rule" />
@@ -247,6 +259,13 @@ const legal = [
   }
   .newsletter__lock { width: 18px; height: 18px; color: var(--f-navy); flex: none; }
 
+  .newsletter__error[hidden], .newsletter__success[hidden] { display: none; }
+  .newsletter__error { margin-top: 0.75rem; color: #B3261E; font-weight: 600; }
+  .newsletter__success {
+    display: flex; align-items: center; gap: 0.5rem;
+    margin-top: 0.5rem; color: var(--f-navy); font-weight: 600;
+  }
+
   /* ---- Rules ---- */
   .footer__rule { border: 0; height: 1px; background: var(--f-rule); margin: 2.5rem 0; }
   .footer__rule--legal { margin: 2.5rem 0 1.6rem; }
@@ -324,3 +343,42 @@ const legal = [
     .footer__badges { flex-wrap: wrap; justify-content: center; }
   }
 </style>
+
+<script>
+  import { submitSignup } from '../lib/notify';
+
+  document.querySelectorAll<HTMLFormElement>('[data-newsletter]').forEach((form) => {
+    const scope = form.parentElement;
+    const success = scope?.querySelector<HTMLElement>('[data-newsletter-success]');
+    const errorEl = form.querySelector<HTMLElement>('[data-newsletter-error]');
+    const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    const label = submit?.textContent ?? '';
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+
+      const data = new FormData(form);
+      if (errorEl) errorEl.hidden = true;
+      if (submit) { submit.disabled = true; submit.textContent = 'Subscribing…'; }
+
+      const result = await submitSignup({
+        email: String(data.get('email') ?? ''),
+        source: 'footer_newsletter',
+        company: String(data.get('company') ?? ''),
+      });
+
+      if (result.ok) {
+        form.hidden = true;
+        if (success) success.hidden = false;
+        return;
+      }
+
+      if (submit) { submit.disabled = false; submit.textContent = label; }
+      if (errorEl) {
+        errorEl.textContent = result.message ?? '';
+        errorEl.hidden = false;
+      }
+    });
+  });
+</script>

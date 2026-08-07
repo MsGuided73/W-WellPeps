@@ -108,16 +108,12 @@ base64 and a wrong one fails silently by loading the wrong product.
 
 Not strictly link-related, but they will be visibly broken at launch.
 
-- **Waitlist form** — `src/components/sections/WaitlistSection.astro`. The form
-  confirms inline but posts nowhere; submissions are discarded. Needs the
-  `action`/handler wired to the real notification list (ESP). See the TODOs at
-  lines ~35 and ~124.
-- **Hair "Notify Me" form** — `src/components/sections/hair/HairComingSoon.astro`.
-  Same situation, and more urgent: this one is live on the site now and is
-  actively collecting addresses that go nowhere. Wire it to the same ESP
-  endpoint as the two above. **This is the highest-priority item on this page.**
-- **Footer newsletter signup** — `src/components/Footer.astro` (~line 84). Same
-  situation: collects an email, does nothing with it.
+- ~~**Signup forms discard input**~~ — **Done.** All three (hair notify,
+  waitlist, footer newsletter) now POST to the `notify-signup` Supabase Edge
+  Function, which writes `public.notify_signups`. See "Signup capture" below.
+- **Signups are not in a mailing list.** The table is your own record; it does
+  not send anything. Wiring an ESP (and its unsubscribe handling) is still to
+  do — export from `notify_signups` or have the Edge Function forward on.
 - **Hair pricing placeholder** — `src/data/hair.ts`. "Advanced Liposomal
   Formulas" pricing is a placeholder (`XX`), not real. Do not launch showing a
   fake price.
@@ -127,7 +123,35 @@ Not strictly link-related, but they will be visibly broken at launch.
 
 ---
 
-## 3. Deployment
+## 3. Signup capture (how it works)
+
+The site is a static build with no server of its own, so forms cannot write to
+Postgres directly. They POST to a Supabase Edge Function instead.
+
+```
+browser  ──POST {email, source}──▶  notify-signup  ──service role──▶  notify_signups
+                                    (Edge Function)                   RLS on, no policies
+```
+
+- **Table:** `public.notify_signups` — `email`, `source`, `first_name`,
+  `created_at`. Unique on `(email, source)`, so a repeat submit is a no-op and
+  the same person can appear once per form. RLS is enabled with **no policies**,
+  so the table is unreachable from any browser; only the function's service role
+  can touch it.
+- **Function:** `notify-signup`, JWT verification off (visitors have no session).
+  Guards instead: origin allowlist, honeypot field, strict validation,
+  idempotent upsert.
+- **Client:** `src/lib/notify.ts`, shared by all three forms.
+- **No new build env vars.** The endpoint is a public URL, not a credential —
+  Coolify needs nothing added.
+
+Reading signups: `select * from notify_signups order by created_at desc;`
+
+> The origin allowlist in the function is `wellpeps.com`, `www.wellpeps.com`,
+> and localhost. **If the site ever moves domain, add it there or every signup
+> starts failing with a 403.**
+
+## 4. Deployment
 
 `main` auto-deploys via Coolify (Docker/nginx, root-context `Dockerfile`, Node
 22). Anything under `wellpeps-site/` triggers a rebuild; files outside it (e.g.
