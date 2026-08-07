@@ -1,0 +1,42 @@
+{
+  "mail_cname": {
+    "host": "em8899.intake.wellpeps.com",
+    "type": "CNAME",
+    "data": "u48682039.wl040.sendgrid.net",
+    "valid": false,
+    "status": null,
+    "priority": null
+  },
+  "dkim1": {
+    "host": "s1._domainkey.intake.wellpeps.com",
+    "type": "CNAME",
+    "data": "s1.domainkey.u48682039.wl040.sendgrid.net",
+    "valid": false,
+    "status": null,
+    "priority": null
+  },
+  "dkim2": {
+    "host": "s2._domainkey.intake.wellpeps.com",
+    "type": "CNAME",
+    "data": "s2.domainkey.u48682039.wl040.sendgrid.net",
+    "valid": false,
+    "status": null,
+    "priority": null
+  },
+  "ssl": {
+    "host": "_acme-challenge_yt5xk65qqrcl7v4o.intake.wellpeps.com.",
+    "type": "CNAME",
+    "data": "01193e2d-8b8e-48ca-aeb3-5570a430789e.17.authorize.certificatemanager.goog."
+  },
+  "site": {
+    "host": "intake",
+    "type": "A",
+    "data": "34.54.37.31"
+  },
+  "inbox": {
+    "host": "intake",
+    "type": "MX",
+    "data": "mx.sendgrid.net",
+    "priority": 10
+  }
+}
