@@ -61,28 +61,25 @@ If that destination supports per-program deep links, `assessmentUrl(slug)` in
 the same file already builds them — it currently short-circuits while the value
 starts with `#`.
 
-### 1c. Fix the hardcoded Hair Restoration links (easy to miss)
+### 1c. Turn off the Coming Soon gates
 
-**File:** `wellpeps-site/src/data/hair.ts`, lines ~98, 111, 129, 148
-
-These four product cards hardcode the string `'/#assessment-stub'` instead of
-importing the constant:
+Three boolean flags in `config.ts` hold back programs that are not open yet.
+Flip each to `false` at launch:
 
 ```ts
-href: '/#assessment-stub',
+export const HAIR_COMING_SOON = true;         // whole Hair Restoration page
+export const SEXUAL_HERO_COMING_SOON = true;  // Sexual Wellness hero CTA only
+export const PEPTIDE_HERO_COMING_SOON = true; // Peptides hero CTA only
 ```
 
-**Updating `ONBOARDING_URL` will NOT fix these.** They will stay dead until
-changed directly. Recommended fix is to make them consistent with the other
-program data files — import the constant rather than repeating a literal:
+`HAIR_COMING_SOON` drives the announcement band under the hair hero, the
+Coming Soon ribbon and disabled CTA on all four hair product cards, and the
+hero / bottom CTA copy. The two `*_HERO_COMING_SOON` flags are narrower — they
+replace only the hero button on their page.
 
-```ts
-import { ONBOARDING_URL } from '../config';
-// ...
-href: ONBOARDING_URL,
-```
-
-(`weight.ts`, `sexual.ts`, and `peptide.ts` already do it this way.)
+> The hardcoded `'/#assessment-stub'` literals that used to sit in `hair.ts`
+> were removed; those cards now import `ONBOARDING_URL` like every other
+> program data file, so the config swap does reach them.
 
 ### 1d. Patient portal
 
@@ -115,6 +112,10 @@ Not strictly link-related, but they will be visibly broken at launch.
   confirms inline but posts nowhere; submissions are discarded. Needs the
   `action`/handler wired to the real notification list (ESP). See the TODOs at
   lines ~35 and ~124.
+- **Hair "Notify Me" form** — `src/components/sections/hair/HairComingSoon.astro`.
+  Same situation, and more urgent: this one is live on the site now and is
+  actively collecting addresses that go nowhere. Wire it to the same ESP
+  endpoint as the two above. **This is the highest-priority item on this page.**
 - **Footer newsletter signup** — `src/components/Footer.astro` (~line 84). Same
   situation: collects an email, does nothing with it.
 - **Hair pricing placeholder** — `src/data/hair.ts`. "Advanced Liposomal
