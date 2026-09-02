@@ -1,0 +1,175 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#082B59;--navy-deep:#061F42;--blue:#1576C4;--blue-hover:#115E9C;--sky:#2EA8F7;--gold:#D8A53A;
+--body:#4B5C73;--muted:#7A8899;--on-dark:#EAF1FB;--on-dark-muted:#9DB0CC;--pale:#F2F7FC;--light-sky:#E8F1FB;--cool:#E1ECF8;--cream:#F7F3E9;--mint:#EAF7F1;--border:#E6ECF4;
+--serif:'Lora',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+.fit,h1,.txt,.st,.title,.sub,.ex,.q{text-wrap:balance;overflow-wrap:normal;hyphens:none}
+body{background:#ccd;font-family:var(--sans);padding:40px;display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start}
+.frame{position:relative;overflow:hidden;background:#fff;flex:none}
+.sq{width:1080px;height:1080px}.por{width:1080px;height:1350px}.reel{width:1080px;height:1920px}
+.wm{position:absolute;display:flex;align-items:center;gap:14px;font-family:var(--sans);font-weight:700;letter-spacing:.02em}
+.wm img{height:56px}
+.series{font-family:var(--sans);font-weight:800;letter-spacing:.22em;text-transform:uppercase;font-size:26px}
+.foot{position:absolute;left:72px;right:72px;bottom:56px;display:flex;justify-content:space-between;align-items:center;font-size:26px;color:var(--muted);font-weight:500}
+.gold{height:3px;background:var(--gold);width:96px;border-radius:2px}
+
+/* 1. Myth vs Fact */
+#f1 .top{position:absolute;inset:0 0 50% 0;background:linear-gradient(160deg,var(--navy) 0%,var(--navy-deep) 100%);padding:80px 88px}
+#f1 .bot{position:absolute;inset:50% 0 0 0;background:var(--light-sky);padding:80px 88px}
+#f1 .lbl{display:inline-block;padding:12px 26px;border-radius:999px;font-weight:800;letter-spacing:.24em;font-size:28px;text-transform:uppercase}
+#f1 .top .lbl{background:rgba(46,168,247,.18);color:var(--sky);border:2px solid rgba(46,168,247,.5)}
+#f1 .bot .lbl{background:#fff;color:var(--blue);border:2px solid var(--blue)}
+#f1 .txt{font-family:var(--serif);font-weight:600;font-size:54px;line-height:1.18;margin-top:40px}
+#f1 .top .txt{color:#fff;font-style:italic;text-decoration:line-through;text-decoration-color:var(--gold);text-decoration-thickness:4px}
+#f1 .bot .txt{color:var(--navy)}
+#f1 .seam{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:120px;height:120px;border-radius:50%;background:#fff;box-shadow:0 10px 30px rgba(8,43,89,.18);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-style:italic;font-weight:600;color:var(--navy);font-size:40px}
+#f1 .wm{top:0;left:0;right:0;justify-content:center;padding-top:0}
+#f1 .foot{color:var(--body)}
+
+/* 2. 30 Seconds of Wellness (reel) */
+#f2{background:radial-gradient(ellipse at 50% 30%,#123B78 0%,var(--navy) 45%,var(--navy-deep) 100%);color:#fff}
+#f2 .ring{position:absolute;left:50%;top:560px;transform:translateX(-50%);width:520px;height:520px;border-radius:50%;border:6px solid rgba(157,176,204,.25)}
+#f2 .ring:after{content:"";position:absolute;inset:-6px;border-radius:50%;border:6px solid var(--sky);border-right-color:transparent;border-bottom-color:transparent;transform:rotate(-45deg)}
+#f2 .num{position:absolute;left:50%;top:640px;transform:translateX(-50%);font-family:var(--serif);font-weight:700;font-size:300px;line-height:1;letter-spacing:-.04em}
+#f2 .sec{position:absolute;left:0;right:0;top:1000px;text-align:center;font-size:30px;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--on-dark-muted)}
+#f2 .title{position:absolute;left:0;right:0;top:1140px;text-align:center;font-family:var(--serif);font-weight:600;font-size:74px;line-height:1.1}
+#f2 .q{position:absolute;left:100px;right:100px;top:1360px;text-align:center;font-size:44px;line-height:1.35;color:var(--on-dark);font-weight:500}
+#f2 .wm{top:120px;left:0;right:0;justify-content:center}
+#f2 .wm img{height:72px}
+#f2 .by{position:absolute;bottom:130px;left:0;right:0;text-align:center;font-size:30px;color:var(--on-dark-muted);letter-spacing:.1em}
+#f2 .by b{color:#fff;letter-spacing:0}
+#f2 .gold{position:absolute;left:50%;transform:translateX(-50%);top:1290px}
+
+/* 3. WellPeps 101 */
+#f3 .photo{position:absolute;inset:0 0 44% 0;background:url(assets/doctor-assessment.webp) center 30%/cover}
+#f3 .photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,43,89,0) 55%,rgba(8,43,89,.55) 100%)}
+#f3 .panel{position:absolute;inset:56% 0 0 0;background:#fff;padding:72px 88px 0}
+#f3 .tag{position:absolute;z-index:2;top:calc(56% - 44px);left:88px;background:var(--blue);color:#fff;padding:18px 34px;border-radius:999px;font-weight:800;letter-spacing:.22em;font-size:26px;text-transform:uppercase;box-shadow:0 10px 24px rgba(8,43,89,.25)}
+#f3 .lesson{color:var(--blue);font-weight:700;font-size:26px;letter-spacing:.12em;text-transform:uppercase;margin-top:30px}
+#f3 h1{font-family:var(--serif);font-weight:600;color:var(--navy);font-size:70px;line-height:1.15;margin-top:18px}
+#f3 .steps{display:flex;gap:18px;margin-top:44px}
+#f3 .steps span{width:72px;height:10px;border-radius:5px;background:var(--cool)}
+#f3 .steps span.on{background:var(--blue)}
+#f3 .wm{top:56px;left:88px}
+#f3 .wm img{height:60px}
+
+/* 4. Educational carousel: cover + inner */
+#f4,#f5{background:var(--pale)}
+#f4 .wm,#f5 .wm{top:64px;left:88px}
+#f4 .cat,#f5 .cat{position:absolute;top:64px;right:88px;color:var(--blue);font-weight:700;font-size:26px;letter-spacing:.2em;text-transform:uppercase;line-height:56px}
+#f4 h1{position:absolute;left:88px;right:88px;top:330px;font-family:var(--serif);font-weight:600;color:var(--navy);font-size:92px;line-height:1.12}
+#f4 .sub{position:absolute;left:88px;right:88px;top:780px;font-size:36px;color:var(--body);line-height:1.4}
+#f4 .swipe{position:absolute;right:88px;bottom:72px;display:flex;align-items:center;gap:20px;color:var(--navy);font-weight:700;font-size:30px}
+#f4 .swipe i{display:inline-flex;width:84px;height:84px;border-radius:50%;background:var(--navy);color:#fff;align-items:center;justify-content:center;font-style:normal;font-size:40px}
+#f4 .pg,#f5 .pg{position:absolute;left:88px;bottom:88px;font-size:28px;color:var(--muted);font-weight:600}
+#f4 .blob{position:absolute;right:-180px;bottom:-160px;width:620px;height:620px;border-radius:50%;background:var(--light-sky)}
+#f5 .n{position:absolute;left:88px;top:300px;font-family:var(--serif);font-weight:700;font-size:200px;line-height:1;color:var(--cool)}
+#f5 .n b{position:absolute;left:0;top:0;color:var(--blue);clip-path:inset(0 0 0 0)}
+#f5 .st{position:absolute;left:88px;right:88px;top:540px;font-family:var(--serif);font-weight:600;color:var(--navy);font-size:64px;line-height:1.18}
+#f5 .ex{position:absolute;left:88px;right:88px;top:980px;font-size:36px;color:var(--body);line-height:1.45}
+#f5 .dots{position:absolute;right:88px;bottom:96px;display:flex;gap:14px}
+#f5 .dots span{width:18px;height:18px;border-radius:50%;background:var(--cool)}
+#f5 .dots span.on{background:var(--blue);width:48px;border-radius:9px}
+
+/* 5. Lifestyle / brand — card takes its size from the photo (no letterbox, no crop) */
+#f6{background:linear-gradient(170deg,#0E3468 0%,var(--navy) 45%,var(--navy-deep) 100%);display:flex;flex-direction:column;padding:64px 80px 64px}
+#f6 .hd{display:flex;justify-content:space-between;align-items:center;height:64px}
+#f6 .wm{position:static}
+#f6 .wm img{height:64px}
+#f6 .lbl{white-space:nowrap;padding:14px 26px;border:2px solid rgba(255,255,255,.55);border-radius:999px;color:#fff;font-weight:700;font-size:20px;letter-spacing:.14em;text-transform:uppercase;line-height:24px}
+#f6 .pic{margin-top:52px;border-radius:28px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.4),0 2px 0 rgba(255,255,255,.12) inset}
+#f6 .pic img{width:100%;height:auto;display:block}
+#f6 h1{margin-top:56px;font-family:var(--serif);font-weight:600;color:#fff;font-size:72px;line-height:1.08}
+#f6 .sub{margin-top:24px;font-size:32px;line-height:1.4;color:var(--on-dark);max-width:880px}
+#f6 .ft{margin-top:auto;display:flex;align-items:center;justify-content:space-between}
+#f6 .site{color:var(--on-dark-muted);font-size:28px;font-weight:600;letter-spacing:.06em}
+</style></head><body>
+
+<!-- 1 MYTH vs FACT 1080x1080 -->
+<div class="frame sq" id="f1">
+  <div class="top">
+    <span class="lbl">Myth</span>
+    <div class="txt fit" data-lines="3">Eating after 8 PM automatically makes you gain weight.</div>
+  </div>
+  <div class="bot">
+    <span class="lbl">Fact</span>
+    <div class="txt fit" data-lines="3">Your overall eating patterns and lifestyle matter more than an arbitrary time on the clock.</div>
+    <div class="foot"><span style="display:flex;align-items:center;gap:16px"><img src="assets/w-mark.png" style="height:48px">WellPeps</span><span>Myth vs. Fact&nbsp;·&nbsp;No. 01</span></div>
+  </div>
+  <div class="seam">vs</div>
+</div>
+
+<!-- 2 30 SECONDS OF WELLNESS 1080x1920 -->
+<div class="frame reel" id="f2">
+  <div class="wm"><img src="assets/logo-white.png"></div>
+  <div class="ring"></div><div class="num">30</div>
+  <div class="sec">Seconds of Wellness</div>
+  <div class="title fit" data-lines="2">Why does muscle matter<br>during weight loss?</div>
+  <div class="gold"></div>
+  <div class="q">Episode 01 &nbsp;·&nbsp; Weight &amp; Metabolic Health</div>
+  <div class="by">a series <b>by WellPeps</b></div>
+</div>
+
+<!-- 3 WELLPEPS 101 1080x1350 -->
+<div class="frame por" id="f3">
+  <div class="photo"></div>
+  <div class="wm"><img src="assets/logo-white.png"></div>
+  <div class="tag">WellPeps 101</div>
+  <div class="panel">
+    <div class="lesson">Lesson 01 &nbsp;·&nbsp; Provider-Guided Care</div>
+    <h1 class="fit" data-lines="2">Why does WellPeps start with a health assessment?</h1>
+    <div class="steps"><span class="on"></span><span></span><span></span><span></span></div>
+    <div class="foot"><span>wellpeps.com/why-wellpeps</span><span>Swipe →</span></div>
+  </div>
+</div>
+
+<!-- 4 CAROUSEL COVER 1080x1350 -->
+<div class="frame por" id="f4">
+  <div class="blob"></div>
+  <div class="wm"><img src="assets/logo-full.png" style="height:56px"></div>
+  <div class="cat">Wellness Education</div>
+  <h1 class="fit" data-lines="3">What does “metabolic health” actually mean?</h1>
+  <div class="sub">It's more than a “fast” or “slow” metabolism. Five things worth knowing.</div>
+  <div class="pg">1 / 5</div>
+  <div class="swipe">Swipe <i>→</i></div>
+</div>
+
+<!-- 4b CAROUSEL INNER 1080x1350 -->
+<div class="frame por" id="f5">
+  <div class="wm"><img src="assets/logo-full.png" style="height:56px"></div>
+  <div class="cat">Metabolic Health</div>
+  <div class="n">04<b>04</b></div>
+  <div class="st fit" data-lines="3">Blood sugar, blood pressure, cholesterol and body composition can all be part of the picture.</div>
+  <div class="ex">Metabolic health is a set of measures, not a single number. Your provider looks at several together.</div>
+  <div class="pg">4 / 5</div>
+  <div class="dots"><span></span><span></span><span></span><span class="on"></span><span></span></div>
+</div>
+
+<!-- 5 LIFESTYLE / BRAND 1080x1350 -->
+<div class="frame por" id="f6">
+  <div class="hd"><div class="wm"><img src="assets/logo-white.png"></div><div class="lbl">Personalized Wellness. Simplified.</div></div>
+  <div class="pic"><img src="assets/couple-walk.webp"></div>
+  <h1 class="fit" data-lines="2">Real care starts with a real provider.</h1>
+  <div class="sub">Every WellPeps plan begins with a health assessment reviewed by a licensed provider. Support continues after the prescription.</div>
+  <div class="ft"><span class="gold"></span><span class="site">wellpeps.com</span></div>
+</div>
+
+<script>
+function fitAll(){
+  document.querySelectorAll('.fit').forEach(el=>{
+    const max=+el.dataset.lines||2, min=0.6;
+    const base=parseFloat(getComputedStyle(el).fontSize);
+    el.style.fontSize='';
+    let size=base;
+    const lines=()=>{const cs=getComputedStyle(el);return Math.round(el.getBoundingClientRect().height/parseFloat(cs.lineHeight));};
+    while(lines()>max && size>base*min){size-=2;el.style.fontSize=size+'px';}
+    el.dataset.fitted=size+'px/'+lines()+'l';
+  });
+}
+document.fonts.ready.then(fitAll);
+</script>
+</body></html>
