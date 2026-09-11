@@ -1,7 +1,7 @@
 # WellPeps — Marketing Site
 
 The brand-facing "window dressing" for WellPeps. All PHI, accounts, and the
-telehealth intake/onboarding are operated by **OpenLoops**; this site is a
+telehealth intake/onboarding are operated by **Scriptful (GEN Health)**; this site is a
 fast, static marketing layer that links out to it. That keeps the site almost
 entirely out of HIPAA scope.
 
@@ -52,7 +52,7 @@ Notes:
 ## Structure
 ```
 src/
-  config.ts              # ONBOARDING_URL stub + contact + nav links  ← wire OpenLoops here
+  config.ts              # SCRIPTFUL_* placeholders + contact + nav links  ← cutover edit lives here
   styles/tokens.css      # design tokens (source of truth; mirrors Design System v2)
   styles/global.css      # base + shared component styles (buttons, cards, icons…)
   layouts/BaseLayout.astro
@@ -79,7 +79,7 @@ working blue `#0077BE` for CTAs, links and accent words. Tokens live in
 `src/styles/tokens.css`.
 
 ## TODO before launch
-- [ ] Replace `ONBOARDING_URL` in `src/config.ts` with the real OpenLoops link
+- [ ] Replace the `SCRIPTFUL_*` placeholders in `src/config.ts` with the real GEN Health links
       (and per-program deep-link format if supported — see `assessmentUrl()`).
 - [ ] Point the footer newsletter form at a real handler (Netlify Forms wiring
       is already stubbed via `data-netlify`), or your ESP.

@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 
 // WellPeps marketing site — static output.
-// All PHI, accounts, and onboarding live on the OpenLoops platform;
+// All PHI, accounts, and onboarding live on Scriptful's GEN Health platform;
 // this site is the brand-facing "window dressing" that links out to it.
 export default defineConfig({
   // Canonical is the apex domain; www 301-redirects to it at the edge/server.
