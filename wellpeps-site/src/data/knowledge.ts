@@ -135,9 +135,15 @@ export const knowledgeBase: KnowledgeDoc[] = [
     tags: ['privacy', 'hipaa', 'secure', 'data', 'confidential', 'information'],
     answer:
       'Your health data is encrypted and handled under strict HIPAA standards. WellPeps uses HIPAA-compliant systems and secure technology to protect your privacy and personal health information at every step.',
+    /* LegitScript-certified sentence removed until the certification application
+       is approved. Original body — restore once approved:
     body: `Privacy is protected using secure technology and HIPAA-compliant safeguards. Personal health
       information is encrypted in transit and at rest. WellPeps is LegitScript certified, reflecting a
       commitment to transparency, compliance and patient protection.`,
+    */
+    body: `Privacy is protected using secure technology and HIPAA-compliant safeguards. Personal health
+      information is encrypted in transit and at rest, reflecting a commitment to transparency,
+      compliance and patient protection.`,
   },
 
   /* ---------------- Programs, pricing, eligibility ---------------- */
