@@ -767,7 +767,7 @@ p.quote{font-size:19pt;line-height:1.2;font-weight:700;color:var(--blue);margin-
 .theme-editorial-v4 .hph img{width:100%;height:100%;object-fit:cover;display:block;border-radius:6px}
 .theme-editorial-v4 .card{border:1px solid var(--edge);border-radius:8px;padding:.18in .16in}
 .theme-editorial-v4 .cards{gap:.15in}
-.cards.five{grid-template-columns:repeat(6,1fr)}
+.cards.five{grid-template-columns:repeat(6,1fr);grid-auto-rows:auto}  /* the two wider cards in row 2 size to their own copy instead of stretching to row 1's tallest card */
 .cards.five .card:nth-child(-n+3){grid-column:span 2}
 .cards.five .card:nth-child(n+4){grid-column:span 3}
 .theme-editorial-v4 .cards.five .card h5{text-transform:none;letter-spacing:0;font-size:12pt;color:var(--navy)}

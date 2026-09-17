@@ -123,7 +123,7 @@ Every visual decision lives in the `CSS` string in `render_html.py`, scoped unde
 - **Cards and boxes.** White, 1px `--edge` border, 8px radius, lifted (see section 4). Card text is left-aligned and
   top-aligned (Derek's preference, 2026-09-16; cards were centred before). Image cards: image slot at
   `card_image_ratio` (default 9:5, centre-cropped; set `4/3` for the website product shots so caps are not cut off),
-  equal padding. A product photo goes on a card only when its label matches the card copy: the hair product shots
+  equal padding. In the five-card (3 + 2) layout the second row sizes to its own copy rather than stretching to row one's tallest card (changed 2026-09-17 for Healthy Aging 02; GLP-1 05 picks it up on its next rebuild). A product photo goes on a card only when its label matches the card copy: the hair product shots
   are all combination products, so Hair 04 runs text-only cards until dedicated photography exists. Five text cards render 3 across + 2 wider (`.cards.five`).
   Insight/Question box: white with a blue left bar and the reader icon. Approach box: navy with sky label.
   Callout label is **SMART PATIENT INSIGHT** (never "Principle") or **SMART PATIENT QUESTION**.
