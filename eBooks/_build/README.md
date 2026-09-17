@@ -49,7 +49,7 @@ building another book.
   CTA `peptide/cta-couple.webp`. Page 05 is the six-therapy profile page, text-only (the `peptide/vial-*.webp` product
   shots do carry matching labels, but they are portrait and the NAD+ vial sits on a black background; Derek can decide);
   09 carries the serotonin-syndrome caution as a RED FLAG box; 12 renders the care pathway as a flow above the Approach
-  box. 01, 04 and 14 run `dense`; the disclaimer stepped its type down the full four steps (the manuscript's seven legal
+  box. On 04 the figure enters after the six goal cards (`image_after: 3`): floated beside the lead it left a dead white block, because the card grid clears the float. 01 and 14 run `dense`; the disclaimer stepped its type down the full four steps (the manuscript's seven legal
   paragraphs were merged into four without dropping a word). Deviations to raise with Derek: the CTA panel holds the
   two-line headline plus one paragraph, so the manuscript's closing imperatives ("Stay active. Protect your strength. ...")
   and the "make them part of a thoughtful, provider-guided plan" line are not on the CTA page; the 05 vial photos; the
