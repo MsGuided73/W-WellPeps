@@ -1,0 +1,95 @@
+{
+ "_readme": [
+  "Template for config/<book>.json. Copy it, delete the keys that start with an underscore, and fill in the rest.",
+  "Keys starting with '_' are documentation only; render_html.py ignores them. Paths are relative to eBooks/_build.",
+  "Keep theme, cover_style and shadows exactly as they are here (README section 3 and 4).",
+  "Photos: if the manuscript has none, borrow from wellpeps-site/public/images/<area>/ (README section 6, step 2)."
+ ],
+
+ "_topic": "Running head, rendered as 'SMART PATIENT GUIDE TO <topic>' in tracked caps. Keep it short.",
+ "topic": "SEXUAL WELLNESS",
+
+ "_title": "Cover headline (Lora, white on the cover shade). Over 22 characters switches to the smaller 'long' size.",
+ "title": "SEXUAL WELLNESS MEDICATIONS",
+
+ "_cta_url": "Target of the CTA button and the www.wellpeps.com link on the CTA page.",
+ "cta_url": "https://wellpeps.com/#assessment",
+
+ "_cover": "Cover photo. cover_focus is [x, y] in 0..1 for object-position; cover_crop is [left, top, right, bottom] fractions trimmed before use. cover_meta is only used by the plate/minimal covers.",
+ "cover": "../../wellpeps-site/public/images/program-sexual.webp",
+ "cover_focus": [0.5, 0.35],
+ "cover_crop": [0, 0, 0, 0],
+ "cover_style": "editorial",
+ "theme": "editorial-v5",
+ "shadows": "blur",
+
+ "_series": "The other guides, listed on the disclaimer page. Add 'url' to an entry once the guide is public and body-text mentions of that title become links.",
+ "series": [
+  {"title": "The Smart Patient’s Guide to GLP-1 Weight Loss"},
+  {"title": "The Smart Patient’s Guide to NAD+"},
+  {"title": "The Smart Patient’s Guide to Peptides & Wellness Therapies"},
+  {"title": "The Smart Patient’s Guide to Healthy Aging & Vitality"}
+ ],
+
+ "_card_images": "Named images that outline card items reference with \"image\": \"<name>\". Rendered at card_image_ratio (default 9:5, centre-cropped). Only use a product photo whose label matches the card copy.",
+ "card_images": {
+  "product-example": "../../wellpeps-site/public/images/sexual/product-daily.webp"
+ },
+ "_card_image_ratio": "Aspect ratio of the card image slot as w/h. Match it to the photos (the website product shots are 4/3) so bottle caps are not cropped.",
+ "card_image_ratio": "9/5",
+
+ "_sections": "Keyed by the outline section number ('00', '01', ...) plus 'decide' and 'cta'. Every key is optional.",
+ "sections": {
+  "00": {
+   "_kicker": "Text in the navy band. Defaults to the headline in caps, truncated to 46 characters; always set it.",
+   "kicker": "BEFORE YOU START"
+  },
+  "01": {
+   "kicker": "UNDERSTAND THE CONDITION",
+   "_image": "Section photo floated right, sized in inches. focus is [x, y] object-position; set it so nobody is cropped at the frame edge.",
+   "image": "../../wellpeps-site/public/images/sexual/understanding.webp",
+   "image_w": 3.1,
+   "image_h": 2.35,
+   "focus": [0.5, 0.4],
+   "_image_after": "How many text blocks run full width before the figure enters the flow (default 0 = beside the lead).",
+   "image_after": 0,
+   "_image_min_w": "Lets the paginator shrink the figure in 7% steps down to this width (inches) before dropping it. Omit to drop it outright when the page is too full.",
+   "image_min_w": 2.6
+  },
+  "02": {
+   "kicker": "MEDICATION ARRIVES. CARE CONTINUES.",
+   "_hero": "Two photos inset side by side above the text, rounded and lifted. Replaces 'image'.",
+   "hero": [
+    "../../wellpeps-site/public/images/journey-1.webp",
+    "../../wellpeps-site/public/images/journey-2.webp"
+   ]
+  },
+  "03": {
+   "kicker": "USE THE CHECKLIST",
+   "_headline_icon": "Small icon rendered after the headline (the GLP-1 checklist page uses one).",
+   "headline_icon": "../_assets/glp1-media/ppt/media/image13.png",
+   "_dense": "One type step down on a long page. Use only when page_fit reports CONTINUED and copy cannot be trimmed.",
+   "dense": false,
+   "_lead_small": "13pt lead instead of 15.5pt. Use only to hold a long lead to two lines.",
+   "lead_small": false,
+   "_full_width_head": "Headline and lead wrap edge to edge instead of balancing into equal half-lines. Use on a page with no figure, where balanced lines leave the right side looking like a missing photo.",
+   "full_width_head": false
+  },
+  "14": {
+   "_image": "Why WellPeps page: team photo at the right of the intro. Defaults to the GLP-1 media image14.png.",
+   "image": "../../wellpeps-site/public/images/about/hero.webp"
+  },
+  "decide": {
+   "_image": "Optional wide band photo above the closing line on the Before You Decide page.",
+   "image": "../../wellpeps-site/public/images/hero-couple.webp",
+   "focus": [0.5, 0.4]
+  },
+  "cta": {
+   "_kicker": "Defaults to GET THE COMPREHENSIVE CARE YOU DESERVE.",
+   "kicker": "GET THE COMPREHENSIVE CARE YOU DESERVE",
+   "image": "../../wellpeps-site/public/images/sexual/cta-couple.webp",
+   "focus": [0.5, 0.3],
+   "button": "Start Your Free Assessment"
+  }
+ }
+}
