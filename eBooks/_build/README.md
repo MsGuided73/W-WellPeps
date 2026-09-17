@@ -39,8 +39,22 @@ building another book.
   level; 02 and 11 run `dense`; 11 has no photo (any figure pushed it to a second sheet); the disclaimer stepped its
   type down to 10.5pt to fit five legal paragraphs (GLP-1 has three); the topical-finasteride FDA caution on 05 is a
   RED FLAG box, which Derek asked to keep prominent. The Why page also runs `dense` after Derek's longer page 14 copy.
-- **Manuscripts waiting:** `eBooks/Manuscripts/` holds `healthy-aging-and-vitality_final.docx` and `nad-guide_final.docx`
-  (both 2026-09-16 evening), not yet built. Start each from section 6.
+- **Draft for review:** Healthy Aging & Vitality, v1 (built 2026-09-16 night from Derek's
+  `eBooks/Manuscripts/healthy-aging-and-vitality_final.docx`). Outline `outlines/healthy-aging-vitality.json`, config
+  `config/healthy-aging-vitality.json`, PDF `eBooks/healthy-aging-vitality_ebook-v1.pdf`. 18 pages: cover, 00–14, CTA (15),
+  disclaimer; no Before You Decide page. The manuscript has no images, so every photo is borrowed: cover `hormone/couple.webp`
+  (814px, soft at full bleed; `peptide/hero.webp` was tried first but its two hikers are too far apart for a portrait crop
+  and the man was sliced at the edge), 00 `peptide/photo-nad.webp`, 04 `hero-couple-coast.webp`, 06 `peptide/photo-sermorelin.webp`,
+  07 `peptide/photo-lipoc.webp`, 09 `peptide/photo-methylene.webp`, 11 `doctor-assessment.webp`, 12 `journey-4.webp`,
+  CTA `peptide/cta-couple.webp`. Page 05 is the six-therapy profile page, text-only (the `peptide/vial-*.webp` product
+  shots do carry matching labels, but they are portrait and the NAD+ vial sits on a black background; Derek can decide);
+  09 carries the serotonin-syndrome caution as a RED FLAG box; 12 renders the care pathway as a flow above the Approach
+  box. 01, 04 and 14 run `dense`; the disclaimer stepped its type down the full four steps (the manuscript's seven legal
+  paragraphs were merged into four without dropping a word). Deviations to raise with Derek: the CTA panel holds the
+  two-line headline plus one paragraph, so the manuscript's closing imperatives ("Stay active. Protect your strength. ...")
+  and the "make them part of a thoughtful, provider-guided plan" line are not on the CTA page; the 05 vial photos; the
+  merged disclaimer paragraphs.
+- **Manuscript waiting:** `eBooks/Manuscripts/nad-guide_final.docx` (2026-09-16 evening), not yet built. Start from section 6.
 - **Archived:** every earlier GLP-1 version and the old NAD+, Peptides, Sexual Wellness and Healthy Aging guides are in
   `eBooks/_archive/`. Their content is being rewritten; new manuscripts arrive one at a time. Do not rebuild from the
   archived outlines.
@@ -225,6 +239,13 @@ Element kinds the template renders: `lead`, `body`, `emph` (supports `\n`), `quo
   (a borrowed figure, section 6 step 2, or more copy). Limits: it measures vertical space only, so a five-card Why
   grid with an empty right slot reads about 1.3in and does not trip it; and a `checklist` page that the paginator
   stretched to fill reads 0in by design.
+- **CTA panel overflow check** (added with Healthy Aging). The CTA hero panel is `overflow:hidden` with its content
+  centred, so too much copy clips the *headline at the top* with no other symptom, and `make_pdf.mjs` never sees it.
+  The paginator already steps the panel to `tight`/`tighter`; `layout_check.mjs` now measures, as geometry, how far the
+  panel's content extends past the panel's own edges (`cta[].overflowIn`; copy that merely runs into the padding is
+  invisible and is not counted) and `build_book.py` FAILs on any clipping. Calibration: GLP-1 v10, Sexual Wellness v2 and
+  Hair Restoration v2 all pass; Healthy Aging with the manuscript's full closing copy clips 0.58in. Capacity is the two-line headline plus one short
+  paragraph (GLP-1) or two very short ones (Sexual Wellness); everything else belongs on another page.
 - **Disclaimer overlap check** (added with Hair Restoration). `layout_check.mjs` reports the overlap in inches between
   the legal text and the series list after the page has stepped its type down; any overlap is a FAIL.
 - `spacious` in the fit report still means the paginator had more than 0.7in to spare and bumped the type; a run of

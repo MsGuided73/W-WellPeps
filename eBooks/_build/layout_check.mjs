@@ -3,6 +3,7 @@
 //            (largest visible vertical gap on the page, inches; build_book.py warns above EMPTY_PAGE_IN)
 //   overflow the paginator's own overflow report (window.__overflow)
 //   orphans  headlines, leads, subtitles, emphasis lines, card titles and Why tags whose last line is a single word
+//   cta      inches of CTA hero-panel content clipped past the panel edge after its tight/tighter steps (headline cut at the top)
 //   disclaimer overlap (inches) between the legal text and the series list, and how many type steps it took
 //   fonts    whether Lora and Inter actually loaded (document.fonts) and which families the text resolved to
 // Usage: node layout_check.mjs html/book.html   (prints JSON; page_fit.mjs remains the quick human-readable view)
@@ -86,7 +87,19 @@ const report = await page.evaluate(() => {
     return { overlapIn: Math.round(overlap * 100) / 100, steps: t ? ['d1', 'd2', 'd3', 'd4'].filter((c) => t.classList.contains(c)).length : 0 };
   });
 
-  return { pages: document.querySelectorAll('.page').length, overflow: window.__overflow || [], fit, orphans, fonts, disclaimer: disc };
+  // CTA hero panel: overflow:hidden with centred content, so too much copy clips the headline at the top without any
+  // other symptom. Report how much does not fit after the paginator's tight/tighter steps.
+  // Measured as geometry, not scrollHeight: copy that merely runs into the panel padding is invisible, so only the
+  // part that extends past the panel's own edges (top or bottom) counts.
+  const cta = Array.from(document.querySelectorAll('.cta .ctapanel')).map((p) => {
+    const pr = p.getBoundingClientRect();
+    let top = Infinity, bottom = -Infinity;
+    for (const el of p.children) { const r = el.getBoundingClientRect(); if (!r.height) continue; top = Math.min(top, r.top); bottom = Math.max(bottom, r.bottom); }
+    const clipped = top === Infinity ? 0 : Math.max(0, pr.top - top, bottom - pr.bottom);
+    return { overflowIn: Math.round(clipped / IN * 100) / 100, steps: ['tight', 'tighter'].filter((c) => p.classList.contains(c)).length };
+  });
+
+  return { pages: document.querySelectorAll('.page').length, overflow: window.__overflow || [], fit, orphans, fonts, disclaimer: disc, cta };
 });
 console.log(JSON.stringify(report, null, 1));
 await browser.close();

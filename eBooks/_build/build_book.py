@@ -4,7 +4,7 @@ Usage (from eBooks/_build):
   uv run --with pymupdf --with pillow python build_book.py outlines/<book>.json config/<book>.json --version N [--no-sheet] [--no-copy]
 
 Steps: render HTML -> print PDF (Chromium) -> layout check (page fit, splits, orphans, fonts loaded) ->
-page-too-empty check -> PDF checks (luminosity soft masks, embedded fonts, extractable text) -> banned-phrase scan (outline + PDF text) ->
+page-too-empty check -> CTA panel overflow -> disclaimer overlap -> PDF checks (luminosity soft masks, embedded fonts, extractable text) -> banned-phrase scan (outline + PDF text) ->
 contact sheet -> copy to eBooks/<slug>_ebook-vN.pdf. Exits 1 when any FAIL is reported; WARNs do not block.
 """
 import argparse, json, os, re, shutil, subprocess, sys
@@ -106,6 +106,11 @@ def main():
                 fails.append(f"disclaimer text overlaps the series list by {d['overlapIn']:.2f}in even after {d['steps']} type steps: shorten or merge the legal paragraphs")
             elif d['steps']:
                 print(f"  disclaimer: type stepped down {d['steps']}x to clear the series list")
+        for c in lay.get('cta', []):
+            if c['overflowIn'] > 0:
+                fails.append(f"CTA panel copy is clipped by {c['overflowIn']:.2f}in even after {c['steps']} type steps (the headline is cut off at the top): cut the CTA bodies to one short paragraph")
+            elif c['steps']:
+                print(f"  cta: panel type stepped down {c['steps']}x to fit")
         f = lay['fonts']
         if not (f['loraLoaded'] and f['interLoaded']):
             fails.append(f"fonts did not load in the browser: {f}")
