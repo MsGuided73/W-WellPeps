@@ -233,7 +233,7 @@ def render_cards(e, book):
     if e.get('layout') == 'rows':  # one full-width row per item: photo slot at the left, text beside it (long copy costs width, not height)
         cls += ' rows'; cols = 1
     if e.get('style') == 'chips' and not has_desc:  # one-line labels as a wrapping row of centred chips instead of two-line-tall cards
-        cls += ' chips'
+        cls += ' chips' + (' grid' if e.get('cols') else '')  # with cols: a fixed grid of equal-width chips per column (2 x 2)
     if n == 5 and has_desc:
         cls += ' five'  # 3 across, then 2 wider: keeps the block symmetrical
     out = []
@@ -781,9 +781,11 @@ p.quote{font-size:19pt;line-height:1.2;font-weight:700;color:var(--blue);margin-
 /* chips: a plain cards element with "style": "chips" in the outline. Auto-width, centred, single-line labels that wrap
    into as many rows as they need (the flow steps' look, without arrows), for lists where every label is one line and a
    two-line-tall card grid would be mostly air (Healthy Aging 04). */
-.cards.chips{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:.1in .12in;margin:.08in 0 .2in}
+.cards.chips{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:.1in .1in;margin:.08in 0 .2in}
+.cards.chips.grid{display:grid;grid-template-columns:repeat(var(--cols),max-content);grid-auto-rows:auto;justify-content:start}
+.cards.chips.grid .card{justify-self:stretch}
 .cards.chips .card{flex:0 0 auto;min-height:0;padding:.1in .22in;justify-content:center;align-items:center;text-align:center}
-.theme-editorial-v4 .cards.chips .card{padding:.09in .24in;min-height:0;border-radius:6px}  /* min-height:0 beats the plain-card .78in rule above at equal specificity */
+.theme-editorial-v4 .cards.chips .card{padding:.09in .2in;min-height:0;border-radius:6px}  /* min-height:0 beats the plain-card .78in rule above at equal specificity */
 .theme-editorial-v4 .cards.chips .card h5{font-size:11.5pt;letter-spacing:.01em;white-space:nowrap}
 .tight .cards.chips{gap:.08in .1in}
 .theme-editorial-v4 .cards.withimg .card{justify-content:flex-start;padding:.14in}
