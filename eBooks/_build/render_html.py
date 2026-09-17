@@ -232,6 +232,8 @@ def render_cards(e, book):
     cls = 'cards' + (' plain' if not has_desc else '') + (' profile' if e.get('profile') else '') + (' withimg' if any(i.get('image') for i in items) else '')
     if e.get('layout') == 'rows':  # one full-width row per item: photo slot at the left, text beside it (long copy costs width, not height)
         cls += ' rows'; cols = 1
+    if e.get('style') == 'chips' and not has_desc:  # one-line labels as a wrapping row of centred chips instead of two-line-tall cards
+        cls += ' chips'
     if n == 5 and has_desc:
         cls += ' five'  # 3 across, then 2 wider: keeps the block symmetrical
     out = []
@@ -776,6 +778,14 @@ p.quote{font-size:19pt;line-height:1.2;font-weight:700;color:var(--blue);margin-
 .theme-editorial-v4 .card h5{font-size:9.5pt;letter-spacing:.16em}
 .theme-editorial-v4 .card p{font-size:11pt;line-height:1.38;color:var(--ink)}
 .theme-editorial-v4 .cards.plain .card h5{font-size:12pt;letter-spacing:0;color:var(--navy)}
+/* chips: a plain cards element with "style": "chips" in the outline. Auto-width, centred, single-line labels that wrap
+   into as many rows as they need (the flow steps' look, without arrows), for lists where every label is one line and a
+   two-line-tall card grid would be mostly air (Healthy Aging 04). */
+.cards.chips{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:.1in .12in;margin:.08in 0 .2in}
+.cards.chips .card{flex:0 0 auto;min-height:0;padding:.1in .22in;justify-content:center;align-items:center;text-align:center}
+.theme-editorial-v4 .cards.chips .card{padding:.09in .24in;min-height:0;border-radius:6px}  /* min-height:0 beats the plain-card .78in rule above at equal specificity */
+.theme-editorial-v4 .cards.chips .card h5{font-size:11.5pt;letter-spacing:.01em;white-space:nowrap}
+.tight .cards.chips{gap:.08in .1in}
 .theme-editorial-v4 .cards.withimg .card{justify-content:flex-start;padding:.14in}
 .theme-editorial-v4 .cards.withimg .cimg{flex:0 0 auto;width:100%;height:auto;aspect-ratio:9/5;object-fit:cover;border-radius:4px;margin-bottom:.14in}
 .cards.rows{grid-auto-rows:auto}.cards.rows .card{display:grid;grid-template-columns:1.35in 1fr;column-gap:.2in;align-items:center;padding:.11in .18in .11in .11in}.cards.rows .ctext{min-width:0}.cards.rows .ctext h5{margin-top:0}.theme-editorial-v4 .cards.rows .cimg{aspect-ratio:4/3;width:100%;height:auto;margin:0;border-radius:4px}.theme-editorial-v4 .cards.rows.profile .card p{margin-top:.05in}.theme-editorial-v4 .cards.rows{gap:.13in}

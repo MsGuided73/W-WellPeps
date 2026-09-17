@@ -49,7 +49,7 @@ building another book.
   CTA `peptide/cta-couple.webp`. Page 05 is the six-therapy profile page, text-only (the `peptide/vial-*.webp` product
   shots do carry matching labels, but they are portrait and the NAD+ vial sits on a black background; Derek can decide);
   09 carries the serotonin-syndrome caution as a RED FLAG box; 12 renders the care pathway as a flow above the Approach
-  box. On 04 the figure enters after the six goal cards (`image_after: 3`): floated beside the lead it left a dead white block, because the card grid clears the float. 01 and 14 run `dense`; the disclaimer stepped its type down the full four steps (the manuscript's seven legal
+  box. On 04 the six goals are chips (`style: chips`) and the figure enters after them (`image_after: 3`): floated beside the lead it left a dead white block, because the card grid clears the float. 01 and 14 run `dense`; the disclaimer stepped its type down the full four steps (the manuscript's seven legal
   paragraphs were merged into four without dropping a word). Deviations to raise with Derek: the CTA panel holds the
   two-line headline plus one paragraph, so the manuscript's closing imperatives ("Stay active. Protect your strength. ...")
   and the "make them part of a thoughtful, provider-guided plan" line are not on the CTA page; the 05 vial photos; the
@@ -139,7 +139,9 @@ Every visual decision lives in the `CSS` string in `render_html.py`, scoped unde
   used only to hold a long lead to two lines), for `decide`: `image`, `focus`, and for `cta`: `kicker`, `image`,
   `focus`, `button`. `config/_template.json` documents every option; copy it to start a new config.
 - **Per-element options in the outline:** `list` takes `cols` (1 or 2) to override the column heuristic; `cards` takes
-  `cols` too (the Hair Restoration timeline is four cards in one row); a `redflag` (or callout/approach) with
+  `cols` too (the Hair Restoration timeline is four cards in one row); a `cards` element whose items are one-line
+  labels with no description can take `"style": "chips"` to render as a wrapping row of auto-width centred chips
+  (the flow-step look without arrows) instead of a grid of two-line-tall cards that is mostly air (Healthy Aging 04); a `redflag` (or callout/approach) with
   `"inline": true` stays in the text flow instead of joining the bottom stack. Red-flag lines that are short and have
   no full stop render as bold labels. `twocol` defaults to good (✓ blue) vs bad (✕ red); `"style": "neutral"` renders
   two equal blue columns with bullets for comparisons where neither side is wrong (oral vs topical).
