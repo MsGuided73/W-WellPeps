@@ -671,6 +671,7 @@ p.quote{font-size:19pt;line-height:1.2;font-weight:700;color:var(--blue);margin-
 .theme-editorial .ck h4{color:var(--navy)}
 .theme-editorial .subhead h4,.theme-editorial .card h5,.theme-editorial .twocol .good h4{color:var(--blue)}
 .theme-editorial .flow .step{background:#fff;border-color:#D5E3EF}
+.theme-editorial .flow .step:last-child{background:var(--navy);border-color:var(--navy);color:#fff}  /* the editorial repaint above must not turn the final step white-on-white */
 .theme-editorial .cta .ctahero{background:var(--navy)}
 .theme-editorial .cta .ctapanel{background:linear-gradient(90deg,rgba(23,58,94,0) 0,var(--navy) .75in)}
 .theme-editorial .cta .ctapanel h2{color:#fff}
