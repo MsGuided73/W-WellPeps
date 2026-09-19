@@ -28,8 +28,8 @@ import { sexProducts } from '../../data/sexual';
       <article class="socard">
         <img class="socard__media" src={p.image} alt={p.alt} loading="lazy" decoding="async" />
         <div class="socard__body">
-          <h3 class="socard__name">{p.subtitle}</h3>
-          <p class="socard__tagline">{p.name}</p>
+          <h3 class="socard__name">{p.name}</h3>
+          <p class="socard__tagline">{p.subtitle}</p>
           <p class="socard__desc">{p.description}</p>
           <p class="socard__form">{p.methodOfUse}</p>
           <ul class="socard__features">
@@ -41,10 +41,11 @@ import { sexProducts } from '../../data/sexual';
             ))}
           </ul>
           <div class="socard__pricing">
-            <span class="socard__price-label">Starting at</span>
+            <span class="socard__price-label">{p.price ? 'Starting at' : 'Member price'}</span>
             <span class="socard__price-row">
-              <span class="socard__price">${p.price}</span>
-              <span class="socard__price-unit">{p.priceUnit}</span>
+              {p.price
+                ? <Fragment><span class="socard__price">${p.price}</span><span class="socard__price-unit">{p.priceUnit}</span></Fragment>
+                : <span class="socard__price-unit">Shown at checkout</span>}
             </span>
           </div>
           <a href="/sexual-wellness" class="socard__cta">Learn More</a>

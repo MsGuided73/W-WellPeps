@@ -23,7 +23,8 @@ interface Props {
   form: string;
   /** Benefit checklist — rendered with check-circle icons. */
   features: string[];
-  price: string;
+  /** Omit while a price is not yet set: the card shows "Shown at checkout". */
+  price?: string;
   priceUnit: string;
   /** When present, appends a "*" to the unit to key the page's legal footnote. */
   priceNote?: string;
@@ -60,10 +61,11 @@ const {
     </ul>
 
     <div class="scard__price">
-      <span class="scard__price-label">Starting at</span>
+      <span class="scard__price-label">{price ? 'Starting at' : 'Member price'}</span>
       <span class="scard__price-row">
-        <span class="scard__price-amount">${price}</span>
-        <span class="scard__price-unit">{priceUnit}{priceNote ? '*' : ''}</span>
+        {price
+          ? <Fragment><span class="scard__price-amount">${price}</span><span class="scard__price-unit">{priceUnit}{priceNote ? '*' : ''}</span></Fragment>
+          : <span class="scard__price-pending">Shown at checkout</span>}
       </span>
     </div>
 
@@ -139,6 +141,7 @@ const {
   .scard__price-row { display: flex; align-items: baseline; gap: 0.35rem; margin-top: 0.1rem; }
   .scard__price-amount { font-family: var(--font-sans); font-weight: 800; letter-spacing: -0.02em; font-size: var(--price-amount); color: var(--navy); line-height: 1; }
   .scard__price-unit { color: var(--text-muted); font-size: var(--price-unit); }
+  .scard__price-pending { font-weight: 700; color: var(--navy); font-size: var(--text-card-body); line-height: var(--price-amount); }
 
   /* Filled CTA per the WellPeps Product Card Standard: Ocean Boat Blue,
      white text, 48px tall, 16px radius, arrow pinned right. */

@@ -87,8 +87,8 @@ export const knowledgeBase: KnowledgeDoc[] = [
       'Changes in sexual wellness are common and affect both men and women at any stage of life — aging, hormones, stress, medical conditions, medications and lifestyle can all play a role. Many concerns are treatable, and a licensed provider can recommend evidence-based options after a personalized evaluation.',
     body: `Sexual wellness is an important part of overall health. Treatment options are designed to help
       improve healthy blood flow, support the body's natural sexual function, and build confidence.
-      WellPeps offers Daily Boost (tadalafil daily) from $69/month, Go Long from $89/month, Double
-      Powered from $99/month, and Quadruple Powered from $129/month. These conversations should be
+      WellPeps offers daily tadalafil from $69/month, plus as-needed tadalafil and as-needed
+      sildenafil; a licensed provider decides which is appropriate. These conversations should be
       private, judgment-free, and focused on helping you feel your best.`,
   },
 

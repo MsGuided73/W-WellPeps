@@ -72,13 +72,12 @@ const PRODUCT_LINKS: CtaLinks['products'] = {
     program: 'healthy-aging',
     url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/utsDGMi7ITPVBmLMJifw?checkoutFlow=intake_first',
   },
-  // GEN Health product "Tadalafil & Sildenafil" — one product; the provider
-  // chooses the medication and dosing. Attached to the Tadalafil Daily card only:
-  // the other sexual wellness cards are combination formulas it does not cover.
-  'daily-boost': {
-    program: 'sexual-wellness',
-    url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/GDvBwrapfPq3PCao4SpO?checkoutFlow=intake_first',
-  },
+  // GEN Health product "Tadalafil & Sildenafil" — one product behind two cards;
+  // the provider chooses the medication and dosing.
+  'tadalafil-daily': { program: 'sexual-wellness', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/GDvBwrapfPq3PCao4SpO?checkoutFlow=intake_first' },
+  'sildenafil-as-needed': { program: 'sexual-wellness', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/GDvBwrapfPq3PCao4SpO?checkoutFlow=intake_first' },
+  // GEN Health product "High Dose (As Needed) Tadalafil".
+  'tadalafil-as-needed': { program: 'sexual-wellness', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/pXP69VkpzR8Me3cKQFiY?checkoutFlow=intake_first' },
   // GEN Health product "Oral Finasteride" (hair loss). The site's hair cards are
   // treatment categories, so it opens the "Oral Treatments" card.
   'oral-treatments': {

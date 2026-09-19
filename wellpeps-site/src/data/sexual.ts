@@ -59,7 +59,8 @@ export interface SexProduct {
   features: string[];
   /** Delivery method, per the WellPeps Product Card Standard. */
   methodOfUse: string;
-  price: string;
+  /** Omitted while the member price is still being set; the card then says so. */
+  price?: string;
   priceUnit: string;
 }
 
@@ -71,10 +72,10 @@ export const sexProductsIntro = {
 
 export const sexProducts: SexProduct[] = [
   {
-    name: 'Daily Boost',
-    subtitle: 'Tadalafil Daily',
-    image: '/images/sexual/product-daily.webp',
-    alt: 'Daily Boost — tadalafil daily oral medication',
+    name: 'Tadalafil Daily',
+    subtitle: 'Low-Dose Daily Tablet',
+    image: '/images/sexual/product-tadalafil.webp',
+    alt: 'A white prescription bottle labelled Oral Tadalafil on a bedside table',
     description: 'Low-dose daily support to help you feel ready, confident, and in control every day.',
     features: ['Supports daily confidence', 'Designed for ongoing spontaneity', 'Easy daily routine'],
     methodOfUse: 'Oral Tablet',
@@ -82,36 +83,23 @@ export const sexProducts: SexProduct[] = [
     priceUnit: '/month',
   },
   {
-    name: 'Go Long',
-    subtitle: 'Silodosin + Tadalafil',
-    image: '/images/sexual/product-golong.webp',
-    alt: 'Go Long — silodosin + tadalafil oral medication',
-    description: 'Designed to help support longer-lasting performance and confidence when it matters most.',
-    features: ['Supports longer-lasting results', 'Works when you need it', 'Provider-guided treatment'],
+    name: 'Tadalafil As Needed',
+    subtitle: 'High-Dose Tablet',
+    image: '/images/sexual/product-tadalafil.webp',
+    alt: 'A white prescription bottle labelled Oral Tadalafil on a bedside table',
+    description: 'A higher-dose tablet taken before activity rather than every day. Your provider determines whether it is appropriate for you.',
+    features: ['Taken only when needed', 'No daily routine required', 'Provider-guided dosing'],
     methodOfUse: 'Oral Tablet',
-    price: '89',
     priceUnit: '/month',
   },
   {
-    name: 'Double Powered',
-    subtitle: 'Sildenafil + Tadalafil',
-    image: '/images/sexual/product-double.webp',
-    alt: 'Double Powered — sildenafil + tadalafil oral medication',
-    description: 'A powerful combination designed to enhance performance and increase confidence.',
-    features: ['Dual-action formula', 'Enhanced effectiveness', 'Clinically guided'],
+    name: 'Sildenafil As Needed',
+    subtitle: 'As-Needed Tablet',
+    image: '/images/sexual/product-sildenafil.webp',
+    alt: 'A white prescription bottle labelled Oral Sildenafil on a bedside table',
+    description: 'A well-established tablet taken before activity. Your provider determines whether it is appropriate for you.',
+    features: ['Taken only when needed', 'Well-established treatment', 'Provider-guided dosing'],
     methodOfUse: 'Oral Tablet',
-    price: '99',
-    priceUnit: '/month',
-  },
-  {
-    name: 'Quadruple Powered',
-    subtitle: 'Advanced Combination',
-    image: '/images/sexual/product-quadruple.webp',
-    alt: 'Quadruple Powered — advanced combination oral medication',
-    description: 'Advanced single-dose combinations for those who need maximum support.',
-    features: ['Maximum support', 'Advanced formulation', 'Provider-supervised'],
-    methodOfUse: 'Oral Tablet',
-    price: '129',
     priceUnit: '/month',
   },
 ];
