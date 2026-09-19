@@ -158,7 +158,7 @@ export const weightProducts: PillProduct[] = [
     name: 'Oral Tirzepatide',
     medication: 'tirzepatide',
     image: '/images/weight/product-oral-tirzepatide.webp',
-    alt: 'Oral tirzepatide prescription bottle',
+    alt: 'Oral tirzepatide tablets',
     benefits: [
       { label: 'Weight Loss', icon: 'trending-down' },
       { label: 'Appetite Control', icon: 'utensils' },
@@ -166,7 +166,7 @@ export const weightProducts: PillProduct[] = [
       { label: 'Convenience', icon: 'clock' },
     ],
     description: 'Oral dual GIP/GLP-1 option—a needle-free alternative.',
-    delivery: { label: 'Oral Medication', icon: 'pill' },
+    delivery: { label: 'Oral Tablet', icon: 'pill' },
     priceUnit: '/month',
   },
 ];
@@ -175,7 +175,7 @@ export const weightProducts: PillProduct[] = [
  *  first question is which medication, then injection or oral. */
 export const weightProductGroups: { medication: PillProduct['medication']; title: string; note: string }[] = [
   { medication: 'semaglutide', title: 'Semaglutide', note: 'A GLP-1 medication, available as a weekly injection or a daily tablet.' },
-  { medication: 'tirzepatide', title: 'Tirzepatide', note: 'A dual GIP/GLP-1 medication, available as a weekly injection or an oral option.' },
+  { medication: 'tirzepatide', title: 'Tirzepatide', note: 'A dual GIP/GLP-1 medication, available as a weekly injection or an oral tablet.' },
 ];
 
 export interface WeightFaq {
