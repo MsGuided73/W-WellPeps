@@ -12,6 +12,7 @@
  * separately; without this the same query would run once per page.
  */
 import { createClient } from '@supabase/supabase-js';
+import { parseArticleRow } from './blog-rows';
 
 // Locally these come from .env; on the deploy host they are set as build-time
 // environment variables, which only reach us via process.env.
@@ -105,7 +106,10 @@ function load() {
     const byId = new Map(categories.map((c) => [c.id, c]));
 
     const articles: ArticleWithCategory[] = [];
-    for (const row of (arts.data ?? []) as Article[]) {
+    // The select list is a plain string, so the rows arrive untyped; each is
+    // validated rather than cast, and a malformed one fails the build.
+    const rows: unknown[] = arts.data ?? [];
+    for (const row of rows.map(parseArticleRow)) {
       const category = byId.get(row.category_id);
       // A published article whose category vanished would render a broken
       // breadcrumb; skipping it loudly beats shipping that.
