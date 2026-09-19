@@ -106,7 +106,7 @@ export const hairProducts: Product[] = [
     icon: 'pill',
     description: 'Supports healthier hair growth through convenient oral medications.',
     optionsLabel: 'Common Formulations Include',
-    options: ['Oral Minoxidil', 'Minoxidil + Biotin', 'Dutasteride'],
+    options: ['Finasteride', 'Oral Minoxidil', 'Minoxidil + Biotin', 'Dutasteride'],
     methodOfUse: 'Oral Capsule',
     price: '59',
     priceUnit: '/month',

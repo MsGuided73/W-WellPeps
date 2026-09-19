@@ -72,6 +72,12 @@ const PRODUCT_LINKS: CtaLinks['products'] = {
     program: 'healthy-aging',
     url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/utsDGMi7ITPVBmLMJifw?checkoutFlow=intake_first',
   },
+  // GEN Health product "Oral Finasteride" (hair loss). The site's hair cards are
+  // treatment categories, so it opens the "Oral Treatments" card.
+  'oral-treatments': {
+    program: 'hair-restoration',
+    url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/jn0oZRngtKkKh64DRjTz?checkoutFlow=intake_first',
+  },
 };
 
 /** Every assessment link, keyed by program. Buttons never read these directly —
@@ -98,10 +104,13 @@ assertTrustedLinks([
 /**
  * Hair Restoration's pre-launch state: the "Coming Soon" announcement band, the
  * ribbon on its product cards, and the pre-launch copy in its hero and bottom
- * CTA. Derived from the link, like every other program — pasting the Hair
- * Restoration link above is what opens the page. See docs/PRE-LAUNCH.md.
+ * CTA. Derived from the links, like every other program — pasting the Hair
+ * Restoration link above, or the first hair treatment link, is what opens the
+ * page. See docs/PRE-LAUNCH.md.
  */
-export const HAIR_COMING_SOON = !isLinked(SCRIPTFUL_HAIR_PRODUCT_URL);
+export const HAIR_COMING_SOON =
+  !isLinked(SCRIPTFUL_HAIR_PRODUCT_URL) &&
+  !Object.values(PRODUCT_LINKS).some((p) => p.program === 'hair-restoration' && isLinked(p.url));
 
 /** Shown under every product grid. Prices are the member price; the monthly
  *  membership and shipping are charged separately (pricing decision 2026-09-17). */
