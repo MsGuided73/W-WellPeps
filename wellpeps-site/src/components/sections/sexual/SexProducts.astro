@@ -1,5 +1,6 @@
 ---
 import StandardProductCard from '../../StandardProductCard.astro';
+// import EverythingIncludedStrip from '../../EverythingIncludedStrip.astro';
 import { sexProducts, sexProductsIntro } from '../../../data/sexual';
 import { MEMBER_PRICE_NOTE } from '../../../config';
 ---
@@ -32,6 +33,10 @@ import { MEMBER_PRICE_NOTE } from '../../../config';
 
     <p class="sxprod__foot reveal">{MEMBER_PRICE_NOTE}</p>
     <p class="sxprod__foot sxprod__foot--sub reveal">{sexProductsIntro.footnote}</p>
+
+    {/* Everything Included banner: commented out 2026-09-19 pending a rewrite for the
+        membership pricing model. To restore, uncomment the import and this mount.
+        <EverythingIncludedStrip /> */}
   </div>
 </section>
 

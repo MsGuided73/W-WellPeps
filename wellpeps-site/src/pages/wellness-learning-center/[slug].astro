@@ -9,7 +9,7 @@
  * them independently of the prose.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import EverythingIncludedStrip from '../../components/EverythingIncludedStrip.astro';
+// import EverythingIncludedStrip from '../../components/EverythingIncludedStrip.astro';
 import HairTreatmentOptions from '../../components/sections/HairTreatmentOptions.astro';
 import PeptideTherapies from '../../components/sections/PeptideTherapies.astro';
 import SexualTreatmentOptions from '../../components/sections/SexualTreatmentOptions.astro';
@@ -51,9 +51,11 @@ const showSexualTreatments = article.category.slug === 'sexual-wellness';
 const showWeightTreatments = article.category.slug === 'weight-management';
 const showHairTreatments = article.category.slug === 'hair-restoration';
 /* The "Everything Included." bar accompanies every treatment insert, but in
-   the rail (client direction) rather than below the insert's product cards. */
-const showIncludedBar =
-  showTherapies || showSexualTreatments || showWeightTreatments || showHairTreatments;
+   the rail (client direction) rather than below the insert's product cards.
+   Commented out 2026-09-19 pending a rewrite for the membership pricing model;
+   to restore, uncomment this, the import above and the mount in the rail. */
+// const showIncludedBar =
+//   showTherapies || showSexualTreatments || showWeightTreatments || showHairTreatments;
 
 /* Articles in a treatment category start that program's assessment; anything
    else gets the generic CTA. */
@@ -155,7 +157,7 @@ const updated = article.published_at
           </div>
         )}
 
-        {showIncludedBar && <EverythingIncludedStrip stacked />}
+        {/* {showIncludedBar && <EverythingIncludedStrip stacked />} */}
 
         {article.disclaimer_html && (
           <div class="rail__card">

@@ -1,6 +1,7 @@
 ---
 import Icon from '../../Icon.astro';
 import StandardProductCard from '../../StandardProductCard.astro';
+// import EverythingIncludedStrip from '../../EverythingIncludedStrip.astro';
 import { weightProducts, weightProductsIntro } from '../../../data/weight';
 import { MEMBER_PRICE_NOTE } from '../../../config';
 ---
@@ -30,6 +31,10 @@ import { MEMBER_PRICE_NOTE } from '../../../config';
     </div>
 
     <p class="wprod__pricenote reveal">{MEMBER_PRICE_NOTE}</p>
+
+    {/* Everything Included banner: commented out 2026-09-19 pending a rewrite for the
+        membership pricing model. To restore, uncomment the import and this mount.
+        <EverythingIncludedStrip /> */}
 
     <div class="wprod__band reveal">
       <span class="wprod__band-icon"><Icon name="shield" /></span>

@@ -1,5 +1,6 @@
 ---
 import PeptideCard from '../../PeptideCard.astro';
+// import EverythingIncludedStrip from '../../EverythingIncludedStrip.astro';
 import { peptideProducts, peptideProductsIntro, peptideProductsFootnote } from '../../../data/peptide';
 import { MEMBER_PRICE_NOTE } from '../../../config';
 ---
@@ -16,6 +17,10 @@ import { MEMBER_PRICE_NOTE } from '../../../config';
 
     <p class="pprod__foot reveal">{MEMBER_PRICE_NOTE}</p>
     <p class="pprod__foot pprod__foot--sub reveal">{peptideProductsFootnote}</p>
+
+    {/* Everything Included banner: commented out 2026-09-19 pending a rewrite for the
+        membership pricing model. To restore, uncomment the import and this mount.
+        <EverythingIncludedStrip /> */}
   </div>
 </section>
 
