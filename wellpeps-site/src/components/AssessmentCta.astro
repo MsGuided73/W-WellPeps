@@ -1,0 +1,59 @@
+---
+/**
+ * AssessmentCta — the one "Start Free Assessment" button.
+ *
+ * Every assessment button on the site renders through this, so the label, the
+ * destination and the coming-soon state are decided in one place
+ * (src/lib/cta.ts) rather than per page.
+ *
+ *   <AssessmentCta class="btn btn--primary btn--lg" />                  generic
+ *   <AssessmentCta program="weight-loss" class="scard__cta" arrow />    a program
+ *
+ * While a program's GEN Health link is still a stub the button renders as a
+ * non-interactive "Opening Soon" state. Pass a `soon` slot to replace that with
+ * something better suited to the spot (e.g. Hair's "Get Launch Updates" link).
+ *
+ * Styling stays with the caller: `class` and Astro's scoped-style attribute are
+ * forwarded, so a parent's scoped `.scard__cta` rules still apply.
+ *
+ * `data-assessment` carries the program for the handoff sheet (step 2) to hook.
+ */
+import Icon from './Icon.astro';
+import { ASSESSMENT_CTA_LABEL, resolveCta, toProductKey, type ProgramSlug } from '../lib/cta';
+
+interface Props {
+  program?: ProgramSlug;
+  /** Product-card name; gives the card its own GEN Health link when one exists. */
+  product?: string;
+  class?: string;
+  /** Append the right-arrow icon. */
+  arrow?: boolean;
+  [attr: `data-astro-cid-${string}`]: unknown;
+}
+const { program, product, class: className, arrow = false, ...scopeAttrs } = Astro.props;
+const cta = resolveCta(program, product && toProductKey(product));
+---
+{cta.isComingSoon
+  ? (Astro.slots.has('soon')
+      ? <slot name="soon" />
+      : <span class:list={[className, 'cta-soon']} role="button" aria-disabled="true" {...scopeAttrs}><Icon name="clock" /> Opening Soon</span>)
+  : <a href={cta.href} class={className} data-assessment={cta.target} {...scopeAttrs}>{ASSESSMENT_CTA_LABEL}{arrow && <Fragment> <Icon name="arrow-right" /></Fragment>}</a>}
+
+<style is:global>
+  /* Non-interactive state. It must beat whatever button style the caller
+     passed — including a parent's scoped `.scard__cta[data-astro-cid]:hover`,
+     which outranks any plain class selector — so an unavailable button can
+     never look clickable. Hence !important, on this state only. */
+  .cta-soon,
+  .cta-soon:hover {
+    background: var(--bg-light-blue-gray) !important;
+    color: var(--text-muted) !important;
+    border: 1px solid var(--border-strong) !important;
+    box-shadow: none !important;
+    transform: none !important;
+    cursor: default;
+    gap: 0.5rem;
+  }
+  /* Card CTAs pin their arrow to the right edge; the clock sits with the text. */
+  .cta-soon svg { position: static !important; transform: none !important; width: 1.05em; height: 1.05em; }
+</style>
