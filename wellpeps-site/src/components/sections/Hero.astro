@@ -1,6 +1,6 @@
 ---
 import Icon from '../Icon.astro';
-import { ONBOARDING_URL } from '../../config';
+import AssessmentCta from '../AssessmentCta.astro';
 ---
 <section class="hero">
   <!-- Image is a direct child of the full-width section so it can bleed to the
@@ -15,7 +15,7 @@ import { ONBOARDING_URL } from '../../config';
       <hr class="rule rule--left" />
       <p class="hero__lead">Personalized treatment plans, licensed healthcare providers, and ongoing support—all from the comfort of home.</p>
       <div class="hero__actions">
-        <a href={ONBOARDING_URL} class="btn btn--primary btn--lg">Start Free Online Assessment</a>
+        <AssessmentCta class="btn btn--primary btn--lg" />
         <a href="/#programs" class="btn btn--secondary btn--lg">Explore Treatment Options <Icon name="arrow-right" /></a>
       </div>
     </div>
@@ -117,9 +117,9 @@ import { ONBOARDING_URL } from '../../config';
   ];
   const INTERVAL_MS = 3000;
 
-  const rotator = document.querySelector('[data-rotator]');
-  const word = rotator?.querySelector('.hero__rotate-word');
-  if (word) {
+  const rotator = document.querySelector<HTMLElement>('[data-rotator]');
+  const word = rotator?.querySelector<HTMLElement>('.hero__rotate-word');
+  if (rotator && word) {
     // Keep the phrase on one line (3-line headline). Let it grow past the
     // text column into the faint left edge of the hero photo, and only shrink
     // if it would reach the image's subject zone (~52vw). On the stacked

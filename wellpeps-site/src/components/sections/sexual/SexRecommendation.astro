@@ -1,6 +1,5 @@
 ---
-import Icon from '../../Icon.astro';
-import { SEXUAL_ONBOARDING_URL } from '../../../config';
+import AssessmentCta from '../../AssessmentCta.astro';
 import { sexRecommendation } from '../../../data/sexual';
 
 // Break the heading after "Figure" so it reads on two lines on desktop
@@ -15,7 +14,7 @@ const [titleHead, titleTail] = sexRecommendation.title.split(/(?<=Figure)\s+/);
       <h2>{titleHead}{titleTail && (<Fragment><br class="sxrec__brk" />{' '}{titleTail}</Fragment>)}</h2>
       <hr class="rule rule--left" />
       <p>{sexRecommendation.body}</p>
-      <a href={SEXUAL_ONBOARDING_URL} class="btn btn--primary btn--lg">Start Your Free Personalized Assessment <Icon name="arrow-right" /></a>
+      <AssessmentCta program="sexual-wellness" class="btn btn--primary btn--lg" arrow />
     </div>
     <div class="sxrec__media reveal">
       <img src={sexRecommendation.image} alt={sexRecommendation.alt} width="820" height="620" loading="lazy" />

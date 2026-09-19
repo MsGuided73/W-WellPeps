@@ -14,7 +14,7 @@
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
-import { ONBOARDING_URL } from '../../config';
+import AssessmentCta from '../../components/AssessmentCta.astro';
 import { getCategoriesWithArticles, getFeaturedArticles, categoryIcon } from '../../lib/blog';
 
 const categories = await getCategoriesWithArticles();
@@ -166,9 +166,7 @@ const searchIndex = categories.flatMap((c) =>
           your information to determine the best next steps for your wellness journey.
         </p>
       </div>
-      <a href={ONBOARDING_URL} class="btn btn--primary lc-cta__btn">
-        Start Free Assessment
-      </a>
+      <AssessmentCta class="btn btn--primary lc-cta__btn" />
     </section>
 
     <p class="lc-disclaimer">

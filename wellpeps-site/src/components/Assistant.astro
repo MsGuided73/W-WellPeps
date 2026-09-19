@@ -8,7 +8,7 @@
  * does not care where the answers come from.
  */
 import Icon from './Icon.astro';
-import { ONBOARDING_URL } from '../config';
+import { resolveCta } from '../lib/cta';
 import { SUGGESTED_QUESTIONS, ASSISTANT_GREETING } from '../lib/assistant';
 ---
 <div class="wa" data-assistant>
@@ -48,7 +48,7 @@ import { SUGGESTED_QUESTIONS, ASSISTANT_GREETING } from '../lib/assistant';
     </form>
 
     <p class="wa__disclaimer">
-      Not medical advice. For care, <a href={ONBOARDING_URL}>start your free assessment</a>.
+      Not medical advice. For care, <a href={resolveCta().href}>start your free assessment</a>.
     </p>
   </section>
 </div>

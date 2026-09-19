@@ -1,5 +1,6 @@
 ---
-import { ONBOARDING_URL, HAIR_COMING_SOON } from '../../../config';
+import AssessmentCta from '../../AssessmentCta.astro';
+import { HAIR_COMING_SOON } from '../../../config';
 import { hairCta } from '../../../data/hair';
 ---
 <section class="hcta">
@@ -12,9 +13,9 @@ import { hairCta } from '../../../data/hair';
     <div class="hcta__copy reveal">
       <h2>{HAIR_COMING_SOON ? hairCta.soonTitle : hairCta.title}</h2>
       <p class="hcta__lead">{HAIR_COMING_SOON ? hairCta.soonLead : hairCta.lead}</p>
-      {HAIR_COMING_SOON
-        ? <a href="#hair-notify" class="btn btn--primary btn--lg hcta__btn">Get Launch Updates</a>
-        : <a href={ONBOARDING_URL} class="btn btn--primary btn--lg hcta__btn">Start Your Free Assessment</a>}
+      <AssessmentCta program="hair-restoration" class="btn btn--primary btn--lg hcta__btn">
+        <a slot="soon" href="#hair-notify" class="btn btn--primary btn--lg hcta__btn">Get Launch Updates</a>
+      </AssessmentCta>
       <p class="hcta__note">{HAIR_COMING_SOON ? hairCta.soonNote : hairCta.note}</p>
     </div>
   </div>

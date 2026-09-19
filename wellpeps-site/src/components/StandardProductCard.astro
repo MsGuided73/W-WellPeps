@@ -11,6 +11,8 @@
  * read as one system. Each page adapts its own data shape into these props.
  */
 import Icon from './Icon.astro';
+import AssessmentCta from './AssessmentCta.astro';
+import type { ProgramSlug } from '../lib/cta';
 
 interface Props {
   image: string;
@@ -25,8 +27,8 @@ interface Props {
   priceUnit: string;
   /** When present, appends a "*" to the unit to key the page's legal footnote. */
   priceNote?: string;
-  href: string;
-  cta?: string;
+  /** Which program's assessment the card's button starts. */
+  program: ProgramSlug;
   /** Optional WellPeps product name shown in blue under the title (Sexual Wellness only). */
   productName?: string;
   /** Full-bleed cover media for photographic shots instead of the white "contain" vial box. */
@@ -34,7 +36,7 @@ interface Props {
 }
 const {
   image, alt, name, description, form, features,
-  price, priceUnit, priceNote, href, cta = 'Start Free Assessment',
+  price, priceUnit, priceNote, program,
   productName, cover = false,
 } = Astro.props;
 ---
@@ -65,7 +67,7 @@ const {
       </span>
     </div>
 
-    <a href={href} class="scard__cta">{cta} <Icon name="arrow-right" /></a>
+    <AssessmentCta program={program} product={name} class="scard__cta" arrow />
   </div>
 </article>
 

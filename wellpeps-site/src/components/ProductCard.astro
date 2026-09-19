@@ -7,6 +7,7 @@
  * outlined "Start Your Free Assessment" button.
  */
 import Icon from './Icon.astro';
+import AssessmentCta from './AssessmentCta.astro';
 import type { Product } from '../data/hair';
 
 interface Props {
@@ -17,7 +18,7 @@ interface Props {
 const { product, comingSoon = false } = Astro.props;
 const {
   name, image, alt, icon, description, optionsLabel, options,
-  methodOfUse, price, priceUnit, href,
+  methodOfUse, price, priceUnit,
 } = product;
 ---
 <article class:list={['pcard', comingSoon && 'pcard--soon']}>
@@ -50,9 +51,9 @@ const {
       </span>
     </p>
 
-    {comingSoon
-      ? <span class="pcard__cta pcard__cta--soon"><Icon name="clock" /> Coming Soon</span>
-      : <a href={href} class="pcard__cta">Start Free Assessment <Icon name="arrow-right" /></a>}
+    <AssessmentCta program="hair-restoration" product={name} class="pcard__cta" arrow>
+      <span slot="soon" class="pcard__cta pcard__cta--soon"><Icon name="clock" /> Coming Soon</span>
+    </AssessmentCta>
   </div>
 </article>
 

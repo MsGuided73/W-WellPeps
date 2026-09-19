@@ -9,14 +9,20 @@
     "preview": "astro preview",
     "astro": "astro",
     "seed:articles": "node scripts/seed-articles.mjs",
-    "images": "node scripts/convert-images.mjs"
+    "images": "node scripts/convert-images.mjs",
+    "test": "vitest run",
+    "typecheck": "astro check"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.110.7",
     "astro": "^4.16.18"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@types/node": "^22.20.4",
     "playwright": "^1.61.1",
-    "sharp": "^0.33.5"
+    "sharp": "^0.33.5",
+    "typescript": "^5.9.3",
+    "vitest": "^2.1.9"
   }
 }

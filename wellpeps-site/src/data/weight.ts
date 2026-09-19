@@ -2,7 +2,7 @@
  * Weight Loss (GLP-1 Weight Management) page content.
  *
  * Product cards use the approved "Sermorelin" benefit-pill style
- * (see ProductCardPills.astro). Benefit tags, descriptions and pricing are
+ * (see StandardProductCard.astro). Benefit tags, descriptions and pricing are
  * sourced from WellPeps_Medication_Master_Database_v1 (Weight Management rows)
  * and the approved Weight Management page mockups.
  *
@@ -10,7 +10,6 @@
  * DB notes these are 52-week starting prices (reflected in the "*" footnote).
  */
 
-import { WEIGHT_ONBOARDING_URL } from '../config';
 
 export const weightHero = {
   titleLead: 'GLP-1 Weight Management',
@@ -95,7 +94,6 @@ export interface PillProduct {
   price: string;
   priceUnit: string;
   priceNote?: string;
-  href: string;
 }
 
 export const weightProductsIntro = {
@@ -121,7 +119,6 @@ export const weightProducts: PillProduct[] = [
     price: '179',
     priceUnit: '/month',
     priceNote: '52-week starting price',
-    href: WEIGHT_ONBOARDING_URL,
   },
   {
     name: 'Compounded Tirzepatide',
@@ -138,7 +135,6 @@ export const weightProducts: PillProduct[] = [
     price: '269',
     priceUnit: '/month',
     priceNote: '52-week starting price',
-    href: WEIGHT_ONBOARDING_URL,
   },
   {
     name: 'Oral Semaglutide',
@@ -155,7 +151,6 @@ export const weightProducts: PillProduct[] = [
     price: '209',
     priceUnit: '/month',
     priceNote: '52-week starting price',
-    href: WEIGHT_ONBOARDING_URL,
   },
 ];
 

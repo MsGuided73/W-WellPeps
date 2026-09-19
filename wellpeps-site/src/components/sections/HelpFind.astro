@@ -1,5 +1,5 @@
 ---
-import { ONBOARDING_URL } from '../../config';
+import AssessmentCta from '../AssessmentCta.astro';
 ---
 <section class="section" id="assessment">
   <div class="container helpfind">
@@ -16,7 +16,7 @@ import { ONBOARDING_URL } from '../../config';
         providers review your health history, current medications, symptoms, and wellness
         goals before recommending a personalized treatment plan—if clinically appropriate.
       </p>
-      <a href={ONBOARDING_URL} class="btn btn--primary btn--lg helpfind__cta">Start Your Free Assessment</a>
+      <AssessmentCta class="btn btn--primary btn--lg helpfind__cta" />
     </div>
   </div>
 </section>

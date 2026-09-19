@@ -1,6 +1,5 @@
 ---
-import Icon from '../../Icon.astro';
-import { SEXUAL_ONBOARDING_URL } from '../../../config';
+import AssessmentCta from '../../AssessmentCta.astro';
 import { sexCta } from '../../../data/sexual';
 ---
 <section class="sxcta">
@@ -10,7 +9,7 @@ import { sexCta } from '../../../data/sexual';
       <h2>{sexCta.title}<br /><span class="accent">{sexCta.titleAccent}</span></h2>
       <hr class="rule rule--left" />
       <p class="sxcta__lead">{sexCta.lead}</p>
-      <a href={SEXUAL_ONBOARDING_URL} class="btn btn--primary btn--lg sxcta__btn">Start Your Free Assessment <Icon name="arrow-right" /></a>
+      <AssessmentCta program="sexual-wellness" class="btn btn--primary btn--lg sxcta__btn" arrow />
       <p class="sxcta__note">{sexCta.note}</p>
     </div>
   </div>

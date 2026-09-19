@@ -10,11 +10,10 @@
  * ("$XX") in the source product information — leave as-is until a real number
  * is provided.
  *
- * Card CTAs read from ONBOARDING_URL rather than repeating a literal, so the
- * single config swap at launch reaches them. While HAIR_COMING_SOON is true the
- * cards render a disabled Coming Soon state and the href is not used at all.
+ * Card CTAs render through AssessmentCta, which resolves the Hair Restoration
+ * link from src/config.ts. While that link is a stub (HAIR_COMING_SOON) the
+ * cards render a disabled Coming Soon state.
  */
-import { ONBOARDING_URL } from '../config';
 
 export const hairHero = {
   eyebrow: 'Hair Restoration',
@@ -84,7 +83,6 @@ export interface Product {
   methodOfUse: string;
   price: string; // numeric string or "XX" placeholder
   priceUnit: string;
-  href: string;
 }
 
 export const hairProducts: Product[] = [
@@ -100,7 +98,6 @@ export const hairProducts: Product[] = [
     methodOfUse: 'Topical Solution / Topical Foam',
     price: '79',
     priceUnit: '/month',
-    href: ONBOARDING_URL,
   },
   {
     name: 'Oral Treatments',
@@ -113,7 +110,6 @@ export const hairProducts: Product[] = [
     methodOfUse: 'Oral Capsule',
     price: '59',
     priceUnit: '/month',
-    href: ONBOARDING_URL,
   },
   {
     name: 'Combination Therapy',
@@ -131,7 +127,6 @@ export const hairProducts: Product[] = [
     methodOfUse: 'Topical + Oral',
     price: '99',
     priceUnit: '/month',
-    href: ONBOARDING_URL,
   },
   {
     // NBSP binds "Advanced Liposomal" so the title breaks as
@@ -150,7 +145,6 @@ export const hairProducts: Product[] = [
     methodOfUse: 'Topical Solution',
     price: '109',
     priceUnit: '/month',
-    href: ONBOARDING_URL,
   },
 ];
 

@@ -7,11 +7,12 @@
  * check-circle benefits · "Starting at $X /month" · filled "Start Free Assessment".
  */
 import Icon from './Icon.astro';
+import AssessmentCta from './AssessmentCta.astro';
 import type { PeptideProduct } from '../data/peptide';
 
 interface Props { product: PeptideProduct; }
 const { product } = Astro.props;
-const { name, subtitle, description, icon, photo, photoAlt, vial, methodOfUse, features, price, href } = product;
+const { name, subtitle, description, icon, photo, photoAlt, vial, methodOfUse, features, price } = product;
 ---
 <article class="pepcard">
   <div class="pepcard__photo"><img src={photo} alt={photoAlt} width="760" height="428" loading="lazy" /></div>
@@ -46,7 +47,7 @@ const { name, subtitle, description, icon, photo, photoAlt, vial, methodOfUse, f
           <span class="pepcard__price-unit">/month</span>
         </span>
       </div>
-      <a href={href} class="pepcard__cta">Start Free Assessment <Icon name="arrow-right" /></a>
+      <AssessmentCta program="healthy-aging" product={name} class="pepcard__cta" arrow />
     </div>
   </div>
 </article>
