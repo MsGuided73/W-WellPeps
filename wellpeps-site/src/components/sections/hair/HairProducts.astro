@@ -2,7 +2,7 @@
 import ProductCard from '../../ProductCard.astro';
 // import EverythingIncludedStrip from '../../EverythingIncludedStrip.astro';
 import { hairProducts, hairProductsIntro } from '../../../data/hair';
-import { HAIR_COMING_SOON, MEMBER_PRICE_NOTE } from '../../../config';
+import { HAIR_COMING_SOON, PRICE_NOTE } from '../../../config';
 ---
 <section class="section section--gray" id="hair-products">
   <div class="container">
@@ -15,7 +15,7 @@ import { HAIR_COMING_SOON, MEMBER_PRICE_NOTE } from '../../../config';
       {hairProducts.map((product) => <ProductCard product={product} comingSoon={HAIR_COMING_SOON} />)}
     </div>
 
-    <p class="hprod__foot reveal">{MEMBER_PRICE_NOTE}</p>
+    <p class="hprod__foot reveal">{PRICE_NOTE}</p>
     <p class="hprod__foot hprod__foot--sub reveal">{hairProductsIntro.footnote}</p>
 
     {/* Everything Included banner: commented out 2026-09-19 pending a rewrite for the

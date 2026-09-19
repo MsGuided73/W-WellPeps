@@ -137,10 +137,15 @@ export const HAIR_COMING_SOON =
   !isLinked(SCRIPTFUL_HAIR_PRODUCT_URL) &&
   !Object.values(PRODUCT_LINKS).some((p) => p.program === 'hair-restoration' && isLinked(p.url));
 
-/** Shown under every product grid. Prices are the member price; the monthly
- *  membership and shipping are charged separately (pricing decision 2026-09-17). */
+/** Shown under the product grid of a MEMBERSHIP program — Weight Loss today,
+ *  Hormone Optimization when it launches. Prices there are the member price; the
+ *  monthly membership ($49 first month, then $79) and shipping are separate
+ *  (decided 2026-09-17, scope narrowed 2026-09-19). */
 export const MEMBER_PRICE_NOTE =
   'Member price. Monthly membership fee not included. Shipping costs are shown at checkout.';
+
+/** Shown under the product grid of every other program: no membership applies. */
+export const PRICE_NOTE = 'Shipping costs are shown at checkout.';
 
 /** Existing-patient login on GEN Health. Opens in the same tab: the portal is on
  *  our own domain and branding, so it is the next screen of one product, not an

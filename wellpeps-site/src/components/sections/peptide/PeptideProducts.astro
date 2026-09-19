@@ -2,7 +2,7 @@
 import PeptideCard from '../../PeptideCard.astro';
 // import EverythingIncludedStrip from '../../EverythingIncludedStrip.astro';
 import { peptideProducts, peptideProductsIntro, peptideProductsFootnote } from '../../../data/peptide';
-import { MEMBER_PRICE_NOTE } from '../../../config';
+import { PRICE_NOTE } from '../../../config';
 ---
 <section class="section section--gray" id="peptide-products">
   <div class="container">
@@ -15,7 +15,7 @@ import { MEMBER_PRICE_NOTE } from '../../../config';
       {peptideProducts.map((product) => <PeptideCard product={product} />)}
     </div>
 
-    <p class="pprod__foot reveal">{MEMBER_PRICE_NOTE}</p>
+    <p class="pprod__foot reveal">{PRICE_NOTE}</p>
     <p class="pprod__foot pprod__foot--sub reveal">{peptideProductsFootnote}</p>
 
     {/* Everything Included banner: commented out 2026-09-19 pending a rewrite for the

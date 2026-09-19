@@ -2,7 +2,7 @@
 import StandardProductCard from '../../StandardProductCard.astro';
 // import EverythingIncludedStrip from '../../EverythingIncludedStrip.astro';
 import { sexProducts, sexProductsIntro } from '../../../data/sexual';
-import { MEMBER_PRICE_NOTE } from '../../../config';
+import { PRICE_NOTE } from '../../../config';
 ---
 <!-- White background: the pale-blue education section sits directly above, and
      the client flagged two consecutive blue-tinted bands. -->
@@ -31,7 +31,7 @@ import { MEMBER_PRICE_NOTE } from '../../../config';
       ))}
     </div>
 
-    <p class="sxprod__foot reveal">{MEMBER_PRICE_NOTE}</p>
+    <p class="sxprod__foot reveal">{PRICE_NOTE}</p>
     <p class="sxprod__foot sxprod__foot--sub reveal">{sexProductsIntro.footnote}</p>
 
     {/* Everything Included banner: commented out 2026-09-19 pending a rewrite for the
