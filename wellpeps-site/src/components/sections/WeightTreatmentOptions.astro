@@ -9,10 +9,11 @@
  *
  * Plan photos reuse the Weight Loss page's product vial shots per the comp's
  * upload note ("Use Correct Pics from Weight Loss Page"), with the same
- * contain-on-white treatment that page uses. Pricing carries the weight
- * page's 52-week "*" footnote, which the comp omits, so the legal treatment
- * matches everywhere the prices appear.
+ * contain-on-white treatment that page uses. Pricing carries the same
+ * member-price note as the product pages, which the comp omits, so the legal
+ * treatment matches everywhere the prices appear.
  */
+import { MEMBER_PRICE_NOTE } from '../../config';
 interface PlanFeature {
   text: string;
   /** First feature per the comp — rendered as a filled blue pill. */
@@ -105,10 +106,7 @@ const plans: Plan[] = [
     ))}
   </div>
 
-  <p class="wtopts__pricenote">
-    * Starting price reflects a 52-week plan. Actual pricing depends on your
-    provider&rsquo;s recommended plan.
-  </p>
+  <p class="wtopts__pricenote">{MEMBER_PRICE_NOTE}</p>
 </section>
 
 <style>

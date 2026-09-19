@@ -57,5 +57,5 @@ export const faqs = [
   { q: 'How are medications delivered?', a: 'If prescribed, medications are prepared by licensed U.S. pharmacies and shipped directly to your home in discreet, secure packaging.' },
   { q: 'Is my personal information secure?', a: 'Absolutely. Your health data is encrypted and handled under strict HIPAA standards. Your privacy is protected at every step.' },
   { q: 'What payment methods do you accept?', a: 'We accept Visa, Mastercard, FSA/HSA, Apple Pay, and Google Pay. You’ll see transparent, upfront pricing before you begin.' },
-  { q: 'What programs does WellPeps offer?', a: 'Weight Management, Hair Restoration, Sexual Wellness, and Healthy Aging & Vitality are available today, with Hormone Optimization and Mental Wellness coming soon.' },
+  { q: 'What programs does WellPeps offer?', a: 'Weight Management, Hair Restoration, Sexual Wellness, and Healthy Aging & Vitality are available today, with Hormone Optimization coming soon.' },
 ];

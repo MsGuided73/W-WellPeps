@@ -1,7 +1,7 @@
 ---
 import StandardProductCard from '../../StandardProductCard.astro';
-import EverythingIncludedStrip from '../../EverythingIncludedStrip.astro';
 import { sexProducts, sexProductsIntro } from '../../../data/sexual';
+import { MEMBER_PRICE_NOTE } from '../../../config';
 ---
 <!-- White background: the pale-blue education section sits directly above, and
      the client flagged two consecutive blue-tinted bands. -->
@@ -30,9 +30,8 @@ import { sexProducts, sexProductsIntro } from '../../../data/sexual';
       ))}
     </div>
 
-    <p class="sxprod__foot reveal">{sexProductsIntro.footnote}</p>
-
-    <EverythingIncludedStrip />
+    <p class="sxprod__foot reveal">{MEMBER_PRICE_NOTE}</p>
+    <p class="sxprod__foot sxprod__foot--sub reveal">{sexProductsIntro.footnote}</p>
   </div>
 </section>
 
@@ -42,6 +41,7 @@ import { sexProducts, sexProductsIntro } from '../../../data/sexual';
   .sxprod__lead { margin-top: 1rem; font-size: var(--text-lead); color: var(--text-body); }
   .sxprod__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: clamp(2.5rem, 4vw, 3.5rem); }
   .sxprod__foot { text-align: center; margin-top: 2rem; color: var(--blue); font-weight: 700; font-size: var(--text-note); }
+  .sxprod__foot--sub { margin-top: 0.75rem; }
 
   @media (max-width: 1200px) { .sxprod__grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 620px) { .sxprod__grid { grid-template-columns: 1fr; max-width: 420px; margin-inline: auto; } }

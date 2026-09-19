@@ -32,7 +32,7 @@ export const programs: Program[] = [
     imageAlt: 'Smiling man outdoors',
     // Derived from the one launch switch so this card, the program page band,
     // and the product-card ribbons all flip together. Renders exactly like the
-    // Hormone Optimization and Mental Wellness cards while true.
+    // Hormone Optimization card while true.
     status: HAIR_COMING_SOON ? 'coming-soon' : 'live',
     // Points at the notify band rather than the top of the page, so the card's
     // "Notify Me" CTA lands on the form it promises.
@@ -67,15 +67,5 @@ export const programs: Program[] = [
     imageAlt: 'Man smiling in a bright kitchen',
     status: 'coming-soon',
     href: '/hormone-optimization',
-  },
-  {
-    slug: 'mental-wellness',
-    title: 'Mental Wellness',
-    tagline: 'Find Your Balance',
-    blurb: 'Support your mental well-being, reduce stress, and improve your everyday life.',
-    image: '/images/program-mental.webp',
-    imageAlt: 'Woman relaxing outdoors at golden hour',
-    status: 'coming-soon',
-    href: '/mental-wellness',
   },
 ];

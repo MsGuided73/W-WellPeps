@@ -153,11 +153,10 @@ export const knowledgeBase: KnowledgeDoc[] = [
     source: 'program',
     tags: ['programs', 'offer', 'services', 'treatments', 'what do you offer'],
     answer:
-      'WellPeps offers Weight Management, Hair Restoration, Sexual Wellness, and Healthy Aging & Vitality today. Hormone Optimization and Mental Wellness are coming soon — you can join the waitlist for those.',
+      'WellPeps offers Weight Management, Hair Restoration, Sexual Wellness, and Healthy Aging & Vitality today. Hormone Optimization is coming soon — you can join the waitlist.',
     body: `Available programs: Weight Management (personalized medical weight management), Hair Restoration
       (provider-guided regrowth treatments), Sexual Wellness (performance, confidence and intimacy), and
-      Healthy Aging & Vitality. Coming soon: Hormone Optimization
-      and Mental Wellness.`,
+      Healthy Aging & Vitality. Coming soon: Hormone Optimization.`,
   },
   {
     id: 'program-assessment',

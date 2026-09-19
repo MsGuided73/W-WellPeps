@@ -1,7 +1,7 @@
 ---
 import PeptideCard from '../../PeptideCard.astro';
-import EverythingIncludedStrip from '../../EverythingIncludedStrip.astro';
 import { peptideProducts, peptideProductsIntro, peptideProductsFootnote } from '../../../data/peptide';
+import { MEMBER_PRICE_NOTE } from '../../../config';
 ---
 <section class="section section--gray" id="peptide-products">
   <div class="container">
@@ -14,9 +14,8 @@ import { peptideProducts, peptideProductsIntro, peptideProductsFootnote } from '
       {peptideProducts.map((product) => <PeptideCard product={product} />)}
     </div>
 
-    <p class="pprod__foot reveal">{peptideProductsFootnote}</p>
-
-    <EverythingIncludedStrip />
+    <p class="pprod__foot reveal">{MEMBER_PRICE_NOTE}</p>
+    <p class="pprod__foot pprod__foot--sub reveal">{peptideProductsFootnote}</p>
   </div>
 </section>
 
@@ -34,6 +33,7 @@ import { peptideProducts, peptideProductsIntro, peptideProductsFootnote } from '
     max-width: 1280px; margin-inline: auto;
   }
   .pprod__foot { text-align: center; margin-top: 2rem; color: var(--blue); font-weight: 700; font-size: var(--text-note); max-width: 760px; margin-inline: auto; }
+  .pprod__foot--sub { margin-top: 0.75rem; }
 
   @media (max-width: 900px) { .pprod__grid { grid-template-columns: 1fr; max-width: 560px; } }
 </style>

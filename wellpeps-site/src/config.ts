@@ -103,6 +103,11 @@ assertTrustedLinks([
  */
 export const HAIR_COMING_SOON = !isLinked(SCRIPTFUL_HAIR_PRODUCT_URL);
 
+/** Shown under every product grid. Prices are the member price; the monthly
+ *  membership and shipping are charged separately (pricing decision 2026-09-17). */
+export const MEMBER_PRICE_NOTE =
+  'Member price. Monthly membership fee not included. Shipping costs are shown at checkout.';
+
 /** Existing-patient login on GEN Health. Opens in the same tab: the portal is on
  *  our own domain and branding, so it is the next screen of one product, not an
  *  external site (decided 2026-09-19). Linked from the nav and the footer. */

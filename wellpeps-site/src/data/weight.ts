@@ -6,8 +6,8 @@
  * sourced from WellPeps_Medication_Master_Database_v1 (Weight Management rows)
  * and the approved Weight Management page mockups.
  *
- * NOTE (client): pricing shown is the "starting as low as" figure; the master
- * DB notes these are 52-week starting prices (reflected in the "*" footnote).
+ * NOTE (client): pricing shown is the member price; the membership fee and
+ * shipping are separate (MEMBER_PRICE_NOTE under the grid). New prices pending.
  */
 
 
@@ -100,7 +100,6 @@ export const weightProductsIntro = {
   title: 'Weight Management Treatments',
   lead: 'Every treatment begins with a free online health assessment. A licensed healthcare provider will review your health history, symptoms, and wellness goals before recommending a personalized weight management plan—if clinically appropriate.',
   footnote: 'Prescription required. Treatment recommendations depend on your assessment and provider evaluation.',
-  priceFootnote: '* Starting price reflects a 52-week plan. Actual pricing depends on your provider’s recommended plan.',
 };
 
 export const weightProducts: PillProduct[] = [
@@ -118,7 +117,6 @@ export const weightProducts: PillProduct[] = [
     delivery: { label: 'Weekly Injection', icon: 'syringe' },
     price: '179',
     priceUnit: '/month',
-    priceNote: '52-week starting price',
   },
   {
     name: 'Compounded Tirzepatide',
@@ -134,7 +132,6 @@ export const weightProducts: PillProduct[] = [
     delivery: { label: 'Weekly Injection', icon: 'syringe' },
     price: '269',
     priceUnit: '/month',
-    priceNote: '52-week starting price',
   },
   {
     name: 'Oral Semaglutide',
@@ -150,7 +147,6 @@ export const weightProducts: PillProduct[] = [
     delivery: { label: 'Daily Tablet', icon: 'pill' },
     price: '209',
     priceUnit: '/month',
-    priceNote: '52-week starting price',
   },
 ];
 
