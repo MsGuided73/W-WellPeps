@@ -44,7 +44,7 @@ export const safety = [
 /* ---- Section 8: Wellness Insights & Resources (blog) ---- */
 export const insights = [
   { title: 'Understanding GLP-1 Weight Management', body: 'Learn how GLP-1 medications work, who they’re for, and what results you can expect with a personalized plan.', image: '/images/insight-glp1.webp', alt: 'Woman running outdoors', href: '/wellness-learning-center/understanding-glp1-medications' },
-  { title: 'How Peptide Therapies May Support Recovery & Vitality', body: 'Discover the potential benefits of peptide therapies for energy, recovery, and overall wellness.', image: '/images/insight-peptide.webp', alt: 'Peptide medication vial on a counter', href: '/wellness-learning-center/what-are-peptides' },
+  { title: 'What Are Peptides? Understanding Peptide Therapy', body: 'What peptides are, how they function in the body, and how a provider evaluates whether peptide therapy may be appropriate.', image: '/images/insight-peptide.webp', alt: 'Peptide medication vial on a counter', href: '/wellness-learning-center/what-are-peptides' },
   { title: 'Understanding Hair Loss Treatment Options', body: 'Explore proven solutions for thinning hair and hair loss, and how personalized treatment can help you see real results.', image: '/images/insight-hair.webp', alt: 'Man examining his hairline in a mirror', href: '/wellness-learning-center/understanding-hair-loss' },
 ];
 
@@ -57,5 +57,5 @@ export const faqs = [
   { q: 'How are medications delivered?', a: 'If prescribed, medications are prepared by licensed U.S. pharmacies and shipped directly to your home in discreet, secure packaging.' },
   { q: 'Is my personal information secure?', a: 'Absolutely. Your health data is encrypted and handled under strict HIPAA standards. Your privacy is protected at every step.' },
   { q: 'What payment methods do you accept?', a: 'We accept Visa, Mastercard, FSA/HSA, Apple Pay, and Google Pay. You’ll see transparent, upfront pricing before you begin.' },
-  { q: 'What programs does WellPeps offer?', a: 'Weight Management, Hair Restoration, Sexual Wellness, and Wellness & Longevity are available today, with Hormone Optimization and Mental Wellness coming soon.' },
+  { q: 'What programs does WellPeps offer?', a: 'Weight Management, Hair Restoration, Sexual Wellness, and Healthy Aging & Vitality are available today, with Hormone Optimization and Mental Wellness coming soon.' },
 ];

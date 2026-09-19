@@ -1,6 +1,7 @@
 ---
 import Icon from './Icon.astro';
-import { NAV_LINKS, ONBOARDING_URL, PATIENT_PORTAL_URL } from '../config';
+import AssessmentCta from './AssessmentCta.astro';
+import { NAV_LINKS, PATIENT_PORTAL_URL } from '../config';
 ---
 <header class="nav" data-nav>
   <div class="container-wide nav__inner">
@@ -10,13 +11,13 @@ import { NAV_LINKS, ONBOARDING_URL, PATIENT_PORTAL_URL } from '../config';
 
     <nav class="nav__links" data-nav-menu aria-label="Primary">
       {NAV_LINKS.map((l) => <a href={l.href}>{l.label}</a>)}
-      <a href={PATIENT_PORTAL_URL} class="btn btn--secondary nav__links-cta nav__links-portal" target="_blank" rel="noopener">Patient Portal</a>
-      <a href={ONBOARDING_URL} class="btn btn--primary nav__links-cta">Start Free Assessment</a>
+      <a href={PATIENT_PORTAL_URL} class="btn btn--secondary nav__links-cta nav__links-portal">Patient Portal</a>
+      <AssessmentCta class="btn btn--primary nav__links-cta" />
     </nav>
 
     <div class="nav__cta">
-      <a href={PATIENT_PORTAL_URL} class="btn btn--secondary nav__cta-btn" target="_blank" rel="noopener">Patient Portal</a>
-      <a href={ONBOARDING_URL} class="btn btn--primary nav__cta-btn">Start Free Assessment</a>
+      <a href={PATIENT_PORTAL_URL} class="btn btn--secondary nav__cta-btn">Patient Portal</a>
+      <AssessmentCta class="btn btn--primary nav__cta-btn" />
     </div>
 
     <button class="nav__toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false">
@@ -46,7 +47,7 @@ import { NAV_LINKS, ONBOARDING_URL, PATIENT_PORTAL_URL } from '../config';
     max-width: var(--content-max);
     padding-inline: var(--gutter);
   }
-  .brand { display: flex; align-items: center; }
+  .brand { display: flex; align-items: center; flex: none; }
   .brand__logo { height: 54px; width: auto; display: block; }
   .nav__links {
     display: flex; align-items: center; gap: 1.9rem;

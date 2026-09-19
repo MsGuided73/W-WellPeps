@@ -1,0 +1,56 @@
+[
+  {
+    "id": "bf59f4f9-d361-472f-bc82-20f15acf8a29",
+    "slug": "weight-management",
+    "name": "Weight Management",
+    "description": "GLP-1 medications, eligibility, side effects, and the habits that support long-term results.",
+    "position": 1,
+    "created_at": "2026-07-20T15:35:32.080955+00:00",
+    "updated_at": "2026-07-20T15:35:32.080955+00:00"
+  },
+  {
+    "id": "280ff9fd-6ad7-46ff-9f81-bbe8a19c1433",
+    "slug": "sexual-wellness",
+    "name": "Sexual Wellness",
+    "description": "Erectile dysfunction, libido, treatment options, and the lifestyle factors behind them.",
+    "position": 2,
+    "created_at": "2026-07-20T15:35:32.080955+00:00",
+    "updated_at": "2026-07-20T15:35:32.080955+00:00"
+  },
+  {
+    "id": "e9052af0-d2a5-4eec-a0ce-bda2961a0867",
+    "slug": "hair-restoration",
+    "name": "Hair Restoration",
+    "description": "Why hair thins, how minoxidil and finasteride work, and what a realistic timeline looks like.",
+    "position": 3,
+    "created_at": "2026-07-20T15:35:32.080955+00:00",
+    "updated_at": "2026-07-20T15:35:32.080955+00:00"
+  },
+  {
+    "id": "79c9fe65-3637-4d8d-b60f-17a9a43f4638",
+    "slug": "peptides-wellness",
+    "name": "Peptides & Wellness Therapies",
+    "description": "Peptide therapy explained, plus NAD+, sermorelin, MIC + B12, glutathione, and recovery support.",
+    "position": 4,
+    "created_at": "2026-07-20T15:35:32.080955+00:00",
+    "updated_at": "2026-07-20T15:35:32.080955+00:00"
+  },
+  {
+    "id": "d2a8dbd5-55d8-4a72-950a-335de031dff8",
+    "slug": "wellness-foundations",
+    "name": "Wellness Foundations",
+    "description": "Sleep, nutrition, hydration, exercise, stress, and healthy aging — the fundamentals underneath every program.",
+    "position": 5,
+    "created_at": "2026-07-20T15:35:32.080955+00:00",
+    "updated_at": "2026-07-20T15:35:32.080955+00:00"
+  },
+  {
+    "id": "a79bf48d-3daf-41e4-afd9-8bfbf8dfbee3",
+    "slug": "telehealth-resources",
+    "name": "Telehealth & Patient Resources",
+    "description": "How online care works, what to expect from your visit, privacy, lab testing, and prescription delivery.",
+    "position": 6,
+    "created_at": "2026-07-20T15:35:32.080955+00:00",
+    "updated_at": "2026-07-20T15:35:32.080955+00:00"
+  }
+]

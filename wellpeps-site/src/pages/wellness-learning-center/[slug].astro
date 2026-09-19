@@ -9,18 +9,13 @@
  * them independently of the prose.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Icon from '../../components/Icon.astro';
 import EverythingIncludedStrip from '../../components/EverythingIncludedStrip.astro';
 import HairTreatmentOptions from '../../components/sections/HairTreatmentOptions.astro';
 import PeptideTherapies from '../../components/sections/PeptideTherapies.astro';
 import SexualTreatmentOptions from '../../components/sections/SexualTreatmentOptions.astro';
 import WeightTreatmentOptions from '../../components/sections/WeightTreatmentOptions.astro';
-import {
-  ONBOARDING_URL,
-  PEPTIDE_ONBOARDING_URL,
-  SEXUAL_ONBOARDING_URL,
-  WEIGHT_ONBOARDING_URL,
-} from '../../config';
+import AssessmentCta from '../../components/AssessmentCta.astro';
+import type { ProgramSlug } from '../../lib/cta';
 import { getArticles, getRelatedArticles, type ArticleWithCategory } from '../../lib/blog';
 import { withToc } from '../../lib/toc';
 
@@ -40,27 +35,37 @@ const { article } = Astro.props;
 const { html: bodyHtml, toc } = withToc(article.body_html);
 const related = await getRelatedArticles(article);
 
-/* Treatment inserts are scoped per category; matching on the name keeps
-   this stable if a slug ever changes. Each renders between the article's
-   closing prose section and Key Takeaways. */
-const showTherapies = article.category.name.toLowerCase().includes('peptide');
-const showSexualTreatments = article.category.name.toLowerCase().includes('sexual');
-const showWeightTreatments = article.category.name.toLowerCase().includes('weight');
-const showHairTreatments = article.category.name.toLowerCase().includes('hair');
+/* Treatment inserts are scoped per category, matched on the SLUG. Each renders
+   between the article's closing prose section and Key Takeaways.
+
+   This matched on category.name until 2026-09-19, on the reasoning that a name
+   is steadier than a slug. It is the other way round: the name is editorial
+   copy shown to readers, so it changes whenever marketing or compliance renames
+   a programme — "Peptides & Wellness Therapies" became "Healthy Aging &
+   Vitality" that day, which would have silently dropped the insert and the
+   Everything Included bar from six articles with no error and a green build.
+   The slug is an identifier nobody renames casually, and categoryIcon() already
+   depends on it. */
+const showTherapies = article.category.slug === 'peptides-wellness';
+const showSexualTreatments = article.category.slug === 'sexual-wellness';
+const showWeightTreatments = article.category.slug === 'weight-management';
+const showHairTreatments = article.category.slug === 'hair-restoration';
 /* The "Everything Included." bar accompanies every treatment insert, but in
    the rail (client direction) rather than below the insert's product cards. */
 const showIncludedBar =
   showTherapies || showSexualTreatments || showWeightTreatments || showHairTreatments;
 
-/* Categories whose intake is live deep-link straight to it; the rest still
-   fall back to the generic onboarding URL until their intake URLs land. */
-const assessmentHref = showSexualTreatments
-  ? SEXUAL_ONBOARDING_URL
+/* Articles in a treatment category start that program's assessment; anything
+   else gets the generic CTA. */
+const assessmentProgram: ProgramSlug | undefined = showSexualTreatments
+  ? 'sexual-wellness'
   : showWeightTreatments
-    ? WEIGHT_ONBOARDING_URL
-    : showTherapies
-      ? PEPTIDE_ONBOARDING_URL
-      : ONBOARDING_URL;
+    ? 'weight-loss'
+    : showHairTreatments
+      ? 'hair-restoration'
+      : showTherapies
+        ? 'healthy-aging'
+        : undefined;
 
 const updated = article.published_at
   ? new Date(article.published_at).toLocaleDateString('en-US', {
@@ -146,10 +151,7 @@ const updated = article.published_at
           <div class="rail__card rail__card--cta">
             <h2 class="rail__title">{article.cta_title}</h2>
             <div class="rail__body" set:html={article.cta_html} />
-            <a href={assessmentHref} class="btn btn--primary rail__btn">
-              Start Free Assessment
-              <Icon name="arrow-right" />
-            </a>
+            <AssessmentCta program={assessmentProgram} class="btn btn--primary rail__btn" arrow />
           </div>
         )}
 
@@ -172,10 +174,7 @@ const updated = article.published_at
           information to create a plan that's right for you.
         </p>
       </div>
-      <a href={assessmentHref} class="btn btn--primary btn--lg">
-        Start Free Assessment
-        <Icon name="arrow-right" />
-      </a>
+      <AssessmentCta program={assessmentProgram} class="btn btn--primary btn--lg" arrow />
     </section>
   </div>
 </BaseLayout>

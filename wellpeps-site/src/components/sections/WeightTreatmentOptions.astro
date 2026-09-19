@@ -34,7 +34,7 @@ const plans: Plan[] = [
     alt: 'Compounded semaglutide injection vial',
     price: 179,
     features: [
-      { text: 'All-Inclusive Pricing', highlight: true },
+      { text: 'Transparent Pricing', highlight: true },
       { text: 'Weekly injection' },
       { text: 'Helps regulate appetite' },
     ],
@@ -45,7 +45,7 @@ const plans: Plan[] = [
     alt: 'Compounded tirzepatide injection vial',
     price: 269,
     features: [
-      { text: 'All-Inclusive Pricing', highlight: true },
+      { text: 'Transparent Pricing', highlight: true },
       { text: 'Dual GIP/GLP-1 medication' },
       { text: 'Weekly injection' },
     ],
@@ -56,7 +56,7 @@ const plans: Plan[] = [
     alt: 'Oral semaglutide tablets',
     price: 209,
     features: [
-      { text: 'All-Inclusive Pricing', highlight: true },
+      { text: 'Transparent Pricing', highlight: true },
       { text: 'Needle-free option' },
       { text: 'Daily tablet' },
     ],
@@ -213,7 +213,10 @@ const plans: Plan[] = [
   }
   .wocard__feature svg { flex: none; }
   .wocard__feature span { font-size: var(--text-body-size); line-height: 1.35; }
-  /* "All-Inclusive Pricing" pill per the comp — filled light-sky row. */
+  /* Highlighted first-feature pill per the comp — filled light-sky row.
+     Read "All-Inclusive Pricing" until 2026-09-19; changed because a monthly
+     membership is charged alongside the medication price, so "all-inclusive"
+     was no longer true. See docs/compliance/reviews/2026-09-18-page-peptides.md F10. */
   .wocard__feature--hi {
     background: var(--bg-light-sky);
     border-radius: 8px;

@@ -3,8 +3,10 @@
 **Source:** PeptideJournal, "Are Peptides Legal? State-by-State Guide"
 (https://www.peptidejournal.org/legal/are-peptides-legal-state-by-state-guide).
 Published Nov 11, 2025, last updated Feb 2026.
-**Compiled:** Sep 13, 2026. The source is ~7 months old; items marked ⚠ VERIFY have
-likely moved since then.
+**Compiled:** Sep 13, 2026. **Verified:** Sep 15, 2026 against primary sources
+(FDA interim 503A category list dated May 14, 2026, DEA/Federal Register, PCAC
+July 2026 outcome, state actions through Aug 2026). See § 12 for the log and the
+next re-check dates. Items still marked ⚠ VERIFY are counsel questions, not facts.
 
 > This is a working checklist distilled from a secondary source, not legal advice.
 > Have counsel confirm before launch, especially anything in § 1 and § 8.
@@ -32,19 +34,41 @@ clothes, and that is exactly the pattern the FDA and state AGs are targeting.
 ### Tier 1: FDA-approved peptide drugs (Model B only, valid Rx required)
 Semaglutide, tirzepatide, liraglutide, leuprolide, octreotide, tesamorelin, bremelanotide.
 
-### Tier 2: Category 1 compoundable (Model B only, licensed 503A/503B pharmacy + Rx)
-Sermorelin, gonadorelin, GHK-Cu (topical), VIP, NAD+.
+### Tier 2: 503A-compoundable without FDA approval (Model B only, licensed 503A pharmacy + Rx)
+Two legal bases, verified Sep 15, 2026 against FDA's interim 503A category list (May 14, 2026):
+- **Category 1 (under evaluation, interim enforcement discretion):** NAD+ (NAD and NADH), glutathione,
+  methylcobalamin, acetyl-L-carnitine, vasoactive intestinal peptide, GHK-Cu **non-injectable routes only**
+  (the injectable nomination was withdrawn April 22, 2026; PCAC review of GHK-Cu due by Feb 2027).
+- **Not on the category lists; compounded on the basis of a prior FDA approval:** sermorelin (Geref,
+  discontinued 2008 for manufacturing reasons; FDA determined in 2013 it was not withdrawn for safety or
+  effectiveness) and gonadorelin (Factrel). Methylene blue (ProvayBlue), levocarnitine (Carnitor), and
+  cyanocobalamin are components of currently approved drugs. Sermorelin's basis is the least settled of
+  these; ⚠ VERIFY with the dispensing pharmacy and counsel that they rely on it and document why.
 
-### Tier 3: Category 2/3, NOT compoundable, NOT for human use (Model A only, true research)
-BPC-157, TB-500, CJC-1295, ipamorelin, AOD-9604, Melanotan II, Selank, Semax, KPV, DSIP, Epitalon.
+### Tier 3: NOT 503A-eligible today, NOT for human use (Model A only, true research)
+BPC-157, TB-500, CJC-1295, ipamorelin, AOD-9604, Melanotan II, Selank, Semax, KPV, DSIP (emideltide),
+Epitalon, MOTS-c, thymosin alpha-1, LL-37, DiHexa, PEG-MGF, GHRP-2, GHRP-6, injectable GHK-Cu.
+
+Status change since Feb 2026, verified Sep 15, 2026: FDA removed 12 peptides from Category 2 effective
+April 22, 2026 (nominations withdrawn), leaving Category 2 with only cesium chloride, domperidone,
+germanium sesquioxide, ibutamoren, kisspeptin-10, and intrauterine quinacrine. **None of the removed
+peptides were placed in Category 1.** They are unlisted, which means no enforcement discretion and no
+503A basis to compound. PCAC voted July 23-24, 2026 to recommend BPC-157, KPV, TB-500 (8-6-1 each),
+MOTS-c (7-5-2), Epitalon (7-4-1), and Semax (8-5-1) for the 503A bulks list and against emideltide
+(6-7-1). Votes are advisory; FDA rulemaking is expected to run into 2027. GHRP-2 and GHRP-6 remain
+Category 3. **The marketing rule does not change: none of these may appear as a WellPeps therapy,
+benefit, or program until FDA finalizes a listing.**
 
 - [ ] Every SKU is assigned a tier and the tier is recorded in the product master.
 - [ ] Tier 3 items are never sold with human-use context (see § 3).
 - [ ] Tier 1/2 items are never sold without a prescription workflow.
 - [ ] No human growth hormone (somatropin). It has its own federal restriction, 21 U.S.C. 333(e).
 - [ ] No growth hormone secretagogues marketed for sport (WADA-prohibited; see § 7).
-- [ ] ⚠ VERIFY: no new DEA scheduling of GHS peptides since Feb 2026.
-- [ ] ⚠ VERIFY: FDA 503A bulks category list for any peptide moved between categories.
+- [x] Verified Sep 15, 2026: no DEA scheduling action on GHS peptides located. Ibutamoren (MK-677) is
+      FDA Category 2, not DEA-scheduled. Re-check quarterly.
+- [x] Verified Sep 15, 2026 against FDA list dated May 14, 2026 (saved at
+      `docs/compliance/sources/FDA-503A-interim-categories-2026-05-14.pdf`). See Tier 2 and Tier 3 above.
+      Re-check after FDA acts on the July 2026 PCAC votes and after the Feb 2027 PCAC meeting.
 
 ---
 
@@ -86,9 +110,12 @@ Per the guide, an RUO label gives **no protection** if the presentation targets 
 - [ ] Licensed physician evaluation before every prescription. No "peptide mill" intake (state medical boards are auditing these).
 - [ ] Documented standard-of-care assessment and informed consent per patient.
 - [ ] Legitimate patient-provider relationship established (remote is fine in most states; New York has extra rules since May 2025).
-- [ ] Non-controlled substances only via telehealth unless you also meet DEA telemedicine rules (flexibilities run through Dec 31, 2026 ⚠ VERIFY extension).
+- [ ] Non-controlled substances only via telehealth unless you also meet DEA telemedicine rules (fourth temporary extension confirmed Sep 15, 2026: DEA/HHS rule published Dec 31, 2025, Federal
+  Register 2025-24123, flexibilities run through Dec 31, 2026; the Special Registration for Telemedicine
+  final rule went to OIRA Aug 25, 2026 with final action expected Nov 2026, so expect new requirements with
+  weeks of lead time; re-check Nov 2026).
 - [ ] Fulfilment only through licensed 503A/503B pharmacies. Never compound in a clinic or medspa (Connecticut explicitly prohibited this for GLP-1s, May 2025).
-- [ ] GLP-1 marketing: no "generic," no "clinically proven," no implication that the compounded product equals the branded drug (FDA Sept 2025 warning letters).
+- [ ] GLP-1 marketing: no "generic," no "clinically proven," no "same as" or implication that the compounded product equals the branded drug. Verified Sep 15, 2026: FDA issued 55+ warning letters Sept 16, 2025 (30 to telehealth firms) citing "sameness" claims and trademark use that obscured the compounding source; FDA press release Feb 2026 announcing action against non-approved GLP-1s; warning to 503B facilities April 1, 2026; April 30, 2026 proposal to remove semaglutide, tirzepatide, and liraglutide from the 503B bulks list (comments closed June 29, 2026, final determination pending). 503A patient-specific compounding is unaffected by the 503B proposal but must still meet the "essentially a copy" test with documented individual need; cost or preference is not enough.
 - [ ] State licensing: physician licensed in the patient's state; pharmacy licensed to ship into the patient's state; wholesale distributor license where required.
 - [ ] Prescription drug monitoring program check where controlled substances are involved (California CURES).
 
@@ -118,7 +145,14 @@ Only 15 states are named in the guide. Treat unlisted states as "follows federal
 
 **Practical geo rules for Model A:** block or heavily restrict CT, AL, NY, CA at minimum. The guide's enforcement examples are all AG consumer-protection actions, which do not need FDA involvement.
 
-- [ ] ⚠ VERIFY: since Feb 2026, check every state for new minor-access laws (NY and CA pattern is spreading) and new AG peptide actions.
+- [x] Verified Sep 15, 2026 (state matrix above stands; additions below):
+      - NY GBL § 391-oo upheld by the Second Circuit in 2025 (*Council for Responsible Nutrition v. James*, 159 F.4th 155). Age gate for NY stays.
+      - CA AB 2030 (under-18 OTC diet pill and muscle-building supplement ban) passed the Legislature Aug 27, 2026; governor action pending, deadline Sept 30, 2026. Treat CA as an age-gate state now; re-check Oct 1, 2026.
+      - Bills only, not enacted as of the latest sources: CO, IL, MA, MI, MO, NJ, RI, WA, TX, VA, NH.
+      - CA rewrote its compounding regulations effective Oct 1, 2025 (stricter "essentially a copy" test; COA must name the API manufacturer). Pharmacy partner must meet it for CA patients.
+      - OH: July 2025 board guidance treats semaglutide and tirzepatide as no longer compoundable post-shortage, bans retatrutide and cagrilintide, and has summarily suspended 30+ clinics and med spas since early 2025.
+      - Federal: April 1, 2026 indictment of a Utah osteopathic physician for selling misbranded peptides (tirzepatide, semaglutide, retatrutide, cagrilintide, BPC-157, TB-500, ipamorelin, CJC-1295, GHK-Cu, NAD+) to 200+ patients. Enforcement has moved from sellers to prescribers.
+      - No new AG peptide actions in AL, CT, or PA located beyond those listed in § 5.
 
 ---
 
@@ -192,6 +226,19 @@ Place on every page footer, product page, checkout, and label as applicable.
 6. [ ] Confirm DEA telemedicine flexibilities status (current expiry Dec 31, 2026).
 
 ---
+
+## 12. Verification log
+
+| Date | Item | Result | Source | Re-check |
+|---|---|---|---|---|
+| 2026-09-15 | FDA 503A interim categories | NAD+, glutathione, methylcobalamin, acetyl-L-carnitine, VIP, non-injectable GHK-Cu in Category 1. Category 2 holds no peptides except kisspeptin-10 and ibutamoren. 12 peptides removed from Category 2 on April 22, 2026 are unlisted, not Category 1. GHRP-2/GHRP-6 Category 3. Sermorelin and gonadorelin not on any list. | FDA list "Updated May 14, 2026", `docs/compliance/sources/FDA-503A-interim-categories-2026-05-14.pdf` | After FDA acts on PCAC votes; Feb 2027 PCAC |
+| 2026-09-15 | PCAC July 23-24, 2026 | Six of seven peptides recommended for 503A list; emideltide rejected. Advisory only; rulemaking into 2027. | FDA PCAC meeting page; McDermott Jul 27, 2026; Restore Health Aug 17, 2026 | Quarterly |
+| 2026-09-15 | DEA scheduling of GHS peptides | None found. | Search of DEA and legal commentary | Quarterly |
+| 2026-09-15 | DEA telemedicine flexibilities | Extended through Dec 31, 2026 (FR 2025-24123, Dec 31, 2025). Special-registration final rule at OIRA since Aug 25, 2026, expected Nov 2026. | DEA press release Dec 31, 2025; HHS; McDermott+; Telehealth.org | Nov 2026 |
+| 2026-09-15 | FDA GLP-1 compounding | Sept 16, 2025 warning letters (55+, 30 telehealth); Feb 2026 press release; April 1, 2026 503B warning; April 30, 2026 proposal to drop sema/tirz/lira from 503B bulks list, comments closed June 29, 2026, final pending. | FDA warning letter 715883; Orrick May 1, 2026; AJMC; Pharmacy Times | On FDA final determination |
+| 2026-09-15 | State minor-access laws | NY enacted and upheld (2d Cir. 2025). CA AB 2030 passed Aug 27, 2026, governor pending. Others bills only. | Holland & Knight Feb 2026; SupplySide; Nutraceuticals World | Oct 1, 2026 |
+| 2026-09-15 | State enforcement since Feb 2026 | CA compounding regs Oct 1, 2025; OH 30+ suspensions; CT AG May 2025; Utah federal indictment April 1, 2026. Matrix in § 5 stands. | Sheppard Mullin Aug 10, 2026; Stevens & Lee | Quarterly |
+| 2026-09-15 | NY self-attested DOB for supplement sales | Not verifiable from public sources; counsel question. | — | Counsel |
 
 ## Bottom line from the guide
 

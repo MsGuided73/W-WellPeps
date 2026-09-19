@@ -1,0 +1,74 @@
+{
+  "host": "portal.wellpeps.com",
+  "purpose": "Branded patient portal login on Scriptful's GEN Health platform. Patients sign in here; wellpeps.com never handles PHI.",
+  "provider": "GEN Health (Scriptful)",
+  "dnsProvider": "Cloudflare",
+  "addedOn": "2026-09-16",
+  "verifiedOn": "2026-09-16",
+  "note": "Root domains are not supported by GEN Health — a branded portal must be a subdomain. Paste each Host exactly as shown; Cloudflare appends '.wellpeps.com' automatically.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "portal",
+      "value": "portals.gen-health.app",
+      "proxy": "DNS only (grey cloud)",
+      "why": "Routes the branded host to the GEN Health portal edge. Must stay unproxied so Google Certificate Manager can complete issuance.",
+      "verified": "Resolves to portals.gen-health.app -> 136.68.24.35 (not a Cloudflare proxy range, so grey-cloud is confirmed)."
+    },
+    {
+      "type": "TXT",
+      "host": "_gen-health.portal",
+      "value": "gen-health-domain-verification=9db03a7b0b7f808f05c35ea1dbd4d353e25ff0485e7b53d5",
+      "why": "Proves domain ownership to GEN Health.",
+      "verified": "Present and returning the expected token."
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge.portal",
+      "value": "8b5e5e97-b9e6-41b8-98c1-b6447ad4c104.17.authorize.certificatemanager.goog",
+      "why": "Delegates ACME validation to Google Certificate Manager so it can issue the TLS certificate for portal.wellpeps.com.",
+      "verified": "Present and resolving."
+    }
+  ],
+  "status": {
+    "dns": "All three records live and resolving as of 2026-09-16.",
+    "tls": "ACTIVE as of 2026-09-16 17:51 UTC. Google Trust Services (WR3) issued a certificate for CN=portal.wellpeps.com, SAN DNS:portal.wellpeps.com, valid 2026-09-16 to 2026-12-15. HTTPS verifies clean (200, ssl=0) and the portal shell serves branded (<title>WellPeps</title>). Renewal is automatic - the _acme-challenge CNAME and the grey-cloud setting on the portal CNAME must both stay in place for it.",
+    "checkCommand": "curl -sS -o /dev/null -w '%{http_code} ssl=%{ssl_verify_result}\n' https://portal.wellpeps.com/   # 200 ssl=0",
+    "activation": "Complete. Check DNS and Activate were run on 2026-09-16 and the domain activated on its own once the certificate issued."
+  },
+  "relatedOptional": {
+    "emailDomain": {
+      "status": "ACTIVE as of 2026-09-16.",
+      "senderAddress": "notifications@wellpeps.com",
+      "provider": "Postmark (return path targets pm.mtasv.net)",
+      "records": [
+        {
+          "type": "TXT",
+          "host": "20260916181147pm._domainkey",
+          "value": "k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCokX5CiziIZmQrjagKFSElBmuUR88h39trHTpJIZMOMp13FBkcHyhF1s58okZT3s3kFz4BTw8HTDDLu87RJKzk7Dm3LW8BXcsZpfN0raQlOoRLglTEC7cIBrCuCu46z9ti1/fFco2yRr/7HHemoqPec3pv2WybcYEcz5n+PK9mUwIDAQAB",
+          "why": "DKIM public key. Signs patient email as wellpeps.com, which is what gives DMARC alignment.",
+          "verified": "Read back from live DNS rather than transcribed from the dashboard screenshot - the key contains characters that are easy to misread by eye."
+        },
+        {
+          "type": "CNAME",
+          "host": "pm-bounces",
+          "value": "pm.mtasv.net",
+          "why": "Custom return path. SPF is evaluated against this host, not against wellpeps.com, which is why Postmark does not need to be added to the wellpeps.com SPF record.",
+          "verified": "Resolving. pm.mtasv.net publishes 'v=spf1 include:spf.mtasv.net -all', so SPF passes on the envelope sender."
+        }
+      ],
+      "deliverabilityPosture": {
+        "spf": "wellpeps.com publishes 'v=spf1 include:_spf.google.com ~all' (Google Workspace). Postmark is intentionally absent and does not need to be there - the pm-bounces return path carries its own SPF.",
+        "dkim": "Aligned to wellpeps.com via the selector above.",
+        "dmarc": "'v=DMARC1; p=none; rua=mailto:hello@wellpeps.com' - monitoring only. Consider tightening to quarantine once reports look clean."
+      }
+    }
+  },
+  "guide": "https://guides.genhealthehr.com/clients/getting-started/brand-your-portal",
+  "urlSlug": {
+    "slug": "wellpeps",
+    "brandedSignInLink": "https://app.genhealthehr.com/login?brand=wellpeps",
+    "why": "GEN Health's shared-host sign-in link, branded by slug. This is the fallback while the custom-domain certificate is pending, and it keeps working afterwards.",
+    "note": "Confirmed in GEN Health -> Settings -> Branding on 2026-09-16. Treat the slug as permanent: any link already shared with ?brand=wellpeps breaks if it is renamed."
+  }
+}

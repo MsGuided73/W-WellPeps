@@ -50,9 +50,9 @@ export const knowledgeBase: KnowledgeDoc[] = [
   },
   {
     id: 'peptide-basics',
-    title: 'How Peptide Therapies May Support Recovery & Vitality',
+    title: 'What Are Peptides? Understanding Peptide Therapy',
     source: 'article',
-    href: '/peptides',
+    href: '/healthy-aging',
     tags: ['peptide', 'peptides', 'sermorelin', 'nad', 'glutathione', 'longevity', 'energy', 'recovery'],
     answer:
       'Peptide therapies are designed to support your body at the cellular level. Depending on the therapy, patients pursue them for improved energy, recovery, healthy aging, mental focus, metabolic health, sleep, lean muscle support, and skin health. Every plan is personalized by a licensed provider.',
@@ -153,10 +153,10 @@ export const knowledgeBase: KnowledgeDoc[] = [
     source: 'program',
     tags: ['programs', 'offer', 'services', 'treatments', 'what do you offer'],
     answer:
-      'WellPeps offers Weight Management, Hair Restoration, Sexual Wellness, and Wellness & Longevity (peptide therapies) today. Hormone Optimization and Mental Wellness are coming soon — you can join the waitlist for those.',
+      'WellPeps offers Weight Management, Hair Restoration, Sexual Wellness, and Healthy Aging & Vitality today. Hormone Optimization and Mental Wellness are coming soon — you can join the waitlist for those.',
     body: `Available programs: Weight Management (personalized medical weight management), Hair Restoration
       (provider-guided regrowth treatments), Sexual Wellness (performance, confidence and intimacy), and
-      Wellness & Longevity (peptide therapies for energy and vitality). Coming soon: Hormone Optimization
+      Healthy Aging & Vitality. Coming soon: Hormone Optimization
       and Mental Wellness.`,
   },
   {

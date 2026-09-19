@@ -1,21 +1,27 @@
 ---
 /**
- * Peptide & Wellness Therapies — four-card therapy grid implemented from
- * the approved Claude Design comp ("Peptide Wellness Therapies.dc.html").
+ * Healthy Aging & Vitality therapies — four-card grid implemented from the
+ * approved Claude Design comp ("Peptide Wellness Therapies.dc.html").
  * The comp's "Everything Included." bar renders in the article rail instead
- * (client direction). Rendered inside the article
- * column on Peptide & Wellness Therapies learning-center articles, between
- * the prose and Key Takeaways, so the grid is tuned to a two-up layout at
- * article width rather than the comp's four-up full-bleed.
+ * (client direction). Rendered inside the article column on Healthy Aging &
+ * Vitality learning-center articles, between the prose and Key Takeaways, so
+ * the grid is tuned to a two-up layout at article width rather than the comp's
+ * four-up full-bleed.
+ *
+ * Name, tagline, description, bullets and price are READ FROM data/peptide.ts,
+ * not duplicated here. They used to be copied, and the copies were left behind
+ * when the programme page was rewritten for compliance on 2026-09-18 — this
+ * component went on serving the superseded claims inside six articles. Sourcing
+ * them makes that drift impossible. Only presentation (photo, vial, overlay
+ * geometry, icon path) is local, because the comp's art direction is per-card.
+ * See docs/compliance/reviews/2026-09-18-page-peptides.md F15.
  */
+import { peptideProducts, peptideProductsIntro } from '../../data/peptide';
+
 const IMG = '/images/peptide-therapies';
 
-interface Therapy {
-  name: string;
-  tagline: string;
-  description: string;
-  price: number;
-  features: [string, string, string];
+/** Per-card art direction from the comp. Keyed by the product name in peptide.ts. */
+interface CardArt {
   photo: string;
   photoAlt: string;
   vial: string;
@@ -25,14 +31,11 @@ interface Therapy {
   icon: string;
 }
 
-const therapies: Therapy[] = [
-  {
-    name: 'Glutathione',
-    tagline: 'Powerful Antioxidant Support',
-    description:
-      'Supports detoxification, immune health, and protection against oxidative stress.*',
-    price: 129,
-    features: ['All-Inclusive Pricing', 'Antioxidant Support', 'Cellular Health'],
+/* The comp shows four of the six therapies, in this order. */
+const CARD_ORDER = ['Glutathione', 'Sermorelin', 'MIC + B12', 'NAD+'] as const;
+
+const ART: Record<string, CardArt> = {
+  Glutathione: {
     photo: `${IMG}/photo-1.png`,
     photoAlt: 'Woman relaxing in warm sunlight',
     vial: `${IMG}/vial-1.png`,
@@ -40,13 +43,7 @@ const therapies: Therapy[] = [
     vialPos: 'left:71.4%;top:65.7%;width:25.4%',
     icon: 'M12 3.5l6.5 2.4v4.8c0 4.2-2.8 7.2-6.5 8.8-3.7-1.6-6.5-4.6-6.5-8.8V5.9L12 3.5zM9.4 12l1.9 1.9 3.3-3.6',
   },
-  {
-    name: 'Sermorelin',
-    tagline: 'Support Healthy Aging & Recovery',
-    description:
-      'Supports natural growth hormone production to help promote lean muscle, recovery, sleep quality, and healthy aging.*',
-    price: 149,
-    features: ['All-Inclusive Pricing', 'Recovery Support', 'Healthy Aging'],
+  Sermorelin: {
     photo: `${IMG}/photo-2.png`,
     photoAlt: 'Man hiking in the mountains',
     vial: `${IMG}/vial-2.png`,
@@ -54,13 +51,7 @@ const therapies: Therapy[] = [
     vialPos: 'left:65.4%;top:62.8%;width:31.1%',
     icon: 'M7.5 4h9M7.5 20h9M8.5 4.5v2c0 2.6 3.5 3.6 3.5 5.5s-3.5 2.9-3.5 5.5v2M15.5 4.5v2c0 2.6-3.5 3.6-3.5 5.5s3.5 2.9 3.5 5.5v2',
   },
-  {
-    name: 'MIC + B12',
-    tagline: 'Metabolic Support',
-    description:
-      'Supports healthy metabolism, fat utilization, and natural energy production.*',
-    price: 119,
-    features: ['All-Inclusive Pricing', 'Metabolism Support', 'Energy Support'],
+  'MIC + B12': {
     photo: `${IMG}/photo-3.png`,
     photoAlt: 'Woman jogging along the coast',
     vial: `${IMG}/vial-3.png`,
@@ -68,13 +59,7 @@ const therapies: Therapy[] = [
     vialPos: 'left:70%;top:66.5%;width:25.4%',
     icon: 'M12 4.5s5 5.6 5 9.3a5 5 0 11-10 0c0-3.7 5-9.3 5-9.3z',
   },
-  {
-    name: 'NAD+ Therapy',
-    tagline: 'Cellular Energy & Vitality',
-    description:
-      'Supports healthy cellular energy production, helping promote energy, mental clarity, and healthy aging.*',
-    price: 169,
-    features: ['All-Inclusive Pricing', 'Cellular Energy', 'Healthy Aging'],
+  'NAD+': {
     photo: `${IMG}/photo-4.png`,
     photoAlt: 'Woman stretching in a pool',
     vial: `${IMG}/vial-4.png`,
@@ -82,17 +67,24 @@ const therapies: Therapy[] = [
     vialPos: 'left:71.8%;top:67.4%;width:26.5%',
     icon: 'M13 3.5L6.5 13.5H11L10.5 20.5L17.5 10.5H13L13 3.5z',
   },
-];
+};
+
+const therapies = CARD_ORDER.map((name) => {
+  const product = peptideProducts.find((x) => x.name === name);
+  if (!product) {
+    throw new Error(
+      `PeptideTherapies: no product named "${name}" in data/peptide.ts. ` +
+        'Renaming a product there must be mirrored in CARD_ORDER here.'
+    );
+  }
+  return { ...ART[name], ...product };
+});
 
 ---
 
 <section class="therapies" aria-labelledby="peptide-therapies-title">
-  <h2 class="therapies__title" id="peptide-therapies-title">Peptide &amp; Wellness Therapies</h2>
-  <p class="therapies__intro">
-    WellPeps offers advanced peptide therapies designed to support your energy,
-    recovery, metabolism, and overall wellness. Your provider will recommend the
-    therapy that&rsquo;s right for you after reviewing your health history.
-  </p>
+  <h2 class="therapies__title" id="peptide-therapies-title">{peptideProductsIntro.title}</h2>
+  <p class="therapies__intro">{peptideProductsIntro.lead}</p>
 
   <div class="therapies__grid">
     {therapies.map((t) => (
@@ -108,7 +100,7 @@ const therapies: Therapy[] = [
             </span>
             <span class="tcard__name">{t.name}</span>
           </div>
-          <p class="tcard__tagline">{t.tagline}</p>
+          <p class="tcard__tagline">{t.subtitle}</p>
           <p class="tcard__desc">{t.description}</p>
           <div class="tcard__pricing">
             <span class="tcard__price-label">Starting at</span>
@@ -125,7 +117,7 @@ const therapies: Therapy[] = [
               </li>
             ))}
           </ul>
-          <a href="/peptides" class="tcard__cta">Learn More</a>
+          <a href="/healthy-aging" class="tcard__cta">Learn More</a>
         </div>
       </article>
     ))}

@@ -1,5 +1,5 @@
 ---
-import { CONTACT } from '../config';
+import { CONTACT, PATIENT_PORTAL_URL } from '../config';
 
 /* Global footer — rebuilt to the approved light-theme comp
    (public/images/WellPeps Footer Final DG.png).
@@ -14,7 +14,7 @@ const columns = [
     heading: 'Programs',
     links: [
       { label: 'Weight Management', href: '/weight-loss' },
-      { label: 'Peptide Therapies', href: '/peptides' },
+      { label: 'Healthy Aging & Vitality', href: '/healthy-aging' },
       { label: 'Sexual Wellness', href: '/sexual-wellness' },
       { label: 'Hair Restoration', href: '/hair-restoration' },
       { label: 'Hormone Optimization', href: '/hormone-optimization', note: 'Coming Soon' },
@@ -44,6 +44,7 @@ const columns = [
   {
     heading: 'Support',
     links: [
+      { label: 'Patient Portal', href: PATIENT_PORTAL_URL },
       { label: 'Help Center', href: '#' },
       { label: 'Virtual Assistant', href: '#' },
       { label: 'Shipping & Delivery', href: '/#faq' },

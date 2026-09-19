@@ -2,8 +2,8 @@
 
 What must be done to take wellpeps.com from marketing-only to transacting.
 
-Last updated: 2026-09-11 (backend moved from OpenLoop to Scriptful / GEN Health;
-all OpenLoop links and DNS retired).
+Last updated: 2026-09-16 (patient portal wired to the branded subdomain
+portal.wellpeps.com; the four remaining Scriptful links are still stubbed).
 
 ---
 
@@ -11,24 +11,33 @@ all OpenLoop links and DNS retired).
 
 The telehealth backend is Scriptful's GEN Health platform. Every CTA on the
 site reads from a single block at the top of `wellpeps-site/src/config.ts`.
-All five links are placeholders (`#scriptful-stub-*`) until Scriptful provides
-the real ones, so no CTA can start an order before launch.
+The patient portal is wired. The other five are still placeholders
+(`#scriptful-stub-*`) until the real links are pasted in. A placeholder can
+never reach a visitor: every assessment button renders through
+`AssessmentCta`, which shows a program as **Opening Soon** while its link is a
+stub and sends generic buttons to the home page's program cards.
 
-### 1a. Fill in the five placeholders
+### 1a. Paste the links — this is the whole launch switch
 
 **File:** `wellpeps-site/src/config.ts`, block headed `SCRIPTFUL CUTOVER`.
 
 | Constant | Replace with | Drives |
 | --- | --- | --- |
-| `SCRIPTFUL_STOREFRONT_URL` | GEN Health storefront / generic assessment entry | Nav button, home hero, Help-Find, final CTA, Why WellPeps, Learning Center index, assistant disclaimer, both Hair CTAs |
-| `SCRIPTFUL_PORTAL_URL` | GEN Health patient portal login | Top-right "Patient Portal" nav button (new tab) |
-| `SCRIPTFUL_WEIGHT_PRODUCT_URL` | Weight Loss product link from `/products` | Weight Loss cards, hero, bottom CTA, Learning Center inserts |
-| `SCRIPTFUL_SEXUAL_PRODUCT_URL` | Sexual Wellness product link | Sexual Wellness cards, hero, bottom CTA, recommendation block |
-| `SCRIPTFUL_PEPTIDE_PRODUCT_URL` | Peptides product link | Peptides cards, hero, bottom CTA |
+| `SCRIPTFUL_STOREFRONT_URL` | GEN Health storefront / generic assessment entry | Nav button, home hero, Help-Find, final CTA, Learning Center index, assistant disclaimer. Until set, these go to `/#programs` |
+| ~~`SCRIPTFUL_PORTAL_URL`~~ | **Done** — `https://portal.wellpeps.com` | "Patient Portal" button in the nav and link in the footer (same tab) |
+| `SCRIPTFUL_WEIGHT_PRODUCT_URL` | Weight Loss **Intake-first** link | Weight Loss cards, hero, bottom CTA, Learning Center inserts |
+| `SCRIPTFUL_HAIR_PRODUCT_URL` | Hair Restoration **Intake-first** link | Hair cards, hero, bottom CTA — and the page's whole Coming Soon state (§1b) |
+| `SCRIPTFUL_SEXUAL_PRODUCT_URL` | Sexual Wellness **Intake-first** link | Sexual Wellness cards, hero, bottom CTA, recommendation block |
+| `SCRIPTFUL_HEALTHY_AGING_PRODUCT_URL` | Healthy Aging & Vitality **Intake-first** link | Healthy Aging cards, hero, bottom CTA |
+
+Programs open **one at a time**: paste one link and that program goes live
+everywhere it appears, while the others stay Opening Soon. Only `https://` URLs
+count as linked.
 
 Checkout links come from GEN Health: **/products → link icon on the row
-("Checkout links for …")**. Each product offers three flows; pick one and use
-it consistently:
+("Checkout links for …")**. Each product offers three flows. **Use Intake-first
+for every program** (decided 2026-09-19 — it is the flow that keeps "Free
+Assessment" true; see `DECISION-LOG.md`):
 
 | Flow | Patient experience |
 | --- | --- |
@@ -41,25 +50,27 @@ processor is set at Settings → Payments. UTM tags can be appended to any
 checkout URL and travel with the order, which is what Curve will want for
 attribution. Guide: https://guides.genhealthehr.com/clients/settings-admin/connect-your-website
 
-The portal login is `https://<custom-subdomain>/login`, or the GEN Health shared
-host with `/login?brand=<slug>` until the custom domain is verified.
+The portal login is the branded host itself, `https://portal.wellpeps.com` —
+not `/login`. The GEN Health portal is a client-routed SPA, so every path
+returns the same shell and only the JS router decides what renders; the bare
+host sends a signed-out patient to the login view and a signed-in one to their
+dashboard.
 
-### 1b. Turn off the Coming Soon gates
+Our URL slug is **`wellpeps`**, so the shared-host fallback is
+`https://app.genhealthehr.com/login?brand=wellpeps`. Same login, unbranded
+domain — use it if the branded certificate stalls. Treat the slug as permanent:
+any link already shared with `?brand=wellpeps` breaks if it is renamed.
 
-Three boolean flags in `config.ts` hold back programs that are not open yet.
-Flip each to `false` at launch:
+### 1b. Coming Soon gates — nothing to flip
 
-```ts
-export const HAIR_COMING_SOON = true;         // whole Hair Restoration page
-export const SEXUAL_HERO_COMING_SOON = true;  // Sexual Wellness hero CTA only
-export const PEPTIDE_HERO_COMING_SOON = true; // Peptides hero CTA only
-```
+There are no launch flags. `SEXUAL_HERO_COMING_SOON` and
+`PEPTIDE_HERO_COMING_SOON` were removed on 2026-09-19, and `HAIR_COMING_SOON`
+is now computed from `SCRIPTFUL_HAIR_PRODUCT_URL`.
 
-`HAIR_COMING_SOON` drives the announcement band under the hair hero, the
-Coming Soon ribbon and disabled CTA on all four hair product cards, and the
-hero / bottom CTA copy. Keep it `true` until hair pricing is real (see §2).
-The two `*_HERO_COMING_SOON` flags are narrower — they replace only the hero
-button on their page.
+`HAIR_COMING_SOON` still drives the announcement band under the hair hero, the
+Coming Soon ribbon on the hair product cards, and the pre-launch hero / bottom
+CTA copy. **Do not paste the Hair link until hair pricing is real (see §2)** —
+the link is what opens the page.
 
 ### 1c. Add the Curve tracking script
 
@@ -68,33 +79,68 @@ Paste the Curve snippet into the `<head>` of
 site only — do not place it on GEN Health portal pages unless Curve confirms
 that is intended, since those pages carry PHI.
 
-### 1d. DNS cutover (Cloudflare)
+### 1d. DNS cutover (Cloudflare) — done for the portal
 
-In GEN Health → Settings → Branding, enter the subdomain (root domains are not
-supported). It generates three records to add in Cloudflare: a **CNAME** for
-the portal host, a **TXT** for verification, and a **certificate** CNAME for
-SSL. Paste each Host exactly as shown; Cloudflare appends `.wellpeps.com`.
-Set the portal CNAME to **DNS only (grey cloud)** so GEN Health's certificate
-issuance is not intercepted by the Cloudflare proxy. Remove every legacy
-record for that hostname in the same change, then use **Check DNS** in GEN
-Health; verification usually completes within 20 minutes of propagation.
+The branded portal host is **portal.wellpeps.com** (root domains are not
+supported by GEN Health). All three records GEN Health issued are live in
+Cloudflare, resolving, and activated as of 2026-09-16; they are recorded in
+`telehealth/portal.wellpeps.com-dns-records.json`:
 
-Optional: the separate **Email Domain** setting lets patient emails send from
-`@wellpeps.com` via a DKIM TXT record and a return-path CNAME.
+| Type | Host | Points to |
+| --- | --- | --- |
+| CNAME | `portal` | `portals.gen-health.app` — **DNS only (grey cloud)** |
+| TXT | `_gen-health.portal` | GEN Health domain-verification token |
+| CNAME | `_acme-challenge.portal` | Google Certificate Manager validation target |
 
-Save the final record list to `telehealth/intake.wellpeps.com-dns-records.json`.
+The portal CNAME must stay grey-cloud so Cloudflare's proxy does not intercept
+certificate issuance. Paste each Host exactly as GEN Health shows it; Cloudflare
+appends `.wellpeps.com` itself.
+
+**TLS: active.** Google Trust Services issued the certificate at 17:51 UTC on
+2026-09-16 — `CN=portal.wellpeps.com`, valid through 2026-12-15. HTTPS verifies
+clean and the portal serves branded (`<title>WellPeps</title>`). The deploy gate
+that was here is lifted: the Patient Portal button is safe to ship.
+
+```bash
+curl -sS -o /dev/null -w '%{http_code} ssl=%{ssl_verify_result}
+' https://portal.wellpeps.com/
+# 200 ssl=0  ✅
+```
+
+Renewal is automatic, but it depends on two things staying as they are: the
+`_acme-challenge.portal` CNAME must not be removed, and the `portal` CNAME must
+stay **DNS only (grey cloud)**. Proxying it later would break renewal.
+
+**Email domain: done.** The **Email Domain** setting is Active — patient email
+sends from `notifications@wellpeps.com` through Postmark, via a DKIM TXT record
+(`20260916181147pm._domainkey`) and a return-path CNAME (`pm-bounces` →
+`pm.mtasv.net`). Both verified live; values are in the JSON above.
+
+Deliverability checks out: DKIM aligns to `wellpeps.com`, and SPF passes on the
+`pm-bounces` return path, which carries Postmark's own SPF — so Postmark
+deliberately does **not** need adding to the `wellpeps.com` SPF record (that one
+stays Google Workspace only). DMARC is `p=none` (monitoring, reports to
+hello@wellpeps.com); worth tightening to `quarantine` once reports look clean.
+
 Guide: https://guides.genhealthehr.com/clients/getting-started/brand-your-portal
 
 ### 1e. Verify
 
 ```bash
 cd wellpeps-site && npm run build
-grep -rc "scriptful-stub" dist/            # expect 0
+grep -rc "scriptful-stub" dist/            # expect 0 — always, even before links are pasted
+```
+
+That grep will stay non-zero until the four remaining links are filled in; the
+portal stub is already gone. Confirm with:
+
+```bash
+grep -rc "scriptful-stub-portal" dist/     # expect 0 now
 ```
 
 Then click through one CTA per program on the built site and confirm each lands
 on the correct product in GEN Health, and that the Patient Portal button opens
-the login page. Place one real test order end to end per program before
+the branded login page over valid HTTPS. Place one real test order end to end per program before
 announcing launch.
 
 ---

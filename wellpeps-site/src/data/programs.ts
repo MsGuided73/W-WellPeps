@@ -50,13 +50,13 @@ export const programs: Program[] = [
   },
   {
     slug: 'wellness-longevity',
-    title: 'Wellness & Longevity',
+    title: 'Healthy Aging & Vitality',
     tagline: 'Thrive',
     blurb: 'Optimize your health, boost energy, and support long-term vitality.',
     image: '/images/program-longevity.webp',
     imageAlt: 'Woman hiking near a mountain lake',
     status: 'live',
-    href: '/peptides',
+    href: '/healthy-aging',
   },
   {
     slug: 'hormone-optimization',
