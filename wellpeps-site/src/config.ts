@@ -66,6 +66,12 @@ const PRODUCT_LINKS: CtaLinks['products'] = {
     program: 'weight-loss',
     url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/CdWCXaI7dpUXkzqGfGAJ_2?checkoutFlow=intake_first',
   },
+  // GEN Health product "Injectable Sermorelin (Any Dose)" — the provider
+  // chooses the dose.
+  sermorelin: {
+    program: 'healthy-aging',
+    url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/utsDGMi7ITPVBmLMJifw?checkoutFlow=intake_first',
+  },
 };
 
 /** Every assessment link, keyed by program. Buttons never read these directly —
