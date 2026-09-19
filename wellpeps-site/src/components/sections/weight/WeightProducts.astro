@@ -2,7 +2,7 @@
 import Icon from '../../Icon.astro';
 import StandardProductCard from '../../StandardProductCard.astro';
 // import EverythingIncludedStrip from '../../EverythingIncludedStrip.astro';
-import { weightProducts, weightProductsIntro } from '../../../data/weight';
+import { weightProducts, weightProductGroups, weightProductsIntro } from '../../../data/weight';
 import { MEMBER_PRICE_NOTE } from '../../../config';
 ---
 <section class="section section--gray" id="weight-products">
@@ -12,23 +12,31 @@ import { MEMBER_PRICE_NOTE } from '../../../config';
       <p class="wprod__lead">{weightProductsIntro.lead}</p>
     </div>
 
-    <div class="wprod__grid reveal">
-      {weightProducts.map((product) => (
-        <StandardProductCard
-          cover
-          image={product.image}
-          alt={product.alt}
-          name={product.name}
-          description={product.description}
-          form={product.delivery.label}
-          features={product.benefits.map((b) => b.label)}
-          price={product.price}
-          priceUnit={product.priceUnit}
-          priceNote={product.priceNote}
-          program="weight-loss"
-        />
-      ))}
-    </div>
+    {weightProductGroups.map((group) => (
+      <div class="wprod__group reveal">
+        <div class="wprod__group-head">
+          <h3>{group.title}</h3>
+          <p>{group.note}</p>
+        </div>
+        <div class="wprod__grid">
+          {weightProducts.filter((product) => product.medication === group.medication).map((product) => (
+            <StandardProductCard
+              cover
+              image={product.image}
+              alt={product.alt}
+              name={product.name}
+              description={product.description}
+              form={product.delivery.label}
+              features={product.benefits.map((b) => b.label)}
+              price={product.price}
+              priceUnit={product.priceUnit}
+              priceNote={product.priceNote}
+              program="weight-loss"
+            />
+          ))}
+        </div>
+      </div>
+    ))}
 
     <p class="wprod__pricenote reveal">{MEMBER_PRICE_NOTE}</p>
 
@@ -48,11 +56,14 @@ import { MEMBER_PRICE_NOTE } from '../../../config';
   .wprod__head h2 { font-size: var(--text-section-title); font-weight: 700; }
   .wprod__lead { margin-top: 1rem; font-size: var(--text-lead); color: var(--text-body); }
 
-  /* Full container width; four cards across. */
-  .wprod__grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
-    margin-top: clamp(2.5rem, 4vw, 3.5rem);
-  }
+  /* One row per medication, two cards each (injection + oral) — the same
+     two-up rhythm as the Healthy Aging grid. */
+  .wprod__group { max-width: 1080px; margin-inline: auto; margin-top: clamp(2.5rem, 4vw, 3.5rem); }
+  .wprod__group + .wprod__group { margin-top: clamp(2.75rem, 4.5vw, 4rem); }
+  .wprod__group-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.35rem 1rem; padding-bottom: 0.9rem; border-bottom: 1px solid var(--border); }
+  .wprod__group-head h3 { font-size: var(--text-card-title, 1.6rem); font-weight: 700; color: var(--navy); }
+  .wprod__group-head p { color: var(--text-body); font-size: var(--text-note); }
+  .wprod__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.75rem; margin-top: 1.5rem; }
 
   .wprod__pricenote { text-align: center; margin-top: 1.5rem; color: var(--blue); font-weight: 700; font-size: var(--text-note); }
 
@@ -71,6 +82,5 @@ import { MEMBER_PRICE_NOTE } from '../../../config';
   .wprod__band p { color: var(--text-body); font-size: var(--text-note); }
   .wprod__band strong { color: var(--navy); }
 
-  @media (max-width: 1200px) { .wprod__grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 620px) { .wprod__grid { grid-template-columns: 1fr; max-width: 440px; margin-inline: auto; } }
+  @media (max-width: 700px) { .wprod__grid { grid-template-columns: 1fr; max-width: 440px; margin-inline: auto; } }
 </style>

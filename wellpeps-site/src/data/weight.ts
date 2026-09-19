@@ -86,6 +86,8 @@ export interface PillBenefit {
 
 export interface PillProduct {
   name: string;
+  /** Which row of the treatments grid the card sits in (weightProductGroups). */
+  medication: 'semaglutide' | 'tirzepatide';
   image: string;
   alt: string;
   benefits: PillBenefit[];
@@ -106,6 +108,7 @@ export const weightProductsIntro = {
 export const weightProducts: PillProduct[] = [
   {
     name: 'Compounded Semaglutide',
+    medication: 'semaglutide',
     image: '/images/weight/product-semaglutide.webp',
     alt: 'Compounded semaglutide injection vial',
     benefits: [
@@ -121,6 +124,7 @@ export const weightProducts: PillProduct[] = [
   },
   {
     name: 'Compounded Tirzepatide',
+    medication: 'tirzepatide',
     image: '/images/weight/product-tirzepatide.webp',
     alt: 'Compounded tirzepatide injection vial',
     benefits: [
@@ -136,6 +140,7 @@ export const weightProducts: PillProduct[] = [
   },
   {
     name: 'Oral Semaglutide',
+    medication: 'semaglutide',
     image: '/images/weight/product-oral.webp',
     alt: 'Oral semaglutide tablets',
     benefits: [
@@ -151,6 +156,7 @@ export const weightProducts: PillProduct[] = [
   },
   {
     name: 'Oral Tirzepatide',
+    medication: 'tirzepatide',
     image: '/images/weight/product-oral-tirzepatide.webp',
     alt: 'Oral tirzepatide prescription bottle',
     benefits: [
@@ -163,6 +169,13 @@ export const weightProducts: PillProduct[] = [
     delivery: { label: 'Oral Medication', icon: 'pill' },
     priceUnit: '/month',
   },
+];
+
+/** The treatments grid is grouped by medication, one row each: the patient's
+ *  first question is which medication, then injection or oral. */
+export const weightProductGroups: { medication: PillProduct['medication']; title: string; note: string }[] = [
+  { medication: 'semaglutide', title: 'Semaglutide', note: 'A GLP-1 medication, available as a weekly injection or a daily tablet.' },
+  { medication: 'tirzepatide', title: 'Tirzepatide', note: 'A dual GIP/GLP-1 medication, available as a weekly injection or an oral option.' },
 ];
 
 export interface WeightFaq {
