@@ -73,6 +73,13 @@ const PRODUCT_LINKS: CtaLinks['products'] = {
     program: 'weight-loss',
     url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/uM0cXePP8e9c5hiMKcRt?checkoutFlow=intake_first',
   },
+  // GEN Health injectable tirzepatide product — weekly subcutaneous injection,
+  // compounded with B12 / glycine / B6 / L-carnitine as the provider decides.
+  // Opens the "Compounded Tirzepatide" card.
+  'compounded-tirzepatide': {
+    program: 'weight-loss',
+    url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/SvFDJ7W4nmWL2bkLUMMS?checkoutFlow=intake_first',
+  },
   // GEN Health product "Injectable Sermorelin (Any Dose)" — the provider
   // chooses the dose.
   sermorelin: {
