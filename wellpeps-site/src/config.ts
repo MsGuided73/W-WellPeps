@@ -66,6 +66,13 @@ const PRODUCT_LINKS: CtaLinks['products'] = {
     program: 'weight-loss',
     url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/CdWCXaI7dpUXkzqGfGAJ_2?checkoutFlow=intake_first',
   },
+  // GEN Health product "High Dose, Injectable Semaglutide". Compounded with an
+  // additive — GEN Health lists no plain semaglutide — and the provider picks
+  // the formula. Opens the "Compounded Semaglutide" card.
+  'compounded-semaglutide': {
+    program: 'weight-loss',
+    url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/uM0cXePP8e9c5hiMKcRt?checkoutFlow=intake_first',
+  },
   // GEN Health product "Injectable Sermorelin (Any Dose)" — the provider
   // chooses the dose.
   sermorelin: {
