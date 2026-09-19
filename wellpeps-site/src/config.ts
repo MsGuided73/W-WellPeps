@@ -80,6 +80,11 @@ const PRODUCT_LINKS: CtaLinks['products'] = {
     program: 'weight-loss',
     url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/SvFDJ7W4nmWL2bkLUMMS?checkoutFlow=intake_first',
   },
+  // GEN Health product "Oral Tirzepatide".
+  'oral-tirzepatide': {
+    program: 'weight-loss',
+    url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/I1cJ6CdD2A1WTBjNrZOw?checkoutFlow=intake_first',
+  },
   // GEN Health product "Injectable Sermorelin (Any Dose)" — the provider
   // chooses the dose.
   sermorelin: {

@@ -91,7 +91,8 @@ export interface PillProduct {
   benefits: PillBenefit[];
   description: string;
   delivery: { label: string; icon: string };
-  price: string;
+  /** Omitted while the member price is still being set; the card then says so. */
+  price?: string;
   priceUnit: string;
   priceNote?: string;
 }
@@ -146,6 +147,20 @@ export const weightProducts: PillProduct[] = [
     description: 'Daily oral GLP-1 option—a convenient, needle-free alternative.',
     delivery: { label: 'Daily Tablet', icon: 'pill' },
     price: '209',
+    priceUnit: '/month',
+  },
+  {
+    name: 'Oral Tirzepatide',
+    image: '/images/weight/product-oral-tirzepatide.webp',
+    alt: 'Oral tirzepatide prescription bottle',
+    benefits: [
+      { label: 'Weight Loss', icon: 'trending-down' },
+      { label: 'Appetite Control', icon: 'utensils' },
+      { label: 'Metabolic Health', icon: 'activity' },
+      { label: 'Convenience', icon: 'clock' },
+    ],
+    description: 'Oral dual GIP/GLP-1 option—a needle-free alternative.',
+    delivery: { label: 'Oral Medication', icon: 'pill' },
     priceUnit: '/month',
   },
 ];

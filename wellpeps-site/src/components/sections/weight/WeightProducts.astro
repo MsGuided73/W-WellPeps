@@ -48,9 +48,9 @@ import { MEMBER_PRICE_NOTE } from '../../../config';
   .wprod__head h2 { font-size: var(--text-section-title); font-weight: 700; }
   .wprod__lead { margin-top: 1rem; font-size: var(--text-lead); color: var(--text-body); }
 
-  /* Full container width so the three cards render wider. */
+  /* Full container width; four cards across. */
   .wprod__grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
     margin-top: clamp(2.5rem, 4vw, 3.5rem);
   }
 
@@ -71,5 +71,6 @@ import { MEMBER_PRICE_NOTE } from '../../../config';
   .wprod__band p { color: var(--text-body); font-size: var(--text-note); }
   .wprod__band strong { color: var(--navy); }
 
-  @media (max-width: 1000px) { .wprod__grid { grid-template-columns: 1fr; max-width: 440px; } }
+  @media (max-width: 1200px) { .wprod__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 620px) { .wprod__grid { grid-template-columns: 1fr; max-width: 440px; margin-inline: auto; } }
 </style>
