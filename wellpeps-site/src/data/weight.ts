@@ -139,7 +139,7 @@ export const weightProducts: PillProduct[] = [
     ],
     description: 'Dual GIP/GLP-1 treatment designed to support appetite regulation and metabolic health.',
     delivery: { label: 'Weekly Injection', icon: 'syringe' },
-    price: '209',
+    price: '269',
     priceUnit: '/month',
   },
   {
