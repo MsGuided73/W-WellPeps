@@ -13,7 +13,7 @@ const clientNeeds = [
   'How, and how far in advance, you\'ll notify people when these terms change.',
   'The date this goes live.',
 ];
-import { MEMBERSHIP } from '../config';
+import { CONTACT, MEMBERSHIP } from '../config';
 ---
 <LegalLayout
   title="Terms of Use"
@@ -121,8 +121,12 @@ import { MEMBERSHIP } from '../config';
     Plan pricing, billing frequency, commitment terms, renewal terms, and cancellation instructions
     are stated at checkout and summarized here:
     <span class="ph ph--you">You provide: the finalized plan table (your lawyer approves the wording once you supply the numbers)</span>.
-    You may cancel by
-    <span class="ph ph--you">You provide: how a customer cancels. Note: California and several other states require an online cancellation option if signup was online.</span>.
+    You may cancel anytime, online, by sending a message from your patient portal or by emailing
+    {CONTACT.email}; we confirm cancellations in writing within one business day. The steps are on the
+    <a href="/membership">Manage Your Membership</a> page. Your membership stays active through the month
+    already paid for, and you are not charged again after cancellation is confirmed. There is no pause
+    option; you may restart anytime.
+    <span class="ph ph--legal">Lawyer: confirm a portal message or email satisfies the online-cancellation requirement in each state served.</span>
   </p>
 
   <h2>9. Acceptable Use</h2>

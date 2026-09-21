@@ -1,0 +1,72 @@
+---
+/**
+ * Manage or cancel the WellPeps membership. Linked from the footer and the
+ * membership FAQs: easy to find, deliberately not a marketing page.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { CONTACT, MEMBERSHIP, PATIENT_PORTAL_URL } from '../config';
+---
+<BaseLayout
+  title="Manage Your Membership — WellPeps"
+  description="How to cancel or restart your WellPeps membership. Cancel anytime, with no minimum commitment and no cancellation fee."
+>
+  <section class="section">
+    <div class="container mpage">
+      <h1>Manage Your Membership</h1>
+      <hr class="rule rule--left" />
+      <p class="mpage__lead">
+        You can cancel anytime. There is no minimum commitment and no cancellation fee.
+      </p>
+
+      <h2>How to cancel</h2>
+      <ol>
+        <li>
+          Send us a message from your <a href={PATIENT_PORTAL_URL}>patient portal</a>, or email
+          <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> from the address on your account, and tell us
+          you would like to cancel.
+        </li>
+        <li>We will confirm your cancellation in writing within one business day.</li>
+      </ol>
+
+      <h2>What happens next</h2>
+      <ul>
+        <li>Your membership stays active through the month you have already paid for.</li>
+        <li>You will not be charged again after we confirm your cancellation.</li>
+        <li>
+          Medications that have already been ordered or processed for that month&rsquo;s shipment
+          cannot be refunded.
+        </li>
+      </ul>
+
+      <h2>Restarting</h2>
+      <p>
+        You are welcome back anytime. Sign in to your <a href={PATIENT_PORTAL_URL}>patient portal</a> or
+        send us a message, and a licensed provider will review your current health information before
+        treatment resumes.
+      </p>
+
+      <h2>About the membership</h2>
+      <p>
+        The WellPeps membership is part of the {MEMBERSHIP.programs.join(' and ')} programs. It is
+        ${MEMBERSHIP.firstMonth} for the first month, then ${MEMBERSHIP.monthly} per month, and renews monthly until
+        you cancel. <a href="/#membership">See what membership includes.</a>
+      </p>
+
+      <p class="mpage__help">
+        Questions? Email <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>. We are happy to help.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .mpage { max-width: 760px; }
+  .mpage h1 { font-size: var(--text-section-title); font-weight: 700; }
+  .mpage__lead { margin-top: 1.25rem; font-size: var(--text-lead); color: var(--navy); font-weight: 600; }
+  .mpage h2 { margin-top: 2.5rem; font-size: var(--text-card-title); font-weight: 700; }
+  .mpage p, .mpage li { color: var(--text-body); font-size: var(--text-card-body); line-height: 1.6; }
+  .mpage p { margin-top: 0.85rem; }
+  .mpage ol, .mpage ul { margin-top: 0.85rem; padding-left: 1.4rem; display: grid; gap: 0.6rem; }
+  .mpage a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+  .mpage__help { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+</style>

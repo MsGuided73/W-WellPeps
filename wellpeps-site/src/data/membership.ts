@@ -39,7 +39,7 @@ export const membershipProgramFaqs = [
   },
   {
     q: 'Can I cancel my membership?',
-    a: 'Yes. Your membership renews monthly until you cancel, and you can cancel anytime. Medications that have already been ordered or processed for that month’s shipment cannot be refunded.',
+    a: 'Yes. Your membership renews monthly until you cancel, and you can cancel anytime with no cancellation fee. Medications that have already been ordered or processed for that month’s shipment cannot be refunded. You can restart anytime. See Manage or Cancel Membership at the bottom of any page for the steps.',
   },
 ];
 
