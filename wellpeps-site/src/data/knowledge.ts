@@ -46,7 +46,7 @@ export const knowledgeBase: KnowledgeDoc[] = [
       produces. They help regulate appetite signals so you feel less hungry throughout the day, slow
       stomach emptying so you stay satisfied longer, and support healthy, sustainable weight loss when
       combined with lifestyle changes. A licensed provider monitors progress and personalizes treatment.
-      Weight management plans start at $199/month. Results vary from person to person.`,
+      Weight management medication starts at $109/month, plus a monthly membership ($49 the first month, then $79). Results vary from person to person.`,
   },
   {
     id: 'peptide-basics',
@@ -177,7 +177,7 @@ export const knowledgeBase: KnowledgeDoc[] = [
     source: 'program',
     tags: ['price', 'pricing', 'cost', 'how much', 'fees', 'payment', 'insurance', 'expensive'],
     answer:
-      'Pricing is transparent and upfront — you know your full program cost before you begin, with no hidden fees. Sexual Wellness starts at $69/month, Hair Restoration at $59/month, and Weight Management at $199/month. No insurance is required; WellPeps is self-pay. We accept Visa, Mastercard, FSA/HSA, Apple Pay and Google Pay.',
+      'Pricing is transparent and upfront — you know your full program cost before you begin, with no hidden fees. Sexual Wellness starts at $69/month, Hair Restoration at $59/month, and Weight Management medication at $109/month plus a monthly membership ($49 the first month, then $79). No insurance is required; WellPeps is self-pay. We accept Visa, Mastercard, FSA/HSA, Apple Pay and Google Pay.',
     body: `Every program includes transparent pricing, a licensed healthcare provider review, ongoing
       provider support, and the ability to cancel anytime. No insurance required — affordable self-pay
       programs make personalized wellness accessible. Accepted payment methods: Visa, Mastercard,

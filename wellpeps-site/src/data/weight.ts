@@ -7,7 +7,9 @@
  * and the approved Weight Management page mockups.
  *
  * NOTE (client): pricing shown is the member price; the membership fee and
- * shipping are separate (MEMBER_PRICE_NOTE under the grid). New prices pending.
+ * shipping are separate (MEMBER_PRICE_NOTE under the grid). Prices reset
+ * 2026-09-21 so medication + the $79 membership lands on the market all-in
+ * (docs/pricing memo): they must match the product prices set in GEN Health.
  */
 
 
@@ -119,7 +121,7 @@ export const weightProducts: PillProduct[] = [
     ],
     description: 'Weekly GLP-1 treatment to help support appetite regulation and healthy weight loss.',
     delivery: { label: 'Weekly Injection', icon: 'syringe' },
-    price: '179',
+    price: '109',
     priceUnit: '/month',
   },
   {
@@ -135,7 +137,7 @@ export const weightProducts: PillProduct[] = [
     ],
     description: 'Dual GIP/GLP-1 treatment designed to support appetite regulation and metabolic health.',
     delivery: { label: 'Weekly Injection', icon: 'syringe' },
-    price: '269',
+    price: '209',
     priceUnit: '/month',
   },
   {
@@ -151,7 +153,7 @@ export const weightProducts: PillProduct[] = [
     ],
     description: 'Daily oral GLP-1 option—a convenient, needle-free alternative.',
     delivery: { label: 'Daily Tablet', icon: 'pill' },
-    price: '209',
+    price: '119',
     priceUnit: '/month',
   },
   {
