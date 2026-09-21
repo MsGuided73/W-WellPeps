@@ -105,6 +105,16 @@ const PRODUCT_LINKS: CtaLinks['products'] = {
   },
 };
 
+/**
+ * PAUSE SWITCH. While true, no button on the site leads to a GEN Health intake:
+ * every treatment card and program button shows its "Opening Soon" state, and
+ * the generic "Start Free Assessment" buttons go to the programs section as
+ * they always have. The links above are kept, so resuming is this one line
+ * plus a deploy. Page layouts do not change (Hair Restoration stays open).
+ * Paused 2026-09-21 while pricing and membership billing are settled.
+ */
+export const ASSESSMENTS_PAUSED = true;
+
 /** Every assessment link, keyed by program. Buttons never read these directly —
  *  they go through AssessmentCta / resolveCta in src/lib/cta.ts. */
 export const CTA_LINKS: CtaLinks = {
@@ -115,7 +125,7 @@ export const CTA_LINKS: CtaLinks = {
     'sexual-wellness': SCRIPTFUL_SEXUAL_PRODUCT_URL,
     'healthy-aging': SCRIPTFUL_HEALTHY_AGING_PRODUCT_URL,
   },
-  products: PRODUCT_LINKS,
+  products: ASSESSMENTS_PAUSED ? {} : PRODUCT_LINKS,
 };
 
 /* A pasted link on plain http or an untrusted host stops the build here, rather
@@ -123,7 +133,8 @@ export const CTA_LINKS: CtaLinks = {
 assertTrustedLinks([
   CTA_LINKS.storefront,
   ...Object.values(CTA_LINKS.programs),
-  ...Object.values(CTA_LINKS.products).map((p) => p.url),
+  // The real links, not CTA_LINKS.products, so a bad paste fails even while paused.
+  ...Object.values(PRODUCT_LINKS).map((p) => p.url),
 ]);
 
 /**
