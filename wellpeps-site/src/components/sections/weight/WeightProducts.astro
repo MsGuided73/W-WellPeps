@@ -38,7 +38,7 @@ import { MEMBER_PRICE_NOTE } from '../../../config';
       </div>
     ))}
 
-    <p class="wprod__pricenote reveal">{MEMBER_PRICE_NOTE}</p>
+    <p class="wprod__pricenote reveal">{MEMBER_PRICE_NOTE} <a href="#membership">See what membership includes</a></p>
 
     {/* Everything Included banner: commented out 2026-09-19 pending a rewrite for the
         membership pricing model. To restore, uncomment the import and this mount.
@@ -65,6 +65,7 @@ import { MEMBER_PRICE_NOTE } from '../../../config';
   .wprod__group-head p { color: var(--text-body); font-size: var(--text-note); }
   .wprod__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.75rem; margin-top: 1.5rem; }
 
+  .wprod__pricenote a { text-decoration: underline; text-underline-offset: 3px; }
   .wprod__pricenote { text-align: center; margin-top: 1.5rem; color: var(--blue); font-weight: 700; font-size: var(--text-note); }
 
   .wprod__band {

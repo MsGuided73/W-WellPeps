@@ -1,4 +1,5 @@
 /** Static content for the remaining Home Page sections. */
+import { membershipHomeFaq } from './membership';
 
 /* ---- Section 5: Your Wellness Journey (5 steps) ---- */
 export const journeySteps = [
@@ -50,6 +51,7 @@ export const insights = [
 
 /* ---- Section 9: Common Questions (FAQ) ---- */
 export const faqs = [
+  membershipHomeFaq,
   { q: 'How do I know if I’m a candidate for treatment?', a: 'Start with our free online health assessment. A licensed healthcare provider reviews your health history, symptoms, and goals to determine whether a treatment is clinically appropriate for you.' },
   { q: 'How do online consultations work?', a: 'After you complete your assessment, a licensed provider reviews your information online. If needed, they’ll follow up with questions before recommending a personalized treatment plan—no in-person visit required.' },
   { q: 'Are your healthcare providers licensed?', a: 'Yes. All treatment decisions are made by healthcare providers licensed in your state. WellPeps partners with licensed providers across all 50 states.' },

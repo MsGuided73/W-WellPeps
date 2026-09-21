@@ -81,6 +81,8 @@ export const weightWhy: WhyCard[] = [
   },
 ];
 
+import { membershipProgramFaqs } from './membership';
+
 export interface PillBenefit {
   label: string;
   icon: string;
@@ -186,6 +188,7 @@ export interface WeightFaq {
 }
 
 export const weightFaqs: WeightFaq[] = [
+  ...membershipProgramFaqs,
   {
     q: 'Can I qualify for a GLP-1 weight loss program?',
     a: 'Eligibility depends on your health history, BMI, and other factors. A licensed healthcare provider will review your information and determine whether treatment is appropriate.',

@@ -1,0 +1,81 @@
+---
+/**
+ * The WellPeps membership: what it costs and what it covers. Mounted on the
+ * home page and on each membership program page (Weight Loss; Hormone
+ * Optimization when it launches). Amounts come from MEMBERSHIP in config.ts.
+ */
+import Icon from '../Icon.astro';
+import { membershipIntro, membershipPrice, membershipIncludes, membershipFinePrint } from '../../data/membership';
+
+interface Props {
+  /** Tinted band, to alternate with the section above it. */
+  tinted?: boolean;
+}
+const { tinted = false } = Astro.props;
+---
+<section class:list={['section', { 'section--gray': tinted }]} id="membership">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>{membershipIntro.title}</h2>
+      <p>{membershipIntro.lead}</p>
+    </div>
+
+    <div class="mship reveal">
+      <div class="mship__price">
+        <p class="mship__amount">{membershipPrice.first}<span> {membershipPrice.firstLabel}</span></p>
+        <p class="mship__then">{membershipPrice.then}</p>
+        <hr class="mship__rule" />
+        <p class="mship__note">{membershipPrice.note}</p>
+      </div>
+
+      <ul class="mship__grid" role="list">
+        {membershipIncludes.map((item) => (
+          <li class="card mship__card">
+            <span class="mship__icon"><Icon name={item.icon} /></span>
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <p class="mship__fine reveal">{membershipFinePrint}</p>
+  </div>
+</section>
+
+<style>
+  .mship {
+    display: grid; grid-template-columns: minmax(280px, 0.8fr) 2fr; gap: 1.75rem;
+    margin-top: clamp(2rem, 3vw, 3rem); align-items: stretch;
+  }
+
+  .mship__price {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 2.5rem 2rem; border-radius: var(--radius);
+    background: var(--navy); color: #fff; text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .mship__amount { font-family: var(--font-sans); font-weight: 800; font-size: clamp(3rem, 4.5vw, 4rem); line-height: 1; letter-spacing: -0.02em; color: #fff; }
+  .mship__amount span { display: block; margin-top: 0.5rem; font-size: var(--text-lead); font-weight: 600; letter-spacing: 0; }
+  .mship__then { margin-top: 1rem; font-size: var(--text-card-title); font-family: var(--font-serif); font-weight: 600; color: #fff; }
+  .mship__rule { width: 56px; height: 2px; border: 0; background: var(--blue); margin: 1.5rem auto; }
+  .mship__note { font-size: var(--text-note); color: rgba(255, 255, 255, 0.85); }
+
+  .mship__grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  .mship__card { display: flex; gap: 1rem; align-items: flex-start; padding: 1.6rem 1.5rem; }
+  .mship__icon {
+    display: inline-grid; place-items: center; flex: none; width: 48px; height: 48px; border-radius: 50%;
+    background: var(--medallion-bg); border: 1px solid var(--medallion-ring);
+    box-shadow: var(--medallion-shadow); color: var(--blue);
+  }
+  .mship__icon :global(svg) { width: 24px; height: 24px; filter: var(--icon-shadow); }
+  .mship__card h3 { font-size: var(--text-card-title); font-weight: 600; }
+  .mship__card p { margin-top: 0.45rem; color: var(--text-body); font-size: var(--text-card-body); }
+
+  .mship__fine { margin: 1.75rem auto 0; max-width: 900px; text-align: center; color: var(--text-muted); font-size: var(--text-note); }
+
+  @media (max-width: 1000px) { .mship { grid-template-columns: 1fr; } }
+  @media (max-width: 620px) { .mship__grid { grid-template-columns: 1fr; } }
+</style>

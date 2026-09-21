@@ -13,6 +13,7 @@ const clientNeeds = [
   'How, and how far in advance, you\'ll notify people when these terms change.',
   'The date this goes live.',
 ];
+import { MEMBERSHIP } from '../config';
 ---
 <LegalLayout
   title="Terms of Use"
@@ -104,6 +105,18 @@ const clientNeeds = [
       <span class="ph ph--you">You provide, for each plan: the true recurring charge and how often it bills; any minimum commitment and total price; what happens at renewal and the renewal price; exactly how and by when a customer cancels; your refund policy; and any early-termination fee.</span>
     </p>
   </div>
+  <h3>WellPeps Membership</h3>
+  <p>
+    The {MEMBERSHIP.programs.join(' and ')} programs include a WellPeps membership. The membership
+    fee is <strong>${MEMBERSHIP.firstMonth} for the first month and ${MEMBERSHIP.monthly} for each month after that</strong>.
+    It is billed monthly and <strong>renews automatically each month at ${MEMBERSHIP.monthly} until you cancel</strong>.
+    There is no minimum commitment. The membership covers ongoing provider care, support between
+    visits, access to low-cost lab testing, and patient education. Medication, lab fees, and shipping
+    are billed separately and are not part of the membership fee. Hair Restoration, Sexual Wellness,
+    and Healthy Aging &amp; Vitality do not carry a membership fee.
+    <span class="ph ph--legal">Lawyer: confirm this disclosure meets federal (ROSCA) and state auto-renewal requirements, including the intro-rate increase, and that the same terms appear at checkout.</span>
+    <span class="ph ph--you">You provide: the billing date rule (same day each month from signup?), and whether the membership is refundable once a month has started.</span>
+  </p>
   <p>
     Plan pricing, billing frequency, commitment terms, renewal terms, and cancellation instructions
     are stated at checkout and summarized here:
