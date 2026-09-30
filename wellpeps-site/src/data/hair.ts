@@ -6,13 +6,8 @@
  * "Learn More". Copy is sourced from the approved Hair Restoration mockups +
  * "Hiar Answers.docx".
  *
- * NOTE (client): "Advanced Liposomal Formulas" pricing is still a placeholder
- * ("$XX") in the source product information — leave as-is until a real number
- * is provided.
- *
- * Card CTAs render through AssessmentCta, which resolves the Hair Restoration
- * link from src/config.ts. While that link is a stub (HAIR_COMING_SOON) the
- * cards render a disabled Coming Soon state.
+ * Card CTAs render through AssessmentCta, which resolves each card's GEN
+ * Health link from src/config.ts (PRODUCT_LINKS + LIVE_PRODUCTS).
  */
 
 export const hairHero = {
@@ -77,73 +72,68 @@ export interface Product {
    * Delivery method, per the WellPeps Product Card Standard. That standard
    * defines a fixed label set (Injection / Oral Capsule / Oral Tablet /
    * Oral Pill / Topical Solution / Topical Foam / Topical Spray / Topical Gel);
-   * the hair mockup uses two values outside it — see the note on Combination
-   * Therapy below.
+   * the hair cards stay within it.
    */
   methodOfUse: string;
   price: string; // numeric string or "XX" placeholder
   priceUnit: string;
 }
 
+/** One card per GEN Health hair product (2026-09-30). Prices are the GEN
+ *  product prices; the Open Loop-era category cards (Combination Therapy,
+ *  Advanced Liposomal Formulas) were retired. Keys in config.ts PRODUCT_LINKS
+ *  are these names slugged. */
 export const hairProducts: Product[] = [
   {
-    name: 'Topical Treatments',
-    image: '/images/hair/product-topical.webp',
-    alt: 'Compounded topical hair restoration medications — dropper solution, foam pump and bottle',
+    name: 'Oral Finasteride',
+    image: '/images/hair/product-oral-finasteride.webp',
+    alt: 'A white prescription bottle labeled Finasteride beside tablets and a glass of water',
+    icon: 'pill',
+    description:
+      'A prescription oral medication that lowers DHT, a hormone involved in male-pattern hair loss. Your provider decides whether it is appropriate for you.',
+    optionsLabel: 'Formulation',
+    options: ['Finasteride'],
+    methodOfUse: 'Oral Tablet',
+    price: '49',
+    priceUnit: '/month',
+  },
+  {
+    name: 'Oral Minoxidil',
+    image: '/images/hair/product-oral-minoxidil.webp',
+    alt: 'A white prescription bottle labeled Minoxidil beside two capsules',
+    icon: 'pill',
+    description:
+      'A prescription oral medication that supports blood flow to hair follicles. Your provider decides whether it is appropriate and at what dose.',
+    optionsLabel: 'Formulation',
+    options: ['Minoxidil'],
+    methodOfUse: 'Oral Capsule',
+    price: '49',
+    priceUnit: '/month',
+  },
+  {
+    name: 'Topical Minoxidil',
+    image: '/images/hair/product-topical-minoxidil.webp',
+    alt: 'An amber dropper bottle labeled Minoxidil on a bathroom counter',
     icon: 'droplet',
     description:
-      'Supports healthier, fuller-looking hair with medications applied directly to the scalp.',
-    optionsLabel: 'Common Formulations Include',
-    options: ['Minoxidil + Finasteride', 'Minoxidil + Fluocinolone + Tretinoin'],
-    methodOfUse: 'Topical Solution / Topical Foam',
-    price: '79',
-    priceUnit: '/month',
-  },
-  {
-    name: 'Oral Treatments',
-    image: '/images/hair/product-oral.webp',
-    alt: 'A compounded oral hair restoration medication bottle with capsules and a glass of water',
-    icon: 'pill',
-    description: 'Supports healthier hair growth through convenient oral medications.',
-    optionsLabel: 'Common Formulations Include',
-    options: ['Finasteride', 'Oral Minoxidil', 'Minoxidil + Biotin', 'Dutasteride'],
-    methodOfUse: 'Oral Capsule',
-    price: '59',
-    priceUnit: '/month',
-  },
-  {
-    name: 'Combination Therapy',
-    image: '/images/hair/product-combo.webp',
-    alt: 'A combination of topical and oral hair restoration medications',
-    icon: 'venn',
-    description: 'Combines topical and oral medications for a comprehensive approach.',
-    optionsLabel: 'Common Formulations Include',
-    options: [
-      'Topical Minoxidil + Finasteride + Oral Minoxidil',
-      'Minoxidil + Finasteride + Biotin',
-    ],
-    // Outside the standard label set by design: this pathway is two delivery
-    // methods at once, which the fixed list has no single term for.
-    methodOfUse: 'Topical + Oral',
+      'A prescription medication applied directly to the scalp that supports blood flow to hair follicles. Your provider decides whether it is appropriate for you.',
+    optionsLabel: 'Formulation',
+    options: ['Minoxidil'],
+    methodOfUse: 'Topical Solution',
     price: '99',
     priceUnit: '/month',
   },
   {
-    // NBSP binds "Advanced Liposomal" so the title breaks as
-    // "Advanced Liposomal" / "Formulas" rather than stranding "Advanced".
-    name: 'Advanced Liposomal Formulas',
-    image: '/images/hair/product-advanced.webp',
-    alt: 'Advanced liposomal hair restoration formulas — dropper solution and foam pump',
-    icon: 'molecule',
+    name: 'Topical Minoxidil + Finasteride',
+    image: '/images/hair/product-minoxidil-finasteride-foam.webp',
+    alt: 'A white foam pump bottle labeled Minoxidil plus Finasteride',
+    icon: 'venn',
     description:
-      'Next-generation delivery systems designed for enhanced absorption and results.',
-    optionsLabel: 'Common Formulations Include',
-    options: [
-      'Minoxidil + Fluocinolone + Tretinoin',
-      'Minoxidil + Finasteride + Fluocinolone + Tretinoin',
-    ],
-    methodOfUse: 'Topical Solution',
-    price: '109',
+      'Two prescription medications in one topical foam applied to the scalp: minoxidil supports blood flow to hair follicles, and finasteride lowers DHT. Your provider decides whether it is appropriate for you.',
+    optionsLabel: 'Formulation',
+    options: ['Minoxidil 6% + Finasteride 0.3%'],
+    methodOfUse: 'Topical Foam',
+    price: '139',
     priceUnit: '/month',
   },
 ];

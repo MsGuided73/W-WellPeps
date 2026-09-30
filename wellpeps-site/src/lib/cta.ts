@@ -14,7 +14,7 @@ export const PROGRAM_SLUGS = ['weight-loss', 'hair-restoration', 'sexual-wellnes
 export type ProgramSlug = (typeof PROGRAM_SLUGS)[number];
 
 /** The only wording used on an assessment button, site-wide. */
-export const ASSESSMENT_CTA_LABEL = 'Start Free Assessment';
+export const ASSESSMENT_CTA_LABEL = 'Start Free Health Assessment';
 
 /** Generic CTAs land on the home page's program cards until the GEN Health
  *  storefront link exists, so they are never a dead button. */

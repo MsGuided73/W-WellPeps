@@ -54,55 +54,47 @@ const SCRIPTFUL_HAIR_PRODUCT_URL = '#scriptful-stub-hair-restoration';
 const SCRIPTFUL_SEXUAL_PRODUCT_URL = '#scriptful-stub-sexual-wellness';
 const SCRIPTFUL_HEALTHY_AGING_PRODUCT_URL = '#scriptful-stub-healthy-aging';
 
-/** Intake-first links for individual treatments. GEN Health sells treatments,
- *  not programs, so this is where most links go. The key is the product card's
- *  name, slugged (toProductKey): "Oral Semaglutide" → 'oral-semaglutide'.
- *  A card with no entry here uses its program's link above, or shows
- *  "Opening Soon" if that is still a stub. */
+/** Assessment-first links for individual treatments, one per product card.
+ *  GEN Health sells treatments, not programs, so this is where the links go.
+ *  The key is the card's name, slugged (toProductKey): "Oral Semaglutide" →
+ *  'oral-semaglutide'. Assessment-first is the $29 flow (decided 2026-09-30):
+ *  the patient pays the assessment up front and the balance on approval.
+ *  Links and prices were read from the GEN Health API on 2026-09-30; see
+ *  docs/genhealth for the product list. Not linked yet: Oral Tirzepatide (its
+ *  GEN product is still $0), MIC + B12 and Lipo-C (not in GEN yet). */
 export const PRODUCT_LINKS = {
-  // GEN Health product "Oral Semaglutide (Low-Dose/Tablets)" — four tablet
-  // strengths; the provider chooses the strength.
-  'oral-semaglutide': {
-    program: 'weight-loss',
-    url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/CdWCXaI7dpUXkzqGfGAJ_2?checkoutFlow=intake_first',
-  },
-  // GEN Health product "High Dose, Injectable Semaglutide". Compounded with an
-  // additive — GEN Health lists no plain semaglutide — and the provider picks
-  // the formula. Opens the "Compounded Semaglutide" card.
-  'compounded-semaglutide': {
-    program: 'weight-loss',
-    url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/uM0cXePP8e9c5hiMKcRt?checkoutFlow=intake_first',
-  },
-  // GEN Health injectable tirzepatide product — weekly subcutaneous injection,
-  // compounded with B12 / glycine / B6 / L-carnitine as the provider decides.
-  // Opens the "Compounded Tirzepatide" card.
-  'compounded-tirzepatide': {
-    program: 'weight-loss',
-    url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/SvFDJ7W4nmWL2bkLUMMS?checkoutFlow=intake_first',
-  },
-  // GEN Health product "Oral Tirzepatide".
-  'oral-tirzepatide': {
-    program: 'weight-loss',
-    url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/I1cJ6CdD2A1WTBjNrZOw?checkoutFlow=intake_first',
-  },
-  // GEN Health product "Injectable Sermorelin (Any Dose)" — the provider
-  // chooses the dose.
-  sermorelin: {
-    program: 'healthy-aging',
-    url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/utsDGMi7ITPVBmLMJifw?checkoutFlow=intake_first',
-  },
-  // GEN Health product "Tadalafil & Sildenafil" — one product behind two cards;
-  // the provider chooses the medication and dosing.
-  'tadalafil-daily': { program: 'sexual-wellness', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/GDvBwrapfPq3PCao4SpO?checkoutFlow=intake_first' },
-  'sildenafil-as-needed': { program: 'sexual-wellness', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/GDvBwrapfPq3PCao4SpO?checkoutFlow=intake_first' },
-  // GEN Health product "High Dose (As Needed) Tadalafil".
-  'tadalafil-as-needed': { program: 'sexual-wellness', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/pXP69VkpzR8Me3cKQFiY?checkoutFlow=intake_first' },
-  // GEN Health product "Oral Finasteride" (hair loss). The site's hair cards are
-  // treatment categories, so it opens the "Oral Treatments" card.
-  'oral-treatments': {
-    program: 'hair-restoration',
-    url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/jn0oZRngtKkKh64DRjTz?checkoutFlow=intake_first',
-  },
+  // weight-loss
+  // GEN: "GLP-1 Weight Loss – Semaglutide (High Dose / Injectable)" ($179/mo)
+  'compounded-semaglutide': { program: 'weight-loss', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Zst5Qu9lkZz7vKNusesA_MoDyAcICE5RDa4DfaeBX_uM0cXePP8e9c5hiMKcRt?checkoutFlow=visit_first' },
+  // GEN: "GLP-1 Weight Loss – Tirzepatide (Subcutaneous Injection / 1 x wk)" ($249/mo)
+  'compounded-tirzepatide': { program: 'weight-loss', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Zst5Qu9lkZz7vKNusesA_MoDyAcICE5RDa4DfaeBX_SvFDJ7W4nmWL2bkLUMMS?checkoutFlow=visit_first' },
+  // GEN: "GLP-1 Weight Loss – Semaglutide (Sublingual or Tablets)" ($229/mo)
+  'oral-semaglutide': { program: 'weight-loss', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/vOtVNLOfawMBeTY5l110_1?checkoutFlow=visit_first' },
+  // hair-restoration
+  // GEN: "Hair Loss – Finasteride (Oral)" ($49/mo)
+  'oral-finasteride': { program: 'hair-restoration', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Zst5Qu9lkZz7vKNusesA_MoDyAcICE5RDa4DfaeBX_jn0oZRngtKkKh64DRjTz?checkoutFlow=visit_first' },
+  // GEN: "Hair Loss – Minoxidil (Oral)" ($49/mo)
+  'oral-minoxidil': { program: 'hair-restoration', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Zst5Qu9lkZz7vKNusesA_MoDyAcICE5RDa4DfaeBX_M5oNllXUu1ikySSuXIR0?checkoutFlow=visit_first' },
+  // GEN: "Hair Loss – Minoxidil (Topical)" ($99/mo)
+  'topical-minoxidil': { program: 'hair-restoration', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Zst5Qu9lkZz7vKNusesA_MoDyAcICE5RDa4DfaeBX_Raw7mUkuzzhVdAo88jpL?checkoutFlow=visit_first' },
+  // GEN: "Hair Loss - Minoxidil + Finasteride (6% / 0.3% Topical Solution)" ($139/mo)
+  'topical-minoxidil-finasteride': { program: 'hair-restoration', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Raw7mUkuzzhVdAo88jpL_1?checkoutFlow=visit_first' },
+  // sexual-wellness
+  // GEN: "ED – Tadalafil (Daily / Low Dose) Protocol" ($79/mo)
+  'tadalafil-daily': { program: 'sexual-wellness', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Zst5Qu9lkZz7vKNusesA_MoDyAcICE5RDa4DfaeBX_CASkNPVnxOWgS6xIB5pY?checkoutFlow=visit_first' },
+  // GEN: "ED – Tadalafil (As Needed) 5 pills" ($45/mo)
+  'tadalafil-as-needed': { program: 'sexual-wellness', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/pXP69VkpzR8Me3cKQFiY_1?checkoutFlow=visit_first' },
+  // GEN: "ED – Sildenafil 25 mg (On-Demand) - 5 Tablets" ($39/mo)
+  'sildenafil-as-needed': { program: 'sexual-wellness', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Zst5Qu9lkZz7vKNusesA_MoDyAcICE5RDa4DfaeBX_ctufh9oNPjNGsOY3wGMU?checkoutFlow=visit_first' },
+  // healthy-aging
+  // GEN: "Peptides – Sermorelin (Injectable)" ($149/mo)
+  sermorelin: { program: 'healthy-aging', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Zst5Qu9lkZz7vKNusesA_MoDyAcICE5RDa4DfaeBX_utsDGMi7ITPVBmLMJifw?checkoutFlow=visit_first' },
+  // GEN: "Peptides-NAD+ (Injectable)" ($169/mo)
+  nad: { program: 'healthy-aging', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Zst5Qu9lkZz7vKNusesA_MoDyAcICE5RDa4DfaeBX_SHJpGAACUFEeMONdpEbn?checkoutFlow=visit_first' },
+  // GEN: "Wellness – Glutathione (Injectable)" ($99/mo)
+  glutathione: { program: 'healthy-aging', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Zst5Qu9lkZz7vKNusesA_MoDyAcICE5RDa4DfaeBX_17H4pVR8uYnwvcBIz8iY?checkoutFlow=visit_first' },
+  // GEN: "Peptides - Methylene Blue Capsules" ($99/mo)
+  'methylene-blue': { program: 'healthy-aging', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Zst5Qu9lkZz7vKNusesA_MoDyAcICE5RDa4DfaeBX_dLH4UrgqWuotQRWbot6J?checkoutFlow=visit_first' },
 } satisfies CtaLinks['products'];
 
 /**
@@ -112,9 +104,24 @@ export const PRODUCT_LINKS = {
  * removing it. A key with no link above fails typecheck.
  *
  * All intakes were paused 2026-09-21 while pricing and billing were settled;
- * cards come back one at a time from this list.
+ * every card with a ready GEN product was switched back on 2026-09-30.
  */
-export const LIVE_PRODUCTS: readonly (keyof typeof PRODUCT_LINKS)[] = [];
+export const LIVE_PRODUCTS: readonly (keyof typeof PRODUCT_LINKS)[] = [
+  'compounded-semaglutide',
+  'compounded-tirzepatide',
+  'oral-semaglutide',
+  'oral-finasteride',
+  'oral-minoxidil',
+  'topical-minoxidil',
+  'topical-minoxidil-finasteride',
+  'tadalafil-daily',
+  'tadalafil-as-needed',
+  'sildenafil-as-needed',
+  'sermorelin',
+  'nad',
+  'glutathione',
+  'methylene-blue',
+];
 
 /** Every assessment link, keyed by program. Buttons never read these directly —
  *  they go through AssessmentCta / resolveCta in src/lib/cta.ts. */

@@ -6,11 +6,13 @@
  * articles, between the prose and Key Takeaways. The comp's "Everything
  * Included." bar renders in the article rail instead (client direction).
  *
- * Plan copy, pricing and photos mirror the Hair Restoration page's product
+ * Plan copy, pricing and photos come from the Hair Restoration page's product
  * cards (src/data/hair.ts) so the two surfaces never drift; the feature
- * lists carry the comp's formulation bullets. Photos are full-bleed cover
+ * list is the formulation plus the method of use. Photos are full-bleed cover
  * shots, matching how ProductCard treats the same images.
  */
+import { hairProducts } from '../../data/hair';
+
 interface Plan {
   name: string;
   image: string;
@@ -20,60 +22,23 @@ interface Plan {
   features: string[];
 }
 
-const plans: Plan[] = [
-  {
-    name: 'Topical Treatments',
-    image: '/images/hair/product-topical.webp',
-    alt: 'Compounded topical hair restoration medications — dropper solution, foam pump and bottle',
-    description:
-      'Supports healthier, fuller-looking hair with medications applied directly to the scalp.',
-    price: 79,
-    features: [
-      'Minoxidil + Finasteride',
-      'Minoxidil + Fluocinolone + Tretinoin',
-      'Topical solution or foam',
-    ],
-  },
-  {
-    name: 'Oral Treatments',
-    image: '/images/hair/product-oral.webp',
-    alt: 'A compounded oral hair restoration medication bottle with capsules and a glass of water',
-    description: 'Supports healthier hair growth through convenient oral medications.',
-    price: 59,
-    features: ['Oral Minoxidil', 'Minoxidil + Biotin', 'Dutasteride'],
-  },
-  {
-    name: 'Combination Therapy',
-    image: '/images/hair/product-combo.webp',
-    alt: 'A combination of topical and oral hair restoration medications',
-    description: 'Combines topical and oral medications for a comprehensive approach.',
-    price: 99,
-    features: [
-      'Topical Minoxidil + Finasteride + Oral Minoxidil',
-      'Minoxidil + Finasteride + Biotin',
-    ],
-  },
-  {
-    name: 'Advanced Liposomal Formulas',
-    image: '/images/hair/product-advanced.webp',
-    alt: 'Advanced liposomal hair restoration formulas — dropper solution and foam pump',
-    description:
-      'Next-generation delivery systems designed for enhanced absorption and results.',
-    price: 109,
-    features: [
-      'Minoxidil + Fluocinolone + Tretinoin',
-      'Minoxidil + Finasteride + Fluocinolone + Tretinoin',
-    ],
-  },
-];
+/* Derived from the Hair Restoration page's cards so the two never drift. */
+const plans: Plan[] = hairProducts.map((p) => ({
+  name: p.name,
+  image: p.image,
+  alt: p.alt,
+  description: p.description,
+  price: Number(p.price),
+  features: [...p.options, p.methodOfUse],
+}));
 ---
 
 <section class="htopts" aria-labelledby="hair-treatment-options-title">
   <h2 class="htopts__title" id="hair-treatment-options-title">Hair Restoration Treatment Options</h2>
   <p class="htopts__intro">
-    WellPeps offers clinically backed solutions designed to support hair
-    regrowth and a healthier scalp. Your provider will recommend the approach
-    that&rsquo;s right for you after reviewing your health history.
+    WellPeps offers prescription treatments for hair loss, taken by mouth or
+    applied to the scalp. Your provider will recommend the approach that&rsquo;s
+    right for you after reviewing your health history.
   </p>
 
   <div class="htopts__grid">

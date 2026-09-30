@@ -123,7 +123,7 @@ export const peptideProducts: PeptideProduct[] = [
     vial: '/images/peptide/vial-glutathione.webp',
     methodOfUse: 'Injection',
     features: ['Antioxidant defense', 'Oxidative balance', 'Naturally present in the body'],
-    price: '129',
+    price: '99',
   },
   {
     name: 'MIC + B12',
@@ -159,7 +159,7 @@ export const peptideProducts: PeptideProduct[] = [
     vial: '/images/peptide/vial-methylene.webp',
     methodOfUse: 'Oral',
     features: ['Mitochondrial biology', 'Cellular redox processes', 'Emerging areas of research'],
-    price: '79',
+    price: '99',
   },
 ];
 
