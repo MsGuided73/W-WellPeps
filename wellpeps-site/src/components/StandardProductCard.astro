@@ -34,11 +34,13 @@ interface Props {
   productName?: string;
   /** Full-bleed cover media for photographic shots instead of the white "contain" vial box. */
   cover?: boolean;
+  /** Where the treatment is not offered, e.g. "Not available to California residents." */
+  availability?: string;
 }
 const {
   image, alt, name, description, form, features,
   price, priceUnit, priceNote, program,
-  productName, cover = false,
+  productName, cover = false, availability,
 } = Astro.props;
 ---
 <article class:list={['scard', { 'scard--cover': cover }]}>
@@ -59,6 +61,10 @@ const {
         <li><span class="scard__check"><Icon name="check-circle" /></span>{f}</li>
       ))}
     </ul>
+
+    {availability && (
+      <p class="scard__availability"><span class="scard__availability-icon"><Icon name="info" /></span>{availability}</p>
+    )}
 
     <div class="scard__price">
       <span class="scard__price-label">{price ? 'Starting at' : 'Pricing'}</span>
@@ -127,6 +133,13 @@ const {
 
   .scard__divider { height: 1px; border: 0; background: var(--border); margin: 1.35rem 0; }
 
+  .scard__availability {
+    display: flex; gap: 0.5rem; align-items: flex-start; margin-top: 1rem;
+    padding: 0.6rem 0.75rem; border-radius: 8px; background: var(--bg-light-sky);
+    color: var(--navy); font-weight: 600; font-size: var(--text-note); line-height: 1.35;
+  }
+  .scard__availability-icon { flex: none; color: var(--blue); display: inline-flex; }
+  .scard__availability-icon :global(svg) { width: 18px; height: 18px; }
   .scard__form { font-weight: 800; color: var(--navy); font-size: var(--text-body-size); letter-spacing: -0.01em; }
 
   .scard__features { list-style: none; padding: 0; margin: 1rem 0 0; display: flex; flex-direction: column; gap: 0.7rem; }

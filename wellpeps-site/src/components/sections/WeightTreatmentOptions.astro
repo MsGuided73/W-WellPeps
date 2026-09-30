@@ -14,6 +14,7 @@
  * treatment matches everywhere the prices appear.
  */
 import { PRICE_NOTE } from '../../config';
+import { ORAL_GLP1_AVAILABILITY } from '../../data/weight';
 interface PlanFeature {
   text: string;
   /** First feature per the comp — rendered as a filled blue pill. */
@@ -26,6 +27,8 @@ interface Plan {
   alt: string;
   price: number;
   features: PlanFeature[];
+  /** State restriction, shown under the features. */
+  availability?: string;
 }
 
 const plans: Plan[] = [
@@ -33,7 +36,7 @@ const plans: Plan[] = [
     name: 'Semaglutide Injection',
     image: '/images/weight/product-semaglutide.webp',
     alt: 'Compounded semaglutide injection vial',
-    price: 109,
+    price: 179,
     features: [
       { text: 'All-Inclusive Pricing', highlight: true },
       { text: 'Weekly injection' },
@@ -44,7 +47,7 @@ const plans: Plan[] = [
     name: 'Tirzepatide Injection',
     image: '/images/weight/product-tirzepatide.webp',
     alt: 'Compounded tirzepatide injection vial',
-    price: 269,
+    price: 249,
     features: [
       { text: 'All-Inclusive Pricing', highlight: true },
       { text: 'Dual GIP/GLP-1 medication' },
@@ -55,7 +58,8 @@ const plans: Plan[] = [
     name: 'Oral Semaglutide Tablets',
     image: '/images/weight/product-oral.webp',
     alt: 'Oral semaglutide tablets',
-    price: 119,
+    price: 229,
+    availability: ORAL_GLP1_AVAILABILITY,
     features: [
       { text: 'All-Inclusive Pricing', highlight: true },
       { text: 'Needle-free option' },
@@ -100,6 +104,7 @@ const plans: Plan[] = [
               </li>
             ))}
           </ul>
+          {p.availability && <p class="wocard__availability">{p.availability}</p>}
           <a href="/weight-loss" class="wocard__cta">Learn More</a>
         </div>
       </article>
@@ -226,6 +231,7 @@ const plans: Plan[] = [
   }
 
   /* CTA — outlined per the comp, brand-blue fill on hover (client direction). */
+  .wocard__availability { margin-top: 0.75rem; font-size: var(--text-note); font-weight: 600; color: var(--navy); }
   .wocard__cta {
     display: block;
     margin-top: 1.1rem;

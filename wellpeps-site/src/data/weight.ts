@@ -7,8 +7,8 @@
  * and the approved Weight Management page mockups.
  *
  * NOTE (client): each price is the one monthly all-in price (PRICE_NOTE under
- * the grid). The $109 / $269 / $119 figures are placeholders from the old
- * pricing model until prices are pulled from GEN Health.
+ * the grid). Prices are the GEN Health product prices read from the API on
+ * 2026-09-30 and must stay in step with GEN until the build pulls them.
  */
 
 
@@ -91,6 +91,8 @@ export interface PillProduct {
   name: string;
   /** Which row of the treatments grid the card sits in (weightProductGroups). */
   medication: 'semaglutide' | 'tirzepatide';
+  /** Which row of the grid the card sits in (see weightProductGroups). */
+  form: 'injection' | 'oral';
   image: string;
   alt: string;
   benefits: PillBenefit[];
@@ -100,6 +102,8 @@ export interface PillProduct {
   price?: string;
   priceUnit: string;
   priceNote?: string;
+  /** State restriction shown on the card (see StandardProductCard). */
+  availability?: string;
 }
 
 export const weightProductsIntro = {
@@ -108,12 +112,18 @@ export const weightProductsIntro = {
   footnote: 'Prescription required. Treatment recommendations depend on your assessment and provider evaluation.',
 };
 
+/** Oral semaglutide and oral tirzepatide are not offered in California
+ *  (client, 2026-09-30). Shown on both oral cards, the Oral Tablets row note,
+ *  the Learning Center treatment insert, the FAQ and the chat assistant. */
+export const ORAL_GLP1_AVAILABILITY = 'Not available to California residents.';
+
 export const weightProducts: PillProduct[] = [
   {
     name: 'Compounded Semaglutide',
+    form: 'injection',
     medication: 'semaglutide',
     image: '/images/weight/product-semaglutide.webp',
-    alt: 'Compounded semaglutide injection vial',
+    alt: 'An amber compounded semaglutide injection vial on a bathroom counter',
     benefits: [
       { label: 'Weight Loss', icon: 'trending-down' },
       { label: 'Appetite Control', icon: 'utensils' },
@@ -122,11 +132,12 @@ export const weightProducts: PillProduct[] = [
     ],
     description: 'Weekly GLP-1 treatment to help support appetite regulation and healthy weight loss.',
     delivery: { label: 'Weekly Injection', icon: 'syringe' },
-    price: '109',
+    price: '179',
     priceUnit: '/month',
   },
   {
     name: 'Compounded Tirzepatide',
+    form: 'injection',
     medication: 'tirzepatide',
     image: '/images/weight/product-tirzepatide.webp',
     alt: 'Compounded tirzepatide injection vial',
@@ -138,11 +149,13 @@ export const weightProducts: PillProduct[] = [
     ],
     description: 'Dual GIP/GLP-1 treatment designed to support appetite regulation and metabolic health.',
     delivery: { label: 'Weekly Injection', icon: 'syringe' },
-    price: '269',
+    price: '249',
     priceUnit: '/month',
   },
   {
     name: 'Oral Semaglutide',
+    availability: ORAL_GLP1_AVAILABILITY,
+    form: 'oral',
     medication: 'semaglutide',
     image: '/images/weight/product-oral.webp',
     alt: 'Oral semaglutide tablets',
@@ -154,11 +167,13 @@ export const weightProducts: PillProduct[] = [
     ],
     description: 'Daily oral GLP-1 option—a convenient, needle-free alternative.',
     delivery: { label: 'Daily Tablet', icon: 'pill' },
-    price: '119',
+    price: '229',
     priceUnit: '/month',
   },
   {
     name: 'Oral Tirzepatide',
+    availability: ORAL_GLP1_AVAILABILITY,
+    form: 'oral',
     medication: 'tirzepatide',
     image: '/images/weight/product-oral-tirzepatide.webp',
     alt: 'Oral tirzepatide tablets',
@@ -174,11 +189,11 @@ export const weightProducts: PillProduct[] = [
   },
 ];
 
-/** The treatments grid is grouped by medication, one row each: the patient's
- *  first question is which medication, then injection or oral. */
-export const weightProductGroups: { medication: PillProduct['medication']; title: string; note: string }[] = [
-  { medication: 'semaglutide', title: 'Semaglutide', note: 'A GLP-1 medication, available as a weekly injection or a daily tablet.' },
-  { medication: 'tirzepatide', title: 'Tirzepatide', note: 'A dual GIP/GLP-1 medication, available as a weekly injection or an oral tablet.' },
+/** The treatments grid has two rows: weekly injections on top, tablets below
+ *  (client revision, 2026-09-30). */
+export const weightProductGroups: { form: PillProduct['form']; title: string; note: string }[] = [
+  { form: 'injection', title: 'Weekly Injections', note: 'Semaglutide or tirzepatide, taken as one injection a week.' },
+  { form: 'oral', title: 'Oral Tablets', note: 'A needle-free option: semaglutide or tirzepatide as a tablet. Oral options are not available to California residents.' },
 ];
 
 export interface WeightFaq {
@@ -189,6 +204,10 @@ export interface WeightFaq {
 export const weightFaqs: WeightFaq[] = [
   ...planProgramFaqs,
   {
+    q: 'Are oral GLP-1 options available in every state?',
+    a: 'No. Oral semaglutide and oral tirzepatide are not available to California residents. Injectable options may be available; your provider will review which treatments are appropriate and available where you live.',
+  },
+  {
     q: 'Can I qualify for a GLP-1 weight loss program?',
     a: 'Eligibility depends on your health history, BMI, and other factors. A licensed healthcare provider will review your information and determine whether treatment is appropriate.',
   },
@@ -197,8 +216,8 @@ export const weightFaqs: WeightFaq[] = [
     a: 'Your provider will recommend a personalized treatment plan based on your health goals, medical history, and clinical evaluation.',
   },
   {
-    q: 'Are lab tests required?',
-    a: 'Some treatment programs may require laboratory testing before or during treatment. If needed, your provider will discuss the appropriate testing with you. WellPeps offers access to low-cost labs; lab fees are billed separately.',
+    q: 'Are lab tests available if I need them?',
+    a: 'Lab testing is available when appropriate for your care. If your provider determines that testing is needed before or during treatment, they’ll discuss the recommended tests with you and help guide you through the process. WellPeps offers access to low-cost labs; lab fees are billed separately.',
   },
   {
     q: 'How long does it take to receive my medication?',

@@ -19,7 +19,7 @@ import { PRICE_NOTE } from '../../../config';
           <p>{group.note}</p>
         </div>
         <div class="wprod__grid">
-          {weightProducts.filter((product) => product.medication === group.medication).map((product) => (
+          {weightProducts.filter((product) => product.form === group.form).map((product) => (
             <StandardProductCard
               cover
               image={product.image}
@@ -31,6 +31,7 @@ import { PRICE_NOTE } from '../../../config';
               price={product.price}
               priceUnit={product.priceUnit}
               priceNote={product.priceNote}
+              availability={product.availability}
               program="weight-loss"
             />
           ))}
