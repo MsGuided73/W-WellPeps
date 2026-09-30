@@ -43,7 +43,12 @@ building another book.
   it exceeds 22 characters (Healthy Aging; at 58pt "HEALTHY AGING" alone would overrun the page width, so this is the
   cover's equivalent of the 31/27 rule), and GLP-1 v14's disclaimer still has the pre-v6 13pt legal text (it picks up
   the 12pt rule on its next build). `build_book.py` now FAILs a v6 build on any interior-page span off the scale
-  (`TYPE_SCALE`, section 7).
+  (`TYPE_SCALE`, section 7). **Second round, same day** (the user still saw mixed sizes on Healthy Aging pages):
+  three body-area elements the table does not name were on the scale only by coincidence: emphasis lines and
+  sub-headings at 13pt (the Approach size) beside 12pt body, and quotes at 19pt above the 15.5pt deck. Under v6 they
+  now take 12pt bold (emphasis, sub-headings) and 15.5pt (quotes), 19 left the allowed scale, and the three books were
+  rebuilt as Sexual Wellness **v5**, Hair Restoration **v5**, Healthy Aging **v4**. GLP-1's one quote (04) and three
+  emphasis lines change the same way on its next build.
 - **Draft for review:** Sexual Wellness, v2 (built 2026-09-16 from Derek's `eBooks/Manuscripts/sexual-wellness_revised-final.docx`,
   which replaced the first pasted manuscript wholesale: new cover subtitle, new page order, no Before You Decide page).
   Outline `outlines/sexual-wellness.json`, config `config/sexual-wellness.json`, PDF `eBooks/sexual-wellness_ebook-v2.pdf`
@@ -218,7 +223,7 @@ Keep 05 and 06 as separate pages (two topics). Spacing tokens now: head->rule .1
 
 Derek's formatting standard: the type and spacing never change from page to page to make content fit. `editorial-v6`
 is v5 plus one fixed scale, set in the `.theme-editorial-v6` block of `CSS` (spacing as `--sp-*` / `--pad-*` variables):
-headline Lora 31pt, or 27pt when it takes two lines (nothing smaller); deck 15.5pt; body and lists 12pt on 16.5pt
+headline Lora 31pt, or 27pt when it takes two lines (nothing smaller); deck and quotes 15.5pt; body, lists, emphasis lines and sub-headings 12pt on 16.5pt
 leading; card heading 12pt bold navy, card body 11.5pt; Smart Patient label 7.5pt tracked caps, question/insight 14pt
 semibold; Approach label 9.5pt, text 13pt; chapter bar 16pt always; running head 7.5pt medium. The Insight/Approach
 stack sits a fixed .3in below the content instead of being pinned to the page bottom.

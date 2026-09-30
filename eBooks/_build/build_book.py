@@ -29,10 +29,13 @@ CONT_MIN_FILL = 0.6  # editorial-v6: a CONTINUED page under 60% full is a layout
 CARD_CROP_MAX_PCT = 1.0  # product photos on cards must show the whole product (bottle, cap, base, pills)
 # Fixed-type scale (editorial-v6, Derek's formatting standard): every text span on an interior page must be one of
 # these point sizes. The first group is the standard's table; the second is the series-wide sizes of elements the
-# table does not name (quote 19, checklist title / tagline 15, Why tag 17, CTA headline 25 / button 12.5 / stack 22).
+# table does not name (checklist title / tagline 15, Why tag 17, CTA headline 25 / button 12.5 / stack 22).
 # The cover and the disclaimer page have their own scales and are not checked. Audit 2026-09-29 found the neutral
 # two-column headings (11pt) and the flow steps (10.5pt) off the scale; both are now pinned to 12pt in the v6 CSS.
-TYPE_SCALE = {31, 27, 15.5, 12, 11.5, 14, 13, 7.5, 9.5, 16, 8} | {19, 15, 17, 25, 12.5, 22}
+# Same day, second round: emphasis lines and sub-headings (13pt) and quotes (19pt) were on the scale only because
+# other elements use those sizes; they now render at 12pt / 15.5pt and 19 is no longer allowed. Note the check is by
+# size, not by element, so a body-area element at an Approach or callout size still passes: audit by page when in doubt.
+TYPE_SCALE = {31, 27, 15.5, 12, 11.5, 14, 13, 7.5, 9.5, 16, 8} | {15, 17, 25, 12.5, 22}
 
 
 def run(cmd, **kw):

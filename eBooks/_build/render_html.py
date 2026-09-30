@@ -943,6 +943,11 @@ p.quote{font-size:19pt;line-height:1.2;font-weight:700;color:var(--blue);margin-
 /* one-book elements that the v6 scale had not covered (font audit 2026-09-29): the neutral two-column headings
    (Hair 07, were 11pt) and the flow steps (Healthy Aging 12, were 10.5pt) take the 12pt card-heading size */
 .theme-editorial-v6 .twocol h4{font-size:12pt}
+/* body-area elements Derek's table does not name (font pass 2026-09-29, second round): emphasis lines and
+   sub-headings take the 12pt body/card-heading size in bold; a quote is a deck-level statement at 15.5pt */
+.theme-editorial-v6 p.emph,.theme-editorial-v6 .spacious p.emph,.theme-editorial-v6 .redflag p.emph{font-size:12pt;line-height:16.5pt;margin:0 0 var(--sp-para)}
+.theme-editorial-v6 .subhead h4,.theme-editorial-v6 .page.dense .subhead h4{font-size:12pt;line-height:1.25}
+.theme-editorial-v6 p.quote{font-size:15.5pt;line-height:1.38;letter-spacing:0;margin-bottom:var(--sp-deck-body)}
 .theme-editorial-v6 .flow .step{font-size:12pt;letter-spacing:0}
 
 /* v6 disclaimer: legal text at the standard 12pt body size; the series list follows the text (placed by the
