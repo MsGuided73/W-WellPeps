@@ -49,6 +49,13 @@ building another book.
   now take 12pt bold (emphasis, sub-headings) and 15.5pt (quotes), 19 left the allowed scale, and the three books were
   rebuilt as Sexual Wellness **v5**, Hair Restoration **v5**, Healthy Aging **v4**. GLP-1's one quote (04) and three
   emphasis lines change the same way on its next build.
+- **Why page check, 2026-09-29:** Sexual Wellness, Hair Restoration and Healthy Aging all carry Derek's revised page 14
+  (kicker A BETTER APPROACH TO CARE, founder-story intro in two paragraphs, the same eight cards with the last one
+  titled per topic). Sexual Wellness was still on the default WHY WE CREATED WELLPEPS kicker and, like Healthy Aging,
+  ran the two intro paragraphs together; fixed and rebuilt as Sexual Wellness **v6** and Healthy Aging **v5** (Hair v5
+  already matched). **GLP-1 v14 still has the older Why page** from the approved v10 content (telehealth intro, Lab
+  Access, U.S.-Based Prescription Fulfillment, Patient-Friendly Cancellations, default kicker). Whether GLP-1 adopts the
+  revised page is Derek's call; nothing was changed there.
 - **Draft for review:** Sexual Wellness, v2 (built 2026-09-16 from Derek's `eBooks/Manuscripts/sexual-wellness_revised-final.docx`,
   which replaced the first pasted manuscript wholesale: new cover subtitle, new page order, no Before You Decide page).
   Outline `outlines/sexual-wellness.json`, config `config/sexual-wellness.json`, PDF `eBooks/sexual-wellness_ebook-v2.pdf`
