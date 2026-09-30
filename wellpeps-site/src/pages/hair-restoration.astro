@@ -7,6 +7,8 @@ import HairProducts from '../components/sections/hair/HairProducts.astro';
 import HairFaq from '../components/sections/hair/HairFaq.astro';
 import HairCta from '../components/sections/hair/HairCta.astro';
 import { HAIR_COMING_SOON } from '../config';
+import EbookOffer from '../components/EbookOffer.astro';
+import { ebooksFor } from '../data/ebooks';
 ---
 <BaseLayout
   title="Hair Restoration — WellPeps"
@@ -16,6 +18,7 @@ import { HAIR_COMING_SOON } from '../config';
   {HAIR_COMING_SOON && <HairComingSoon />}
   <HairHowItWorks />
   <HairProducts />
+  <EbookOffer books={ebooksFor('hair-restoration')} variant="band" />
   <HairFaq />
   <HairCta />
 </BaseLayout>

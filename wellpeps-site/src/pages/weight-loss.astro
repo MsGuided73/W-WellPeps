@@ -7,6 +7,8 @@ import WeightProducts from '../components/sections/weight/WeightProducts.astro';
 import WhatsIncluded from '../components/sections/WhatsIncluded.astro';
 import WeightFaq from '../components/sections/weight/WeightFaq.astro';
 import WeightCta from '../components/sections/weight/WeightCta.astro';
+import EbookOffer from '../components/EbookOffer.astro';
+import { ebooksFor } from '../data/ebooks';
 ---
 <BaseLayout
   title="GLP-1 Weight Management — WellPeps"
@@ -17,6 +19,7 @@ import WeightCta from '../components/sections/weight/WeightCta.astro';
   <WeightWhyChoose />
   <WeightProducts />
   <WhatsIncluded />
+  <EbookOffer books={ebooksFor('weight-loss')} variant="band" />
   <WeightFaq />
   <WeightCta />
 </BaseLayout>

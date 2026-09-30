@@ -6,6 +6,8 @@ import SexProducts from '../components/sections/sexual/SexProducts.astro';
 import SexRecommendation from '../components/sections/sexual/SexRecommendation.astro';
 import SexFaq from '../components/sections/sexual/SexFaq.astro';
 import SexCta from '../components/sections/sexual/SexCta.astro';
+import EbookOffer from '../components/EbookOffer.astro';
+import { ebooksFor } from '../data/ebooks';
 ---
 <BaseLayout
   title="Sexual Wellness — WellPeps"
@@ -15,6 +17,7 @@ import SexCta from '../components/sections/sexual/SexCta.astro';
   <SexEducation />
   <SexProducts />
   <SexRecommendation />
+  <EbookOffer books={ebooksFor('sexual-wellness')} variant="band" />
   <SexFaq />
   <SexCta />
 </BaseLayout>

@@ -10,6 +10,8 @@
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import EverythingIncludedStrip from '../../components/EverythingIncludedStrip.astro';
+import EbookOffer from '../../components/EbookOffer.astro';
+import { ebooksForCategory } from '../../data/ebooks';
 import HairTreatmentOptions from '../../components/sections/HairTreatmentOptions.astro';
 import PeptideTherapies from '../../components/sections/PeptideTherapies.astro';
 import SexualTreatmentOptions from '../../components/sections/SexualTreatmentOptions.astro';
@@ -157,6 +159,8 @@ const updated = article.published_at
         )}
 
         {showIncludedBar && <EverythingIncludedStrip stacked />}
+
+        <EbookOffer books={ebooksForCategory(article.category.slug)} variant="rail" />
 
         {article.disclaimer_html && (
           <div class="rail__card">

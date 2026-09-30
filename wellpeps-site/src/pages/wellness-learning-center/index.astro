@@ -16,6 +16,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
 import AssessmentCta from '../../components/AssessmentCta.astro';
 import { getCategoriesWithArticles, getFeaturedArticles, categoryIcon } from '../../lib/blog';
+import EbookOffer from '../../components/EbookOffer.astro';
+import { EBOOKS } from '../../data/ebooks';
 
 const categories = await getCategoriesWithArticles();
 const featured = await getFeaturedArticles();
@@ -175,6 +177,8 @@ const searchIndex = categories.flatMap((c) =>
       {totalArticles} articles across {categories.length} topics.
     </p>
   </div>
+
+  <EbookOffer books={EBOOKS} variant="carousel" />
 </BaseLayout>
 
 <script is:inline define:vars={{ searchIndex }}>

@@ -1,0 +1,448 @@
+---
+/**
+ * Free Smart Patient Guide offer. Covers render as 3D book mockups (page
+ * edges, spine crease, floor shadow) on a deep navy stage. Every "get" button
+ * opens an email form; the email is saved through the notify-signup Edge
+ * Function (src/lib/notify.ts) with the guide's source, then the guide opens,
+ * or, while its final PDF is not published yet, the visitor is told it will be
+ * emailed. Only an email address is collected: no health information.
+ *
+ *   variant="carousel"  every guide in a row (home, Learning Center)
+ *   variant="band"      a program page feature for that program's guide(s)
+ *   variant="rail"      a compact card for a Learning Center article sidebar
+ */
+import Icon from './Icon.astro';
+import type { Ebook } from '../data/ebooks';
+
+interface Props {
+  books: readonly Ebook[];
+  variant: 'carousel' | 'band' | 'rail';
+}
+const { books, variant } = Astro.props;
+const single = books.length === 1 ? books[0] : undefined;
+const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
+---
+{books.length > 0 && (
+  <div class:list={['ebook', `ebook--${variant}`]} data-ebook-offer>
+    {variant === 'rail' && (
+      <div class="ebook-rail">
+        <p class="ebook__eyebrow"><span>Free Guide</span></p>
+        <div class="ebook-rail__books">
+          {books.map((book) => (
+            <button type="button" class="book book--sm" data-ebook-open={book.slug} aria-label={`Get the free guide: ${book.title}`}>
+              <img src={book.cover} alt="" width="600" height="776" loading="lazy" />
+            </button>
+          ))}
+        </div>
+        <h2 class="ebook-rail__title">The Smart Patient’s Guide{books.length > 1 ? 's' : ''} to {books.map((b) => b.title).join(' and ')}</h2>
+        {books.map((book) => (
+          <button type="button" class="ebook__btn ebook__btn--block" data-ebook-open={book.slug}>
+            {books.length > 1 ? `Get ${book.title}` : 'Get My Free Guide'}<Icon name="arrow-right" />
+          </button>
+        ))}
+      </div>
+    )}
+
+    {variant === 'band' && (
+      <section class="ebook-stage">
+        <div class="container ebook-band">
+          <div class:list={['ebook-band__books', { 'ebook-band__books--pair': !single }]}>
+            <span class="ebook-band__halo" aria-hidden="true"></span>
+            {books.map((book, i) => (
+              <button type="button" class:list={['book', `book--fan-${i}`]} data-ebook-open={book.slug} aria-label={`Get the free guide: ${book.title}`}>
+                <img src={book.cover} alt="" width="600" height="776" loading="lazy" />
+                {i === 0 && <span class="book__badge" aria-hidden="true">Free</span>}
+              </button>
+            ))}
+          </div>
+
+          <div class="ebook-band__copy">
+            <p class="ebook__eyebrow"><span>Free Smart Patient Guide{single ? '' : 's'}</span> · {books[0].pages} pages{single ? '' : ' each'}</p>
+            {single ? (
+              <Fragment>
+                <h2 class="ebook-band__title">The Smart Patient’s Guide to <span>{single.title}</span></h2>
+                <p class="ebook-band__lead">{single.subtitle}</p>
+                <p class="ebook-band__inside-head">Inside the guide</p>
+                <ul class="ebook-band__inside" role="list">
+                  {single.inside.map((item) => (
+                    <li><span class="ebook-band__tick"><Icon name="check" /></span>{item}</li>
+                  ))}
+                </ul>
+                <div class="ebook-band__actions">
+                  <button type="button" class="ebook__btn" data-ebook-open={single.slug}>Get My Free Guide<Icon name="arrow-right" /></button>
+                  <span class="ebook-band__fine">Free. No obligation.</span>
+                </div>
+              </Fragment>
+            ) : (
+              <Fragment>
+                <h2 class="ebook-band__title">Know Your Options <span>Before You Decide</span></h2>
+                <p class="ebook-band__lead">Two free guides to the questions patients ask most about healthy aging and wellness therapies.</p>
+                <ul class="ebook-band__pick" role="list">
+                  {books.map((book) => (
+                    <li>
+                      <div>
+                        <h3>{book.title}</h3>
+                        <p>{book.subtitle}</p>
+                      </div>
+                      <button type="button" class="ebook__btn ebook__btn--sm" data-ebook-open={book.slug}>Get Guide<Icon name="arrow-right" /></button>
+                    </li>
+                  ))}
+                </ul>
+              </Fragment>
+            )}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {variant === 'carousel' && (
+      <section class="ebook-stage">
+        <div class="container">
+          <div class="ebook-carousel__head">
+            <p class="ebook__eyebrow"><span>Free Smart Patient Guides</span></p>
+            <h2 class="ebook-band__title">Know Your Options <span>Before You Decide</span></h2>
+            <p class="ebook-band__lead">Clear answers to the questions patients ask most. Pick a guide, and it’s yours free.</p>
+          </div>
+          <ul class="ebook-carousel__row" role="list">
+            {books.map((book) => (
+              <li class="ebook-carousel__item">
+                <button type="button" class="book" data-ebook-open={book.slug} aria-label={`Get the free guide: ${book.title}`}>
+                  <img src={book.cover} alt="" width="600" height="776" loading="lazy" />
+                </button>
+                <h3>{book.title}</h3>
+                <button type="button" class="ebook__link" data-ebook-open={book.slug}>Get the free guide<Icon name="arrow-right" /></button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )}
+  </div>
+)}
+
+{books.length > 0 && (
+  <dialog class="ebook-dialog" id={dialogId} data-ebook-dialog aria-labelledby={`${dialogId}-title`}>
+    {books.map((book) => (
+      <template data-ebook-book={book.slug} data-source={book.source} data-pdf={book.pdf ?? ''} data-title={book.title} data-cover={book.cover} />
+    ))}
+    <div class="ebook-dialog__art" aria-hidden="true">
+      <div class="book book--dialog"><img src={books[0].cover} alt="" width="600" height="776" data-ebook-cover /></div>
+    </div>
+    <div class="ebook-dialog__panel">
+      <button type="button" class="ebook-dialog__close" data-ebook-close aria-label="Close">×</button>
+      <div data-ebook-form-view>
+        <p class="ebook-dialog__kicker">Free Smart Patient Guide</p>
+        <h2 class="ebook-dialog__title" id={`${dialogId}-title`} data-ebook-name>{books[0].title}</h2>
+        <p class="ebook-dialog__lead">Tell us where to send it.</p>
+        <form class="ebook-dialog__form" novalidate data-ebook-form>
+          <label for={`${dialogId}-email`}>Email address</label>
+          <input id={`${dialogId}-email`} name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
+          <div class="ebook-dialog__hp" aria-hidden="true">
+            <label>Company <input name="company" type="text" tabindex="-1" autocomplete="off" /></label>
+          </div>
+          <p class="ebook-dialog__error" role="alert" hidden data-ebook-error></p>
+          <button type="submit" class="ebook__btn ebook__btn--block">Send Me the Guide<Icon name="arrow-right" /></button>
+          <p class="ebook-dialog__fine">
+            By continuing you agree to receive emails from WellPeps, including this guide. Unsubscribe anytime.
+            See our <a href="/privacy-policy">Privacy Policy</a>.
+          </p>
+        </form>
+      </div>
+      <div class="ebook-dialog__done" role="status" hidden data-ebook-done>
+        <span class="ebook-dialog__done-icon"><Icon name="check" /></span>
+        <h2 class="ebook-dialog__title">You’re all set!</h2>
+        <p data-ebook-done-text></p>
+        <a class="ebook__btn" href="#" target="_blank" rel="noopener" hidden data-ebook-pdf>Open Your Guide<Icon name="arrow-right" /></a>
+      </div>
+    </div>
+  </dialog>
+)}
+
+<script>
+  import { submitSignup, type SignupSource } from '../lib/notify';
+
+  document.querySelectorAll<HTMLElement>('[data-ebook-offer]').forEach((offer) => {
+    const dialog = offer.nextElementSibling as HTMLDialogElement | null;
+    if (!dialog?.matches('[data-ebook-dialog]')) return;
+    const q = <T extends Element>(sel: string) => dialog.querySelector<T>(sel)!;
+    const form = q<HTMLFormElement>('[data-ebook-form]');
+    const formView = q<HTMLElement>('[data-ebook-form-view]');
+    const done = q<HTMLElement>('[data-ebook-done]');
+    const doneText = q<HTMLElement>('[data-ebook-done-text]');
+    const pdfLink = q<HTMLAnchorElement>('[data-ebook-pdf]');
+    const errorEl = q<HTMLElement>('[data-ebook-error]');
+    const nameEl = q<HTMLElement>('[data-ebook-name]');
+    const coverEl = q<HTMLImageElement>('[data-ebook-cover]');
+    const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+    const submitHtml = submit.innerHTML;
+    let current: DOMStringMap | undefined;
+
+    offer.querySelectorAll<HTMLButtonElement>('[data-ebook-open]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        current = dialog.querySelector<HTMLElement>(`[data-ebook-book="${btn.dataset.ebookOpen}"]`)?.dataset;
+        if (!current) return;
+        nameEl.textContent = current.title ?? '';
+        coverEl.src = current.cover ?? '';
+        formView.hidden = false;
+        done.hidden = true;
+        errorEl.hidden = true;
+        submit.disabled = false;
+        submit.innerHTML = submitHtml;
+        dialog.showModal();
+      });
+    });
+
+    dialog.querySelector('[data-ebook-close]')?.addEventListener('click', () => dialog.close());
+    // A click on the backdrop (outside both panels) closes the dialog.
+    dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!current || !form.reportValidity()) return;
+      const data = new FormData(form);
+      const email = String(data.get('email') ?? '').trim();
+      errorEl.hidden = true;
+      submit.disabled = true;
+      submit.textContent = 'Sending…';
+
+      const result = await submitSignup({
+        email,
+        source: current.source as SignupSource,
+        company: String(data.get('company') ?? ''),
+      });
+
+      if (!result.ok) {
+        submit.disabled = false;
+        submit.innerHTML = submitHtml;
+        errorEl.textContent = result.message ?? '';
+        errorEl.hidden = false;
+        return;
+      }
+
+      formView.hidden = true;
+      done.hidden = false;
+      if (current.pdf) {
+        doneText.textContent = `Your copy of ${current.title} is ready.`;
+        pdfLink.href = current.pdf;
+        pdfLink.hidden = false;
+        pdfLink.focus();
+      } else {
+        doneText.textContent = `We’re putting the finishing touches on ${current.title}. We’ll email it to ${email} as soon as it’s published.`;
+        pdfLink.hidden = true;
+      }
+    });
+  });
+</script>
+
+<style>
+  /* ---------- Shared: the 3D book ----------
+     The cover image leans back on its left edge (the spine). Stacked
+     box-shadows draw the page block on the right, a gradient overlay draws
+     the spine crease and a soft sheen, and ::after is the floor shadow. */
+  .book {
+    position: relative; display: block; width: 100%; padding: 0; border: 0; background: none; cursor: pointer;
+    aspect-ratio: 600 / 776;
+    transform: perspective(1400px) rotateY(-20deg) rotateX(3deg);
+    transform-origin: left center;
+    transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .book img {
+    position: relative; z-index: 1; display: block; width: 100%; height: 100%; object-fit: cover;
+    border-radius: 2px 6px 6px 2px;
+    box-shadow:
+      5px 4px 0 -1px #F7F8FA, 6px 5px 0 -1px #C9D1DC,
+      10px 8px 0 -2px #F7F8FA, 11px 9px 0 -2px #C9D1DC,
+      15px 12px 0 -3px #F2F4F7, 16px 13px 0 -3px #B9C3D0;
+  }
+  .book::before {
+    content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none; border-radius: 2px 6px 6px 2px;
+    background:
+      linear-gradient(90deg, rgba(0,0,0,0.38) 0, rgba(255,255,255,0.22) 2.2%, rgba(0,0,0,0.18) 4%, transparent 7%),
+      linear-gradient(118deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 38%);
+  }
+  .book::after {
+    content: ''; position: absolute; z-index: 0; left: 6%; right: -12%; bottom: -9%; height: 12%;
+    background: radial-gradient(closest-side, rgba(0, 10, 30, 0.55), transparent); filter: blur(4px);
+  }
+  .book:hover, .book:focus-visible { transform: perspective(1400px) rotateY(-6deg) rotateX(1deg) translateY(-8px); }
+  .book:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 10px; }
+  .book__badge {
+    position: absolute; z-index: 3; top: -14px; right: -18px; width: 64px; height: 64px; border-radius: 50%;
+    display: grid; place-items: center; transform: rotate(12deg);
+    background: radial-gradient(circle at 35% 30%, #5CC0FF, var(--blue-soft) 45%, var(--blue));
+    color: #fff; font-family: var(--font-sans); font-weight: 800; font-size: 1.05rem; letter-spacing: 0.04em; text-transform: uppercase;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35), inset 0 2px 0 rgba(255, 255, 255, 0.35);
+  }
+
+  /* ---------- Shared: navy stage, eyebrow, buttons ---------- */
+  .ebook-stage {
+    position: relative; overflow: hidden; color: #fff;
+    padding-block: clamp(4rem, 7vw, 6.5rem);
+    background:
+      radial-gradient(60rem 30rem at 12% 20%, rgba(46, 168, 247, 0.28), transparent 60%),
+      radial-gradient(50rem 30rem at 95% 100%, rgba(21, 118, 196, 0.35), transparent 60%),
+      linear-gradient(160deg, #0B3670 0%, var(--navy) 45%, var(--navy-deep) 100%);
+  }
+  .ebook-stage::before { /* faint dot grid */
+    content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.35;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+    background-size: 22px 22px;
+    mask-image: linear-gradient(90deg, #000, transparent 55%);
+  }
+  .ebook-stage > .container { position: relative; }
+  .ebook__eyebrow {
+    display: inline-flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+    font-family: var(--font-sans); font-size: var(--text-note); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .ebook__eyebrow span {
+    padding: 0.35rem 0.8rem; border-radius: 999px; color: #fff;
+    background: rgba(46, 168, 247, 0.22); border: 1px solid rgba(46, 168, 247, 0.55);
+  }
+  .ebook__btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
+    padding: 1rem 1.8rem; border: 0; border-radius: 999px; cursor: pointer;
+    font-family: var(--font-sans); font-weight: 700; font-size: 1.125rem; color: var(--navy);
+    background: linear-gradient(180deg, #FFFFFF, #E4F2FD);
+    box-shadow: 0 10px 26px rgba(46, 168, 247, 0.35), inset 0 -2px 0 rgba(21, 118, 196, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .ebook__btn :global(svg) { width: 20px; height: 20px; transition: transform 0.2s ease; }
+  .ebook__btn:hover { transform: translateY(-2px); box-shadow: 0 16px 34px rgba(46, 168, 247, 0.45), inset 0 -2px 0 rgba(21, 118, 196, 0.15); }
+  .ebook__btn:hover :global(svg) { transform: translateX(3px); }
+  .ebook__btn:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 3px; }
+  .ebook__btn--sm { padding: 0.7rem 1.2rem; font-size: 1rem; white-space: nowrap; }
+  .ebook__btn--block { width: 100%; }
+
+  /* ---------- Band (program pages) ---------- */
+  .ebook-band { display: grid; grid-template-columns: minmax(280px, 0.9fr) 1.1fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: center; }
+  .ebook-band__books { position: relative; display: grid; place-items: center; min-height: 480px; }
+  .ebook-band__books .book { width: min(340px, 78%); }
+  .ebook-band__halo {
+    position: absolute; width: 440px; max-width: 110%; aspect-ratio: 1; border-radius: 50%;
+    background: radial-gradient(circle, rgba(46, 168, 247, 0.45), rgba(46, 168, 247, 0.08) 55%, transparent 70%);
+  }
+  .ebook-band__books--pair .book { position: absolute; width: min(250px, 55%); }
+  .ebook-band__books--pair .book--fan-0 { transform: perspective(1400px) translateX(-40%) rotateY(-20deg) rotate(-5deg); z-index: 1; }
+  .ebook-band__books--pair .book--fan-1 { transform: perspective(1400px) translateX(34%) translateY(18px) rotateY(-20deg) rotate(4deg); z-index: 2; }
+  .ebook-band__books--pair .book:hover, .ebook-band__books--pair .book:focus-visible { z-index: 3; }
+  .ebook-band__books--pair .book--fan-0:hover { transform: perspective(1400px) translateX(-42%) translateY(-10px) rotateY(-8deg) rotate(-3deg); }
+  .ebook-band__books--pair .book--fan-1:hover { transform: perspective(1400px) translateX(36%) translateY(6px) rotateY(-8deg) rotate(2deg); }
+
+  .ebook-band__title {
+    margin-top: 1.1rem; font-family: var(--font-serif); font-weight: 600; color: #fff;
+    font-size: clamp(2.2rem, 1.6rem + 2.2vw, 3.4rem); line-height: 1.08; letter-spacing: -0.01em;
+  }
+  .ebook-band__title span { display: block; color: var(--blue-soft); }
+  .ebook-band__lead { margin-top: 1rem; font-size: var(--text-lead); color: rgba(255, 255, 255, 0.86); max-width: 36rem; }
+  .ebook-band__inside-head { margin-top: 1.75rem; font-weight: 700; color: #fff; letter-spacing: 0.02em; }
+  .ebook-band__inside { list-style: none; padding: 0; margin: 0.8rem 0 0; display: grid; gap: 0.7rem; }
+  .ebook-band__inside li { display: flex; gap: 0.75rem; align-items: flex-start; color: rgba(255, 255, 255, 0.92); font-size: var(--text-card-body); line-height: 1.4; }
+  .ebook-band__tick {
+    flex: none; display: grid; place-items: center; width: 26px; height: 26px; margin-top: 1px; border-radius: 50%;
+    background: var(--blue-soft); color: var(--navy);
+  }
+  .ebook-band__tick :global(svg) { width: 16px; height: 16px; stroke-width: 3; }
+  .ebook-band__actions { margin-top: 2rem; display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+  .ebook-band__fine { color: rgba(255, 255, 255, 0.75); font-size: var(--text-note); }
+  .ebook-band__pick { list-style: none; padding: 0; margin: 1.75rem 0 0; display: grid; gap: 1rem; }
+  .ebook-band__pick li {
+    display: flex; align-items: center; justify-content: space-between; gap: 1.25rem;
+    padding: 1.15rem 1.35rem; border-radius: 14px;
+    background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(4px);
+  }
+  .ebook-band__pick h3 { color: #fff; font-size: var(--text-card-title); font-weight: 600; }
+  .ebook-band__pick p { margin-top: 0.3rem; color: rgba(255, 255, 255, 0.8); font-size: var(--text-note); }
+
+  /* ---------- Carousel (home, Learning Center) ---------- */
+  .ebook-carousel__head { text-align: center; display: grid; justify-items: center; }
+  .ebook-carousel__head .ebook-band__title span { display: inline; }
+  .ebook-carousel__head .ebook-band__lead { margin-inline: auto; }
+  .ebook-carousel__row {
+    list-style: none; padding: 1.5rem 0.5rem 1rem; margin: clamp(2rem, 4vw, 3.5rem) 0 0;
+    display: grid; grid-auto-flow: column; grid-auto-columns: minmax(170px, 1fr); gap: clamp(1.5rem, 3vw, 2.75rem);
+    overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin;
+  }
+  .ebook-carousel__item { scroll-snap-align: start; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .ebook-carousel__item h3 { margin-top: 1.9rem; min-height: 2.4em; color: #fff; font-size: var(--text-card-title); font-weight: 600; line-height: 1.2; text-wrap: balance; }
+  .ebook__link {
+    margin-top: 0.6rem; display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.25rem; border: 0; background: none; cursor: pointer;
+    color: var(--blue-soft); font-family: var(--font-sans); font-weight: 700; font-size: var(--text-card-body);
+  }
+  .ebook__link :global(svg) { width: 18px; height: 18px; transition: transform 0.2s ease; }
+  .ebook__link:hover :global(svg) { transform: translateX(3px); }
+  .ebook__link:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 2px; border-radius: 4px; }
+
+  /* ---------- Rail (article sidebar) ---------- */
+  .ebook-rail {
+    position: relative; overflow: hidden; padding: 1.6rem 1.4rem 1.5rem; border-radius: var(--radius); color: #fff;
+    background:
+      radial-gradient(22rem 14rem at 0% 0%, rgba(46, 168, 247, 0.35), transparent 60%),
+      linear-gradient(160deg, #0B3670, var(--navy-deep));
+  }
+  .ebook-rail__books { display: flex; justify-content: center; gap: 1.5rem; margin: 1.5rem 0 1.4rem; }
+  .ebook-rail__books .book { width: 120px; }
+  .ebook-rail__title { font-family: var(--font-serif); font-size: var(--text-card-title); font-weight: 600; line-height: 1.25; color: #fff; }
+  .ebook-rail .ebook__btn { margin-top: 1rem; font-size: 1rem; padding: 0.85rem 1.2rem; }
+
+  /* ---------- Dialog ---------- */
+  .ebook-dialog {
+    width: min(760px, calc(100vw - 32px)); padding: 0; border: 0; border-radius: 20px; overflow: hidden;
+    box-shadow: 0 30px 80px rgba(3, 18, 40, 0.5); color: var(--text-body);
+  }
+  /* The global reset zeroes margins, which drops the native centering. */
+  .ebook-dialog { margin: auto; max-height: calc(100dvh - 32px); }
+  .ebook-dialog[open] { display: grid; grid-template-columns: 0.8fr 1.2fr; }
+  /* Class display rules below would otherwise beat the hidden attribute. */
+  .ebook-dialog [hidden] { display: none !important; }
+  .ebook-dialog::backdrop { background: rgba(3, 18, 40, 0.65); backdrop-filter: blur(3px); }
+  .ebook-dialog__art {
+    display: grid; place-items: center; padding: 2.5rem 2rem;
+    background:
+      radial-gradient(circle at 50% 45%, rgba(46, 168, 247, 0.45), transparent 60%),
+      linear-gradient(160deg, #0B3670, var(--navy-deep));
+  }
+  .book--dialog { width: 180px; cursor: default; }
+  .ebook-dialog__panel { position: relative; padding: 2.5rem 2.25rem 2rem; }
+  .ebook-dialog__close {
+    position: absolute; top: 0.75rem; right: 0.9rem; width: 40px; height: 40px; border: 0; background: none;
+    font-size: 1.9rem; line-height: 1; color: var(--navy); cursor: pointer; border-radius: 50%;
+  }
+  .ebook-dialog__close:hover { background: #EEF4FB; }
+  .ebook-dialog__close:focus-visible { outline: 3px solid var(--blue); }
+  .ebook-dialog__kicker { font-size: var(--text-note); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); }
+  .ebook-dialog__title { margin-top: 0.35rem; font-family: var(--font-serif); font-size: clamp(1.7rem, 1.4rem + 1vw, 2.1rem); font-weight: 600; line-height: 1.15; color: var(--navy); }
+  .ebook-dialog__lead { margin-top: 0.5rem; color: var(--text-body); }
+  .ebook-dialog__form { margin-top: 1.25rem; display: grid; gap: 0.55rem; }
+  .ebook-dialog__form label { font-weight: 600; color: var(--navy); }
+  .ebook-dialog__form input[type='email'] {
+    width: 100%; padding: 0.9rem 1rem; font: inherit; border: 1.5px solid #C6D3E3; border-radius: 12px; background: #F8FBFE;
+  }
+  .ebook-dialog__form input[type='email']:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 1px; border-color: var(--blue); }
+  .ebook-dialog__form .ebook__btn { margin-top: 0.5rem; color: #fff; background: linear-gradient(180deg, #1E86D8, var(--blue)); box-shadow: 0 10px 24px rgba(21, 118, 196, 0.35); }
+  .ebook-dialog__hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .ebook-dialog__error { color: #B42318; font-weight: 600; }
+  .ebook-dialog__fine { font-size: var(--text-note); color: var(--text-body); line-height: 1.45; }
+  .ebook-dialog__fine a { color: var(--blue); text-decoration: underline; }
+  .ebook-dialog__done { display: grid; gap: 0.9rem; justify-items: start; padding-top: 1rem; }
+  .ebook-dialog__done .ebook__btn { color: #fff; background: linear-gradient(180deg, #1E86D8, var(--blue)); }
+  .ebook-dialog__done-icon { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: #E6F4EA; color: #1E7B3A; }
+  .ebook-dialog__done-icon :global(svg) { width: 28px; height: 28px; stroke-width: 3; }
+
+  @media (max-width: 900px) {
+    .ebook-band { grid-template-columns: 1fr; text-align: left; }
+    .ebook-band__books { min-height: 340px; }
+  }
+  @media (max-width: 620px) {
+    .ebook-dialog[open] { grid-template-columns: 1fr; }
+    .ebook-dialog__art { padding: 1.75rem 1rem 2rem; }
+    .book--dialog { width: 110px; }
+    .ebook-dialog__panel { padding: 1.75rem 1.25rem 1.5rem; }
+    .ebook-band__pick li { flex-direction: column; align-items: flex-start; }
+    .ebook-carousel__row { grid-auto-columns: 58vw; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .book, .ebook__btn, .ebook__btn :global(svg), .ebook__link :global(svg) { transition: none; }
+  }
+</style>

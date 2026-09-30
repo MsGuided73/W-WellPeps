@@ -6,13 +6,21 @@
  * is the only thing that can write `notify_signups`. No Supabase key is shipped
  * to the browser; the endpoint below is a public URL, not a credential.
  *
- * Shared by the three forms that previously collected an address and discarded
- * it: the Hair Restoration notify band, the waitlist section, and the footer
- * newsletter.
+ * Shared by the Hair Restoration notify band, the waitlist section, the footer
+ * newsletter, and the free eBook forms.
  */
 
 /** Which form a signup came from. Must match the table's source CHECK. */
-export type SignupSource = 'hair_notify' | 'waitlist' | 'footer_newsletter';
+export type SignupSource =
+  | 'hair_notify'
+  | 'waitlist'
+  | 'footer_newsletter'
+  // Free eBook requests, one per guide (src/data/ebooks.ts).
+  | 'ebook_glp1'
+  | 'ebook_sexual_wellness'
+  | 'ebook_hair_restoration'
+  | 'ebook_healthy_aging'
+  | 'ebook_nad';
 
 export const NOTIFY_ENDPOINT =
   'https://kwgwbupqzpusydzflyvi.supabase.co/functions/v1/notify-signup';

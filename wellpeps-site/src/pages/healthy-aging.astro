@@ -6,6 +6,8 @@ import PeptideBenefits from '../components/sections/peptide/PeptideBenefits.astr
 import PeptideProducts from '../components/sections/peptide/PeptideProducts.astro';
 import PeptideFaq from '../components/sections/peptide/PeptideFaq.astro';
 import PeptideCta from '../components/sections/peptide/PeptideCta.astro';
+import EbookOffer from '../components/EbookOffer.astro';
+import { ebooksFor } from '../data/ebooks';
 ---
 <BaseLayout
   title="Healthy Aging & Vitality — WellPeps"
@@ -15,6 +17,7 @@ import PeptideCta from '../components/sections/peptide/PeptideCta.astro';
   <PeptideScience />
   <PeptideBenefits />
   <PeptideProducts />
+  <EbookOffer books={ebooksFor('healthy-aging')} variant="band" />
   <PeptideFaq />
   <PeptideCta />
 </BaseLayout>

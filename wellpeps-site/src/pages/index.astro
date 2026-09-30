@@ -11,6 +11,8 @@ import Safety from '../components/sections/Safety.astro';
 import Insights from '../components/sections/Insights.astro';
 import Faq from '../components/sections/Faq.astro';
 import FinalCta from '../components/sections/FinalCta.astro';
+import EbookOffer from '../components/EbookOffer.astro';
+import { EBOOKS } from '../data/ebooks';
 ---
 <BaseLayout>
   <Hero />
@@ -22,6 +24,7 @@ import FinalCta from '../components/sections/FinalCta.astro';
   <WhatsIncluded tinted />
   <Safety />
   <Insights />
+  <EbookOffer books={EBOOKS} variant="carousel" />
   <Faq />
   <FinalCta />
 </BaseLayout>
