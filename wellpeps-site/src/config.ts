@@ -152,8 +152,14 @@ export const HAIR_COMING_SOON =
 /** Shown under every program's product grid. One monthly price, no
  *  separate fees (decided 2026-09-25); standard shipping is included and labs
  *  are billed separately. See src/data/plan.ts. */
+/** Deposit taken when a patient starts an assessment (2026-09-30). Credited to
+ *  the first month if the provider prescribes, refunded in full if not, which
+ *  is what keeps "Free Assessment" true. The one source for the amount. */
+export const DEPOSIT = 29;
+
 export const PRICE_NOTE =
-  'One monthly price covers your medication, if prescribed, provider care, messaging with your care team, and standard shipping.';
+  'One monthly price covers your medication, if prescribed, provider care, messaging with your care team, and standard shipping. ' +
+  `A $${DEPOSIT} deposit is collected when you start: applied to your first month if you are prescribed treatment, refunded in full if not.`;
 
 /** Existing-patient login on GEN Health. Opens in the same tab: the portal is on
  *  our own domain and branding, so it is the next screen of one product, not an
@@ -161,8 +167,6 @@ export const PRICE_NOTE =
 export const PATIENT_PORTAL_URL = SCRIPTFUL_PORTAL_URL;
 
 export const CONTACT = {
-  phone: '(833) 935-7377',
-  phoneHref: 'tel:+18339357377',
   hours: 'Mon–Fri, 9am–6pm ET',
   email: 'hello@wellpeps.com',
   coverage: '50 States · Nationwide Care',

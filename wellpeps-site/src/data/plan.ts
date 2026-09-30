@@ -7,7 +7,13 @@
  * care team and standard shipping. Labs are never "included": when a provider
  * recommends them, patients get low-cost access and lab fees are billed
  * separately. The price itself is set per product in GEN Health.
+ *
+ * Deposit (2026-09-30): patients pay a $29 deposit when they start, and
+ * authorize the remaining balance. If the provider prescribes, the deposit is
+ * credited to the first month and the balance is charged; if not, the $29 is
+ * refunded in full. That refund is what keeps "Free Assessment" true.
  */
+import { DEPOSIT } from '../config';
 
 export const planIntro = {
   title: 'One Monthly Price. Everything Included.',
@@ -28,6 +34,7 @@ export const planIncludes = [
 ];
 
 export const planFinePrint =
+  `A $${DEPOSIT} deposit is collected when you start and applied to your first month if your provider prescribes treatment; if not, it is refunded in full. ` +
   'Your plan renews monthly at the price shown at checkout until you cancel. ' +
   'Lab fees, when your provider recommends labs, are billed separately. Prescription required.';
 
@@ -38,10 +45,14 @@ export const planProgramFaqs = [
     a: 'Your monthly price covers your medication, if prescribed, your licensed provider care, messaging with your care team, and standard shipping. Lab fees, when your provider recommends labs, are billed separately.',
   },
   {
+    q: 'Do I pay anything up front?',
+    a: `Yes, a $${DEPOSIT} deposit when you start your assessment, and you authorize us to charge the remaining balance of your first month. If your provider prescribes treatment, the $${DEPOSIT} is applied to your first month and the balance is charged then. If your provider does not prescribe treatment, your $${DEPOSIT} is refunded in full, so the assessment itself is free.`,
+  },
+  {
     q: 'Can I cancel my plan?',
     a: 'Yes. Your plan renews monthly until you cancel, and you can cancel anytime with no cancellation fee. Medications that have already been ordered or processed for that month’s shipment cannot be refunded. You can restart anytime. See Manage or Cancel Your Plan at the bottom of any page for the steps.',
   },
 ];
 
 /** FAQ entry for the home page. */
-export const planHomeFaq = planProgramFaqs[0];
+export const planHomeFaqs = planProgramFaqs.slice(0, 2);
