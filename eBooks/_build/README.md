@@ -9,6 +9,41 @@ building another book.
 - **Live:** GLP-1 Weight Loss, v10. Outline `outlines/glp-1-weight-loss.json`, config `config/glp-1-weight-loss-v5.json`,
   HTML `html/glp-1-v10.html`, PDF `pdf/glp-1-v10.pdf`, copied to `eBooks/glp-1_ebook-v10.pdf`. 18 pages: cover,
   sections 00–13, CTA (15), disclaimer.
+- **Draft for review:** GLP-1 Weight Loss, v11 (2026-09-25), the first book on theme `editorial-v6`, built to Derek's
+  "WellPeps eBook Formatting" standard (`eBooks/WellPeps eBook Formatting.docx`). Config `config/glp-1-weight-loss-v11.json`
+  (v5 config with `"theme": "editorial-v6"`; the v10 config is untouched), PDF `eBooks/glp-1-weight-loss_ebook-v11.pdf`.
+  v11/v12 let seven sections spill onto half-empty CONTINUED pages (25 pages); Derek rejected that on 2026-09-28
+  ("pagination has overcorrected"). **v13** (`eBooks/glp-1-weight-loss_ebook-v13.pdf`, 18 pages) keeps the fixed type
+  and fits every section on one page by: tightening the book-wide v6 spacing once (section 3a), a smaller photo on 02
+  and 08, 2:1 product photos on 04 (`card_image_ratio`), full-width lead on 04, the 08 monitoring cards and the 12
+  price icons in one row of four / two rows of four, and three redundancy trims in Approach boxes (04 twice, 08 once;
+  listed in the v13 hand-off). Page 12 uses the new `iconlist` element instead of cards. The other guides stay on
+  `editorial-v5` until Derek approves. See section 3a.
+- **Consistency pass, 2026-09-28 (all on `editorial-v6`, each 18 pages, every section on one page, PDF + editable
+  PPTX in `eBooks/`):** Sexual Wellness **v3**, Hair Restoration **v3**, Healthy Aging & Vitality **v2**. Configs are
+  `config/<book>-v6.json` (the v5 configs are untouched; the Sexual Wellness product photos now point at
+  `docs/site-revisions/source-images/`, after the website cleanup deleted the originals). Layout fixes: smaller photos
+  (Sexual 12; Hair 01, 03, 09; Healthy 06, 09, 11), one-row card grids (Hair 11, Healthy 03), Hair 02 Men | Women side by
+  side (`pair_groups` in the page config). Series-wide v6 changes that GLP-1 will also pick up on its next build:
+  disclaimer legal text at 12pt with the series list flowing below it and standard headline->rule spacing; Why-page
+  cards .8in min height, .12/.16/.10in padding, .10in row gap, 2.4in team photo; card side padding .13in; chip side
+  padding .16in. Wording trims for Derek (all in outlines): Hair 02 lead "offer clues to" (was "provide important clues
+  about"); Hair 05 lead "Finasteride targets one pathway behind male pattern hair loss" (was "addresses one of the
+  biological pathways involved in"); Hair 05 Approach "considers" (was "includes considering"); Healthy 05 headline
+  "Healthy Aging & Vitality Therapies" (dropped "Explore"); Healthy 05 lead "grouped as" (was "grouped together as
+  generic"); Healthy 06 "look at the patient rather than assuming age" (dropped "individual" and "that").
+  New build checks: disclaimer brand block vs footer, content past the right margin, cropped card photos.
+- **Font-consistency pass, 2026-09-29:** Sexual Wellness **v4**, Hair Restoration **v4**, Healthy Aging & Vitality
+  **v3** (PDF + editable PPTX with embedded fonts in `eBooks/`; v3/v3/v2 moved to `_archive/`). A span-by-span audit of
+  the four v6 PDFs found the scale identical across the series except two one-book elements the v6 block had never
+  covered: the neutral two-column headings on Hair 07 (11pt) and the flow steps on Healthy Aging 12 (10.5pt); both are
+  now pinned to the 12pt card-heading size. Everything else already matched Derek's table (7.5 / 9.5 / 11.5 / 12 / 13 /
+  14 / 15.5 / 16 / 27 / 31) plus the same series-wide sizes for elements the table does not name (quote 19, checklist
+  titles 15, Why tag 17, CTA 25 / 12.5 / 22). Two things left as they are: the cover title steps from 58pt to 44pt when
+  it exceeds 22 characters (Healthy Aging; at 58pt "HEALTHY AGING" alone would overrun the page width, so this is the
+  cover's equivalent of the 31/27 rule), and GLP-1 v14's disclaimer still has the pre-v6 13pt legal text (it picks up
+  the 12pt rule on its next build). `build_book.py` now FAILs a v6 build on any interior-page span off the scale
+  (`TYPE_SCALE`, section 7).
 - **Draft for review:** Sexual Wellness, v2 (built 2026-09-16 from Derek's `eBooks/Manuscripts/sexual-wellness_revised-final.docx`,
   which replaced the first pasted manuscript wholesale: new cover subtitle, new page order, no Before You Decide page).
   Outline `outlines/sexual-wellness.json`, config `config/sexual-wellness.json`, PDF `eBooks/sexual-wellness_ebook-v2.pdf`
@@ -100,6 +135,24 @@ uv run --with pymupdf --with pillow python render_sheet.py pdf/<book>.pdf qa/<bo
 first-round manuscripts; for GLP-1 the outline JSON was hand-built and is the source of truth. Expect to hand-check
 any parsed outline against the element kinds in section 5.
 
+### Editable PowerPoint export (added 2026-09-28)
+
+Rebuilds a built book's HTML as a fully editable .pptx (one 8.5 x 11 slide per page): every box, rule, card, callout,
+photo and text block is its own PowerPoint object at the PDF's exact position, font, size, colour and tracking.
+
+```bash
+node pptx_extract.mjs html/<book>-vN.html pptx/<book>-vN.json          # geometry + styles from Chromium (print media)
+uv run --with python-pptx python pptx_build.py pptx/<book>-vN.json pptx/<book>-vN-draft.pptx
+```
+
+Then open the draft in PowerPoint and Save As with "Embed fonts" (COM: `Presentation.SaveAs(path, 24, -1)`) so the file
+carries Inter / Inter Medium / Inter SemiBold / Lora SemiBold. Those desktop fonts are static instances generated from
+the bundled woff2 (`pptx/fonts/*.ttf`, Inter at opsz 16); PowerPoint must have them installed to render or embed them
+(installed per-user on this machine 2026-09-28). Text keeps the browser's line breaks as soft line breaks, so it wraps
+exactly as the PDF; after editing a paragraph, remove or move those breaks by hand. Photos keep their crop as an
+editable PowerPoint crop; inline SVG icons become small PNG pictures. QA: export slides via PowerPoint COM and compare
+against the PDF pages (GLP-1 v14: all 18 slides matched).
+
 ## 3. Design system (theme `editorial-v5`)
 
 Every visual decision lives in the `CSS` string in `render_html.py`, scoped under `.theme-editorial-v4` (base) and
@@ -138,6 +191,9 @@ Every visual decision lives in the `CSS` string in `render_html.py`, scoped unde
   `hero` (list of photos), `headline_icon`, `kicker` also works on the `why` page (default WHY WE CREATED WELLPEPS), `dense` (one type step down on a long page), `lead_small` (13pt lead,
   used only to hold a long lead to two lines), for `decide`: `image`, `focus`, and for `cta`: `kicker`, `image`,
   `focus`, `button`. `config/_template.json` documents every option; copy it to start a new config.
+- **`iconlist`** (added 2026-09-25): items `{icon, title, desc?}`, optional `cols` (1-4); a navy disc with a white
+  inline-SVG icon (`LIST_ICONS` in render_html.py: molecule, pen, tablet, stethoscope, chat, clipboard, pin, pharmacy,
+  tag, calendar) then a bold title, "Title. desc" when a desc is given. GLP-1 page 12 uses it for the price items.
 - **Per-element options in the outline:** `list` takes `cols` (1 or 2) to override the column heuristic; `cards` takes
   `cols` too (the Hair Restoration timeline is four cards in one row); a `cards` element whose items are one-line
   labels with no description can take `"style": "chips"` to render as a wrapping row of auto-width centred chips
@@ -150,6 +206,31 @@ Every visual decision lives in the `CSS` string in `render_html.py`, scoped unde
 - **Disclaimer page.** The legal text sits in a fixed slot above the series list. When a manuscript's legal block is
   longer than GLP-1's three paragraphs, the page steps its type down (13 → 12 → 11.5 → 11 → 10.5pt) until it clears;
   the build report prints how many steps it took, and FAILs if it still overlaps.
+
+## 3a. Fixed typography (theme `editorial-v6`, 2026-09-25)
+
+**Round two (Derek, 2026-09-28):** fixed type AND efficient pages. Before any section continues: rework the layout
+(image size/placement, grids that use the width, `cols`), then trim redundant words; only then continue. A
+continuation page must hold substantial content: `build_book.py` WARNs when one is under `CONT_MIN_FILL` (60%) full.
+Keep 05 and 06 as separate pages (two topics). Spacing tokens now: head->rule .14in, rule->deck .2in, deck->body
+.16in, paragraphs .13in, cards .16in, content->boxes .22in, box->box .1in, card padding .14in .16in, callout icon
+1.02in, body area 1.44in-10.40in.
+
+Derek's formatting standard: the type and spacing never change from page to page to make content fit. `editorial-v6`
+is v5 plus one fixed scale, set in the `.theme-editorial-v6` block of `CSS` (spacing as `--sp-*` / `--pad-*` variables):
+headline Lora 31pt, or 27pt when it takes two lines (nothing smaller); deck 15.5pt; body and lists 12pt on 16.5pt
+leading; card heading 12pt bold navy, card body 11.5pt; Smart Patient label 7.5pt tracked caps, question/insight 14pt
+semibold; Approach label 9.5pt, text 13pt; chapter bar 16pt always; running head 7.5pt medium. The Insight/Approach
+stack sits a fixed .3in below the content instead of being pinned to the page bottom.
+
+Under v6 the paginator ignores `dense` and `lead_small`, and never applies `tight`/`compact`/`tighter`/`spacious`,
+the checklist stretch, the CTA-panel steps, the disclaimer steps, or figure shrink/drop. A section (or the Why page)
+that does not fit continues onto a page whose chapter bar reads "<KICKER> — CONTINUED", with no repeated headline:
+the boxes move over with the end of the section; content moves from the end until page one fits; card grids,
+Why cards and lists break between rows (five-card and chip grids move whole); if only the boxes overflowed, the
+section's last block (or a grid's last row) goes with them so the second page is never just two boxes. The build
+report lists each continued section with how far it runs over on one page, and does not WARN "too empty" on
+split sections, whose white space is intentional.
 
 ## 4. Rendering constraint (Apple Preview) — do not regress this
 
@@ -248,6 +329,11 @@ Element kinds the template renders: `lead`, `body`, `emph` (supports `\n`), `quo
   invisible and is not counted) and `build_book.py` FAILs on any clipping. Calibration: GLP-1 v10, Sexual Wellness v2 and
   Hair Restoration v2 all pass; Healthy Aging with the manuscript's full closing copy clips 0.58in. Capacity is the two-line headline plus one short
   paragraph (GLP-1) or two very short ones (Sexual Wellness); everything else belongs on another page.
+- **Fixed-type scale check** (added 2026-09-29, v6 builds only). `check_pdf` reads every text span on the interior
+  pages (not the cover or disclaimer) and `build_book.py` FAILs when a size is not in `TYPE_SCALE`: Derek's table plus
+  the series-wide sizes of the elements it does not name. A new element kind must be given a size from the scale in the
+  `.theme-editorial-v6` block, or the check will name the page and the text. It is what caught the two-column headings
+  and the flow steps.
 - **Disclaimer overlap check** (added with Hair Restoration). `layout_check.mjs` reports the overlap in inches between
   the legal text and the series list after the page has stepped its type down; any overlap is a FAIL.
 - `spacious` in the fit report still means the paginator had more than 0.7in to spare and bumped the type; a run of

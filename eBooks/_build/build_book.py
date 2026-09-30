@@ -25,6 +25,14 @@ PRICING = re.compile(r'price|pricing|cost', re.I)
 # after the paginator has finished, so `spacious` type has already been applied). A gap this size means the page needs
 # a borrowed figure or more copy from Derek; it is a WARN because it is a content decision, not a build defect.
 EMPTY_PAGE_IN = 1.5
+CONT_MIN_FILL = 0.6  # editorial-v6: a CONTINUED page under 60% full is a layout problem (Derek rejected every v12 continuation page, 14-52% full), not an acceptable split
+CARD_CROP_MAX_PCT = 1.0  # product photos on cards must show the whole product (bottle, cap, base, pills)
+# Fixed-type scale (editorial-v6, Derek's formatting standard): every text span on an interior page must be one of
+# these point sizes. The first group is the standard's table; the second is the series-wide sizes of elements the
+# table does not name (quote 19, checklist title / tagline 15, Why tag 17, CTA headline 25 / button 12.5 / stack 22).
+# The cover and the disclaimer page have their own scales and are not checked. Audit 2026-09-29 found the neutral
+# two-column headings (11pt) and the flow steps (10.5pt) off the scale; both are now pinned to 12pt in the v6 CSS.
+TYPE_SCALE = {31, 27, 15.5, 12, 11.5, 14, 13, 7.5, 9.5, 16, 8} | {19, 15, 17, 25, 12.5, 22}
 
 
 def run(cmd, **kw):
@@ -61,7 +69,19 @@ def check_pdf(pdf_path):
         for f in p.get_fonts(full=True):
             fonts.add(f[3])
     text = '\n'.join(p.get_text() for p in d)
-    return {'pages': len(d), 'luminosity': len(lum_pages), 'fonts': sorted(fonts), 'text': text}
+    # every span's point size on the interior pages, one sample per (page, size) for the report
+    off_scale = {}
+    for pno in range(1, len(d) - 1):
+        for b in d[pno].get_text('dict')['blocks']:
+            for ln in b.get('lines', []):
+                for sp in ln['spans']:
+                    t = sp['text'].strip()
+                    if not t:
+                        continue
+                    size = round(sp['size'] * 2) / 2
+                    if size not in TYPE_SCALE:
+                        off_scale.setdefault((pno + 1, size), t[:40])
+    return {'pages': len(d), 'luminosity': len(lum_pages), 'fonts': sorted(fonts), 'text': text, 'offScale': off_scale}
 
 
 def main():
@@ -93,15 +113,35 @@ def main():
             gap = row.get('emptyIn', 0)
             line = f"  {row['page']}: {'+'.join(row['flags']) or 'default'}  gap {gap:.2f}in{'  CONTINUED' if row['continued'] else ''}{'  figure dropped' if row['figureDropped'] else ''}"
             print(line)
-            if gap > EMPTY_PAGE_IN:
+            # v6 (fixed type): a CONTINUED page is the intended outcome for a long section, and its white space is
+            # intentional, so neither is reported as a problem; it is listed for the reviewer instead.
+            fixed = row.get('fixedType', False)
+            # ...and the first page of a continued section ends early by design (its boxes and last block moved on)
+            split = fixed and any(r['continued'] and r['page'] == row['page'] for r in lay['fit'])
+            if gap > EMPTY_PAGE_IN and not split:
                 warns.append(f"page {row['page']} is too empty: {gap:.2f}in of free space (limit {EMPTY_PAGE_IN}in): add a borrowed figure or more copy")
-            if row['continued']:
+            if row['continued'] and fixed:
+                # Derek, round two (2026-09-28): a continuation page should hold about half a page or more; below
+                # that, rework the first page's layout (images, grids, spacing) or trim redundant words instead
+                if row.get('fill', 1) < CONT_MIN_FILL:
+                    warns.append(f"section {row['page']} continuation page is only {row['fill']:.0%} full (minimum {CONT_MIN_FILL:.0%}): rework the layout so the section fits on one page")
+            elif fixed and row.get('overIn'):
+                print(f"  INFO  section {row['page']} continues onto a second page; on one page it runs {row['overIn']:.2f}in over")
+            elif row['continued']:
                 fails.append(f"page {row['page']} split onto a CONTINUED page: split the section in the outline or trim copy")
             if row['figureDropped']:
                 warns.append(f"page {row['page']}: the paginator dropped the figure (set image_min_w or trim copy)")
+        for w in lay.get('wide', []):
+            fails.append(f"page {w['page']}: content runs {w['overIn']:.2f}in into the right margin or off the page ('{w['text']}')")
+        for c in lay.get('cardCrops', []):
+            print(f"  card photo {c['page']} {c['title']}: slot {c['slotIn']}in, photo {c['photo']}px, cropped {c['cropPct']}%")
+            if c['cropPct'] > CARD_CROP_MAX_PCT:
+                fails.append(f"card photo '{c['title']}' on page {c['page']} is cropped {c['cropPct']}%: product photos must show the whole product; drop card_image_ratio or supply a photo at the slot's proportions")
         for o in lay['orphans']:
             warns.append(f"orphan word on page {o['page']} ({o['block']}): '...{o['lastWord']}'  <- {o['text']}")
         for d in lay.get('disclaimer', []):
+            if d.get('brandOverIn', 0) > 0:
+                fails.append(f"disclaimer: the series list pushed the WELLPEPS brand block into the footer by {d['brandOverIn']:.2f}in")
             if d['overlapIn'] > 0:
                 fails.append(f"disclaimer text overlaps the series list by {d['overlapIn']:.2f}in even after {d['steps']} type steps: shorten or merge the legal paragraphs")
             elif d['steps']:
@@ -130,6 +170,9 @@ def main():
         fails.append(f"fallback font embedded in the PDF: {fallback} (fonts not loaded, or a glyph missing from Inter/Lora)")
     if len(info['text']) < 2000:
         fails.append('PDF text extraction returned almost nothing')
+    if json.load(open(a.config, encoding='utf8')).get('theme') == 'editorial-v6':
+        for (pno, size), sample in sorted(info['offScale'].items()):
+            fails.append(f"fixed-type scale: {size}pt on PDF page {pno} ('{sample}') is not on the v6 scale: pin the element's size in the .theme-editorial-v6 CSS block")
 
     # 4. banned phrases (outline JSON strings and rendered PDF text)
     strings = flatten(outline, [])

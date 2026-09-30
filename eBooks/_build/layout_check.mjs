@@ -41,7 +41,13 @@ const report = await page.evaluate(() => {
   const fit = Array.from(document.querySelectorAll('.page.section, .page.why, .page.decide')).map((pg) => ({
     page: pg.dataset.num,
     flags: ['tight', 'compact', 'tighter', 'spacious', 'dense'].filter((c) => pg.classList.contains(c)),
-    continued: !!pg.querySelector('.head.cont'),
+    continued: !!pg.querySelector('.head.cont') || pg.dataset.cont === '1',
+    fixedType: document.body.classList.contains('theme-editorial-v6'),
+    overIn: pg.dataset.overIn ? parseFloat(pg.dataset.overIn) : 0,
+    // how much of the body area is used, 0..1 (lowest visible block vs the body area): an under-filled continuation
+    // page is what Derek's round-two rules forbid
+    fill: (() => { const w = pg.querySelector('.bodywrap'); if (!w) return 1; const r = w.getBoundingClientRect();
+      const lo = lowest(pg, '.bodywrap .content > *, .bodywrap .bottom > *'); return lo ? Math.round((lo - r.top) / r.height * 100) / 100 : 0; })(),
     figureDropped: pg.dataset.figDropped === '1',
     emptyIn: Math.round(emptyGap(pg) * 100) / 100,
   }));
@@ -84,7 +90,9 @@ const report = await page.evaluate(() => {
   const disc = Array.from(document.querySelectorAll('.page.disclaimer')).map((pg) => {
     const t = pg.querySelector('.dtext'), s = pg.querySelector('.series');
     const overlap = t && s ? Math.max(0, (t.getBoundingClientRect().bottom - s.getBoundingClientRect().top) / IN) : 0;
-    return { overlapIn: Math.round(overlap * 100) / 100, steps: t ? ['d1', 'd2', 'd3', 'd4'].filter((c) => t.classList.contains(c)).length : 0 };
+    const b = pg.querySelector('.dbrand'), f = pg.querySelector('.dfoot');
+    const brandOver = b && f ? Math.max(0, (b.getBoundingClientRect().bottom + 0.1 * IN - f.getBoundingClientRect().top) / IN) : 0;
+    return { brandOverIn: Math.round(brandOver * 100) / 100, overlapIn: Math.round(overlap * 100) / 100, steps: t ? ['d1', 'd2', 'd3', 'd4'].filter((c) => t.classList.contains(c)).length : 0 };
   });
 
   // CTA hero panel: overflow:hidden with centred content, so too much copy clips the headline at the top without any
@@ -99,7 +107,25 @@ const report = await page.evaluate(() => {
     return { overflowIn: Math.round(clipped / IN * 100) / 100, steps: ['tight', 'tighter'].filter((c) => p.classList.contains(c)).length };
   });
 
-  return { pages: document.querySelectorAll('.page').length, overflow: window.__overflow || [], fit, orphans, fonts, disclaimer: disc, cta };
+  // Card photos (product shots) must never be cropped: compare each photo's own proportions with its slot.
+  const cardCrops = Array.from(document.querySelectorAll('.cards.withimg .cimg')).map((im) => {
+    const r = im.getBoundingClientRect(); const nat = im.naturalWidth / im.naturalHeight; const box = r.width / r.height;
+    const crop = !r.height || !im.naturalHeight ? 0 : box > nat ? 1 - nat / box : 1 - box / nat;
+    const pg = im.closest('.page');
+    return { page: pg ? pg.dataset.num : '?', title: (im.closest('.card').querySelector('h5') || {}).textContent || '', cropPct: Math.round(crop * 1000) / 10, photo: `${im.naturalWidth}x${im.naturalHeight}`, slotIn: `${(r.width / IN).toFixed(2)}x${(r.height / IN).toFixed(2)}` };
+  });
+
+  // Anything poking out past the page's right edge (e.g. a fixed chip grid too wide for its labels)
+  const wide = [];
+  for (const pg of document.querySelectorAll('.page')) {
+    const pr = pg.getBoundingClientRect();
+    for (const el of pg.querySelectorAll('.content *, .bottom *, .head *')) {
+      const r = el.getBoundingClientRect();
+      if (r.width && r.right > pr.right - 0.3 * IN) { wide.push({ page: pg.dataset.num || '?', text: (el.textContent || '').trim().slice(0, 40), overIn: Math.round((r.right - (pr.right - 0.3 * IN)) / IN * 100) / 100 }); break; }
+    }
+  }
+
+  return { wide, cardCrops, pages: document.querySelectorAll('.page').length, overflow: window.__overflow || [], fit, orphans, fonts, disclaimer: disc, cta };
 });
 console.log(JSON.stringify(report, null, 1));
 await browser.close();

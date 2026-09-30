@@ -177,6 +177,11 @@ def render_el(e, book):
         return f'<ul class="{cls} cols{cols}">{lis}</ul>'
     if k == 'cards':
         return render_cards(e, book)
+    if k == 'iconlist':
+        # items with a desc read "Title. desc"; label-only items (no desc) are just the bold label beside the icon
+        body = lambda x: f'<strong>{esc(x["title"])}.</strong> {esc(x["desc"])}' if x.get('desc') else f'<strong>{esc(x["title"])}</strong>'
+        lis = ''.join(f'<li><span class="ico">{LIST_ICONS[x["icon"]]}</span><p>{body(x)}</p></li>' for x in e['items'])
+        return f'<ul class="iconlist cols{e.get("cols", 1)}">{lis}</ul>'
     if k == 'flow':
         # the arrow is an inline SVG, not U+2192: the bundled Inter subset has no glyph for it and Chromium would fall back to Arial
         arrow = '<div class="arrow"><svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 6h7M6 2.5 9.5 6 6 9.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'
@@ -209,6 +214,23 @@ def render_el(e, book):
     return f'<!-- unknown {k} -->'
 
 
+# Inline SVG icons for `iconlist` items (drawn in white on the navy disc). SVG, not glyphs: the bundled Inter subset
+# has no pictographs, and a missing glyph falls back to Arial (the fallback-font check would FAIL the build).
+_SVG = '<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">{}</svg>'
+LIST_ICONS = {
+    'molecule': _SVG.format('<circle cx="6" cy="7" r="2.6"/><circle cx="18" cy="7" r="2.6"/><circle cx="12" cy="17.5" r="2.6"/><path d="M8.6 7h6.8M7.4 9.3l3.3 5.9M16.6 9.3l-3.3 5.9"/>'),
+    'pen': _SVG.format('<path d="M15.5 3.5l5 5M17.8 6.2L8 16l-2.6.6.6-2.6 9.8-9.8M9.5 14.5l-2-2M5.4 16.6L3 21"/>'),
+    'stethoscope': _SVG.format('<path d="M6 3.5H4.5v5a4.5 4.5 0 0 0 9 0v-5H12M9 13v2.5a5 5 0 0 0 10 0V13"/><circle cx="19" cy="11" r="2"/>'),
+    'chat': _SVG.format('<path d="M4 5.5h16v10H10l-4.5 3.5v-3.5H4z"/><path d="M8 9.5h8M8 12.5h5"/>'),
+    'clipboard': _SVG.format('<rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 4.5V3h6v1.5M8.5 13l2.5 2.5 4.5-5"/>'),
+    'pin': _SVG.format('<path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/>'),
+    'pharmacy': _SVG.format('<path d="M3.5 20.5h17M5 20.5V9l7-5 7 5v11.5"/><path d="M12 10.5v6M9 13.5h6"/>'),
+    'tag': _SVG.format('<path d="M3.5 12.2V4.5a1 1 0 0 1 1-1h7.7l8.3 8.3-8.7 8.7z"/><circle cx="8" cy="8" r="1.4"/>'),
+    'calendar': _SVG.format('<rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4M9.5 12.5l5 5M14.5 12.5l-5 5"/>'),
+    'tablet': _SVG.format('<rect x="3.2" y="8.6" width="17.6" height="6.8" rx="3.4" transform="rotate(-35 12 12)"/><path d="M9.2 8l5.6 8"/>'),
+}
+
+
 def list_item(x):
     """'Name — description' list items get a bold lead-in; anything else renders as plain text."""
     if ' — ' in x:
@@ -238,8 +260,13 @@ def render_cards(e, book):
         cls += ' five'  # 3 across, then 2 wider: keeps the block symmetrical
     out = []
     for it in items:
-        # card_image_ratio in the config (e.g. "4/3") sizes the slot to the photos so nothing is cropped; default 9/5
+        # card_image_ratio in the config (e.g. "4/3") sizes the slot to the photos so nothing is cropped; default 9/5.
+        # editorial-v6: product photos are never cropped, so with no card_image_ratio the slot takes the photo's own
+        # proportions (layout_check.mjs measures any crop and build_book.py FAILs on it).
         ratio = book.get('_cimg_ratio')
+        if not ratio and book.get('_theme') == 'editorial-v6' and it.get('image') in book.get('_imgs_ratio', {}):
+            ratio = f"{book['_imgs_ratio'][it['image']]:.4f}"
+
         rstyle = f' style="aspect-ratio:{ratio}"' if ratio else ''
         im = f'<img class="cimg"{rstyle} src="{book["_imgs"][it["image"]]}" alt="">' if it.get('image') and it['image'] in book.get('_imgs', {}) else ''
         sub = f'<div class="csub">{esc(it["sub"])}</div>' if it.get('sub') else ''
@@ -263,8 +290,8 @@ def page_shell(book, num, kicker, inner, cls='', hero=None):
     if hero:
         imgs = ''.join(f'<span class="hph"><img src="{h}" alt=""></span>' for h in hero)
         hero_html = f'<div class="hero n{len(hero)}">{imgs}</div>'
-    if book.get('_theme') in ('editorial-v4', 'editorial-v5'):
-        knum = '' if book['_theme'] == 'editorial-v5' else f'<span class="knum">{num}</span>'
+    if book.get('_theme') in ('editorial-v4', 'editorial-v5', 'editorial-v6'):
+        knum = '' if book['_theme'] in ('editorial-v5', 'editorial-v6') else f'<span class="knum">{num}</span>'
         top = (f'<div class="runhead">SMART PATIENT GUIDE TO {esc(book["topic"])}</div>'
                f'<div class="kicker">{knum}<span class="ktext">{esc(kicker)}</span></div>')
     else:
@@ -294,13 +321,20 @@ def section_page(book, sec, cfg):
         fig = f'<img class="figure"{minw} src="{img_uri(cfg["image"])}" style="width:{w}in;height:{h}in;object-position:{fx*100:.0f}% {fy*100:.0f}%" alt="">'
     after = cfg.get('image_after', 0)  # how many body elements run full-width before the figure enters the flow
     rendered = [render_el(e, book) for e in body_els]
+    if cfg.get('pair_groups'):
+        # two consecutive "subhead + cards" groups side by side, each a single column of cards (Hair 02 Men | Women)
+        k = next((i for i in range(len(body_els) - 3) if [x['kind'] for x in body_els[i:i + 4]] == ['subhead', 'cards', 'subhead', 'cards']), None)
+        if k is not None:
+            col = lambda a, b: f'<div class="pg">{rendered[a]}{render_el(dict(body_els[b], cols=1), book)}</div>'
+            rendered[k:k + 4] = [f'<div class="pairgroups">{col(k, k + 1)}{col(k + 2, k + 3)}</div>']
     content = ''.join(rendered[:after]) + fig + ''.join(rendered[after:])
     bottom = ''.join(render_el(e, book) for e in bottom_els)
     icon = f' <img class="hicon" src="{img_uri(cfg["headline_icon"])}" alt="">' if cfg.get('headline_icon') else ''
     inner = f'<div class="head"><h2>{glue(sec["headline"]).replace(chr(10), "<br>")}{icon}</h2>{sub}<div class="rule"></div></div><div class="content">{content}</div><div class="bottom">{bottom}</div>'
     hero = [img_uri(p) for p in cfg['hero']] if cfg.get('hero') else None
-    cls = 'section dense' if cfg.get('dense') else 'section'  # dense: one type step down so a long page holds on one sheet
-    if cfg.get('lead_small'):
+    fixed = book.get('_theme') == 'editorial-v6'  # v6: one fixed type scale; per-page type steps are ignored
+    cls = 'section dense' if cfg.get('dense') and not fixed else 'section'  # dense: one type step down so a long page holds on one sheet
+    if cfg.get('lead_small') and not fixed:
         cls += ' lead-sm'  # lead one size down, e.g. to hold a long lead to two lines
     if cfg.get('full_width_head'):
         cls += ' fullhead'  # headline and lead wrap edge to edge instead of balancing, for pages without a figure
@@ -331,7 +365,7 @@ def why_page(book, sec, cfg):
         grid = '<div class="fgrid">' + ''.join(f'<div class="fcard plain"><h5>{esc(smart_title(x))}</h5></div>' for x in items) + '</div>'
         ap = ''
     inner = f'<div class="head"><h2>Why We Created WellPeps</h2><div class="rule"></div></div><div class="whytop"><div class="whyintro">{intro}</div><img class="team" src="{team}" alt=""></div><div class="content nosplit">{grid}</div><div class="bottom">{ap}</div>'
-    return page_shell(book, sec['num'], cfg.get('kicker', 'WHY WE CREATED WELLPEPS'), inner, cls='why dense' if cfg.get('dense') else 'why')  # dense: one step down when eight cards + a long intro overflow
+    return page_shell(book, sec['num'], cfg.get('kicker', 'WHY WE CREATED WELLPEPS'), inner, cls='why dense' if cfg.get('dense') and book.get('_theme') != 'editorial-v6' else 'why')  # dense: one step down when eight cards + a long intro overflow
 
 
 def decide_page(book, sec, num, cfg):
@@ -505,6 +539,7 @@ p.quote{font-size:19pt;line-height:1.2;font-weight:700;color:var(--blue);margin-
 .list li::before{content:"";position:absolute;left:.04in;top:.10in;width:.09in;height:.09in;border-radius:50%;background:var(--blue)}
 .list.bold li{font-weight:700;color:var(--navy)}
 .list.cols2{display:grid;grid-template-columns:1fr 1fr;column-gap:.3in}
+.list.cols3{display:grid;grid-template-columns:repeat(3,1fr);column-gap:.3in}
 .tight .list li,.tighter .list li{font-size:11.5pt;line-height:1.34}
 
 /* cards */
@@ -849,6 +884,89 @@ p.quote{font-size:19pt;line-height:1.2;font-weight:700;color:var(--blue);margin-
 .theme-editorial-v5 .cta .ctahero{top:1.14in}
 .theme-editorial-v5 .cta .ctabody{top:5.6in}
 
+/* editorial v6: v5 with one fixed type scale and fixed spacing (Derek's "WellPeps eBook Formatting" standard, 2026-09-25).
+   The paginator never steps type or spacing per page under v6: a section that does not fit continues onto a
+   "<KICKER> — CONTINUED" page instead. Every size and gap for the interior pages is set here and nowhere else. */
+.theme-editorial-v6{
+  --sp-head-rule:.14in;   /* headline -> cyan rule */
+  --sp-rule-deck:.2in;    /* cyan rule -> deck/intro */
+  --sp-deck-body:.16in;   /* deck -> body copy */
+  --sp-para:.13in;        /* paragraph -> paragraph */
+  --sp-cards:.16in;       /* body -> cards/images, and cards -> following text */
+  --sp-stack:.22in;       /* main content -> Smart Patient callout */
+  --sp-boxes:.1in;        /* Smart Patient callout -> WellPeps Approach */
+  --pad-card:.14in .13in;
+  --pad-callout:.13in .22in .12in 1.1in;
+  --pad-approach:.13in .22in;
+}
+.theme-editorial-v6 .bodywrap{top:1.44in;height:8.96in}
+.theme-editorial-v6 .callout{min-height:.8in}
+.theme-editorial-v6 .callout .icon{width:1.02in;height:.77in;left:-.06in;top:.02in}
+.theme-editorial-v6 .runhead{font-weight:500;font-size:7.5pt}
+.theme-editorial-v6 .foot .pn{font-size:7.5pt}
+.theme-editorial-v6 .ktext,.theme-editorial-v6 .ktext.small{font-size:16pt;letter-spacing:.02em}
+.theme-editorial-v6 .head h2{font-size:31pt}
+.theme-editorial-v6 .head h2.l2,.theme-editorial-v6 .head h2.l3{font-size:27pt}
+.theme-editorial-v6 .rule{margin:var(--sp-head-rule) 0 var(--sp-rule-deck)}
+.theme-editorial-v6 p.lead{font-size:15.5pt;line-height:1.38;margin-bottom:var(--sp-deck-body)}
+.theme-editorial-v6 p.body{font-size:12pt;line-height:16.5pt;margin-bottom:var(--sp-para)}
+.theme-editorial-v6 .list li{font-size:12pt;line-height:16.5pt}
+.theme-editorial-v6 .twocol li{font-size:12pt;line-height:16.5pt}
+.theme-editorial-v6 .whyintro p.body{font-size:12pt;line-height:16.5pt}
+.theme-editorial-v6 .cards{gap:.15in;margin:var(--sp-cards) 0}
+.theme-editorial-v6 .card{padding:var(--pad-card)}
+.theme-editorial-v6 .card h5,.theme-editorial-v6 .cards.plain .card h5,.theme-editorial-v6 .cards.five .card h5,
+.theme-editorial-v6 .cards.profile .card h5,.theme-editorial-v6 .cards.chips .card h5{font-size:12pt;font-weight:700;text-transform:none;letter-spacing:0;color:var(--navy);line-height:1.25}
+.theme-editorial-v6 .card p,.theme-editorial-v6 .cards.five .card p,.theme-editorial-v6 .cards.profile .card p{font-size:11.5pt;line-height:1.38}
+.theme-editorial-v6 .cards.profile .csub{font-size:11.5pt}
+.theme-editorial-v6 .fcard h5{font-size:12pt}
+.theme-editorial-v6 .cards.chips .card{padding:.09in .16in}
+/* image cards: the photo runs edge to edge across the top of the card (no inset border), card padding below it */
+.theme-editorial-v6 .cards.withimg .card{padding:0 0 .14in;overflow:hidden}
+.theme-editorial-v6 .cards.withimg .cimg{width:100%;border-radius:7px 7px 0 0;margin:0 0 .12in;object-position:50% 0}  /* the whole crop comes off the bottom (table), never the caps */
+.theme-editorial-v6 .cards.withimg .ctext{padding:0 .16in}
+.theme-editorial-v6 .fcard p{font-size:11.5pt;line-height:1.38}
+/* Why page (Derek: "slightly reducing card height/padding is acceptable"): cards size to their copy */
+.theme-editorial-v6 .fcard{min-height:.8in;padding:.12in .16in .1in}
+.theme-editorial-v6 .fgrid{gap:.1in .27in}
+.theme-editorial-v6 .whytop{margin-bottom:.18in}
+.theme-editorial-v6 .whytop{grid-template-columns:1fr 2.4in}.theme-editorial-v6 .team{width:2.4in;height:1.6in}
+.theme-editorial-v6 .bottom{margin-top:0;padding-top:var(--sp-stack)}
+.theme-editorial-v6 .bottom > * + *,.theme-editorial-v6 .bottom .callout + .approach{margin-top:var(--sp-boxes)}
+.theme-editorial-v6 .callout{padding:var(--pad-callout)}
+.theme-editorial-v6 .callout h4{font-size:7.5pt;letter-spacing:.16em;font-weight:700}
+.theme-editorial-v6 .callout p{font-size:14pt;font-weight:600;line-height:1.36}
+.theme-editorial-v6 .approach{padding:var(--pad-approach)}
+.theme-editorial-v6 .approach h4{font-size:9.5pt;letter-spacing:.16em;font-weight:700}
+.theme-editorial-v6 .approach p{font-size:13pt;line-height:1.42}
+.theme-editorial-v6 .cta .ctapanel p.body{font-size:12pt;line-height:16.5pt}
+/* one-book elements that the v6 scale had not covered (font audit 2026-09-29): the neutral two-column headings
+   (Hair 07, were 11pt) and the flow steps (Healthy Aging 12, were 10.5pt) take the 12pt card-heading size */
+.theme-editorial-v6 .twocol h4{font-size:12pt}
+.theme-editorial-v6 .flow .step{font-size:12pt;letter-spacing:0}
+
+/* v6 disclaimer: legal text at the standard 12pt body size; the series list follows the text (placed by the
+   paginator) instead of sitting at a fixed 6.9in, and the brand block moves down only if the list needs the room */
+.theme-editorial-v6 .disclaimer .dtext p{font-size:12pt;line-height:16.5pt;margin-bottom:.13in}
+
+/* pair_groups: two subhead+cards groups side by side, each a single column of cards */
+.pairgroups{display:grid;grid-template-columns:1fr 1fr;column-gap:.27in;margin:var(--sp-cards,.16in) 0;clear:both}
+.pairgroups .subhead{margin-bottom:.08in}
+.pairgroups .cards{grid-auto-rows:auto;margin:0;gap:.12in}
+
+/* iconlist: a list whose bullets are small navy icon discs, bold lead-in then description; 12pt body type */
+.iconlist{list-style:none;margin:var(--sp-cards,.2in) 0;clear:both}
+.iconlist li{display:flex;gap:.16in;align-items:flex-start;margin-bottom:.14in}
+.iconlist li:last-child{margin-bottom:0}
+.iconlist .ico{flex:0 0 auto;width:.36in;height:.36in;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;margin-top:.01in}
+.iconlist .ico svg{width:.21in;height:.21in}
+.iconlist p{font-size:12pt;line-height:16.5pt;color:var(--ink);text-wrap:pretty}
+.iconlist strong{color:var(--navy);font-weight:700}
+.iconlist + .iconlist{margin-top:.24in}
+.iconlist.cols2,.iconlist.cols3,.iconlist.cols4{display:grid;column-gap:.24in;row-gap:.16in}
+.iconlist.cols2{grid-template-columns:repeat(2,1fr)}.iconlist.cols3{grid-template-columns:repeat(3,1fr)}.iconlist.cols4{grid-template-columns:repeat(4,1fr)}
+.iconlist.cols2 li,.iconlist.cols3 li,.iconlist.cols4 li{margin-bottom:0;align-items:center;gap:.12in}
+
 /* disclaimer */
 .disclaimer{background:var(--navy);color:#fff}
 .disclaimer .dtop{position:absolute;left:.7in;top:.8in;font-size:9pt;font-weight:700;color:var(--sky);letter-spacing:.08em}
@@ -886,6 +1004,9 @@ SCRIPT = r'''
 (async function(){
   if (document.fonts && document.fonts.ready) { await document.fonts.ready; }
   const IN = 96; // css px per inch
+  // v6: one fixed type scale. No headline step past 27pt, no type/spacing steps, no figure shrink or drop, no
+  // checklist stretch or spacious bump: a section that does not fit continues onto a CONTINUED page.
+  const FIXED = document.body.classList.contains('theme-editorial-v6');
   function fits(page){
     const wrap = page.querySelector('.bodywrap'); if(!wrap) return true;
     const limit = wrap.getBoundingClientRect().bottom;
@@ -898,15 +1019,79 @@ SCRIPT = r'''
     const lh = parseFloat(getComputedStyle(h).fontSize)*1.08;
     if (h.getBoundingClientRect().height > lh*1.6) h.classList.add('l2');
     const lh2 = parseFloat(getComputedStyle(h).fontSize)*1.08;
-    if (h.getBoundingClientRect().height > lh2*2.6) h.classList.add('l3');
+    if (!FIXED && h.getBoundingClientRect().height > lh2*2.6) h.classList.add('l3');
   });
-  document.querySelectorAll('.banner, .ktext').forEach(b=>{ if (b.textContent.trim().length > 40) b.classList.add('small'); });
+  if (!FIXED) document.querySelectorAll('.banner, .ktext').forEach(b=>{ if (b.textContent.trim().length > 40) b.classList.add('small'); });
+  // v6 continuation: same typography, no repeated headline, the chapter bar reads "<KICKER> — CONTINUED", the bottom
+  // stack (callout/approach) moves with the end of the section, and the remaining content flows over from the end.
+  // Grids and lists may break between rows; everything else moves as a whole block. Five-card and chip grids keep
+  // their fixed shapes, so they move whole.
+  function rowSize(el){
+    if (el.matches('.cards') && !el.matches('.five, .chips') && el.children.length > 1)
+      return getComputedStyle(el).gridTemplateColumns.split(' ').filter(Boolean).length;
+    if (el.matches('.fgrid') && el.children.length > 2) return 2;
+    if (el.matches('ul.list') && el.children.length > 1) return el.matches('.cols2') ? 2 : 1;
+    if (el.matches('ul.iconlist') && el.children.length > 1) return getComputedStyle(el).display === 'grid' ? getComputedStyle(el).gridTemplateColumns.split(' ').filter(Boolean).length : 1;
+    return 0;
+  }
+  function syncRows(el){ if (el.matches('.fgrid')) el.style.setProperty('--rows', Math.ceil(el.children.length / 2)); }
+  function moveTail(page, content, cc){
+    while (!fits(page) && content.children.length){
+      const last = content.lastElementChild, per = rowSize(last);
+      if (!per){ cc.prepend(last); continue; }
+      const twin = last.cloneNode(false); twin.removeAttribute('id'); cc.prepend(twin);
+      while (!fits(page) && last.children.length > per){
+        const n = last.children.length % per || per;
+        for (let k = 0; k < n; k++) twin.prepend(last.lastElementChild);
+        syncRows(last); syncRows(twin);
+      }
+      if (!fits(page)){ while (last.children.length) twin.prepend(last.lastElementChild); last.remove(); syncRows(twin); }
+    }
+  }
+  // v6 continuation: same typography, no repeated headline, the chapter bar reads "<KICKER> — CONTINUED", the bottom
+  // stack (callout/approach) moves with the end of the section, and content flows over from the end until page one fits.
+  function overBy(page){
+    const wrap = page.querySelector('.bodywrap'); let maxBottom = 0;
+    wrap.querySelectorAll('.head, .content > *, .bottom > *, .whytop').forEach(el=>{ const r = el.getBoundingClientRect(); if (r.height>0) maxBottom = Math.max(maxBottom, r.bottom); });
+    return Math.max(0, (maxBottom - wrap.getBoundingClientRect().bottom) / IN);
+  }
+  function splitFixed(page, content){
+    page.dataset.overIn = overBy(page).toFixed(2);  // how far the one-page version runs past the page, for the build report
+    const cont = page.cloneNode(true);
+    cont.classList.add('cont'); cont.dataset.cont = '1';
+    cont.querySelectorAll('.head, .whytop').forEach(el=>el.remove());
+    const hero = cont.querySelector('.hero'); if (hero){ hero.remove(); cont.querySelector('.bodywrap').classList.remove('hashero'); }
+    const kt = cont.querySelector('.ktext'); if (kt && !/CONTINUED$/.test(kt.textContent.trim())) kt.textContent = kt.textContent.trim() + ' — CONTINUED';
+    const cc = cont.querySelector('.content'); cc.innerHTML = '';
+    const bottom = page.querySelector('.bottom'); const cb = cont.querySelector('.bottom');
+    cb.innerHTML = bottom.innerHTML; bottom.innerHTML = '';
+    page.after(cont);
+    moveTail(page, content, cc);
+    // only the boxes overflowed: carry the section's last text block with them, so the second page continues the
+    // text rather than holding two boxes on their own
+    if (!cc.children.length && content.children.length > 1){
+      let last = content.lastElementChild;
+      if (last.classList.contains('figure')) last = last.previousElementSibling;
+      const per = last ? rowSize(last) : 0;
+      if (per){  // a grid or list: carry only its last row
+        const twin = last.cloneNode(false); twin.removeAttribute('id'); cc.prepend(twin);
+        const n = last.children.length % per || per;
+        for (let k = 0; k < n; k++) twin.prepend(last.lastElementChild);
+        syncRows(last); syncRows(twin);
+      } else if (last && content.children.length > 1) cc.prepend(last);
+    }
+    // a floated figure left as the last block on page one sits beside nothing; carry it over with its text
+    const last = content.lastElementChild;
+    if (last && last.classList.contains('figure') && content.children.length > 1) cc.prepend(last);
+    pages.push(cont);
+  }
   const pages = Array.from(document.querySelectorAll('.page.section, .page.why, .page.decide'));
   const report = [];
   for (let page of pages){
     let guard = 0;
     while (!fits(page) && guard++ < 12){
       const content = page.querySelector('.content');
+      if (FIXED) { if (page.classList.contains('decide')) break; splitFixed(page, content); break; }
       if (!page.classList.contains('tight')) { page.classList.add('tight'); continue; }
       if (!page.classList.contains('compact')) { page.classList.add('compact'); continue; }
       if (!page.classList.contains('tighter')) { page.classList.add('tighter'); continue; }
@@ -941,7 +1126,7 @@ SCRIPT = r'''
     }
     if (!fits(page)) report.push(page.dataset.num + ' ' + (page.querySelector('.head h2')||{}).textContent);
   }
-  document.querySelectorAll('.page.section').forEach(page=>{
+  if (!FIXED) document.querySelectorAll('.page.section').forEach(page=>{
     const content=page.querySelector('.content'), bottom=page.querySelector('.bottom'), wrap=page.querySelector('.bodywrap');
     const ck=content && content.querySelector(':scope > .checklist'); if(!ck) return;
     if(bottom && bottom.children.length) return;
@@ -949,7 +1134,7 @@ SCRIPT = r'''
     const avail=wrap.getBoundingClientRect().bottom - ck.getBoundingClientRect().top - after - 8;
     if (ck.getBoundingClientRect().height < avail){ ck.classList.add('fill'); ck.style.height=avail+'px'; }
   });
-  document.querySelectorAll('.ctapanel').forEach(p=>{ for (const c of ['tight','tighter']) { if (p.scrollHeight > p.clientHeight + 1) p.classList.add(c); } });
+  if (!FIXED) document.querySelectorAll('.ctapanel').forEach(p=>{ for (const c of ['tight','tighter']) { if (p.scrollHeight > p.clientHeight + 1) p.classList.add(c); } });
   // number pages: keep section numbers; nothing else to do
   // editorial theme: size the navy header band to the headline block on every page (including continuation pages)
   if (document.body.classList.contains('theme-editorial-v3')){
@@ -962,7 +1147,7 @@ SCRIPT = r'''
     });
   }
   // editorial v4: on light pages, open up the type so the page reads generously instead of leaving a dead gap above the callouts
-  if (document.body.classList.contains('theme-editorial-v4')){
+  if (document.body.classList.contains('theme-editorial-v4') && !FIXED){
     document.querySelectorAll('.page.section').forEach(page=>{
       if (page.classList.contains('tight')) return;
       const content=page.querySelector('.content'), bottom=page.querySelector('.bottom');
@@ -975,7 +1160,19 @@ SCRIPT = r'''
   document.querySelectorAll('.page.disclaimer').forEach(pg=>{
     const t=pg.querySelector('.dtext'), s=pg.querySelector('.series'); if(!t||!s) return;
     let guard=0;
-    while (t.getBoundingClientRect().bottom > s.getBoundingClientRect().top - 0.15*IN && guard < 4){ guard++; t.classList.add('d'+guard); }
+    if (FIXED) {
+      const pt = pg.getBoundingClientRect().top, b = pg.querySelector('.dbrand');
+      // rule and legal text follow the headline at the book's standard spacing, not at fixed 3.2in / 3.65in
+      const h2 = pg.querySelector('h2'), rule = pg.querySelector('.rule');
+      if (h2 && rule) {
+        const rt = (h2.getBoundingClientRect().bottom - pt) / IN + 0.2;
+        rule.style.top = rt.toFixed(2) + 'in'; t.style.top = (rt + 0.05 + 0.3).toFixed(2) + 'in';
+      }
+      const need = (t.getBoundingClientRect().bottom - pt) / IN + 0.3;           // .3in below the legal text
+      if (need > 6.9) s.style.top = need.toFixed(2) + 'in';
+      if (b) { const sb = (s.getBoundingClientRect().bottom - pt) / IN + 0.3; if (sb > 8.7) b.style.top = sb.toFixed(2) + 'in'; }
+    }
+    while (!FIXED && t.getBoundingClientRect().bottom > s.getBoundingClientRect().top - 0.15*IN && guard < 4){ guard++; t.classList.add('d'+guard); }
   });
   window.__paginated = true;
   window.__overflow = report;
@@ -985,6 +1182,8 @@ SCRIPT = r'''
 
 
 def theme_classes(t):
+    if t == 'editorial-v6':
+        return 'theme-editorial theme-editorial-v4 theme-editorial-v5 theme-editorial-v6'
     if t == 'editorial-v5':
         return 'theme-editorial theme-editorial-v4 theme-editorial-v5'
     if t in ('editorial-v3', 'editorial-v4'):
@@ -1001,6 +1200,8 @@ def build(outline_path, config_path, out_path, cover_style=None):
     book['_theme'] = cfg.get('theme', 'classic')
     book['_icon'] = img_uri(ICON)
     book['_imgs'] = {k: img_uri(v) for k, v in cfg.get('card_images', {}).items()}
+    book['_imgs_ratio'] = {k: (lambda im: im.size[0] / im.size[1])(Image.open(v if os.path.isabs(v) else os.path.normpath(os.path.join(HERE, v))))
+                           for k, v in cfg.get('card_images', {}).items()}
     book['_cimg_ratio'] = cfg.get('card_image_ratio')
     scfg = cfg.get('sections', {})
     pages = [cover_page(book, cfg)]
