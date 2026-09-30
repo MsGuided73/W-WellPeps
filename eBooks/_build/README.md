@@ -101,7 +101,22 @@ building another book.
   two-line headline plus one paragraph, so the manuscript's closing imperatives ("Stay active. Protect your strength. ...")
   and the "make them part of a thoughtful, provider-guided plan" line are not on the CTA page; the 05 vial photos; the
   merged disclaimer paragraphs.
-- **Manuscript waiting:** `eBooks/Manuscripts/nad-guide_final.docx` (2026-09-16 evening), not yet built. Start from section 6.
+- **Draft for review:** NAD+ Therapy, v1 (built 2026-09-29 from `eBooks/Manuscripts/nad-guide_final.docx`, straight onto
+  `editorial-v6`). Outline `outlines/nad-therapy.json`, config `config/nad-therapy-v6.json`, PDF + PPTX
+  `eBooks/nad-therapy_ebook-v1.*`. 18 pages, every section on one page. Borrowed photos: cover `peptide/benefits-woman.webp`
+  (focus 0.3 so her arm is not cut at the left edge), 00 `peptide/photo-nad`, 01 `peptide/hero`, 02 `hero-couple-coast`,
+  03 `peptide/science`, 09 `doctor-assessment`, 10 `peptide/photo-lipoc`, 12 `journey-3`, CTA `about/cta-couple`.
+  Layout: 01 renders the manuscript's vertical arrow chain as a `flow`; 05 is three profile cards (NAD+ / NR / NMN) with
+  the ROLE and CONTEXT labels kept inline; 07 carries no photo and 08's four cards run in one row (both spilled
+  otherwise); 13's closing SMART PATIENT PRINCIPLE renders as the inline series tagline line because the checklist plus
+  a full callout box ran 0.88in over. Deviations to raise with Derek: his SMART PATIENT PRINCIPLE labels render as
+  SMART PATIENT INSIGHT (section 5 rule); page 14 follows the series (kicker A BETTER APPROACH TO CARE, headline Why We
+  Created WellPeps) where the manuscript swaps them; the CTA panel holds one paragraph, so the four closing
+  imperatives ("Start with good questions." ...) and the two-line intro are not on the CTA page; the seven legal
+  paragraphs are merged into two without dropping a word; the disclaimer headline is the series' "Educational
+  information, not medical advice."; the back-page series list omits NAD+ itself.
+- **No "Modern Health" manuscript exists** (asked 2026-09-29): nothing by that name in `eBooks/`, the archive or docs. The
+  website has a Mental Health program (`program-mental.webp`), so that may be the intended title; nothing to build yet.
 - **Archived:** every earlier GLP-1 version and the old NAD+, Peptides, Sexual Wellness and Healthy Aging guides are in
   `eBooks/_archive/`. Their content is being rewritten; new manuscripts arrive one at a time. Do not rebuild from the
   archived outlines.
