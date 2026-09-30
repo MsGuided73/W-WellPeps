@@ -24,6 +24,25 @@ RUN npm run build
 
 # --- Runtime stage -----------------------------------------------------------
 FROM nginx:alpine AS runtime
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Private-preview gate. SITE_GATE_HASH is a RUNTIME env var in Coolify
+# (node scripts/gate-hash.mjs "password"); empty = gate off. It is declared
+# here so it is always defined, because the image's envsubst step only
+# substitutes variables that exist. NGINX_ENVSUBST_FILTER restricts
+# substitution to SITE_GATE_* so nginx's own $variables are never touched.
+ENV SITE_GATE_HASH="" \
+    NGINX_ENVSUBST_FILTER="^SITE_GATE_"
+
+# The image renders /etc/nginx/templates/*.template into /etc/nginx/conf.d/
+# at startup. Remove the stock default.conf so only ours is ever loaded.
+RUN rm -f /etc/nginx/conf.d/default.conf
+COPY nginx.conf.template /etc/nginx/templates/default.conf.template
+
+# Refuses to start on a malformed SITE_GATE_HASH (runs before the template
+# is rendered). CRs stripped in case of a Windows checkout.
+COPY docker/18-site-gate-check.sh /docker-entrypoint.d/18-site-gate-check.sh
+RUN sed -i 's/\r$//' /docker-entrypoint.d/18-site-gate-check.sh \
+    && chmod 755 /docker-entrypoint.d/18-site-gate-check.sh
+
 COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 80

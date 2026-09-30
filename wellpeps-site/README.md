@@ -18,6 +18,38 @@ npm run preview    # serve the built ./dist
 npm run images     # convert newly-delivered photos to WebP
 ```
 
+## Private-preview password gate
+
+Until LegitScript certification, the live site can be locked behind one shared
+password. The gate runs in nginx (`nginx.conf.template`), so a locked visitor
+never receives page HTML: every page answers `401` with the branded gate page
+(`src/pages/preview-access.astro`) at the URL they asked for. Entering the
+password sets a 30-day `wp_gate` cookie and reloads that page. Images, fonts
+and `/_astro/` assets stay public so the gate page can render.
+
+**Turn it on**
+1. `node scripts/gate-hash.mjs "the password"` and copy the 64-character hash.
+2. In Coolify, add a **runtime** env var `SITE_GATE_HASH` = that hash (not a
+   build variable; no rebuild needed).
+3. Restart (or redeploy) the app. The container log shows `site gate ON`.
+
+**Turn it off** — clear `SITE_GATE_HASH` (empty value, or delete it) and
+restart. Everyone gets in, including visitors holding an old cookie.
+
+**Rotate the password** — generate a new hash, replace the value, restart.
+Every existing cookie stops working; people re-enter the new password.
+
+Notes:
+- The hash is the credential nginx checks (and the cookie value), so treat it
+  like the password. A malformed value (not 64 lowercase hex characters, e.g.
+  the raw password pasted by mistake) stops the container from starting.
+- Unlock attempts are rate-limited to 30/minute (burst 10). Behind Coolify's
+  proxy that limit may be shared by all visitors, so use a strong password
+  rather than relying on the limit.
+- `npm run dev` / `npm run preview` never show the gate — it only exists in
+  nginx. The page itself can be previewed in dev at `/preview-access/`
+  (production returns 404 there except as the gate response).
+
 ## Adding new images
 
 Design delivers photography as PNG. **Do not commit PNG/JPG photos** — PNG is
