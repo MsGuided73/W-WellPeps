@@ -59,7 +59,7 @@ const SCRIPTFUL_HEALTHY_AGING_PRODUCT_URL = '#scriptful-stub-healthy-aging';
  *  name, slugged (toProductKey): "Oral Semaglutide" → 'oral-semaglutide'.
  *  A card with no entry here uses its program's link above, or shows
  *  "Opening Soon" if that is still a stub. */
-const PRODUCT_LINKS: CtaLinks['products'] = {
+export const PRODUCT_LINKS = {
   // GEN Health product "Oral Semaglutide (Low-Dose/Tablets)" — four tablet
   // strengths; the provider chooses the strength.
   'oral-semaglutide': {
@@ -103,17 +103,18 @@ const PRODUCT_LINKS: CtaLinks['products'] = {
     program: 'hair-restoration',
     url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/jn0oZRngtKkKh64DRjTz?checkoutFlow=intake_first',
   },
-};
+} satisfies CtaLinks['products'];
 
 /**
- * PAUSE SWITCH. While true, no button on the site leads to a GEN Health intake:
- * every treatment card and program button shows its "Opening Soon" state, and
- * the generic "Start Free Assessment" buttons go to the programs section as
- * they always have. The links above are kept, so resuming is this one line
- * plus a deploy. Page layouts do not change (Hair Restoration stays open).
- * Paused 2026-09-21 while pricing and membership billing are settled.
+ * LIVE TREATMENTS. Only the cards listed here send a visitor to a GEN Health
+ * intake; every other card, even one with a link above, shows "Opening Soon".
+ * Reactivate a treatment by adding its key here and deploying; take it down by
+ * removing it. A key with no link above fails typecheck.
+ *
+ * All intakes were paused 2026-09-21 while pricing and billing were settled;
+ * cards come back one at a time from this list.
  */
-export const ASSESSMENTS_PAUSED = true;
+export const LIVE_PRODUCTS: readonly (keyof typeof PRODUCT_LINKS)[] = [];
 
 /** Every assessment link, keyed by program. Buttons never read these directly —
  *  they go through AssessmentCta / resolveCta in src/lib/cta.ts. */
@@ -125,7 +126,7 @@ export const CTA_LINKS: CtaLinks = {
     'sexual-wellness': SCRIPTFUL_SEXUAL_PRODUCT_URL,
     'healthy-aging': SCRIPTFUL_HEALTHY_AGING_PRODUCT_URL,
   },
-  products: ASSESSMENTS_PAUSED ? {} : PRODUCT_LINKS,
+  products: Object.fromEntries(LIVE_PRODUCTS.map((key) => [key, PRODUCT_LINKS[key]])),
 };
 
 /* A pasted link on plain http or an untrusted host stops the build here, rather
@@ -133,7 +134,7 @@ export const CTA_LINKS: CtaLinks = {
 assertTrustedLinks([
   CTA_LINKS.storefront,
   ...Object.values(CTA_LINKS.programs),
-  // The real links, not CTA_LINKS.products, so a bad paste fails even while paused.
+  // Every link, not just the live ones, so a bad paste fails before it goes live.
   ...Object.values(PRODUCT_LINKS).map((p) => p.url),
 ]);
 
