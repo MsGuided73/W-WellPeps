@@ -1,11 +1,11 @@
 ---
 /**
- * The WellPeps membership: what it costs and what it covers. Mounted on the
- * home page and on each membership program page (Weight Loss; Hormone
- * Optimization when it launches). Amounts come from MEMBERSHIP in config.ts.
+ * What one monthly price covers. Mounted on the home page and on Weight Loss.
+ * Copy lives in src/data/plan.ts. (Was the Membership section until the
+ * membership fee was dropped, 2026-09-30.)
  */
 import Icon from '../Icon.astro';
-import { membershipIntro, membershipPrice, membershipIncludes, membershipFinePrint } from '../../data/membership';
+import { planIntro, planPrice, planIncludes, planFinePrint } from '../../data/plan';
 
 interface Props {
   /** Tinted band, to alternate with the section above it. */
@@ -13,23 +13,23 @@ interface Props {
 }
 const { tinted = false } = Astro.props;
 ---
-<section class:list={['section', { 'section--gray': tinted }]} id="membership">
+<section class:list={['section', { 'section--gray': tinted }]} id="whats-included">
   <div class="container">
     <div class="section-head reveal">
-      <h2>{membershipIntro.title}</h2>
-      <p>{membershipIntro.lead}</p>
+      <h2>{planIntro.title}</h2>
+      <p>{planIntro.lead}</p>
     </div>
 
     <div class="mship reveal">
       <div class="mship__price">
-        <p class="mship__amount">{membershipPrice.first}<span> {membershipPrice.firstLabel}</span></p>
-        <p class="mship__then">{membershipPrice.then}</p>
+        <p class="mship__headline">{planPrice.headline}</p>
+        <p class="mship__then">{planPrice.sub}</p>
         <hr class="mship__rule" />
-        <p class="mship__note">{membershipPrice.note}</p>
+        <p class="mship__note">{planPrice.note}</p>
       </div>
 
       <ul class="mship__grid" role="list">
-        {membershipIncludes.map((item) => (
+        {planIncludes.map((item) => (
           <li class="card mship__card">
             <span class="mship__icon"><Icon name={item.icon} /></span>
             <div>
@@ -41,7 +41,7 @@ const { tinted = false } = Astro.props;
       </ul>
     </div>
 
-    <p class="mship__fine reveal">{membershipFinePrint}</p>
+    <p class="mship__fine reveal">{planFinePrint}</p>
   </div>
 </section>
 
@@ -57,8 +57,7 @@ const { tinted = false } = Astro.props;
     background: var(--navy); color: #fff; text-align: center;
     box-shadow: var(--shadow);
   }
-  .mship__amount { font-family: var(--font-sans); font-weight: 800; font-size: clamp(3rem, 4.5vw, 4rem); line-height: 1; letter-spacing: -0.02em; color: #fff; }
-  .mship__amount span { display: block; margin-top: 0.5rem; font-size: var(--text-lead); font-weight: 600; letter-spacing: 0; }
+  .mship__headline { font-family: var(--font-serif); font-weight: 600; font-size: clamp(2rem, 3vw, 2.6rem); line-height: 1.1; color: #fff; }
   .mship__then { margin-top: 1rem; font-size: var(--text-card-title); font-family: var(--font-serif); font-weight: 600; color: #fff; }
   .mship__rule { width: 56px; height: 2px; border: 0; background: var(--blue); margin: 1.5rem auto; }
   .mship__note { font-size: var(--text-note); color: rgba(255, 255, 255, 0.85); }

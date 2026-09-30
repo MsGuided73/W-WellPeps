@@ -11,6 +11,9 @@ export default defineConfig({
   // URL working for anything already shared or indexed.
   redirects: {
     '/peptides': '/healthy-aging',
+    // The membership fee was dropped 2026-09-30; its manage/cancel page became
+    // /your-plan. Keep the old footer URL working.
+    '/membership': '/your-plan',
   },
   server: {
     port: process.env.PORT ? Number(process.env.PORT) : 4321,

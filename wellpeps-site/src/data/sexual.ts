@@ -59,7 +59,7 @@ export interface SexProduct {
   features: string[];
   /** Delivery method, per the WellPeps Product Card Standard. */
   methodOfUse: string;
-  /** Omitted while the member price is still being set; the card then says so. */
+  /** Omitted while the price is still being set; the card then says so. */
   price?: string;
   priceUnit: string;
 }

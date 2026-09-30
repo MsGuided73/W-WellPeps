@@ -1,22 +1,33 @@
 ---
 /**
- * Manage or cancel the WellPeps membership. Linked from the footer and the
- * membership FAQs: easy to find, deliberately not a marketing page.
+ * Your plan: what the one monthly price includes, and how to cancel or
+ * restart. Linked from the footer and the pricing FAQs: easy to find,
+ * deliberately not a marketing page. (Was /membership until 2026-09-30.)
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { CONTACT, MEMBERSHIP, PATIENT_PORTAL_URL } from '../config';
+import { CONTACT, PATIENT_PORTAL_URL } from '../config';
+import { planIncludes, planFinePrint } from '../data/plan';
 ---
 <BaseLayout
-  title="Manage Your Membership — WellPeps"
-  description="How to cancel or restart your WellPeps membership. Cancel anytime, with no minimum commitment and no cancellation fee."
+  title="Your Plan: What’s Included & How to Cancel — WellPeps"
+  description="What your one monthly WellPeps price includes, and how to cancel or restart your plan. No hidden fees, no minimum commitment, no cancellation fee."
 >
   <section class="section">
     <div class="container mpage">
-      <h1>Manage Your Membership</h1>
+      <h1>Your Plan</h1>
       <hr class="rule rule--left" />
       <p class="mpage__lead">
-        You can cancel anytime. There is no minimum commitment and no cancellation fee.
+        One monthly price with no hidden fees. You can cancel anytime, with no minimum commitment
+        and no cancellation fee.
       </p>
+
+      <h2>What&rsquo;s included</h2>
+      <ul>
+        {planIncludes.map((item) => (
+          <li><strong>{item.title}.</strong> {item.body}</li>
+        ))}
+      </ul>
+      <p>{planFinePrint}</p>
 
       <h2>How to cancel</h2>
       <ol>
@@ -30,7 +41,7 @@ import { CONTACT, MEMBERSHIP, PATIENT_PORTAL_URL } from '../config';
 
       <h2>What happens next</h2>
       <ul>
-        <li>Your membership stays active through the month you have already paid for.</li>
+        <li>Your plan stays active through the month you have already paid for.</li>
         <li>You will not be charged again after we confirm your cancellation.</li>
         <li>
           Medications that have already been ordered or processed for that month&rsquo;s shipment
@@ -43,13 +54,6 @@ import { CONTACT, MEMBERSHIP, PATIENT_PORTAL_URL } from '../config';
         You are welcome back anytime. Sign in to your <a href={PATIENT_PORTAL_URL}>patient portal</a> or
         send us a message, and a licensed provider will review your current health information before
         treatment resumes.
-      </p>
-
-      <h2>About the membership</h2>
-      <p>
-        The WellPeps membership is part of the {MEMBERSHIP.programs.join(' and ')} programs. It is
-        ${MEMBERSHIP.firstMonth} for the first month, then ${MEMBERSHIP.monthly} per month, and renews monthly until
-        you cancel. <a href="/#membership">See what membership includes.</a>
       </p>
 
       <p class="mpage__help">

@@ -6,10 +6,9 @@
  * sourced from WellPeps_Medication_Master_Database_v1 (Weight Management rows)
  * and the approved Weight Management page mockups.
  *
- * NOTE (client): pricing shown is the member price; the membership fee and
- * shipping are separate (MEMBER_PRICE_NOTE under the grid). Prices reset
- * 2026-09-21 so medication + the $79 membership lands on the market all-in
- * (docs/pricing memo): they must match the product prices set in GEN Health.
+ * NOTE (client): each price is the one monthly all-in price (PRICE_NOTE under
+ * the grid). The $109 / $269 / $119 figures are placeholders from the old
+ * pricing model until prices are pulled from GEN Health.
  */
 
 
@@ -63,14 +62,14 @@ export const weightWhy: WhyCard[] = [
     alt: 'A licensed provider on a telehealth call',
     icon: 'stethoscope',
     title: 'Personalized Care & Coaching',
-    body: 'Licensed healthcare providers are available free-of-charge for scheduled follow-ups to discuss your GLP-1 treatment.',
+    body: 'Scheduled follow-ups with a licensed healthcare provider to discuss your GLP-1 treatment are included in your monthly price.',
   },
   {
     image: '/images/weight/why-lab.webp',
     alt: 'A lab nurse preparing a test',
     icon: 'flask',
     title: 'Quest® & Labcorp® Access',
-    body: 'Available nationwide for free-of-charge initial and follow-up tests for qualified patients.',
+    body: 'Access to low-cost initial and follow-up testing nationwide when your provider recommends it. Lab fees are billed separately.',
   },
   {
     image: '/images/weight/why-flag.webp',
@@ -81,7 +80,7 @@ export const weightWhy: WhyCard[] = [
   },
 ];
 
-import { membershipProgramFaqs } from './membership';
+import { planProgramFaqs } from './plan';
 
 export interface PillBenefit {
   label: string;
@@ -97,7 +96,7 @@ export interface PillProduct {
   benefits: PillBenefit[];
   description: string;
   delivery: { label: string; icon: string };
-  /** Omitted while the member price is still being set; the card then says so. */
+  /** Omitted while the price is still being set; the card then says so. */
   price?: string;
   priceUnit: string;
   priceNote?: string;
@@ -188,7 +187,7 @@ export interface WeightFaq {
 }
 
 export const weightFaqs: WeightFaq[] = [
-  ...membershipProgramFaqs,
+  ...planProgramFaqs,
   {
     q: 'Can I qualify for a GLP-1 weight loss program?',
     a: 'Eligibility depends on your health history, BMI, and other factors. A licensed healthcare provider will review your information and determine whether treatment is appropriate.',
@@ -199,7 +198,7 @@ export const weightFaqs: WeightFaq[] = [
   },
   {
     q: 'Are lab tests required?',
-    a: 'Some treatment programs may require laboratory testing before or during treatment. If needed, your provider will discuss the appropriate testing with you.',
+    a: 'Some treatment programs may require laboratory testing before or during treatment. If needed, your provider will discuss the appropriate testing with you. WellPeps offers access to low-cost labs; lab fees are billed separately.',
   },
   {
     q: 'How long does it take to receive my medication?',

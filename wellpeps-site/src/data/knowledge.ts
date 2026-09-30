@@ -46,7 +46,7 @@ export const knowledgeBase: KnowledgeDoc[] = [
       produces. They help regulate appetite signals so you feel less hungry throughout the day, slow
       stomach emptying so you stay satisfied longer, and support healthy, sustainable weight loss when
       combined with lifestyle changes. A licensed provider monitors progress and personalizes treatment.
-      Weight management medication starts at $109/month, plus a monthly membership ($49 the first month, then $79). Results vary from person to person.`,
+      Weight management plans start at $109/month, one monthly price. Results vary from person to person.`,
   },
   {
     id: 'peptide-basics',
@@ -112,10 +112,10 @@ export const knowledgeBase: KnowledgeDoc[] = [
     source: 'protocol',
     tags: ['lab', 'labs', 'labcorp', 'quest', 'blood work', 'testing', 'diagnostics'],
     answer:
-      'WellPeps provides convenient access to trusted national laboratory partners, including Quest Diagnostics® and Labcorp®, when clinically appropriate. Initial and follow-up tests are available nationwide free of charge for qualified patients.',
-    body: `Access to leading national labs is included where clinically appropriate. Quest Diagnostics and
-      Labcorp locations are available nationwide for initial and follow-up testing for qualified
-      patients. Your provider will tell you whether lab work is needed as part of your plan.`,
+      'WellPeps provides access to low-cost lab testing through trusted national laboratory partners, including Quest Diagnostics® and Labcorp®, when clinically appropriate. Initial and follow-up tests are available nationwide; lab fees are billed separately.',
+    body: `WellPeps provides access to low-cost testing at leading national labs where clinically appropriate. Quest Diagnostics
+      and Labcorp locations are available nationwide for initial and follow-up testing. Lab fees are
+      billed separately. Your provider will tell you whether lab work is needed as part of your plan.`,
   },
   {
     id: 'protocol-shipping',
@@ -177,11 +177,11 @@ export const knowledgeBase: KnowledgeDoc[] = [
     source: 'program',
     tags: ['price', 'pricing', 'cost', 'how much', 'fees', 'payment', 'insurance', 'expensive'],
     answer:
-      'Pricing is transparent and upfront — you know your full program cost before you begin, with no hidden fees. Sexual Wellness starts at $69/month, Hair Restoration at $59/month, and Weight Management medication at $109/month plus a monthly membership ($49 the first month, then $79). No insurance is required; WellPeps is self-pay. We accept Visa, Mastercard, FSA/HSA, Apple Pay and Google Pay.',
+      'Pricing is transparent and upfront — you know your full program cost before you begin, with no hidden fees. Sexual Wellness starts at $69/month, Hair Restoration at $59/month, and Weight Management at $109/month. Each is one monthly price covering medication, if prescribed, provider care, messaging with your care team and standard shipping. WellPeps also offers access to low-cost labs when your provider recommends them; lab fees are billed separately. No insurance is required; WellPeps is self-pay. We accept Visa, Mastercard, FSA/HSA, Apple Pay and Google Pay.',
     body: `Every program includes transparent pricing, a licensed healthcare provider review, ongoing
       provider support, and the ability to cancel anytime. No insurance required — affordable self-pay
       programs make personalized wellness accessible. Accepted payment methods: Visa, Mastercard,
-      FSA/HSA, Apple Pay, Google Pay. Provider follow-ups are free of charge.`,
+      FSA/HSA, Apple Pay, Google Pay. Provider follow-ups are included in your monthly price.`,
   },
   {
     id: 'program-cancel',
