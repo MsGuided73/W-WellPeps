@@ -3,32 +3,57 @@ import { resolve } from 'node:path';
 import { describe, expect, test } from 'vitest';
 import { FORM_CONSENT_VERSION, consentFields, formConsentText, topicLabel } from './form-consent';
 import { submitSignup } from './notify';
+import { EBOOKS } from '../data/ebooks';
 
 describe('consent wording', () => {
   const text = formConsentText('GLP-1 Weight Loss.', 'privacy@wellpeps.com');
 
-  test('the required box names what is collected, the topic, the purpose and how to withdraw', () => {
-    expect(text.collect).toContain('email address');
-    expect(text.collect).toContain('first name (if I give it)');
-    expect(text.collect).toContain('(GLP-1 Weight Loss)');
+  test('the required box names what is saved, the topic and the purpose', () => {
+    expect(text.collect).toContain('my email address');
+    expect(text.collect).toContain('my interest in GLP-1 Weight Loss');
     expect(text.collect).toContain('so it can send me what I asked for');
-    expect(text.collect).toContain('withdraw this consent at any time through Your Privacy Choices or by emailing privacy@wellpeps.com');
   });
 
-  test('the optional box is clearly optional and says declining costs nothing', () => {
+  test('a form with no name field does not mention a first name', () => {
+    expect(text.collect).not.toMatch(/first name/i);
+    expect(text.marketing).not.toMatch(/first name/i);
+    expect(text.withdraw).not.toMatch(/first name/i);
+  });
+
+  test('a form that asks for a first name says so in the required box only', () => {
+    const named = formConsentText('Hormone Optimization', 'privacy@wellpeps.com', { withFirstName: true });
+    expect(named.collect).toContain('my email address, first name and my interest in Hormone Optimization');
+    expect(named.marketing).not.toMatch(/first name/i);
+  });
+
+  test('the optional box is clearly optional and says declining changes nothing', () => {
     expect(text.marketing.startsWith('Optional:')).toBe(true);
-    expect(text.marketing).toContain('emails about GLP-1 Weight Loss and related wellness tips');
-    expect(text.marketing).toContain('If I leave this box unchecked, I still get what I asked for');
-    expect(text.marketing).toContain('privacy@wellpeps.com');
+    expect(text.marketing).toContain('emails from WellPeps about GLP-1 Weight Loss and related wellness tips');
+    expect(text.marketing).toContain('Leaving this box unchecked does not change what I get');
+  });
+
+  test('the withdrawal sentence covers both consents and gives the email', () => {
+    expect(text.withdraw).toContain('withdraw either consent at any time in Your Privacy Choices or by emailing privacy@wellpeps.com');
   });
 
   test('the two consents are separate sentences, not one bundled agreement', () => {
     expect(text.collect).not.toContain('wellness tips');
-    expect(text.marketing).not.toContain('collect and keep');
+    expect(text.collect).not.toContain('emails from WellPeps');
+    expect(text.marketing).not.toContain('save my email');
+  });
+
+  test('each box stays short for every real topic, with and without a first name', () => {
+    for (const topic of [...EBOOKS.map((b) => b.title), 'Hormone Optimization', 'hair restoration']) {
+      for (const withFirstName of [false, true]) {
+        const t = formConsentText(topic, 'privacy@wellpeps.com', { withFirstName });
+        expect(t.collect.length, `${topic} collect`).toBeLessThan(150);
+        expect(t.marketing.length, `${topic} marketing`).toBeLessThan(180);
+      }
+    }
   });
 
   test('no draft placeholder is left in the text', () => {
-    expect(text.collect + text.marketing).not.toMatch(/\[[A-Z ]+\]/);
+    expect(text.collect + text.marketing + text.withdraw).not.toMatch(/\[[A-Z ]+\]/);
   });
 
   test('a topic is tidied for use inside a sentence', () => {
@@ -81,6 +106,18 @@ describe('every health-topic form asks for it', () => {
       expect(src).toMatch(/consent:/);
     });
   }
+
+  test('the withdrawal sentence is shown and tied to both boxes', () => {
+    const src = read('src/components/legal/FormConsent.astro');
+    expect(src).toContain('{text.withdraw}');
+    expect(src.match(/aria-describedby=\{`\$\{idPrefix\}-fine`\}/g)).toHaveLength(2);
+  });
+
+  test('only the form that has a first-name field says so in its consent', () => {
+    expect(read('src/components/sections/WaitlistSection.astro')).toMatch(/<FormConsent[^>]*withFirstName/);
+    expect(read('src/components/EbookOffer.astro')).not.toContain('withFirstName');
+    expect(read('src/components/sections/hair/HairComingSoon.astro')).not.toContain('withFirstName');
+  });
 
   test('the required box is a real required checkbox and the optional one is not pre-checked', () => {
     const src = read('src/components/legal/FormConsent.astro');

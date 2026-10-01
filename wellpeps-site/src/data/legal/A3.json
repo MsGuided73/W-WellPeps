@@ -773,17 +773,23 @@
   },
   {
    "t": "p",
-   "text": "Two separate boxes, directly above the submit button, neither checked in advance. The form does not submit without the first box. The second box is optional.",
+   "text": "Two separate boxes, directly above the submit button, neither checked in advance. The form does not submit without the first box. The second box is optional. Form version chd-form-v0.2-draft. On a form that has a first-name field (the waitlists) the first box reads “my email address, first name and my interest in”; on a form with an email field only (the guide dialogs, the hair notice) it leaves out “first name”.",
    "italic": false,
    "align": null
   },
   {
    "t": "check",
-   "text": "I agree that WellPeps may collect and keep my email address, my first name (if I give it) and the health topic I chose ([FORM TOPIC]) so it can send me what I asked for. I can withdraw this consent at any time through Your Privacy Choices or by emailing [PRIVACY EMAIL]. Read the Consumer Health Data Privacy Policy."
+   "text": "I agree that WellPeps may save my email address and my interest in [FORM TOPIC] so it can send me what I asked for."
   },
   {
    "t": "check",
-   "text": "Optional: I also agree that WellPeps may use them to send me emails about [FORM TOPIC] and related wellness tips. If I leave this box unchecked, I still get what I asked for. I can withdraw this consent at any time through Your Privacy Choices or by emailing [PRIVACY EMAIL]."
+   "text": "Optional: I also agree to receive emails from WellPeps about [FORM TOPIC] and related wellness tips. Leaving this box unchecked does not change what I get."
+  },
+  {
+   "t": "p",
+   "text": "Small print shown once, directly under both boxes (smaller type than the boxes): You can withdraw either consent at any time in Your Privacy Choices or by emailing [PRIVACY EMAIL]. Then the links: Consumer Health Data Privacy Policy, Privacy Policy, Your Privacy Choices.",
+   "italic": false,
+   "align": null
   },
   {
    "t": "h2",

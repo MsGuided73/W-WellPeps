@@ -3,12 +3,14 @@
  * The two consent boxes for a sign-up form that ties an email address to a health topic
  * (src/lib/form-consent.ts explains why, and holds the wording).
  *
- *   box 1 (required): collect and keep my email, first name and the topic, to send what I asked for
+ *   box 1 (required): save my email and my interest in the topic, to send what I asked for
  *   box 2 (optional, unchecked): follow-up emails about the topic
  *
+ * Under both boxes, in small print, is how to withdraw and the policy links.
  * Read the choices from the form as `consentCollect` and `consentMarketing`. For a form whose
- * topic changes (the guide dialog), put data-fconsent on the wrapper and call
- * `updateFormConsentTopic` from the page script when the topic changes.
+ * topic changes (the guide dialog), put data-fconsent on the wrapper and rewrite the two
+ * data-fconsent-* spans from the page script when the topic changes. Pass `withFirstName` only on a
+ * form that has a first-name field.
  */
 import { EMAILS } from '../../config';
 import { formConsentText } from '../../lib/form-consent';
@@ -19,22 +21,25 @@ interface Props {
   topic: string;
   /** Unique per form on the page, for the checkbox ids. */
   idPrefix: string;
+  /** True only when the form asks for a first name. */
+  withFirstName?: boolean;
 }
-const { topic, idPrefix } = Astro.props;
-const text = formConsentText(topic, EMAILS.privacy);
+const { topic, idPrefix, withFirstName = false } = Astro.props;
+const text = formConsentText(topic, EMAILS.privacy, { withFirstName });
 const healthPolicyLive = linkVisible('/consumer-health-data-privacy-policy', draftPagesEnabledNow());
 ---
 <fieldset class="fconsent" data-fconsent data-privacy-email={EMAILS.privacy}>
   <legend class="fconsent__legend">Your consent</legend>
   <label class="fconsent__row" for={`${idPrefix}-collect`}>
-    <input id={`${idPrefix}-collect`} type="checkbox" name="consentCollect" required />
+    <input id={`${idPrefix}-collect`} type="checkbox" name="consentCollect" required aria-describedby={`${idPrefix}-fine`} />
     <span data-fconsent-collect>{text.collect}</span>
   </label>
   <label class="fconsent__row" for={`${idPrefix}-marketing`}>
-    <input id={`${idPrefix}-marketing`} type="checkbox" name="consentMarketing" />
+    <input id={`${idPrefix}-marketing`} type="checkbox" name="consentMarketing" aria-describedby={`${idPrefix}-fine`} />
     <span data-fconsent-marketing>{text.marketing}</span>
   </label>
-  <p class="fconsent__links">
+  <p class="fconsent__fine" id={`${idPrefix}-fine`}>{text.withdraw}</p>
+  <p class="fconsent__fine fconsent__links">
     {healthPolicyLive && <Fragment><a href="/consumer-health-data-privacy-policy">Consumer Health Data Privacy Policy</a> &middot; </Fragment>}
     <a href="/privacy-policy">Privacy Policy</a> &middot; <a href="/your-privacy-choices">Your Privacy Choices</a>
   </p>
@@ -43,10 +48,12 @@ const healthPolicyLive = linkVisible('/consumer-health-data-privacy-policy', dra
 <style>
   .fconsent { border: 0; margin: 0.4rem 0 0; padding: 0; display: grid; gap: 0.7rem; text-align: left; min-width: 0; }
   .fconsent__legend { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .fconsent__row { display: grid; grid-template-columns: 1.5rem 1fr; gap: 0.7rem; align-items: start; cursor: pointer;
-    font-family: var(--font-sans); font-weight: 400; font-size: var(--text-note); line-height: 1.45; color: var(--text-body); }
-  .fconsent__row input { width: 1.4rem; height: 1.4rem; margin: 0.15rem 0 0; accent-color: var(--blue); cursor: pointer; }
+  /* The two sentences people tick are set at a plain reading size; the legal small print below is smaller. */
+  .fconsent__row { display: grid; grid-template-columns: 1.4rem 1fr; gap: 0.7rem; align-items: start; cursor: pointer;
+    font-family: var(--font-sans); font-weight: 400; font-size: 1rem; line-height: 1.4; color: var(--text-body); }
+  .fconsent__row input { width: 1.4rem; height: 1.4rem; margin: 0.1rem 0 0; accent-color: var(--blue); cursor: pointer; }
   .fconsent__row input:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 2px; }
-  .fconsent__links { margin: 0; font-size: var(--text-note); color: var(--text-body); }
-  .fconsent__links a { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
+  .fconsent__fine { margin: 0; font-size: 0.8125rem; line-height: 1.45; color: var(--text-body); }
+  .fconsent__fine + .fconsent__fine { margin-top: -0.35rem; }
+  .fconsent__links a { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; white-space: nowrap; }
 </style>

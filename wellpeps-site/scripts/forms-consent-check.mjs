@@ -32,8 +32,8 @@ const hide = '.pbanner{display:none!important} astro-dev-toolbar{display:none!im
   const title = (await dialog.locator('[data-ebook-name]').innerText()).trim();
   const collect = await dialog.locator('[data-fconsent-collect]').innerText();
   const marketing = await dialog.locator('[data-fconsent-marketing]').innerText();
-  check('required consent names the guide topic', collect.includes(`(${title})`), collect.slice(0, 120));
-  check('optional consent names the topic and says declining costs nothing', marketing.includes(title) && /still get what I asked for/.test(marketing));
+  check('required consent names the guide topic and no first name', collect.includes(title) && !/first name/i.test(collect), collect.slice(0, 120));
+  check('optional consent names the topic and says declining costs nothing', marketing.includes(title) && /does not change what I get/.test(marketing));
   check('both boxes start unchecked', !(await dialog.locator('input[name=consentCollect]').isChecked()) && !(await dialog.locator('input[name=consentMarketing]').isChecked()));
   check('the old bundled "by continuing you agree" line is gone', !/By continuing you agree/i.test(await dialog.innerText()));
   check('the dialog links the Privacy Policy and Your Privacy Choices', (await dialog.locator('a[href="/privacy-policy"]').count()) > 0 && (await dialog.locator('a[href="/your-privacy-choices"]').count()) > 0);
@@ -54,7 +54,7 @@ const hide = '.pbanner{display:none!important} astro-dev-toolbar{display:none!im
   const dialog2 = page.locator('[data-ebook-dialog][open]');
   await dialog2.waitFor();
   const title2 = (await dialog2.locator('[data-ebook-name]').innerText()).trim();
-  check('another guide changes the topic in the consent text', title2 !== title && (await dialog2.locator('[data-fconsent-collect]').innerText()).includes(`(${title2})`), title2);
+  check('another guide changes the topic in the consent text', title2 !== title && (await dialog2.locator('[data-fconsent-collect]').innerText()).includes(title2), title2);
   check('and the boxes start unchecked again', !(await dialog2.locator('input[name=consentCollect]').isChecked()));
   await dialog2.locator('input[name=email]').fill('person2@example.com');
   await dialog2.locator('input[name=consentCollect]').check();
