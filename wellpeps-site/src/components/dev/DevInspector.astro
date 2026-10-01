@@ -1,0 +1,56 @@
+---
+/**
+ * DevInspector — shows, live, what the privacy control is doing: the saved
+ * state, which tools are running, the cookies on this page, and the consent
+ * log events. Only used on the dev-only mockup page.
+ */
+---
+<section class="dev-inspector" data-dev-inspector aria-label="Developer inspector">
+  <h2>What the control is doing right now</h2>
+  <div class="dev-grid">
+    <div><h3>Saved choice</h3><pre data-di-state>(loading)</pre></div>
+    <div><h3>Tools running</h3><pre data-di-loaded>(loading)</pre></div>
+    <div><h3>Cookies on this page</h3><pre data-di-cookies>(loading)</pre></div>
+    <div><h3>Log events this session</h3><pre data-di-log>(none yet)</pre></div>
+  </div>
+  <p class="dev-hint">
+    Try: flip a switch &rarr; <em>Tools running</em> and <em>Cookies</em> change instantly. Reload with
+    <code>?gpc=1</code> to simulate a Global Privacy Control signal. <em>Demo analytics</em> and <em>Demo advertising</em>
+    are development-only stand-ins that set a test cookie and contact no outside host.
+  </p>
+</section>
+
+<script>
+  const root = document.querySelector('[data-dev-inspector]');
+  const q = (s: string) => root?.querySelector<HTMLElement>(s);
+  function paint(snap?: any) {
+    if (!root) return; // the script is bundled on every mockup page, the markup only on one
+    const g = (window as any).wpPrivacy?.gate;
+    const s = snap ?? g?.snapshot?.();
+    if (!s) return;
+    const st = { ...s.state, ts: new Date(s.state.ts).toISOString() };
+    q('[data-di-state]')!.textContent = JSON.stringify(
+      { ...st, storageBlocked: s.storageBlocked, promptReason: s.promptReason, path: s.path },
+      null,
+      2,
+    );
+    q('[data-di-loaded]')!.textContent = JSON.stringify({ loaded: s.loaded, demoFlags: (window as any).__wpDemo ?? {} }, null, 2);
+    q('[data-di-cookies]')!.textContent =
+      document.cookie.split('; ').filter(Boolean).map((c) => decodeURIComponent(c).slice(0, 140)).join('\n') || '(no cookies)';
+    const log = (window as any).__wpConsentLog ?? [];
+    q('[data-di-log]')!.textContent = log.length
+      ? log.map((e: any) => `${e.occurred_at.slice(11, 19)}  ${e.action}  analytics=${e.analytics} advertising=${e.advertising} gpc=${e.gpc_detected} page=${e.page_class}`).join('\n')
+      : '(none yet)';
+  }
+  window.addEventListener('wp:privacy-change', (e: any) => paint(e.detail));
+  setTimeout(() => paint(), 150);
+</script>
+
+<style is:global>
+  .dev-inspector { max-width: 1100px; margin: 2rem auto; padding: 0 1.25rem; }
+  .dev-inspector h2 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .dev-inspector h3 { font: 700 0.95rem var(--font-sans); margin: 0 0 0.3rem; color: var(--navy); }
+  .dev-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+  .dev-inspector pre { background: #0d2b45; color: #d5e6fb; padding: 0.8rem; border-radius: 8px; font: 0.82rem/1.45 ui-monospace, Consolas, monospace; white-space: pre-wrap; word-break: break-all; min-height: 8rem; margin: 0; }
+  .dev-hint { margin-top: 0.9rem; color: var(--text-body); font-size: 0.95rem; }
+</style>

@@ -1,0 +1,41 @@
+---
+/**
+ * Dev-only mockups. getStaticPaths returns nothing in a production build, so
+ * these routes do not exist on the live site.
+ *
+ *   /dev-mockups/footer   the proposed compliance footer (FooterV2)
+ *   /dev-mockups/privacy  the privacy preference center with a live inspector
+ */
+import MockupLayout from '../../layouts/MockupLayout.astro';
+import FooterV2 from '../../components/FooterV2.astro';
+import PrivacyCenter from '../../components/privacy/PrivacyCenter.astro';
+import PrivacyRequestForm from '../../components/privacy/PrivacyRequestForm.astro';
+import DevInspector from '../../components/dev/DevInspector.astro';
+
+export function getStaticPaths() {
+  return import.meta.env.DEV
+    ? [{ params: { name: 'footer' } }, { params: { name: 'privacy' } }]
+    : [];
+}
+
+const { name } = Astro.params;
+---
+{name === 'footer' && (
+  <MockupLayout title="Proposed footer">
+    <div class="mock-filler">
+      <p>Page content would be here.<br />Scroll down to the footer. Click &ldquo;Your Privacy Choices&rdquo; in the legal row to open the panel.</p>
+    </div>
+    <FooterV2 />
+  </MockupLayout>
+)}
+{name === 'privacy' && (
+  <MockupLayout title="Privacy choices">
+    <div class="container" style="max-width: 860px; padding-block: 2rem;">
+      <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">Your Privacy Choices</h1>
+      <p style="margin-bottom: 1.2rem;">Each switch applies the moment you change it.</p>
+      <PrivacyCenter variant="page" idPrefix="mock" />
+      <PrivacyRequestForm privacyEmail="hello@wellpeps.com" />
+    </div>
+    <DevInspector />
+  </MockupLayout>
+)}
