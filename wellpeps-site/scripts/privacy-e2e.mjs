@@ -248,28 +248,28 @@ async function main() {
   }
 
   // ------------------------------------------------------------------ S12
-  console.log('\nScenario 6: footer mockup and mobile layout');
+  console.log('\nScenario 6: the real footer and mobile layout');
   {
     const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
     const page = await ctx.newPage();
     watch(page, 'S6');
-    await page.goto(`${BASE}/dev-mockups/footer`, { waitUntil: 'networkidle' });
+    await page.goto(`${BASE}/`, { waitUntil: 'networkidle' });
     await page.locator('[data-privacy-banner] [data-pc-action="rejectAll"]').click();
     const legalLinks = await page.locator('footer .footer__legal a').allInnerTexts();
-    check('footer mockup: legal row has the seven required links', legalLinks.length === 7 && legalLinks.some((t) => /Consumer Health Data/.test(t)) && legalLinks.some((t) => /Your Privacy Choices/.test(t)), legalLinks.join(' | '));
+    check('footer: legal row has the seven required links', legalLinks.length === 7 && legalLinks.some((t) => /Consumer Health Data/.test(t)) && legalLinks.some((t) => /Your Privacy Choices/.test(t)), legalLinks.join(' | '));
     const footerText = await page.locator('footer').innerText();
-    check('footer mockup: no "HIPAA Compliant" badge and no "50 States" claim', !/HIPAA\s*Compliant/i.test(footerText) && !/all 50 states/i.test(footerText));
-    check('footer mockup: has the compounded-medication statement', /not FDA-approved/.test(footerText));
+    check('footer: no "HIPAA Compliant" badge and no "50 States" claim', !/HIPAA\s*Compliant/i.test(footerText) && !/all 50 states/i.test(footerText));
+    check('footer: has the compounded-medication statement', /not FDA-approved/.test(footerText));
     await shot(page, '09-footer-desktop.png', { fullPage: false, clip: undefined });
     if (SHOTS) await page.locator('footer').screenshot({ path: join(SHOTS, '09-footer-desktop.png') });
     await page.locator('footer a[data-privacy-open]').first().click();
-    check('footer mockup: Your Privacy Choices opens the panel', await dlg(page).evaluate((el) => el.open));
+    check('footer: Your Privacy Choices opens the panel', await dlg(page).evaluate((el) => el.open));
     await ctx.close();
 
     const mctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
     const mpage = await mctx.newPage();
     watch(mpage, 'S6m');
-    await mpage.goto(`${BASE}/dev-mockups/footer`, { waitUntil: 'networkidle' });
+    await mpage.goto(`${BASE}/`, { waitUntil: 'networkidle' });
     await mpage.locator('[data-privacy-banner] [data-pc-action="rejectAll"]').click();
     const overflow = await mpage.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth);
     check('mobile: no sideways scrolling in the footer', !overflow);

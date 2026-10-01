@@ -3,31 +3,21 @@
  * Dev-only mockups. getStaticPaths returns nothing in a production build, so
  * these routes do not exist on the live site.
  *
- *   /dev-mockups/footer   the proposed compliance footer (FooterV2)
  *   /dev-mockups/privacy  the privacy preference center with a live inspector
  */
 import MockupLayout from '../../layouts/MockupLayout.astro';
-import FooterV2 from '../../components/FooterV2.astro';
 import PrivacyCenter from '../../components/privacy/PrivacyCenter.astro';
 import PrivacyRequestForm from '../../components/privacy/PrivacyRequestForm.astro';
 import DevInspector from '../../components/dev/DevInspector.astro';
 
 export function getStaticPaths() {
   return import.meta.env.DEV
-    ? [{ params: { name: 'footer' } }, { params: { name: 'privacy' } }]
+    ? [{ params: { name: 'privacy' } }]
     : [];
 }
 
 const { name } = Astro.params;
 ---
-{name === 'footer' && (
-  <MockupLayout title="Proposed footer">
-    <div class="mock-filler">
-      <p>Page content would be here.<br />Scroll down to the footer. Click &ldquo;Your Privacy Choices&rdquo; in the legal row to open the panel.</p>
-    </div>
-    <FooterV2 />
-  </MockupLayout>
-)}
 {name === 'privacy' && (
   <MockupLayout title="Privacy choices">
     <div class="container" style="max-width: 860px; padding-block: 2rem;">

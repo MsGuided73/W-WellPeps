@@ -1,17 +1,23 @@
 ---
-import { CONTACT, PATIENT_PORTAL_URL } from '../config';
+/**
+ * Site footer: legal row, link columns, newsletter, contact and the site disclosure.
+ *
+ * Adopted from the compliance mockup (docs placement guide, W1). Compared with the old footer:
+ *  - legal row: Terms, Privacy, Consumer Health Data Privacy, Notice of Privacy Practices,
+ *    Cookie Notice, Accessibility, Your Privacy Choices (opens the privacy panel);
+ *  - a "Patient Information" column (medical disclaimer, safety pages, compounded
+ *    medications, telehealth consent, patient terms);
+ *  - the disclosure paragraph is the draft Block 1 copy (pending counsel);
+ *  - removed: the "HIPAA Compliant" badge, "Licensed Providers in All 50 States", the five dead
+ *    links and the fixed 2025 year.
+ *
+ * A link to a page that is not built is left out (src/lib/legal-docs.ts): the draft legal pages
+ * exist only in dev and in deployments built with SHOW_DRAFT_PAGES=true, so the footer never
+ * shows a dead link, and a column with no links left disappears.
+ */
+import { CONTACT, CONTACT_ADDRESS, PATIENT_PORTAL_URL } from '../config';
+import { draftPagesEnabledNow, linkVisible } from '../lib/legal-docs';
 
-/* Global footer — rebuilt to the approved light-theme comp
-   (public/images/WellPeps Footer Final DG.png).
-
-   The footer used to be a navy panel. The comp moves it to a pale
-   blue-to-white wash with navy text, a solid blue newsletter button, and a
-   soft wave motif bleeding off the bottom-right corner. Colours below are
-   sampled straight from the comp. */
-
-/** Payment methods GEN Health checkout accepts (the same list the site states
- *  in its pricing answers). Logos cut from the client's payment-logo sheet;
- *  Google Pay and FSA/HSA have no logo there, so they render as text tiles. */
 const payments: { label: string; src?: string }[] = [
   { label: 'Visa', src: '/images/payment/logo-visa.png' },
   { label: 'Mastercard', src: '/images/payment/logo-mastercard.png' },
@@ -20,7 +26,6 @@ const payments: { label: string; src?: string }[] = [
   { label: 'FSA/HSA' },
 ];
 
-/** `note` renders a small tag after the link (e.g. "Coming Soon"). */
 interface FooterLink { label: string; href: string; note?: string }
 
 const columns: { heading: string; links: FooterLink[] }[] = [
@@ -31,7 +36,7 @@ const columns: { heading: string; links: FooterLink[] }[] = [
       { label: 'Healthy Aging & Vitality', href: '/healthy-aging' },
       { label: 'Sexual Wellness', href: '/sexual-wellness' },
       { label: 'Hair Restoration', href: '/hair-restoration' },
-      { label: 'Hormone Optimization', href: '/hormone-optimization' },
+      { label: 'Hormone Optimization', href: '/hormone-optimization', note: 'Coming Soon' },
     ],
   },
   {
@@ -42,89 +47,106 @@ const columns: { heading: string; links: FooterLink[] }[] = [
       { label: 'Treatment Process', href: '/#journey' },
       { label: 'Pricing', href: '/#whats-included' },
       { label: 'Manage or Cancel Your Plan', href: '/your-plan' },
+      { label: 'Refund & Cancellation', href: '/refund-and-cancellation' },
+      { label: 'Shipping & Delivery', href: '/shipping-and-delivery' },
     ],
   },
   {
     heading: 'Company',
     links: [
       { label: 'About WellPeps', href: '/why-wellpeps' },
-      { label: 'Our Mission', href: '#' },
-      { label: 'Why WellPeps', href: '/why-wellpeps' },
-      { label: 'Careers', href: '#' },
-      { label: 'Contact Us', href: '#' },
+      { label: 'How WellPeps Works', href: '/how-wellpeps-works' },
+      { label: 'States We Serve', href: '/states-we-serve' },
+      { label: 'Contact Us', href: '/contact' },
     ],
   },
   {
-    heading: 'Support',
+    heading: 'Patient Information',
     links: [
-      { label: 'Patient Portal', href: PATIENT_PORTAL_URL },
-      { label: 'Help Center', href: '#' },
-      { label: 'Virtual Assistant', href: '#' },
-      { label: 'Shipping & Delivery', href: '/#faq' },
-      { label: 'Privacy & Security', href: '/#safety' },
+      { label: 'Medical Disclaimer', href: '/medical-disclaimer' },
+      { label: 'GLP-1 Safety Information', href: '/safety/glp-1' },
+      { label: 'Sexual Health Safety Information', href: '/safety/sexual-health' },
+      { label: 'Hair Loss Safety Information', href: '/safety/hair-loss' },
+      { label: 'Healthy Aging Safety Information', href: '/safety/healthy-aging' },
+      { label: 'Compounded Medications', href: '/compounded-medications' },
+      { label: 'Telehealth Consent', href: '/telehealth-consent' },
+      { label: 'Patient Terms', href: '/patient-terms' },
+      { label: 'All Patient Information', href: '/patient-information' },
     ],
   },
 ];
 
+/** opensPanel links open the privacy panel on any page (see PrivacyRoot.astro). */
 const legal: { label: string; href: string; opensPanel?: boolean }[] = [
-  { label: 'Privacy Policy', href: '/privacy-policy' },
   { label: 'Terms of Use', href: '/terms-of-use' },
+  { label: 'Privacy Policy', href: '/privacy-policy' },
+  { label: 'Consumer Health Data Privacy Policy', href: '/consumer-health-data-privacy-policy' },
   { label: 'Notice of Privacy Practices', href: '/notice-of-privacy-practices' },
+  { label: 'Cookie Notice', href: '/cookie-notice' },
   { label: 'Accessibility', href: '/accessibility' },
   { label: 'Your Privacy Choices', href: '/your-privacy-choices', opensPanel: true },
 ];
+
+const year = new Date().getFullYear();
+
+const showDrafts = draftPagesEnabledNow();
+const visible = (href: string) => linkVisible(href, showDrafts);
+const shownColumns = columns
+  .map((c) => ({ ...c, links: c.links.filter((l) => visible(l.href)) }))
+  .filter((c) => c.links.length > 0);
+const shownLegal = legal.filter((l) => visible(l.href));
+const statesLive = visible('/states-we-serve');
+const healthPolicyLive = visible('/consumer-health-data-privacy-policy');
+// The business address is shown once it is confirmed. Until then the placeholder appears
+// only where draft pages are enabled, so the live site never prints "[Business address]".
+const showAddress = CONTACT_ADDRESS !== '' || showDrafts;
 ---
 <footer class="footer">
-  <!-- Wave motif: bleeds off the bottom-right, sits behind all content. -->
   <svg class="footer__wave" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true" focusable="false">
     <path d="M0 214C240 214 420 176 690 140s470-64 750-90v210H0Z" fill="#CFE0FA" opacity="0.55" />
     <path d="M0 250C260 250 430 214 700 180s500-58 740-78v158H0Z" fill="#BDD4F6" opacity="0.5" />
   </svg>
 
   <div class="container-wide footer__inner">
-    <!-- Brand + newsletter -->
     <div class="footer__top">
       <div class="footer__brand">
         <img src="/images/logo-full-v2.png" alt="WellPeps" class="footer__logo" width="600" height="125" />
       </div>
 
-      <!-- Posts to the notify-signup Edge Function (see src/lib/notify.ts).
-           Previously carried data-netlify attributes, but this site deploys to
-           Coolify/nginx, not Netlify — those did nothing and the plain POST had
-           no handler to reach. -->
-      <form class="newsletter" name="newsletter" data-newsletter novalidate>
-        <p class="visually-hidden" aria-hidden="true">
-          <label for="nl-company">Company</label>
-          <input id="nl-company" name="company" tabindex="-1" autocomplete="off" />
-        </p>
-        <div class="newsletter__row">
-          <div class="newsletter__field">
-            <svg class="newsletter__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path fill="currentColor" d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v.3l-9 5.6-9-5.6v-.3Zm0 2.65V17.5A1.5 1.5 0 0 0 4.5 19h15a1.5 1.5 0 0 0 1.5-1.5V9.15l-8.47 5.28a1 1 0 0 1-1.06 0L3 9.15Z" />
-            </svg>
-            <input type="email" name="email" required placeholder="Enter your email address" aria-label="Email address" />
+      <div>
+        <form class="newsletter" name="newsletter" data-newsletter novalidate>
+          <p class="visually-hidden" aria-hidden="true">
+            <label for="nl-company">Company</label>
+            <input id="nl-company" name="company" tabindex="-1" autocomplete="off" />
+          </p>
+          <div class="newsletter__row">
+            <div class="newsletter__field">
+              <svg class="newsletter__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v.3l-9 5.6-9-5.6v-.3Zm0 2.65V17.5A1.5 1.5 0 0 0 4.5 19h15a1.5 1.5 0 0 0 1.5-1.5V9.15l-8.47 5.28a1 1 0 0 1-1.06 0L3 9.15Z" />
+              </svg>
+              <input type="email" name="email" required placeholder="Enter your email address" aria-label="Email address" />
+            </div>
+            <button type="submit" class="newsletter__btn">Get Free Wellness Tips Monthly</button>
           </div>
-          <button type="submit" class="newsletter__btn">Get Free Wellness Tips Monthly</button>
-        </div>
-        <p class="newsletter__note">
-          <svg class="newsletter__lock" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path fill="currentColor" d="M12 2.5A4.5 4.5 0 0 0 7.5 7v2.5H7A2 2 0 0 0 5 11.5v7A2 2 0 0 0 7 20.5h10a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-.5V7A4.5 4.5 0 0 0 12 2.5Zm2.5 7h-5V7a2.5 2.5 0 0 1 5 0v2.5Z" />
-          </svg>
-          One email each month. No spam. Unsubscribe anytime.
-        </p>
-        <p class="newsletter__error" data-newsletter-error hidden role="alert"></p>
-      </form>
+          <p class="newsletter__consent">
+            By subscribing, you agree to receive a monthly email from WellPeps and to our
+            <a href="/terms-of-use">Terms of Use</a> and <a href="/privacy-policy">Privacy Policy</a>{healthPolicyLive && <Fragment>
+            (see also the <a href="/consumer-health-data-privacy-policy">Consumer Health Data Privacy Policy</a>)</Fragment>}.
+            Unsubscribe anytime.
+          </p>
+          <p class="newsletter__error" data-newsletter-error hidden role="alert"></p>
+        </form>
 
-      <p class="newsletter__success" data-newsletter-success hidden role="status">
-        You’re subscribed — watch your inbox for next month’s wellness tips.
-      </p>
+        <p class="newsletter__success" data-newsletter-success hidden role="status">
+          You’re subscribed — watch your inbox for next month’s wellness tips.
+        </p>
+      </div>
     </div>
 
     <hr class="footer__rule" />
 
-    <!-- Link columns -->
-    <div class="footer__grid">
-      {columns.map((col) => (
+    <div class="footer__grid" style={`--footer-cols: ${shownColumns.length}`}>
+      {shownColumns.map((col) => (
         <div class="footer__col">
           <h4>{col.heading}</h4>
           <ul>
@@ -141,20 +163,25 @@ const legal: { label: string; href: string; opensPanel?: boolean }[] = [
       <div class="footer__col footer__contact">
         <h4>Contact Us</h4>
         <ul>
-          {/* Phone removed 2026-09-30 until AI phone answering is ready. To
-              restore, add phone/phoneHref back to CONTACT in config.ts and a
-              list item here linking CONTACT.phoneHref. */}
           <li>
             <svg class="footer__cicon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <path fill="currentColor" d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v.3l-9 5.6-9-5.6v-.3Zm0 2.65V17.5A1.5 1.5 0 0 0 4.5 19h15a1.5 1.5 0 0 0 1.5-1.5V9.15l-8.47 5.28a1 1 0 0 1-1.06 0L3 9.15Z" />
             </svg>
             <span><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></span>
           </li>
+          {showAddress && (
+            <li>
+              <svg class="footer__cicon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M12 2.5a7 7 0 0 0-7 7c0 5.1 6.1 11.6 6.36 11.87a.88.88 0 0 0 1.28 0C12.9 21.1 19 14.6 19 9.5a7 7 0 0 0-7-7Zm0 9.6a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2Z" />
+              </svg>
+              <span>WellPeps, a Wyoming corporation<br />{CONTACT_ADDRESS !== '' ? CONTACT_ADDRESS : <span class="footer__ph">[Business address]</span>}</span>
+            </li>
+          )}
           <li>
             <svg class="footer__cicon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path fill="currentColor" d="M12 2.5a7 7 0 0 0-7 7c0 5.1 6.1 11.6 6.36 11.87a.88.88 0 0 0 1.28 0C12.9 21.1 19 14.6 19 9.5a7 7 0 0 0-7-7Zm0 9.6a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2Z" />
+              <path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm.75 5v5.2l3.6 2.1-.75 1.3-4.35-2.6V7h1.5Z" />
             </svg>
-            <span>Licensed Providers<br />in All 50 States</span>
+            <span>Support: {CONTACT.hours}<br /><a href={PATIENT_PORTAL_URL}>Patient Portal</a></span>
           </li>
         </ul>
 
@@ -172,41 +199,36 @@ const legal: { label: string; href: string; opensPanel?: boolean }[] = [
     <hr class="footer__rule footer__rule--legal" />
 
     <ul class="footer__legal">
-      {legal.map((l) => <li><a href={l.href} data-privacy-open={l.opensPanel ? '' : undefined}>{l.label}</a></li>)}
+      {shownLegal.map((l) => (
+        <li>
+          <a href={l.href} data-privacy-open={l.opensPanel ? '' : undefined}>
+            {l.opensPanel && (
+              <svg class="footer__choices-icon" viewBox="0 0 30 14" aria-hidden="true" focusable="false">
+                <rect x="0.75" y="0.75" width="28.5" height="12.5" rx="6.25" fill="#fff" stroke="#1576C4" stroke-width="1.5" />
+                <path d="M6 7.2l2.3 2.3L12.6 4.6" fill="none" stroke="#1576C4" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M18 4.6l5.2 5M23.2 4.6l-5.2 5" fill="none" stroke="#1576C4" stroke-width="1.7" stroke-linecap="round" />
+              </svg>
+            )}
+            {l.label}
+          </a>
+        </li>
+      ))}
     </ul>
 
     <div class="footer__bottom">
       <div class="footer__legalese">
         <p class="footer__disclaimer">
-          WellPeps is a platform that connects patients with licensed healthcare providers and pharmacy partners.
-          Medical services are provided by independent providers. WellPeps does not provide medical advice,
-          diagnosis, or treatment.
+          WellPeps, a Wyoming corporation, offers education, enrollment and customer support for telehealth care.
+          WellPeps is not a medical practice or a pharmacy and does not diagnose, prescribe, compound or dispense.
+          Care is provided by independent licensed clinicians, who decide whether a prescription is appropriate. A
+          prescription is not guaranteed. Prescriptions are filled and shipped by state-licensed pharmacies.
+          Compounded medications are not FDA-approved and have not been evaluated by FDA for safety, effectiveness or
+          quality. Availability varies by state{statesLive && <Fragment> (see <a href="/states-we-serve">States We Serve</a>)</Fragment>}. This site is for
+          general information and is not medical advice. In an emergency, call 911.
         </p>
-        <p class="footer__copy">© 2025 WellPeps. All rights reserved.</p>
+        <p class="footer__copy">&copy; {year} WellPeps, a Wyoming corporation. All rights reserved.</p>
       </div>
-
-      <div class="footer__badges">
-        <span class="footer__badge">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M12 2.6 4.8 5.5v5.8c0 4.7 3.05 8.35 7.2 10.1 4.15-1.75 7.2-5.4 7.2-10.1V5.5L12 2.6Z" fill="none" stroke="currentColor" stroke-width="1.6" />
-            <path fill="currentColor" d="M12 7.6a2.5 2.5 0 0 0-2.5 2.5v.7h-.3a1 1 0 0 0-1 1v3.1a1 1 0 0 0 1 1h5.6a1 1 0 0 0 1-1v-3.1a1 1 0 0 0-1-1h-.3v-.7A2.5 2.5 0 0 0 12 7.6Zm1.2 3.2h-2.4v-.7a1.2 1.2 0 0 1 2.4 0v.7Z" />
-          </svg>
-          <span class="footer__badge-text">HIPAA<br />Compliant</span>
-        </span>
-        {/* LegitScript Certified badge hidden until the certification application
-            is approved — uncomment this block (divider + badge) to restore:
-
-        <span class="footer__badge-divider" aria-hidden="true"></span>
-
-        <span class="footer__badge">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M12 2.6 4.8 5.5v5.8c0 4.7 3.05 8.35 7.2 10.1 4.15-1.75 7.2-5.4 7.2-10.1V5.5L12 2.6Z" fill="none" stroke="currentColor" stroke-width="1.6" />
-            <path d="m8.7 11.9 2.4 2.4 4.2-4.6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-          <span class="footer__badge-text">LegitScript<br />Certified</span>
-        </span>
-        */}
-      </div>
+      {/* The LegitScript seal goes here only after certification is approved. No "HIPAA Compliant" badge. */}
     </div>
   </div>
 </footer>
@@ -371,6 +393,20 @@ const legal: { label: string; href: string; opensPanel?: boolean }[] = [
     .footer__legal { flex-direction: column; align-items: flex-start; gap: 0.85rem; }
     .footer__legal li + li::before { display: none; }
     .footer__badges { flex-wrap: wrap; justify-content: center; }
+  }
+
+  /* ---- additions for the compliance footer ---- */
+  .footer__grid { grid-template-columns: repeat(var(--footer-cols, 4), 1fr) 1.2fr; }
+  .newsletter__consent { margin-top: 0.85rem; color: var(--f-muted); font-size: var(--text-legal); line-height: 1.5; }
+  .newsletter__consent a { text-decoration: underline; text-underline-offset: 2px; }
+  .footer__ph { color: #8a1f17; background: #fdecec; border-radius: 4px; padding: 0 0.3em; font-weight: 600; }
+  .footer__choices-icon { width: 30px; height: 14px; display: inline-block; vertical-align: -2px; margin-right: 0.45rem; }
+  .footer__legal { gap: 0.6rem 0; }
+  .footer__legal li + li::before { margin-inline: 0.8rem; }
+  .footer__legal a { font-size: 1rem; }
+  .footer__disclaimer { max-width: 100ch; }
+  @media (max-width: 1280px) {
+    .footer__grid { grid-template-columns: repeat(3, 1fr); }
   }
 </style>
 

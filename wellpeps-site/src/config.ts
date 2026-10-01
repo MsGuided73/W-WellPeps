@@ -202,6 +202,25 @@ export const CONTACT = {
   coverage: '50 States · Nationwide Care',
 };
 
+/**
+ * The company's published business address (a real street address, not the registered
+ * agent's; LegitScript compares it with the contracts). Empty until confirmed: the footer
+ * and Contact page then show no address on the live site.
+ */
+export const CONTACT_ADDRESS = '';
+
+/**
+ * WellPeps email addresses, in one place. PROPOSED: the owner has not yet confirmed
+ * them (hello@ is what the site shows today; the drafted documents assume support@).
+ * Each must land in a monitored shared inbox before it is published. The Contact
+ * page and the privacy request form read these.
+ */
+export const EMAILS = {
+  support: 'support@wellpeps.com',
+  privacy: 'privacy@wellpeps.com',
+  accessibility: 'accessibility@wellpeps.com',
+} as const;
+
 /** Primary navigation. Program pages are stubbed for this Home Page build. */
 export const NAV_LINKS = [
   { label: 'Weight Loss', href: '/weight-loss' },
