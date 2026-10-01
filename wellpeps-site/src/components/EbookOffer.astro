@@ -98,6 +98,7 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
 
     {variant === 'carousel' && (
       <section class="ebook-stage">
+        <span class="ebook-carousel__star" aria-hidden="true"><FreeStar /></span>
         <div class="container">
           <div class="ebook-carousel__head">
             <p class="ebook__eyebrow"><span class="ebook__tag-pill">The Smart Patient’s Guides</span></p>
@@ -109,7 +110,6 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
               <li class="ebook-carousel__item">
                 <button type="button" class="book" data-ebook-open={book.slug} aria-label={`Get the free guide: ${book.title}`}>
                   <img src={book.cover} alt="" width="600" height="776" decoding="async" />
-                  <span class="book__star" aria-hidden="true"><FreeStar /></span>
                 </button>
                 <h3>{book.title}</h3>
                 <button type="button" class="ebook__link" data-ebook-open={book.slug}>Get the free guide<Icon name="arrow-right" /></button>
@@ -374,11 +374,13 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
   .ebook-band__pick p { margin-top: 0.3rem; color: rgba(255, 255, 255, 0.8); font-size: var(--text-note); }
 
   /* ---------- Carousel (home, Learning Center) ---------- */
+  /* One large FREE star in the section's top-left corner, in the empty space beside the centred heading. */
+  .ebook-carousel__star { position: absolute; z-index: 1; top: clamp(1rem, 3vw, 2.5rem); left: clamp(0.75rem, 4vw, 4rem); width: clamp(88px, 13vw, 210px); pointer-events: none; }
   .ebook-carousel__head { text-align: center; display: grid; justify-items: center; }
   .ebook-carousel__head .ebook-band__title span { display: inline; }
   .ebook-carousel__head .ebook-band__lead { margin-inline: auto; }
   .ebook-carousel__row {
-    list-style: none; padding: 3rem 1.5rem 1rem; margin: clamp(0.5rem, 2vw, 1.5rem) 0 0;
+    list-style: none; padding: 1.5rem 0.5rem 1rem; margin: clamp(2rem, 4vw, 3.5rem) 0 0;
     display: grid; grid-auto-flow: column; grid-auto-columns: minmax(200px, 1fr); gap: clamp(1.5rem, 3vw, 2.75rem);
     overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin;
   }
@@ -463,6 +465,10 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
     .ebook-band { grid-template-columns: 1fr; text-align: left; }
     .ebook-band__books { min-height: 440px; }
     .ebook-band__books .book__star { right: -4%; }
+  }
+  @media (max-width: 760px) {
+    /* Room above the tag for the star, so the two never overlap. */
+    .ebook-carousel__head { padding-top: 3.5rem; }
   }
   @media (max-width: 620px) {
     .ebook-dialog[open] { grid-template-columns: 1fr; }
