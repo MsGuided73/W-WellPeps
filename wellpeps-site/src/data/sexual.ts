@@ -90,7 +90,7 @@ export const sexProducts: SexProduct[] = [
     description: 'A higher-dose tablet taken before activity rather than every day. Your provider determines whether it is appropriate for you.',
     features: ['Taken only when needed', 'No daily routine required', 'Provider-guided dosing'],
     methodOfUse: 'Oral Tablet',
-    price: '45',
+    price: '85',
     priceUnit: '/month',
   },
   {
@@ -101,7 +101,7 @@ export const sexProducts: SexProduct[] = [
     description: 'A well-established tablet taken before activity. Your provider determines whether it is appropriate for you.',
     features: ['Taken only when needed', 'Well-established treatment', 'Provider-guided dosing'],
     methodOfUse: 'Oral Tablet',
-    price: '39',
+    price: '79',
     priceUnit: '/month',
   },
 ];

@@ -28,10 +28,12 @@ import { HAIR_COMING_SOON, PRICE_NOTE } from '../../../config';
   .hprod__head h2 { font-size: var(--text-section-title); font-weight: 700; }
   .hprod__intro { margin-top: 1rem; font-size: var(--text-lead); color: var(--text-body); max-width: 66ch; margin-inline: auto; }
 
+  /* Flex, not grid, so a short last row (five cards = 3 + 2) sits centered. */
   .hprod__grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;
     margin-top: clamp(2.5rem, 4vw, 3.5rem);
   }
+  .hprod__grid > :global(*) { flex: 0 1 calc((100% - 3rem) / 3); min-width: 0; }
 
   .hprod__foot {
     text-align: center; margin-top: 2.5rem;
@@ -40,8 +42,9 @@ import { HAIR_COMING_SOON, PRICE_NOTE } from '../../../config';
 
   .hprod__foot--sub { margin-top: 0.75rem; }
 
-  @media (max-width: 1200px) { .hprod__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 1200px) { .hprod__grid > :global(*) { flex-basis: calc((100% - 1.5rem) / 2); } }
   @media (max-width: 620px) {
-    .hprod__grid { grid-template-columns: 1fr; max-width: 420px; margin-inline: auto; }
+    .hprod__grid { max-width: 420px; margin-inline: auto; }
+    .hprod__grid > :global(*) { flex-basis: 100%; }
   }
 </style>

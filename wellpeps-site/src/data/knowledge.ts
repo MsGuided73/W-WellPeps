@@ -70,11 +70,12 @@ export const knowledgeBase: KnowledgeDoc[] = [
     href: '/hair-restoration',
     tags: ['hair', 'hair loss', 'minoxidil', 'finasteride', 'thinning', 'balding', 'regrow'],
     answer:
-      'WellPeps offers four prescription hair loss treatments: oral finasteride, oral minoxidil, topical minoxidil, and a topical minoxidil + finasteride foam. Your provider recommends an option based on your hair loss pattern, medical history, goals and lifestyle. Plans start at $49/month.',
+      'WellPeps offers five prescription hair loss treatments: oral finasteride, oral minoxidil, topical minoxidil, a topical minoxidil + finasteride foam, and a topical finasteride + minoxidil + tretinoin foam. Your provider recommends an option based on your hair loss pattern, medical history, goals and lifestyle. Plans start at $49/month.',
     body: `Hair loss treatments work in different ways: finasteride lowers DHT, a hormone involved in
       male-pattern hair loss, and minoxidil supports blood flow to hair follicles. WellPeps offers oral
       finasteride and oral minoxidil from $49/month, topical minoxidil at $99/month, and a topical
-      minoxidil 6% + finasteride 0.3% foam at $139/month. Results vary and take consistent use; your
+      minoxidil 6% + finasteride 0.3% foam at $139/month, and a finasteride + minoxidil + tretinoin foam
+      at $149/month (tretinoin can cause scalp irritation or sun sensitivity). Results vary and take consistent use; your
       provider decides which option, if any, is appropriate for you.`,
   },
   {
@@ -87,8 +88,8 @@ export const knowledgeBase: KnowledgeDoc[] = [
       'Changes in sexual wellness are common and affect both men and women at any stage of life — aging, hormones, stress, medical conditions, medications and lifestyle can all play a role. Many concerns are treatable, and a licensed provider can recommend evidence-based options after a personalized evaluation.',
     body: `Sexual wellness is an important part of overall health. Treatment options are designed to help
       improve healthy blood flow, support the body's natural sexual function, and build confidence.
-      WellPeps offers daily tadalafil at $79/month, as-needed tadalafil from $45/month and
-      as-needed sildenafil from $39/month; a licensed provider decides which is appropriate. These conversations should be
+      WellPeps offers daily tadalafil at $79/month, as-needed tadalafil at $85/month and
+      as-needed sildenafil at $79/month (15 tablets each); a licensed provider decides which is appropriate. These conversations should be
       private, judgment-free, and focused on helping you feel your best.`,
   },
 
@@ -177,7 +178,7 @@ export const knowledgeBase: KnowledgeDoc[] = [
     source: 'program',
     tags: ['price', 'pricing', 'cost', 'how much', 'fees', 'payment', 'insurance', 'expensive'],
     answer:
-      'Pricing is transparent and upfront — you know your full program cost before you begin, with no hidden fees. Sexual Wellness starts at $39/month, Hair Restoration at $49/month, and Weight Management at $179/month. Each is one monthly price covering medication, if prescribed, provider care, messaging with your care team and standard shipping. A $29 deposit is collected when you start your assessment: it is applied to your first month if your provider prescribes treatment and refunded in full if not. WellPeps also offers access to low-cost labs when your provider recommends them; lab fees are billed separately. No insurance is required; WellPeps is self-pay. We accept Visa, Mastercard, FSA/HSA, Apple Pay and Google Pay.',
+      'Pricing is transparent and upfront — you know your full program cost before you begin, with no hidden fees. Sexual Wellness starts at $79/month, Hair Restoration at $49/month, and Weight Management at $179/month. Each is one monthly price covering medication, if prescribed, provider care, messaging with your care team and standard shipping. WellPeps also offers access to low-cost labs when your provider recommends them; lab fees are billed separately. No insurance is required; WellPeps is self-pay. We accept Visa, Mastercard, FSA/HSA, Apple Pay and Google Pay.',
     body: `Every program includes transparent pricing, a licensed healthcare provider review, ongoing
       provider support, and the ability to cancel anytime. No insurance required — affordable self-pay
       programs make personalized wellness accessible. Accepted payment methods: Visa, Mastercard,

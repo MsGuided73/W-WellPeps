@@ -136,6 +136,23 @@ export const hairProducts: Product[] = [
     price: '139',
     priceUnit: '/month',
   },
+  {
+    name: 'Topical Finasteride + Minoxidil + Tretinoin',
+    image: '/images/hair/product-finasteride-minoxidil-tretinoin.webp',
+    alt: 'A white foam pump bottle labeled Minoxidil plus Finasteride plus Tretinoin, Topical Foam',
+    icon: 'venn',
+    description:
+      'Three prescription medications in one topical foam applied to the scalp: minoxidil supports blood flow to hair follicles, finasteride lowers DHT, and tretinoin, a retinoid, speeds skin-cell turnover. Your provider decides whether it is appropriate and which strength fits you.',
+    optionsLabel: 'Formulations',
+    options: [
+      'Finasteride 0.25% + Minoxidil 5% + Tretinoin 0.03%',
+      'Finasteride 0.25% + Minoxidil 5% + Tretinoin 0.01%',
+      'Finasteride 0.5% + Minoxidil 5% + Tretinoin 0.01%',
+    ],
+    methodOfUse: 'Topical Foam',
+    price: '149',
+    priceUnit: '/month',
+  },
 ];
 
 export interface HairFaq {

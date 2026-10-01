@@ -185,6 +185,7 @@ export const weightProducts: PillProduct[] = [
     ],
     description: 'Oral dual GIP/GLP-1 option—a needle-free alternative.',
     delivery: { label: 'Oral Tablet', icon: 'pill' },
+    price: '229',
     priceUnit: '/month',
   },
 ];

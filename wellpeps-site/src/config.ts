@@ -54,47 +54,58 @@ const SCRIPTFUL_HAIR_PRODUCT_URL = '#scriptful-stub-hair-restoration';
 const SCRIPTFUL_SEXUAL_PRODUCT_URL = '#scriptful-stub-sexual-wellness';
 const SCRIPTFUL_HEALTHY_AGING_PRODUCT_URL = '#scriptful-stub-healthy-aging';
 
-/** Assessment-first links for individual treatments, one per product card.
+/** Intake-first links for individual treatments, one per product card.
  *  GEN Health sells treatments, not programs, so this is where the links go.
  *  The key is the card's name, slugged (toProductKey): "Oral Semaglutide" →
- *  'oral-semaglutide'. Assessment-first is the $29 flow (decided 2026-09-30):
- *  the patient pays the assessment up front and the balance on approval.
- *  Links and prices were read from the GEN Health API on 2026-09-30; see
- *  docs/genhealth for the product list. Not linked yet: Oral Tirzepatide (its
- *  GEN product is still $0), MIC + B12 and Lipo-C (not in GEN yet). */
+ *  'oral-semaglutide'. Intake-first is the single checkout (decided
+ *  2026-09-30, replacing the $29 assessment-first deposit): the patient
+ *  completes the health questions, then checks out once. Links and prices
+ *  were read from the GEN Health API on 2026-09-30. Every card is linked. */
 export const PRODUCT_LINKS = {
   // weight-loss
   // GEN: "GLP-1 Weight Loss – Semaglutide (High Dose / Injectable)" ($179/mo)
-  'compounded-semaglutide': { program: 'weight-loss', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Zst5Qu9lkZz7vKNusesA_MoDyAcICE5RDa4DfaeBX_uM0cXePP8e9c5hiMKcRt?checkoutFlow=visit_first' },
+  'compounded-semaglutide': { program: 'weight-loss', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/uM0cXePP8e9c5hiMKcRt?checkoutFlow=intake_first' },
   // GEN: "GLP-1 Weight Loss – Tirzepatide (Subcutaneous Injection / 1 x wk)" ($249/mo)
-  'compounded-tirzepatide': { program: 'weight-loss', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Zst5Qu9lkZz7vKNusesA_MoDyAcICE5RDa4DfaeBX_SvFDJ7W4nmWL2bkLUMMS?checkoutFlow=visit_first' },
+  'compounded-tirzepatide': { program: 'weight-loss', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/SvFDJ7W4nmWL2bkLUMMS?checkoutFlow=intake_first' },
   // GEN: "GLP-1 Weight Loss – Semaglutide (Sublingual or Tablets)" ($229/mo)
-  'oral-semaglutide': { program: 'weight-loss', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/vOtVNLOfawMBeTY5l110_1?checkoutFlow=visit_first' },
+  'oral-semaglutide': { program: 'weight-loss', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/vOtVNLOfawMBeTY5l110_1?checkoutFlow=intake_first' },
+  // GEN: "GLP-1 Weight Loss Plan – Tirzepatide (Oral/Tablets)" ($229/mo)
+  'oral-tirzepatide': { program: 'weight-loss', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/9iUIrANb8j2XW3rNregB?checkoutFlow=intake_first' },
   // hair-restoration
   // GEN: "Hair Loss – Finasteride (Oral)" ($49/mo)
-  'oral-finasteride': { program: 'hair-restoration', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Zst5Qu9lkZz7vKNusesA_MoDyAcICE5RDa4DfaeBX_jn0oZRngtKkKh64DRjTz?checkoutFlow=visit_first' },
+  'oral-finasteride': { program: 'hair-restoration', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/jn0oZRngtKkKh64DRjTz?checkoutFlow=intake_first' },
   // GEN: "Hair Loss – Minoxidil (Oral)" ($49/mo)
-  'oral-minoxidil': { program: 'hair-restoration', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Zst5Qu9lkZz7vKNusesA_MoDyAcICE5RDa4DfaeBX_M5oNllXUu1ikySSuXIR0?checkoutFlow=visit_first' },
+  'oral-minoxidil': { program: 'hair-restoration', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/M5oNllXUu1ikySSuXIR0?checkoutFlow=intake_first' },
   // GEN: "Hair Loss – Minoxidil (Topical)" ($99/mo)
-  'topical-minoxidil': { program: 'hair-restoration', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Zst5Qu9lkZz7vKNusesA_MoDyAcICE5RDa4DfaeBX_Raw7mUkuzzhVdAo88jpL?checkoutFlow=visit_first' },
+  'topical-minoxidil': { program: 'hair-restoration', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Raw7mUkuzzhVdAo88jpL?checkoutFlow=intake_first' },
   // GEN: "Hair Loss - Minoxidil + Finasteride (6% / 0.3% Topical Solution)" ($139/mo)
-  'topical-minoxidil-finasteride': { program: 'hair-restoration', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Raw7mUkuzzhVdAo88jpL_1?checkoutFlow=visit_first' },
+  'topical-minoxidil-finasteride': { program: 'hair-restoration', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Raw7mUkuzzhVdAo88jpL_1?checkoutFlow=intake_first' },
+  // GEN: "Hair Loss – Finasteride + Minoxidil + Tretinoin (Topical)" ($149/mo, Vios;
+  // three strengths, provider chooses)
+  'topical-finasteride-minoxidil-tretinoin': { program: 'hair-restoration', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/YoKTsMK3BMElUT3PPohU?checkoutFlow=intake_first' },
   // sexual-wellness
   // GEN: "ED – Tadalafil (Daily / Low Dose) Protocol" ($79/mo)
-  'tadalafil-daily': { program: 'sexual-wellness', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Zst5Qu9lkZz7vKNusesA_MoDyAcICE5RDa4DfaeBX_CASkNPVnxOWgS6xIB5pY?checkoutFlow=visit_first' },
-  // GEN: "ED – Tadalafil (As Needed) 5 pills" ($45/mo)
-  'tadalafil-as-needed': { program: 'sexual-wellness', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/pXP69VkpzR8Me3cKQFiY_1?checkoutFlow=visit_first' },
-  // GEN: "ED – Sildenafil 25 mg (On-Demand) - 5 Tablets" ($39/mo)
-  'sildenafil-as-needed': { program: 'sexual-wellness', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Zst5Qu9lkZz7vKNusesA_MoDyAcICE5RDa4DfaeBX_ctufh9oNPjNGsOY3wGMU?checkoutFlow=visit_first' },
+  'tadalafil-daily': { program: 'sexual-wellness', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/CASkNPVnxOWgS6xIB5pY?checkoutFlow=intake_first' },
+  // GEN: "ED – Tadalafil (On-Demand / High Dose) 15 Pills" ($85/mo). The 5- and
+  // 10-pill packs were dropped 2026-09-30: they lose money after fill and shipping.
+  'tadalafil-as-needed': { program: 'sexual-wellness', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/pXP69VkpzR8Me3cKQFiY_3?checkoutFlow=intake_first' },
+  // GEN: "ED – Sildenafil 25 mg (On-Demand) - 15 Tablets" ($79/mo); smaller packs
+  // dropped for the same reason.
+  'sildenafil-as-needed': { program: 'sexual-wellness', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/ctufh9oNPjNGsOY3wGMU_2?checkoutFlow=intake_first' },
   // healthy-aging
   // GEN: "Peptides – Sermorelin (Injectable)" ($149/mo)
-  sermorelin: { program: 'healthy-aging', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Zst5Qu9lkZz7vKNusesA_MoDyAcICE5RDa4DfaeBX_utsDGMi7ITPVBmLMJifw?checkoutFlow=visit_first' },
+  sermorelin: { program: 'healthy-aging', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/utsDGMi7ITPVBmLMJifw?checkoutFlow=intake_first' },
   // GEN: "Peptides-NAD+ (Injectable)" ($169/mo)
-  nad: { program: 'healthy-aging', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Zst5Qu9lkZz7vKNusesA_MoDyAcICE5RDa4DfaeBX_SHJpGAACUFEeMONdpEbn?checkoutFlow=visit_first' },
+  nad: { program: 'healthy-aging', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/SHJpGAACUFEeMONdpEbn?checkoutFlow=intake_first' },
   // GEN: "Wellness – Glutathione (Injectable)" ($99/mo)
-  glutathione: { program: 'healthy-aging', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Zst5Qu9lkZz7vKNusesA_MoDyAcICE5RDa4DfaeBX_17H4pVR8uYnwvcBIz8iY?checkoutFlow=visit_first' },
+  glutathione: { program: 'healthy-aging', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/17H4pVR8uYnwvcBIz8iY?checkoutFlow=intake_first' },
   // GEN: "Peptides - Methylene Blue Capsules" ($99/mo)
-  'methylene-blue': { program: 'healthy-aging', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Zst5Qu9lkZz7vKNusesA_MoDyAcICE5RDa4DfaeBX_dLH4UrgqWuotQRWbot6J?checkoutFlow=visit_first' },
+  'methylene-blue': { program: 'healthy-aging', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/dLH4UrgqWuotQRWbot6J?checkoutFlow=intake_first' },
+  // GEN: "Wellness – MIC-B12 (Lipotropic / Fat Burn)" ($119/mo)
+  'mic-b12': { program: 'healthy-aging', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Ia4ee35szTk7xk02eBQp?checkoutFlow=intake_first' },
+  // GEN: "Wellness – Lipo-C" ($119/mo; created as a duplicate of MIC-B12 in GEN,
+  // so confirm its formulary pairing is the L-carnitine formula)
+  'lipo-c': { program: 'healthy-aging', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Ia4ee35szTk7xk02eBQp_1?checkoutFlow=intake_first' },
 } satisfies CtaLinks['products'];
 
 /**
@@ -110,10 +121,12 @@ export const LIVE_PRODUCTS: readonly (keyof typeof PRODUCT_LINKS)[] = [
   'compounded-semaglutide',
   'compounded-tirzepatide',
   'oral-semaglutide',
+  'oral-tirzepatide',
   'oral-finasteride',
   'oral-minoxidil',
   'topical-minoxidil',
   'topical-minoxidil-finasteride',
+  'topical-finasteride-minoxidil-tretinoin',
   'tadalafil-daily',
   'tadalafil-as-needed',
   'sildenafil-as-needed',
@@ -121,6 +134,8 @@ export const LIVE_PRODUCTS: readonly (keyof typeof PRODUCT_LINKS)[] = [
   'nad',
   'glutathione',
   'methylene-blue',
+  'mic-b12',
+  'lipo-c',
 ];
 
 /** Every assessment link, keyed by program. Buttons never read these directly —
@@ -135,6 +150,20 @@ export const CTA_LINKS: CtaLinks = {
   },
   products: Object.fromEntries(LIVE_PRODUCTS.map((key) => [key, PRODUCT_LINKS[key]])),
 };
+
+/**
+ * CHECKOUT LOCK (pre-launch, 2026-10-01). While true, every page stays public
+ * but each assessment button asks for the access password before it reveals a
+ * GEN Health checkout link; the links ship only in encrypted form
+ * (src/lib/checkout-lock.ts). Share the password with the LegitScript reviewer,
+ * Scriptful and the team only.
+ *
+ * After changing any link or the password: put the password in
+ * wellpeps-site/.env as CHECKOUT_LOCK_PASSWORD and run `npm run lock:checkout`
+ * (the build fails while src/data/checkout-lock.json is out of date).
+ * At launch: set this to false and deploy.
+ */
+export const CHECKOUT_LOCKED = true;
 
 /* A pasted link on plain http or an untrusted host stops the build here, rather
    than shipping as a trusted button or silently showing "Opening Soon". */
@@ -159,14 +188,8 @@ export const HAIR_COMING_SOON =
 /** Shown under every program's product grid. One monthly price, no
  *  separate fees (decided 2026-09-25); standard shipping is included and labs
  *  are billed separately. See src/data/plan.ts. */
-/** Deposit taken when a patient starts an assessment (2026-09-30). Credited to
- *  the first month if the provider prescribes, refunded in full if not, which
- *  is what keeps "Free Assessment" true. The one source for the amount. */
-export const DEPOSIT = 29;
-
 export const PRICE_NOTE =
-  'One monthly price covers your medication, if prescribed, provider care, messaging with your care team, and standard shipping. ' +
-  `A $${DEPOSIT} deposit is collected when you start: applied to your first month if you are prescribed treatment, refunded in full if not.`;
+  'One monthly price covers your medication, if prescribed, provider care, messaging with your care team, and standard shipping.';
 
 /** Existing-patient login on GEN Health. Opens in the same tab: the portal is on
  *  our own domain and branding, so it is the next screen of one product, not an

@@ -147,7 +147,7 @@ export const peptideProducts: PeptideProduct[] = [
     vial: '/images/peptide/vial-lipoc.webp',
     methodOfUse: 'Injection',
     features: ['Fatty acid metabolism', 'L-carnitine', 'Lipotropic nutrients'],
-    price: '109',
+    price: '119',
   },
   {
     name: 'Methylene Blue',
