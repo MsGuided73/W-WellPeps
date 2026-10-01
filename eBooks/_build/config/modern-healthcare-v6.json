@@ -1,0 +1,129 @@
+{
+  "topic": "MODERN HEALTHCARE",
+  "title": "MODERN HEALTHCARE",
+  "cta_url": "https://wellpeps.com/#assessment",
+  "cover": "../../wellpeps-site/public/images/weight/why-doctor.webp",
+  "cover_focus": [
+    0.45,
+    0.4
+  ],
+  "cover_style": "editorial",
+  "theme": "editorial-v6",
+  "shadows": "blur",
+  "series": [
+    {
+      "title": "The Smart Patient’s Guide to GLP-1 Weight Loss"
+    },
+    {
+      "title": "The Smart Patient’s Guide to Sexual Wellness"
+    },
+    {
+      "title": "The Smart Patient’s Guide to Healthy Aging & Vitality"
+    },
+    {
+      "title": "The Smart Patient’s Guide to Hair Restoration"
+    },
+    {
+      "title": "The Smart Patient’s Guide to NAD+ Therapy"
+    }
+  ],
+  "sections": {
+    "00": {
+      "kicker": "BEFORE YOU START",
+      "image": "../../wellpeps-site/public/images/journey-1.webp",
+      "image_w": 2.6,
+      "image_h": 2.1,
+      "focus": [
+        0.5,
+        0.35
+      ]
+    },
+    "01": {
+      "kicker": "THE NEW PATIENT EXPERIENCE"
+    },
+    "02": {
+      "kicker": "UNDERSTAND TELEHEALTH",
+      "image": "../../wellpeps-site/public/images/journey-5.webp",
+      "image_w": 2.6,
+      "image_h": 2.1,
+      "focus": [
+        0.5,
+        0.35
+      ]
+    },
+    "03": {
+      "kicker": "KNOW ITS VALUE",
+      "image": "../../wellpeps-site/public/images/journey-3.webp",
+      "image_w": 2.4,
+      "image_h": 2.0,
+      "focus": [
+        0.5,
+        0.35
+      ]
+    },
+    "04": {
+      "kicker": "KNOW ITS LIMITS"
+    },
+    "05": {
+      "kicker": "TESTING IS CHANGING TOO",
+      "image": "../../wellpeps-site/public/images/weight/why-lab.webp",
+      "image_w": 2.6,
+      "image_h": 2.0,
+      "focus": [
+        0.45,
+        0.35
+      ]
+    },
+    "06": {
+      "kicker": "LABS STILL MATTER"
+    },
+    "07": {
+      "kicker": "CONNECT THE PIECES"
+    },
+    "08": {
+      "kicker": "CARE AT YOUR FINGERTIPS"
+    },
+    "09": {
+      "kicker": "KNOW WHERE YOUR MEDICATION COMES FROM",
+      "image": "../../wellpeps-site/public/images/journey-4.webp",
+      "image_w": 2.6,
+      "image_h": 2.2,
+      "focus": [
+        0.5,
+        0.45
+      ]
+    },
+    "10": {
+      "kicker": "YOUR PRIVACY MATTERS"
+    },
+    "11": {
+      "kicker": "CONVENIENCE WITHOUT THE RUNAROUND"
+    },
+    "12": {
+      "kicker": "WATCH FOR THE RED FLAGS"
+    },
+    "13": {
+      "kicker": "USE THE CHECKLIST",
+      "headline_icon": "../_assets/glp1-media/ppt/media/image13.png"
+    },
+    "14": {
+      "kicker": "A BETTER APPROACH TO CARE"
+    },
+    "15": {
+      "kicker": "THE FUTURE OF HEALTHCARE",
+      "hero": [
+        "../../wellpeps-site/public/images/about/built-around-you.webp",
+        "../../wellpeps-site/public/images/about/our-promise.webp"
+      ]
+    },
+    "cta": {
+      "kicker": "GET THE COMPREHENSIVE CARE YOU DESERVE",
+      "image": "../../wellpeps-site/public/images/learning-center/couple.webp",
+      "focus": [
+        0.5,
+        0.3
+      ],
+      "button": "Start Your Free Assessment"
+    }
+  }
+}

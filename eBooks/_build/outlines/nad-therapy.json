@@ -1,0 +1,709 @@
+{
+ "slug": "nad-therapy",
+ "source": "eBooks/Manuscripts/nad-guide_final.docx (Derek Goldberg, 2026-09-16 evening). Hand-built outline 2026-09-29; copy rules from _build/README.md section 5 applied (the manuscript's SMART PATIENT PRINCIPLE callouts render as SMART PATIENT INSIGHT). No images in the manuscript; photos borrowed from wellpeps-site/public/images (see config). Deviations to raise with Derek: page 14 follows the series (kicker A BETTER APPROACH TO CARE, headline Why We Created WellPeps) where the manuscript swaps them; page 05 keeps the ROLE / CONTEXT labels inline in each card; the CTA panel holds one paragraph, so the four closing imperatives and the two-line intro are not on the CTA page; the seven legal paragraphs are merged into four without dropping a word; the disclaimer headline is the series' 'Educational information, not medical advice.' Page 13's closing SMART PATIENT PRINCIPLE renders as the series tagline line (the checklist plus a full callout box runs 0.88in over under fixed type); page 08 cards run in one row; page 07 carries no photo.",
+ "title": "NAD+ THERAPY",
+ "subtitle": "What it is, what we know, and questions to ask before treatment",
+ "deck": "",
+ "tagline": "Personalized Wellness. Simplified.",
+ "sections": [
+  {
+   "num": "00",
+   "kind": "before",
+   "headline": "NAD+ Is Getting Attention—for Good Reason",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "NAD+ has become one of the most talked-about subjects in healthy-aging and wellness circles. The interest starts with real biology."
+    },
+    {
+     "kind": "body",
+     "text": "NAD+—short for nicotinamide adenine dinucleotide—is a naturally occurring molecule found throughout the body. It plays an essential role in cellular energy metabolism and participates in many other fundamental cellular processes."
+    },
+    {
+     "kind": "body",
+     "text": "Researchers are actively studying NAD+ metabolism, how it changes with age and health, and whether different approaches to supporting NAD+ biology may have meaningful applications for human health."
+    },
+    {
+     "kind": "emph",
+     "text": "But there is an important distinction:"
+    },
+    {
+     "kind": "body",
+     "text": "Understanding what NAD+ does naturally in the body is not the same as proving what NAD+ therapy will do for a patient. The science is well established in some areas and still developing in others. This guide will help you understand the difference."
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "NAD+ has an established role in human biology. Its use as a wellness therapy is an evolving area of research."
+    }
+   ]
+  },
+  {
+   "num": "01",
+   "kind": "section",
+   "headline": "What Exactly Is NAD+?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "The full name is nicotinamide adenine dinucleotide. Fortunately, you don’t need to remember that."
+    },
+    {
+     "kind": "body",
+     "text": "NAD+ is a naturally occurring coenzyme found throughout the body. Coenzymes help enzymes carry out important chemical reactions. One of NAD+’s fundamental roles involves the processes your cells use to convert nutrients into usable energy."
+    },
+    {
+     "kind": "body",
+     "text": "NAD+ also participates in biological processes involving cellular signaling, redox reactions and normal cellular function."
+    },
+    {
+     "kind": "emph",
+     "text": "Think of it this way:"
+    },
+    {
+     "kind": "flow",
+     "steps": [
+      "Food & nutrients",
+      "Cellular processes",
+      "NAD+ participates",
+      "Cellular energy & function"
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "That fundamental biology is one reason NAD+ has attracted significant scientific interest."
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "NAD+ isn’t a newly invented wellness ingredient. It is a molecule your body already uses in fundamental cellular processes."
+    }
+   ]
+  },
+  {
+   "num": "02",
+   "kind": "section",
+   "headline": "Why Has NAD+ Become Part of the Healthy-Aging Conversation?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Scientists have become increasingly interested in the relationship between NAD+ metabolism and aging."
+    },
+    {
+     "kind": "body",
+     "text": "Research suggests that NAD+ availability can change with age and physiological conditions, although the pattern is complex and can differ among tissues and individuals."
+    },
+    {
+     "kind": "body",
+     "text": "Because NAD+ participates in cellular energy metabolism and other important biological processes, researchers are studying whether influencing NAD+ metabolism could have useful health applications. That has led to research involving several different approaches, including:"
+    },
+    {
+     "kind": "list",
+     "cols": 2,
+     "items": [
+      "NAD+ itself",
+      "Nicotinamide riboside (NR)",
+      "Nicotinamide mononucleotide (NMN)",
+      "Other approaches that may influence NAD+ metabolism"
+     ]
+    },
+    {
+     "kind": "emph",
+     "text": "But healthy aging is complex."
+    },
+    {
+     "kind": "body",
+     "text": "NAD+ should not be viewed as a cure for aging, a way to reverse aging or a treatment proven to make someone biologically younger."
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "NAD+ is one increasingly studied part of a much larger healthy-aging picture."
+    },
+    {
+     "kind": "approach",
+     "text": "WellPeps believes wellness therapies should be considered in the context of the whole person—not as shortcuts around the fundamentals of healthy living."
+    }
+   ]
+  },
+  {
+   "num": "03",
+   "kind": "section",
+   "headline": "What NAD+ Biology Can—and Can’t—Tell Us",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "This is one of the most important concepts to understand about NAD+."
+    },
+    {
+     "kind": "subhead",
+     "title": "WHAT WE KNOW",
+     "desc": "NAD+ plays essential roles in normal human biology. It participates in cellular energy metabolism and numerous other cellular processes."
+    },
+    {
+     "kind": "subhead",
+     "title": "WHAT THAT DOESN’T AUTOMATICALLY MEAN",
+     "desc": "That receiving NAD+ as a therapy has been proven to:"
+    },
+    {
+     "kind": "list",
+     "cols": 2,
+     "items": [
+      "Increase your energy",
+      "Improve mental clarity",
+      "Speed recovery",
+      "Reverse aging",
+      "Extend lifespan",
+      "Make you feel younger"
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "A molecule can have an essential biological role without supplementation or treatment being proven to improve every function associated with that biology. That distinction is especially important in a wellness market where biological mechanisms are sometimes presented as though they were proven patient outcomes."
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "Mechanism is not the same thing as outcome. Understanding how NAD+ works helps explain why researchers are interested in it. Clinical research is needed to determine what specific treatment benefits can actually be expected."
+    }
+   ]
+  },
+  {
+   "num": "04",
+   "kind": "section",
+   "headline": "NAD+ Isn’t One Research Category",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "“NAD+ research” can mean several different things. Understanding the difference can help you evaluate claims about NAD+ therapy."
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "NAD+ BIOLOGY",
+       "desc": "Research into the role NAD+ naturally plays in cells, metabolism and other biological processes."
+      },
+      {
+       "title": "NAD+ PRECURSORS",
+       "desc": "Research involving compounds such as NR and NMN, which participate in pathways the body can use to support NAD+ metabolism. Much of the published human intervention research has involved these precursors."
+      },
+      {
+       "title": "DIRECT NAD+ THERAPY",
+       "desc": "Administration of NAD+ itself, including parenteral approaches used in some wellness settings. Research into direct NAD+ administration for wellness outcomes is less developed than the human research involving oral precursors."
+      }
+     ]
+    },
+    {
+     "kind": "subhead",
+     "title": "WHY THIS MATTERS",
+     "desc": "Evidence involving one approach should not automatically be presented as evidence for another. A study involving NMN, for example, does not necessarily establish the clinical effects of injectable NAD+."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Does the research being discussed actually involve the form of NAD+ therapy I am considering?"
+    }
+   ]
+  },
+  {
+   "num": "05",
+   "kind": "section",
+   "headline": "NAD+ vs. NR vs. NMN",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "These terms are often discussed together, but they aren’t interchangeable."
+    },
+    {
+     "kind": "cards",
+     "profile": true,
+     "items": [
+      {
+       "title": "NAD+",
+       "sub": "Nicotinamide adenine dinucleotide itself.",
+       "desc": "Role: A naturally occurring coenzyme involved in cellular energy metabolism and other fundamental biological processes. Wellness context: Direct NAD+ may be administered through routes such as injectable or infusion-based therapy in some wellness settings."
+      },
+      {
+       "title": "NR",
+       "sub": "Nicotinamide riboside.",
+       "desc": "Role: A precursor the body can use in pathways involved in NAD+ metabolism. Research context: NR has been studied in human trials examining its ability to influence NAD+-related biomarkers and various health outcomes."
+      },
+      {
+       "title": "NMN",
+       "sub": "Nicotinamide mononucleotide.",
+       "desc": "Role: Another compound involved in NAD+ biosynthetic pathways. Research context: NMN has also been studied in human research examining NAD+-related biomarkers and potential health effects."
+      }
+     ]
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "“NAD+ research” doesn’t necessarily mean researchers administered NAD+ itself. Always ask what compound, dose, route and population were actually studied."
+    }
+   ]
+  },
+  {
+   "num": "06",
+   "kind": "section",
+   "headline": "How Is NAD+ Therapy Used?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "People may encounter NAD+-related wellness approaches in several forms."
+    },
+    {
+     "kind": "body",
+     "text": "Some products contain NAD+ precursors such as NR or NMN. Other wellness programs offer NAD+ itself through routes such as intravenous or injectable administration."
+    },
+    {
+     "kind": "emph",
+     "text": "The route matters."
+    },
+    {
+     "kind": "body",
+     "text": "Different compounds and methods of administration can be absorbed, processed and studied differently."
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "ORAL PRECURSORS",
+       "desc": "Compounds such as NR and NMN participate in biological pathways involved in NAD+ metabolism."
+      },
+      {
+       "title": "DIRECT NAD+ THERAPY",
+       "desc": "NAD+ itself may be administered directly in certain provider-guided wellness programs."
+      },
+      {
+       "title": "IMPORTANT DISTINCTION",
+       "desc": "Research involving oral NAD+ precursors should not automatically be used to predict the effects of direct NAD+ therapy."
+      }
+     ]
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Am I receiving NAD+ itself or an NAD+ precursor—and what evidence applies to that specific approach?"
+    },
+    {
+     "kind": "approach",
+     "text": "When prescribed, WellPeps provides access to direct NAD+ therapy through a licensed healthcare provider rather than presenting oral precursor research as proof of a particular treatment outcome."
+    }
+   ]
+  },
+  {
+   "num": "07",
+   "kind": "section",
+   "headline": "Compounded and FDA-Approved Aren’t the Same Thing",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Understanding how a medication is regulated is an important part of being an informed patient."
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "FDA-APPROVED MEDICATION",
+       "desc": "An FDA-approved medication has undergone FDA review for safety, effectiveness and quality for its approved use."
+      },
+      {
+       "title": "COMPOUNDED MEDICATION",
+       "desc": "A compounded medication is prepared by a compounding pharmacy to meet a patient’s individual prescription needs under applicable compounding requirements."
+      }
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "Compounded medications are not FDA-approved finished drug products. That means FDA does not review compounded medications for safety, effectiveness and quality before they are marketed in the same way it reviews FDA-approved medications."
+    },
+    {
+     "kind": "body",
+     "text": "Compounding can serve an important patient need in appropriate circumstances, but patients should understand what they are receiving."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Is the treatment I’m receiving FDA-approved or compounded—and has that distinction been clearly explained to me?"
+    },
+    {
+     "kind": "approach",
+     "text": "When a compounded medication is prescribed, WellPeps believes patients should understand what they are receiving and receive their prescription through an appropriate U.S.-based pharmacy partner."
+    }
+   ]
+  },
+  {
+   "num": "08",
+   "kind": "section",
+   "headline": "Could NAD+ Therapy Be Appropriate for You?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "There isn’t one profile of the “typical” NAD+ patient. People exploring NAD+ may have different wellness interests, health histories, medications and expectations."
+    },
+    {
+     "kind": "body",
+     "text": "That is why the question shouldn’t simply be:"
+    },
+    {
+     "kind": "quote",
+     "text": "“Do I want NAD+?”"
+    },
+    {
+     "kind": "body",
+     "text": "A better question is:"
+    },
+    {
+     "kind": "quote",
+     "text": "“Is NAD+ therapy appropriate for me?”"
+    },
+    {
+     "kind": "body",
+     "text": "A licensed healthcare provider can consider factors including:"
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "YOUR HEALTH HISTORY",
+       "desc": "Your overall medical background and relevant health circumstances."
+      },
+      {
+       "title": "CURRENT MEDICATIONS & SUPPLEMENTS",
+       "desc": "What you’re already taking and whether there are relevant considerations."
+      },
+      {
+       "title": "YOUR WELLNESS GOALS",
+       "desc": "What led you to explore NAD+ in the first place."
+      },
+      {
+       "title": "THE SPECIFIC TREATMENT",
+       "desc": "The formulation, route, instructions and other treatment-specific considerations."
+      }
+     ],
+     "cols": 4
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Why is this particular therapy being considered for me?"
+    },
+    {
+     "kind": "approach",
+     "text": "WellPeps begins with a health assessment and licensed-provider review so treatment can be considered in the context of the individual patient."
+    }
+   ]
+  },
+  {
+   "num": "09",
+   "kind": "section",
+   "headline": "What About Side Effects?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "“Naturally occurring in the body” does not mean a therapy is automatically risk-free."
+    },
+    {
+     "kind": "body",
+     "text": "Receiving NAD+ as a treatment is different from the NAD+ your body naturally produces and regulates. Potential effects can depend on factors such as the formulation, dose, route of administration and individual response."
+    },
+    {
+     "kind": "body",
+     "text": "Reported experiences associated with parenteral NAD+-related treatment can include symptoms such as:"
+    },
+    {
+     "kind": "list",
+     "cols": 2,
+     "items": [
+      "Injection-site discomfort",
+      "Nausea",
+      "Headache",
+      "Flushing",
+      "Fatigue or other treatment-related discomfort"
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "The side-effect profile may differ depending on the specific product and route used."
+    },
+    {
+     "kind": "body",
+     "text": "If symptoms are persistent, unexpected or concerning, contact your healthcare provider. Severe symptoms or signs of a serious reaction require appropriate medical attention."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "What risks and side effects are associated with the specific treatment I am receiving—and what should I do if they occur?"
+    },
+    {
+     "kind": "approach",
+     "text": "Treatment instructions and questions about side effects should be discussed with the licensed healthcare provider responsible for your care."
+    }
+   ]
+  },
+  {
+   "num": "10",
+   "kind": "section",
+   "headline": "What Should You Expect From NAD+ Therapy?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "One of the most reasonable questions about NAD+ is also one of the hardest to answer:"
+    },
+    {
+     "kind": "quote",
+     "text": "What will I actually notice?"
+    },
+    {
+     "kind": "body",
+     "text": "At this point, there isn’t one established wellness response that every patient should expect from direct NAD+ therapy. Research continues to examine NAD+ biology and NAD+-related interventions, but results from one compound, route or population should not automatically be generalized to another."
+    },
+    {
+     "kind": "body",
+     "text": "That means NAD+ therapy is better approached with specific goals and realistic expectations than with promises."
+    },
+    {
+     "kind": "emph",
+     "text": "Before treatment, consider:"
+    },
+    {
+     "kind": "list",
+     "cols": 2,
+     "items": [
+      "Why am I interested in NAD+?",
+      "What does my provider think is realistic?",
+      "What evidence applies to the therapy I’m receiving?",
+      "How will I evaluate my experience?"
+     ]
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "A responsible wellness program should help you understand uncertainty—not replace it with promises."
+    },
+    {
+     "kind": "approach",
+     "text": "WellPeps provides provider-guided access and ongoing support without promising a specific treatment outcome."
+    }
+   ]
+  },
+  {
+   "num": "11",
+   "kind": "section",
+   "headline": "What Does the Research Tell Us?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "NAD+ research includes basic cellular science, animal research and a growing body of human studies. Understanding which type of evidence you’re looking at matters."
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "WHAT IS WELL ESTABLISHED",
+       "desc": "NAD+ is essential to cellular energy metabolism and participates in numerous other normal cellular processes."
+      },
+      {
+       "title": "WHAT HUMAN STUDIES HAVE SHOWN",
+       "desc": "Human studies involving NAD+ precursors such as NR and NMN demonstrate that NAD+-related biomarkers can be influenced. Studies examining clinical outcomes have produced mixed results depending on the intervention, population and outcome studied."
+      },
+      {
+       "title": "WHAT IS LESS ESTABLISHED",
+       "desc": "Direct parenteral NAD+ therapy has considerably less controlled human outcomes research for wellness applications than oral NAD+ precursors."
+      }
+     ]
+    },
+    {
+     "kind": "subhead",
+     "title": "WHAT WE ARE STILL LEARNING"
+    },
+    {
+     "kind": "list",
+     "cols": 2,
+     "items": [
+      "Who may benefit from particular NAD+-related approaches",
+      "Which forms, doses and routes are most useful",
+      "Whether changes in NAD+ biology translate into meaningful clinical or wellness outcomes",
+      "What longer-term treatment may mean for different patient populations"
+     ]
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "Good science isn’t weakened by acknowledging what we don’t know. That’s how better answers are eventually found."
+    }
+   ]
+  },
+  {
+   "num": "12",
+   "kind": "section",
+   "headline": "Your Care Shouldn’t End When Treatment Begins",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Receiving medication shouldn’t be the end of the healthcare experience. After treatment begins, you may have questions about:"
+    },
+    {
+     "kind": "list",
+     "cols": 2,
+     "items": [
+      "How to use your medication",
+      "Possible side effects",
+      "Changes in your medications or supplements",
+      "Changes in your health",
+      "Your treatment experience",
+      "Whether continuing treatment makes sense"
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "These are reasons ongoing access to care matters. Do not independently change your dose, frequency or combine therapies simply because you assume more treatment will produce a greater effect."
+    },
+    {
+     "kind": "flow",
+     "steps": [
+      "Personalized Assessment",
+      "Licensed-provider review",
+      "Treatment when appropriate",
+      "Ongoing support"
+     ]
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "If I have questions or my circumstances change after starting treatment, who do I contact?"
+    },
+    {
+     "kind": "approach",
+     "text": "The goal is continued care—not simply prescription fulfillment."
+    }
+   ]
+  },
+  {
+   "num": "13",
+   "kind": "section",
+   "headline": "The Smart Patient’s NAD+ Checklist",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "You don’t need to become an expert in NAD+ metabolism. You need enough information to ask good questions."
+    },
+    {
+     "kind": "checklist",
+     "items": [
+      {
+       "title": "Understand your goal",
+       "desc": "Why are you considering NAD+ therapy, and what are you hoping to address?"
+      },
+      {
+       "title": "Know what you’re receiving",
+       "desc": "Are you receiving NAD+ itself, NR, NMN or another NAD+-related product?"
+      },
+      {
+       "title": "Match the evidence to the treatment",
+       "desc": "Does the research being discussed involve the same compound and route you’re considering?"
+      },
+      {
+       "title": "Understand the medication",
+       "desc": "Is the treatment FDA-approved or compounded?"
+      },
+      {
+       "title": "Know the risks",
+       "desc": "What side effects, interactions or other treatment considerations should you understand?"
+      },
+      {
+       "title": "Set realistic expectations",
+       "desc": "What does current evidence suggest—and what remains uncertain?"
+      },
+      {
+       "title": "Ask what happens next",
+       "desc": "Who will answer questions or help if your treatment needs change?"
+      }
+     ]
+    },
+    {
+     "kind": "tagline",
+     "text": "Be interested in the science. Be skeptical of promises. Ask enough questions to understand what you’re receiving and why.",
+     "inline": true
+    }
+   ]
+  },
+  {
+   "num": "14",
+   "kind": "why",
+   "headline": "Why We Created WellPeps",
+   "elements": [
+    {
+     "kind": "emph",
+     "text": "Real Care. Not Just Medication."
+    },
+    {
+     "kind": "body",
+     "text": "WellPeps was founded by a physician and an experienced pharmacy owner who believed there should be a better way to bring together thoughtful medical care, quality prescription fulfillment and a more convenient patient experience."
+    },
+    {
+     "kind": "body",
+     "text": "That perspective shaped the WellPeps approach: personalized, provider-guided care designed around the patient—not simply the medication."
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "Personalized Provider-Guided Care",
+       "desc": "Treatment begins with your health information, medications, goals and individual circumstances."
+      },
+      {
+       "title": "Multiple Wellness Options",
+       "desc": "Different treatment options allow providers to consider what may be appropriate for different individuals."
+      },
+      {
+       "title": "More Than a Prescription",
+       "desc": "The WellPeps experience is designed around care—not simply delivering medication."
+      },
+      {
+       "title": "Quality Prescription Fulfillment",
+       "desc": "Prescriptions are fulfilled through U.S.-based pharmacy partners selected to support quality and reliable prescription fulfillment."
+      },
+      {
+       "title": "Ongoing Support",
+       "desc": "Your questions and treatment needs don’t necessarily stop when treatment begins."
+      },
+      {
+       "title": "Straightforward Pricing",
+       "desc": "Provider care, medication and ongoing support are included without a separate membership fee."
+      },
+      {
+       "title": "Healthcare Without the Runaround",
+       "desc": "A simpler, more convenient way to access treatment—from assessment and medical review to prescription fulfillment and ongoing support."
+      },
+      {
+       "title": "More Than NAD+ Therapy",
+       "desc": "WellPeps offers a wide and expanding range of treatment programs for your wellness needs."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "num": "",
+   "kind": "cta",
+   "headline": "Interested in Exploring NAD+ Therapy?",
+   "elements": [
+    {
+     "kind": "body",
+     "text": "Start with a free health assessment. A licensed healthcare provider will review your information and determine whether treatment may be appropriate."
+    }
+   ]
+  },
+  {
+   "num": "",
+   "kind": "disclaimer",
+   "headline": "",
+   "elements": [],
+   "text": [
+    "This guide is provided for general educational purposes only and is not a substitute for professional medical advice, diagnosis or treatment. Individual health needs and treatment considerations vary. Prescription and provider-directed therapies may have risks, side effects, contraindications and interactions and may not be appropriate for everyone. Prescription treatment requires evaluation by a licensed healthcare provider and is not guaranteed. Individual experiences vary, and no specific treatment outcome is guaranteed.",
+    "NAD+ has established roles in normal human biology, but research into direct NAD+ administration for wellness applications remains evolving. Findings involving NAD+ precursors such as NR or NMN should not automatically be interpreted as evidence of outcomes from direct NAD+ therapy. NAD+ therapy offered through a wellness program may involve compounded medication. Compounded medications are not FDA-approved finished drug products. FDA does not review compounded medications for safety, effectiveness or quality before marketing in the same manner as FDA-approved drugs. A licensed healthcare provider determines whether treatment and a particular formulation may be appropriate based on individual medical circumstances. NAD+ therapy should not be expected to reverse aging, extend lifespan or guarantee improvements in energy, cognition, recovery or general well-being."
+   ]
+  }
+ ]
+}

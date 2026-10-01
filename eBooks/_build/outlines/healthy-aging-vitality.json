@@ -1,0 +1,774 @@
+{
+  "slug": "healthy-aging-vitality",
+  "source": "eBooks/Manuscripts/healthy-aging-and-vitality_final.docx (Derek Goldberg, 2026-09-16 evening). Hand-built outline; copy rules from _build/README.md section 5 applied. The manuscript has no images; every photo is borrowed from wellpeps-site/public/images (see config). Page 05 is the six-therapy profile page (text-only cards: the peptide vial photos are portrait and one has a black background); page 09 carries the serotonin-syndrome caution as a RED FLAG box; page 12 renders the care pathway as a flow above the Approach box. The CTA panel holds the two-line headline plus one short paragraph, so the manuscript's closing imperatives (Stay active. Protect your strength. ...) and the 'make them part of a thoughtful, provider-guided plan' line are not on the CTA page; raise with Derek.",
+  "title": "HEALTHY AGING & VITALITY",
+  "subtitle": "What to know about supporting energy, strength, sleep, recovery and cognitive wellness as you age",
+  "deck": "",
+  "tagline": "Personalized Wellness. Simplified.",
+  "sections": [
+    {
+      "num": "00",
+      "kind": "before",
+      "headline": "Healthy Aging Isn’t About Turning Back the Clock",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "The wellness industry is filled with language about anti-aging, age reversal and longevity."
+        },
+        {
+          "kind": "body",
+          "text": "Those phrases attract attention. But they can also distract from a much more useful goal:"
+        },
+        {
+          "kind": "quote",
+          "text": "Staying healthier, stronger and more engaged as you age."
+        },
+        {
+          "kind": "body",
+          "text": "Healthy aging can involve maintaining physical function, energy, strength, cognitive health, sleep, emotional well-being, independence and quality of life."
+        },
+        {
+          "kind": "body",
+          "text": "Some factors that influence aging—such as genetics—aren’t under our control. Many others are."
+        },
+        {
+          "kind": "body",
+          "text": "Physical activity, nutrition, sleep, preventive healthcare, mental well-being and social connection all play important roles in healthy aging. And for some appropriate patients, provider-guided wellness therapies may become another part of that larger picture."
+        },
+        {
+          "kind": "callout",
+          "style": "insight",
+          "text": "Healthy aging isn’t about becoming younger. It’s about supporting your health, function and quality of life as you get older."
+        },
+        {
+          "kind": "approach",
+          "text": "WellPeps approaches Healthy Aging & Vitality as part of a broader wellness picture—not as a promise to reverse aging."
+        }
+      ]
+    },
+    {
+      "num": "01",
+      "kind": "section",
+      "headline": "What Does “Healthy Aging” Actually Mean?",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "Aging isn’t one thing happening to one part of your body. It’s a collection of changes that can affect how you:"
+        },
+        {
+          "kind": "cards",
+          "items": [
+            {
+              "title": "MOVE"
+            },
+            {
+              "title": "SLEEP"
+            },
+            {
+              "title": "THINK"
+            },
+            {
+              "title": "RECOVER"
+            },
+            {
+              "title": "MAINTAIN MUSCLE"
+            },
+            {
+              "title": "REGULATE METABOLISM"
+            },
+            {
+              "title": "CONNECT WITH OTHERS"
+            },
+            {
+              "title": "FEEL DAY TO DAY"
+            }
+          ],
+          "style": "chips"
+        },
+        {
+          "kind": "body",
+          "text": "That’s why healthy aging shouldn’t be reduced to wrinkles, weight or the number of candles on a birthday cake."
+        },
+        {
+          "kind": "emph",
+          "text": "A better measure is function."
+        },
+        {
+          "kind": "list",
+          "cols": 1,
+          "items": [
+            "Can you continue doing the things that matter to you?",
+            "Can you remain active?",
+            "Can you maintain strength and mobility?",
+            "Can you stay socially and mentally engaged?",
+            "Can you protect your health and independence?"
+          ]
+        },
+        {
+          "kind": "body",
+          "text": "Healthy aging encompasses physical, mental and cognitive health—and maintaining the ability to live and engage with life as we grow older."
+        },
+        {
+          "kind": "callout",
+          "style": "question",
+          "text": "Am I chasing a younger number—or working toward better health and function?"
+        },
+        {
+          "kind": "approach",
+          "text": "Healthy Aging & Vitality should begin with the individual’s health, needs and goals—not with a predetermined treatment."
+        }
+      ]
+    },
+    {
+      "num": "02",
+      "kind": "section",
+      "headline": "The Fundamentals Still Matter",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "There is no injection, pill or wellness therapy that makes the fundamentals irrelevant."
+        },
+        {
+          "kind": "cards",
+          "items": [
+            {
+              "title": "MOVE",
+              "desc": "Regular physical activity supports cardiovascular health, muscle function, mobility and mental well-being. Strength and balance activities become particularly important as we age."
+            },
+            {
+              "title": "NOURISH",
+              "desc": "A balanced eating pattern provides the nutrients needed to support overall health, muscle and normal body function."
+            },
+            {
+              "title": "SLEEP",
+              "desc": "Sleep matters for alertness, mood, memory and overall health. Older adults generally still need about seven to nine hours per night."
+            },
+            {
+              "title": "CONNECT",
+              "desc": "Relationships, community and meaningful social engagement are important parts of well-being. Social isolation and loneliness are associated with multiple health risks."
+            },
+            {
+              "title": "STAY ENGAGED WITH YOUR HEALTHCARE",
+              "desc": "Preventive care, appropriate screenings and management of existing health conditions remain fundamental."
+            }
+          ]
+        },
+        {
+          "kind": "callout",
+          "style": "insight",
+          "text": "Wellness therapies should complement the foundations of healthy living—not pretend to replace them."
+        },
+        {
+          "kind": "approach",
+          "text": "Treatment should be considered in the context of the whole person and the habits that support long-term health."
+        }
+      ]
+    },
+    {
+      "num": "03",
+      "kind": "section",
+      "headline": "Your Body Changes in More Than One Way",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "People often describe aging with a single phrase:"
+        },
+        {
+          "kind": "quote",
+          "text": "“I just don’t feel like I used to.”"
+        },
+        {
+          "kind": "body",
+          "text": "But there may be very different issues behind that feeling."
+        },
+        {
+          "kind": "cards",
+          "items": [
+            {
+              "title": "STRENGTH & MUSCLE",
+              "desc": "Muscle mass and function can decline with age. Maintaining strength supports mobility, balance and independence."
+            },
+            {
+              "title": "ENERGY & METABOLISM",
+              "desc": "Low energy isn’t a diagnosis. Sleep, nutrition, physical activity, medications, stress, mental health and medical conditions can all affect how energetic someone feels."
+            },
+            {
+              "title": "SLEEP & RECOVERY",
+              "desc": "Sleep patterns can change, but persistent sleep problems deserve context. Pain, stress, medications, alcohol, health conditions and sleep disorders may contribute."
+            },
+            {
+              "title": "COGNITIVE WELLNESS",
+              "desc": "Thinking, learning, memory and decision-making are important parts of healthy aging. Physical activity, sleep, social connection and mental engagement all play roles in cognitive health."
+            }
+          ],
+          "layout": "rows"
+        },
+        {
+          "kind": "callout",
+          "style": "question",
+          "text": "Before treating a symptom or wellness goal, has anyone considered what might be contributing to it?"
+        },
+        {
+          "kind": "approach",
+          "text": "Feeling different doesn’t automatically point to a particular treatment. Provider-guided care begins by looking at the individual."
+        }
+      ]
+    },
+    {
+      "num": "04",
+      "kind": "section",
+      "headline": "Where Do Wellness Therapies Fit?",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "This is where the healthy-aging conversation becomes more individualized."
+        },
+        {
+          "kind": "body",
+          "text": "Some adults become interested in provider-guided wellness therapies while exploring goals involving:"
+        },
+        {
+          "kind": "cards",
+          "items": [
+            {
+              "title": "ENERGY & VITALITY"
+            },
+            {
+              "title": "HEALTHY AGING"
+            },
+            {
+              "title": "COGNITIVE WELLNESS"
+            },
+            {
+              "title": "CELLULAR HEALTH"
+            },
+            {
+              "title": "METABOLIC WELLNESS"
+            },
+            {
+              "title": "RECOVERY"
+            }
+          ],
+          "style": "chips"
+        },
+        {
+          "kind": "body",
+          "text": "But interest in a wellness goal doesn’t automatically mean a particular treatment is appropriate—or that a treatment has been proven to produce a particular outcome."
+        },
+        {
+          "kind": "emph",
+          "text": "That distinction matters."
+        },
+        {
+          "kind": "body",
+          "text": "Wellness therapies shouldn’t be viewed as replacements for nutrition, movement, sleep, preventive healthcare or appropriate medical care. For an appropriate patient, a licensed healthcare provider may consider a wellness therapy as one component of a broader, individualized plan."
+        },
+        {
+          "kind": "callout",
+          "style": "question",
+          "text": "Is a wellness therapy being considered as part of a thoughtful health plan—or being sold as the entire plan?"
+        },
+        {
+          "kind": "approach",
+          "text": "A licensed healthcare provider determines whether treatment may be appropriate based on the patient’s health information, medications, goals and individual circumstances."
+        }
+      ]
+    },
+    {
+      "num": "05",
+      "kind": "section",
+      "headline": "Healthy Aging & Vitality Therapies",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "Different therapies involve different ingredients and biological pathways. They shouldn’t all be grouped as “anti-aging treatments.”"
+        },
+        {
+          "kind": "cards",
+          "profile": true,
+          "items": [
+            {
+              "title": "SERMORELIN",
+              "sub": "Growth-Hormone Signaling",
+              "desc": "A peptide that acts on the pituitary gland to stimulate the body’s natural release of growth hormone."
+            },
+            {
+              "title": "NAD+",
+              "sub": "Cellular Energy Metabolism",
+              "desc": "A naturally occurring coenzyme essential to cellular energy metabolism and other fundamental cellular processes."
+            },
+            {
+              "title": "GLUTATHIONE",
+              "sub": "Antioxidant Biology",
+              "desc": "A naturally occurring antioxidant involved in cellular antioxidant defenses and normal metabolic processes."
+            },
+            {
+              "title": "MIC + B12",
+              "sub": "Nutrient & Metabolic Biology",
+              "desc": "Combines lipotropic nutrients with vitamin B12, an essential nutrient involved in normal cellular metabolism, red blood cell formation and nervous-system function."
+            },
+            {
+              "title": "LIPO-C / L-CARNITINE",
+              "sub": "Fatty Acid Metabolism",
+              "desc": "L-carnitine participates in transporting fatty acids into cells for normal energy metabolism."
+            },
+            {
+              "title": "METHYLENE BLUE",
+              "sub": "Cellular & Mitochondrial Science",
+              "desc": "An established medicine with pharmacologic activity involving cellular redox processes and mitochondrial biology."
+            }
+          ]
+        },
+        {
+          "kind": "callout",
+          "style": "insight",
+          "text": "Understanding what a therapy does biologically is different from assuming what it will do for you."
+        }
+      ]
+    },
+    {
+      "num": "06",
+      "kind": "section",
+      "headline": "Sermorelin and\nGrowth-Hormone Signaling",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "Sermorelin is a synthetic peptide related to growth hormone-releasing hormone, or GHRH."
+        },
+        {
+          "kind": "body",
+          "text": "Rather than providing growth hormone itself, sermorelin acts on the pituitary gland and can stimulate the body’s release of growth hormone. Growth hormone participates in normal physiological processes involving growth, metabolism and body composition."
+        },
+        {
+          "kind": "body",
+          "text": "That biology has contributed to interest in sermorelin in age-management and wellness settings. But understanding a biological pathway is different from establishing a particular treatment outcome."
+        },
+        {
+          "kind": "emph",
+          "text": "Sermorelin shouldn’t be presented as a therapy proven to:"
+        },
+        {
+          "kind": "list",
+          "cols": 2,
+          "items": [
+            "Reverse aging",
+            "Restore youth",
+            "Guarantee muscle growth",
+            "Extend lifespan",
+            "Turn back your biological clock"
+          ]
+        },
+        {
+          "kind": "body",
+          "text": "A provider considering sermorelin should look at the patient rather than assuming age—or a desire to “feel younger”—automatically makes someone a candidate."
+        },
+        {
+          "kind": "callout",
+          "style": "insight",
+          "text": "A therapy can affect a biological pathway without being proven to reverse aging or produce a particular wellness outcome."
+        },
+        {
+          "kind": "approach",
+          "text": "A licensed healthcare provider determines whether sermorelin may be appropriate based on the individual patient’s health information and circumstances."
+        }
+      ]
+    },
+    {
+      "num": "07",
+      "kind": "section",
+      "headline": "NAD+ and Cellular Energy",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "NAD+—nicotinamide adenine dinucleotide—is a naturally occurring coenzyme found throughout the body."
+        },
+        {
+          "kind": "body",
+          "text": "It plays essential roles in cellular energy metabolism and numerous other cellular processes. NAD+ biology has therefore become an area of significant scientific interest in research involving metabolism, aging and cellular function."
+        },
+        {
+          "kind": "body",
+          "text": "That has also made NAD+ one of the most talked-about therapies in the healthy-aging and longevity world."
+        },
+        {
+          "kind": "emph",
+          "text": "But there’s an important distinction:\nNAD+ is essential to normal cellular function."
+        },
+        {
+          "kind": "body",
+          "text": "That doesn’t automatically establish that receiving NAD+ as a wellness therapy will make someone feel younger, increase energy, improve cognition or slow aging. Research into NAD+ biology and different approaches to influencing NAD+ metabolism continues to evolve."
+        },
+        {
+          "kind": "body",
+          "text": "Want to learn more? See The Smart Patient’s Guide to NAD+ Therapy."
+        },
+        {
+          "kind": "callout",
+          "style": "question",
+          "text": "Am I being told what researchers know about NAD+—or being promised an outcome the evidence hasn’t established?"
+        },
+        {
+          "kind": "approach",
+          "text": "WellPeps offers provider-guided access to NAD+ itself when prescribed—not an implied promise of age reversal or a guaranteed wellness result."
+        }
+      ]
+    },
+    {
+      "num": "08",
+      "kind": "section",
+      "headline": "Antioxidants, Nutrients & Metabolic Wellness",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "Understanding what an ingredient does in normal human biology is a better starting point than assuming what receiving it as a treatment will accomplish."
+        },
+        {
+          "kind": "subhead",
+          "title": "GLUTATHIONE",
+          "desc": "Glutathione is a naturally occurring antioxidant involved in cellular antioxidant defenses and other normal metabolic processes."
+        },
+        {
+          "kind": "body",
+          "text": "For compounded injectable glutathione, ingredient sourcing and pharmacy quality matter. FDA has specifically warned against using dietary-supplement-grade glutathione to compound injectable drugs following reports of adverse events associated with unsuitable source material."
+        },
+        {
+          "kind": "subhead",
+          "title": "MIC + B12",
+          "desc": "MIC formulations typically combine lipotropic nutrients with vitamin B12. Vitamin B12 is an essential nutrient involved in red blood cell formation, nervous-system function and normal cellular metabolism. The precise ingredients in MIC formulations can vary."
+        },
+        {
+          "kind": "subhead",
+          "title": "LIPO-C / L-CARNITINE",
+          "desc": "L-carnitine is a naturally occurring substance involved in transporting fatty acids into mitochondria, where they participate in cellular energy metabolism. Lipo-C formulations may combine L-carnitine with other nutrients, and formulations can differ among compounding pharmacies."
+        },
+        {
+          "kind": "callout",
+          "style": "question",
+          "text": "Do I know what is actually in my prescribed formulation—and why it is being considered for me?"
+        },
+        {
+          "kind": "approach",
+          "text": "Knowing the actual formulation, source and prescribing rationale matters more than relying on a treatment name or marketing claim."
+        }
+      ]
+    },
+    {
+      "num": "09",
+      "kind": "section",
+      "headline": "Understanding Methylene Blue",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "Methylene blue has a long history in medicine and FDA-approved medical uses for specific conditions."
+        },
+        {
+          "kind": "body",
+          "text": "It also has pharmacologic activity involving cellular redox processes and mitochondrial biology, which has generated scientific interest in potential applications beyond its established indications. Research in these broader areas continues."
+        },
+        {
+          "kind": "emph",
+          "text": "That distinction is important."
+        },
+        {
+          "kind": "body",
+          "text": "Scientific interest in a substance doesn’t mean that every proposed wellness, cognitive or longevity benefit has been established. Methylene blue also illustrates why the word “wellness” doesn’t mean medically insignificant."
+        },
+        {
+          "kind": "redflag",
+          "inline": true,
+          "lines": [
+            "Serotonergic medications",
+            "Methylene blue can interact with certain medications, particularly serotonergic drugs, and may not be appropriate for some patients. FDA-approved methylene blue labeling includes a warning regarding serotonin syndrome with concomitant serotonergic medications."
+          ]
+        },
+        {
+          "kind": "callout",
+          "style": "question",
+          "text": "Has my provider reviewed my complete medication and supplement list before recommending treatment?"
+        },
+        {
+          "kind": "approach",
+          "text": "Medical review matters even when a treatment is being considered for a wellness goal."
+        }
+      ]
+    },
+    {
+      "num": "10",
+      "kind": "section",
+      "headline": "Beware of the Anti-Aging Promise",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "There’s a reason phrases like these sell:"
+        },
+        {
+          "kind": "cards",
+          "items": [
+            {
+              "title": "REVERSE AGING."
+            },
+            {
+              "title": "TURN BACK THE CLOCK."
+            },
+            {
+              "title": "RESTORE YOUR YOUTH."
+            },
+            {
+              "title": "LIVE LONGER."
+            }
+          ],
+          "style": "chips",
+          "cols": 2
+        },
+        {
+          "kind": "body",
+          "text": "They’re promises nearly everyone would like to believe. But healthy aging is more complicated."
+        },
+        {
+          "kind": "body",
+          "text": "Science continues to investigate aging, longevity, cellular health and therapies that affect different biological processes. That research is important. It doesn’t justify guaranteed outcomes."
+        },
+        {
+          "kind": "emph",
+          "text": "A responsible wellness program should be willing to say:"
+        },
+        {
+          "kind": "list",
+          "cols": 2,
+          "items": [
+            "Research is evolving.",
+            "Individual responses can vary.",
+            "A treatment isn’t appropriate for everyone.",
+            "A licensed provider should evaluate the individual patient."
+          ]
+        },
+        {
+          "kind": "body",
+          "text": "No wellness therapy can guarantee that you’ll live longer or become younger."
+        },
+        {
+          "kind": "callout",
+          "style": "insight",
+          "text": "The more extraordinary the promise, the more evidence you should expect."
+        },
+        {
+          "kind": "approach",
+          "text": "WellPeps focuses on provider-guided treatment and realistic expectations—not promises to reverse aging."
+        }
+      ]
+    },
+    {
+      "num": "11",
+      "kind": "section",
+      "headline": "Personalized Means Looking at the Whole Person",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "A good healthy-aging conversation shouldn’t begin with:"
+        },
+        {
+          "kind": "quote",
+          "text": "“Which treatment do you want?”"
+        },
+        {
+          "kind": "body",
+          "text": "It should begin with:"
+        },
+        {
+          "kind": "list",
+          "cols": 2,
+          "items": [
+            "How are you feeling?",
+            "What has changed?",
+            "What are your goals?",
+            "How are you sleeping?",
+            "What medications and supplements do you take?",
+            "What is your medical history?",
+            "What does your lifestyle look like?",
+            "What are you hoping to improve?"
+          ]
+        },
+        {
+          "kind": "body",
+          "text": "Only then does it make sense to discuss whether a specific treatment belongs in the picture."
+        },
+        {
+          "kind": "callout",
+          "style": "question",
+          "text": "Is my treatment plan actually personalized—or is “personalized” simply part of the marketing?"
+        },
+        {
+          "kind": "approach",
+          "text": "WellPeps begins with a Personalized Assessment. A licensed healthcare provider reviews health information, medications, goals and individual circumstances before determining whether a particular treatment may be appropriate. When treatment is prescribed, the medication, formulation and instructions are determined as part of that individualized process."
+        }
+      ]
+    },
+    {
+      "num": "12",
+      "kind": "section",
+      "headline": "Wellness Care Shouldn’t End When Treatment Begins",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "Starting treatment isn’t the end of the healthcare relationship. Questions can arise after treatment begins."
+        },
+        {
+          "kind": "list",
+          "cols": 1,
+          "items": [
+            "A patient may experience side effects.",
+            "A medication or supplement may change.",
+            "The patient’s health may change.",
+            "Treatment may not produce the experience the patient expected.",
+            "Or the original wellness goals may change over time."
+          ]
+        },
+        {
+          "kind": "body",
+          "text": "That’s why ongoing access to appropriate clinical support matters. Patients shouldn’t independently change doses, combine therapies or add treatments simply because they believe “more” will produce a better result."
+        },
+        {
+          "kind": "flow",
+          "steps": [
+            "Personalized Assessment",
+            "Licensed-provider review",
+            "Treatment when appropriate",
+            "Ongoing support"
+          ]
+        },
+        {
+          "kind": "callout",
+          "style": "question",
+          "text": "If I have questions or my needs change after beginning treatment, what happens next?"
+        },
+        {
+          "kind": "approach",
+          "text": "WellPeps is designed around continued care rather than treating prescription fulfillment as the end of the relationship."
+        }
+      ]
+    },
+    {
+      "num": "13",
+      "kind": "section",
+      "headline": "The Smart Patient’s Healthy Aging & Vitality Checklist",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "You don’t need to become an expert in longevity science. You should know enough to ask good questions."
+        },
+        {
+          "kind": "checklist",
+          "items": [
+            {
+              "title": "Look beyond medication",
+              "desc": "Does the program recognize that healthy aging involves lifestyle, medical health and wellness—not simply treatment products?"
+            },
+            {
+              "title": "Expect provider review",
+              "desc": "Will a licensed healthcare provider review my health information, medications and individual circumstances?"
+            },
+            {
+              "title": "Question the claims",
+              "desc": "Are the treatment claims realistic—or am I being promised age reversal, guaranteed energy, cognitive enhancement or longevity?"
+            },
+            {
+              "title": "Understand the recommendation",
+              "desc": "Why is this particular therapy being considered for me?"
+            },
+            {
+              "title": "Know what you’re receiving",
+              "desc": "What medication, ingredients and formulation am I actually being prescribed?"
+            },
+            {
+              "title": "Understand the risks",
+              "desc": "What potential side effects, contraindications and medication interactions should I know about?"
+            },
+            {
+              "title": "Ask what happens next",
+              "desc": "Is appropriate support available if I have questions, experience side effects or my treatment needs change?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": "14",
+      "kind": "why",
+      "headline": "Why We Created WellPeps",
+      "elements": [
+        {
+          "kind": "emph",
+          "text": "Real Care. Not Just Medication."
+        },
+        {
+          "kind": "body",
+          "text": "WellPeps was founded by a physician and an experienced pharmacy owner who believed there should be a better way to bring together thoughtful medical care, quality prescription fulfillment and a more convenient patient experience."
+        },
+        {
+          "kind": "body",
+          "text": "That perspective shaped the WellPeps approach: personalized, provider-guided care designed around the patient—not simply the medication."
+        },
+        {
+          "kind": "cards",
+          "items": [
+            {
+              "title": "Personalized Provider-Guided Care",
+              "desc": "Treatment begins with your health information, medications, goals and individual circumstances."
+            },
+            {
+              "title": "Multiple Wellness Options",
+              "desc": "Different treatment options allow providers to consider what may be appropriate for different individuals."
+            },
+            {
+              "title": "More Than a Prescription",
+              "desc": "The WellPeps experience is designed around care—not simply delivering medication."
+            },
+            {
+              "title": "Quality Prescription Fulfillment",
+              "desc": "Prescriptions are fulfilled through U.S.-based pharmacy partners selected to support quality and reliable prescription fulfillment."
+            },
+            {
+              "title": "Ongoing Support",
+              "desc": "Your questions and treatment needs don’t necessarily stop when treatment begins."
+            },
+            {
+              "title": "Straightforward Pricing",
+              "desc": "Provider care, medication and ongoing support are included without a separate membership fee."
+            },
+            {
+              "title": "Healthcare Without the Runaround",
+              "desc": "A simpler, more convenient way to access treatment—from assessment and medical review to prescription fulfillment and ongoing support."
+            },
+            {
+              "title": "More Than Healthy Aging",
+              "desc": "WellPeps offers a wide and expanding range of treatment programs for your wellness needs."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": "",
+      "kind": "cta",
+      "headline": "Don’t Try to Stop Aging. Get Better at It.",
+      "elements": [
+        {
+          "kind": "body",
+          "text": "Feel like yourself again. Explore WellPeps Healthy Aging & Vitality therapies and learn whether provider-guided treatment may be appropriate for your individual needs."
+        }
+      ]
+    },
+    {
+      "num": "",
+      "kind": "disclaimer",
+      "headline": "",
+      "elements": [],
+      "text": [
+        "This guide is provided for general educational purposes only and does not constitute medical advice, diagnosis or treatment. Healthy-aging needs vary among individuals. Prescription and provider-directed wellness therapies may involve risks, side effects and medication interactions and aren’t appropriate for everyone.",
+        "Prescription treatment requires evaluation by a licensed healthcare provider and isn’t guaranteed. Individual experiences vary, and no specific treatment outcome is guaranteed.",
+        "Some therapies discussed in this guide may involve uses that haven’t been approved by FDA for the wellness purposes discussed. Some therapies discussed may be compounded medications. Compounded medications are not FDA-approved finished drug products. FDA does not review compounded medications for safety, effectiveness or quality before marketing in the same manner as FDA-approved drugs.",
+        "A licensed healthcare provider determines whether a particular treatment and formulation may be appropriate for an individual patient. No therapy can guarantee a particular wellness outcome, reverse aging or extend lifespan."
+      ]
+    }
+  ]
+}

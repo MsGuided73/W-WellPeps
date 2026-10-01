@@ -1,0 +1,779 @@
+{
+  "slug": "modern-healthcare",
+  "source": "eBooks/Manuscripts/THE SMART PATIENT’S GUIDE TO MODERN HEALTHCARE.docx (received 2026-10-01). Hand-built outline 2026-10-01; copy rules from _build/README.md section 5 applied (the manuscript's SMART PATIENT PRINCIPLE callouts render as SMART PATIENT INSIGHT). No images in the manuscript; photos borrowed from wellpeps-site/public/images (see config). Page 08's design note asks for a privacy-safe WellPeps portal screenshot: the user is supplying one. Deviations to raise with Derek: page 14 follows the series (kicker A BETTER APPROACH TO CARE, headline Why We Created WellPeps, tag Real Care. Not Just Medication.); page 07's six connected-care steps render as six numbered cards (the flow element takes labels only); page 11 lists the connected experience (✓) before the traditional runaround (✕), because the comparison block always puts the good column first; page 12's eight red flags render as cards; the CTA page holds the two-line headline plus one paragraph (EXPLORE WELLPEPS copy), with the series kicker; short manuscript lines are joined into paragraphs without changing a word.",
+  "title": "MODERN HEALTHCARE",
+  "subtitle": "How telehealth, at-home testing and connected care are changing the patient experience",
+  "deck": "",
+  "tagline": "Personalized Wellness. Simplified.",
+  "sections": [
+    {
+      "num": "00",
+      "kind": "before",
+      "headline": "Healthcare Is Changing",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "For generations, healthcare largely revolved around the doctor’s office."
+        },
+        {
+          "kind": "body",
+          "text": "Make an appointment. Drive to the office. Sit in the waiting room. See the provider. Go somewhere else for testing. Go somewhere else for medication. Call again if you have a question."
+        },
+        {
+          "kind": "body",
+          "text": "Technology is changing that experience. Today, telehealth, online health assessments, patient portals, at-home testing, national laboratory networks and connected pharmacy services can make appropriate healthcare more accessible and convenient."
+        },
+        {
+          "kind": "body",
+          "text": "But convenience shouldn’t mean lower standards. The real opportunity isn’t simply moving healthcare online."
+        },
+        {
+          "kind": "emph",
+          "text": "It’s using technology to make good healthcare easier to access and easier to navigate."
+        },
+        {
+          "kind": "callout",
+          "style": "insight",
+          "text": "Modern healthcare should remove unnecessary friction and inconvenience—not appropriate medical oversight."
+        }
+      ]
+    },
+    {
+      "num": "01",
+      "kind": "section",
+      "headline": "Healthcare Is Moving Beyond the Doctor’s Office",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "Healthcare doesn’t always have to happen in one physical location."
+        },
+        {
+          "kind": "body",
+          "text": "Depending on the patient’s needs, parts of the healthcare experience can now take place from home:"
+        },
+        {
+          "kind": "cards",
+          "items": [
+            {
+              "title": "HEALTH ASSESSMENTS",
+              "desc": "Share health history, medications and other relevant information securely online."
+            },
+            {
+              "title": "MEDICAL REVIEW",
+              "desc": "Licensed healthcare providers can review patient information remotely and determine appropriate next steps."
+            },
+            {
+              "title": "LABORATORY TESTING",
+              "desc": "Testing may be completed through national laboratory networks or, for certain tests, through at-home collection."
+            },
+            {
+              "title": "PRESCRIPTION FULFILLMENT",
+              "desc": "When treatment is prescribed, medication can often be shipped directly to the patient."
+            },
+            {
+              "title": "PATIENT SUPPORT",
+              "desc": "Secure online portals and messaging can make it easier to ask questions and follow the treatment process."
+            }
+          ]
+        },
+        {
+          "kind": "body",
+          "text": "The result isn’t healthcare without providers, pharmacies or laboratories."
+        },
+        {
+          "kind": "emph",
+          "text": "It’s a new way of connecting them around the patient."
+        },
+        {
+          "kind": "callout",
+          "style": "insight",
+          "text": "The biggest change in modern healthcare may not be what care you receive—but how you access it."
+        }
+      ]
+    },
+    {
+      "num": "02",
+      "kind": "section",
+      "headline": "What Is Telehealth, Really?",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "Telehealth is sometimes described as simply “seeing a doctor on your computer.” It’s broader than that."
+        },
+        {
+          "kind": "body",
+          "text": "Telehealth uses technology to provide or support healthcare when the patient and healthcare provider aren’t in the same physical location. Depending on the type of care, that can include:"
+        },
+        {
+          "kind": "list",
+          "cols": 2,
+          "bold": true,
+          "items": [
+            "Online health assessments",
+            "Video or telephone consultations",
+            "Secure messaging",
+            "Provider review of health information",
+            "Review of laboratory results",
+            "Prescription management",
+            "Patient portals",
+            "Ongoing communication and support"
+          ]
+        },
+        {
+          "kind": "body",
+          "text": "Not every telehealth experience requires a video appointment, and not every medical issue can be handled remotely. The technology is simply a way to connect patients and healthcare professionals when remote care is appropriate."
+        },
+        {
+          "kind": "callout",
+          "style": "question",
+          "text": "Am I receiving meaningful healthcare through technology—or simply being sold medication online?"
+        }
+      ]
+    },
+    {
+      "num": "03",
+      "kind": "section",
+      "headline": "What Does Telehealth Do Well?",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "Telehealth can be particularly useful when appropriate care does not require the patient and healthcare provider to be in the same room."
+        },
+        {
+          "kind": "body",
+          "text": "Depending on the situation, telehealth can make it easier to:"
+        },
+        {
+          "kind": "cards",
+          "items": [
+            {
+              "title": "SHARE HEALTH INFORMATION",
+              "desc": "Complete assessments and provide relevant medical information before treatment."
+            },
+            {
+              "title": "ACCESS MEDICAL REVIEW",
+              "desc": "Allow a licensed healthcare provider to evaluate whether a particular treatment may be appropriate."
+            },
+            {
+              "title": "REVIEW RESULTS",
+              "desc": "Discuss laboratory or other health information remotely when appropriate."
+            },
+            {
+              "title": "MANAGE PRESCRIPTION CARE",
+              "desc": "Receive instructions and communicate about prescribed treatment."
+            },
+            {
+              "title": "ASK QUESTIONS",
+              "desc": "Use secure communication to obtain support without scheduling an office visit every time a question arises."
+            }
+          ]
+        },
+        {
+          "kind": "body",
+          "text": "And for many patients, there are practical benefits as well:"
+        },
+        {
+          "kind": "emph",
+          "text": "Convenience. Comfort. Privacy. Speed."
+        },
+        {
+          "kind": "callout",
+          "style": "insight",
+          "text": "Telehealth works best when its convenience and accessibility support appropriate care—not when they replace it."
+        }
+      ]
+    },
+    {
+      "num": "04",
+      "kind": "section",
+      "headline": "Good Telehealth Knows When You Need In-Person Care",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "Telehealth can make many forms of healthcare more convenient. But it isn’t appropriate for everything."
+        },
+        {
+          "kind": "body",
+          "text": "Some medical concerns may require:"
+        },
+        {
+          "kind": "cards",
+          "style": "chips",
+          "items": [
+            {
+              "title": "A HANDS-ON PHYSICAL EXAMINATION"
+            },
+            {
+              "title": "IMAGING OR DIAGNOSTIC PROCEDURES"
+            },
+            {
+              "title": "IN-PERSON SPECIALTY CARE"
+            },
+            {
+              "title": "URGENT CARE"
+            },
+            {
+              "title": "EMERGENCY MEDICAL ATTENTION"
+            }
+          ]
+        },
+        {
+          "kind": "body",
+          "text": "Laboratory testing doesn’t necessarily require abandoning telehealth. Depending on the situation, patients may be able to use local laboratory networks or appropriate at-home collection options while their broader care remains connected digitally."
+        },
+        {
+          "kind": "emph",
+          "text": "The important distinction is recognizing when remote care is appropriate—and when it isn’t."
+        },
+        {
+          "kind": "callout",
+          "style": "insight",
+          "text": "Good telehealth should know when not to be telehealth."
+        },
+        {
+          "kind": "callout",
+          "style": "question",
+          "text": "If my condition requires in-person evaluation or another type of care, will the service tell me?"
+        }
+      ]
+    },
+    {
+      "num": "05",
+      "kind": "section",
+      "headline": "The Lab Doesn’t Always Have to Mean a Trip to the Lab",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "Healthcare testing is becoming more flexible, too."
+        },
+        {
+          "kind": "body",
+          "text": "Depending on the test and the patient’s circumstances, laboratory testing may be available through traditional laboratory locations or through convenient at-home collection services. Modern testing options can help healthcare providers evaluate areas such as:"
+        },
+        {
+          "kind": "cards",
+          "style": "chips",
+          "items": [
+            {
+              "title": "HORMONE HEALTH"
+            },
+            {
+              "title": "THYROID FUNCTION"
+            },
+            {
+              "title": "METABOLIC HEALTH"
+            },
+            {
+              "title": "CARDIOVASCULAR RISK MARKERS"
+            },
+            {
+              "title": "VITAMINS & NUTRIENTS"
+            },
+            {
+              "title": "GENERAL HEALTH MARKERS"
+            }
+          ]
+        },
+        {
+          "kind": "body",
+          "text": "Not every test can or should be performed at home, and the value of a test depends on more than convenience. What matters is whether the right test is being used and whether the result is interpreted in the context of the patient’s health."
+        },
+        {
+          "kind": "callout",
+          "style": "question",
+          "text": "If testing is appropriate for my care, what testing do I need—and can it be completed conveniently?"
+        },
+        {
+          "kind": "approach",
+          "text": "WellPeps can connect patients with laboratory testing when appropriate, including access to national laboratory networks such as Quest Diagnostics and Labcorp, as well as convenient at-home collection options for select tests—all at discounted WellPeps patient pricing."
+        }
+      ]
+    },
+    {
+      "num": "06",
+      "kind": "section",
+      "headline": "The Right Testing, When It’s Appropriate",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "Modern healthcare doesn’t mean testing everyone for everything."
+        },
+        {
+          "kind": "body",
+          "text": "Some treatments may require laboratory testing. Others may not. For certain types of care, laboratory results can help a healthcare provider:"
+        },
+        {
+          "kind": "list",
+          "cols": 1,
+          "bold": true,
+          "items": [
+            "Understand a patient’s starting point",
+            "Evaluate whether treatment may be appropriate",
+            "Identify information relevant to treatment",
+            "Establish a baseline",
+            "Monitor care when appropriate"
+          ]
+        },
+        {
+          "kind": "body",
+          "text": "For other treatments, laboratory testing may not be necessary. The goal shouldn’t be more testing simply because testing is available. And it shouldn’t be less testing simply because care happens online."
+        },
+        {
+          "kind": "emph",
+          "text": "The point isn’t more testing. It’s appropriate testing."
+        },
+        {
+          "kind": "callout",
+          "style": "question",
+          "text": "Does my treatment require testing—and if so, how will the results be used in my care?"
+        },
+        {
+          "kind": "approach",
+          "text": "When laboratory testing is appropriate, WellPeps can help connect patients with convenient testing options while providing discounted patient pricing."
+        }
+      ]
+    },
+    {
+      "num": "07",
+      "kind": "section",
+      "headline": "What Does “Connected Care” Actually Mean?",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "Modern healthcare isn’t simply about putting a medical provider on a screen."
+        },
+        {
+          "kind": "body",
+          "text": "The larger opportunity is connecting parts of the healthcare experience that have traditionally felt separate."
+        },
+        {
+          "kind": "cards",
+          "cols": 3,
+          "items": [
+            {
+              "title": "01 THE PATIENT",
+              "desc": "Shares relevant health information and goals."
+            },
+            {
+              "title": "02 ASSESSMENT",
+              "desc": "Organizes information needed for medical review."
+            },
+            {
+              "title": "03 MEDICAL REVIEW",
+              "desc": "A licensed healthcare provider evaluates whether treatment may be appropriate."
+            },
+            {
+              "title": "04 TREATMENT",
+              "desc": "When prescribed, an individualized treatment plan is established."
+            },
+            {
+              "title": "05 PHARMACY",
+              "desc": "The approved prescription is assigned to a U.S.-based pharmacy partner for fulfillment and delivery."
+            },
+            {
+              "title": "06 SUPPORT",
+              "desc": "The patient has somewhere to turn for treatment-related questions and assistance."
+            }
+          ]
+        },
+        {
+          "kind": "subhead",
+          "title": "LABORATORY OR AT-HOME TESTING",
+          "desc": "Can connect into this process when medically appropriate."
+        },
+        {
+          "kind": "body",
+          "text": "The technology matters. But what really matters is whether the pieces work together."
+        },
+        {
+          "kind": "callout",
+          "style": "insight",
+          "text": "Connected care should make healthcare easier to navigate without removing the professionals responsible for providing it."
+        }
+      ]
+    },
+    {
+      "num": "08",
+      "kind": "section",
+      "headline": "Your Healthcare Doesn’t Have to Disappear Between Appointments",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "One of the advantages of connected healthcare is giving patients a central place to follow important parts of their care."
+        },
+        {
+          "kind": "body",
+          "text": "A patient portal can make it easier to:"
+        },
+        {
+          "kind": "cards",
+          "items": [
+            {
+              "title": "COMMUNICATE WITH THE CARE TEAM",
+              "desc": "Send treatment-related questions and receive support."
+            },
+            {
+              "title": "FOLLOW YOUR TREATMENT PROCESS",
+              "desc": "Keep important information connected to your care."
+            },
+            {
+              "title": "TRACK PHARMACY ORDERS",
+              "desc": "See which pharmacy is fulfilling your approved prescription and follow the progress of fulfillment and delivery."
+            },
+            {
+              "title": "ACCESS IMPORTANT INFORMATION",
+              "desc": "Keep relevant treatment information available when you need it."
+            },
+            {
+              "title": "GET SUPPORT",
+              "desc": "Know where to turn when questions arise."
+            }
+          ]
+        },
+        {
+          "kind": "body",
+          "text": "Technology doesn’t replace healthcare professionals."
+        },
+        {
+          "kind": "emph",
+          "text": "It can make them easier to reach—and healthcare easier to navigate."
+        },
+        {
+          "kind": "callout",
+          "style": "insight",
+          "text": "The best healthcare technology shouldn’t make care feel more complicated. It should make the experience simpler."
+        },
+        {
+          "kind": "approach",
+          "text": "Every WellPeps patient has access to a personal online portal designed to help them stay connected to their care and treatment process."
+        }
+      ]
+    },
+    {
+      "num": "09",
+      "kind": "section",
+      "headline": "Your Prescription Doesn’t Just Appear at Your Door",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "One of the conveniences of telehealth is having prescribed medication delivered directly to your home. But there’s still a pharmacy behind that package."
+        },
+        {
+          "kind": "body",
+          "text": "Once a prescription is approved, it must be sent to a pharmacy for fulfillment. Patients should be able to understand:"
+        },
+        {
+          "kind": "list",
+          "cols": 1,
+          "bold": true,
+          "items": [
+            "Who is fulfilling their prescription",
+            "Where the pharmacy is located",
+            "What medication they are receiving",
+            "How the medication should be used",
+            "How their order is progressing"
+          ]
+        },
+        {
+          "kind": "callout",
+          "style": "question",
+          "text": "Once my prescription is approved, can I see which pharmacy is fulfilling and shipping my medication?"
+        },
+        {
+          "kind": "approach",
+          "text": "Once a prescription is approved, WellPeps coordinates fulfillment through an appropriate U.S.-based pharmacy partner. Patients can then see which pharmacy is fulfilling and shipping their medication."
+        }
+      ]
+    },
+    {
+      "num": "10",
+      "kind": "section",
+      "headline": "Healthcare Convenience Still Requires Privacy",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "Modern healthcare asks patients to share sensitive information digitally."
+        },
+        {
+          "kind": "body",
+          "text": "Health history. Medications. Laboratory results. Treatment information. Personal details. Convenience shouldn’t make that information less important. Before choosing an online healthcare provider, patients should ask:"
+        },
+        {
+          "kind": "cards",
+          "items": [
+            {
+              "title": "IS MY HEALTH INFORMATION SECURE?",
+              "desc": "Is sensitive information transmitted and stored using appropriate safeguards?"
+            },
+            {
+              "title": "ARE MY COMMUNICATIONS PRIVATE?",
+              "desc": "Are messages and conversations with healthcare providers handled securely?"
+            },
+            {
+              "title": "WHO CAN ACCESS MY INFORMATION?",
+              "desc": "Is access to sensitive health information appropriately controlled?"
+            },
+            {
+              "title": "IS THE SYSTEM HIPAA COMPLIANT?",
+              "desc": "Does the healthcare platform use systems and processes designed to meet applicable healthcare privacy requirements?"
+            }
+          ]
+        },
+        {
+          "kind": "body",
+          "text": "Secure technology matters. So does knowing who you’re trusting with your information."
+        },
+        {
+          "kind": "callout",
+          "style": "question",
+          "text": "Before I provide sensitive health information online, do I understand how it will be protected?"
+        },
+        {
+          "kind": "approach",
+          "text": "WellPeps uses HIPAA-compliant systems designed to protect patient health information and communications throughout the care process."
+        }
+      ]
+    },
+    {
+      "num": "11",
+      "kind": "section",
+      "headline": "What Actually Gets Easier?",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "Modern healthcare isn’t valuable simply because it uses technology. It’s valuable when technology removes unnecessary inconvenience from the patient experience."
+        },
+        {
+          "kind": "twocol",
+          "cols": [
+            {
+              "title": "A MORE CONNECTED EXPERIENCE",
+              "items": [
+                "Online health assessment",
+                "Remote medical review",
+                "At-home or convenient laboratory options when appropriate",
+                "Prescription medication delivered to your door",
+                "A patient portal to follow your care",
+                "Secure access to support"
+              ]
+            },
+            {
+              "title": "THE TRADITIONAL RUNAROUND",
+              "items": [
+                "Driving to routine appointments",
+                "Sitting in waiting rooms",
+                "Making multiple phone calls",
+                "Navigating disconnected systems",
+                "Making separate trips for testing",
+                "Wondering about prescription status and waiting at pharmacy"
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "body",
+          "text": "Modern healthcare doesn’t eliminate the need for medical care."
+        },
+        {
+          "kind": "emph",
+          "text": "It can eliminate some of the unnecessary friction involved in getting it."
+        },
+        {
+          "kind": "callout",
+          "style": "insight",
+          "text": "Convenience isn’t about cutting corners. It’s about making appropriate healthcare easier to access and navigate."
+        }
+      ]
+    },
+    {
+      "num": "12",
+      "kind": "section",
+      "headline": "Not Every Online Healthcare Company Is the Same",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "The growth of telehealth has given patients more choices. That makes it even more important to know what to look for."
+        },
+        {
+          "kind": "list",
+          "cols": 1,
+          "items": [
+            "Guaranteed prescriptions — A prescription should follow appropriate medical review—not be promised before it occurs.",
+            "Miracle outcomes — Be cautious of guaranteed weight loss, age reversal, hair regrowth, sexual performance or other treatment outcomes.",
+            "Little or no meaningful medical review — Convenience shouldn’t eliminate appropriate provider involvement.",
+            "Unclear pharmacy fulfillment — Once medication is prescribed and assigned for fulfillment, you should be able to identify the pharmacy handling your prescription.",
+            "Confusing pricing — You should understand what treatment costs and what is included.",
+            "Hard-to-cancel programs — Understand cancellation terms before enrolling.",
+            "No clear way to get support — Know where to turn if you have treatment-related questions.",
+            "Claims that sound too good to be true — Scientific-sounding language doesn’t automatically make a marketing claim scientifically proven."
+          ]
+        },
+        {
+          "kind": "callout",
+          "style": "insight",
+          "text": "Convenience is valuable. Transparency matters just as much."
+        }
+      ]
+    },
+    {
+      "num": "13",
+      "kind": "section",
+      "headline": "The Smart Patient’s Modern Healthcare Checklist",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "You don’t need to understand every piece of healthcare technology. You need to know enough to evaluate the care behind it."
+        },
+        {
+          "kind": "checklist",
+          "items": [
+            {
+              "title": "Is a licensed healthcare provider involved?",
+              "desc": "Who is responsible for determining whether treatment is appropriate?"
+            },
+            {
+              "title": "Is my health information actually reviewed?",
+              "desc": "Does the process consider my health history, medications and individual circumstances?"
+            },
+            {
+              "title": "Is testing available when appropriate?",
+              "desc": "If laboratory testing is relevant to my care, how is it handled?"
+            },
+            {
+              "title": "Do I know who is fulfilling my prescription?",
+              "desc": "Once my prescription is approved and assigned, can I see which pharmacy is fulfilling and shipping my medication?"
+            },
+            {
+              "title": "Do I understand my prescription?",
+              "desc": "Do I understand what medication was prescribed, how I should use it and what instructions I should follow?"
+            },
+            {
+              "title": "What happens after treatment begins?",
+              "desc": "Is there a clear way to ask questions or obtain support?"
+            },
+            {
+              "title": "Is pricing clear?",
+              "desc": "Do I understand the cost and what is included?"
+            },
+            {
+              "title": "Can I cancel without the runaround?",
+              "desc": "Are the cancellation terms straightforward and easy to understand?"
+            },
+            {
+              "title": "Does the service know its limits?",
+              "desc": "Will I be directed to in-person or urgent care when remote care isn’t appropriate?"
+            }
+          ],
+          "compact": true
+        },
+        {
+          "kind": "tagline",
+          "text": "Evaluate the healthcare behind the technology—not just the convenience of the technology itself.",
+          "inline": true
+        }
+      ]
+    },
+    {
+      "num": "14",
+      "kind": "why",
+      "headline": "Why We Created WellPeps",
+      "elements": [
+        {
+          "kind": "emph",
+          "text": "Real Care. Not Just Medication."
+        },
+        {
+          "kind": "body",
+          "text": "WellPeps was founded by a physician and an experienced pharmacy owner who believed there should be a better way to bring together thoughtful medical care, quality prescription fulfillment and a more convenient patient experience."
+        },
+        {
+          "kind": "body",
+          "text": "That perspective shaped the WellPeps approach: personalized, provider-guided care designed around the patient—not simply the medication."
+        },
+        {
+          "kind": "cards",
+          "items": [
+            {
+              "title": "Personalized Provider-Guided Care",
+              "desc": "Treatment begins with your health information, medications, goals and individual circumstances."
+            },
+            {
+              "title": "Multiple Wellness Options",
+              "desc": "Different treatment options allow providers to consider what may be appropriate for different individuals."
+            },
+            {
+              "title": "More Than a Prescription",
+              "desc": "The WellPeps experience is designed around care—not simply delivering medication."
+            },
+            {
+              "title": "Quality Prescription Fulfillment",
+              "desc": "Prescriptions are fulfilled through U.S.-based pharmacy partners selected to support quality and reliable prescription fulfillment."
+            },
+            {
+              "title": "Ongoing Support",
+              "desc": "Your questions and treatment needs don’t necessarily stop when treatment begins."
+            },
+            {
+              "title": "Straightforward Pricing",
+              "desc": "Provider care, medication and ongoing support are included without a separate membership fee."
+            },
+            {
+              "title": "Healthcare Without the Runaround",
+              "desc": "A simpler, more convenient way to access treatment—from assessment and medical review to prescription fulfillment and ongoing support."
+            },
+            {
+              "title": "One Place for Your Wellness",
+              "desc": "WellPeps offers a wide and expanding range of treatment programs designed to make personalized wellness simpler."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": "15",
+      "kind": "section",
+      "headline": "Modern Healthcare Should Mean Better Access to Care—Not Less Care",
+      "elements": [
+        {
+          "kind": "lead",
+          "text": "Technology can make healthcare more convenient. But technology alone isn’t healthcare."
+        },
+        {
+          "kind": "body",
+          "text": "The opportunity is to combine easier access with appropriate medical oversight, useful health information, convenient testing when needed, quality prescription fulfillment and patient support."
+        },
+        {
+          "kind": "body",
+          "text": "That means using technology where it helps. Using testing when it’s appropriate. Recognizing when in-person care is necessary."
+        },
+        {
+          "kind": "emph",
+          "text": "And keeping the patient—not the technology—at the center of the experience."
+        }
+      ]
+    },
+    {
+      "num": "",
+      "kind": "cta",
+      "headline": "Healthcare Is Changing. Be Informed About How You Receive It.",
+      "elements": [
+        {
+          "kind": "body",
+          "text": "Personalized, provider-guided wellness care designed to be easier to access and easier to navigate."
+        }
+      ]
+    },
+    {
+      "num": "",
+      "kind": "disclaimer",
+      "headline": "",
+      "elements": [],
+      "text": [
+        "This guide is provided for general educational purposes only and is not a substitute for professional medical advice, diagnosis or treatment.",
+        "Telehealth may be appropriate for many healthcare needs, but it is not appropriate for every medical condition or circumstance. Some symptoms, conditions and treatments require in-person examination, diagnostic procedures, urgent care or emergency medical attention.",
+        "Availability and appropriateness of telehealth services, laboratory testing, at-home collection, prescription treatment and other services may vary based on the patient’s location, medical circumstances, provider determination and applicable laws and regulations.",
+        "Prescription treatment requires evaluation by a licensed healthcare provider and is not guaranteed. Laboratory or at-home testing should be selected and interpreted in the context of the patient’s individual healthcare needs. At-home testing does not replace appropriate medical evaluation when one is needed. Individual experiences vary, and no specific treatment outcome is guaranteed."
+      ]
+    }
+  ]
+}

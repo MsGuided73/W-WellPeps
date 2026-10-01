@@ -1,0 +1,124 @@
+{
+ "topic": "GLP-1 WEIGHT LOSS",
+ "title": "GLP-1 WEIGHT LOSS",
+ "cta_url": "https://wellpeps.com/#assessment",
+ "cover": "../_assets/glp1-media/ppt/media/image1.png",
+ "cover_focus": [
+  0.55,
+  0.4
+ ],
+ "series": [
+  {
+   "title": "The Smart Patient’s Guide to NAD+"
+  },
+  {
+   "title": "The Smart Patient’s Guide to Peptides & Wellness Therapies"
+  },
+  {
+   "title": "The Smart Patient’s Guide to Sexual Wellness Medications"
+  },
+  {
+   "title": "The Smart Patient’s Guide to Healthy Aging & Vitality"
+  }
+ ],
+ "card_images": {
+  "product-semaglutide": "../_assets/glp1-media/ppt/media/image6.png",
+  "product-tirzepatide": "../_assets/glp1-media/ppt/media/image7.png",
+  "product-oral": "../_assets/glp1-media/ppt/media/image8.png"
+ },
+ "sections": {
+  "00": {
+   "kicker": "BEFORE YOU START"
+  },
+  "01": {
+   "kicker": "UNDERSTAND THE TREATMENT",
+   "image": "../_assets/glp1-media/ppt/media/image3.png",
+   "image_w": 4.7,
+   "image_h": 3.36,
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "image_after": 2,
+   "image_min_w": 3.9
+  },
+  "02": {
+   "kicker": "START WITH THE MEDICAL QUESTION",
+   "image": "../_assets/glp1-media/ppt/media/image4.png",
+   "image_w": 2.85,
+   "image_h": 2.23
+  },
+  "03": {
+   "kicker": "CARE SHOULD FIT THE PATIENT",
+   "image": "../_assets/glp1-media/ppt/media/image5.png",
+   "image_w": 3.1,
+   "image_h": 2.35
+  },
+  "04": {
+   "kicker": "KNOW YOUR OPTIONS",
+   "lead_small": true,
+   "full_width_head": true
+  },
+  "05": {
+   "kicker": "PERSONALIZED TREATMENT OPTIONS"
+  },
+  "06": {
+   "kicker": "PERSONALIZED TREATMENT OPTIONS"
+  },
+  "07": {
+   "kicker": "KNOW THE DIFFERENCES"
+  },
+  "08": {
+   "kicker": "DON’T INJECT OR INGEST AND WONDER",
+   "image": "../_assets/glp1-media/ppt/media/image9.png",
+   "image_w": 2.1,
+   "image_h": 1.52
+  },
+  "09": {
+   "kicker": "KNOW WHAT TO WATCH FOR"
+  },
+  "10": {
+   "kicker": "MEDICATION ARRIVES. CARE CONTINUES.",
+   "hero": [
+    "../_assets/glp1-media/ppt/media/image11.png",
+    "../_assets/glp1-media/ppt/media/image12.png"
+   ]
+  },
+  "11": {
+   "kicker": "KNOW WHERE THE MEDICATION COMES FROM",
+   "image": "../../images/HCP.jpeg",
+   "image_w": 3.0,
+   "image_h": 2.42,
+   "focus": [
+    0.1,
+    0.4
+   ]
+  },
+  "12": {
+   "kicker": "COMPARE MORE THAN THE STICKER PRICE"
+  },
+  "13": {
+   "kicker": "USE THE CHECKLIST",
+   "headline_icon": "../_assets/glp1-media/ppt/media/image13.png"
+  },
+  "14": {
+   "image": "../_assets/glp1-media/ppt/media/image14.png"
+  },
+  "cta": {
+   "image": "../../wellpeps-site/public/images/weight/cta-woman.webp",
+   "focus": [
+    0.12,
+    0.3
+   ],
+   "button": "Start Your Free Assessment"
+  }
+ },
+ "cover_crop": [
+  0.1,
+  0,
+  0,
+  0
+ ],
+ "cover_style": "editorial",
+ "theme": "editorial-v6"
+}

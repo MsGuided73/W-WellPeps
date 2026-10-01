@@ -1,0 +1,655 @@
+{
+ "slug": "glp-1-weight-loss",
+ "source": "WellPeps_Smart_Patient_Guide_GLP1_DG-9-1.pptx (Derek Goldberg, 2026-09-01) with corrections applied",
+ "title": "GLP-1 WEIGHT LOSS",
+ "subtitle": "What you should know before choosing a GLP-1 weight loss program",
+ "deck": "",
+ "tagline": "Personalized Wellness. Simplified.",
+ "sections": [
+  {
+   "num": "00",
+   "kind": "before",
+   "headline": "Learn the Keys to Quality Care",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "GLP-1 medications have changed the conversation around medical weight management."
+    },
+    {
+     "kind": "body",
+     "text": "For eligible patients, medications such as semaglutide and tirzepatide can be useful tools as part of a medically supervised weight-management plan. But deciding whether to pursue GLP-1 treatment involves more than choosing a medication or comparing prices."
+    },
+    {
+     "kind": "body",
+     "text": "The program you choose matters. An informed patient should understand who reviews their health information, how treatment is selected, whether appropriate monitoring or lab testing is offered, what support is provided, and what the program actually costs."
+    },
+    {
+     "kind": "body",
+     "text": "That’s why we created this guide. It isn’t intended to tell you whether you should take a GLP-1 medication. Only an appropriately licensed healthcare provider who evaluates your individual circumstances can make that determination."
+    },
+    {
+     "kind": "body",
+     "text": "Instead, this guide will help you understand the treatment category, recognize the elements of responsible care, and know what to consider before choosing a program."
+    },
+    {
+     "kind": "callout",
+     "style": "principle",
+     "text": "Don’t choose a GLP-1 program based on the medication or price alone. Understand the care surrounding it."
+    },
+    {
+     "kind": "approach",
+     "text": "Healthcare is more than medication. GLP-1 patients deserve continued support."
+    }
+   ]
+  },
+  {
+   "num": "01",
+   "kind": "section",
+   "headline": "What Are GLP-1 Medications?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "GLP-1 stands for glucagon-like peptide-1, a hormone produced naturally by the body."
+    },
+    {
+     "kind": "body",
+     "text": "Medications that act on the GLP-1 pathway can affect appetite, digestion and blood-sugar regulation. Among other effects, GLP-1 receptor agonists can help people feel fuller after eating and may slow the rate at which food leaves the stomach. When clinically appropriate, these effects can support weight management."
+    },
+    {
+     "kind": "body",
+     "text": "Semaglutide is a GLP-1 receptor agonist. Tirzepatide works somewhat differently because it acts on both GLP-1 and GIP receptors."
+    },
+    {
+     "kind": "body",
+     "text": "Medication does not make nutrition, physical activity, sleep and other healthy habits irrelevant. Weight-management medications are generally intended to accompany lifestyle changes rather than replace them."
+    },
+    {
+     "kind": "callout",
+     "style": "principle",
+     "text": "GLP-1 treatment can be an important part of weight management for many patients. But it is still medical treatment, not just a product purchase."
+    },
+    {
+     "kind": "approach",
+     "text": "For eligible patients, WellPeps provides review by medical providers and continued support, with lab tests offered as needed."
+    }
+   ]
+  },
+  {
+   "num": "02",
+   "kind": "section",
+   "headline": "Is GLP-1 Treatment Right for You?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "A GLP-1 weight loss program should begin with a medical question:"
+    },
+    {
+     "kind": "quote",
+     "text": "Is this treatment appropriate for this specific patient?"
+    },
+    {
+     "kind": "body",
+     "text": "Not everyone who wants to lose weight is an appropriate candidate for every weight-management medication. A healthcare provider may consider factors such as health history, current medications, treatment goals, previous treatment experience and other individual circumstances."
+    },
+    {
+     "kind": "body",
+     "text": "That’s why an online health assessment shouldn’t simply be viewed as paperwork standing between you and a prescription. It is part of the clinical evaluation."
+    },
+    {
+     "kind": "body",
+     "text": "Submitting an assessment should not guarantee that medication will be prescribed. A licensed healthcare provider should determine whether treatment is medically appropriate."
+    },
+    {
+     "kind": "body",
+     "text": "In just a few minutes, a patient can fill out a private online health assessment for review by a licensed healthcare provider who may follow up with additional questions, as needed. In a few states, a video consult may also be required."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Will a licensed healthcare provider review my health information before treatment is prescribed?"
+    },
+    {
+     "kind": "approach",
+     "text": "Each patient’s unique health status and history is reviewed by a licensed healthcare provider to determine if a GLP-1 weight loss program is appropriate for the patient."
+    }
+   ]
+  },
+  {
+   "num": "03",
+   "kind": "section",
+   "headline": "Treatment Shouldn’t Be One-Size-Fits-All",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "People considering GLP-1 treatment do not all have the same medical history, goals, preferences or treatment experience."
+    },
+    {
+     "kind": "body",
+     "text": "Responsible care recognizes those differences. The appropriate medication, formulation and treatment approach should be determined through a clinical process rather than treated as a one-size-fits-all purchase."
+    },
+    {
+     "kind": "body",
+     "text": "Patient preferences can be part of that discussion, but prescription and treatment decisions ultimately belong with the licensed healthcare provider overseeing the care."
+    },
+    {
+     "kind": "callout",
+     "style": "principle",
+     "text": "Personalized care means your unique individual health information, goals, and preferences play a role in the healthcare provider’s treatment plan."
+    },
+    {
+     "kind": "approach",
+     "text": "Begin with a health assessment and licensed-provider review. Treatment, if prescribed, is based on the patient’s individual information and the provider’s clinical judgment."
+    }
+   ]
+  },
+  {
+   "num": "04",
+   "kind": "section",
+   "headline": "Semaglutide, Tirzepatide and Your Treatment Options",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Spend a few minutes researching weight-loss treatment online and you’ll encounter a confusing collection of names. They aren’t interchangeable terms."
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "SEMAGLUTIDE",
+       "desc": "Acts primarily on the GLP-1 receptor.",
+       "image": "product-semaglutide"
+      },
+      {
+       "title": "TIRZEPATIDE",
+       "desc": "Acts on both GIP and GLP-1 receptors.",
+       "image": "product-tirzepatide"
+      },
+      {
+       "title": "ORAL OPTIONS",
+       "desc": "May appeal to patients who prefer to avoid injections.",
+       "image": "product-oral"
+      }
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "Although the medications have similarities, their mechanisms aren’t identical, and there is no universally correct choice for every patient. Medical history, current medications, treatment goals, treatment experience, tolerability and other clinical factors may affect a provider’s recommendation. Delivery method can matter too."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Does the program offer provider-guided treatment options that take my individual health needs and preferences into account?"
+    },
+    {
+     "kind": "approach",
+     "text": "Every patient is unique. The medical provider will evaluate each patient, considering factors such as health history, body mass index, weight goals, current medications, and lab results, when recommending medication type, dosage and other aspects of the treatment plan."
+    }
+   ]
+  },
+  {
+   "num": "05",
+   "kind": "section",
+   "headline": "When Might a Customized Formulation Be Considered?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "FDA-approved medications are generally the first consideration for GLP-1 treatment. But medicine isn’t always one-size-fits-all."
+    },
+    {
+     "kind": "body",
+     "text": "In certain circumstances, a licensed healthcare provider may determine that an individual patient’s medical needs are better addressed by a customized compounded formulation or dosage that differs from a commercially available medication."
+    },
+    {
+     "kind": "body",
+     "text": "Depending on the patient’s individual needs and the options available through the dispensing pharmacy, a medical provider may prescribe compounded semaglutide or tirzepatide formulations that incorporate ingredients such as:"
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "Vitamin B6 (Pyridoxine)",
+       "desc": "An essential vitamin involved in metabolism, nervous-system function and the body’s use of nutrients."
+      },
+      {
+       "title": "Vitamin B12 (Cyanocobalamin)",
+       "desc": "An essential vitamin involved in red blood cell formation, nerve function and cellular energy metabolism."
+      },
+      {
+       "title": "L-Carnitine (Levocarnitine)",
+       "desc": "A naturally occurring substance involved in transporting fatty acids into cells where they can be used in energy production."
+      },
+      {
+       "title": "Glycine",
+       "desc": "An amino acid used by the body in protein production and a variety of metabolic processes."
+      },
+      {
+       "title": "Niacinamide (Vitamin B3)",
+       "desc": "A form of vitamin B3 involved in cellular energy metabolism and normal cellular function."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "num": "06",
+   "kind": "section",
+   "headline": "Why Might These Be Included?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "A licensed provider may determine that a customized formulation is appropriate based on an individual patient’s medical needs. The presence of an additional ingredient does not mean that the formulation is more effective for weight loss than FDA-approved semaglutide or tirzepatide."
+    },
+    {
+     "kind": "body",
+     "text": "The decision to prescribe a compounded formulation should be based on an individual medical evaluation and a specific patient need—not simply on price or preference. Unlike commercially available FDA-approved medications, customized compounded medications are prepared for individual patients based on a provider’s prescription."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Is my treatment simply a standard medication offered to everyone—or has a licensed provider considered whether the formulation is appropriate for my individual needs?"
+    },
+    {
+     "kind": "approach",
+     "text": "Treatment begins with a medical review. When appropriate, a licensed provider determines the medication, formulation and dosing approach based on the patient’s individual health information and treatment needs."
+    }
+   ]
+  },
+  {
+   "num": "07",
+   "kind": "section",
+   "headline": "Injections, Tablets and What “FDA-Approved” Means",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "The names on a program’s menu tell you less than you might think. Here is what actually separates the options."
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "SEMAGLUTIDE",
+       "desc": "GLP-1 receptor agonist. FDA-approved brands: Wegovy (weight management), Ozempic (type 2 diabetes). Weekly injection; a tablet form also exists."
+      },
+      {
+       "title": "TIRZEPATIDE",
+       "desc": "Acts on GIP and GLP-1 receptors. FDA-approved brands: Zepbound (weight management), Mounjaro (type 2 diabetes). Weekly injection."
+      }
+     ]
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "INJECTION",
+       "desc": "One weekly dose from a small pen. Most weight-management evidence comes from injectable forms."
+      },
+      {
+       "title": "ORAL TABLET",
+       "desc": "A daily tablet for patients who prefer to avoid needles. Timing and food rules matter more."
+      }
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "“FDA-approved” means that specific product was reviewed by the U.S. Food and Drug Administration for safety and effectiveness. Compounded semaglutide or tirzepatide is prepared by a licensed pharmacy for an individual patient and is not itself FDA-approved, so the pharmacy’s licensing and sourcing matter. Newer molecules such as retatrutide are investigational and not approved outside clinical trials."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Which medication and form are you recommending for me, and is it FDA-approved or compounded?"
+    },
+    {
+     "kind": "approach",
+     "text": "WellPeps providers discuss medication type, delivery form and approval status with each patient. Prescriptions are filled only through licensed U.S.-based pharmacies."
+    }
+   ]
+  },
+  {
+   "num": "08",
+   "kind": "section",
+   "headline": "Why Lab Tests and Monitoring Matter",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "The scale tells you one thing. It doesn’t tell you everything about your health."
+    },
+    {
+     "kind": "body",
+     "text": "Medical weight management should take place in the context of your overall health—not simply the number of pounds lost. Depending on an individual patient’s circumstances, a healthcare provider may consider medical history, symptoms, treatment response and laboratory information as part of care."
+    },
+    {
+     "kind": "emph",
+     "clear": true,
+     "text": "If a GLP-1 program does not offer lab testing as part of treatment, you should ask why."
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "HEALTH HISTORY",
+       "desc": "Your starting point"
+      },
+      {
+       "title": "SYMPTOMS",
+       "desc": "How you’re feeling"
+      },
+      {
+       "title": "RESPONSE",
+       "desc": "How treatment is going"
+      },
+      {
+       "title": "LABS",
+       "desc": "In-lab or at home, when clinically appropriate"
+      }
+     ],
+     "cols": 4
+    },
+    {
+     "kind": "body",
+     "text": "That does not mean every GLP-1 patient requires the same laboratory panel at the same interval. Testing should be clinically appropriate and determined by healthcare professionals. What matters is whether a program can support appropriate monitoring when it is needed."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Ask whether lab testing is offered as part of the program."
+    },
+    {
+     "kind": "approach",
+     "text": "WellPeps offers access to base medical-weight-management laboratory services through Quest Diagnostics and Labcorp, with at-home lab kits also available, helping make laboratory information part of the care process."
+    }
+   ]
+  },
+  {
+   "num": "09",
+   "kind": "section",
+   "headline": "Side Effects Are Part of the Conversation",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Every prescription medication has potential risks and side effects."
+    },
+    {
+     "kind": "body",
+     "text": "With GLP-1 therapies, commonly reported side effects include nausea, vomiting, diarrhea, constipation, abdominal discomfort and decreased appetite. Gastrointestinal symptoms may be more noticeable when treatment begins or following dose increases and may improve over time for some patients."
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "KNOW",
+       "desc": "Understand common effects"
+      },
+      {
+       "title": "WATCH",
+       "desc": "Pay attention to persistent or worsening symptoms"
+      },
+      {
+       "title": "CONTACT",
+       "desc": "Seek appropriate clinical guidance when needed"
+      }
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "Patients should follow the instructions provided with their medication and contact an appropriate healthcare professional about persistent, worsening or concerning symptoms. Potentially serious symptoms may require urgent or emergency medical evaluation."
+    },
+    {
+     "kind": "body",
+     "text": "Patients should not independently stop, restart or change prescribed medication without appropriate clinical guidance."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Ask if the provider offers continued support and lab follow-up tests if needed, as part of their treatment plan."
+    },
+    {
+     "kind": "approach",
+     "text": "GLP-1 patients on WellPeps plans receive continued support, with lab tests offered as needed. Additionally, patients can discuss any side effects with medical providers, plus discuss adjusting dosage or other treatment options."
+    }
+   ]
+  },
+  {
+   "num": "10",
+   "kind": "section",
+   "headline": "Your care shouldn’t end when your medication ships.",
+   "elements": [
+    {
+     "kind": "body",
+     "text": "It’s easy for telehealth weight management to look like an e-commerce transaction: complete a form, receive a prescription if appropriate, and receive a package. But healthcare shouldn’t stop at the shipping confirmation. Weight-management treatment can evolve over time. Patients can have questions, experience side effects, encounter plateaus or need additional support."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Does the GLP-1 program offer real support beyond delivering medication, including ongoing support, monitoring and lab tests?"
+    },
+    {
+     "kind": "approach",
+     "text": "Health assessment • Licensed-provider review • Treatment when clinically appropriate • Ongoing support • Laboratory access"
+    }
+   ]
+  },
+  {
+   "num": "11",
+   "kind": "section",
+   "headline": "Medication Quality and U.S. Fulfillment Matter",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Prescription weight-management treatment should take place through legitimate healthcare and pharmacy channels."
+    },
+    {
+     "kind": "body",
+     "text": "Patients should receive medication only when prescribed by an appropriately licensed healthcare provider and should have access to the information and instructions that accompany their prescription."
+    },
+    {
+     "kind": "body",
+     "text": "For consumers comparing online programs, the broader point is straightforward: medication sourcing and fulfillment should be part of a responsible healthcare process, not an anonymous online transaction."
+    },
+    {
+     "kind": "body",
+     "text": "Patients should understand where their medication is prepared and dispensed. When comparing programs, ask whether prescription medications are formulated and fulfilled through appropriately licensed U.S.-based pharmacies."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Ask if your medication will be formulated by licensed U.S. pharmacies."
+    },
+    {
+     "kind": "approach",
+     "text": "WellPeps coordinates prescription fulfillment through U.S.-based pharmacy partners. Medication is provided only when prescribed following clinical review."
+    }
+   ]
+  },
+  {
+   "num": "12",
+   "kind": "section",
+   "headline": "What’s Actually Included in the Price?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Two programs advertising a similar monthly price may not include the same things."
+    },
+    {
+     "kind": "body",
+     "text": "Before comparing costs, find out what you’re actually paying for. Depending on the program, charges may involve medication, provider evaluation, ongoing support, laboratory services, shipping, coaching, membership or platform fees, and cancellation terms."
+    },
+    {
+     "kind": "body",
+     "text": "Unfortunately, some telehealth companies advertise low prices, but then charge patients extra for additional services, or don’t offer important services at all."
+    },
+    {
+     "kind": "emph",
+     "text": "Make sure you choose a provider that offers comprehensive care\nfor one all-inclusive price."
+    },
+    {
+     "kind": "iconlist",
+     "cols": 4,
+     "items": [
+      {
+       "icon": "tablet",
+       "title": "Medication"
+      },
+      {
+       "icon": "stethoscope",
+       "title": "Provider care"
+      },
+      {
+       "icon": "chat",
+       "title": "Ongoing support"
+      },
+      {
+       "icon": "clipboard",
+       "title": "Medical reviews"
+      },
+      {
+       "icon": "pin",
+       "title": "Providers in 50 states"
+      },
+      {
+       "icon": "pharmacy",
+       "title": "U.S.A. pharmacies"
+      },
+      {
+       "icon": "tag",
+       "title": "No separate member fee"
+      },
+      {
+       "icon": "calendar",
+       "title": "Easy cancel policy"
+      }
+     ]
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "What will my treatment actually cost—and what am I getting for that price?"
+    },
+    {
+     "kind": "approach",
+     "text": "WellPeps’ current consumer pricing model is designed around all-inclusive pricing, with medication, provider care and ongoing support included and no separate membership fee. Standard shipping is included; cancellation is subject to the program’s medication-order policy."
+    },
+    {
+     "kind": "tagline",
+     "text": "One Simple Price. Everything Included."
+    }
+   ]
+  },
+  {
+   "num": "13",
+   "kind": "section",
+   "headline": "The Smart Patient’s GLP-1 Checklist",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Be informed. Ask questions. Compare the care around the medication."
+    },
+    {
+     "kind": "checklist",
+     "items": [
+      {
+       "title": "Licensed provider review",
+       "desc": "Will a licensed healthcare provider review my health information before treatment is prescribed?"
+      },
+      {
+       "title": "Individualized treatment",
+       "desc": "Does the program take my health needs, treatment goals and lab tests into account?"
+      },
+      {
+       "title": "Ongoing support",
+       "desc": "Does support continue after medication is prescribed and delivered?"
+      },
+      {
+       "title": "Laboratory testing and monitoring",
+       "desc": "Are laboratory services offered as part of the weight-management program when appropriate?"
+      },
+      {
+       "title": "U.S.-based fulfillment",
+       "desc": "Does the program use licensed U.S. pharmacies, and will the provider tell me whether my medication is FDA-approved or compounded?"
+      },
+      {
+       "title": "The full price and complete package",
+       "desc": "Does the price include the medical review, medication, membership fees and ongoing support, and are lab tests offered?"
+      },
+      {
+       "title": "Cancellation terms",
+       "desc": "Can I cancel if the program is not right for me, before the next month’s order ships?"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "num": "14",
+   "kind": "why",
+   "headline": "Why We Created WellPeps",
+   "elements": [
+    {
+     "kind": "emph",
+     "text": "Real Care. Not Just Medication."
+    },
+    {
+     "kind": "body",
+     "text": "Telehealth has made healthcare more convenient. We believe convenience shouldn’t require giving up the parts of healthcare that matter. WellPeps was designed around a straightforward idea: modern healthcare should be easier to access without becoming merely a transaction."
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "Personalized Provider-Guided Care",
+       "desc": "Treatment begins with your health history, medications, goals, preferences and other relevant circumstances."
+      },
+      {
+       "title": "More Than a Prescription",
+       "desc": "Ongoing support rather than treating medication delivery as the end of the relationship."
+      },
+      {
+       "title": "Lab Access",
+       "desc": "Access to base medical-weight-management laboratory services through national labs like Quest Diagnostics and Labcorp, or at-home lab kits."
+      },
+      {
+       "title": "U.S.-Based Prescription Fulfillment",
+       "desc": "WellPeps coordinates prescription fulfillment through U.S.-based pharmacy partners."
+      },
+      {
+       "title": "Straightforward Pricing",
+       "desc": "Medication, provider care and ongoing support are included without a separate membership fee."
+      },
+      {
+       "title": "Healthcare Without the Runaround",
+       "desc": "Convenient access without making the care itself feel disposable."
+      },
+      {
+       "title": "Patient-Friendly Cancellations",
+       "desc": "Cancel for any reason before your next month’s delivery is ordered."
+      },
+      {
+       "title": "More than Weight Loss",
+       "desc": "We offer a wide and expanding range of treatment programs for your wellness needs."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "num": "",
+   "kind": "cta",
+   "headline": "Ready to Start Your Weight Loss Journey?",
+   "elements": [
+    {
+     "kind": "body",
+     "text": "Begin your personalized, provider-guided weight loss journey today. A licensed healthcare provider will review your health information and determine whether treatment is appropriate for you."
+    }
+   ]
+  },
+  {
+   "num": "",
+   "kind": "disclaimer",
+   "headline": "",
+   "elements": [],
+   "text": [
+    "This guide is provided for general educational purposes only and does not constitute medical advice, diagnosis or treatment. Individual medical needs vary. Always discuss treatment decisions, medications, side effects and health concerns with an appropriately licensed healthcare professional.",
+    "Prescription treatment requires evaluation by a licensed healthcare provider and is not guaranteed. Individual experiences vary, and no specific treatment outcome is guaranteed."
+   ]
+  }
+ ]
+}

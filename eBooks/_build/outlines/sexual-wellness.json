@@ -1,0 +1,748 @@
+{
+ "slug": "sexual-wellness",
+ "source": "eBooks/Manuscripts/sexual-wellness_revised-final.docx (Derek Goldberg, revised 2026-09-16). Replaces the pasted first manuscript. Copy rules from _build/README.md section 5 applied; Derek's closing design note (pages 03, 04, 05, 07 and 13 as card pages; 04 parallel to GLP-1 04; 13 same checklist layout as GLP-1) is followed, not printed.",
+ "title": "SEXUAL WELLNESS",
+ "subtitle": "Understanding today’s treatment options and finding the right care",
+ "deck": "",
+ "tagline": "Personalized Wellness. Simplified.",
+ "sections": [
+  {
+   "num": "00",
+   "kind": "before",
+   "headline": "Sexual Wellness Is Health Care",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Sexual health can be easy to dismiss as something separate from the rest of your health.\nIt isn’t."
+    },
+    {
+     "kind": "body",
+     "text": "Erectile dysfunction and other changes in sexual function may be influenced by cardiovascular health, diabetes and metabolic health, medications, hormonal factors, sleep, stress, anxiety, lifestyle habits and other medical or psychological factors. Often, more than one factor is involved."
+    },
+    {
+     "kind": "body",
+     "text": "Prescription medications can help many appropriate patients, but there isn’t one medication or treatment approach that’s right for everyone."
+    },
+    {
+     "kind": "body",
+     "text": "That’s why choosing sexual wellness care should involve more than asking:"
+    },
+    {
+     "kind": "quote",
+     "text": "“Which pill works best?”"
+    },
+    {
+     "kind": "body",
+     "text": "A smarter question is:"
+    },
+    {
+     "kind": "quote",
+     "text": "“Which treatment approach makes sense for me?”"
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "Sexual wellness treatment should be selected around the patient—not the other way around."
+    },
+    {
+     "kind": "approach",
+     "text": "Treatment begins with your health information, medications, symptoms and individual needs. A licensed healthcare provider determines whether prescription treatment may be appropriate."
+    }
+   ]
+  },
+  {
+   "num": "01",
+   "kind": "section",
+   "headline": "Erectile Dysfunction Is Common—and Often Treatable",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Erectile dysfunction, or ED, refers to persistent difficulty achieving or maintaining an erection sufficient for satisfactory sexual activity."
+    },
+    {
+     "kind": "body",
+     "text": "Occasional difficulty is common. Persistent or worsening problems deserve more attention. ED becomes more common with age, but it shouldn’t simply be dismissed as an inevitable part of getting older."
+    },
+    {
+     "kind": "emph",
+     "text": "Possible contributing factors include:"
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "CARDIOVASCULAR HEALTH",
+       "desc": "Healthy blood flow is important for erectile function."
+      },
+      {
+       "title": "DIABETES & METABOLIC HEALTH",
+       "desc": "Blood-vessel, nerve and hormonal changes may affect sexual function."
+      },
+      {
+       "title": "MEDICATIONS",
+       "desc": "Some prescription medications can contribute to erectile difficulties."
+      },
+      {
+       "title": "STRESS & ANXIETY",
+       "desc": "Mental and emotional health can influence sexual response."
+      },
+      {
+       "title": "LIFESTYLE",
+       "desc": "Sleep, exercise, smoking and alcohol use can all play a role."
+      }
+     ]
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Does the program consider my overall health and current medications before recommending treatment?"
+    },
+    {
+     "kind": "approach",
+     "text": "Good sexual wellness care considers the patient—not simply the symptom."
+    }
+   ]
+  },
+  {
+   "num": "02",
+   "kind": "section",
+   "headline": "Not Every Sexual Problem Is the Same Problem",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Difficulty achieving or maintaining an erection is not necessarily the same as reduced sexual desire. This distinction matters."
+    },
+    {
+     "kind": "body",
+     "text": "Sildenafil and tadalafil are medications for erectile dysfunction. They improve blood flow to erectile tissue during sexual stimulation. They support the body’s erectile response, but sexual stimulation is still required. They aren’t intended simply to create desire or cause an automatic erection."
+    },
+    {
+     "kind": "body",
+     "text": "Changes in libido may have different contributing factors, including hormones, medications, stress, mental health, relationship factors and other health issues."
+    },
+    {
+     "kind": "body",
+     "text": "That’s another reason treatment should begin with understanding the patient’s actual symptoms and goals."
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "Before choosing a medication, understand what problem you’re actually trying to address."
+    },
+    {
+     "kind": "approach",
+     "text": "A licensed healthcare provider reviews your symptoms, health information and treatment goals before determining whether ED medication may be appropriate."
+    }
+   ]
+  },
+  {
+   "num": "03",
+   "kind": "section",
+   "headline": "How ED Medications Work",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Sildenafil and tadalafil belong to a class of medications called PDE5 inhibitors."
+    },
+    {
+     "kind": "body",
+     "text": "During sexual stimulation, the body uses chemical signals that help relax smooth muscle and increase blood flow to erectile tissue. An enzyme called PDE5 helps break down one of the signaling molecules involved in this process. PDE5 inhibitors reduce that breakdown, helping support blood flow and the natural erectile response during sexual stimulation."
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "WHAT THEY CAN DO",
+       "desc": "Support erectile function in appropriate patients."
+      },
+      {
+       "title": "WHAT THEY DON’T DO",
+       "desc": "They don’t automatically create sexual desire."
+      }
+     ]
+    },
+    {
+     "kind": "cards",
+     "single": true,
+     "items": [
+      {
+       "title": "STIMULATION STILL MATTERS",
+       "desc": "An ED medication doesn’t simply produce an erection on its own. Sexual stimulation is still required."
+      }
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "Sildenafil and tadalafil work through the same general pathway, but differences in duration, dosing and other characteristics can make one approach more appropriate than another for an individual patient."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Do I understand what my medication is designed to do—and what it isn’t designed to do?"
+    },
+    {
+     "kind": "approach",
+     "text": "Understanding how a medication works helps patients develop more realistic expectations about treatment."
+    }
+   ]
+  },
+  {
+   "num": "04",
+   "kind": "section",
+   "headline": "Sildenafil, Tadalafil and Daily Tadalafil",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Two medications can work through the same general pathway without offering the same treatment experience."
+    },
+    {
+     "kind": "cards",
+     "profile": true,
+     "items": [
+      {
+       "title": "SILDENAFIL",
+       "sub": "An Established As-Needed Choice",
+       "desc": "Typically taken before anticipated sexual activity. Sildenafil has a shorter treatment window than tadalafil and is widely used as an as-needed ED medication.",
+       "image": "product-sildenafil"
+      },
+      {
+       "title": "TADALAFIL — AS NEEDED",
+       "sub": "A Longer Window of Flexibility",
+       "desc": "Also taken as needed, but its effects can last considerably longer than sildenafil—up to 36 hours for some patients. That doesn’t mean an erection lasts 36 hours. It refers to the period during which the medication may help support an erectile response when sexual stimulation occurs.",
+       "image": "product-tadalafil"
+      },
+      {
+       "title": "DAILY TADALAFIL",
+       "sub": "Stay Ready Every Day",
+       "desc": "A lower-dose tadalafil regimen taken once daily. Daily dosing can reduce the need to coordinate taking medication with anticipated sexual activity.",
+       "image": "product-daily"
+      }
+     ],
+     "layout": "rows"
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Which medication and dosing approach best fits my health, needs and lifestyle?"
+    },
+    {
+     "kind": "approach",
+     "text": "WellPeps offers multiple FDA-approved ED treatment options. A licensed healthcare provider determines which medication, dose and schedule may be appropriate."
+    }
+   ]
+  },
+  {
+   "num": "05",
+   "kind": "section",
+   "headline": "Daily or As Needed?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "There isn’t one dosing approach that’s automatically better for every patient."
+    },
+    {
+     "kind": "body",
+     "text": "Some patients prefer taking medication only before anticipated sexual activity. Others may prefer a regular daily treatment plan that reduces the need to coordinate medication with a particular occasion."
+    },
+    {
+     "kind": "emph",
+     "text": "A healthcare provider may consider:"
+    },
+    {
+     "kind": "list",
+     "cols": 1,
+     "items": [
+      "Medical History — Health conditions can affect which treatment may be appropriate.",
+      "Current Medications — Potential interactions matter.",
+      "Frequency & Lifestyle — How a patient expects to use treatment can affect the choice.",
+      "Previous Experience — Effectiveness and tolerability of previous treatments can be relevant.",
+      "Patient Preference — Convenience, flexibility and spontaneity can all matter."
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "The longest-lasting or highest-dose option isn’t automatically the best choice."
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "The right treatment isn’t necessarily the strongest or longest-lasting option. It’s the approach that appropriately fits the individual patient."
+    },
+    {
+     "kind": "approach",
+     "text": "Treatment decisions consider health information, treatment goals, lifestyle and patient preferences—not simply which medication is most heavily advertised."
+    }
+   ]
+  },
+  {
+   "num": "06",
+   "kind": "section",
+   "headline": "Prescription Convenience Shouldn’t Replace Medical Review",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Online sexual wellness treatment has made care dramatically more convenient. That’s a good thing."
+    },
+    {
+     "kind": "body",
+     "text": "But convenience shouldn’t turn prescription medication into an impulse purchase. Before prescribing sildenafil or tadalafil, a healthcare provider may consider:"
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "HEALTH HISTORY",
+       "desc": "Relevant medical conditions"
+      },
+      {
+       "title": "SYMPTOMS",
+       "desc": "What the patient is actually experiencing"
+      },
+      {
+       "title": "CURRENT MEDICATIONS",
+       "desc": "Potential interactions"
+      },
+      {
+       "title": "CARDIOVASCULAR HEALTH",
+       "desc": "Conditions that may affect treatment safety"
+      },
+      {
+       "title": "TREATMENT GOALS",
+       "desc": "What the patient hopes to address"
+      }
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "This review is especially important because ED medications can interact with other medications and may not be appropriate for everyone. Completing an online health assessment shouldn’t guarantee a prescription."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Will a licensed healthcare provider actually review my health information and medications before treatment is prescribed?"
+    },
+    {
+     "kind": "approach",
+     "text": "Treatment begins with a private health assessment and licensed-provider review. Prescription treatment is provided only when determined to be clinically appropriate."
+    }
+   ]
+  },
+  {
+   "num": "07",
+   "kind": "section",
+   "headline": "One Interaction Every Patient Should Know About",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "There is an important safety issue associated with common PDE5 inhibitors such as sildenafil and tadalafil."
+    },
+    {
+     "kind": "redflag",
+     "inline": true,
+     "lines": [
+      "Nitrate medications",
+      "Sildenafil and tadalafil should not be taken with nitrate medications because the combination can cause a dangerous drop in blood pressure."
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "That’s one reason accurately reporting your medications matters."
+    },
+    {
+     "kind": "body",
+     "text": "Patients should also tell their healthcare provider about other medications, supplements and medical conditions because additional interactions and precautions may affect whether treatment is appropriate."
+    },
+    {
+     "kind": "body",
+     "text": "And if emergency medical care is needed, healthcare professionals should know about recent ED-medication use."
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "Never hide medications or health conditions because you’re concerned they might prevent you from getting a prescription. That information helps keep treatment safe."
+    },
+    {
+     "kind": "approach",
+     "text": "Medication review is part of determining whether treatment is appropriate and which treatment approach may make sense for an individual patient."
+    }
+   ]
+  },
+  {
+   "num": "08",
+   "kind": "section",
+   "headline": "Side Effects Are Part of the Conversation",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Every prescription medication has potential risks and side effects."
+    },
+    {
+     "kind": "body",
+     "text": "Commonly reported effects with sildenafil or tadalafil can include:"
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "HEADACHE"
+      },
+      {
+       "title": "FACIAL FLUSHING"
+      },
+      {
+       "title": "NASAL CONGESTION"
+      },
+      {
+       "title": "INDIGESTION"
+      },
+      {
+       "title": "DIZZINESS"
+      }
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "Tadalafil may also be associated with back pain or muscle aches. Sildenafil can cause temporary visual changes in some patients. Patients should contact an appropriate healthcare professional about persistent, worsening or concerning symptoms."
+    },
+    {
+     "kind": "redflag",
+     "inline": true,
+     "lines": [
+      "Certain symptoms require more urgent attention. Seek immediate medical evaluation for circumstances such as:",
+      "Chest pain • Sudden vision loss • Sudden hearing loss • An erection lasting more than four hours • Signs of a serious allergic reaction"
+     ]
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "If I experience a side effect or have a medication question, how do I reach the appropriate clinical resource?"
+    },
+    {
+     "kind": "approach",
+     "text": "Patients can discuss treatment questions, side effects and potential changes in treatment with appropriate medical providers."
+    }
+   ]
+  },
+  {
+   "num": "09",
+   "kind": "section",
+   "headline": "What If the Medication Doesn’t Work as Expected?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Sometimes the first treatment doesn’t produce the experience a patient expected. That doesn’t mean the answer is:"
+    },
+    {
+     "kind": "quote",
+     "text": "“Take more.”"
+    },
+    {
+     "kind": "body",
+     "text": "Patients should not independently increase their dose, change their dosing schedule or combine prescription treatments. Instead, discuss the experience with a healthcare provider. The provider may consider:"
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "HOW IT WAS USED",
+       "desc": "Were the medication instructions followed?"
+      },
+      {
+       "title": "TIMING",
+       "desc": "Was it taken at an appropriate time?"
+      },
+      {
+       "title": "FOOD OR ALCOHOL",
+       "desc": "Could either have affected the treatment experience?"
+      },
+      {
+       "title": "OTHER MEDICATIONS",
+       "desc": "Could an interaction be relevant?"
+      },
+      {
+       "title": "HEALTH FACTORS",
+       "desc": "Could another issue be contributing?"
+      },
+      {
+       "title": "TREATMENT APPROACH",
+       "desc": "Would another dose, schedule or medication be appropriate?"
+      }
+     ]
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "Treatment that doesn’t work as expected is a reason for a conversation—not self-prescribing."
+    },
+    {
+     "kind": "approach",
+     "text": "Treatment can be reassessed based on effectiveness, tolerability and individual needs."
+    }
+   ]
+  },
+  {
+   "num": "10",
+   "kind": "section",
+   "headline": "Sexual Wellness and Your Overall Health",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Medication can play an important role in treating ED, but sexual function doesn’t exist separately from the rest of your health."
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "CARDIOVASCULAR HEALTH",
+       "desc": "Healthy circulation is fundamental to erectile function."
+      },
+      {
+       "title": "METABOLIC HEALTH",
+       "desc": "Diabetes, obesity and other metabolic conditions can contribute to ED."
+      },
+      {
+       "title": "PHYSICAL ACTIVITY",
+       "desc": "Regular activity supports cardiovascular health and circulation."
+      },
+      {
+       "title": "SLEEP",
+       "desc": "Consistent, quality sleep supports overall health."
+      },
+      {
+       "title": "MENTAL WELL-BEING",
+       "desc": "Stress, anxiety, depression and relationship concerns can influence sexual function and satisfaction."
+      },
+      {
+       "title": "SMOKING & ALCOHOL",
+       "desc": "Smoking can impair circulation, while excessive alcohol can negatively affect sexual performance."
+      }
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "These aren’t substitutes for appropriate medical treatment. They are reminders that addressing overall health can be an important part of sexual wellness."
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "Sexual wellness can provide another reason to pay attention to your overall health—not just your prescription."
+    },
+    {
+     "kind": "approach",
+     "text": "Treatment can address the immediate concern while keeping the broader health picture in view."
+    }
+   ]
+  },
+  {
+   "num": "11",
+   "kind": "section",
+   "headline": "Your Care Shouldn’t End When Your Medication Ships",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "It’s easy for online sexual wellness treatment to look like an e-commerce transaction: complete a form, select a product, receive a package. Healthcare should be more than that."
+    },
+    {
+     "kind": "list",
+     "cols": 1,
+     "items": [
+      "Patients may have questions after beginning treatment.",
+      "A medication may not work as expected.",
+      "Side effects can occur.",
+      "A patient’s health, medications, needs or treatment preferences can change.",
+      "The appropriate dose or treatment approach may need to be reconsidered."
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "That’s why access to care after the prescription matters."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Does the program provide support after medication is prescribed and delivered?"
+    },
+    {
+     "kind": "approach",
+     "text": "Health assessment • Licensed-provider review • Treatment when clinically appropriate • Ongoing support. WellPeps is designed around continued care rather than treating medication delivery as the end of the relationship."
+    }
+   ]
+  },
+  {
+   "num": "12",
+   "kind": "section",
+   "headline": "Sexual Health Is Personal",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Seeking treatment shouldn’t require sacrificing discretion."
+    },
+    {
+     "kind": "body",
+     "text": "For many people, embarrassment or inconvenience can make sexual-health concerns difficult to discuss. Telehealth can make accessing care easier and more private—but the same healthcare standards should still apply."
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "SECURE HEALTH INFORMATION",
+       "desc": "Personal health information should be handled appropriately."
+      },
+      {
+       "title": "PROFESSIONAL MEDICAL REVIEW",
+       "desc": "Convenience shouldn’t eliminate provider evaluation."
+      },
+      {
+       "title": "DISCREET COMMUNICATION",
+       "desc": "Patients should be able to discuss sensitive concerns privately."
+      },
+      {
+       "title": "APPROPRIATE PRESCRIPTION FULFILLMENT",
+       "desc": "Prescription medication should be provided through legitimate healthcare and pharmacy channels."
+      }
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "The objective should be to make seeking care easier—not make healthcare less serious."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Can I access care privately without sacrificing appropriate medical review?"
+    },
+    {
+     "kind": "approach",
+     "text": "WellPeps is designed to provide a private telehealth experience with licensed-provider review and discreet prescription fulfillment when treatment is appropriate."
+    }
+   ]
+  },
+  {
+   "num": "13",
+   "kind": "section",
+   "headline": "The Smart Patient’s Sexual Wellness Checklist",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Be informed. Ask questions. Understand the care behind the medication."
+    },
+    {
+     "kind": "checklist",
+     "items": [
+      {
+       "title": "Licensed provider review",
+       "desc": "Will a licensed healthcare provider review my health information before treatment is prescribed?"
+      },
+      {
+       "title": "Medication and health review",
+       "desc": "Have my current medications and relevant health conditions been considered?"
+      },
+      {
+       "title": "Understand the issue",
+       "desc": "What problem are we actually trying to address?"
+      },
+      {
+       "title": "Individualized treatment",
+       "desc": "Why is this particular medication, dose and treatment schedule being recommended for me?"
+      },
+      {
+       "title": "Safety",
+       "desc": "What potential side effects, contraindications and interactions should I understand?"
+      },
+      {
+       "title": "Treatment response",
+       "desc": "What should I do if the medication doesn’t work as expected or causes side effects?"
+      },
+      {
+       "title": "Ongoing support",
+       "desc": "Is support available if my needs or treatment response changes?"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "num": "14",
+   "kind": "why",
+   "headline": "Why We Created WellPeps",
+   "elements": [
+    {
+     "kind": "emph",
+     "text": "Real Care. Not Just Medication."
+    },
+    {
+     "kind": "body",
+     "text": "WellPeps was founded by a physician and an experienced pharmacy owner who believed there should be a better way to bring together thoughtful medical care, quality prescription fulfillment and a more convenient patient experience."
+    },
+    {
+     "kind": "body",
+     "text": "That perspective shaped the WellPeps approach: personalized, provider-guided care designed around the patient—not simply the medication."
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "Personalized Provider-Guided Care",
+       "desc": "Treatment begins with your health information, medications, goals and individual circumstances."
+      },
+      {
+       "title": "Multiple Wellness Options",
+       "desc": "Different treatment options allow providers to consider what may be appropriate for different individuals."
+      },
+      {
+       "title": "More Than a Prescription",
+       "desc": "The WellPeps experience is designed around care—not simply delivering medication."
+      },
+      {
+       "title": "Quality Prescription Fulfillment",
+       "desc": "Prescriptions are fulfilled through U.S.-based pharmacy partners selected to support quality and reliable prescription fulfillment."
+      },
+      {
+       "title": "Ongoing Support",
+       "desc": "Your questions and treatment needs don’t necessarily stop when treatment begins."
+      },
+      {
+       "title": "Straightforward Pricing",
+       "desc": "Provider care, medication and ongoing support are included without a separate membership fee."
+      },
+      {
+       "title": "Healthcare Without the Runaround",
+       "desc": "A simpler, more convenient way to access treatment—from assessment and medical review to prescription fulfillment and ongoing support."
+      },
+      {
+       "title": "More Than Sexual Wellness",
+       "desc": "WellPeps offers a wide and expanding range of treatment programs for your wellness needs."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "num": "",
+   "kind": "cta",
+   "headline": "Ready to Explore Your Sexual Wellness Options?",
+   "elements": [
+    {
+     "kind": "body",
+     "text": "Regain & Reconnect. Begin with a private online health assessment."
+    },
+    {
+     "kind": "body",
+     "text": "A licensed healthcare provider will review your health information and determine whether prescription treatment is appropriate for you."
+    }
+   ]
+  },
+  {
+   "num": "",
+   "kind": "disclaimer",
+   "headline": "",
+   "elements": [],
+   "text": [
+    "This guide is provided for general educational purposes only and does not constitute medical advice, diagnosis or treatment. Individual medical needs vary. Always discuss treatment decisions, medications, side effects and health concerns with an appropriately licensed healthcare professional.",
+    "Prescription treatment requires evaluation by a licensed healthcare provider and is not guaranteed. Individual experiences vary, and no specific treatment outcome is guaranteed. Never change the dose or schedule of prescription medication or combine treatments without guidance from the prescribing healthcare professional.",
+    "Sildenafil, tadalafil and other PDE5 inhibitors should not be used with nitrate medications. Patients should provide their healthcare provider with accurate information about medications and relevant health conditions.",
+    "Seek immediate medical attention for chest pain, sudden vision or hearing changes, an erection lasting more than four hours, signs of a severe allergic reaction, or another medical emergency."
+   ]
+  }
+ ]
+}

@@ -1,0 +1,115 @@
+{
+ "topic": "SEXUAL WELLNESS",
+ "title": "SEXUAL WELLNESS",
+ "cta_url": "https://wellpeps.com/#assessment",
+ "cover": "../../wellpeps-site/public/images/sexual/hero-couple.webp",
+ "cover_focus": [
+  0.5,
+  0.3
+ ],
+ "cover_style": "editorial",
+ "theme": "editorial-v6",
+ "shadows": "blur",
+ "series": [
+  {
+   "title": "The Smart Patient’s Guide to GLP-1 Weight Loss"
+  },
+  {
+   "title": "The Smart Patient’s Guide to NAD+"
+  },
+  {
+   "title": "The Smart Patient’s Guide to Healthy Aging & Vitality"
+  },
+  {
+   "title": "The Smart Patient’s Guide to Hair Restoration"
+  }
+ ],
+ "sections": {
+  "00": {
+   "kicker": "BEFORE YOU START"
+  },
+  "01": {
+   "kicker": "UNDERSTAND THE ISSUE"
+  },
+  "02": {
+   "kicker": "KNOW WHAT YOU’RE TREATING",
+   "image": "../../wellpeps-site/public/images/hero-couple.webp",
+   "image_w": 3.1,
+   "image_h": 2.2,
+   "focus": [
+    0.55,
+    0.45
+   ],
+   "image_min_w": 2.6
+  },
+  "03": {
+   "kicker": "UNDERSTAND THE TREATMENT"
+  },
+  "04": {
+   "kicker": "KNOW YOUR OPTIONS",
+   "dense": true
+  },
+  "05": {
+   "kicker": "PERSONALIZED TREATMENT"
+  },
+  "06": {
+   "kicker": "START WITH THE MEDICAL QUESTION"
+  },
+  "07": {
+   "kicker": "KNOW THE INTERACTIONS"
+  },
+  "08": {
+   "kicker": "KNOW WHAT TO WATCH FOR"
+  },
+  "09": {
+   "kicker": "WHEN TREATMENT NEEDS ADJUSTMENT"
+  },
+  "10": {
+   "kicker": "LOOK AT THE WHOLE PICTURE"
+  },
+  "11": {
+   "kicker": "MEDICATION ARRIVES. CARE CONTINUES.",
+   "image": "../../wellpeps-site/public/images/about/our-promise.webp",
+   "image_w": 3.0,
+   "image_h": 2.0,
+   "focus": [
+    0.5,
+    0.45
+   ],
+   "image_min_w": 2.4
+  },
+  "12": {
+   "kicker": "PRIVACY MATTERS",
+   "image": "../../wellpeps-site/public/images/peptide/photo-methylene.webp",
+   "image_w": 1.8,
+   "image_h": 1.2,
+   "focus": [
+    0.5,
+    0.35
+   ],
+   "image_min_w": 2.2
+  },
+  "13": {
+   "kicker": "USE THE CHECKLIST",
+   "headline_icon": "../_assets/glp1-media/ppt/media/image13.png"
+  },
+  "cta": {
+   "kicker": "GET THE COMPREHENSIVE CARE YOU DESERVE",
+   "image": "../../wellpeps-site/public/images/sexual/cta-couple.webp",
+   "focus": [
+    0.5,
+    0.35
+   ],
+   "button": "Start Your Free Assessment"
+  },
+  "14": {
+   "dense": true,
+   "kicker": "A BETTER APPROACH TO CARE"
+  }
+ },
+ "card_images": {
+  "product-sildenafil": "../../docs/site-revisions/source-images/product-sildenafil_oral.png",
+  "product-tadalafil": "../../docs/site-revisions/source-images/product-tadalafil_oral.png",
+  "product-daily": "../../wellpeps-site/public/images/sexual/product-daily.webp"
+ }
+}

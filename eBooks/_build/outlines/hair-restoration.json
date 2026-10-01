@@ -1,0 +1,737 @@
+{
+ "slug": "hair-restoration",
+ "source": "HAIR RESTORATION - Final Text.docx from Derek Goldberg (2026-09-16, eBooks/9-16-26/), revised page 14 from eBooks/Manuscripts/hair-restoration-revised.docx (2026-09-16 evening). Copy rules from _build/README.md section 5 applied; the production notes at the end of the manuscript were dropped from the outline and recorded in the README.",
+ "title": "HAIR RESTORATION",
+ "subtitle": "Understanding hair loss, today’s treatment options, and what to realistically expect",
+ "deck": "Understanding hair loss, today’s treatment options, and what to realistically expect",
+ "tagline": "Personalized Wellness. Simplified.",
+ "sections": [
+  {
+   "num": "00",
+   "kind": "before",
+   "headline": "Understand What You’re Treating",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Hair loss is common—but understanding why it’s happening can make a meaningful difference in choosing what to do next."
+    },
+    {
+     "kind": "body",
+     "text": "For some people, hair loss develops gradually over many years. For others, increased shedding seems to appear suddenly. Some first notice a receding hairline. Others see a widening part, thinning crown, smaller ponytail, bald spot, or more hair than usual in the shower."
+    },
+    {
+     "kind": "body",
+     "text": "Genetics can play an important role, but hair loss can also be associated with hormonal changes, illness, medications, nutritional deficiencies, significant stress, autoimmune conditions and scalp disorders."
+    },
+    {
+     "kind": "body",
+     "text": "That’s why the first step shouldn’t simply be choosing a hair-growth product."
+    },
+    {
+     "kind": "emph",
+     "text": "It should be understanding what you’re treating."
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "Different types of hair loss can require different approaches. Understand the likely cause before choosing a treatment."
+    },
+    {
+     "kind": "approach",
+     "text": "Treatment begins with your health information and hair-loss history. A licensed healthcare provider determines whether treatment may be appropriate."
+    }
+   ]
+  },
+  {
+   "num": "01",
+   "kind": "section",
+   "headline": "Why Does Hair Loss Happen?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Hair loss isn’t one condition. Different biological and medical factors can affect how hair grows, sheds and changes over time."
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "PATTERN HAIR LOSS",
+       "desc": "Androgenetic alopecia—often called male or female pattern hair loss—is the most common form of hereditary hair loss. Genetics and hormone activity can cause susceptible follicles to gradually become smaller, producing progressively thinner and shorter hairs."
+      },
+      {
+       "title": "EXCESSIVE SHEDDING",
+       "desc": "Telogen effluvium can cause increased shedding following illness, surgery, childbirth, significant weight change, severe stress or other physical stressors."
+      },
+      {
+       "title": "OTHER CAUSES",
+       "desc": "Autoimmune conditions such as alopecia areata can cause hair loss. Thyroid disorders, nutritional deficiencies, certain medications, scalp conditions and traction from hairstyles are among other potential contributors."
+      }
+     ]
+    },
+    {
+     "kind": "emph",
+     "text": "The appropriate approach depends on what is causing the hair loss."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Could something other than hereditary pattern hair loss be contributing to my symptoms?"
+    },
+    {
+     "kind": "approach",
+     "text": "When a patient’s history suggests another potential cause, additional medical evaluation or testing may be appropriate."
+    }
+   ]
+  },
+  {
+   "num": "02",
+   "kind": "section",
+   "headline": "Hair Loss Doesn’t Look the Same for Everyone",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Where and how hair changes can offer clues to the type of hair loss."
+    },
+    {
+     "kind": "subhead",
+     "title": "Men",
+     "desc": ""
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "RECEDING HAIRLINE",
+       "desc": "Hair gradually recedes around the temples and frontal hairline."
+      },
+      {
+       "title": "THINNING CROWN",
+       "desc": "Density decreases around the crown or top of the scalp."
+      },
+      {
+       "title": "PROGRESSIVE PATTERN LOSS",
+       "desc": "Hairline recession and crown thinning can become more extensive over time."
+      }
+     ]
+    },
+    {
+     "kind": "subhead",
+     "title": "Women",
+     "desc": ""
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "WIDENING PART",
+       "desc": "The center part can gradually become wider and more visible."
+      },
+      {
+       "title": "REDUCED DENSITY",
+       "desc": "Hair may feel less full or a ponytail may become noticeably smaller."
+      },
+      {
+       "title": "DIFFUSE THINNING",
+       "desc": "Thinning often occurs across the top of the scalp rather than forming a clearly defined bald area."
+      }
+     ]
+    },
+    {
+     "kind": "subhead",
+     "title": "Other patterns",
+     "desc": "Sudden shedding, isolated bald patches, rapid changes, scalp inflammation or scarring can suggest a different cause and may warrant in-person dermatologic evaluation."
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "Don’t assume every receding hairline, widening part or episode of shedding has the same cause."
+    },
+    {
+     "kind": "approach",
+     "text": "A patient’s pattern, timing and progression of hair loss are important parts of determining an appropriate next step."
+    }
+   ]
+  },
+  {
+   "num": "03",
+   "kind": "section",
+   "headline": "What Type of Hair Loss Do You Have?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Hair-loss treatment should begin with a medical question: What appears to be causing the hair loss in this particular patient?"
+    },
+    {
+     "kind": "body",
+     "text": "A treatment that’s commonly used for hereditary pattern hair loss may not address hair loss caused by an autoimmune disorder, nutritional deficiency, medication, illness or scalp condition."
+    },
+    {
+     "kind": "body",
+     "text": "A healthcare provider may consider factors such as:"
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "PATTERN",
+       "desc": "Where is thinning occurring?"
+      },
+      {
+       "title": "TIMING",
+       "desc": "Was the change gradual or sudden?"
+      },
+      {
+       "title": "MEDICATIONS",
+       "desc": "Could a medication or supplement be involved?"
+      },
+      {
+       "title": "HEALTH HISTORY",
+       "desc": "Are there medical conditions that could contribute?"
+      },
+      {
+       "title": "OTHER SYMPTOMS",
+       "desc": "Are there scalp changes or other health concerns?"
+      }
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "Depending on the circumstances, laboratory testing or evaluation by a dermatologist or another healthcare professional may be appropriate."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Has my hair loss actually been evaluated before treatment is prescribed?"
+    },
+    {
+     "kind": "approach",
+     "text": "Submitting a health assessment should not guarantee a prescription. A licensed healthcare provider determines whether treatment is appropriate."
+    }
+   ]
+  },
+  {
+   "num": "04",
+   "kind": "section",
+   "headline": "Today’s Common Hair-Loss Medications",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Spend a few minutes researching hair restoration and you’ll encounter dozens of products and ingredients. They don’t all work the same way—or have the same level of evidence."
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "MINOXIDIL",
+       "desc": "Works through mechanisms associated with hair growth. FDA-approved topical formulations are available for male and female pattern hair loss."
+      },
+      {
+       "title": "FINASTERIDE",
+       "desc": "Reduces formation of DHT, a hormone involved in follicle miniaturization in male pattern hair loss. Oral finasteride 1 mg is FDA-approved for male pattern hair loss."
+      },
+      {
+       "title": "OTHER PRESCRIPTION OPTIONS",
+       "desc": "Depending on the patient, medical providers may consider other medications such as oral minoxidil, spironolactone or dutasteride."
+      }
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "Some uses are off-label, meaning the medication is FDA-approved for another indication but not specifically approved for that hair-loss use."
+    },
+    {
+     "kind": "body",
+     "text": "There is no universally correct treatment for every patient. The cause and pattern of hair loss, health history, current medications, potential risks and treatment preferences can all affect the decision."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Why is this particular treatment being recommended for my type of hair loss?"
+    },
+    {
+     "kind": "approach",
+     "text": "Treatment options are selected through licensed-provider review rather than a one-size-fits-all approach."
+    }
+   ]
+  },
+  {
+   "num": "05",
+   "kind": "section",
+   "headline": "Finasteride and the Role of DHT",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Finasteride targets one pathway behind male pattern hair loss."
+    },
+    {
+     "kind": "body",
+     "text": "An enzyme called 5-alpha-reductase converts testosterone into dihydrotestosterone, or DHT. In genetically susceptible men, DHT contributes to the gradual miniaturization of hair follicles."
+    },
+    {
+     "kind": "emph",
+     "text": "Finasteride inhibits 5-alpha-reductase and reduces DHT levels."
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "ORAL FINASTERIDE",
+       "desc": "Finasteride 1 mg is FDA-approved for male pattern hair loss in men. It is generally taken once daily. Treatment takes time. If finasteride is effective, continued treatment is generally necessary to maintain the benefit."
+      },
+      {
+       "title": "TOPICAL FINASTERIDE",
+       "desc": "Finasteride can also be prescribed in compounded topical formulations, sometimes in combination with minoxidil."
+      }
+     ]
+    },
+    {
+     "kind": "redflag",
+     "inline": true,
+     "lines": [
+      "No FDA-approved topical finasteride",
+      "There is currently no FDA-approved topical finasteride formulation in the United States. FDA also cautions that topical finasteride can be absorbed systemically and has reported adverse events associated with compounded topical products."
+     ]
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Do I understand the potential benefits, risks and approval status of the finasteride formulation being recommended?"
+    },
+    {
+     "kind": "approach",
+     "text": "Provider-guided care considers potential risks as well as treatment goals."
+    }
+   ]
+  },
+  {
+   "num": "06",
+   "kind": "section",
+   "headline": "Minoxidil: A Different Approach",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Minoxidil works differently from finasteride and has a long history in hair-loss treatment."
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "TOPICAL MINOXIDIL",
+       "desc": "FDA-approved topical minoxidil products are available for pattern hair loss in men and women. Topical minoxidil is applied directly to the scalp. Depending on the product, it may be used once or twice daily. Results aren’t immediate. Consistent use for several months may be necessary before response can be meaningfully evaluated. Temporary increased shedding can occur after treatment begins, and scalp irritation is another possible side effect."
+      },
+      {
+       "title": "ORAL MINOXIDIL",
+       "desc": "Minoxidil was originally developed as an oral medication for high blood pressure. Healthcare providers also sometimes prescribe low-dose oral minoxidil off-label for hair loss. Because oral medication circulates throughout the body, medical history, current medications and potential systemic effects are important considerations."
+      }
+     ]
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "If minoxidil is recommended, why is this route and formulation appropriate for me?"
+    },
+    {
+     "kind": "approach",
+     "text": "Route of administration is part of the treatment decision—not simply a matter of convenience."
+    }
+   ]
+  },
+  {
+   "num": "07",
+   "kind": "section",
+   "headline": "Oral vs. Topical: What Actually Changes?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "The same treatment goal can sometimes be approached through very different delivery methods."
+    },
+    {
+     "kind": "twocol",
+     "style": "neutral",
+     "cols": [
+      {
+       "title": "TOPICAL",
+       "items": [
+        "Applied to the scalp",
+        "Treatment is applied directly to the target area",
+        "Requires a consistent application routine",
+        "May cause local irritation depending on the medication",
+        "Some topical medications can still be absorbed systemically"
+       ]
+      },
+      {
+       "title": "ORAL",
+       "items": [
+        "Taken by mouth",
+        "Simple dosing may be convenient for some patients",
+        "Medication circulates systemically",
+        "Medical history and current medications can be especially important",
+        "Potential systemic adverse effects vary by medication"
+       ]
+      }
+     ]
+    },
+    {
+     "kind": "emph",
+     "text": "Neither route is automatically “better.”"
+    },
+    {
+     "kind": "body",
+     "text": "The type of hair loss, medication, medical history, potential risks, previous treatment experience and patient preferences can all affect the provider’s recommendation."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "What are the advantages and potential disadvantages of oral and topical treatment for me?"
+    },
+    {
+     "kind": "approach",
+     "text": "A medical provider can consider both the treatment itself and the most appropriate way to deliver it."
+    }
+   ]
+  },
+  {
+   "num": "08",
+   "kind": "section",
+   "headline": "Why Might Medications Be Combined?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Different hair-loss medications can work through different biological pathways. For example:"
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "FINASTERIDE",
+       "desc": "Addresses DHT activity involved in male pattern hair loss."
+      },
+      {
+       "title": "MINOXIDIL",
+       "desc": "Works through a different mechanism associated with hair growth."
+      },
+      {
+       "title": "TRETINOIN",
+       "desc": "May be included in certain compounded topical formulations."
+      }
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "A medical provider may sometimes consider a treatment containing more than one active ingredient based on the individual patient’s needs and available treatment options."
+    },
+    {
+     "kind": "emph",
+     "text": "But more ingredients don’t automatically mean better treatment."
+    },
+    {
+     "kind": "body",
+     "text": "And FDA approval of an individual ingredient does not mean that every compounded combination containing that ingredient is FDA-approved. There are currently no FDA-approved topical finasteride products, including topical finasteride/minoxidil combinations."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Why are these particular medications being combined in my treatment?"
+    },
+    {
+     "kind": "approach",
+     "text": "Treatment should have a clinical rationale. The goal isn’t the longest ingredient list—it’s an appropriate plan for the individual patient."
+    }
+   ]
+  },
+  {
+   "num": "09",
+   "kind": "section",
+   "headline": "Dutasteride, Spironolactone and Other Treatments",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Some patients may be considered for prescription medications beyond topical minoxidil and oral finasteride."
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "DUTASTERIDE",
+       "desc": "Like finasteride, dutasteride is a 5-alpha-reductase inhibitor that affects DHT production. Dutasteride is FDA-approved for benign prostatic hyperplasia—not hair loss. Hair-loss treatment with dutasteride in the United States is therefore off-label."
+      },
+      {
+       "title": "SPIRONOLACTONE",
+       "desc": "Spironolactone has anti-androgen activity and is sometimes prescribed for women with female pattern hair loss. Its use for hair loss is also off-label. Medical history, current medications and pregnancy considerations can be important when determining whether spironolactone is appropriate."
+      },
+      {
+       "title": "OTHER APPROACHES",
+       "desc": "Depending on the cause and severity of hair loss, dermatologists may also discuss procedures, devices or other treatment approaches."
+      }
+     ]
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "“Used for hair loss” and “FDA-approved for hair loss” don’t always mean the same thing."
+    },
+    {
+     "kind": "approach",
+     "text": "When an off-label treatment is considered, patients should understand what is being prescribed and why."
+    }
+   ]
+  },
+  {
+   "num": "10",
+   "kind": "section",
+   "headline": "Hair Restoration Takes Time",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Hair grows slowly. That’s why hair-loss treatment usually can’t be fairly evaluated after a few days or weeks."
+    },
+    {
+     "kind": "cards",
+     "cols": 4,
+     "items": [
+      {
+       "title": "STARTING TREATMENT",
+       "desc": "The first priority is consistency. Visible change may be limited early in treatment."
+      },
+      {
+       "title": "FIRST FEW MONTHS",
+       "desc": "Some treatments can be associated with temporary increased shedding after treatment begins."
+      },
+      {
+       "title": "3–6 MONTHS",
+       "desc": "Depending on the medication and individual response, changes may begin to become noticeable."
+      },
+      {
+       "title": "6–12 MONTHS",
+       "desc": "For many hair-loss treatments, this is a more meaningful period for evaluating response."
+      }
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "The exact timeline varies based on the medication, type and severity of hair loss, individual biology and treatment consistency. AAD advises that topical minoxidil may require about 6–12 months to determine how well it is working for an individual patient."
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "Hair restoration is generally measured in months—not days or weeks."
+    },
+    {
+     "kind": "approach",
+     "text": "Responsible care means setting realistic expectations rather than promising an overnight transformation."
+    }
+   ]
+  },
+  {
+   "num": "11",
+   "kind": "section",
+   "headline": "What Does a Good Result Actually Look Like?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Successful hair-loss treatment doesn’t necessarily mean restoring every hair that has been lost."
+    },
+    {
+     "kind": "body",
+     "text": "Depending on the patient, type and stage of hair loss, and treatment, goals may include:"
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "SLOWING ADDITIONAL LOSS",
+       "desc": "For progressive pattern hair loss, slowing further thinning can be an important objective."
+      },
+      {
+       "title": "MAINTAINING EXISTING HAIR",
+       "desc": "Preserving existing density can matter, particularly when treatment begins earlier."
+      },
+      {
+       "title": "IMPROVING DENSITY OR COVERAGE",
+       "desc": "Some patients may experience increased density or improved scalp coverage."
+      },
+      {
+       "title": "REGROWTH",
+       "desc": "Established treatments can produce regrowth in some patients, but the degree of response varies. Topical minoxidil, for example, cannot be expected to restore an entire head of hair."
+      }
+     ],
+     "cols": 4
+    },
+    {
+     "kind": "emph",
+     "text": "No responsible program should guarantee complete restoration or a specific amount of regrowth."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "What is a realistic treatment goal for my particular type and stage of hair loss?"
+    },
+    {
+     "kind": "approach",
+     "text": "Good treatment begins with realistic expectations and an understanding that individual responses vary."
+    }
+   ]
+  },
+  {
+   "num": "12",
+   "kind": "section",
+   "headline": "Consistency Matters",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "One of the most important facts about hair-loss treatment is also one of the easiest to overlook: many treatments require continued use."
+    },
+    {
+     "kind": "body",
+     "text": "Pattern hair loss is generally progressive. Medication doesn’t permanently remove the biological factors contributing to hereditary hair loss. For treatments such as finasteride and minoxidil, stopping treatment can result in loss of treatment benefit over time."
+    },
+    {
+     "kind": "body",
+     "text": "That makes consistency an important part of choosing a treatment."
+    },
+    {
+     "kind": "subhead",
+     "title": "Ask yourself",
+     "desc": "Can I realistically follow this routine?"
+    },
+    {
+     "kind": "body",
+     "text": "Some patients may prefer applying a topical medication. Others may find an oral medication easier to use consistently. Convenience isn’t the only consideration—but a treatment plan is more useful when a patient can realistically follow it."
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "Hair-loss treatment is often an ongoing strategy, not a one-time fix."
+    },
+    {
+     "kind": "approach",
+     "text": "Treatment decisions can consider effectiveness, potential risks, individual preferences and the patient’s ability to follow the treatment plan."
+    }
+   ]
+  },
+  {
+   "num": "13",
+   "kind": "section",
+   "headline": "The Smart Patient’s Hair Restoration Checklist",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Be informed. Ask questions. Understand the care behind the treatment."
+    },
+    {
+     "kind": "checklist",
+     "items": [
+      {
+       "title": "Understand the cause",
+       "desc": "What type of hair loss do I appear to have?"
+      },
+      {
+       "title": "Look beyond the hair",
+       "desc": "Could a health condition, medication, nutritional issue or another factor be contributing?"
+      },
+      {
+       "title": "Understand the recommendation",
+       "desc": "Why is this particular medication or formulation being recommended for me?"
+      },
+      {
+       "title": "Compare the routes",
+       "desc": "Would oral or topical treatment make more sense for my individual needs?"
+      },
+      {
+       "title": "Know the risks",
+       "desc": "What potential side effects, contraindications or interactions should I understand?"
+      },
+      {
+       "title": "Set a timeline",
+       "desc": "How long should I use treatment before evaluating my response?"
+      },
+      {
+       "title": "Think long term",
+       "desc": "What happens if the treatment works and I later stop using it?"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "num": "14",
+   "kind": "why",
+   "headline": "Why We Created WellPeps",
+   "elements": [
+    {
+     "kind": "emph",
+     "text": "Real Care. Not Just Medication."
+    },
+    {
+     "kind": "body",
+     "text": "WellPeps was founded by a physician and an experienced pharmacy owner who believed there should be a better way to bring together thoughtful medical care, quality prescription fulfillment and a more convenient patient experience."
+    },
+    {
+     "kind": "body",
+     "text": "That perspective shaped the WellPeps approach: personalized, provider-guided care designed around the patient—not simply the medication."
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "Personalized Provider-Guided Care",
+       "desc": "Treatment begins with your health information, medications, goals and individual circumstances."
+      },
+      {
+       "title": "Multiple Wellness Options",
+       "desc": "Different treatment options allow providers to consider what may be appropriate for different individuals."
+      },
+      {
+       "title": "More Than a Prescription",
+       "desc": "The WellPeps experience is designed around care—not simply delivering medication."
+      },
+      {
+       "title": "Quality Prescription Fulfillment",
+       "desc": "Prescriptions are fulfilled through U.S.-based pharmacy partners selected to support quality and reliable prescription fulfillment."
+      },
+      {
+       "title": "Ongoing Support",
+       "desc": "Your questions and treatment needs don’t necessarily stop when treatment begins."
+      },
+      {
+       "title": "Straightforward Pricing",
+       "desc": "Provider care, medication and ongoing support are included without a separate membership fee."
+      },
+      {
+       "title": "Healthcare Without the Runaround",
+       "desc": "A simpler, more convenient way to access treatment—from assessment and medical review to prescription fulfillment and ongoing support."
+      },
+      {
+       "title": "More Than Hair Restoration",
+       "desc": "WellPeps offers a wide and expanding range of treatment programs for your wellness needs."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "num": "",
+   "kind": "cta",
+   "headline": "Ready to Explore Your Hair Restoration Options?",
+   "elements": [
+    {
+     "kind": "body",
+     "text": "Begin with a private online health assessment. A licensed healthcare provider will review your health information and determine whether treatment is appropriate for you."
+    }
+   ]
+  },
+  {
+   "num": "",
+   "kind": "disclaimer",
+   "headline": "",
+   "elements": [],
+   "text": [
+    "This guide is provided for general educational purposes only and does not constitute medical advice, diagnosis or treatment. Individual medical needs vary. Always discuss treatment decisions, medications, side effects and health concerns with an appropriately licensed healthcare professional.",
+    "Prescription treatment requires evaluation by a licensed healthcare provider and is not guaranteed. Individual experiences vary, and no specific treatment outcome is guaranteed.",
+    "Some medications discussed in this guide may be prescribed off-label, meaning an FDA-approved medication is prescribed for a use that has not been approved by FDA.",
+    "Some treatment options may involve compounded medications. Compounded medications are not FDA-approved finished drug products. FDA does not review compounded medications for safety, effectiveness or quality before marketing in the same manner as FDA-approved drugs.",
+    "A licensed healthcare provider determines whether a particular medication, formulation and treatment approach may be appropriate for an individual patient."
+   ]
+  }
+ ]
+}
