@@ -132,10 +132,15 @@
   background: #e9f7ef; color: #1d6b3d; font-weight: 600;
 }
 .pc__status:empty { margin: 0; padding: 0; background: none; }
-.pc__more-title { margin-top: 1.6rem; }
-.pc__more-intro { color: var(--text-muted); }
-.pc__more { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.35rem; }
-.pc__more a { display: inline-block; padding: 0.35rem 0; font-weight: 600; }
+/* "Other choices": set apart from the buttons above with a divider and room to breathe. The
+   selectors carry .pc so they beat ".pc h3" and ".pc p" (their margins would otherwise win). */
+.pc .pc__more-title { margin: 2rem 0 0.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+.pc .pc__more-intro { color: var(--text-muted); margin: 0 0 0.9rem; }
+.pc__more { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; }
+.pc__more li { border-bottom: 1px solid var(--border); }
+.pc__more li:last-child { border-bottom: 0; }
+/* Each link fills its row, so the whole line is easy to tap. */
+.pc__more a { display: block; padding: 0.8rem 0; font-weight: 600; }
 
 /* ---- Switch ---- */
 .switch { position: relative; display: inline-flex; flex: none; cursor: pointer; padding-top: 0.15rem; }
