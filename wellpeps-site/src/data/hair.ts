@@ -15,7 +15,7 @@ export const hairHero = {
   titleLead: 'Restore Your Hair.',
   titleAccent: 'Restore Your Confidence.',
   lead:
-    'Advanced, FDA-approved treatments and expert care to help you achieve visibly thicker, healthier hair.',
+    'Prescription treatments reviewed by a licensed provider, and expert care to help you work toward thicker, healthier hair.',
   image: '/images/hair/hero-couple.webp',
   alt: 'A smiling couple walking together outside their home at golden hour',
 };
@@ -179,7 +179,7 @@ export const hairFaqs: HairFaq[] = [
   },
   {
     q: 'Are the medications FDA-approved or compounded?',
-    a: 'Depending on your treatment plan, your provider may prescribe FDA-approved medications, compounded medications, or a combination of both when clinically appropriate. If compounded medications are recommended, they are prepared by FDA-registered U.S. compounding pharmacies in accordance with applicable regulations.',
+    a: 'Depending on your treatment plan, your provider may prescribe FDA-approved medications, compounded medications, or a combination of both when clinically appropriate. If compounded medications are recommended, they are prepared by state-licensed U.S. pharmacies. Compounded medications are not FDA-approved and have not been evaluated by FDA for safety, effectiveness or quality.',
   },
   {
     q: 'How does WellPeps determine which treatment is right for me?',

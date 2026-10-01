@@ -53,7 +53,7 @@ export interface WhyCard {
 
 export const weightWhyIntro = {
   title: 'Why Patients Choose WellPeps',
-  lead: 'Personalized care backed by licensed providers, nationwide lab access, and medications compounded in FDA-registered U.S. facilities.',
+  lead: 'Personalized care from independent licensed providers, with prescriptions filled by state-licensed U.S. pharmacies.',
 };
 
 export const weightWhy: WhyCard[] = [
@@ -68,15 +68,15 @@ export const weightWhy: WhyCard[] = [
     image: '/images/weight/why-lab.webp',
     alt: 'A lab nurse preparing a test',
     icon: 'flask',
-    title: 'Quest® & Labcorp® Access',
-    body: 'Access to low-cost initial and follow-up testing nationwide when your provider recommends it. Lab fees are billed separately.',
+    title: 'Lab Testing When Needed',
+    body: 'Initial and follow-up testing when your provider recommends it. Lab fees are billed separately.',
   },
   {
     image: '/images/weight/why-flag.webp',
     alt: 'A United States flag',
     icon: 'shield-check',
-    title: 'Made in America Medications',
-    body: 'Medications are compounded in FDA-registered U.S. facilities.',
+    title: 'U.S. Licensed Pharmacies',
+    body: 'Prescriptions are filled by state-licensed U.S. pharmacies. Compounded medications are not FDA-approved.',
   },
 ];
 
@@ -218,7 +218,7 @@ export const weightFaqs: WeightFaq[] = [
   },
   {
     q: 'Are lab tests available if I need them?',
-    a: 'Lab testing is available when appropriate for your care. If your provider determines that testing is needed before or during treatment, they’ll discuss the recommended tests with you and help guide you through the process. WellPeps offers access to low-cost labs; lab fees are billed separately.',
+    a: 'Lab testing is available when appropriate for your care. If your provider determines that testing is needed before or during treatment, they’ll discuss the recommended tests with you and help guide you through the process. Lab fees are billed separately.',
   },
   {
     q: 'How long does it take to receive my medication?',
@@ -234,11 +234,11 @@ export const weightFaqs: WeightFaq[] = [
   },
   {
     q: 'Is WellPeps available in my state?',
-    a: 'WellPeps works with licensed providers across all 50 states, although specific treatment availability may vary based on state regulations.',
+    a: 'Availability varies by state and by program. Care is available only where an independent licensed provider can treat you and a state-licensed pharmacy can ship to you.',
   },
   {
     q: 'Is my information secure?',
-    a: 'Yes. We use HIPAA-compliant technology and industry-standard security measures to help protect your personal health information.',
+    a: 'We take your privacy seriously and use secure technology to protect your information. Our Privacy Policy explains what we collect, why, and the choices you have.',
   },
 ];
 

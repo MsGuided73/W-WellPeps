@@ -61,8 +61,8 @@ export const programs: Program[] = [
   {
     slug: 'hormone-optimization',
     title: 'Hormone Optimization',
-    tagline: 'Feel Like Yourself Again',
-    blurb: 'Balance hormones and support your body so you can feel like yourself again.',
+    tagline: 'Provider-Guided Care',
+    blurb: 'Personalized hormone care, guided by a licensed provider, is coming soon.',
     image: '/images/program-hormone.webp',
     imageAlt: 'Man smiling in a bright kitchen',
     status: 'coming-soon',

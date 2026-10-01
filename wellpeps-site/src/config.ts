@@ -199,7 +199,6 @@ export const PATIENT_PORTAL_URL = SCRIPTFUL_PORTAL_URL;
 export const CONTACT = {
   hours: 'Mon–Fri, 9am–6pm ET',
   email: 'hello@wellpeps.com',
-  coverage: '50 States · Nationwide Care',
 };
 
 /**

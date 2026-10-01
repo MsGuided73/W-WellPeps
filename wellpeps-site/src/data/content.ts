@@ -12,13 +12,13 @@ export const journeySteps = [
 
 /* ---- Section 2: Why Patients Choose WellPeps ---- */
 export const whyPrimary = [
-  { img: '/images/why-icon-physician.png', title: 'Physician & Pharmacy Founded', body: 'Built by healthcare professionals who understand what patients need to feel and perform their best.' },
+  { img: '/images/why-icon-physician.png', title: 'Patient-Centered Care', body: 'Built to make personalized wellness more accessible, convenient, and patient-centered.' },
   { img: '/images/why-icon-medications.png', title: 'Medications Made in America*', body: 'When applicable, medications are sourced from trusted U.S. pharmacies and manufacturers.' },
   { img: '/images/why-icon-provider.png', title: 'Personalized Provider Evaluations', body: 'Every plan is tailored to you through comprehensive evaluations and ongoing provider support.' },
 ];
 export const whySecondary = [
   { img: '/images/icons/why2-hospital.png', title: 'Clinical Infrastructure Supporting 100+ Healthcare Brands' },
-  { img: '/images/icons/why2-map.png', title: 'Licensed Providers in All 50 States' },
+  { img: '/images/icons/why2-map.png', title: 'Providers Licensed in Your State' },
   { img: '/images/icons/why2-laurel.png', title: 'Decades of Healthcare Experience' },
 ];
 /* ---- Section 6: Every WellPeps Program Includes ----
@@ -34,7 +34,7 @@ export const includes = [
 /* ---- Section 7: Safety, Wellness & Privacy ---- */
 export const safety = [
   { img: '/images/icons/saf-provider.png', title: 'Expert Provider Care', body: 'Every treatment plan is created by a licensed healthcare provider who reviews your health history and makes real clinical decisions.' },
-  { img: '/images/icons/saf-lock.png', title: 'Privacy Protected', body: 'Your health data is encrypted and secure. We follow strict HIPAA standards to keep your personal information private—always.' },
+  { img: '/images/icons/saf-lock.png', title: 'Privacy Protected', body: 'We take your privacy seriously. Our Privacy Policy explains what we collect, why, and the choices you have.' },
   { img: '/images/icons/saf-rx.png', title: 'Licensed Pharmacy Partners', body: 'Your medications are prepared by licensed U.S. pharmacies that follow strict quality and safety standards.' },
   /* LegitScript badge removed until the certification application is approved.
      Restore this item (and Safety.astro's 4-column grid) once it is:
@@ -54,10 +54,10 @@ export const faqs = [
   ...planHomeFaqs,
   { q: 'How do I know if I’m a candidate for treatment?', a: 'Start with our free online health assessment. A licensed healthcare provider reviews your health history, symptoms, and goals to determine whether a treatment is clinically appropriate for you.' },
   { q: 'How do online consultations work?', a: 'After you complete your assessment, a licensed provider reviews your information online. If needed, they’ll follow up with questions before recommending a personalized treatment plan—no in-person visit required.' },
-  { q: 'Are your healthcare providers licensed?', a: 'Yes. All treatment decisions are made by healthcare providers licensed in your state. WellPeps partners with licensed providers across all 50 states.' },
-  { q: 'What states do you serve?', a: 'WellPeps works with licensed providers in all 50 states, offering nationwide care.' },
+  { q: 'Are your healthcare providers licensed?', a: 'Yes. All treatment decisions are made by independent healthcare providers licensed in your state. Availability varies by state.' },
+  { q: 'What states do you serve?', a: 'Availability varies by state and by program. Care is available only where an independent licensed provider can treat you and a state-licensed pharmacy can ship to you.' },
   { q: 'How are medications delivered?', a: 'If prescribed, medications are prepared by licensed U.S. pharmacies and shipped directly to your home in discreet, secure packaging.' },
-  { q: 'Is my personal information secure?', a: 'Absolutely. Your health data is encrypted and handled under strict HIPAA standards. Your privacy is protected at every step.' },
+  { q: 'Is my personal information secure?', a: 'We take your privacy seriously and use secure technology to protect your information. Our Privacy Policy explains what we collect, why, and the choices you have.' },
   { q: 'What payment methods do you accept?', a: 'We accept Visa, Mastercard, FSA/HSA, Apple Pay, and Google Pay. You’ll see transparent, upfront pricing before you begin.' },
   { q: 'What programs does WellPeps offer?', a: 'Weight Management, Hair Restoration, Sexual Wellness, and Healthy Aging & Vitality are available today, with Hormone Optimization coming soon.' },
 ];

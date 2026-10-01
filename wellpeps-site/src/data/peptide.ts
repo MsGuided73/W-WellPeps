@@ -21,7 +21,7 @@
 export const peptideHero = {
   eyebrow: 'Healthy Aging & Vitality',
   titleLead: 'Healthy Aging & Vitality.',
-  titleAccent: 'Feel Like Yourself Again.',
+  titleAccent: 'Provider-Guided Care.',
   lead:
     'Personalized, provider-guided wellness therapies designed around your individual health, vitality, and wellness goals.',
   image: '/images/peptide/hero.webp',
@@ -36,8 +36,8 @@ export const peptideScience = {
   ],
   image: '/images/peptide/science.webp',
   alt: 'Two women smiling and flexing after a workout outdoors',
-  benefitsTitle: 'Supporting Your Healthy Aging Goals',
-  benefitsLead: 'Your health, needs, and goals are individual. Provider-guided wellness therapies may be considered as part of a personalized approach to healthy aging and vitality.',
+  benefitsTitle: 'A Personalized Approach to Care',
+  benefitsLead: 'Your health, needs, and goals are individual. A licensed provider reviews your health history to decide whether any treatment is appropriate for you.',
   benefitsImage: '/images/peptide/benefits-woman.webp',
   benefitsAlt: 'A woman sitting on a yoga mat in a bright studio after a workout',
   footnote: 'Treatment options are determined by a licensed healthcare provider based on your health information, individual needs, and medical history. Not every treatment is appropriate for every patient.',
@@ -57,14 +57,14 @@ export interface ScienceBenefit {
  * updating that CSS will break the divider placement.
  */
 export const peptideBenefits: ScienceBenefit[] = [
-  { title: 'Energy & Vitality' },
-  { title: 'Cognitive Wellness' },
-  { title: 'Healthy Aging' },
-  { title: 'Metabolic Wellness' },
-  { title: 'Skin & Cellular Health' },
-  { title: 'Strength & Body Composition' },
-  { title: 'Recovery & Physical Wellness' },
-  { title: 'Sleep & Rest' },
+  { title: 'Health History Review' },
+  { title: 'Individual Treatment Plans' },
+  { title: 'Licensed Provider Guidance' },
+  { title: 'Prescribed If Appropriate' },
+  { title: 'Ongoing Provider Support' },
+  { title: 'Licensed U.S. Pharmacies' },
+  { title: 'Discreet Home Delivery' },
+  { title: 'Educational Resources' },
 ];
 
 export interface PeptideProduct {
@@ -91,19 +91,19 @@ export const peptideProductsIntro = {
 export const peptideProducts: PeptideProduct[] = [
   {
     name: 'Sermorelin',
-    subtitle: 'Natural Growth Hormone Support',
+    subtitle: 'Peptide Therapy',
     description: "Sermorelin is a peptide that acts on the pituitary gland to stimulate the body's natural release of growth hormone, which plays a role in normal physiological processes involving growth, metabolism, and body composition.",
     icon: 'dna',
     photo: '/images/peptide/photo-sermorelin.webp',
     photoAlt: 'A man pausing during a mountain hike at sunrise',
     vial: '/images/peptide/vial-sermorelin.webp',
     methodOfUse: 'Subcutaneous Injection',
-    features: ['Natural growth hormone release', 'Growth hormone signaling', 'Provider-guided treatment'],
+    features: ['Acts on the pituitary gland', 'Growth hormone signaling', 'Provider-guided treatment'],
     price: '149',
   },
   {
     name: 'NAD+',
-    subtitle: 'Cellular Energy & Vitality',
+    subtitle: 'Coenzyme Therapy',
     description: 'NAD+ is a naturally occurring coenzyme that plays an essential role in cellular energy metabolism and other fundamental cellular processes.',
     icon: 'zap',
     photo: '/images/peptide/photo-nad.webp',
@@ -127,26 +127,26 @@ export const peptideProducts: PeptideProduct[] = [
   },
   {
     name: 'MIC + B12',
-    subtitle: 'Metabolic Support',
-    description: 'MIC + B12 combines lipotropic nutrients with vitamin B12, an essential nutrient involved in cellular metabolism, red blood cell formation, and normal nervous system function.',
+    subtitle: 'Nutrient Injection',
+    description: 'MIC + B12 combines methionine, inositol and choline with vitamin B12, an essential nutrient involved in cellular metabolism, red blood cell formation, and normal nervous system function.',
     icon: 'flame',
     photo: '/images/peptide/photo-mic.webp',
     photoAlt: 'A woman running along a palm-lined coastal path',
     vial: '/images/peptide/vial-mic.webp',
     methodOfUse: 'Injection',
-    features: ['B12 nutrient support', 'Cellular metabolism', 'Lipotropic nutrients'],
+    features: ['B12 nutrient support', 'Cellular metabolism', 'Methionine, inositol, choline'],
     price: '119',
   },
   {
     name: 'Lipo-C',
-    subtitle: 'Metabolic & Nutrient Support',
-    description: 'Lipo-C combines L-carnitine with lipotropic nutrients. L-carnitine plays an important role in transporting fatty acids into cells, where they participate in normal energy metabolism.',
+    subtitle: 'Nutrient Injection',
+    description: 'Lipo-C combines L-carnitine with other nutrients. L-carnitine plays an important role in transporting fatty acids into cells, where they participate in normal energy metabolism.',
     icon: 'droplet',
     photo: '/images/peptide/photo-lipoc.webp',
     photoAlt: 'A woman meditating outdoors by a lake at golden hour',
     vial: '/images/peptide/vial-lipoc.webp',
     methodOfUse: 'Injection',
-    features: ['Fatty acid metabolism', 'L-carnitine', 'Lipotropic nutrients'],
+    features: ['Fatty acid metabolism', 'L-carnitine', 'Nutrient blend'],
     price: '119',
   },
   {
@@ -180,13 +180,13 @@ export const peptideFaqs: PeptideFaq[] = [
   { q: 'What are wellness therapies?', a: 'Our wellness therapies include prescription medications, peptide therapies, vitamin-based treatments, and other provider-guided protocols designed to support your health and wellness goals.' },
   { q: 'How do I know which therapy is right for me?', a: 'Your licensed healthcare provider reviews your health history, current medications, symptoms, and wellness goals before recommending treatments that are appropriate for you.' },
   { q: 'Are these therapies safe?', a: 'When prescribed and monitored by a licensed healthcare provider, wellness therapies may be an appropriate option for some patients. Your provider will review the risks and benefits of your recommended treatment and monitor how you respond.' },
-  { q: 'Are the medications high quality?', a: 'Yes. We partner with licensed pharmacies that meet rigorous quality and safety standards. Every prescription is dispensed only after review by a licensed provider.' },
-  { q: 'How long does it take to see results?', a: 'The timeline depends on the therapy and your individual goals. Some patients notice improvements within a few weeks, while others see gradual benefits over time.' },
+  { q: 'Are the medications high quality?', a: 'Prescriptions are filled by state-licensed pharmacies, and only after review by a licensed provider. Compounded medications are not FDA-approved and have not been evaluated by FDA for safety, effectiveness or quality.' },
+  { q: 'How long does it take to see results?', a: 'Timelines vary by person and by therapy, and results are not guaranteed. Your provider will explain what to expect for your plan.' },
   { q: 'What side effects should I expect?', a: 'Every therapy has its own potential side effects. Your provider will review the risks and benefits of your recommended treatment and monitor your progress.' },
   { q: 'How are wellness therapies administered?', a: 'Administration depends on the treatment. Some therapies are injections, while others are taken orally. Your provider will explain exactly how to use your medication.' },
   { q: 'How is my treatment delivered?', a: 'If prescribed, your medication is shipped discreetly from a licensed pharmacy directly to your home, with ongoing provider support throughout your care.' },
   { q: 'Do I need a prescription?', a: 'Most therapies offered through WellPeps require evaluation by a licensed healthcare provider and are prescribed only when medically appropriate.' },
-  { q: 'Are these treatments available in my state?', a: 'WellPeps provides care through a nationwide network of licensed providers. Availability may vary based on state regulations and the specific therapy requested.' },
+  { q: 'Are these treatments available in my state?', a: 'Availability varies by state and by program. Care is available only where an independent licensed provider can treat you and a state-licensed pharmacy can ship to you.' },
 ];
 
 export const peptideCta = {

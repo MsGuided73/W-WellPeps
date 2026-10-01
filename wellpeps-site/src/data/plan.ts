@@ -24,7 +24,7 @@ export const planIncludes = [
   { icon: 'clipboard-check', title: 'Licensed Provider Care', body: 'Your evaluation, follow-ups, and treatment adjustments with your licensed provider as your needs change.' },
   { icon: 'headset', title: 'Messaging With Your Care Team', body: 'Message your provider’s office with questions about your treatment, side effects, or next steps.' },
   { icon: 'pill', title: 'Medication & Standard Shipping', body: 'If prescribed, your medication ships to your door from a licensed U.S. pharmacy at no extra cost.' },
-  { icon: 'flask-search', title: 'Access to Low-Cost Labs', body: 'Low-cost lab testing through national lab partners when your provider recommends it. Lab fees are billed separately.' },
+  { icon: 'flask-search', title: 'Lab Testing When Recommended', body: 'Lab testing when your provider recommends it. Lab fees are billed separately.' },
 ];
 
 export const planFinePrint =

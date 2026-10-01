@@ -14,6 +14,9 @@ export default defineConfig({
     // The membership fee was dropped 2026-09-30; its manage/cancel page became
     // /your-plan. Keep the old footer URL working.
     '/membership': '/your-plan',
+    // The Mental Wellness program was removed; its waitlist page still collected email addresses
+    // tied to a mental-health topic, for a service that does not exist. Send the old URL home.
+    '/mental-wellness': '/',
   },
   server: {
     port: process.env.PORT ? Number(process.env.PORT) : 4321,

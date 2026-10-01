@@ -5,7 +5,7 @@ const clientNeeds = [
   'Your company\'s exact legal name and the U.S. state it\'s incorporated in.',
   'Your website\'s live domain (e.g. wellpeps.com).',
   'The names of the medical entities that provide care through WellPeps (the same names used on the Notice of Privacy Practices).',
-  'Which U.S. states you are actually licensed to operate in — the site currently claims "all 50 states."',
+  'Which U.S. states you are actually licensed to operate in, so the States We Serve page can be accurate.',
   'Confirmation that a Telehealth Informed Consent appears in the signup flow before a consultation.',
   'For each plan: the real recurring price and how often it charges, any minimum commitment, what happens at renewal, exactly how a customer cancels, your refund policy, and any early-termination fee.',
   'Who owns the WellPeps name, logo, and website content (for the trademark / intellectual-property lines), and whether any trademarks are registered.',
@@ -65,7 +65,7 @@ import { CONTACT } from '../config';
   <p>
     You must be at least 18 years old, reside in a U.S. state where the services you request are
     available, and be able to form a binding contract to use the Platform. The services are
-    available in <span class="ph ph--you">You confirm: the states you are actually licensed in. The site currently claims &ldquo;all 50 states&rdquo; — that needs to be verified against your licensing before launch.</span>.
+    available in <span class="ph ph--you">You confirm: the states you are actually licensed in. List only states confirmed against your licensing.</span>.
   </p>
 
   <h2>5. Telehealth Services and Informed Consent</h2>
@@ -109,8 +109,8 @@ import { CONTACT } from '../config';
   <p>
     Each WellPeps treatment is offered as a monthly plan with <strong>one monthly price</strong>.
     The monthly price covers your medication, if prescribed, licensed provider
-    care, messaging with your care team, and standard shipping. WellPeps offers access to low-cost lab
-    testing when your provider recommends it; lab fees are billed separately. Your plan is billed monthly and <strong>renews automatically
+    care, messaging with your care team, and standard shipping. Lab testing is available when your provider
+    recommends it; lab fees are billed separately. Your plan is billed monthly and <strong>renews automatically
     each month at the price shown at checkout until you cancel</strong>. There is no minimum commitment.
     <span class="ph ph--legal">Lawyer: confirm this disclosure meets federal (ROSCA) and state auto-renewal requirements, and that the same terms appear at checkout.</span>
     <span class="ph ph--you">You provide: the billing date rule (same day each month from signup?), and whether a month is refundable once it has started.</span>

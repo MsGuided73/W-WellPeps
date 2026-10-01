@@ -100,11 +100,11 @@ export const knowledgeBase: KnowledgeDoc[] = [
     source: 'protocol',
     tags: ['pharmacy', 'compounded', 'medication', 'made in america', 'fda', 'sourcing', 'quality'],
     answer:
-      'When prescribed, medications are dispensed through licensed U.S. pharmacy partners that meet applicable quality and regulatory standards. Compounded medications are prepared by FDA-registered U.S. compounding pharmacies when clinically appropriate.',
+      'When prescribed, medications are dispensed through licensed U.S. pharmacy partners that meet applicable quality and regulatory standards. Compounded medications are prepared by state-licensed U.S. pharmacies when clinically appropriate. Compounded medications are not FDA-approved.',
     body: `WellPeps partners only with licensed United States pharmacies. Depending on your treatment plan a
       provider may prescribe FDA-approved medications, compounded medications, or a combination of both
-      when clinically appropriate. Compounded medications are prepared by FDA-registered U.S. compounding
-      pharmacies in accordance with applicable regulations. Medications are made in America when
+      when clinically appropriate. Compounded medications are prepared by state-licensed U.S. pharmacies in
+      accordance with applicable regulations and are not FDA-approved. Medications are made in America when
       clinically appropriate and available.`,
   },
   {
@@ -113,9 +113,8 @@ export const knowledgeBase: KnowledgeDoc[] = [
     source: 'protocol',
     tags: ['lab', 'labs', 'labcorp', 'quest', 'blood work', 'testing', 'diagnostics'],
     answer:
-      'WellPeps provides access to low-cost lab testing through trusted national laboratory partners, including Quest Diagnostics® and Labcorp®, when clinically appropriate. Initial and follow-up tests are available nationwide; lab fees are billed separately.',
-    body: `WellPeps provides access to low-cost testing at leading national labs where clinically appropriate. Quest Diagnostics
-      and Labcorp locations are available nationwide for initial and follow-up testing. Lab fees are
+      'Lab testing is available when your provider recommends it. Initial and follow-up tests may be part of your plan; lab fees are billed separately.',
+    body: `Lab testing is available where clinically appropriate, for initial and follow-up testing. Lab fees are
       billed separately. Your provider will tell you whether lab work is needed as part of your plan.`,
   },
   {
@@ -135,16 +134,14 @@ export const knowledgeBase: KnowledgeDoc[] = [
     source: 'protocol',
     tags: ['privacy', 'hipaa', 'secure', 'data', 'confidential', 'information'],
     answer:
-      'Your health data is encrypted and handled under strict HIPAA standards. WellPeps uses HIPAA-compliant systems and secure technology to protect your privacy and personal health information at every step.',
+      'We take your privacy seriously and use secure technology to protect your information. Our Privacy Policy explains what we collect, why, and the choices you have.',
     /* LegitScript-certified sentence removed until the certification application
        is approved. Original body — restore once approved:
     body: `Privacy is protected using secure technology and HIPAA-compliant safeguards. Personal health
       information is encrypted in transit and at rest. WellPeps is LegitScript certified, reflecting a
       commitment to transparency, compliance and patient protection.`,
     */
-    body: `Privacy is protected using secure technology and HIPAA-compliant safeguards. Personal health
-      information is encrypted in transit and at rest, reflecting a commitment to transparency,
-      compliance and patient protection.`,
+    body: `Privacy is protected using secure technology. The Privacy Policy explains what WellPeps collects, why, and the choices you have.`,
   },
 
   /* ---------------- Programs, pricing, eligibility ---------------- */
@@ -178,7 +175,7 @@ export const knowledgeBase: KnowledgeDoc[] = [
     source: 'program',
     tags: ['price', 'pricing', 'cost', 'how much', 'fees', 'payment', 'insurance', 'expensive'],
     answer:
-      'Pricing is transparent and upfront — you know your full program cost before you begin, with no hidden fees. Sexual Wellness starts at $79/month, Hair Restoration at $49/month, and Weight Management at $179/month. Each is one monthly price covering medication, if prescribed, provider care, messaging with your care team and standard shipping. WellPeps also offers access to low-cost labs when your provider recommends them; lab fees are billed separately. No insurance is required; WellPeps is self-pay. We accept Visa, Mastercard, FSA/HSA, Apple Pay and Google Pay.',
+      'Pricing is transparent and upfront — you know your full program cost before you begin, with no hidden fees. Sexual Wellness starts at $79/month, Hair Restoration at $49/month, and Weight Management at $179/month. Each is one monthly price covering medication, if prescribed, provider care, messaging with your care team and standard shipping. Lab testing is available when your provider recommends it; lab fees are billed separately. No insurance is required; WellPeps is self-pay. We accept Visa, Mastercard, FSA/HSA, Apple Pay and Google Pay.',
     body: `Every program includes transparent pricing, a licensed healthcare provider review, ongoing
       provider support, and the ability to cancel anytime. No insurance required — affordable self-pay
       programs make personalized wellness accessible. Accepted payment methods: Visa, Mastercard,
@@ -201,8 +198,8 @@ export const knowledgeBase: KnowledgeDoc[] = [
     source: 'program',
     tags: ['states', 'available', 'location', 'where', '50 states', 'nationwide', 'near me'],
     answer:
-      'WellPeps works with licensed providers in all 50 states, offering nationwide care where available.',
-    body: `Licensed providers serve patients across all 50 states where available. Care is delivered
+      'Availability varies by state and by program. Care is available only where an independent licensed provider can treat you and a state-licensed pharmacy can ship to you.',
+    body: `Care is available only in states where an independent licensed provider can treat you and a pharmacy can ship to you. Care is delivered
       remotely, so you can complete your assessment, provider review and follow-ups from home.`,
   },
 

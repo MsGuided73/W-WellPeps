@@ -5,10 +5,10 @@ import Icon from '../components/Icon.astro';
 /* Copy for both card sections is verbatim from the approved "Why WellPeps
    Page 7-9 Notes"; icons follow the client's icon sheet. */
 const trustCards = [
-  { icon: 'stethoscope', title: 'Physician & Pharmacy Founded', body: 'Built by healthcare professionals dedicated to making personalized wellness more accessible, convenient, and patient-centered.' },
+  { icon: 'stethoscope', title: 'Patient-Centered Care', body: 'Built to make personalized wellness more accessible, convenient, and patient-centered.' },
   { icon: 'caduceus', title: 'Decades of Healthcare Experience', body: 'Our founders, physicians and pharmacy partners bring decades of clinical experience to every patient journey.' },
-  { icon: 'map-check', title: '50-State Licensed Provider Network', body: 'Access licensed healthcare providers serving patients across all 50 states where available.' },
-  { icon: 'flask-search', title: 'Access to Leading Labs', body: 'Access to low-cost lab testing through trusted national laboratory partners, including Quest Diagnostics® and Labcorp®, when clinically appropriate. Lab fees are billed separately.' },
+  { icon: 'map-check', title: 'Licensed in Your State', body: 'Care is provided by independent clinicians licensed in the state where you are located. Availability varies by state.' },
+  { icon: 'flask-search', title: 'Lab Testing When Recommended', body: 'Lab testing is available when your provider recommends it. Lab fees are billed separately.' },
   { icon: 'pharmacy', title: 'Medications from USA Pharmacies', body: 'Medications are dispensed through licensed U.S. pharmacy partners that meet applicable quality and regulatory standards.' },
   { icon: 'price-shield', title: 'Transparent Pricing', body: 'Know your program cost upfront with clear pricing and no hidden fees or surprise charges.' },
   /* LegitScript card hidden until the certification application is approved:
@@ -22,7 +22,7 @@ const patientsFirstCards = [
   { icon: 'book-open', title: 'Patient Education', body: 'WellPeps patients have access to comprehensive educational resources throughout their health journey.' },
   { icon: 'clock-x', title: 'Cancel Anytime', body: 'You’re never locked into a long-term commitment—cancel anytime before your next month’s medication is ordered.' },
   { icon: 'no-insurance', title: 'No Insurance Required', body: 'Affordable self-pay programs make personalized wellness care simple and accessible without insurance.' },
-  { icon: 'lock', title: 'Privacy Protected', body: 'Your personal health information is protected using secure technology and HIPAA-compliant safeguards.' },
+  { icon: 'lock', title: 'Privacy Protected', body: 'Your personal health information is protected using secure technology. Our Privacy Policy explains what we collect and your choices.' },
 ];
 
 /* New FAQ section — copy verbatim from the 7-9 notes. */
@@ -30,7 +30,7 @@ const faqs = [
   { q: 'Why choose WellPeps instead of another telehealth company?', a: 'WellPeps combines physician-guided care, experienced pharmacy partners, personalized treatment plans, transparent pricing, and ongoing support to deliver a more patient-centered healthcare experience.' },
   { q: 'Are your healthcare providers licensed?', a: 'Yes. Every treatment recommendation is made by licensed healthcare providers practicing in the states where they are authorized to provide care.' },
   { q: 'Where do your medications come from?', a: 'When prescribed, medications are dispensed through licensed U.S. pharmacy partners that meet applicable quality and regulatory standards.' },
-  { q: 'Is my personal health information secure?', a: 'Yes. We use HIPAA-compliant systems and secure technology to protect your privacy and personal health information.' },
+  { q: 'Is my personal health information secure?', a: 'We take your privacy seriously and use secure technology to protect your information. Our Privacy Policy explains what we collect, why, and the choices you have.' },
   { q: 'Can I cancel my plan at any time?', a: 'Yes. Patients may cancel anytime and request a refund, except for medications that have already been ordered or processed for that month’s shipment.' },
   { q: 'Do I need insurance?', a: 'No. WellPeps offers straightforward self-pay pricing, so insurance is not required to receive care.' },
 ];
@@ -48,7 +48,7 @@ const faqs = [
         <p class="why-intro__subhead">We believe healthcare should be more convenient, more accessible and more personal.</p>
         <p>Healthcare has never offered more opportunities to help people live healthier lives. Yet for many patients, getting the right care still means long wait times, confusing treatment options, rushed appointments, and little ongoing support.</p>
         <p>WellPeps was founded by a physician and experienced pharmacy professionals who believed there should be a better way.</p>
-        <p>Today, WellPeps combines physician-guided care, licensed providers, trusted pharmacy partners, and evidence-based treatments to help patients nationwide access personalized wellness from home.</p>
+        <p>Today, WellPeps combines physician-guided care, licensed providers, trusted pharmacy partners, and evidence-based treatments to help patients access personalized wellness from home.</p>
         <p class="why-intro__closer">Because healthcare should feel personal again.</p>
       </div>
       <div class="why-intro__media reveal">
