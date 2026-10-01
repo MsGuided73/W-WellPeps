@@ -232,8 +232,8 @@
   },
   {
    "t": "callout",
-   "text": "**[ACTIVATION BLOCK Y-A1: WORKING CONTROL WORDING]**\n**Do not publish this block until:** Part 2 below is built and passes its tests; the Cookie and Tracking Technologies Notice block N-A1 and the Privacy Policy blocks P-A1, P-A2 and P-A3 are active; and a non-essential tool is ready to go live. It replaces Sections 3 and 4 above and the first row of the table in Section 1: move it into their place.",
-   "kind": "warning"
+   "kind": "info",
+   "text": "**Held wording.** The text that follows is not in effect yet. It applies only when the condition for \"Y-A1: WORKING CONTROL WORDING\" in the technical notes at the end of this document is met."
   },
   {
    "t": "table",
@@ -314,8 +314,8 @@
   },
   {
    "t": "callout",
-   "text": "**[END ACTIVATION BLOCK Y-A1]** When the trigger is met, delete this marker and the start marker and keep the text between them. Until then, delete the whole block before publishing.",
-   "kind": "warning"
+   "kind": "info",
+   "text": "**End of held wording.**"
   },
   {
    "t": "h2",
@@ -338,10 +338,33 @@
   },
   {
    "t": "h1",
-   "text": "Part 2. Build specification for the control (engineering; do not publish)"
+   "text": "Technical and drafting notes"
+  },
+  {
+   "t": "callout",
+   "kind": "note",
+   "text": "**For the team, not part of the document.** These are instructions for WellPeps, counsel and the people who build the forms and pages. They are collected here so the document above reads on its own."
   },
   {
    "t": "h2",
+   "text": "Held wording and when it takes effect"
+  },
+  {
+   "t": "callout",
+   "text": "**[ACTIVATION BLOCK Y-A1: WORKING CONTROL WORDING]**\n**Do not publish this block until:** Part 2 below is built and passes its tests; the Cookie and Tracking Technologies Notice block N-A1 and the Privacy Policy blocks P-A1, P-A2 and P-A3 are active; and a non-essential tool is ready to go live. It replaces Sections 3 and 4 above and the first row of the table in Section 1: move it into their place.",
+   "kind": "warning"
+  },
+  {
+   "t": "callout",
+   "text": "**[END ACTIVATION BLOCK Y-A1]** When the trigger is met, delete this marker and the start marker and keep the text between them. Until then, delete the whole block before publishing.",
+   "kind": "warning"
+  },
+  {
+   "t": "h2",
+   "text": "Part 2. Build specification for the control (engineering; do not publish)"
+  },
+  {
+   "t": "h3",
    "text": "2.1 Purpose, scope and timing"
   },
   {
@@ -357,7 +380,7 @@
    "align": null
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "2.2 Requirements"
   },
   {
@@ -466,7 +489,7 @@
    "level": 0
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "2.3 What it must log"
   },
   {
@@ -613,7 +636,7 @@
    "align": null
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "2.4 Acceptance tests"
   },
   {

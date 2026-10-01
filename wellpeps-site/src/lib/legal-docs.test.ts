@@ -102,6 +102,44 @@ describe('registry', () => {
   });
 });
 
+describe('reading order of the converted documents', () => {
+  const END = 'Technical and drafting notes';
+  const textOf = (b: any): string =>
+    [b.text, b.heading, ...(b.items ?? []), ...(b.rows ?? []).flat()].filter((x) => typeof x === 'string').join(' ');
+  const plain = (s: string) => s.replace(/[*_]/g, '').trim();
+
+  test('technical instructions are collected at the end of each document, not mixed into it', () => {
+    for (const d of LEGAL_DOCS) {
+      const blocks = loadDoc(d.id).blocks as any[];
+      const at = blocks.findIndex((b) => b.t === 'h1' && b.text === END);
+      const document = at < 0 ? blocks : blocks.slice(0, at);
+      for (const b of document) {
+        const text = textOf(b);
+        expect(/\[ACTIVATION BLOCK|\[END ACTIVATION BLOCK/.test(text), `${d.id}: activation marker in the document`).toBe(false);
+        expect(/^build notes?/i.test(plain(b.text ?? '')), `${d.id}: build note in the document`).toBe(false);
+        if (b.t === 'h1' || b.t === 'h2') {
+          expect(/\((?:[^)]*)(internal|engineering|remove before publishing|do not publish|keep off)/i.test(b.text), `${d.id}: "${b.text}"`).toBe(false);
+        }
+        if (b.t === 'h3') expect(/^(notes?|how to complete|rules?)/i.test(plain(b.text)), `${d.id}: "${b.text}" belongs at the end`).toBe(false);
+      }
+      // The notes are the last section: nothing after them is a document heading.
+      if (at >= 0) expect(blocks.slice(at + 1).some((b) => b.t === 'h1'), `${d.id}: a document section follows the notes`).toBe(false);
+    }
+  });
+
+  test('where wording is held for later, a short marker stays in place and the conditions are in the notes', () => {
+    const blocks = loadDoc('A4').blocks as any[];
+    const at = blocks.findIndex((b) => b.t === 'h1' && b.text === END);
+    expect(at).toBeGreaterThan(0);
+    expect(blocks.slice(0, at).some((b) => /Held wording\./.test(b.text ?? ''))).toBe(true);
+    expect(blocks.slice(at).some((b) => /\[ACTIVATION BLOCK/.test(b.text ?? ''))).toBe(true);
+  });
+
+  test('a document with no technical material has no notes section', () => {
+    expect((loadDoc('A1').blocks as any[]).some((b) => b.t === 'h1' && b.text === END)).toBe(false);
+  });
+});
+
 describe('what the converted documents may contain', () => {
   // Partner identities, contract titles and internal paths must never reach the site or the public repo.
   const DENY = [/\bOSI\b/, /Scriptful/, /\bNAA\b/, /Network Access Agreement/, /PepRite/, /docs\//, /Side Letter/, /Service Agreement/];

@@ -8,11 +8,6 @@
    "text": "Part A. How WellPeps Works (public page)"
   },
   {
-   "t": "callout",
-   "text": "**Build note:** publish as a public page (suggested /how-wellpeps-works), linked from the footer and from every program page. The page title and heading are \"How WellPeps Works\". Page copy starts below.",
-   "kind": "info"
-  },
-  {
    "t": "h1",
    "text": "How WellPeps Works"
   },
@@ -460,11 +455,6 @@
    "text": "Part C. Patient acknowledgment (required form)"
   },
   {
-   "t": "callout",
-   "text": "**Build note:** configure as a required consent form in GEN Health (Forms, Patient Consents tab: a rich text block with Require Signature, then the checkbox questions). Show it before provider review, after the Electronic Records, Signatures and Communications Consent. the agreement with the Practice Exhibit B paragraph 1(d)(vi) requires WellPeps to ensure each participant is told of and agrees to these relationships, so every box must be checked to continue. Store the typed name, timestamp, document version and IP address, and re-present when the version changes.",
-   "kind": "info"
-  },
-  {
    "t": "p",
    "text": "Please read How WellPeps Works and the Financial Relationship Disclosure (version [VERSION], dated [EFFECTIVE DATE]) before checking each box. Agreeing does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
    "italic": false,
@@ -534,6 +524,41 @@
    "text": "By typing my name, I agree that my electronic signature is the legal equivalent of my handwritten signature, and that I have already agreed to receive and sign documents electronically (see the Electronic Records, Signatures and Communications Consent). This acknowledgment does not waive any right I have under law and does not limit any duty the Practice or a clinician owes me. It does not by itself create a clinician-patient relationship.",
    "italic": false,
    "align": null
+  },
+  {
+   "t": "h1",
+   "text": "Technical and drafting notes"
+  },
+  {
+   "t": "callout",
+   "kind": "note",
+   "text": "**For the team, not part of the document.** These are instructions for WellPeps, counsel and the people who build the forms and pages. They are collected here so the document above reads on its own."
+  },
+  {
+   "t": "h2",
+   "text": "Build notes"
+  },
+  {
+   "t": "p",
+   "text": "From: Part A. How WellPeps Works (public page)",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**Build note:** publish as a public page (suggested /how-wellpeps-works), linked from the footer and from every program page. The page title and heading are \"How WellPeps Works\". Page copy starts below.",
+   "kind": "info"
+  },
+  {
+   "t": "p",
+   "text": "From: Part C. Patient acknowledgment (required form)",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**Build note:** configure as a required consent form in GEN Health (Forms, Patient Consents tab: a rich text block with Require Signature, then the checkbox questions). Show it before provider review, after the Electronic Records, Signatures and Communications Consent. the agreement with the Practice Exhibit B paragraph 1(d)(vi) requires WellPeps to ensure each participant is told of and agrees to these relationships, so every box must be checked to continue. Store the typed name, timestamp, document version and IP address, and re-present when the version changes.",
+   "kind": "info"
   }
  ],
  "id": "A13",

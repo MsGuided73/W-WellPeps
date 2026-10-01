@@ -596,11 +596,6 @@
    "text": "Acknowledgment"
   },
   {
-   "t": "callout",
-   "text": "**Build note:** configure as the first required consent form in GEN Health, before intake, other consents and payment (Forms, Patient Consents tab: a rich text block with Require Signature, then the checkbox, email and phone questions). Boxes 1, 2, 3 and 5 are required to continue. Box 4 is a separate, unchecked, optional question, and the mobile number is asked only if box 4 is checked. Store the typed name, email, mobile number, timestamp, document version and IP address. The signature stays valid until a new version is published; re-present when the version changes.",
-   "kind": "info"
-  },
-  {
    "t": "p",
    "text": "Please read this consent (version [VERSION], dated [EFFECTIVE DATE]) before checking each box. This is not a consent to treatment. You will be asked to read and sign other forms next.",
    "italic": false,
@@ -674,6 +669,30 @@
    "text": "By typing my name, I agree that my electronic signature is the legal equivalent of my handwritten signature. This consent does not by itself create a clinician-patient relationship and is not a consent to treatment.",
    "italic": false,
    "align": null
+  },
+  {
+   "t": "h1",
+   "text": "Technical and drafting notes"
+  },
+  {
+   "t": "callout",
+   "kind": "note",
+   "text": "**For the team, not part of the document.** These are instructions for WellPeps, counsel and the people who build the forms and pages. They are collected here so the document above reads on its own."
+  },
+  {
+   "t": "h2",
+   "text": "Build notes"
+  },
+  {
+   "t": "p",
+   "text": "From: Acknowledgment",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**Build note:** configure as the first required consent form in GEN Health, before intake, other consents and payment (Forms, Patient Consents tab: a rich text block with Require Signature, then the checkbox, email and phone questions). Boxes 1, 2, 3 and 5 are required to continue. Box 4 is a separate, unchecked, optional question, and the mobile number is asked only if box 4 is checked. Store the typed name, email, mobile number, timestamp, document version and IP address. The signature stays valid until a new version is published; re-present when the version changes.",
+   "kind": "info"
   }
  ],
  "id": "B1",

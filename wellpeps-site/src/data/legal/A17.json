@@ -1312,11 +1312,6 @@
    "text": "PART 2. HEALTHY AGING AND VITALITY SAFETY ACKNOWLEDGMENT (required form)"
   },
   {
-   "t": "callout",
-   "text": "**Build note:** configure as required GEN Health form(s) (Forms), shown before provider review and checkout, after the Electronic Records, Signatures and Communications Consent. Always show the core boxes. Show the injectable boxes if any of Articles A to E is in the cart. Show one product block for each product in the cart. Every box displayed must be checked to continue. Capture and store the typed name, timestamp, document version, IP address and the list of products covered, against the order. Counsel to confirm logging and retention. Whenever the medical director changes an article, update the matching boxes so the acknowledgment never says more or less than the article.",
-   "kind": "note"
-  },
-  {
    "t": "p",
    "text": "Please read the Healthy Aging and Vitality Medication Safety Information (version [VERSION], effective [EFFECTIVE DATE]) before checking each box. Signing this acknowledgment does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
    "italic": false,
@@ -1538,6 +1533,30 @@
    "text": "By typing my name, I agree that my electronic signature is the legal equivalent of my handwritten signature, and that I have already agreed to receive and sign documents electronically. This acknowledgment does not replace the Informed Consent to Telehealth Services and Treatment and does not by itself create a clinician-patient relationship.",
    "italic": false,
    "align": null
+  },
+  {
+   "t": "h1",
+   "text": "Technical and drafting notes"
+  },
+  {
+   "t": "callout",
+   "kind": "note",
+   "text": "**For the team, not part of the document.** These are instructions for WellPeps, counsel and the people who build the forms and pages. They are collected here so the document above reads on its own."
+  },
+  {
+   "t": "h2",
+   "text": "Build notes"
+  },
+  {
+   "t": "p",
+   "text": "From: PART 2. HEALTHY AGING AND VITALITY SAFETY ACKNOWLEDGMENT (required form)",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**Build note:** configure as required GEN Health form(s) (Forms), shown before provider review and checkout, after the Electronic Records, Signatures and Communications Consent. Always show the core boxes. Show the injectable boxes if any of Articles A to E is in the cart. Show one product block for each product in the cart. Every box displayed must be checked to continue. Capture and store the typed name, timestamp, document version, IP address and the list of products covered, against the order. Counsel to confirm logging and retention. Whenever the medical director changes an article, update the matching boxes so the acknowledgment never says more or less than the article.",
+   "kind": "note"
   }
  ],
  "id": "A17",

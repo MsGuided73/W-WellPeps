@@ -614,12 +614,6 @@
    "text": "Acknowledgment (required form in GEN Health, shown before checkout)"
   },
   {
-   "t": "p",
-   "text": "Build note: configure as a required consent form attached to every product (Appendix C). Every box must be checked to continue. Capture the typed name, timestamp, document version and IP address. This acknowledgment is separate from, and does not replace, the automatic renewal consent box at checkout (Appendix A).",
-   "italic": true,
-   "align": null
-  },
-  {
    "t": "check",
    "text": "I have read the Refund, Cancellation and Auto-Renewal Policy (version [VERSION])."
   },
@@ -674,10 +668,35 @@
   },
   {
    "t": "h1",
-   "text": "Appendix A. Checkout disclosure and consent (internal: for whoever builds the checkout)"
+   "text": "Technical and drafting notes"
+  },
+  {
+   "t": "callout",
+   "kind": "note",
+   "text": "**For the team, not part of the document.** These are instructions for WellPeps, counsel and the people who build the forms and pages. They are collected here so the document above reads on its own."
   },
   {
    "t": "h2",
+   "text": "Build notes"
+  },
+  {
+   "t": "p",
+   "text": "From: Acknowledgment (required form in GEN Health, shown before checkout)",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Build note: configure as a required consent form attached to every product (Appendix C). Every box must be checked to continue. Capture the typed name, timestamp, document version and IP address. This acknowledgment is separate from, and does not replace, the automatic renewal consent box at checkout (Appendix A).",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "Appendix A. Checkout disclosure and consent (internal: for whoever builds the checkout)"
+  },
+  {
+   "t": "h3",
    "text": "A.1 Rules this wording must meet"
   },
   {
@@ -701,7 +720,7 @@
    "level": 0
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "A.2 Placement rules"
   },
   {
@@ -716,7 +735,7 @@
    ]
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "A.3 Disclosure text (standard plan)"
   },
   {
@@ -725,7 +744,7 @@
    "kind": "info"
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "A.4 Optional paragraph if a promotional price is ever offered"
   },
   {
@@ -734,7 +753,7 @@
    "kind": "info"
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "A.5 Checkbox label and button label"
   },
   {
@@ -748,7 +767,7 @@
    "align": null
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "A.6 Where each required term appears"
   },
   {
@@ -799,7 +818,7 @@
    "shade": true
   },
   {
-   "t": "h1",
+   "t": "h2",
    "text": "Appendix B. Email templates (internal)"
   },
   {
@@ -872,7 +891,7 @@
    "shade": true
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "B1. Order and automatic renewal acknowledgment (send immediately after checkout)"
   },
   {
@@ -890,7 +909,7 @@
    "kind": "info"
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "B2. Renewal reminder (send at least [7 days] before each renewal charge; also meets the annual reminder)"
   },
   {
@@ -899,7 +918,7 @@
    "kind": "info"
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "B3. Price-change notice (send at least [30 days] before a higher price takes effect)"
   },
   {
@@ -908,7 +927,7 @@
    "kind": "info"
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "B4. Failed payment"
   },
   {
@@ -917,7 +936,7 @@
    "kind": "info"
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "B5. Cancellation confirmation (send immediately, however the request arrived; show the same text on screen)"
   },
   {
@@ -926,7 +945,7 @@
    "kind": "info"
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "B6. Refund confirmation"
   },
   {
@@ -935,7 +954,7 @@
    "kind": "info"
   },
   {
-   "t": "h1",
+   "t": "h2",
    "text": "Appendix C. GEN Health configuration checklist (internal)"
   },
   {
@@ -1106,7 +1125,7 @@
    "shade": false
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "Test script (run before launch and after any GEN update)"
   },
   {

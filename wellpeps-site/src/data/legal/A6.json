@@ -537,11 +537,6 @@
    "text": "Acknowledgment of Receipt of Notice of Privacy Practices"
   },
   {
-   "t": "callout",
-   "text": "**Build note (remove before publishing):** configure in GEN Health to appear after the notice and before the first service. Save the typed name, date and time, notice version and IP address with the record and keep it for six years. Allow a documented way to continue if a person will not sign, and use the office-use table. Counsel to confirm the design (open item 12).",
-   "kind": "note"
-  },
-  {
    "t": "p",
    "text": "Please read the Notice of Privacy Practices of [PRACTICE NAME] (version [VERSION], effective [EFFECTIVE DATE]). It explains how we may use and share your health information and what rights you have.",
    "italic": false,
@@ -640,6 +635,30 @@
    ],
    "header": true,
    "shade": false
+  },
+  {
+   "t": "h1",
+   "text": "Technical and drafting notes"
+  },
+  {
+   "t": "callout",
+   "kind": "note",
+   "text": "**For the team, not part of the document.** These are instructions for WellPeps, counsel and the people who build the forms and pages. They are collected here so the document above reads on its own."
+  },
+  {
+   "t": "h2",
+   "text": "Build notes"
+  },
+  {
+   "t": "p",
+   "text": "From: Acknowledgment of Receipt of Notice of Privacy Practices",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**Build note (remove before publishing):** configure in GEN Health to appear after the notice and before the first service. Save the typed name, date and time, notice version and IP address with the record and keep it for six years. Allow a documented way to continue if a person will not sign, and use the office-use table. Counsel to confirm the design (open item 12).",
+   "kind": "note"
   }
  ],
  "id": "A6",

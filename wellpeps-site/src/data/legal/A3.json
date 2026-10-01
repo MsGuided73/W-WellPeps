@@ -444,8 +444,8 @@
   },
   {
    "t": "callout",
-   "text": "**[ACTIVATION BLOCK C-A1: ADVERTISING OR ANALYTICS PARTNERS]**\n**Do not publish this block until:** an advertising or analytics tool will receive consumer health data; the separate consent in Appendix B.2 is built; the consent control in Your Privacy Choices, Part 2, is live; and the Cookie and Tracking Technologies Notice table N-A1 is active. Counsel must first decide whether any advertising tool may run on a page that reveals a health topic.",
-   "kind": "warning"
+   "kind": "info",
+   "text": "**Held wording.** The text that follows is not in effect yet. It applies only when the condition for \"C-A1: ADVERTISING OR ANALYTICS PARTNERS\" in the technical notes at the end of this document is met."
   },
   {
    "t": "table",
@@ -474,8 +474,8 @@
   },
   {
    "t": "callout",
-   "text": "**[END ACTIVATION BLOCK C-A1]** When the trigger is met, delete this marker and the start marker and keep the text between them. Until then, delete the whole block before publishing.",
-   "kind": "warning"
+   "kind": "info",
+   "text": "**End of held wording.**"
   },
   {
    "t": "h2",
@@ -768,12 +768,6 @@
    "text": "Appendix A. Consent to collect (form wording)"
   },
   {
-   "t": "p",
-   "text": "Build notes: each consent is a separate, unchecked box. It must not be combined with any other agreement or with acceptance of any policy. Log each consent (who, when, which version and which text) as set out in Your Privacy Choices, Part 2, Section 2.3, and keep the log for the period in Privacy Policy Section 7. [COUNSEL: confirm wording.]",
-   "italic": false,
-   "align": null
-  },
-  {
    "t": "h2",
    "text": "A.1 wellpeps.com sign-up forms (guides, waitlists, program notices)"
   },
@@ -862,8 +856,8 @@
   },
   {
    "t": "callout",
-   "text": "**[ACTIVATION BLOCK B-A2: B.2 CONSENT TO SHARE WITH ADVERTISING OR ANALYTICS PARTNERS (template)]**\n**Do not publish this block until:** activation block C-A1 is active. This text is not used today.",
-   "kind": "warning"
+   "kind": "info",
+   "text": "**Held wording.** The text that follows is not in effect yet. It applies only when the condition for \"B-A2: B.2 CONSENT TO SHARE WITH ADVERTISING OR ANALYTICS PARTNERS (template)\" in the technical notes at the end of this document is met."
   },
   {
    "t": "p",
@@ -877,8 +871,57 @@
   },
   {
    "t": "callout",
+   "kind": "info",
+   "text": "**End of held wording.**"
+  },
+  {
+   "t": "h1",
+   "text": "Technical and drafting notes"
+  },
+  {
+   "t": "callout",
+   "kind": "note",
+   "text": "**For the team, not part of the document.** These are instructions for WellPeps, counsel and the people who build the forms and pages. They are collected here so the document above reads on its own."
+  },
+  {
+   "t": "h2",
+   "text": "Held wording and when it takes effect"
+  },
+  {
+   "t": "callout",
+   "text": "**[ACTIVATION BLOCK C-A1: ADVERTISING OR ANALYTICS PARTNERS]**\n**Do not publish this block until:** an advertising or analytics tool will receive consumer health data; the separate consent in Appendix B.2 is built; the consent control in Your Privacy Choices, Part 2, is live; and the Cookie and Tracking Technologies Notice table N-A1 is active. Counsel must first decide whether any advertising tool may run on a page that reveals a health topic.",
+   "kind": "warning"
+  },
+  {
+   "t": "callout",
+   "text": "**[END ACTIVATION BLOCK C-A1]** When the trigger is met, delete this marker and the start marker and keep the text between them. Until then, delete the whole block before publishing.",
+   "kind": "warning"
+  },
+  {
+   "t": "callout",
+   "text": "**[ACTIVATION BLOCK B-A2: B.2 CONSENT TO SHARE WITH ADVERTISING OR ANALYTICS PARTNERS (template)]**\n**Do not publish this block until:** activation block C-A1 is active. This text is not used today.",
+   "kind": "warning"
+  },
+  {
+   "t": "callout",
    "text": "**[END ACTIVATION BLOCK B-A2]** When the trigger is met, delete this marker and the start marker and keep the text between them. Until then, delete the whole block before publishing.",
    "kind": "warning"
+  },
+  {
+   "t": "h2",
+   "text": "Build notes"
+  },
+  {
+   "t": "p",
+   "text": "From: Appendix A. Consent to collect (form wording)",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Build notes: each consent is a separate, unchecked box. It must not be combined with any other agreement or with acceptance of any policy. Log each consent (who, when, which version and which text) as set out in Your Privacy Choices, Part 2, Section 2.3, and keep the log for the period in Privacy Policy Section 7. [COUNSEL: confirm wording.]",
+   "italic": false,
+   "align": null
   }
  ],
  "id": "A3",

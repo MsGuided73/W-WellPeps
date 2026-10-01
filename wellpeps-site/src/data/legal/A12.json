@@ -379,6 +379,15 @@
   },
   {
    "t": "h1",
+   "text": "Technical and drafting notes"
+  },
+  {
+   "t": "callout",
+   "kind": "note",
+   "text": "**For the team, not part of the document.** These are instructions for WellPeps, counsel and the people who build the forms and pages. They are collected here so the document above reads on its own."
+  },
+  {
+   "t": "h2",
    "text": "Part 2. Assistant wording for the developer (internal)"
   },
   {
@@ -439,7 +448,7 @@
    "shade": false
   },
   {
-   "t": "h1",
+   "t": "h2",
    "text": "Part 3. Ready-to-activate block for the vector-search upgrade (internal: keep OFF)"
   },
   {
@@ -448,7 +457,7 @@
    "kind": "warning"
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "3.1 Checklist"
   },
   {
@@ -465,7 +474,7 @@
    ]
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "3.2 Replacement for Part 1 section 4"
   },
   {
@@ -474,7 +483,7 @@
    "kind": "info"
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "3.3 Replacement banner and first message"
   },
   {
@@ -483,7 +492,7 @@
    "kind": "info"
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "3.4 If the assistant ever writes answers with a generative AI model"
   },
   {
@@ -493,11 +502,11 @@
    "align": null
   },
   {
-   "t": "h1",
+   "t": "h2",
    "text": "Part 4. State-law table and change log (internal: for counsel)"
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "4.1 State and federal rules to verify (not an opinion)"
   },
   {
@@ -548,7 +557,7 @@
    "shade": false
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "4.2 What changed from the earlier draft"
   },
   {

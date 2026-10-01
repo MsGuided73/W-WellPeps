@@ -5,315 +5,6 @@
  "blocks": [
   {
    "t": "h1",
-   "text": "Part 1. Instructions for WellPeps and the Practice (remove before publishing)"
-  },
-  {
-   "t": "h2",
-   "text": "1.1 What is in this packet"
-  },
-  {
-   "t": "table",
-   "rows": [
-    [
-     "Form",
-     "Use it when",
-     "Optional?",
-     "Where it appears in the GEN Health flow",
-     "Who receives it"
-    ],
-    [
-     "1. Release to my primary care physician or other clinician",
-     "A patient asks that records go to a named clinician.",
-     "Yes. Never a condition of care, an order or payment.",
-     "Patient Consents form. Offered beside the primary care question in intake (item F4) and any time from the portal.",
-     "The Practice"
-    ],
-    [
-     "2. Use of my information for WellPeps marketing or testimonials",
-     "Only if WellPeps uses patient photos or stories.",
-     "Yes. Never a condition of anything.",
-     "Not in intake, checkout or the order flow. Sent as a follow-up form or portal message only after a patient volunteers or is invited, with a clear \"no thanks\" path.",
-     "WellPeps and the Practice"
-    ],
-    [
-     "3. Permission to share with a person I choose",
-     "A patient wants a family member or caregiver to get information or talk with support.",
-     "Yes.",
-     "Patient Consents form, available from the portal and on request through support.",
-     "The Practice; WellPeps support for order and shipping matters"
-    ],
-    [
-     "4. Cancel (revoke) my permission",
-     "Any time, for Forms 1, 2 or 3.",
-     "A right, not a duty.",
-     "Linked from every form and the portal help page. Also accepted as a portal message or email.",
-     "The Practice and WellPeps"
-    ]
-   ],
-   "widths": [
-    2.4,
-    2.6,
-    1.8,
-    3.6,
-    1.8
-   ],
-   "header": true,
-   "shade": false
-  },
-  {
-   "t": "h2",
-   "text": "1.2 Rules for using these forms"
-  },
-  {
-   "t": "li",
-   "text": "**None is a condition of anything.** Do not attach any form to a product as a Required form in GEN Health (that would gate checkout). Do not pre-check boxes. Do not offer a discount, priority or other reward for signing Form 2 unless it is disclosed on the form and in the ad.",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "**Each form stands alone.** Do not fold an authorization into the Patient Terms of Service, the Informed Consent to Telehealth Services, the Notice of Privacy Practices acknowledgment or the Electronic Records, Signatures and Communications Consent. [VERIFY: the HIPAA rule on combining authorizations with other documents, and when conditioning is allowed]",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "**No blanks that matter.** An authorization with a missing recipient, description or expiration is not valid. Do not add \"any person\" or \"until revoked\". [VERIFY: whether an open-ended expiration is acceptable for a non-research authorization; these forms use a fixed period or an event]",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "**Treatment disclosures need no form.** The Practice may send information to another clinician treating the patient without an authorization, as the Notice of Privacy Practices explains. [VERIFY: whether any state served requires patient consent before telehealth records go to a primary care physician]",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "**Do not use these forms** for psychotherapy notes or for substance-use-disorder program records covered by 42 CFR Part 2. Neither is expected. [VERIFY: 42 CFR Part 2 consent requirements, only if such records are ever held]",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "**Verify who is signing.** For a personal representative, record the proof of authority.",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "**No health information in ordinary email.** Use the portal or another secure channel unless the patient has chosen ordinary email on the form.",
-   "level": 0
-  },
-  {
-   "t": "h2",
-   "text": "1.3 Building the forms in GEN Health"
-  },
-  {
-   "t": "p",
-   "text": "Create each form under Forms, Patient Consents, as a consent form. Use Rich Text for the text, Checkbox questions for the choices, Short Text for the typed name and Date for dates. Four points from the platform guide:",
-   "italic": false,
-   "align": null
-  },
-  {
-   "t": "li",
-   "text": "A consent signature stays current until a new version is published; GEN does not expire it by date. Track expiration dates in the register in section 1.4.",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "Publishing an edit creates a new version and asks every patient to sign again. Batch edits and record the version number on every signed copy.",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "Only Active consent forms attach to a product as Required forms. Keep these four off that list. [VERIFY: whether GEN can present an optional consent outside checkout, or whether Client Staff must send it as a follow-up form or a PDF through portal messages]",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "Capture typed name, date and time, version and IP address against the patient record, and keep a PDF of every signed form.",
-   "level": 0
-  },
-  {
-   "t": "h2",
-   "text": "1.4 Recordkeeping and retention"
-  },
-  {
-   "t": "p",
-   "text": "Keep every signed form, and every revocation, in the Practice's patient record. Retain each for six years from the date it was signed or last in effect, whichever is later, or for the period in the agreement with the Practice section 3 (the Term plus seven years), whichever is longer, and for any longer period state law requires. [VERIFY: HIPAA's six-year documentation retention rule as applied to authorizations and revocations]",
-   "italic": false,
-   "align": null
-  },
-  {
-   "t": "p",
-   "text": "Keep a register. Suggested columns:",
-   "italic": false,
-   "align": null
-  },
-  {
-   "t": "table",
-   "rows": [
-    [
-     "Patient ID",
-     "Form",
-     "Version",
-     "Date signed",
-     "Recipient or use",
-     "Expires",
-     "Copy given (date)",
-     "Revoked (date)",
-     "Handled by"
-    ],
-    [
-     "",
-     "",
-     "",
-     "",
-     "",
-     "",
-     "",
-     "",
-     ""
-    ]
-   ],
-   "widths": [
-    1.2,
-    0.8,
-    0.9,
-    1.1,
-    1.8,
-    1,
-    1.2,
-    1.1,
-    1.1
-   ],
-   "header": true,
-   "shade": false
-  },
-  {
-   "t": "h2",
-   "text": "1.5 Handling a cancellation"
-  },
-  {
-   "t": "ol",
-   "items": [
-    "Log the date received. Accept any clear written message, including a portal message. If someone asks by phone (only if a phone line is live), ask them to confirm in writing.",
-    "Send it to the Practice's privacy contact the same business day. The Practice decides what to stop.",
-    "Stop new uses and disclosures under that permission within [5 business days]. For Form 2, remove items on sites and accounts WellPeps controls within [10 business days].",
-    "Tell any recipient who can still act on it. Confirm to the patient in writing.",
-    "Keep the revocation with the original form. Do not delete the original."
-   ]
-  },
-  {
-   "t": "h2",
-   "text": "1.6 Form 2: marketing rules"
-  },
-  {
-   "t": "li",
-   "text": "Review every story and photo against the advertising rules before use: no outcome or weight-loss numbers, no claim a compounded medicine is FDA-approved, no brand names to describe compounded products, and \"prescription required; a prescription is not guaranteed\" wherever a treatment is mentioned.",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "The endorser must have used the product and must speak honestly. Disclose any payment, free product or discount. Do not require a positive review for anything. [VERIFY: current FTC Endorsement Guides (16 CFR Part 255) and the FTC rule on reviews and testimonials: disclosure of material connections and of typical results]",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "Keep a substantiation file for each use. Do not use a story in any state where the product is not offered.",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "A story a visitor sends through the website, outside any patient relationship, is not PHI, but still needs the release in this form and the consent text in the Consumer Health Data Privacy Policy. [VERIFY: whether Washington My Health My Data consent to collect and share must be separate from this form]",
-   "level": 0
-  },
-  {
-   "t": "h2",
-   "text": "1.7 Element checklist (45 CFR 164.508)"
-  },
-  {
-   "t": "table",
-   "rows": [
-    [
-     "Element or statement",
-     "Form 1",
-     "Form 2",
-     "Form 3"
-    ],
-    [
-     "Description of the information",
-     "Section 3",
-     "Section 2",
-     "Section 3"
-    ],
-    [
-     "Who may disclose",
-     "Section 1",
-     "Section 1",
-     "Section 1"
-    ],
-    [
-     "Who may receive",
-     "Section 2",
-     "Section 3",
-     "Section 2"
-    ],
-    [
-     "Purpose",
-     "Section 4",
-     "Section 4",
-     "Section 5"
-    ],
-    [
-     "Expiration date or event",
-     "Section 5",
-     "Section 7",
-     "Section 6"
-    ],
-    [
-     "Signature, date, representative's authority",
-     "Signature",
-     "Signature",
-     "Signature"
-    ],
-    [
-     "Right to revoke, how, and exceptions",
-     "Section 6",
-     "Section 9",
-     "Section 7"
-    ],
-    [
-     "Treatment, payment and enrollment not conditioned",
-     "Box at top; section 6",
-     "Box at top; section 9",
-     "Box at top; section 7"
-    ],
-    [
-     "Redisclosure warning",
-     "Section 6",
-     "Section 9",
-     "Section 7"
-    ],
-    [
-     "Copy to the individual",
-     "Section 6; Signature",
-     "Section 9; Signature",
-     "Section 7; Signature"
-    ],
-    [
-     "Marketing: statement on payment from a third party",
-     "Not applicable",
-     "Section 5",
-     "Not applicable"
-    ]
-   ],
-   "widths": [
-    4,
-    1.6,
-    1.6,
-    1.6
-   ],
-   "header": true,
-   "shade": false
-  },
-  {
-   "t": "h1",
    "text": "Form 1. Release of My Information to My Primary Care Doctor or Another Clinician"
   },
   {
@@ -1419,6 +1110,324 @@
    ],
    "header": false,
    "shade": true
+  },
+  {
+   "t": "h1",
+   "text": "Technical and drafting notes"
+  },
+  {
+   "t": "callout",
+   "kind": "note",
+   "text": "**For the team, not part of the document.** These are instructions for WellPeps, counsel and the people who build the forms and pages. They are collected here so the document above reads on its own."
+  },
+  {
+   "t": "h2",
+   "text": "Part 1. Instructions for WellPeps and the Practice (remove before publishing)"
+  },
+  {
+   "t": "h3",
+   "text": "1.1 What is in this packet"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Form",
+     "Use it when",
+     "Optional?",
+     "Where it appears in the GEN Health flow",
+     "Who receives it"
+    ],
+    [
+     "1. Release to my primary care physician or other clinician",
+     "A patient asks that records go to a named clinician.",
+     "Yes. Never a condition of care, an order or payment.",
+     "Patient Consents form. Offered beside the primary care question in intake (item F4) and any time from the portal.",
+     "The Practice"
+    ],
+    [
+     "2. Use of my information for WellPeps marketing or testimonials",
+     "Only if WellPeps uses patient photos or stories.",
+     "Yes. Never a condition of anything.",
+     "Not in intake, checkout or the order flow. Sent as a follow-up form or portal message only after a patient volunteers or is invited, with a clear \"no thanks\" path.",
+     "WellPeps and the Practice"
+    ],
+    [
+     "3. Permission to share with a person I choose",
+     "A patient wants a family member or caregiver to get information or talk with support.",
+     "Yes.",
+     "Patient Consents form, available from the portal and on request through support.",
+     "The Practice; WellPeps support for order and shipping matters"
+    ],
+    [
+     "4. Cancel (revoke) my permission",
+     "Any time, for Forms 1, 2 or 3.",
+     "A right, not a duty.",
+     "Linked from every form and the portal help page. Also accepted as a portal message or email.",
+     "The Practice and WellPeps"
+    ]
+   ],
+   "widths": [
+    2.4,
+    2.6,
+    1.8,
+    3.6,
+    1.8
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h3",
+   "text": "1.2 Rules for using these forms"
+  },
+  {
+   "t": "li",
+   "text": "**None is a condition of anything.** Do not attach any form to a product as a Required form in GEN Health (that would gate checkout). Do not pre-check boxes. Do not offer a discount, priority or other reward for signing Form 2 unless it is disclosed on the form and in the ad.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Each form stands alone.** Do not fold an authorization into the Patient Terms of Service, the Informed Consent to Telehealth Services, the Notice of Privacy Practices acknowledgment or the Electronic Records, Signatures and Communications Consent. [VERIFY: the HIPAA rule on combining authorizations with other documents, and when conditioning is allowed]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**No blanks that matter.** An authorization with a missing recipient, description or expiration is not valid. Do not add \"any person\" or \"until revoked\". [VERIFY: whether an open-ended expiration is acceptable for a non-research authorization; these forms use a fixed period or an event]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Treatment disclosures need no form.** The Practice may send information to another clinician treating the patient without an authorization, as the Notice of Privacy Practices explains. [VERIFY: whether any state served requires patient consent before telehealth records go to a primary care physician]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Do not use these forms** for psychotherapy notes or for substance-use-disorder program records covered by 42 CFR Part 2. Neither is expected. [VERIFY: 42 CFR Part 2 consent requirements, only if such records are ever held]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Verify who is signing.** For a personal representative, record the proof of authority.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**No health information in ordinary email.** Use the portal or another secure channel unless the patient has chosen ordinary email on the form.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "1.3 Building the forms in GEN Health"
+  },
+  {
+   "t": "p",
+   "text": "Create each form under Forms, Patient Consents, as a consent form. Use Rich Text for the text, Checkbox questions for the choices, Short Text for the typed name and Date for dates. Four points from the platform guide:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "A consent signature stays current until a new version is published; GEN does not expire it by date. Track expiration dates in the register in section 1.4.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Publishing an edit creates a new version and asks every patient to sign again. Batch edits and record the version number on every signed copy.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Only Active consent forms attach to a product as Required forms. Keep these four off that list. [VERIFY: whether GEN can present an optional consent outside checkout, or whether Client Staff must send it as a follow-up form or a PDF through portal messages]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Capture typed name, date and time, version and IP address against the patient record, and keep a PDF of every signed form.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "1.4 Recordkeeping and retention"
+  },
+  {
+   "t": "p",
+   "text": "Keep every signed form, and every revocation, in the Practice's patient record. Retain each for six years from the date it was signed or last in effect, whichever is later, or for the period in the agreement with the Practice section 3 (the Term plus seven years), whichever is longer, and for any longer period state law requires. [VERIFY: HIPAA's six-year documentation retention rule as applied to authorizations and revocations]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Keep a register. Suggested columns:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Patient ID",
+     "Form",
+     "Version",
+     "Date signed",
+     "Recipient or use",
+     "Expires",
+     "Copy given (date)",
+     "Revoked (date)",
+     "Handled by"
+    ],
+    [
+     "",
+     "",
+     "",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ]
+   ],
+   "widths": [
+    1.2,
+    0.8,
+    0.9,
+    1.1,
+    1.8,
+    1,
+    1.2,
+    1.1,
+    1.1
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h3",
+   "text": "1.5 Handling a cancellation"
+  },
+  {
+   "t": "ol",
+   "items": [
+    "Log the date received. Accept any clear written message, including a portal message. If someone asks by phone (only if a phone line is live), ask them to confirm in writing.",
+    "Send it to the Practice's privacy contact the same business day. The Practice decides what to stop.",
+    "Stop new uses and disclosures under that permission within [5 business days]. For Form 2, remove items on sites and accounts WellPeps controls within [10 business days].",
+    "Tell any recipient who can still act on it. Confirm to the patient in writing.",
+    "Keep the revocation with the original form. Do not delete the original."
+   ]
+  },
+  {
+   "t": "h3",
+   "text": "1.6 Form 2: marketing rules"
+  },
+  {
+   "t": "li",
+   "text": "Review every story and photo against the advertising rules before use: no outcome or weight-loss numbers, no claim a compounded medicine is FDA-approved, no brand names to describe compounded products, and \"prescription required; a prescription is not guaranteed\" wherever a treatment is mentioned.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "The endorser must have used the product and must speak honestly. Disclose any payment, free product or discount. Do not require a positive review for anything. [VERIFY: current FTC Endorsement Guides (16 CFR Part 255) and the FTC rule on reviews and testimonials: disclosure of material connections and of typical results]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Keep a substantiation file for each use. Do not use a story in any state where the product is not offered.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "A story a visitor sends through the website, outside any patient relationship, is not PHI, but still needs the release in this form and the consent text in the Consumer Health Data Privacy Policy. [VERIFY: whether Washington My Health My Data consent to collect and share must be separate from this form]",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "1.7 Element checklist (45 CFR 164.508)"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Element or statement",
+     "Form 1",
+     "Form 2",
+     "Form 3"
+    ],
+    [
+     "Description of the information",
+     "Section 3",
+     "Section 2",
+     "Section 3"
+    ],
+    [
+     "Who may disclose",
+     "Section 1",
+     "Section 1",
+     "Section 1"
+    ],
+    [
+     "Who may receive",
+     "Section 2",
+     "Section 3",
+     "Section 2"
+    ],
+    [
+     "Purpose",
+     "Section 4",
+     "Section 4",
+     "Section 5"
+    ],
+    [
+     "Expiration date or event",
+     "Section 5",
+     "Section 7",
+     "Section 6"
+    ],
+    [
+     "Signature, date, representative's authority",
+     "Signature",
+     "Signature",
+     "Signature"
+    ],
+    [
+     "Right to revoke, how, and exceptions",
+     "Section 6",
+     "Section 9",
+     "Section 7"
+    ],
+    [
+     "Treatment, payment and enrollment not conditioned",
+     "Box at top; section 6",
+     "Box at top; section 9",
+     "Box at top; section 7"
+    ],
+    [
+     "Redisclosure warning",
+     "Section 6",
+     "Section 9",
+     "Section 7"
+    ],
+    [
+     "Copy to the individual",
+     "Section 6; Signature",
+     "Section 9; Signature",
+     "Section 7; Signature"
+    ],
+    [
+     "Marketing: statement on payment from a third party",
+     "Not applicable",
+     "Section 5",
+     "Not applicable"
+    ]
+   ],
+   "widths": [
+    4,
+    1.6,
+    1.6,
+    1.6
+   ],
+   "header": true,
+   "shade": false
   }
  ],
  "id": "B7",

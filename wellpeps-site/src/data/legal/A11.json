@@ -282,152 +282,6 @@
   },
   {
    "t": "h1",
-   "text": "Part 2. Consent wording for each form (internal: for the build team)"
-  },
-  {
-   "t": "callout",
-   "text": "Remove Parts 2 to 4 before publishing. Part 2 is the exact text to build. Do not change the meaning of any line without counsel. Every consent box is **unchecked by default**, is **separate** from the Terms, Privacy and E-SIGN acceptances, and stores the number or address, the box state, the date and time, the IP address, the form version and the exact wording shown (consent-receipt log, item H9).",
-   "kind": "note"
-  },
-  {
-   "t": "table",
-   "rows": [
-    [
-     "Where",
-     "Program",
-     "What to build"
-    ],
-    [
-     "GEN Health intake: Box 4 of the Electronic Records, Signatures and Communications Consent (the first required form), or under the mobile number field if the number is asked on the intake form",
-     "A",
-     "Build ONE Program A consent, not two. The wording below is the wording of Box 4 in that consent form (the mobile number is asked only if the box is checked). If the intake form also asks for a number, it must point to the same record and must not carry different consent text. Not required to continue. Compact version below if space is tight."
-    ],
-    [
-     "Patient portal, notification settings",
-     "A",
-     "A text-alerts switch that is off until the patient turns it on. Verify the number with a one-time code (this also guards against a reassigned number; consider the FCC Reassigned Numbers Database for numbers collected another way). The first text confirms the sign-up."
-    ],
-    [
-     "Any wellpeps.com form that collects a phone number (none today)",
-     "A or B",
-     "A phone field never implies consent. Add the matching box and store the same record. Do not collect a phone number on the newsletter, waitlist or eBook forms."
-    ],
-    [
-     "Promotional sign-up form (does not exist)",
-     "B",
-     "See Part 3. Never shown inside intake or checkout."
-    ]
-   ],
-   "widths": [
-    3,
-    0.8,
-    6
-   ],
-   "header": true,
-   "shade": false
-  },
-  {
-   "t": "h2",
-   "text": "2.1 GEN Health intake: the Program A text consent (same as Box 4 of the Electronic Records, Signatures and Communications Consent)"
-  },
-  {
-   "t": "p",
-   "text": "Shown with the mobile number field:",
-   "italic": false,
-   "align": null
-  },
-  {
-   "t": "check",
-   "text": "Yes, send me text messages. I agree that WellPeps, and [PRACTICE NAME] through the WellPeps platform, may text me at the mobile number above about my account, visits, orders, refills and billing, and to tell me when I have a new portal message. Texts will not include health details. Message frequency varies. Msg & data rates may apply. Reply STOP to cancel and HELP for help. I do not have to agree to get care or to buy anything. If I leave this box unchecked, I will get email and portal notices instead."
-  },
-  {
-   "t": "p",
-   "text": "Link line under the box: Text Messaging Terms | Privacy Policy.",
-   "italic": true,
-   "align": null
-  },
-  {
-   "t": "p",
-   "text": "**Compact version** (counsel to confirm it is enough where space is tight):",
-   "italic": false,
-   "align": null
-  },
-  {
-   "t": "check",
-   "text": "Text me about my account, visits, orders and refills (no health details). Frequency varies. Msg & data rates may apply. STOP to cancel, HELP for help. Not required to get care. Text Messaging Terms | Privacy Policy."
-  },
-  {
-   "t": "h2",
-   "text": "2.2 Patient portal notification settings (Program A)"
-  },
-  {
-   "t": "p",
-   "text": "Switch label and helper text:",
-   "italic": false,
-   "align": null
-  },
-  {
-   "t": "callout",
-   "text": "**Text alerts** (off until you turn it on)\nSend text alerts to the mobile number on your profile about visit reminders, new portal messages, refills, orders and billing. No health details are included. Message frequency varies. Msg & data rates may apply. Reply STOP to cancel and HELP for help. Text Messaging Terms | Privacy Policy.",
-   "kind": "info"
-  },
-  {
-   "t": "h2",
-   "text": "2.3 Any other wellpeps.com form that collects a phone number (for example a callback request; Program A)"
-  },
-  {
-   "t": "check",
-   "text": "Yes, text me at this number about my request. Message frequency varies. Msg & data rates may apply. Reply STOP to cancel and HELP for help. I do not have to agree to get help. Text Messaging Terms | Privacy Policy."
-  },
-  {
-   "t": "h2",
-   "text": "2.4 Automatic replies and sample Program A texts"
-  },
-  {
-   "t": "table",
-   "rows": [
-    [
-     "Message",
-     "Text"
-    ],
-    [
-     "First text after sign-up",
-     "WellPeps: You’re signed up for account and care texts. Message frequency varies. Msg & data rates may apply. Reply HELP for help, STOP to cancel. Terms: [TERMS URL]"
-    ],
-    [
-     "Reply to HELP",
-     "WellPeps: For help, email [SUPPORT EMAIL]. Reply STOP to cancel. Msg & data rates may apply. Terms: [TERMS URL]"
-    ],
-    [
-     "Reply to STOP",
-     "WellPeps: You’re unsubscribed and will get no more texts from us. We will still email you about your account. Questions? [SUPPORT EMAIL]"
-    ],
-    [
-     "Sample: visit reminder",
-     "WellPeps: Your video visit starts in 5 minutes. Open your patient portal to join. Reply STOP to opt out."
-    ],
-    [
-     "Sample: portal message",
-     "WellPeps: You have a new message in your patient portal. Log in at [PORTAL URL] to read it. Reply STOP to opt out."
-    ],
-    [
-     "Sample: shipping",
-     "WellPeps: Your order has shipped. Track it in your patient portal at [PORTAL URL]. Reply STOP to opt out."
-    ],
-    [
-     "Sample: refill reminder",
-     "WellPeps: It’s almost time for your refill. Log in at [PORTAL URL] to review your plan. Reply STOP to opt out."
-    ]
-   ],
-   "widths": [
-    2,
-    7
-   ],
-   "header": true,
-   "shade": false
-  },
-  {
-   "t": "h1",
    "text": "Email forms (D17)"
   },
   {
@@ -537,6 +391,161 @@
   },
   {
    "t": "h1",
+   "text": "Technical and drafting notes"
+  },
+  {
+   "t": "callout",
+   "kind": "note",
+   "text": "**For the team, not part of the document.** These are instructions for WellPeps, counsel and the people who build the forms and pages. They are collected here so the document above reads on its own."
+  },
+  {
+   "t": "h2",
+   "text": "Part 2. Consent wording for each form (internal: for the build team)"
+  },
+  {
+   "t": "callout",
+   "text": "Remove Parts 2 to 4 before publishing. Part 2 is the exact text to build. Do not change the meaning of any line without counsel. Every consent box is **unchecked by default**, is **separate** from the Terms, Privacy and E-SIGN acceptances, and stores the number or address, the box state, the date and time, the IP address, the form version and the exact wording shown (consent-receipt log, item H9).",
+   "kind": "note"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Where",
+     "Program",
+     "What to build"
+    ],
+    [
+     "GEN Health intake: Box 4 of the Electronic Records, Signatures and Communications Consent (the first required form), or under the mobile number field if the number is asked on the intake form",
+     "A",
+     "Build ONE Program A consent, not two. The wording below is the wording of Box 4 in that consent form (the mobile number is asked only if the box is checked). If the intake form also asks for a number, it must point to the same record and must not carry different consent text. Not required to continue. Compact version below if space is tight."
+    ],
+    [
+     "Patient portal, notification settings",
+     "A",
+     "A text-alerts switch that is off until the patient turns it on. Verify the number with a one-time code (this also guards against a reassigned number; consider the FCC Reassigned Numbers Database for numbers collected another way). The first text confirms the sign-up."
+    ],
+    [
+     "Any wellpeps.com form that collects a phone number (none today)",
+     "A or B",
+     "A phone field never implies consent. Add the matching box and store the same record. Do not collect a phone number on the newsletter, waitlist or eBook forms."
+    ],
+    [
+     "Promotional sign-up form (does not exist)",
+     "B",
+     "See Part 3. Never shown inside intake or checkout."
+    ]
+   ],
+   "widths": [
+    3,
+    0.8,
+    6
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h3",
+   "text": "2.1 GEN Health intake: the Program A text consent (same as Box 4 of the Electronic Records, Signatures and Communications Consent)"
+  },
+  {
+   "t": "p",
+   "text": "Shown with the mobile number field:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "check",
+   "text": "Yes, send me text messages. I agree that WellPeps, and [PRACTICE NAME] through the WellPeps platform, may text me at the mobile number above about my account, visits, orders, refills and billing, and to tell me when I have a new portal message. Texts will not include health details. Message frequency varies. Msg & data rates may apply. Reply STOP to cancel and HELP for help. I do not have to agree to get care or to buy anything. If I leave this box unchecked, I will get email and portal notices instead."
+  },
+  {
+   "t": "p",
+   "text": "Link line under the box: Text Messaging Terms | Privacy Policy.",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**Compact version** (counsel to confirm it is enough where space is tight):",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "check",
+   "text": "Text me about my account, visits, orders and refills (no health details). Frequency varies. Msg & data rates may apply. STOP to cancel, HELP for help. Not required to get care. Text Messaging Terms | Privacy Policy."
+  },
+  {
+   "t": "h3",
+   "text": "2.2 Patient portal notification settings (Program A)"
+  },
+  {
+   "t": "p",
+   "text": "Switch label and helper text:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**Text alerts** (off until you turn it on)\nSend text alerts to the mobile number on your profile about visit reminders, new portal messages, refills, orders and billing. No health details are included. Message frequency varies. Msg & data rates may apply. Reply STOP to cancel and HELP for help. Text Messaging Terms | Privacy Policy.",
+   "kind": "info"
+  },
+  {
+   "t": "h3",
+   "text": "2.3 Any other wellpeps.com form that collects a phone number (for example a callback request; Program A)"
+  },
+  {
+   "t": "check",
+   "text": "Yes, text me at this number about my request. Message frequency varies. Msg & data rates may apply. Reply STOP to cancel and HELP for help. I do not have to agree to get help. Text Messaging Terms | Privacy Policy."
+  },
+  {
+   "t": "h3",
+   "text": "2.4 Automatic replies and sample Program A texts"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Message",
+     "Text"
+    ],
+    [
+     "First text after sign-up",
+     "WellPeps: You’re signed up for account and care texts. Message frequency varies. Msg & data rates may apply. Reply HELP for help, STOP to cancel. Terms: [TERMS URL]"
+    ],
+    [
+     "Reply to HELP",
+     "WellPeps: For help, email [SUPPORT EMAIL]. Reply STOP to cancel. Msg & data rates may apply. Terms: [TERMS URL]"
+    ],
+    [
+     "Reply to STOP",
+     "WellPeps: You’re unsubscribed and will get no more texts from us. We will still email you about your account. Questions? [SUPPORT EMAIL]"
+    ],
+    [
+     "Sample: visit reminder",
+     "WellPeps: Your video visit starts in 5 minutes. Open your patient portal to join. Reply STOP to opt out."
+    ],
+    [
+     "Sample: portal message",
+     "WellPeps: You have a new message in your patient portal. Log in at [PORTAL URL] to read it. Reply STOP to opt out."
+    ],
+    [
+     "Sample: shipping",
+     "WellPeps: Your order has shipped. Track it in your patient portal at [PORTAL URL]. Reply STOP to opt out."
+    ],
+    [
+     "Sample: refill reminder",
+     "WellPeps: It’s almost time for your refill. Log in at [PORTAL URL] to review your plan. Reply STOP to opt out."
+    ]
+   ],
+   "widths": [
+    2,
+    7
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h2",
    "text": "Part 3. Switch-on block for promotional texts, Program B (internal: keep OFF)"
   },
   {
@@ -545,7 +554,7 @@
    "kind": "warning"
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "3.1 Do these first"
   },
   {
@@ -563,7 +572,7 @@
    ]
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "3.2 Replacement for Part 1 section 11"
   },
   {
@@ -572,7 +581,7 @@
    "kind": "info"
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "3.3 Consent wording (separate form, unchecked, not bundled)"
   },
   {
@@ -586,7 +595,7 @@
    "align": null
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "3.4 Confirmation text"
   },
   {
@@ -595,7 +604,7 @@
    "kind": "info"
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "3.5 Content rules for promotional texts"
   },
   {
@@ -619,11 +628,11 @@
    "level": 0
   },
   {
-   "t": "h1",
+   "t": "h2",
    "text": "Part 4. Carrier registration pack and state notes (internal: for counsel and the build team)"
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "4.1 A2P 10DLC registration pointer"
   },
   {
@@ -673,7 +682,7 @@
    "level": 0
   },
   {
-   "t": "h2",
+   "t": "h3",
    "text": "4.2 State notes for counsel (not an opinion)"
   },
   {

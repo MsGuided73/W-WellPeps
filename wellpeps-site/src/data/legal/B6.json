@@ -572,11 +572,6 @@
    "text": "Acknowledgment"
   },
   {
-   "t": "callout",
-   "text": "**Build note:** configure as a required consent form in GEN Health (Forms, Patient Consents tab: a rich text block with Require Signature, then the checkbox questions). Show it before the lab step. Every box must be checked to continue. Store the typed name, timestamp, document version, IP address and the state the patient says they are in today. Re-present when the version changes.",
-   "kind": "info"
-  },
-  {
    "t": "p",
    "text": "Please read the Laboratory Testing Consent (version [VERSION], dated [EFFECTIVE DATE]) before checking each box. Signing does not mean a lab will be ordered and does not guarantee a prescription.",
    "italic": false,
@@ -654,6 +649,30 @@
    "text": "By typing my name, I agree that my electronic signature is the legal equivalent of my handwritten signature, and that I have already agreed to receive and sign documents electronically (see the Electronic Records, Signatures and Communications Consent). This consent does not replace the Informed Consent to Telehealth Services and Treatment and does not by itself create a clinician-patient relationship.",
    "italic": false,
    "align": null
+  },
+  {
+   "t": "h1",
+   "text": "Technical and drafting notes"
+  },
+  {
+   "t": "callout",
+   "kind": "note",
+   "text": "**For the team, not part of the document.** These are instructions for WellPeps, counsel and the people who build the forms and pages. They are collected here so the document above reads on its own."
+  },
+  {
+   "t": "h2",
+   "text": "Build notes"
+  },
+  {
+   "t": "p",
+   "text": "From: Acknowledgment",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**Build note:** configure as a required consent form in GEN Health (Forms, Patient Consents tab: a rich text block with Require Signature, then the checkbox questions). Show it before the lab step. Every box must be checked to continue. Store the typed name, timestamp, document version, IP address and the state the patient says they are in today. Re-present when the version changes.",
+   "kind": "info"
   }
  ],
  "id": "B6",

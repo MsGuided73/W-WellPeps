@@ -474,11 +474,6 @@
    "text": "PART 2. SEXUAL HEALTH SAFETY ACKNOWLEDGMENT (required form)"
   },
   {
-   "t": "callout",
-   "text": "**Build note:** configure as a required form in GEN Health, shown before provider review and checkout, after the Electronic Records, Signatures and Communications Consent. Every box must be checked to continue. Item 5 is a stop condition: if the patient cannot check it, stop the form and route the patient to the clinician. Capture and store the typed name, timestamp, document version and IP address against the order. Counsel to confirm logging and retention.",
-   "kind": "note"
-  },
-  {
    "t": "p",
    "text": "Please read the Sexual Health Medication Safety Information (version [VERSION], dated [EFFECTIVE DATE]) before checking each box. You can read it again at any time in the patient portal at [PORTAL URL]. Signing this acknowledgment does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
    "italic": false,
@@ -560,6 +555,30 @@
    "text": "By typing my name, I agree that my electronic signature is the legal equivalent of my handwritten signature, and that I have already agreed to receive and sign documents electronically. This acknowledgment does not replace the Informed Consent to Telehealth Services and Treatment and does not by itself create a clinician-patient relationship.",
    "italic": false,
    "align": null
+  },
+  {
+   "t": "h1",
+   "text": "Technical and drafting notes"
+  },
+  {
+   "t": "callout",
+   "kind": "note",
+   "text": "**For the team, not part of the document.** These are instructions for WellPeps, counsel and the people who build the forms and pages. They are collected here so the document above reads on its own."
+  },
+  {
+   "t": "h2",
+   "text": "Build notes"
+  },
+  {
+   "t": "p",
+   "text": "From: PART 2. SEXUAL HEALTH SAFETY ACKNOWLEDGMENT (required form)",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**Build note:** configure as a required form in GEN Health, shown before provider review and checkout, after the Electronic Records, Signatures and Communications Consent. Every box must be checked to continue. Item 5 is a stop condition: if the patient cannot check it, stop the form and route the patient to the clinician. Capture and store the typed name, timestamp, document version and IP address against the order. Counsel to confirm logging and retention.",
+   "kind": "note"
   }
  ],
  "id": "A15",

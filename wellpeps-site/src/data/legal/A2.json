@@ -391,8 +391,8 @@
   },
   {
    "t": "callout",
-   "text": "**[ACTIVATION BLOCK P-A1: SELL OR SHARE, replaces the bold statement above]**\n**Do not publish this block until:** advertising or measurement tags that send personal information to Meta, Google, TikTok or a similar company are about to launch; the consent control and Global Privacy Control handling (Your Privacy Choices, Part 2) are built and tested; counsel has recorded [DECISION: sell/share]; and the Cookie and Tracking Technologies Notice table N-A1 is active.",
-   "kind": "warning"
+   "kind": "info",
+   "text": "**Held wording.** The text that follows is not in effect yet. It applies only when the condition for \"P-A1: SELL OR SHARE\" in the technical notes at the end of this document is met."
   },
   {
    "t": "p",
@@ -408,8 +408,8 @@
   },
   {
    "t": "callout",
-   "text": "**[END ACTIVATION BLOCK P-A1]** When the trigger is met, delete this marker and the start marker and keep the text between them. Until then, delete the whole block before publishing.",
-   "kind": "warning"
+   "kind": "info",
+   "text": "**End of held wording.**"
   },
   {
    "t": "h2",
@@ -433,8 +433,8 @@
   },
   {
    "t": "callout",
-   "text": "**[ACTIVATION BLOCK P-A2: ANALYTICS AND ADVERTISING TOOLS]**\n**Do not publish this block until:** analytics (PostHog), the Curve tracking script or any advertising pixel goes live, the consent control is built, and the Cookie and Tracking Technologies Notice table N-A1 is active.",
-   "kind": "warning"
+   "kind": "info",
+   "text": "**Held wording.** The text that follows is not in effect yet. It applies only when the condition for \"P-A2: ANALYTICS AND ADVERTISING TOOLS\" in the technical notes at the end of this document is met."
   },
   {
    "t": "p",
@@ -444,8 +444,8 @@
   },
   {
    "t": "callout",
-   "text": "**[END ACTIVATION BLOCK P-A2]** When the trigger is met, delete this marker and the start marker and keep the text between them. Until then, delete the whole block before publishing.",
-   "kind": "warning"
+   "kind": "info",
+   "text": "**End of held wording.**"
   },
   {
    "t": "h3",
@@ -459,8 +459,8 @@
   },
   {
    "t": "callout",
-   "text": "**[ACTIVATION BLOCK P-A3: GLOBAL PRIVACY CONTROL HANDLING]**\n**Do not publish this block until:** GPC detection is built, tested against a browser that sends the signal, and described in Your Privacy Choices. Do not publish this block before the feature works.",
-   "kind": "warning"
+   "kind": "info",
+   "text": "**Held wording.** The text that follows is not in effect yet. It applies only when the condition for \"P-A3: GLOBAL PRIVACY CONTROL HANDLING\" in the technical notes at the end of this document is met."
   },
   {
    "t": "p",
@@ -470,8 +470,8 @@
   },
   {
    "t": "callout",
-   "text": "**[END ACTIVATION BLOCK P-A3]** When the trigger is met, delete this marker and the start marker and keep the text between them. Until then, delete the whole block before publishing.",
-   "kind": "warning"
+   "kind": "info",
+   "text": "**End of held wording.**"
   },
   {
    "t": "h3",
@@ -1031,12 +1031,6 @@
    "text": "Acknowledgment of receipt (optional form in the GEN Health intake)"
   },
   {
-   "t": "p",
-   "text": "Build note: show this after the Electronic Records, Signatures and Communications Consent and before the intake questions. It is an acknowledgment of receipt only. It is not a consent to collect or share health information. Separate consents are in the Consumer Health Data Privacy Policy. Log the typed name, timestamp and version. [COUNSEL: confirm logging and retention.]",
-   "italic": false,
-   "align": null
-  },
-  {
    "t": "check",
    "text": "I have read the Privacy Policy (version [VERSION], effective [EFFECTIVE DATE]) and I know where to find it again. I understand it explains how WellPeps handles my information, and that the Practice's Notice of Privacy Practices explains how my health information is handled for my care."
   },
@@ -1074,6 +1068,65 @@
   {
    "t": "p",
    "text": "By typing my name, I agree that my electronic signature is the legal equivalent of my handwritten signature, and that I have already agreed to receive and sign documents electronically under the Electronic Records, Signatures and Communications Consent.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "Technical and drafting notes"
+  },
+  {
+   "t": "callout",
+   "kind": "note",
+   "text": "**For the team, not part of the document.** These are instructions for WellPeps, counsel and the people who build the forms and pages. They are collected here so the document above reads on its own."
+  },
+  {
+   "t": "h2",
+   "text": "Held wording and when it takes effect"
+  },
+  {
+   "t": "callout",
+   "text": "**[ACTIVATION BLOCK P-A1: SELL OR SHARE, replaces the bold statement above]**\n**Do not publish this block until:** advertising or measurement tags that send personal information to Meta, Google, TikTok or a similar company are about to launch; the consent control and Global Privacy Control handling (Your Privacy Choices, Part 2) are built and tested; counsel has recorded [DECISION: sell/share]; and the Cookie and Tracking Technologies Notice table N-A1 is active.",
+   "kind": "warning"
+  },
+  {
+   "t": "callout",
+   "text": "**[END ACTIVATION BLOCK P-A1]** When the trigger is met, delete this marker and the start marker and keep the text between them. Until then, delete the whole block before publishing.",
+   "kind": "warning"
+  },
+  {
+   "t": "callout",
+   "text": "**[ACTIVATION BLOCK P-A2: ANALYTICS AND ADVERTISING TOOLS]**\n**Do not publish this block until:** analytics (PostHog), the Curve tracking script or any advertising pixel goes live, the consent control is built, and the Cookie and Tracking Technologies Notice table N-A1 is active.",
+   "kind": "warning"
+  },
+  {
+   "t": "callout",
+   "text": "**[END ACTIVATION BLOCK P-A2]** When the trigger is met, delete this marker and the start marker and keep the text between them. Until then, delete the whole block before publishing.",
+   "kind": "warning"
+  },
+  {
+   "t": "callout",
+   "text": "**[ACTIVATION BLOCK P-A3: GLOBAL PRIVACY CONTROL HANDLING]**\n**Do not publish this block until:** GPC detection is built, tested against a browser that sends the signal, and described in Your Privacy Choices. Do not publish this block before the feature works.",
+   "kind": "warning"
+  },
+  {
+   "t": "callout",
+   "text": "**[END ACTIVATION BLOCK P-A3]** When the trigger is met, delete this marker and the start marker and keep the text between them. Until then, delete the whole block before publishing.",
+   "kind": "warning"
+  },
+  {
+   "t": "h2",
+   "text": "Build notes"
+  },
+  {
+   "t": "p",
+   "text": "From: Acknowledgment of receipt (optional form in the GEN Health intake)",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Build note: show this after the Electronic Records, Signatures and Communications Consent and before the intake questions. It is an acknowledgment of receipt only. It is not a consent to collect or share health information. Separate consents are in the Consumer Health Data Privacy Policy. Log the typed name, timestamp and version. [COUNSEL: confirm logging and retention.]",
    "italic": false,
    "align": null
   }
