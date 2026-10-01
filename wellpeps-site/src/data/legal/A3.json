@@ -773,17 +773,17 @@
   },
   {
    "t": "p",
-   "text": "Two separate boxes, directly above the submit button, neither checked in advance. The form does not submit without the first box. The second box is optional. Form version chd-form-v0.2-draft. On a form that has a first-name field (the waitlists) the first box reads “my email address, first name and my interest in”; on a form with an email field only (the guide dialogs, the hair notice) it leaves out “first name”.",
+   "text": "Two separate boxes, directly above the submit button, neither checked in advance. The form does not submit without the first box. The second box is optional. Form version chd-form-v0.3-draft. On a free-guide form [FORM TOPIC] is the guide’s title and the boxes name the guide, as below. On a waitlist or program-notice form that is not for a guide, the words “the Smart Patient’s Guide to [FORM TOPIC]” are replaced by “what I asked for”. On a form that has a first-name field (the waitlists) the first box reads “my email address, first name and my interest in”; on a form with an email field only it leaves out “first name”.",
    "italic": false,
    "align": null
   },
   {
    "t": "check",
-   "text": "I agree that WellPeps may save my email address and my interest in [FORM TOPIC] so it can send me what I asked for."
+   "text": "I agree that WellPeps may save my email address and my interest in [FORM TOPIC] so WellPeps can send me the Smart Patient’s Guide to [FORM TOPIC]."
   },
   {
    "t": "check",
-   "text": "Optional: I also agree to receive emails from WellPeps about [FORM TOPIC] and related wellness tips. Leaving this box unchecked does not change what I get."
+   "text": "Optional: I also agree to receive emails from WellPeps about [FORM TOPIC] and related wellness tips. I understand that I do not need to select this option in order to receive the Smart Patient’s Guide to [FORM TOPIC]."
   },
   {
    "t": "p",

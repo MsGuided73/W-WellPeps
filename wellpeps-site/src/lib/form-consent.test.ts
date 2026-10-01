@@ -11,7 +11,22 @@ describe('consent wording', () => {
   test('the required box names what is saved, the topic and the purpose', () => {
     expect(text.collect).toContain('my email address');
     expect(text.collect).toContain('my interest in GLP-1 Weight Loss');
-    expect(text.collect).toContain('so it can send me what I asked for');
+    expect(text.collect).toContain('so WellPeps can send me what I asked for');
+  });
+
+  test('a guide form names its own guide in both boxes', () => {
+    for (const book of EBOOKS) {
+      const g = formConsentText(book.title, 'privacy@wellpeps.com', { forGuide: true });
+      const guide = `the Smart Patient’s Guide to ${book.title}`;
+      expect(g.collect, book.slug).toBe(`I agree that WellPeps may save my email address and my interest in ${book.title} so WellPeps can send me ${guide}.`);
+      expect(g.marketing, book.slug).toContain(`I understand that I do not need to select this option in order to receive ${guide}.`);
+    }
+  });
+
+  test('a form that is not for a guide keeps the general words', () => {
+    expect(text.marketing).toContain('I understand that I do not need to select this option in order to receive what I asked for.');
+    expect(text.collect).not.toContain('Smart Patient');
+    expect(text.marketing).not.toContain('Smart Patient');
   });
 
   test('a form with no name field does not mention a first name', () => {
@@ -26,10 +41,10 @@ describe('consent wording', () => {
     expect(named.marketing).not.toMatch(/first name/i);
   });
 
-  test('the optional box is clearly optional and says declining changes nothing', () => {
+  test('the optional box is clearly optional and says it is not needed to receive what was asked for', () => {
     expect(text.marketing.startsWith('Optional:')).toBe(true);
     expect(text.marketing).toContain('emails from WellPeps about GLP-1 Weight Loss and related wellness tips');
-    expect(text.marketing).toContain('Leaving this box unchecked does not change what I get');
+    expect(text.marketing).toContain('I do not need to select this option in order to receive');
   });
 
   test('the withdrawal sentence covers both consents and gives the email', () => {
@@ -40,14 +55,17 @@ describe('consent wording', () => {
     expect(text.collect).not.toContain('wellness tips');
     expect(text.collect).not.toContain('emails from WellPeps');
     expect(text.marketing).not.toContain('save my email');
+    expect(text.marketing).not.toContain('may save');
   });
 
-  test('each box stays short for every real topic, with and without a first name', () => {
+  test('each box stays a reasonable length for every real topic, in every form variant', () => {
     for (const topic of [...EBOOKS.map((b) => b.title), 'Hormone Optimization', 'hair restoration']) {
       for (const withFirstName of [false, true]) {
-        const t = formConsentText(topic, 'privacy@wellpeps.com', { withFirstName });
-        expect(t.collect.length, `${topic} collect`).toBeLessThan(150);
-        expect(t.marketing.length, `${topic} marketing`).toBeLessThan(180);
+        for (const forGuide of [false, true]) {
+          const t = formConsentText(topic, 'privacy@wellpeps.com', { withFirstName, forGuide });
+          expect(t.collect.length, `${topic} collect`).toBeLessThan(200);
+          expect(t.marketing.length, `${topic} marketing`).toBeLessThan(270);
+        }
       }
     }
   });
@@ -111,6 +129,14 @@ describe('every health-topic form asks for it', () => {
     const src = read('src/components/legal/FormConsent.astro');
     expect(src).toContain('{text.withdraw}');
     expect(src.match(/aria-describedby=\{`\$\{idPrefix\}-fine`\}/g)).toHaveLength(2);
+  });
+
+  test('only the guide dialog names a guide, on first load and when it changes topic', () => {
+    const src = read('src/components/EbookOffer.astro');
+    expect(src).toMatch(/<FormConsent[^>]*forGuide/);
+    expect(src).toContain('{ forGuide: true }');
+    expect(read('src/components/sections/WaitlistSection.astro')).not.toContain('forGuide');
+    expect(read('src/components/sections/hair/HairComingSoon.astro')).not.toContain('forGuide');
   });
 
   test('only the form that has a first-name field says so in its consent', () => {

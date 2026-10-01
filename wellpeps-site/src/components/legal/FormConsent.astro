@@ -10,7 +10,7 @@
  * Read the choices from the form as `consentCollect` and `consentMarketing`. For a form whose
  * topic changes (the guide dialog), put data-fconsent on the wrapper and rewrite the two
  * data-fconsent-* spans from the page script when the topic changes. Pass `withFirstName` only on a
- * form that has a first-name field.
+ * form that has a first-name field, and `forGuide` only on a free-guide form (the topic is then the guide).
  */
 import { EMAILS } from '../../config';
 import { formConsentText } from '../../lib/form-consent';
@@ -23,9 +23,11 @@ interface Props {
   idPrefix: string;
   /** True only when the form asks for a first name. */
   withFirstName?: boolean;
+  /** True on a free-guide form: the sentences then name "the Smart Patient’s Guide to <topic>". */
+  forGuide?: boolean;
 }
-const { topic, idPrefix, withFirstName = false } = Astro.props;
-const text = formConsentText(topic, EMAILS.privacy, { withFirstName });
+const { topic, idPrefix, withFirstName = false, forGuide = false } = Astro.props;
+const text = formConsentText(topic, EMAILS.privacy, { withFirstName, forGuide });
 const healthPolicyLive = linkVisible('/consumer-health-data-privacy-policy', draftPagesEnabledNow());
 ---
 <fieldset class="fconsent" data-fconsent data-privacy-email={EMAILS.privacy}>
@@ -50,7 +52,7 @@ const healthPolicyLive = linkVisible('/consumer-health-data-privacy-policy', dra
   .fconsent__legend { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   /* The two sentences people tick are set at a plain reading size; the legal small print below is smaller. */
   .fconsent__row { display: grid; grid-template-columns: 1.4rem 1fr; gap: 0.7rem; align-items: start; cursor: pointer;
-    font-family: var(--font-sans); font-weight: 400; font-size: 1rem; line-height: 1.4; color: var(--text-body); }
+    font-family: var(--font-sans); font-weight: 400; font-size: 0.9375rem; line-height: 1.4; color: var(--text-body); }
   .fconsent__row input { width: 1.4rem; height: 1.4rem; margin: 0.1rem 0 0; accent-color: var(--blue); cursor: pointer; }
   .fconsent__row input:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 2px; }
   .fconsent__fine { margin: 0; font-size: 0.8125rem; line-height: 1.45; color: var(--text-body); }

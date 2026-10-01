@@ -142,7 +142,7 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
           <div class="ebook-dialog__hp" aria-hidden="true">
             <label>Company <input name="company" type="text" tabindex="-1" autocomplete="off" /></label>
           </div>
-          <FormConsent topic={books[0].title} idPrefix={`${dialogId}-consent`} />
+          <FormConsent topic={books[0].title} idPrefix={`${dialogId}-consent`} forGuide />
           <p class="ebook-dialog__error" role="alert" hidden data-ebook-error></p>
           <button type="submit" class="ebook__btn ebook__btn--block">Send Me the Guide<Icon name="arrow-right" /></button>
         </form>
@@ -185,7 +185,7 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
         coverEl.src = current.cover ?? '';
         // The consent sentences name the guide's topic, and start unchecked every time.
         const consent = form.querySelector<HTMLElement>('[data-fconsent]');
-        const words = formConsentText(current.title ?? '', consent?.dataset.privacyEmail ?? '');
+        const words = formConsentText(current.title ?? '', consent?.dataset.privacyEmail ?? '', { forGuide: true });
         const collectText = consent?.querySelector('[data-fconsent-collect]');
         const marketingText = consent?.querySelector('[data-fconsent-marketing]');
         if (collectText) collectText.textContent = words.collect;
@@ -408,7 +408,9 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
 
   /* ---------- Dialog ---------- */
   .ebook-dialog {
-    width: min(760px, calc(100vw - 32px)); padding: 0; border: 0; border-radius: 20px; overflow: hidden;
+    width: min(760px, calc(100vw - 32px)); padding: 0; border: 0; border-radius: 20px;
+    /* Scrolls when the window is shorter than the form, so the send button can always be reached. */
+    overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain;
     box-shadow: 0 30px 80px rgba(3, 18, 40, 0.5); color: var(--text-body);
   }
   /* The global reset zeroes margins, which drops the native centering. */
@@ -472,8 +474,8 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
   }
   @media (max-width: 620px) {
     .ebook-dialog[open] { grid-template-columns: 1fr; }
-    .ebook-dialog__art { padding: 1.75rem 1rem 2rem; }
-    .book--dialog { width: 110px; }
+    .ebook-dialog__art { padding: 1.25rem 1rem 1.5rem; }
+    .book--dialog { width: 84px; }
     .ebook-dialog__panel { padding: 1.75rem 1.25rem 1.5rem; }
     .ebook-band__pick li { flex-direction: column; align-items: flex-start; }
     .ebook-carousel__row { grid-auto-columns: 64vw; }

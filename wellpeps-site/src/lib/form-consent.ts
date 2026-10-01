@@ -13,7 +13,7 @@
  *
  * The version says "draft" until counsel approves the wording; change it when the text changes.
  */
-export const FORM_CONSENT_VERSION = 'chd-form-v0.2-draft';
+export const FORM_CONSENT_VERSION = 'chd-form-v0.3-draft';
 
 export interface FormConsentText {
   /** Required box: save the email (and first name, if the form asks) and the topic to send what was asked for. */
@@ -27,6 +27,8 @@ export interface FormConsentText {
 export interface FormConsentOptions {
   /** Set only for a form that has a first-name field; the other forms collect an email address alone. */
   withFirstName?: boolean;
+  /** Set for a free-guide form: both boxes then name the guide, "the Smart Patient’s Guide to <topic>". */
+  forGuide?: boolean;
 }
 
 /** A health topic as shown inside a sentence: trimmed, no trailing punctuation. */
@@ -37,11 +39,13 @@ export function topicLabel(raw: string): string {
 export function formConsentText(topic: string, privacyEmail: string, options: FormConsentOptions = {}): FormConsentText {
   const t = topicLabel(topic);
   const details = options.withFirstName ? 'my email address, first name and my interest in' : 'my email address and my interest in';
+  // What the person asked for: the named guide on a guide form, otherwise (a waitlist or notice) in general words.
+  const received = options.forGuide ? `the Smart Patient’s Guide to ${t}` : 'what I asked for';
   return {
-    collect: `I agree that WellPeps may save ${details} ${t} so it can send me what I asked for.`,
+    collect: `I agree that WellPeps may save ${details} ${t} so WellPeps can send me ${received}.`,
     marketing:
       `Optional: I also agree to receive emails from WellPeps about ${t} and related wellness tips. ` +
-      'Leaving this box unchecked does not change what I get.',
+      `I understand that I do not need to select this option in order to receive ${received}.`,
     withdraw: `You can withdraw either consent at any time in Your Privacy Choices or by emailing ${privacyEmail}.`,
   };
 }
