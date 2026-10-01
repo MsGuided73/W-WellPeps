@@ -75,6 +75,18 @@ export function createCtaResolver(links: CtaLinks): CtaResolver {
   };
 }
 
+/** Every CTA target that leads to a real GEN Health link, with its URL: the
+ *  input to the checkout lock (scripts/lock-checkout.ts). */
+export function linkedTargets(links: CtaLinks): Record<string, string> {
+  const resolve = createCtaResolver(links);
+  const ctas = [
+    resolve(),
+    ...PROGRAM_SLUGS.map((program) => resolve(program)),
+    ...Object.entries(links.products).map(([key, { program }]) => resolve(program, key)),
+  ];
+  return Object.fromEntries(ctas.filter((cta) => isLinked(cta.href)).map((cta) => [cta.target, cta.href]));
+}
+
 /** Product-card name → key used in CTA_LINKS.products ("Oral Semaglutide" →
  *  "oral-semaglutide"). */
 export function toProductKey(name: string): string {

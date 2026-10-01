@@ -11,7 +11,8 @@
     "seed:articles": "node scripts/seed-articles.mjs",
     "images": "node scripts/convert-images.mjs",
     "test": "vitest run",
-    "typecheck": "astro check"
+    "typecheck": "astro check",
+    "lock:checkout": "vite-node scripts/lock-checkout.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.110.7",

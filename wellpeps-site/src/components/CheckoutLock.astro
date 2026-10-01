@@ -1,0 +1,147 @@
+---
+/**
+ * CheckoutLock — the pre-launch access-password box (CHECKOUT_LOCKED in
+ * src/config.ts; how it works: src/lib/checkout-lock.ts).
+ *
+ * Rendered once per page by BaseLayout. Locked assessment buttons
+ * (AssessmentCta) carry `data-checkout-lock="<target>"` and no real link; a
+ * click opens this box, the password unlocks the encrypted link, and the visitor
+ * goes on to the GEN Health checkout. After one correct password the browser
+ * remembers the derived key (never the password), so the reviewer and the team
+ * click straight through on every page.
+ */
+import Icon from './Icon.astro';
+import { CHECKOUT_LOCKED } from '../config';
+import lockFile from '../data/checkout-lock.json';
+---
+{CHECKOUT_LOCKED && (
+  <dialog class="ck-lock" data-checkout-dialog aria-labelledby="ck-lock-title">
+    <script type="application/json" data-checkout-data set:html={JSON.stringify(lockFile)} />
+    <button type="button" class="ck-lock__close" data-checkout-close aria-label="Close">×</button>
+    <span class="ck-lock__icon" aria-hidden="true"><Icon name="lock" /></span>
+    <p class="ck-lock__kicker">Opening Soon</p>
+    <h2 class="ck-lock__title" id="ck-lock-title">Online health assessments open soon</h2>
+    <p class="ck-lock__lead">
+      We’re putting the finishing touches on checkout. If you’ve been given an access password, enter it below to continue.
+    </p>
+    <form class="ck-lock__form" novalidate data-checkout-form>
+      <label for="ck-lock-password">Access password</label>
+      <input id="ck-lock-password" name="password" type="password" required autocomplete="current-password" />
+      <p class="ck-lock__error" role="alert" hidden data-checkout-error></p>
+      <button type="submit" class="ck-lock__btn" data-checkout-submit>Continue<Icon name="arrow-right" /></button>
+    </form>
+  </dialog>
+)}
+
+<script>
+  import { importKey, exportKey, unlockKey, unseal, type CheckoutLockFile } from '../lib/checkout-lock';
+
+  const STORE = 'wp-checkout-access';
+  const dialog = document.querySelector<HTMLDialogElement>('[data-checkout-dialog]');
+  const dataEl = dialog?.querySelector('[data-checkout-data]');
+
+  if (dialog && dataEl) {
+    const file = JSON.parse(dataEl.textContent ?? '{}') as CheckoutLockFile;
+    const form = dialog.querySelector<HTMLFormElement>('[data-checkout-form]')!;
+    const input = form.querySelector<HTMLInputElement>('input[name="password"]')!;
+    const error = dialog.querySelector<HTMLElement>('[data-checkout-error]')!;
+    const submit = dialog.querySelector<HTMLButtonElement>('[data-checkout-submit]')!;
+    let pending = '';
+
+    const readStored = (): string | null => {
+      try { return localStorage.getItem(STORE); } catch { return null; }
+    };
+    const writeStored = (value: string | null) => {
+      try { value ? localStorage.setItem(STORE, value) : localStorage.removeItem(STORE); } catch { /* private mode: ask again next time */ }
+    };
+
+    async function go(key: CryptoKey, target: string): Promise<boolean> {
+      const sealed = file.links[target];
+      if (!sealed) return false;
+      try {
+        window.location.assign(await unseal(key, sealed));
+        return true;
+      } catch {
+        return false;
+      }
+    }
+
+    const showError = (text: string) => { error.textContent = text; error.hidden = false; };
+
+    document.addEventListener('click', async (event) => {
+      const button = (event.target as Element | null)?.closest<HTMLElement>('[data-checkout-lock]');
+      if (!button) return;
+      event.preventDefault();
+      pending = button.dataset.checkoutLock ?? '';
+      const stored = readStored();
+      if (stored) {
+        try {
+          if (await go(await importKey(stored), pending)) return;
+        } catch { /* fall through to the password box */ }
+        writeStored(null); // the password or the links changed since it was saved
+      }
+      error.hidden = true;
+      form.reset();
+      dialog.showModal();
+      input.focus();
+    });
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const password = input.value;
+      if (!password) return showError('Please enter the access password.');
+      submit.disabled = true;
+      submit.dataset.busy = 'true';
+      try {
+        const key = await unlockKey(password, file);
+        if (!key) return showError('That password isn’t right. Please check it and try again.');
+        writeStored(await exportKey(key));
+        if (!(await go(key, pending))) showError('Something went wrong opening checkout. Please try again.');
+      } catch {
+        showError('Your browser couldn’t check the password. Please try again on an up-to-date browser.');
+      } finally {
+        submit.disabled = false;
+        delete submit.dataset.busy;
+      }
+    });
+
+    dialog.querySelector('[data-checkout-close]')?.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
+  }
+</script>
+
+<style>
+  .ck-lock {
+    width: min(480px, calc(100vw - 32px)); margin: auto; max-height: calc(100dvh - 32px);
+    padding: 2.5rem 2.25rem 2rem; border: 0; border-radius: 20px; color: var(--text-body);
+    box-shadow: 0 30px 80px rgba(3, 18, 40, 0.5);
+  }
+  .ck-lock[open] { display: grid; gap: 0.5rem; justify-items: start; }
+  .ck-lock [hidden] { display: none !important; }
+  .ck-lock::backdrop { background: rgba(3, 18, 40, 0.65); backdrop-filter: blur(3px); }
+  .ck-lock__close {
+    position: absolute; top: 0.75rem; right: 0.9rem; width: 40px; height: 40px; border: 0; background: none;
+    font-size: 1.9rem; line-height: 1; color: var(--navy); cursor: pointer; border-radius: 50%;
+  }
+  .ck-lock__close:hover { background: #EEF4FB; }
+  .ck-lock__close:focus-visible { outline: 3px solid var(--blue); }
+  .ck-lock__icon { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: #E4F2FD; color: var(--blue); }
+  .ck-lock__icon :global(svg) { width: 26px; height: 26px; }
+  .ck-lock__kicker { margin-top: 0.5rem; font-size: var(--text-note); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); }
+  .ck-lock__title { font-family: var(--font-serif); font-size: clamp(1.6rem, 1.35rem + 1vw, 2rem); font-weight: 600; line-height: 1.15; color: var(--navy); }
+  .ck-lock__form { width: 100%; margin-top: 0.75rem; display: grid; gap: 0.55rem; }
+  .ck-lock__form label { font-weight: 600; color: var(--navy); }
+  .ck-lock__form input {
+    width: 100%; padding: 0.9rem 1rem; font: inherit; border: 1.5px solid #C6D3E3; border-radius: 12px; background: #F8FBFE;
+  }
+  .ck-lock__form input:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 1px; border-color: var(--blue); }
+  .ck-lock__error { color: #B42318; font-weight: 600; }
+  .ck-lock__btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; margin-top: 0.5rem;
+    padding: 1rem 1.8rem; border: 0; border-radius: 999px; cursor: pointer;
+    font-family: var(--font-sans); font-weight: 700; font-size: 1.0625rem; color: #fff;
+    background: linear-gradient(180deg, #1E86D8, var(--blue)); box-shadow: 0 10px 24px rgba(21, 118, 196, 0.35);
+  }
+  .ck-lock__btn:disabled { opacity: 0.7; cursor: progress; }
+  @media (max-width: 640px) { .ck-lock { padding: 2rem 1.25rem 1.5rem; } }
+</style>

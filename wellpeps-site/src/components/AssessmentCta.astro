@@ -18,8 +18,12 @@
  *
  * `data-assessment` carries the program for the handoff sheet (step 2) to hook.
  */
+import { createHash } from 'node:crypto';
 import Icon from './Icon.astro';
+import { CHECKOUT_LOCKED } from '../config';
+import lockFile from '../data/checkout-lock.json';
 import { ASSESSMENT_CTA_LABEL, resolveCta, toProductKey, type ProgramSlug } from '../lib/cta';
+import { isLinked } from '../lib/links';
 
 interface Props {
   program?: ProgramSlug;
@@ -32,12 +36,26 @@ interface Props {
 }
 const { program, product, class: className, arrow = false, ...scopeAttrs } = Astro.props;
 const cta = resolveCta(program, product && toProductKey(product));
+
+// Checkout lock (CHECKOUT_LOCKED in src/config.ts): the real link stays out of
+// the page; CheckoutLock.astro decrypts it once the access password is entered.
+// A missing or outdated encrypted link stops the build rather than shipping a
+// button that opens the wrong checkout.
+const isLocked = CHECKOUT_LOCKED && !cta.isComingSoon && isLinked(cta.href);
+if (isLocked) {
+  const entry = (lockFile.links as Record<string, { fingerprint: string }>)[cta.target];
+  const current = createHash('sha256').update(cta.href).digest('hex');
+  if (entry?.fingerprint !== current) {
+    throw new Error(`Checkout lock is out of date for "${cta.target}": run \`npm run lock:checkout\` in wellpeps-site.`);
+  }
+}
+const href = isLocked ? '#checkout-access' : cta.href;
 ---
 {cta.isComingSoon
   ? (Astro.slots.has('soon')
       ? <slot name="soon" />
       : <span class:list={[className, 'cta-soon']} role="button" aria-disabled="true" {...scopeAttrs}><Icon name="clock" /> Opening Soon</span>)
-  : <a href={cta.href} class={className} data-assessment={cta.target} {...scopeAttrs}>{ASSESSMENT_CTA_LABEL}{arrow && <Fragment> <Icon name="arrow-right" /></Fragment>}</a>}
+  : <a href={href} class={className} data-assessment={cta.target} data-checkout-lock={isLocked ? cta.target : undefined} {...scopeAttrs}>{ASSESSMENT_CTA_LABEL}{arrow && <Fragment> <Icon name="arrow-right" /></Fragment>}</a>}
 
 <style is:global>
   /* Non-interactive state. It must beat whatever button style the caller
