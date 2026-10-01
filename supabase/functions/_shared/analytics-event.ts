@@ -8,10 +8,11 @@
  * value, and a payload that carries any extra field is rejected. See
  * wellpeps-site/src/lib/analytics/README.md for what this can and cannot answer.
  *
- * One honest limit: the events of one page view (its view, clicks and leave) can
- * arrive in the same request and are inserted in one transaction, so a database
- * administrator reading Postgres's internal row metadata could tell they arrived
- * together. No column, and nothing across page views, links them.
+ * One honest limit: no column orders or links events, but a database administrator
+ * can read Postgres's internal row metadata (heap order, ctid, xmin), which shows
+ * approximate arrival order, and the events of one page view arrive in one request
+ * and one transaction. At very low traffic, adjacent rows may be one visit. Keep
+ * track_commit_timestamp off and do not add an ordering column.
  *
  * This is the SERVER's copy of the contract. The site cannot import it (its
  * Docker build context is wellpeps-site/ only), so
@@ -64,8 +65,12 @@ export const UNMATCHED_PATH = '/_unmatched';
 /** A `data-track` value: short, lower-case, no spaces, so it can only be a label and never text. */
 export const CLICK_TARGET_PATTERN = /^[a-z0-9][a-z0-9_-]{0,39}$/;
 
-/** A run of six or more digits looks like a phone number, date of birth or id; neither a path nor a label may hold one. */
-export const LOOKS_LIKE_AN_ID = /\d{6,}/;
+/**
+ * Six or more digits, even when broken up by single hyphens, underscores or slashes
+ * (415-555-1234, 1990-01-15, 123/45/6789), look like a phone number, date of birth
+ * or id; neither a path nor a label may hold one.
+ */
+export const LOOKS_LIKE_AN_ID = /(?:\d[-_/]?){6,}/;
 
 export interface PageViewEvent {
   event_type: 'page_view';

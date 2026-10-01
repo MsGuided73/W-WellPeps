@@ -13,14 +13,15 @@
 --   user agent, no URL query string or hash, no referrer URL (only a class:
 --   internal / search / social / direct / other), no element text, no form values.
 --   The time is kept only to the hour. The primary key is a random UUID, not an
---   incrementing number, so the table itself carries no arrival order. Do NOT add
---   an auto-increment id, a precise timestamp, or any identifying column: that
---   would undo the anonymity this design depends on.
---   One honest limit: the events of ONE page view (its view, clicks and leave) can
---   arrive in the same request and are inserted in one transaction, so a database
---   administrator reading Postgres's internal row metadata (xmin, physical order)
---   could tell that those few rows arrived together. No column, and nothing across
---   page views, links them.
+--   incrementing number, so no COLUMN orders or links events. Do NOT add an
+--   auto-increment id, a precise timestamp, or any identifying column: that would
+--   undo the anonymity this design depends on.
+--   One honest limit: a database administrator can read Postgres's internal row
+--   metadata (heap order, ctid, xmin), which shows approximate arrival order, and
+--   the events of ONE page view (its view, clicks and leave) arrive in one request
+--   and one transaction. At very low traffic, adjacent rows may be one visit. Keep
+--   track_commit_timestamp off. No column, and nothing in the data model, links
+--   different page views.
 --
 -- RETENTION
 --   13 months: `retain_until` is set to the event hour + 13 months, which keeps one
@@ -55,9 +56,9 @@ create table if not exists public.analytics_events (
   ),
 
   constraint analytics_events_type_known check (event_type in ('page_view', 'click', 'page_leave')),
-  -- Neither a path nor a label may hold a run of six or more digits (a phone number, birth date or id).
+  -- Neither a path nor a label may hold six or more digits, even split by single - _ or / (a phone number, birth date or id).
   constraint analytics_events_path_shape check (
-    char_length(page_path) <= 120 and page_path ~ '^/$|^/[a-z0-9_-]+(/[a-z0-9_-]+){0,3}$' and page_path !~ '[0-9]{6,}'
+    char_length(page_path) <= 120 and page_path ~ '^/$|^/[a-z0-9_-]+(/[a-z0-9_-]+){0,3}$' and page_path !~ '([0-9][-_/]?){6,}'
   ),
   constraint analytics_events_template_known check (page_template in (
     'home', 'program', 'learning_center_index', 'learning_center_article',
@@ -75,7 +76,7 @@ create table if not exists public.analytics_events (
   ),
   constraint analytics_events_from_needs_internal check (from_template is null or referrer_class = 'internal'),
   constraint analytics_events_target_shape check (
-    click_target is null or (click_target ~ '^[a-z0-9][a-z0-9_-]{0,39}$' and click_target !~ '[0-9]{6,}')
+    click_target is null or (click_target ~ '^[a-z0-9][a-z0-9_-]{0,39}$' and click_target !~ '([0-9][-_/]?){6,}')
   ),
   constraint analytics_events_scroll_known check (max_scroll is null or max_scroll in (0, 25, 50, 75, 100)),
   constraint analytics_events_time_known check (time_bucket is null or time_bucket in ('0-10s', '10-30s', '30-60s', '1-3m', '3m+')),

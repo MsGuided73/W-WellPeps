@@ -217,7 +217,8 @@ describe('the SQL constraints match the TypeScript contract', () => {
   test('analytics_events: the path and click-target shapes accept and refuse exactly what the function does', () => {
     const paths = [
       '/', '/weight-loss', '/wellness-learning-center/what-is-a-glp-1', '/a/b/c/d', '/a/b/c/d/e', '/_unmatched', '/Weight', '/a b', '/a.b',
-      '/ref/4155551234', '/year/2026', '/12345', '/123456', `/${'a'.repeat(119)}`, `/${'a'.repeat(120)}`, '', 'weight-loss', '/weight-loss/',
+      '/ref/4155551234', '/year/2026', '/12345', '/123456', '/call-415-555-1234', '/dob-1990-01-15', '/ssn/123/45/6789', '/id_123_456_789',
+      '/glp-1-in-2026', '/top-10-questions', '/nad-500mg', `/${'a'.repeat(119)}`, `/${'a'.repeat(120)}`, '', 'weight-loss', '/weight-loss/',
     ];
     const pathBody = constraintBody('analytics_events', 'analytics_events_path_shape');
     for (const p of paths) {
@@ -226,7 +227,7 @@ describe('the SQL constraints match the TypeScript contract', () => {
       expect(fromSql, `path ${p}`).toBe(fromFunction);
     }
 
-    const targets = ['cta-assessment', 'nav', 'a'.repeat(40), 'a'.repeat(41), 'Cta', 'a b', '-lead', 'user-123456', 'user-12345', '', 'a@b.com'];
+    const targets = ['cta-assessment', 'nav', 'a'.repeat(40), 'a'.repeat(41), 'Cta', 'a b', '-lead', 'user-123456', 'user-12345', 'call-415-555-1234', 'x-12-34-56', '', 'a@b.com'];
     const targetBody = constraintBody('analytics_events', 'analytics_events_target_shape');
     for (const t of targets) {
       const fromFunction = validateAnalyticsEvent({ event_type: 'click', page_path: '/', page_template: 'home', viewport_class: 'mobile', click_target: t }).ok;

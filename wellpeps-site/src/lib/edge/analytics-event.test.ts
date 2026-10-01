@@ -92,6 +92,10 @@ describe('validateAnalyticsEvent', () => {
     ['a click target that looks like an email', click({ click_target: 'a@b.com' })],
     ['a click target over 40 characters', click({ click_target: 'a'.repeat(41) })],
     ['a path holding a long number (a phone number or id)', view({ page_path: '/ref/4155551234' })],
+    ['a path holding a phone number split by hyphens', view({ page_path: '/call-415-555-1234' })],
+    ['a path holding a date of birth', view({ page_path: '/dob-1990-01-15' })],
+    ['a path holding an id split across segments', view({ page_path: '/ssn/123/45/6789' })],
+    ['a path holding a number split by underscores', view({ page_path: '/id_123_456_789' })],
     ['a click target holding a long number', click({ click_target: 'user-123456789' })],
     ['an empty click target', click({ click_target: '' })],
     ['a scroll value that is not a bucket', leave({ max_scroll: 33 })],
@@ -101,6 +105,12 @@ describe('validateAnalyticsEvent', () => {
     ['null', null],
   ])('rejects %s', (_name, raw) => {
     expect(validateAnalyticsEvent(raw).ok).toBe(false);
+  });
+
+  test('short numbers in a slug are fine (a year, a list size, a dosage)', () => {
+    for (const p of ['/wellness-learning-center/glp-1-in-2026', '/wellness-learning-center/top-10-questions', '/healthy-aging/nad-500mg']) {
+      expect(validateAnalyticsEvent(view({ page_path: p })).ok, p).toBe(true);
+    }
   });
 
   test('accepts the home page and the unmatched-path fallback', () => {

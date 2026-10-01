@@ -66,7 +66,8 @@ Receives a batch (`{"v":1,"events":[...]}`, up to 20 events) of anonymous
 events and inserts one row each in `analytics_events`. Stores only the sanitized
 page path (no query), page template, viewport class, referrer class, a
 `data-track` label, scroll and time buckets, and the **hour** the event arrived.
-No identifier of any kind, no IP address, no user agent.
+No identifier of any kind, and it does not store the IP address or user agent
+(see "Design decisions" below for what the hosting platform's own logs may keep).
 
 ## Secrets and environment
 
@@ -186,9 +187,11 @@ row below is yours to delete afterwards (SQL given).
   rate-limit bucket; it is hashed with a random salt that lives in memory and is
   replaced every UTC day, kept only in memory, and never stored, logged or
   returned. No table has an address column. Supabase's own platform logs
-  (API gateway and function logs) may still record request metadata including
-  addresses for their own retention period; that is outside these tables, so
-  check it against what the Privacy Policy says.
+  (API gateway and function logs) can still record each request's IP address and
+  user agent for their own retention period, whatever these functions store.
+  "We do not store your IP address" is true of the WellPeps tables, not of the
+  hosting provider, so check the retention in the project's log settings and word
+  the Privacy Policy and the Cookie notice accordingly.
 - **Rate limiting is best effort.** Counters are per function instance, in
   memory. Instances are many and short-lived, so a distributed flood is not
   stopped by this code. An IPv6 address counts as its whole /64 network, and when
@@ -222,11 +225,15 @@ row below is yours to delete afterwards (SQL given).
   an hour make real visitors see the email fallback (and each stored fake starts a
   legal clock). The fallback keeps the right to make a request available; a
   bot-check on the form is the proper fix if it happens.
-- **Analytics rows from one page view can be told apart as a group by a
-  database administrator** (they arrive in one request and one transaction, so
-  Postgres's internal row metadata shows it). No column links them and nothing
-  links different page views. Do not add an auto-increment id or a precise
-  timestamp to `analytics_events`.
+- **A database administrator can see approximate arrival order.** `analytics_events`
+  has no column that orders or links events, but Postgres's internal row metadata
+  (heap order, ctid, xmin) does show roughly the order rows arrived, and the events
+  of one page view arrive in one request and one transaction. At very low traffic,
+  adjacent rows may well be one visit. The analytics tool is therefore anonymous
+  in the data model and in everything exposed to the browser and reports, not
+  against someone with database-administrator access who studies row internals.
+  Keep `track_commit_timestamp` off, and do not add an auto-increment id or a
+  precise timestamp to the table.
 - **Consent ids** are accepted in the same shape the browser's cookie parser
   accepts (letters, digits, hyphen, up to 64), not only UUIDs, so a tampered or
   older cookie still gets its choice logged.
