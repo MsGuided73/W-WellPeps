@@ -1,0 +1,58 @@
+{
+  "note": "Known LegitScript disclosure gaps. The release gate fails if a check not listed here fails, or a listed one gets worse. Update only when a gap is really closed (node scripts/release-check.mjs --update-baseline).",
+  "scannedOn": "2026-10-01",
+  "checks": {
+    "LS1-LEGAL-ENTITY-NAMED": {
+      "verdict": "FAIL",
+      "kind": "must_exist",
+      "hits": 0,
+      "missing": []
+    },
+    "LS1-BUSINESS-ADDRESS-PUBLISHED": {
+      "verdict": "FAIL",
+      "kind": "must_exist",
+      "hits": 0,
+      "missing": []
+    },
+    "LS4-MSO-ROLE-DISCLOSED": {
+      "verdict": "FAIL",
+      "kind": "must_exist",
+      "hits": 0,
+      "missing": []
+    },
+    "LS5-STATES-DISCLOSED": {
+      "verdict": "FAIL",
+      "kind": "must_exist",
+      "hits": 13,
+      "missing": []
+    },
+    "LS6-LEGAL-PAGES-LIVE": {
+      "verdict": "FAIL",
+      "kind": "must_not_exist",
+      "hits": 93,
+      "missing": []
+    },
+    "LS6-SSL-END-TO-END": {
+      "verdict": "FAIL",
+      "kind": "must_exist",
+      "hits": 0,
+      "missing": []
+    },
+    "LS7-RX-REQUIRED-DISCLOSED": {
+      "verdict": "FAIL",
+      "kind": "must_exist_per_program",
+      "hits": 0,
+      "missing": [
+        "hair",
+        "peptide",
+        "sexual"
+      ]
+    },
+    "LS8-FDA-STRUCTURE-FUNCTION-STATEMENT": {
+      "verdict": "FAIL",
+      "kind": "must_exist",
+      "hits": 0,
+      "missing": []
+    }
+  }
+}

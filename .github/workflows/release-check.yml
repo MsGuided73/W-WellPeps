@@ -1,0 +1,56 @@
+# Release check (compliance build list W12): runs on every push to main and on every pull request.
+#
+# It runs wellpeps-site/scripts/release-check.mjs: the unit tests (which include the unsupported-claims
+# guard and the legal-document hygiene tests), the type check, a production build with the draft legal
+# pages OFF, the LegitScript disclosure scan against the recorded gaps, and the strict-policy browser check.
+#
+# This workflow reports; it does not block a deploy (Coolify deploys from main on its own). To block, make
+# "Release check" a required status check in the repository's branch protection.
+#
+# One-time setup: the production build reads the Learning Center from Supabase, so add two repository
+# secrets (Settings > Secrets and variables > Actions): SUPABASE_URL and SUPABASE_PUBLISHABLE_KEY. They are
+# the same two values the deploy host uses as build variables. Without them the build step fails with
+# "Missing SUPABASE_URL / SUPABASE_PUBLISHABLE_KEY".
+name: Release check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  release-check:
+    name: Release check
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: wellpeps-site
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_PUBLISHABLE_KEY: ${{ secrets.SUPABASE_PUBLISHABLE_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: wellpeps-site/package-lock.json
+
+      # The LegitScript disclosure scanner is a Python script (standard library only).
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: npm ci
+
+      - name: Install the browser the strict-policy check drives
+        run: npx playwright install --with-deps chromium
+
+      - name: Release check
+        run: node scripts/release-check.mjs --browser
