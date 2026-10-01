@@ -112,7 +112,23 @@ export function startPrivacy(): PrivacyRuntime {
     log: sink,
   };
 
+  // A choice withdrawn in another tab must stop a tool in THIS tab before it sends anything more.
+  // These two listeners are registered before the gate starts any tool and run in the capture phase,
+  // so when the page is hidden or closed the saved choice is re-read BEFORE a tool's own hide or
+  // pagehide handler can send a last event (an unfocused window would otherwise not have noticed).
+  let started: PrivacyGate | null = null;
+  const resyncFirst = () => started?.resync();
+  window.addEventListener('pagehide', resyncFirst, true);
+  document.addEventListener(
+    'visibilitychange',
+    () => {
+      if (document.visibilityState === 'hidden') resyncFirst();
+    },
+    true,
+  );
+
   const gate = createGate(deps);
+  started = gate;
   gate.init();
 
   // Another tab may have changed or withdrawn the choice (the cookie is shared). Cookies raise no

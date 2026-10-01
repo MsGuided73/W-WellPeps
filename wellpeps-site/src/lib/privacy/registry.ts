@@ -12,6 +12,8 @@
  * inventory test fails if the notice and this list disagree. Session-replay
  * and heatmap tools are banned outright.
  */
+import { anonymousAnalyticsTracker } from '../analytics/tracker';
+import { ANALYTICS_ENABLED, ANALYTICS_ENDPOINT, ANALYTICS_PATH_DETAIL } from './config';
 import type { ConsentCategory } from './consent';
 
 export interface Tracker {
@@ -139,9 +141,15 @@ export function inventoryDiff(
 
 /**
  * Tools that run on the live site. EMPTY on purpose: nothing optional loads
- * today. A template for the planned tool is left as a comment so the shape is
- * obvious; do not enable it until the Cookie notice, Privacy Policy and the
- * counsel decisions listed in docs/COMPLIANCE-BUILD-TASKS.md are done.
+ * today. The one planned tool, WellPeps' own anonymous analytics (W6,
+ * src/lib/analytics), is built and tested but is added here only when
+ * ANALYTICS_ENABLED is true in config.ts, which stays false until the
+ * analytics-event function is deployed, counsel has approved it for health pages,
+ * and the Cookie notice and Privacy Policy are updated (W7, see
+ * docs/COMPLIANCE-BUILD-TASKS.md and src/lib/analytics/README.md).
+ *
+ * To add any other tool, add an entry here, list it in the Cookie notice tables
+ * and in cookie-notice-inventory.ts, and bump NOTICE_VERSION. A template:
  *
  *   {
  *     id: 'posthog', name: 'PostHog', vendor: 'PostHog Inc.', category: 'analytics',
@@ -151,5 +159,9 @@ export function inventoryDiff(
  *   }
  */
 export function productionTrackers(): Tracker[] {
-  return [];
+  const tools: Tracker[] = [];
+  if (ANALYTICS_ENABLED) {
+    tools.push(anonymousAnalyticsTracker({ endpoint: ANALYTICS_ENDPOINT, pathDetail: ANALYTICS_PATH_DETAIL }));
+  }
+  return tools;
 }

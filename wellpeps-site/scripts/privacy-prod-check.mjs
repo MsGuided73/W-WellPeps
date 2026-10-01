@@ -55,16 +55,32 @@ const errors = [];
   await ctx.close();
 }
 
+// Checks 3 and 4 read the built files in dist/.
+const { readdirSync, readFileSync, statSync } = await import('node:fs');
+const { join, dirname } = await import('node:path');
+const { fileURLToPath } = await import('node:url');
+const siteRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
+const walk = (d) => readdirSync(d).flatMap((n) => (statSync(join(d, n)).isDirectory() ? walk(join(d, n)) : [join(d, n)]));
+const built = walk(join(siteRoot, 'dist')).filter((f) => /\.(html|js|css|mjs)$/.test(f));
+const filesMatching = (re) => built.filter((f) => re.test(readFileSync(f, 'utf8')));
+
 // 3. Development tools must not ship. The Tweak panel is for `astro dev` only.
 {
-  const { readdirSync, readFileSync, statSync } = await import('node:fs');
-  const { join, dirname } = await import('node:path');
-  const { fileURLToPath } = await import('node:url');
-  const dist = join(dirname(fileURLToPath(import.meta.url)), '..', 'dist');
-  const walk = (d) => readdirSync(d).flatMap((n) => (statSync(join(d, n)).isDirectory() ? walk(join(d, n)) : [join(d, n)]));
-  const texty = walk(dist).filter((f) => /\.(html|js|css|mjs)$/.test(f));
-  const leaks = texty.filter((f) => /wp-tweak-panel|tweak-panel|wp-tweaks:v/.test(readFileSync(f, 'utf8')));
+  const leaks = filesMatching(/wp-tweak-panel|tweak-panel|wp-tweaks:v/);
   check('production: the dev-only Tweak panel is not in the build', leaks.length === 0, leaks.slice(0, 2).join(', '));
+}
+
+// 4. The anonymous analytics tool is built but registered OFF (ANALYTICS_ENABLED in config.ts). While it is off,
+//    none of its code or its endpoint may be in the build: the registry is empty, so no banner and nothing sent.
+{
+  const config = readFileSync(join(siteRoot, 'src', 'lib', 'privacy', 'config.ts'), 'utf8');
+  const analyticsOn = /export const ANALYTICS_ENABLED(?::\s*boolean)?\s*=\s*true\b/.test(config);
+  if (analyticsOn) {
+    console.log('SKIP  analytics build-leak check (ANALYTICS_ENABLED is true)');
+  } else {
+    const leaks = filesMatching(/wellpeps-anonymous-stats|analytics-event|"page_leave"|'page_leave'/);
+    check('production: the analytics tool is switched off, so none of its code or endpoint is in the build', leaks.length === 0, leaks.slice(0, 2).join(', '));
+  }
 }
 
 check('no script errors', errors.length === 0, errors.slice(0, 2).join(' | '));

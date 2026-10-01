@@ -38,6 +38,27 @@ export const PRIVACY_REQUEST_ENDPOINT = '';
 export const ANALYTICS_ENDPOINT = '';
 
 /**
+ * Adds the anonymous analytics tool (src/lib/analytics) to the tracker registry, which is
+ * what makes the first-visit bar appear and the tool run for visitors who turn analytics on.
+ * Keep false until ALL of these are done (exact steps in src/lib/analytics/README.md):
+ *   1. the `analytics-event` function is deployed and ANALYTICS_ENDPOINT is set,
+ *   2. counsel has approved the tool for use on health-topic pages,
+ *   3. the W7 notice updates are done: the Cookie notice tool table and the Privacy
+ *      Policy name the tool, cookie-notice-inventory.ts lists it, and NOTICE_VERSION is bumped.
+ * While false, productionTrackers() is empty, no banner is shown and nothing is sent.
+ * (notice-inventory.test.ts fails if this is turned on before step 3.)
+ */
+export const ANALYTICS_ENABLED: boolean = false;
+
+/**
+ * How much of a health-topic page's path the analytics tool reports. "section" (the cautious
+ * default) reports the section only: /weight-loss, /wellness-learning-center. "full" also
+ * reports which Learning Center article was read. Counsel decides whether "full" is
+ * acceptable on health-topic pages; only matters once ANALYTICS_ENABLED is true.
+ */
+export const ANALYTICS_PATH_DETAIL: 'full' | 'section' = 'section';
+
+/**
  * True once the site stops loading fonts from Google. Inter and Lora are now served from
  * this site (styles/fonts.css), so a visit sends nothing to Google. While false, the panel
  * tells visitors that Google receives their IP address. The inventory test fails if this

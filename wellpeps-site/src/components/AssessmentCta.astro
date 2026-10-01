@@ -17,6 +17,11 @@
  * forwarded, so a parent's scoped `.scard__cta` rules still apply.
  *
  * `data-assessment` carries the program for the handoff sheet (step 2) to hook.
+ *
+ * Analytics (not switched on yet): when the anonymous analytics tool is enabled, add
+ * `data-track="cta-assessment"` to the rendered <a> and <button> below so clicks on
+ * this button can be counted. Only that label is ever reported, never the program,
+ * the text or the link. See src/lib/analytics/README.md.
  */
 import { createHash } from 'node:crypto';
 import Icon from './Icon.astro';
