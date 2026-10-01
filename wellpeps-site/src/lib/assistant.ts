@@ -166,6 +166,17 @@ export const SUGGESTED_QUESTIONS = [
   'Can I cancel anytime?',
 ];
 
+/**
+ * First message in the chat window (AI Use Disclosure, draft A12, and the one-line copy in the
+ * Medical Disclaimer set, Block 9). It says what the assistant is, what it cannot do and where
+ * medical questions go. The last sentence is true only while the assistant makes no network
+ * calls and stores nothing; assistant.test.ts fails if that stops being so.
+ */
+export const ASSISTANT_DISCLOSURE =
+  'You’re chatting with an automated assistant, not a person or a clinician. It can answer questions about ' +
+  'this website but cannot give medical advice. For care questions, message your clinician in the patient portal. ' +
+  'In an emergency, call 911. Your messages stay in your browser and are not sent to WellPeps.';
+
 export const ASSISTANT_GREETING =
   'Hi! I’m the WellPeps assistant. I can answer questions about our programs, pricing, the assessment ' +
   'process, and how our care works — and I’ll point you to the source. I can’t give medical advice.';

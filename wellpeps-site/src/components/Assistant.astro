@@ -9,7 +9,11 @@
  */
 import Icon from './Icon.astro';
 import { resolveCta } from '../lib/cta';
-import { SUGGESTED_QUESTIONS, ASSISTANT_GREETING } from '../lib/assistant';
+import { SUGGESTED_QUESTIONS, ASSISTANT_GREETING, ASSISTANT_DISCLOSURE } from '../lib/assistant';
+import { draftPagesEnabledNow, linkVisible } from '../lib/legal-docs';
+
+// The AI Use Disclosure page is linked once it is built (draft pages are off in an ordinary build).
+const disclosureLive = linkVisible('/ai-use-disclosure', draftPagesEnabledNow());
 ---
 <div class="wa" data-assistant>
   <button class="wa__launcher" data-wa-toggle aria-expanded="false" aria-controls="wa-panel"
@@ -23,7 +27,7 @@ import { SUGGESTED_QUESTIONS, ASSISTANT_GREETING } from '../lib/assistant';
       <span class="wa__avatar"><Icon name="chat" /></span>
       <div class="wa__head-copy">
         <p class="wa__title">WellPeps Assistant</p>
-        <p class="wa__status">Answers from our articles &amp; program info</p>
+        <p class="wa__status">Automated assistant &middot; answers from our articles &amp; program info</p>
       </div>
       <button class="wa__close" data-wa-close aria-label="Close the assistant">
         <Icon name="plus" />
@@ -31,6 +35,9 @@ import { SUGGESTED_QUESTIONS, ASSISTANT_GREETING } from '../lib/assistant';
     </header>
 
     <div class="wa__log" data-wa-log role="log" aria-live="polite">
+      <div class="wa__msg wa__msg--bot wa__msg--notice" data-wa-disclosure>
+        <p>{ASSISTANT_DISCLOSURE}{disclosureLive && <Fragment> <a href="/ai-use-disclosure">AI Use Disclosure</a></Fragment>}</p>
+      </div>
       <div class="wa__msg wa__msg--bot">
         <p>{ASSISTANT_GREETING}</p>
       </div>
@@ -48,7 +55,8 @@ import { SUGGESTED_QUESTIONS, ASSISTANT_GREETING } from '../lib/assistant';
     </form>
 
     <p class="wa__disclaimer">
-      Not medical advice. For care, <a href={resolveCta().href}>start your free assessment</a>.
+      Automated assistant. Not medical advice. In an emergency, call 911.
+      {disclosureLive && <Fragment><a href="/ai-use-disclosure">About this assistant</a>. </Fragment>}For care, <a href={resolveCta().href}>start your free assessment</a>.
     </p>
   </section>
 </div>
@@ -115,6 +123,9 @@ import { SUGGESTED_QUESTIONS, ASSISTANT_GREETING } from '../lib/assistant';
   .wa__msg--bot { align-self: flex-start; background: #fff; border: 1px solid var(--border); color: var(--text-body); box-shadow: var(--shadow-sm); }
   .wa__msg--user { align-self: flex-end; background: var(--blue); color: #fff; }
   .wa__msg--alert { border-color: rgba(196, 62, 62, 0.35); background: #fff6f6; }
+  /* The disclosure is a notice, not a chat bubble: tinted, and its link stays underlined. */
+  .wa__msg--notice { background: #eef6fd; border-color: #b9d6f2; }
+  .wa__msg--notice a { text-decoration: underline; font-weight: 600; }
 
   .wa__cite { margin-top: 0.6rem; padding-top: 0.6rem; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 0.4rem; }
   .wa__cite-label { width: 100%; color: var(--text-muted); font-size: var(--text-body-size); letter-spacing: 0.04em; text-transform: uppercase; font-weight: 700; }
