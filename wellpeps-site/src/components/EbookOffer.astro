@@ -420,12 +420,13 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
   .ebook-dialog [hidden] { display: none !important; }
   .ebook-dialog::backdrop { background: rgba(3, 18, 40, 0.65); backdrop-filter: blur(3px); }
   .ebook-dialog__art {
-    display: grid; place-items: center; padding: 2.5rem 2rem;
+    display: grid; place-items: center; padding: 2.5rem 1.1rem;
     background:
       radial-gradient(circle at 50% 45%, rgba(46, 168, 247, 0.45), transparent 60%),
       linear-gradient(160deg, #0B3670, var(--navy-deep));
   }
-  .book--dialog { width: 180px; cursor: default; }
+  /* The cover fills the panel's width, whole and uncropped. */
+  .book--dialog { width: 100%; cursor: default; }
   .ebook-dialog__panel { position: relative; padding: 2.5rem 2.25rem 2rem; }
   .ebook-dialog__close {
     position: absolute; top: 0.75rem; right: 0.9rem; width: 40px; height: 40px; border: 0; background: none;
