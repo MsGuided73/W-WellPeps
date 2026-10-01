@@ -7,6 +7,7 @@
 import '../styles/global.css';
 import PrivacyRoot from '../components/privacy/PrivacyRoot.astro';
 import PrivacyBanner from '../components/privacy/PrivacyBanner.astro';
+import TweakPanel from '../components/dev/TweakPanel.astro';
 
 interface Props { title: string }
 const { title } = Astro.props;
@@ -32,6 +33,7 @@ const { title } = Astro.props;
     <PrivacyBanner />
     <main><slot /></main>
     <PrivacyRoot />
+    <TweakPanel />
     <style is:global>
       .mock-bar { background: #fff3df; color: #6b3d06; text-align: center; padding: 0.6rem 1rem; font: 600 0.95rem var(--font-sans); border-bottom: 1px solid #f0d49c; }
       .mock-filler { min-height: 38vh; display: grid; place-items: center; color: var(--text-muted); background: var(--bg-gray); text-align: center; padding: 2rem; }

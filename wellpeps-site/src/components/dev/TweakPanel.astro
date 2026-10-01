@@ -1,0 +1,11 @@
+---
+/**
+ * TweakPanel: the dev-only element tweaker (src/lib/dev/tweak-panel.ts).
+ *
+ * Only emitted by `astro dev`. In a production build `import.meta.env.DEV` is
+ * false, so no tag is written to any page; and because the script is inline
+ * (not bundled), the panel's code never enters the build either.
+ * scripts/privacy-prod-check.mjs also fails if it finds the panel in dist/.
+ */
+---
+{import.meta.env.DEV && <script is:inline type="module" src="/src/lib/dev/tweak-panel.ts"></script>}

@@ -6,6 +6,7 @@ import Assistant from '../components/Assistant.astro';
 import CheckoutLock from '../components/CheckoutLock.astro';
 import PrivacyRoot from '../components/privacy/PrivacyRoot.astro';
 import PrivacyBanner from '../components/privacy/PrivacyBanner.astro';
+import TweakPanel from '../components/dev/TweakPanel.astro';
 
 interface Props {
   title?: string;
@@ -48,6 +49,7 @@ const {
     <Assistant />
     <CheckoutLock />
     <PrivacyRoot />
+    <TweakPanel />
 
     <style>
       .skip-link {

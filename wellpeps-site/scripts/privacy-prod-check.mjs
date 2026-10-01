@@ -55,6 +55,18 @@ const errors = [];
   await ctx.close();
 }
 
+// 3. Development tools must not ship. The Tweak panel is for `astro dev` only.
+{
+  const { readdirSync, readFileSync, statSync } = await import('node:fs');
+  const { join, dirname } = await import('node:path');
+  const { fileURLToPath } = await import('node:url');
+  const dist = join(dirname(fileURLToPath(import.meta.url)), '..', 'dist');
+  const walk = (d) => readdirSync(d).flatMap((n) => (statSync(join(d, n)).isDirectory() ? walk(join(d, n)) : [join(d, n)]));
+  const texty = walk(dist).filter((f) => /\.(html|js|css|mjs)$/.test(f));
+  const leaks = texty.filter((f) => /wp-tweak-panel|tweak-panel|wp-tweaks:v/.test(readFileSync(f, 'utf8')));
+  check('production: the dev-only Tweak panel is not in the build', leaks.length === 0, leaks.slice(0, 2).join(', '));
+}
+
 check('no script errors', errors.length === 0, errors.slice(0, 2).join(' | '));
 await browser.close();
 process.exit(fails ? 1 : 0);
