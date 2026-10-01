@@ -17,13 +17,15 @@ Function base URL: `https://kwgwbupqzpusydzflyvi.supabase.co/functions/v1`.
 | `functions/consent-log/` | Records the consent choices the "Your Privacy Choices" control sends. |
 | `functions/privacy-request/` | Receives the privacy request form and logs it as the record of the request. |
 | `functions/analytics-event/` | Receives anonymous page-view, click and page-leave events (see `wellpeps-site/src/lib/analytics/README.md`). |
+| `functions/notify-signup/` | The sign-up forms' function (guides, waitlists, hair notify, footer newsletter), updated to record the consent boxes (W9). Replaces live version 2; apply `migrations/20261001000000_notify_signups_consent.sql` first. Needs `ALLOWED_ORIGINS` for any non-production site (the client preview). |
 | `functions/_shared/` | The pure logic all three share: validation, due dates, CORS, size cap, rate limit. No Deno-only imports, so `npm test` in `wellpeps-site` runs it. |
 | `migrations/` | One migration per table: `consent_events`, `privacy_requests`, `analytics_events`. |
 | `analytics/example-views.sql` | Example reporting views over `analytics_events` (not a migration). |
 | `config.toml` | Minimal CLI config: JWT checks off for the three public functions. |
 
-The existing `notify-signup` function and `notify_signups` table were created
-earlier and are **not** in this folder.
+The `notify_signups` table and the live `notify-signup` function (version 2) were created
+earlier; this folder holds the next version of the function and the migration that adds the
+consent columns. Both are written and tested but **not deployed**.
 
 ## What each function does
 
