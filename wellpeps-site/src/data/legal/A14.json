@@ -1,0 +1,553 @@
+{
+ "title": "GLP-1 Medication Safety Information and Acknowledgment",
+ "version": "0.1",
+ "date": "October 1, 2026",
+ "blocks": [
+  {
+   "t": "h1",
+   "text": "PART 1. GLP-1 MEDICATION SAFETY INFORMATION"
+  },
+  {
+   "t": "p",
+   "text": "*Last updated: [DATE]  |  Version [1.0]*",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "1. Emergency information"
+  },
+  {
+   "t": "p",
+   "text": "**If you think you are having a medical emergency, call 911 or go to the nearest emergency room right away.** Do not wait for a reply by email, chat, text message or the patient portal.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**If you may have taken too much medication or used the wrong dose, call Poison Control at 1-800-222-1222.** If the person collapses, has a seizure, has trouble breathing or cannot be woken up, call 911.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "2. About this information"
+  },
+  {
+   "t": "p",
+   "text": "This page gives general safety information for adults who are prescribed a medicine containing semaglutide or tirzepatide through WellPeps, a Wyoming corporation (“WellPeps”). It does not replace your prescription label, your pharmacy’s instructions, a Medication Guide or your clinician’s advice.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "**WellPeps is not a medical practice or a pharmacy.** WellPeps helps you reach telehealth services provided by independent licensed clinicians of [PRACTICE NAME]. WellPeps does not prescribe, compound or dispense medication.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**A licensed clinician decides** whether a prescription is medically appropriate for you. A prescription is not guaranteed.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**A state-licensed pharmacy** named on your prescription label prepares and ships your medication.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Your label comes first.** Ingredients, strengths (concentrations), forms, syringes, storage rules and beyond-use dates can differ between prescriptions and between pharmacies. If this page and your label disagree, follow your label and contact your clinician or pharmacy.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "3. Important: about compounded medicines"
+  },
+  {
+   "t": "p",
+   "text": "Your prescription may be a compounded medicine. A compounded medicine is made by a pharmacy for you, based on your prescriber’s order.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "**Compounded semaglutide and compounded tirzepatide are not FDA-approved.** FDA does not review compounded medicines for safety, effectiveness or quality before they are sold.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "A compounded medicine is **not a generic version** of an FDA-approved brand. Do not assume it is the same as, equivalent to or interchangeable with an FDA-approved medicine.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**FDA-approved medicines containing semaglutide or tirzepatide are available.** [Include only if the practice confirms: FDA advises that a compounded medicine be considered only when a patient’s medical needs cannot be met by an FDA-approved medicine. Your clinician decides whether a compounded medicine is appropriate for you based on your individual needs.]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Because compounded products have not been through FDA review, their full risks, side effects, absorption, effectiveness and quality may not be known. Some information below comes from FDA-approved labeling for brand products and from FDA safety reports. That does not mean a compounded product is the same as a brand product.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "You can ask your clinician at any time whether an FDA-approved option is right for you.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "4. Before you start, tell your clinician if you"
+  },
+  {
+   "t": "li",
+   "text": "or a close family member have had **medullary thyroid carcinoma** (a type of thyroid cancer), or you have **Multiple Endocrine Neoplasia syndrome type 2 (MEN 2)**.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have had a serious allergic reaction to semaglutide, tirzepatide or any ingredient in your prescription.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have or have had problems with your pancreas, gallbladder, kidneys, stomach or intestines, including severe gastroparesis (slow stomach emptying).",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have diabetes, diabetic eye disease (retinopathy) or vision changes, or take insulin or a sulfonylurea medicine.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "use any other GLP-1, diabetes or weight-loss medicine, including another semaglutide or tirzepatide product.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "use birth control pills or another oral medicine that needs close monitoring.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "are scheduled for surgery or a procedure that involves anesthesia or deep sedation.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "are pregnant, may be pregnant, plan to become pregnant or are breastfeeding.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "take any other prescription or over-the-counter medicines, vitamins or supplements, or have any other medical conditions or allergies.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "5. Boxed warning: thyroid tumors"
+  },
+  {
+   "t": "p",
+   "text": "FDA-approved products containing semaglutide or tirzepatide carry a **boxed warning** (FDA’s strongest warning) about thyroid C-cell tumors seen in rodents. It is not known whether these medicines cause thyroid C-cell tumors, including medullary thyroid carcinoma, in people. **Do not use** a medicine containing semaglutide or tirzepatide if you or a close family member have had medullary thyroid carcinoma, or if you have MEN 2.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Tell your clinician right away if you notice a lump or swelling in your neck, hoarseness that does not go away, trouble swallowing or shortness of breath.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "6. Pregnancy, breastfeeding and birth control"
+  },
+  {
+   "t": "li",
+   "text": "Do not use these medicines for weight management during pregnancy. If you become pregnant, **stop the medication and contact your clinician right away**.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Semaglutide labeling advises stopping at least 2 months before a planned pregnancy. Ask your clinician when tirzepatide should be stopped before a planned pregnancy.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Ask your clinician whether treatment is appropriate if you are breastfeeding.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Tirzepatide can make birth control pills less effective. Ask your clinician about using a non-oral method, or adding a barrier method, for 4 weeks after you start and for 4 weeks after each dose increase.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "7. Serious symptoms: stop and get help"
+  },
+  {
+   "t": "p",
+   "text": "Stop using the medication and contact a clinician or seek care as directed below. **Call 911 for severe or life-threatening symptoms.**",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "**Possible problem**",
+     "**Symptoms**",
+     "**What to do**"
+    ],
+    [
+     "Pancreatitis",
+     "Severe belly pain that does not go away and may spread to your back, with or without vomiting",
+     "Stop the medication. Get medical care right away."
+    ],
+    [
+     "Gallbladder problem",
+     "Pain in the upper belly, fever, yellowing of the skin or eyes, clay-colored stools",
+     "Contact your clinician right away."
+    ],
+    [
+     "Dehydration or kidney problem",
+     "Repeated vomiting or diarrhea, cannot keep fluids down, faintness, little urine",
+     "Contact your clinician promptly. Seek emergency care if severe."
+    ],
+    [
+     "Severe stomach or bowel problem",
+     "Repeated vomiting, severe or lasting belly pain, severe constipation, swollen belly, cannot pass stool or gas",
+     "Seek medical care promptly."
+    ],
+    [
+     "Serious allergic reaction",
+     "Swelling of the face, lips, tongue or throat; trouble breathing or swallowing; severe rash; fainting; severe dizziness",
+     "Call 911."
+    ],
+    [
+     "Low blood sugar",
+     "Sweating, shakiness, hunger, blurred vision, confusion, weakness, dizziness, slurred speech, fast heartbeat. More likely with insulin or a sulfonylurea.",
+     "Treat as your clinician has instructed and contact them. Call 911 for passing out, seizure or severe confusion."
+    ],
+    [
+     "Vision changes",
+     "New or worsening changes in vision, especially if you have diabetes or diabetic eye disease [medical director to confirm whether to add sudden vision loss]",
+     "Contact your clinician promptly."
+    ],
+    [
+     "Possible thyroid tumor",
+     "Neck lump or swelling, hoarseness that does not go away, trouble swallowing, shortness of breath",
+     "Contact your clinician promptly."
+    ]
+   ],
+   "widths": null,
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "p",
+   "text": "**Surgery and anesthesia.** These medicines slow how fast your stomach empties. This can raise the risk of food or liquid entering your lungs during anesthesia or deep sedation. Tell your surgeon, anesthesiologist, dentist or other clinician that you use one of these medicines before any procedure. [Medical director: add instruction on whether and when to pause before procedures, or direct patients to ask their procedure team.]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "8. Other possible side effects"
+  },
+  {
+   "t": "p",
+   "text": "FDA-approved products containing semaglutide or tirzepatide commonly list nausea, diarrhea, vomiting, constipation, belly pain, indigestion, decreased appetite, bloating, belching and heartburn. Other reported effects include tiredness, headache, dizziness, hair loss and injection-site reactions. [Medical director: add faster heart rate and loss of lean body mass if confirmed.]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "For a compounded product, side effects and how often they occur may be different or unknown. Contact your clinician about any symptom that is severe, lasting, getting worse or worrying you.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "9. Dosing and injection safety"
+  },
+  {
+   "t": "p",
+   "text": "Compounded medicines can come in different strengths (concentrations) and forms. **Mixing up milligrams (mg), milliliters (mL) and syringe “units” can cause a serious overdose.** FDA has received reports of patients injecting much more than intended, some needing hospital care.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "Use only the medicine, dose, schedule, route and syringe listed on your **current** prescription and pharmacy label.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Before every dose, check the medicine name, the concentration (mg per mL), your prescribed dose, the injection volume and the correct syringe marking.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "If any direction is missing, unclear or does not match another direction, **do not use the medication** until your clinician or the dispensing pharmacy confirms it.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Never use a dosing chart you found online, and never copy the number of “units” you used from a different vial. A refill, or a different pharmacy, may have a different concentration. [If WellPeps, the practice and the pharmacies adopt the rule: When your pharmacy or concentration changes, you will receive new written dosing instructions before you use the new vial.]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not work out a new dose yourself, increase your dose early, double a missed dose, change how you take it or take it more often than prescribed.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Dose increases are not automatic. Your clinician decides based on your response and side effects.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not combine (“stack”) semaglutide, tirzepatide or another GLP-1 medicine unless your clinician has clearly told you to.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Never share vials, pens, needles or syringes. Use a new sterile needle and syringe for every injection and dispose of used sharps safely in a sharps container.",
+   "level": 0
+  },
+  {
+   "t": "p",
+   "text": "If you may have used the wrong dose, contact your clinician and Poison Control at 1-800-222-1222. Call 911 for severe symptoms.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "10. Oral, sublingual, troche and combination forms"
+  },
+  {
+   "t": "li",
+   "text": "**FDA has not approved an oral tirzepatide product** [verify on the publication date]. A compounded oral or sublingual semaglutide should not be assumed to be equivalent to an FDA-approved oral or injectable semaglutide. Absorption, exposure, effectiveness and risks can be different.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Added ingredients.** Some prescriptions include an extra ingredient such as a vitamin or amino acid (for example vitamin B6, vitamin B3 or glycine). FDA has not determined that adding an ingredient improves weight loss, safety, effectiveness, energy, focus, liver function or tolerability. Added ingredients can cause their own side effects, interactions or allergic reactions. Check the full ingredient list on your pharmacy label. If it is missing, unclear or not what you expected, do not use the medication until the pharmacy or your clinician explains it.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Do not use a product labeled “semaglutide sodium” or “semaglutide acetate.”** FDA has said these salt forms are different active ingredients from the semaglutide in FDA-approved products and that it is not aware of a lawful basis for using them in compounding. If your label shows one of them, do not use it and contact your clinician and the pharmacy.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "11. Storage, shipping and product quality"
+  },
+  {
+   "t": "li",
+   "text": "Follow your pharmacy label for refrigeration, room-temperature limits, protection from light and handling.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Do not use** the medication if the label is missing or incomplete, the seal is broken, the container is leaking or damaged, or the liquid looks discolored, cloudy, frozen or has particles in it.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "If your package arrives late, warm or was left in heat, contact the dispensing pharmacy before you use it. [Cross-reference the Shipping Policy once published.]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not assume storage guidance from an earlier shipment, another pharmacy or a brand product applies to your current prescription.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Keep medication, needles and syringes out of reach of children and pets.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "12. If you receive an FDA-approved brand medicine"
+  },
+  {
+   "t": "p",
+   "text": "Use the Medication Guide, Instructions for Use, prescribing information and storage directions that come with that exact product. FDA-approved semaglutide and tirzepatide products differ in approved uses, devices, strengths, schedules and instructions. Do not apply compounded-medication instructions to a brand product, or the instructions for one brand to another product.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "13. Other things to know"
+  },
+  {
+   "t": "p",
+   "text": "[Medical director to confirm each item before publication.]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "These medicines are meant to be used together with a reduced-calorie diet and more physical activity.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Weight may return after you stop the medication.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Use the medication only for the person named on the label.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "14. Questions and reporting problems"
+  },
+  {
+   "t": "li",
+   "text": "**Non-emergency medical questions:** message your prescribing clinician in the patient portal at [PORTAL ADDRESS].",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Orders, shipping or billing help:** [SUPPORT EMAIL] [and, only if live: SUPPORT PHONE AND HOURS].",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Ingredients, strength, preparation, storage or beyond-use date:** the dispensing pharmacy listed on your prescription label.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**To report a side effect or product-quality problem to FDA:** FDA MedWatch at www.fda.gov/medwatch or 1-800-FDA-1088. Please also tell your clinician.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "15. Additional information"
+  },
+  {
+   "t": "p",
+   "text": "This is not a complete list of warnings, risks, side effects, interactions, contraindications or instructions. Your prescription label and the information from your dispensing pharmacy control if they differ from this summary.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "For FDA’s current information, see “FDA’s Concerns with Unapproved GLP-1 Drugs Used for Weight Loss”: https://www.fda.gov/drugs/postmarket-drug-safety-information-patients-and-providers/fdas-concerns-unapproved-glp-1-drugs-used-weight-loss",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "PART 2. GLP-1 SAFETY ACKNOWLEDGMENT (required form)"
+  },
+  {
+   "t": "p",
+   "text": "**Build note:** configure as a required form in GEN Health (Forms), shown before provider review and checkout, after the E-SIGN consent form. Every box must be checked to continue. Capture and store the typed name, timestamp, document version and IP address against the order. [Counsel to confirm logging and retention.]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Please read the GLP-1 Medication Safety Information (version [VERSION], dated [DATE]) before checking each box. Signing this acknowledgment does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "☐  I have read the GLP-1 Medication Safety Information. I know I can read it again at [URL] and that I can ask my clinician or the pharmacy questions.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "☐  I understand that WellPeps is not a medical practice or a pharmacy, that an independent licensed clinician decides whether I receive a prescription, and that a prescription is not guaranteed.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "☐  I understand that my prescription may be for a compounded medicine, that compounded medicines are not FDA-approved, and that FDA does not review them for safety, effectiveness or quality. I understand that FDA-approved medicines containing semaglutide and tirzepatide are available and that I may ask my clinician about them at any time.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "☐  I have answered all health questions truthfully and completely, including about thyroid cancer, MEN 2, pancreas, gallbladder, kidney and stomach problems, diabetes, pregnancy and every medicine I take. I will tell my clinician right away if anything changes, including if I become pregnant.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "☐  I understand the warning about thyroid tumors and the serious symptoms that mean I must stop and get help. I know to call 911 in an emergency and Poison Control at 1-800-222-1222 for a possible overdose or dosing error.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "☐  I understand that I must use only the dose, strength and syringe on my current pharmacy label, that vial strengths can differ between refills and pharmacies, and that I must not use the medication until my clinician or pharmacy confirms anything that is unclear.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "☐  I understand that I must not share or combine (“stack”) these medicines, and that I will tell any surgeon, anesthesiologist or dentist that I use one before a procedure that involves anesthesia or sedation.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "☐  I know how to report a side effect or product problem to my clinician, the pharmacy and FDA MedWatch (www.fda.gov/medwatch or 1-800-FDA-1088).",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "Electronic signature"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Typed full legal name",
+     "[typed by patient]"
+    ],
+    [
+     "Date and time",
+     "[system-captured]"
+    ],
+    [
+     "Document version",
+     "[system-captured]"
+    ],
+    [
+     "IP address",
+     "[system-captured; counsel to confirm]"
+    ]
+   ],
+   "widths": null,
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "p",
+   "text": "By typing my name, I agree that my electronic signature is the legal equivalent of my handwritten signature, and that I have already agreed to receive and sign documents electronically. This acknowledgment does not replace the Informed Consent to Telehealth Services and does not by itself create a clinician-patient relationship.",
+   "italic": false,
+   "align": null
+  }
+ ],
+ "id": "A14",
+ "docTitle": "GLP-1 Medication Safety Information and Acknowledgment",
+ "source": "glp1_safety_legacy.py (read back from the .docx)",
+ "reviewerNotesOmittedBlocks": 16
+}

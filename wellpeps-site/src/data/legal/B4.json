@@ -1,0 +1,831 @@
+{
+ "title": "Informed Consent to Telehealth Services and Treatment",
+ "version": "0.1",
+ "date": "October 1, 2026",
+ "blocks": [
+  {
+   "t": "h1",
+   "text": "Informed Consent to Telehealth Services and Treatment"
+  },
+  {
+   "t": "p",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**This is not for emergencies.** If you think you are having a medical emergency, call 911 or go to the nearest emergency room. Do not wait for a reply by portal message, email or text. If you are thinking about harming yourself, call or text 988 (Suicide and Crisis Lifeline) or call 911.",
+   "kind": "warning"
+  },
+  {
+   "t": "callout",
+   "text": "**The short version**\n• WellPeps is not a medical practice and does not give medical care. Care is given by independent licensed clinicians of [PRACTICE NAME] (the “Practice”).\n• Filling out forms or paying does not make you a patient of the Practice. The relationship starts only when a clinician accepts you. A clinician can say no, ask for more information or a live visit, or end your care.\n• Telehealth cannot do everything an in-person visit can. The clinician cannot examine you in person and depends on what you tell them. You must give complete and truthful information.\n• Clinicians are licensed by state. Each time you ask for care, you must tell us which state you are in.\n• A prescription is not guaranteed, and results are not guaranteed.\n• You can say no to telehealth, withdraw this consent at any time, and ask for in-person care.\n• The Practice keeps your medical record, and you can ask for a copy.\n• If you have a problem, start with the Practice. You can contact your state medical board at any time.",
+   "kind": "info"
+  },
+  {
+   "t": "h2",
+   "text": "1. Who is who"
+  },
+  {
+   "t": "clause",
+   "number": "1.1",
+   "heading": "WellPeps.",
+   "text": "WellPeps, a Wyoming corporation (“WellPeps”), runs this website and your online account. WellPeps handles marketing, intake forms, education and customer support. WellPeps is not a medical practice or a pharmacy. WellPeps does not practice medicine, prescribe, make medicine or ship medicine, and does not make medical decisions about you.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "1.2",
+   "heading": "The Practice.",
+   "text": "[PRACTICE NAME] (the “Practice”) is an independent, licensed medical practice. Its clinicians, such as physicians, nurse practitioners and physician assistants, review your information and decide whether to treat you. In this consent, “clinician” means a licensed health care professional of the Practice. The Practice is legally separate from WellPeps.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "1.3",
+   "heading": "Pharmacies and technology.",
+   "text": "Your prescriptions are filled by independent, state-licensed pharmacies. You use a secure online platform to fill out forms, pay, message your clinician and see your records. WellPeps works with the platform, the pharmacies and a management-services partner. These business relationships are explained in the Financial Relationship Disclosure and Acknowledgment and in How WellPeps Works.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "1.4",
+   "heading": "Medical decisions belong to the clinician.",
+   "text": "WellPeps does not control or direct the Practice's clinicians. Your clinician alone decides whether to accept you, whether to prescribe, and which medicine, dose and amount to prescribe. WellPeps staff who are not clinicians of the Practice cannot give medical advice or make medical decisions about you.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "2. What telehealth is"
+  },
+  {
+   "t": "clause",
+   "number": "2.1",
+   "heading": null,
+   "text": "Telehealth means getting health care from a clinician through technology, such as secure messages, online forms, photos, phone or video, instead of an in-person visit.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "2.2",
+   "heading": "Two kinds of telehealth.",
+   "text": "Live (synchronous) care is a real-time video or phone visit. Asynchronous care, also called store-and-forward, means you send information, such as your answers to health questions, photos, lab results and messages, and the clinician reviews it later and replies. There is no real-time conversation. Most reviews through WellPeps are expected to be asynchronous.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "2.3",
+   "heading": "Your agreement and your right to ask for a live visit.",
+   "text": "By accepting this consent, you agree to receive care by telehealth, including asynchronous care. You may ask for a live video or phone visit at any time. The clinician decides whether a live visit is needed and may require one before treating you. [LIVE VISIT AVAILABILITY]",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "2.4",
+   "heading": "State rules.",
+   "text": "Some states limit what a clinician can do from forms alone, for example by requiring a live visit before a first prescription. See the State Schedule in section 18.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "2.5",
+   "heading": "More information.",
+   "text": "Before deciding, the clinician may ask for more: a live visit, photos, proof of identity, lab tests (see the Laboratory Testing Consent), readings such as weight or blood pressure, records from your other doctors, or an in-person exam. If you do not provide what the clinician asks for, the clinician may decline to treat you.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "3. When your care with the Practice begins"
+  },
+  {
+   "t": "clause",
+   "number": "3.1",
+   "heading": "No patient relationship until a clinician accepts you.",
+   "text": "When you fill out intake forms, pay, or send a message, you are asking the Practice to consider you as a patient. You are not a patient of the Practice, and the Practice does not owe you medical care, until a clinician reviews your information and accepts you. You will be told in your portal or by email whether a clinician has accepted or declined your request. Until then, do not rely on the Practice for medical advice, and do not delay care you need.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "3.2",
+   "heading": "What a clinician may do.",
+   "text": "A clinician may accept you, decline you, or ask for more information first. A clinician may refer you to in-person or specialist care. A clinician may prescribe a different medicine, dose or amount than you asked for, or no medicine. A clinician may change or stop treatment later, and may end care as explained in section 11.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "3.3",
+   "heading": "If you are not accepted.",
+   "text": "If you are not accepted, or no prescription is issued, the Refund, Cancellation and Auto-Renewal Policy explains what happens to your payment.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "3.4",
+   "heading": "Know your clinician.",
+   "text": "You will be told the name, credentials and licensed state of the clinician who treats you, and you can ask for the clinician's license number. You can check a license with the state medical board. [WHERE CLINICIAN CREDENTIALS APPEAR]",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "4. Benefits, risks and limits of telehealth"
+  },
+  {
+   "t": "clause",
+   "number": "4.1",
+   "heading": "Benefits.",
+   "text": "Telehealth can save travel time, can be more private, and lets you follow up by message. It does not promise a better result than in-person care.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "4.2",
+   "heading": "Risks and limits.",
+   "text": "You understand that:",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**A clinician cannot examine you in person.** The clinician cannot listen to your heart or lungs, check your vital signs directly, or order a test on the spot. A condition that an in-person exam would find may be missed.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**The clinician relies on what you tell them and upload.** Missing, wrong or unclear information, including poor photos, can lead to a wrong decision or to harm.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Technology can fail.** Your internet, device, the app or the platform may stop working, delay a message or lose information. If a live visit is cut off, the clinician will try to reconnect and may call the phone number in your account. If you cannot be reached, the visit may be rescheduled.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Portal messages are not read right away.** [RESPONSE TIME] Do not use messages for urgent problems.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Electronic communication has privacy risks,** such as someone else seeing your screen or getting into your account or email. See section 13.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Telehealth may not be right for you.** A clinician may tell you to get in-person care. Treatment may not be available in your state, and a medicine may become unavailable.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Every treatment has risks, and results vary.** You may have side effects, and a treatment may not work. The clinician, the pharmacy and the safety documents for your program explain the risks of your medicine.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "5. Alternatives"
+  },
+  {
+   "t": "clause",
+   "number": "5.1",
+   "heading": null,
+   "text": "You can choose not to use telehealth. Other choices include seeing your own doctor or another clinician in person, going to urgent care, seeing a specialist, trying other treatments, making lifestyle changes, or having no treatment. Ask the clinician about the risks and benefits of each.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "5.2",
+   "heading": "Your own doctor.",
+   "text": "This service does not replace your primary care provider. You are responsible for following up with your own doctor for ongoing health care and for any problem the clinician tells you to have checked.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "6. What you agree to do"
+  },
+  {
+   "t": "clause",
+   "number": "6.1",
+   "heading": "Tell the truth and give a full history.",
+   "text": "Give complete and accurate answers about your health, past and present conditions, all medicines (prescription, over-the-counter, vitamins, supplements, hormones and peptides), allergies, pregnancy and breastfeeding, and past reactions to medicines. Do not leave things out. Tell the clinician right away if anything changes.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "6.2",
+   "heading": "Tell us where you are, every time.",
+   "text": "Clinicians are licensed by state. A clinician generally must be licensed in the state where you are physically located during your care. [VERIFY: confirm licensing rule and any exceptions] Each time you ask for care, a refill or a visit, you must tell us the state you are in at that moment. If you travel or move, update your location before you ask for care. Do not give a false location. Care may not be available while you are outside [STATES SERVED], or while you are in a state where the Practice has no clinician licensed to treat you. [VERIFY: care while traveling]",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "6.3",
+   "heading": "Use the service only for yourself.",
+   "text": "Keep one account. Do not share your login. Do not share or give away medicine. Do not order for someone else.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "6.4",
+   "heading": "Follow instructions.",
+   "text": "Use medicine only as prescribed and as the pharmacy label says. Complete the lab tests and follow-up the clinician asks for. Report side effects.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "6.5",
+   "heading": "Keep your own doctor informed.",
+   "text": "Tell your primary care provider about any treatment you receive here.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "6.6",
+   "heading": "Be an adult.",
+   "text": "These services are for adults. You must be at least 18 years old (19 in Alabama and Nebraska, 21 in Mississippi).",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "6.7",
+   "heading": "Protect your privacy.",
+   "text": "Use a private place and a secure connection for live visits and when you read your messages.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "7. No guarantee"
+  },
+  {
+   "t": "p",
+   "text": "The Practice cannot promise that you will be accepted, that you will get a prescription, or that any treatment will work. Paying does not guarantee a prescription. Results vary from person to person. Neither WellPeps nor the Practice promises any result.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "8. Emergencies and urgent problems"
+  },
+  {
+   "t": "li",
+   "text": "**This service is not for emergencies.** Call 911 or go to the nearest emergency room for chest pain, trouble breathing, swelling of the face, lips, tongue or throat, fainting, signs of a stroke, severe belly pain, a severe allergic reaction, or any problem you think is life-threatening.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**If you are thinking about harming yourself or are in emotional crisis,** call or text 988 (Suicide and Crisis Lifeline), or call 911.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**If you may have taken too much medicine or used the wrong dose,** call Poison Control at 1-800-222-1222. Call 911 if the person collapses, has a seizure, has trouble breathing or cannot be woken up.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Do not wait for a portal message, email or text reply in an emergency.** Messages are not watched all day and night.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Keep your emergency details current.** The clinician may ask for the name and phone number of an emergency contact. If the clinician believes you are in danger, the clinician may call emergency services or your emergency contact, using the location and phone number in your account.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Tell any emergency or other doctor** which medicines you take and that you receive care through telehealth.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "9. Side effects, problems with medicine, and reporting"
+  },
+  {
+   "t": "clause",
+   "number": "9.1",
+   "heading": "Non-emergency side effects or concerns.",
+   "text": "Message your clinician in the portal at [PORTAL URL].",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "9.2",
+   "heading": "How your medicine was prepared.",
+   "text": "For questions about ingredients, strength, preparation, the label, storage or the beyond-use date, contact the pharmacy named on your label.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "9.3",
+   "heading": "Reporting to FDA.",
+   "text": "To report a side effect or product problem to the FDA, use MedWatch at www.fda.gov/medwatch or 1-800-FDA-1088. You can report even if you are not sure the medicine caused the problem. Please also tell your clinician.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "9.4",
+   "heading": "Orders, shipping, billing and website problems.",
+   "text": "Contact WellPeps at [SUPPORT EMAIL] [SUPPORT PHONE AND HOURS, ONLY IF LIVE]. WellPeps support cannot give medical advice. If you tell WellPeps about a side effect or a concern about your care, WellPeps will pass it to the Practice, but do not rely on this when a problem is urgent.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "10. Follow-up, refills and continuity of care"
+  },
+  {
+   "t": "clause",
+   "number": "10.1",
+   "heading": "Care is ongoing.",
+   "text": "A refill is a new decision by the clinician. Before renewing, the clinician may ask for updated health information, lab tests, photos, or readings such as weight or blood pressure. [FOLLOW-UP AND REFILL SCHEDULE] If you do not answer, the clinician may pause your refills. [PRACTICE TO CONFIRM]",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "10.2",
+   "heading": "Do not run out.",
+   "text": "Ask for a refill early. Do not change your dose, skip doses or stop a medicine on your own unless the clinician or the label tells you to. Ask your clinician what to do if you miss a dose.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "10.3",
+   "heading": "Care the Practice cannot give.",
+   "text": "If you need care that the Practice cannot give through telehealth, the clinician will tell you and may refer you to in-person care. The clinician may pause or stop prescribing until the problem has been checked.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "10.4",
+   "heading": "Canceling your plan is not the same as ending care.",
+   "text": "Canceling stops future charges and shipments as explained in the Refund, Cancellation and Auto-Renewal Policy. It also means the Practice will not renew your prescription. Talk to your clinician before you stop any medicine. Your right to your medical records does not end when you cancel. [POST-CANCELLATION MESSAGING]",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "11. When care may end, and how you will be told"
+  },
+  {
+   "t": "clause",
+   "number": "11.1",
+   "heading": "You can end care at any time.",
+   "text": "Tell your clinician in a portal message. Cancel your plan if you also want billing to stop.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "11.2",
+   "heading": "The Practice may end care.",
+   "text": "The Practice may end care for reasons such as: giving false or incomplete information; living in or being in a state where the Practice cannot treat you; not following instructions or not completing requested lab tests or follow-up; sharing medicine or seeking the same medicine from more than one source; threatening or abusive behavior toward staff; treatment that is no longer medically appropriate through telehealth; a medicine no longer being available or lawful; or WellPeps or the Practice no longer offering the service. [PRACTICE TO CONFIRM]",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "11.3",
+   "heading": "Notice.",
+   "text": "Unless an immediate stop is needed for your safety, the law or licensing (for example, you moved to a state where the clinician is not licensed, or a person is being threatened), the Practice will give you written notice in your portal and by email at least [30] days before care ends. [VERIFY: state notice rules for ending care] The notice will say when care ends and, where the law allows, why.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "11.4",
+   "heading": "Help during the notice period.",
+   "text": "During the notice period the Practice will stay available to answer urgent questions about your current treatment, will continue to prescribe medicine you need for a limited time [PRACTICE TO CONFIRM], will give you information to help you find another clinician, and will send your records to you or your new clinician when you ask (with your written authorization when the law requires it).",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "11.5",
+   "heading": "If a payment fails or your plan ends.",
+   "text": "WellPeps may pause or end your plan under the Patient Terms of Service and Payment Agreement. A billing problem is not a medical reason. The Practice follows the rules against abandoning a patient and will give the notice and help described in this section. [PRACTICE TO CONFIRM]",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "11.6",
+   "heading": "If WellPeps and the Practice stop working together.",
+   "text": "You will be told, and your care will be moved or continued so that it is not interrupted. [TRANSITION PERIOD]",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "12. Your medical records"
+  },
+  {
+   "t": "clause",
+   "number": "12.1",
+   "heading": "Who keeps them.",
+   "text": "The Practice owns and keeps your medical record. It includes your intake answers, clinician notes, prescriptions, test results and your messages with the clinician. WellPeps and the technology platform store and handle this information for the Practice, and use it only as the law and their agreements allow. WellPeps also keeps its own account, order and support records, described in the Privacy Policy.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "12.2",
+   "heading": "Your rights.",
+   "text": "Under the federal privacy rule (HIPAA) you can ask to see and get a copy of your records, ask the Practice to correct them, and ask for a list of certain disclosures. You can ask for your records to be sent to you or to another clinician. The Notice of Privacy Practices explains how. You can ask in a portal message or by contacting the Practice at [PRACTICE CONTACT]. Where the law allows, the Practice may charge a reasonable, cost-based fee for copies.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "12.3",
+   "heading": "How long.",
+   "text": "The Practice keeps your medical record for at least [7] years, and longer if the law of your state requires.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "12.4",
+   "heading": "Sharing with your other doctors.",
+   "text": "With your permission, or as the law allows, the Practice can send a summary of your care to your primary care provider or another clinician you name. To authorize other sharing, see the HIPAA Authorization Forms.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "12.5",
+   "heading": "Record of this consent.",
+   "text": "We keep a record that you accepted this consent, including the version, date and time. You can save or print a copy now and ask for another copy at any time.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "13. Privacy, recording, AI and how we contact you"
+  },
+  {
+   "t": "clause",
+   "number": "13.1",
+   "heading": "Privacy.",
+   "text": "The Practice must protect your health information as the federal privacy rule (HIPAA) requires, and WellPeps protects the information it handles for you. No technology is perfectly secure. See the Notice of Privacy Practices, the Privacy Policy and the Consumer Health Data Privacy Policy.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "13.2",
+   "heading": "Your part.",
+   "text": "Use a private place. Use a device and network you trust, not public Wi-Fi. Keep your password secret and log out on shared devices. Be careful with emails or texts that ask for your password or payment details.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "13.3",
+   "heading": "Recording.",
+   "text": "Live visits are not recorded unless you are told first and you agree. [RECORDING PRACTICE: confirm] Please do not record a visit without telling the clinician. Some states require everyone's agreement to record a call.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "13.4",
+   "heading": "Artificial intelligence (AI).",
+   "text": "Some tools used in care, such as tools that help write notes or draft messages, may use AI. If AI is used, a licensed clinician reviews it and makes every care decision. [AI IN CARE: confirm] For how AI is used on the WellPeps website, see the AI Use Disclosure.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "13.5",
+   "heading": "How we contact you.",
+   "text": "Care messages go in your portal. You may also get notices by email, and by text message if you agree in the Text Messaging Terms. Email and text may not be encrypted, so keep private details in the portal. Your agreement to get documents and notices electronically is in the Electronic Records, Signatures and Communications Consent. Marketing messages are not part of this consent.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "14. Costs"
+  },
+  {
+   "t": "clause",
+   "number": "14.1",
+   "heading": null,
+   "text": "You pay for services yourself. WellPeps and the Practice do not bill insurance, Medicare or Medicaid for these services. You are choosing to pay on a cash basis, outside any health plan or government program.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "14.2",
+   "heading": null,
+   "text": "Your price, what it includes, what is billed separately (such as lab tests) and how to cancel are explained in the Patient Terms of Service and Payment Agreement and in the Refund, Cancellation and Auto-Renewal Policy. Paying does not mean a clinician will accept you or prescribe.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "15. Complaints and grievances"
+  },
+  {
+   "t": "clause",
+   "number": "15.1",
+   "heading": "Start with the Practice.",
+   "text": "If you have a concern about your clinical care, tell the Practice in a portal message or at [PRACTICE CONTACT]. The Practice will review your concern and answer you. [PRACTICE TO CONFIRM]",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "15.2",
+   "heading": "WellPeps.",
+   "text": "For website, ordering, shipping, billing or privacy concerns about WellPeps, contact [SUPPORT EMAIL]. For privacy concerns, you can also contact [PRIVACY EMAIL].",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "15.3",
+   "heading": "The pharmacy.",
+   "text": "For concerns about how your medicine was prepared, labeled or packed, contact the pharmacy named on your label. You may also contact the state board of pharmacy.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "15.4",
+   "heading": "Your state medical board.",
+   "text": "You may contact your state medical board at any time. You do not have to use the Practice's process first. [STATE BOARD NOTICE: VERIFY state-required board complaint notices, e.g. Texas] The State Schedule in section 18 shows the notice for your state where one is required. To find your board, use [VERIFY: link to a directory of state medical boards].",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "15.5",
+   "heading": "Privacy complaints.",
+   "text": "You can also complain about privacy to the Practice or to the U.S. Department of Health and Human Services Office for Civil Rights, as the Notice of Privacy Practices explains.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "15.6",
+   "heading": "No penalty.",
+   "text": "Your care will not be affected because you made a complaint.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "16. Your rights, and withdrawing consent"
+  },
+  {
+   "t": "clause",
+   "number": "16.1",
+   "heading": "Telehealth is your choice.",
+   "text": "You can refuse telehealth or withdraw this consent at any time, and you can ask for a referral to in-person care. This does not affect your right to care from other providers.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "16.2",
+   "heading": "How to withdraw.",
+   "text": "Send a portal message to your clinician, or email [SUPPORT EMAIL] and WellPeps will pass your request to the Practice.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "16.3",
+   "heading": "What happens.",
+   "text": "If you withdraw, the Practice cannot treat you through telehealth. The clinician will tell you what to do about any medicine you are taking (do not stop it suddenly unless you are told to). Withdrawing does not undo care you already received. It does not cancel your plan or stop billing: to do that, cancel your plan as the Refund, Cancellation and Auto-Renewal Policy explains.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "16.4",
+   "heading": "Other rights.",
+   "text": "You have the right to ask questions before you agree and at any time, to get a copy of this consent, to know your clinician's identity and license, to get your records, to be treated with respect, and to ask for help if you have a disability or need language help (email [SUPPORT EMAIL]; see the Accessibility Statement). WellPeps support can explain how the service works but cannot give medical advice. [PRACTICE CONTACT] can answer questions about this consent.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "17. How this consent fits with other documents"
+  },
+  {
+   "t": "clause",
+   "number": "17.1",
+   "heading": null,
+   "text": "This consent covers telehealth care in general. Other documents cover specific topics: the Compounded Medication Disclosure and Consent; the safety information and acknowledgment for your program (GLP-1 Medication Safety Information and Acknowledgment, Sexual Health Medication Safety Information and Acknowledgment, Hair Loss Medication Safety Information and Acknowledgment, or Healthy Aging and Vitality Medication Safety Information and Acknowledgment); the Laboratory Testing Consent; the Patient Intake Attestations; and the Medical Disclaimer. Pricing and cancellation are in the documents named in section 14. Shipping is in the Shipping and Delivery Policy.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "17.2",
+   "heading": null,
+   "text": "If the law of your state gives you more rights or protections than this consent, the law applies. Nothing in this consent limits any right you have under the law.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "17.3",
+   "heading": "Changes.",
+   "text": "This consent may be updated. If a change is important, or the law requires it, you will be asked to read and accept the new version. The version you accepted is recorded. If a part of this consent is not allowed in your state, the rest still applies.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "18. State Schedule"
+  },
+  {
+   "t": "p",
+   "text": "The State Schedule has extra notices and rules for the state you are in when you receive care. If your state is not listed, the Practice will follow the telehealth, licensing, consent and record rules of your state, and any required notice will be shown in your portal. If the State Schedule gives you more protection than the rest of this consent, the State Schedule applies to care you receive while you are in that state.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "*Drafting structure: the form shows each patient only the row for the state they select. Every cell below is a placeholder for counsel. Column 2 lists topics that the earlier addendum flagged and that have not been verified.*",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "State",
+     "Topics to confirm (from the earlier addendum; unverified)",
+     "Required notice, consent or disclosure",
+     "Live visit or other rule before a first prescription",
+     "Board for complaints"
+    ],
+    [
+     "Arkansas (AR)",
+     "Whether a questionnaire alone can start a patient relationship; whether a video visit is needed first.",
+     "[VERIFY: required language]",
+     "[VERIFY: visit-type rule]",
+     "[VERIFY: board contact]"
+    ],
+    [
+     "California (CA)",
+     "Consent to telehealth and how it is recorded; the notice to consumers about the licensing board; prior-exam rules; AI-generated clinical messages.",
+     "[VERIFY: required language]",
+     "[VERIFY: visit-type rule]",
+     "[VERIFY: board contact]"
+    ],
+    [
+     "Florida (FL)",
+     "Out-of-state telehealth provider registration; whether a Patient's Bill of Rights summary and a Weight-Loss Consumer Bill of Rights must be given.",
+     "[VERIFY: required language]\n[VERIFY: Florida consumer rights summaries]",
+     "[VERIFY: visit-type rule]",
+     "[VERIFY: board contact]"
+    ],
+    [
+     "Georgia (GA)",
+     "Telemedicine rule: identity checks, clinician disclosure, no prescribing from a questionnaire alone, follow-up.",
+     "[VERIFY: required language]",
+     "[VERIFY: visit-type rule]",
+     "[VERIFY: board contact]"
+    ],
+    [
+     "Illinois (IL)",
+     "Licensure and standard of care; any Illinois written telehealth consent.",
+     "[VERIFY: required language]",
+     "[VERIFY: visit-type rule]",
+     "[VERIFY: board contact]"
+    ],
+    [
+     "New Jersey (NJ)",
+     "Identifying the patient and the clinician; review of medical history before the first visit; sending the visit record to a primary care provider.",
+     "[VERIFY: required language]",
+     "[VERIFY: visit-type rule]",
+     "[VERIFY: board contact]"
+    ],
+    [
+     "New York (NY)",
+     "Licensure and registration; record access; complaint contact; any written consent.",
+     "[VERIFY: required language]",
+     "[VERIFY: visit-type rule]",
+     "[VERIFY: board contact]"
+    ],
+    [
+     "Pennsylvania (PA)",
+     "Telemedicine law and board rules.",
+     "[VERIFY: required language]",
+     "[VERIFY: visit-type rule]",
+     "[VERIFY: board contact]"
+    ],
+    [
+     "Texas (TX)",
+     "Practitioner-patient relationship using asynchronous technology; required complaint notice; report of the visit to a primary care provider; notice of electronic disclosure of health information; AI disclosure.",
+     "[VERIFY: required language]",
+     "[VERIFY: visit-type rule]",
+     "[VERIFY: board contact]"
+    ],
+    [
+     "West Virginia (WV)",
+     "Whether a questionnaire alone can start a patient relationship; whether a video visit is needed.",
+     "[VERIFY: required language]",
+     "[VERIFY: visit-type rule]",
+     "[VERIFY: board contact]"
+    ],
+    [
+     "DE, KY, LA, MS, OK, TN, VA",
+     "Counsel to add one row for each. The earlier addendum flagged these states as having telemedicine relationship, modality or consent rules.",
+     "[VERIFY: required language]",
+     "[VERIFY: visit-type rule]",
+     "[VERIFY: board contact]"
+    ],
+    [
+     "Every other state in [STATES SERVED]",
+     "Counsel to add a row for each state served, or confirm that the general paragraph above is enough.",
+     "[VERIFY: required language]",
+     "[VERIFY: visit-type rule]",
+     "[VERIFY: board contact]"
+    ]
+   ],
+   "widths": [
+    1.2,
+    3,
+    2,
+    2,
+    1.6
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h1",
+   "text": "Acknowledgment and electronic signature"
+  },
+  {
+   "t": "p",
+   "text": "Please read this consent (version [VERSION], effective [EFFECTIVE DATE]) before checking each box. Signing does not guarantee that a clinician will accept you or prescribe anything. You can read this consent again at [PORTAL URL].",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "check",
+   "text": "I have read this Informed Consent to Telehealth Services and Treatment. I have had the chance to ask questions, and I can ask for a copy at any time."
+  },
+  {
+   "t": "check",
+   "text": "I understand what telehealth is, including asynchronous (store-and-forward) care. I agree to receive care this way, and I know I can ask for a live video or phone visit."
+  },
+  {
+   "t": "check",
+   "text": "I understand that I am not a patient of the Practice until a clinician accepts me. A clinician may decline me, ask for more information or a live visit, or end my care. A prescription and results are not guaranteed."
+  },
+  {
+   "t": "check",
+   "text": "I understand that WellPeps is not a medical practice or a pharmacy and does not make medical decisions. Independent licensed clinicians of the Practice and independent pharmacies provide care and medicine."
+  },
+  {
+   "t": "check",
+   "text": "I understand the benefits, risks and limits of telehealth, including that the clinician cannot examine me in person, that technology can fail, and that electronic communication has privacy risks."
+  },
+  {
+   "t": "check",
+   "text": "I will give complete and truthful information and keep it up to date. I will tell you the state I am physically in each time I ask for care."
+  },
+  {
+   "t": "check",
+   "text": "I understand this service is not for emergencies. I will call 911 in an emergency, and call or text 988 if I am in crisis."
+  },
+  {
+   "t": "check",
+   "text": "I know how to report a side effect or product problem to my clinician, the pharmacy and FDA MedWatch, and how to make a complaint to the Practice and to my state medical board."
+  },
+  {
+   "t": "check",
+   "text": "I understand how my medical records are kept, for how long, and how I can get a copy or ask for a correction."
+  },
+  {
+   "t": "check",
+   "text": "I understand I can refuse telehealth or withdraw this consent at any time and ask for a referral to in-person care. Withdrawing does not cancel my plan."
+  },
+  {
+   "t": "check",
+   "text": "I have read the part of the State Schedule that applies to the state I am in."
+  },
+  {
+   "t": "h2",
+   "text": "Electronic signature"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Field",
+     "Entry"
+    ],
+    [
+     "Typed full legal name",
+     "Typed by the patient"
+    ],
+    [
+     "State where I am physically located right now",
+     "Selected by the patient from the list of states served"
+    ],
+    [
+     "Date and time",
+     "Captured by the system"
+    ],
+    [
+     "Document version",
+     "Captured by the system"
+    ],
+    [
+     "IP address",
+     "Captured by the system"
+    ]
+   ],
+   "widths": [
+    1,
+    2
+   ],
+   "header": true,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "By typing my name, I agree that my electronic signature is the legal equivalent of my handwritten signature, and that I have already agreed to receive and sign documents electronically (see the Electronic Records, Signatures and Communications Consent). This consent does not by itself create a clinician-patient relationship. That relationship begins only when a clinician accepts me.",
+   "italic": false,
+   "align": null
+  }
+ ],
+ "id": "B4",
+ "docTitle": "Informed Consent to Telehealth Services and Treatment",
+ "source": "telehealth_consent.py",
+ "reviewerNotesOmittedBlocks": 3
+}

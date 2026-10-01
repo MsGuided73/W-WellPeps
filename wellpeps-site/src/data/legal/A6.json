@@ -1,0 +1,649 @@
+{
+ "title": "Notice of Privacy Practices",
+ "version": "0.1",
+ "date": "October 1, 2026",
+ "blocks": [
+  {
+   "t": "callout",
+   "text": "**THIS NOTICE DESCRIBES HOW MEDICAL INFORMATION ABOUT YOU MAY BE USED AND DISCLOSED AND HOW YOU CAN GET ACCESS TO THIS INFORMATION. PLEASE REVIEW IT CAREFULLY.**",
+   "kind": "warning"
+  },
+  {
+   "t": "p",
+   "text": "**Effective date:** [EFFECTIVE DATE]    |    **Version:** [VERSION]    |    **Issued by:** [PRACTICE NAME]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**The short version.** [PRACTICE NAME] and its clinicians use your health information to care for you, to get paid, and to run the practice. We share it with others only when this notice allows it or when you say yes in writing. You can see your records, ask for corrections, and ask us to limit how we use your information. If you think we got something wrong, you can complain, and we will not hold it against you.",
+   "kind": "info"
+  },
+  {
+   "t": "h1",
+   "text": "1. Who follows this notice"
+  },
+  {
+   "t": "p",
+   "text": "This notice applies to [PRACTICE NAME] (“the Practice,” “we,” “us”). It covers the Practice’s doctors, nurse practitioners, physician assistants and other licensed clinicians, and its staff, who care for you through our telehealth service.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**WellPeps helps us run the service.** WellPeps, a Wyoming corporation (“WellPeps”), is not a medical practice. It runs the website, the sign-up and intake process, customer support and non-clinical membership services. When WellPeps handles your health information for the Practice, it acts as the Practice’s business associate. That means the law and a written agreement limit what WellPeps can do with your information. Our management-services partner and the technology platform that runs your patient portal and stores your records may also act as business associates.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**Pharmacies and laboratories have their own notices.** The state-licensed pharmacy that fills your prescription and any laboratory that runs your tests are separate health care providers. They must follow privacy laws and will give you their own notice.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**What this notice does not cover.** It does not cover information you give WellPeps when you only visit wellpeps.com, read our articles or join an email list. Those are described in the Privacy Policy and the Consumer Health Data Privacy Policy.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "2. What “health information” means"
+  },
+  {
+   "t": "p",
+   "text": "“Protected health information” is information about you that we create or receive and that can identify you. It relates to your health, your care, or payment for your care. Examples are your intake answers, medical history, prescriptions, test results, messages with your clinician and billing records. In this notice we call it “your health information.”",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "3. How we use and share your health information for treatment, payment and operations"
+  },
+  {
+   "t": "p",
+   "text": "The law lets us use and share your health information in these three ways without asking you first.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "Treatment"
+  },
+  {
+   "t": "p",
+   "text": "We use and share your information to give you care and to coordinate that care. For example:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "Your clinician reviews the answers and records you give in your intake forms to decide whether treatment is medically appropriate.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "We send your prescription, and the information the pharmacy needs (such as your name, address, date of birth, allergies and the medicine ordered), to the state-licensed pharmacy that fills it.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Our technology platform stores your records, lets you message your care team and sends reminders.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "If a clinician orders laboratory tests, we share the order and your details with the laboratory and receive the results.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "When you ask us to, or the law allows, we may contact your primary care provider or another clinician about your care.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "Payment"
+  },
+  {
+   "t": "p",
+   "text": "We use and share your information to get paid. Our service is cash pay. We do not bill health insurance, Medicare or Medicaid. For example:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "We give our payment processor the information it needs to charge your card and send your receipt.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "We use your information to answer billing questions, process refunds, resolve payment disputes and collect money you owe.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "Health care operations"
+  },
+  {
+   "t": "p",
+   "text": "We use and share your information to run the practice and improve care. For example:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "Reviewing the quality of care and training or reviewing our clinicians and staff.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Customer support: WellPeps staff may see limited information to help with your account, orders and shipping.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Licensing, audits, accreditation, legal advice and business planning.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Keeping our systems secure, finding and fixing errors and preventing fraud.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Creating “de-identified” information, which is information that can no longer reasonably be used to identify you.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Sharing information with business associates who do these jobs for us. They must agree in writing to protect it.",
+   "level": 0
+  },
+  {
+   "t": "p",
+   "text": "**Reminders and information about your care.** We may use your information to send you visit, refill and order reminders, and to tell you about treatment options or health-related services that may interest you. We will not put sensitive details in a text message. See the Text Messaging Terms and the Electronic Records, Signatures and Communications Consent.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "4. Other ways we may use or share your information without your written permission"
+  },
+  {
+   "t": "p",
+   "text": "The law allows or requires us to use or share your information in the situations below. We share only what is needed.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "**Required by law.** When federal, state or local law requires it.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Public health.** To prevent or control disease, injury or disability; to report side effects, product problems or recalls to the Food and Drug Administration (FDA) and others responsible for the product; and to tell a person who may have been exposed to a disease.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Abuse, neglect or domestic violence.** To report suspected abuse, neglect or domestic violence to a government agency that the law allows to receive these reports.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Health oversight.** To agencies that oversee health care, such as state medical and pharmacy boards, for audits, investigations, inspections and licensing.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Lawsuits and legal proceedings.** In response to a court or administrative order, and in response to a subpoena or similar request if we receive the assurances the law requires.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Law enforcement.** Limited information to police in some cases, such as to follow a court order, to identify or find a suspect, witness or missing person, to report a crime that happens at our practice or against our staff, or about a death that may be the result of a crime.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**To prevent a serious threat.** To stop or lessen a serious and immediate threat to the health or safety of you, another person or the public.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Workers’ compensation.** As workers’ compensation and similar laws allow.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Workforce safety.** If one of our workers is the victim of a crime, he or she may give police limited information about the person who did it. A worker may also report to an oversight agency or an attorney, in good faith, conduct the worker believes is unlawful.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Organ and tissue donation.** To groups that handle organ, eye or tissue donation or transplant.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Coroners, medical examiners and funeral directors.** To identify a person who has died, find the cause of death or let funeral directors do their jobs.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Research.** Only as the law allows, for example when a review board has approved it, or when details that identify you have been removed (a “limited data set”) and the researcher signs an agreement to protect the information.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Specialized government functions.** For military and veterans’ activities, national security and intelligence, protective services for the President and others, and, for a person in custody, to the jail or prison.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**To you and your personal representative.** To you, and to a person who has legal authority to act for you.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "5. Uses that need your written permission"
+  },
+  {
+   "t": "p",
+   "text": "For any use or sharing that this notice does not describe, we need your written permission. We always need it in these cases:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "**Psychotherapy notes.** These are a mental health professional’s private notes about counseling sessions, kept apart from the medical record. We need your written permission to use or share them, with a few legal exceptions. We do not expect to keep psychotherapy notes.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Marketing.** We need your written permission to use or share your health information to market products or services to you. There are two exceptions: a face-to-face conversation with you, and a promotional gift of small value. If an outside company would pay us for the marketing, the permission form will tell you.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Sale of health information.** We will not sell your health information. Any sale would need your written permission.",
+   "level": 0
+  },
+  {
+   "t": "p",
+   "text": "**You can change your mind.** You may cancel a written permission at any time by writing to the Privacy Official (section 11). Canceling does not undo anything we did while your permission was in effect. See the HIPAA Authorization Forms.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "6. Your choices"
+  },
+  {
+   "t": "p",
+   "text": "In these situations you can tell us what you want us to do. If you cannot tell us, for example in an emergency, we may share information if we believe it is in your best interest.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "**Family, friends and others involved in your care or payment.** We may share relevant information with a person you name. You can say no, or tell us who may and may not receive it.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Disaster relief.** We may share information with a disaster relief group so your family can be told where you are and how you are doing.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Fundraising.** We do not use your health information for fundraising.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "7. Your rights"
+  },
+  {
+   "t": "p",
+   "text": "You have these rights about your health information. To use any of them, contact the Privacy Official (section 11). We may ask you to put a request in writing and to prove who you are before we release records.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "clause",
+   "number": "(a)",
+   "heading": "See and get a copy of your records.",
+   "text": "You can look at or get a copy of your medical and billing records, including an electronic copy if we can readily produce one in the form you ask for. You can ask us to send a copy to another person you name in writing. We will answer within 30 days. If we need more time, we may take one more 30 days and will tell you why in writing. We may charge a reasonable, cost-based fee for copying and mailing. We may say no in limited cases. If we do, we will tell you why in writing and explain how to ask for a review. The Practice keeps your medical record. Pharmacy and laboratory records are kept by those providers, so ask them for copies.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "(b)",
+   "heading": "Ask us to correct your records.",
+   "text": "If you think something in your record is wrong or incomplete, you can ask us to correct it. Please give a reason. We will answer within 60 days. We may say no, for example if we did not create the record or it is already accurate and complete. If we say no, we will tell you why in writing, and you can send a statement of disagreement that we will add to your record.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "(c)",
+   "heading": "Get a list of certain disclosures.",
+   "text": "You can ask for a list of the times we shared your information in the last six years, who received it and why. The list does not include sharing for treatment, payment and operations, sharing with you or with your permission, and some other sharing. You get one list free each year. For more, we may charge a reasonable, cost-based fee after telling you the cost.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "(d)",
+   "heading": "Ask us to limit what we use or share.",
+   "text": "You can ask us not to use or share certain information for treatment, payment or operations, or with family or friends. We do not have to agree, and we may say no if it would affect your care. If we agree, we will follow our agreement unless you need emergency treatment.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "(e)",
+   "heading": "Paying out of pocket.",
+   "text": "If you pay for a service in full yourself and ask us not to share information about that service with your health plan, we must agree unless the law requires us to share it. Our service is cash pay and we do not bill health plans.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "(f)",
+   "heading": "Choose how we contact you.",
+   "text": "You can ask us to contact you in a certain way or place, for example only through the patient portal or at a different email address. We will say yes to every reasonable request. You do not have to tell us why.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "(g)",
+   "heading": "Get a paper copy of this notice.",
+   "text": "You can ask for a paper copy at any time, even if you agreed to get this notice electronically. You can also read it at any time in your patient portal at [PORTAL URL].",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "(h)",
+   "heading": "Choose someone to act for you.",
+   "text": "If someone has a health care power of attorney or is your legal guardian, that person can use your rights and make choices for you. We will check that the person has this authority before we act.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "(i)",
+   "heading": "Be told about a breach.",
+   "text": "If your unsecured health information is lost, stolen or shared in a way the law does not allow, we will tell you. We will tell you without unreasonable delay and no later than 60 days after we discover it.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "(j)",
+   "heading": "Complain.",
+   "text": "See section 11. We will not retaliate against you for complaining.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "8. Our duties"
+  },
+  {
+   "t": "li",
+   "text": "The law requires us to keep your health information private and secure.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "We must tell you if a breach puts your health information at risk.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "We must give you this notice of our legal duties and privacy practices, follow the notice that is in effect, and ask you to confirm that you received it.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "We will not use or share your information in ways this notice does not describe unless you tell us in writing that we can. If you say yes, you can change your mind at any time by telling us in writing.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "We make WellPeps and our other business associates agree in writing to protect your information.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "9. Substance use disorder treatment records (42 CFR Part 2)  [VERIFY: Part 2 text]"
+  },
+  {
+   "t": "p",
+   "text": "The Practice does not provide substance use disorder treatment. Federal law (42 CFR Part 2) gives extra protection to records from programs that diagnose or treat substance use disorder. If the Practice ever receives or keeps records like these, these extra rules apply to them:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "We may use and share these records for treatment, payment and health care operations if you have given written consent. One consent can cover all future uses and sharing for those purposes.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Without your written consent, or a court order made after you have had a chance to be heard, these records cannot be used or shared against you in a civil, criminal, administrative or legislative case or investigation.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Another HIPAA-covered organization that gets these records with your consent may share them again as HIPAA allows, but not in a case against you without your consent or a court order.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "You may ask for a list of the times these records were shared, ask us to limit how they are used and shared, and complain if you believe your rights were violated. We will not retaliate against you for complaining.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "10. State laws that may protect you more"
+  },
+  {
+   "t": "p",
+   "text": "Some state laws give you more privacy protection than HIPAA, or more control over your information. When a state law is stricter, we follow it. Examples include laws that give extra protection to reproductive health information, mental health records, HIV and sexually transmitted infection test results, genetic information and the records of minors. [VERIFY: state laws]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Health information you share with WellPeps outside of your care, for example when you ask for a free guide or join a waiting list, may be protected by consumer health data laws. See the Consumer Health Data Privacy Policy.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "11. Questions and complaints"
+  },
+  {
+   "t": "p",
+   "text": "**Contact the Privacy Official.** Questions about this notice, requests to use your rights, and complaints go here:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Privacy Official",
+     "[PRIVACY OFFICIAL], [PRACTICE NAME]"
+    ],
+    [
+     "Mail",
+     "[PRIVACY OFFICIAL], [PRACTICE NAME] Privacy Office, c/o WellPeps, [BUSINESS ADDRESS]"
+    ],
+    [
+     "Email",
+     "[PRIVACY EMAIL]"
+    ],
+    [
+     "Phone",
+     "[SUPPORT PHONE AND HOURS, ONLY IF LIVE]"
+    ],
+    [
+     "Patient portal",
+     "Send a secure message at [PORTAL URL]"
+    ]
+   ],
+   "widths": [
+    1.2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "**File a complaint.** If you believe your privacy rights were violated, you may file a complaint with us using the contact details above, or with the U.S. Department of Health and Human Services, Office for Civil Rights: [OCR CONTACT: VERIFY]. You generally must file with HHS within 180 days of when you knew or should have known about the problem.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**We will not retaliate.** We will not punish you, refuse you care or take any other action against you for filing a complaint.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "12. Changes to this notice"
+  },
+  {
+   "t": "p",
+   "text": "We may change this notice, and the new terms may apply to health information we already have. The current notice is always available in the footer of wellpeps.com, in your patient portal and on request. The effective date is on the first page. If we make an important change, we will post the new notice and tell you in your portal or by email.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "13. Effective date"
+  },
+  {
+   "t": "p",
+   "text": "This notice is effective [EFFECTIVE DATE]. Version [VERSION].",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "Acknowledgment of Receipt of Notice of Privacy Practices"
+  },
+  {
+   "t": "callout",
+   "text": "**Build note (remove before publishing):** configure in GEN Health to appear after the notice and before the first service. Save the typed name, date and time, notice version and IP address with the record and keep it for six years. Allow a documented way to continue if a person will not sign, and use the office-use table. Counsel to confirm the design (open item 12).",
+   "kind": "note"
+  },
+  {
+   "t": "p",
+   "text": "Please read the Notice of Privacy Practices of [PRACTICE NAME] (version [VERSION], effective [EFFECTIVE DATE]). It explains how we may use and share your health information and what rights you have.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "check",
+   "text": "I received the Notice of Privacy Practices of [PRACTICE NAME]. I know I can read it again at any time at [PORTAL URL] and in the footer of the WellPeps website."
+  },
+  {
+   "t": "check",
+   "text": "I know I can ask for a paper copy of the notice at any time, and that I can ask the Privacy Official any questions about it."
+  },
+  {
+   "t": "p",
+   "text": "**Signing is not a condition of getting care.** If you do not sign, we will still give you the notice and we will note that we gave it to you.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "Electronic signature"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Typed full legal name",
+     "[typed by patient]"
+    ],
+    [
+     "Signing for the patient? Name and authority",
+     "[typed by patient]"
+    ],
+    [
+     "Date and time",
+     "[system-captured]"
+    ],
+    [
+     "Notice version",
+     "[system-captured]"
+    ],
+    [
+     "IP address",
+     "[system-captured]"
+    ]
+   ],
+   "widths": [
+    2,
+    3
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "By typing my name, I confirm that I received the notice. I agree that my electronic signature is the legal equivalent of my handwritten signature, and that I have agreed to receive and sign documents electronically (see the Electronic Records, Signatures and Communications Consent). This acknowledgment does not waive any of my rights.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "For the Practice’s records (complete only if no acknowledgment was obtained)"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Item",
+     "Record"
+    ],
+    [
+     "Date the notice was given",
+     ""
+    ],
+    [
+     "How it was given (portal, email, mail, other)",
+     ""
+    ],
+    [
+     "Efforts made to get an acknowledgment",
+     ""
+    ],
+    [
+     "Reason an acknowledgment was not obtained",
+     ""
+    ],
+    [
+     "Staff member and date",
+     ""
+    ]
+   ],
+   "widths": [
+    2.5,
+    3
+   ],
+   "header": true,
+   "shade": false
+  }
+ ],
+ "id": "A6",
+ "docTitle": "Notice of Privacy Practices",
+ "source": "npp.py",
+ "reviewerNotesOmittedBlocks": 3
+}

@@ -1,0 +1,75 @@
+---
+/**
+ * Draft legal and patient-information pages (W2). One route for all of them, so the
+ * whole set exists, or not, as a unit: getStaticPaths returns nothing unless draft
+ * pages are enabled (always under `astro dev`; in a build only when SHOW_DRAFT_PAGES
+ * is "true"). See src/lib/legal-docs.ts for the registry and how to publish a page.
+ *
+ *   /legal-review                  index of every draft, for counsel
+ *   /patient-information           index of the patient-facing pages
+ *   /contact, /states-we-serve     built from the public copy in the Medical Disclaimer set (A8)
+ *   everything else                a converted draft document (src/data/legal/<id>.json)
+ */
+import LegalDocPage from '../components/legal/LegalDocPage.astro';
+import DocList from '../components/legal/DocList.astro';
+import { LEGAL_DOCS, docUrl, docsByGroup, draftPagesEnabledNow, findDoc, pagesToBuild } from '../lib/legal-docs';
+import { sectionCopy, type LegalDocData } from '../lib/legal-render';
+
+export function getStaticPaths() {
+  const { docs, custom } = pagesToBuild(draftPagesEnabledNow());
+  return [
+    ...docs.map((d) => ({ params: { doc: d.path }, props: { kind: 'doc', id: d.id } })),
+    ...custom.map((c) => ({ params: { doc: c.path }, props: { kind: c.kind, id: c.path } })),
+  ];
+}
+
+const { kind, id } = Astro.props as { kind: string; id: string };
+const files = import.meta.glob<{ default: LegalDocData }>('../data/legal/*.json', { eager: true });
+const load = (docId: string): LegalDocData => files[`../data/legal/${docId}.json`].default;
+
+const doc = kind === 'doc' ? findDoc(Astro.params.doc ?? '') : undefined;
+const data = doc ? load(doc.id) : undefined;
+const a8 = kind === 'contact' || kind === 'states' ? load('A8') : undefined;
+const contactBlocks = a8 ? sectionCopy(a8.blocks, /^Block 7\./) : [];
+const statesBlocks = a8 ? sectionCopy(a8.blocks, /^Block 8\./) : [];
+---
+{doc && data && (
+  <LegalDocPage title={doc.title} blurb={doc.blurb} docId={doc.id} version={data.version} date={data.date} blocks={data.blocks} existing={doc.existing} />
+)}
+{kind === 'contact' && a8 && (
+  <LegalDocPage title="Contact WellPeps" blurb="How to reach us, and what each address is for." docId="A8" version={a8.version} date={a8.date} blocks={contactBlocks} />
+)}
+{kind === 'states' && a8 && (
+  <LegalDocPage title="States We Serve" blurb="Where care and each kind of medication are available today." docId="A8" version={a8.version} date={a8.date} blocks={statesBlocks} />
+)}
+{kind === 'hub' && (
+  <LegalDocPage plain title="Patient Information" blurb="What to read before and during treatment: how it works, safety information, consents, policies and your rights.">
+    <DocList docs={docsByGroup('patient')} />
+    <p>
+      <a href="/states-we-serve">States We Serve</a> &middot; <a href="/contact">Contact WellPeps</a>
+    </p>
+  </LegalDocPage>
+)}
+{kind === 'review' && (
+  <LegalDocPage plain title="Draft documents for review" blurb="Every legal and patient-information document, version 0.1, shown inside the website so counsel can read each one where it will appear. None is approved or in effect.">
+    <div class="ld-banner" role="note">
+      <strong>How to review</strong>
+      <p>
+        Open a document, read it in place, and refer to a section by its address (choose it in &ldquo;On this page&rdquo; and copy the address
+        from the browser). Highlighted [brackets] are open items: amber for a lawyer or the medical director, red for a fact WellPeps supplies, blue for the web team.
+      </p>
+      <p>Reviewer notes and open-items tables are not shown here; they are in the separate drafting files. These pages are hidden from search engines.</p>
+    </div>
+    <h2 class="ld-hub__group">Website pages</h2>
+    <DocList docs={LEGAL_DOCS.filter((d) => d.group === 'site')} showLive />
+    <h2 class="ld-hub__group">Patient information</h2>
+    <DocList docs={LEGAL_DOCS.filter((d) => d.group === 'patient')} />
+    <ul class="ld-hub__list">
+      <li class="ld-hub__item"><a href="/states-we-serve">States We Serve</a><p>Where care and each medication form are available (built from the Medical Disclaimer set).</p></li>
+      <li class="ld-hub__item"><a href="/contact">Contact WellPeps</a><p>The company contact block and what each address is for.</p></li>
+      <li class="ld-hub__item"><a href="/patient-information">Patient Information (index page)</a><p>The hub the footer links to.</p></li>
+    </ul>
+    <h2 class="ld-hub__group">Checkout documents (shown in the GEN Health checkout, not as site pages)</h2>
+    <DocList docs={LEGAL_DOCS.filter((d) => d.group === 'checkout')} />
+  </LegalDocPage>
+)}

@@ -1,0 +1,619 @@
+{
+ "title": "Hair Loss Medication Safety Information and Acknowledgment",
+ "version": "0.1",
+ "date": "October 1, 2026",
+ "blocks": [
+  {
+   "t": "h1",
+   "text": "PART 1. HAIR LOSS MEDICATION SAFETY INFORMATION"
+  },
+  {
+   "t": "p",
+   "text": "Last updated: [EFFECTIVE DATE]  |  Version [VERSION]",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "1. Emergency information"
+  },
+  {
+   "t": "callout",
+   "text": "**Call 911 or go to the nearest emergency room right away if you have:**\n•  Chest pain.\n•  Shortness of breath, especially when lying down.\n•  Fainting.\n•  A very fast, pounding or irregular heartbeat.\n•  Swelling of your face, lips, tongue or throat, or trouble breathing or swallowing.\n**If you have thoughts of harming yourself, call or text 988 (Suicide and Crisis Lifeline) or call 911.**",
+   "kind": "warning"
+  },
+  {
+   "t": "p",
+   "text": "Do not wait for a reply by email, chat, text message or the patient portal.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "If a child may have swallowed a hair-loss product, call Poison Control at 1-800-222-1222. If a pet licked or swallowed minoxidil, call a veterinarian right away. Minoxidil can be very dangerous to children, cats and dogs.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "2. About this information, and who can get which product"
+  },
+  {
+   "t": "p",
+   "text": "This page gives general safety information for adults who are prescribed a hair-loss medicine through WellPeps, a Wyoming corporation (“WellPeps”). It does not replace your clinician’s advice.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "**WellPeps is not a medical practice or a pharmacy.** WellPeps helps you reach telehealth services provided by independent licensed clinicians of [PRACTICE NAME] (the “Practice”). WellPeps does not prescribe, compound or dispense medication.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**A licensed clinician decides** whether a prescription is medically appropriate for you. A prescription is not guaranteed.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**A state-licensed pharmacy** prepares and ships your medication. Your label names it. Pharmacies that fill WellPeps prescriptions: [PHARMACY LIST].",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Your label comes first.** If this page and your label disagree, follow your label and contact your clinician or pharmacy.",
+   "level": 0
+  },
+  {
+   "t": "p",
+   "text": "Which products you can be offered depends on your clinician’s decision, your sex and your age. WellPeps serves adults only. Finasteride and dutasteride are not FDA-approved for use in women. These medicines, and the foams that contain them, are not for use by anyone who is pregnant or may become pregnant. [MEDICAL DIRECTOR TO CONFIRM: eligibility by sex and age]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "3. The products this page covers"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Product",
+     "What is in it",
+     "What to know"
+    ],
+    [
+     "Oral finasteride",
+     "Finasteride",
+     "Finasteride 1 mg tablets are FDA-approved for male-pattern hair loss in men only. Your pharmacy may supply an FDA-approved tablet or a compounded capsule. [MEDICAL DIRECTOR TO CONFIRM: forms offered]"
+    ],
+    [
+     "Oral minoxidil",
+     "Minoxidil",
+     "FDA-approved only for severe high blood pressure. Using it for hair loss is off-label. It may be a tablet or a compounded capsule."
+    ],
+    [
+     "Topical minoxidil solution",
+     "Minoxidil",
+     "Minoxidil for the scalp is sold over the counter in some strengths. A prescription or compounded strength may be different."
+    ],
+    [
+     "Minoxidil plus finasteride foam",
+     "Minoxidil, finasteride",
+     "Compounded. Not FDA-approved."
+    ],
+    [
+     "Finasteride plus minoxidil plus tretinoin foam",
+     "Finasteride, minoxidil, tretinoin",
+     "Compounded. Not FDA-approved."
+    ],
+    [
+     "Dutasteride",
+     "Dutasteride",
+     "FDA-approved only for an enlarged prostate (BPH) in men. Using it for hair loss is off-label. It may be a compounded capsule at a strength that is not sold commercially."
+    ]
+   ],
+   "widths": [
+    1.6,
+    1.5,
+    3.6
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "p",
+   "text": "Your label tells you exactly what you have. Every warning for an ingredient applies to every product that contains it, so read the section for each ingredient in your medicine.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "4. Off-label and compounded medicines: what this means"
+  },
+  {
+   "t": "p",
+   "text": "**Off-label.** A medicine is “off-label” when it is prescribed for a use, dose, form or group of patients that is not in its FDA-approved labeling. This is legal and common, but FDA has not reviewed the medicine’s safety or effectiveness for that use. Oral minoxidil and dutasteride for hair loss are off-label. You can say no to off-label treatment and ask about other choices.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**Compounded.** A compounded medicine is made by a pharmacy for you, based on your prescriber’s order. It is not FDA-approved, and FDA does not review it for safety, effectiveness or quality before it is sold. It is not the same as, equivalent to or interchangeable with an FDA-approved product, and the amount that reaches your bloodstream from a compounded topical product can vary. Both foams on this page are compounded.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "FDA-approved options exist, such as finasteride tablets for men and over-the-counter minoxidil. Ask your clinician about them at any time. See also the Compounded Medication Disclosure and Consent.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "5. Before you start, tell your clinician if you"
+  },
+  {
+   "t": "p",
+   "text": "Answer every health question fully and truthfully. Tell your clinician if you:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "are pregnant, may be pregnant, are trying to conceive or are breastfeeding, or you live with someone who is pregnant or may become pregnant.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have depression, anxiety or another mental health condition, or have ever had thoughts of harming yourself.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have heart disease, chest pain, a past heart attack, heart failure, fluid around the heart, an irregular heartbeat, low or high blood pressure, or kidney or liver disease.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have a prostate condition, have had or plan to have a PSA test, or are trying to father a child.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have a scalp condition, sunburn, open sores or irritated skin, or sudden or patchy hair loss.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "take blood-pressure medicine, heart medicine, an erectile dysfunction medicine (including nitrates), any other prescription or over-the-counter medicine or supplement, or any other minoxidil, finasteride, dutasteride, retinoid or acne product.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have had an allergic reaction to any ingredient in your medicine.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "6. Finasteride and dutasteride (tablets, capsules and foams)"
+  },
+  {
+   "t": "p",
+   "text": "Finasteride (the oral product and both foams) and dutasteride (an oral capsule) lower a hormone called DHT. This section applies to every product that contains either one.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**Women who are pregnant or may become pregnant must not take finasteride or dutasteride. They must not handle crushed or broken tablets, open or leaking capsules, or any topical product that contains finasteride.** These medicines can be absorbed through the skin and can harm the development of a male baby.",
+   "kind": "warning"
+  },
+  {
+   "t": "li",
+   "text": "If a woman who is pregnant or may become pregnant touches one, she should wash the area right away with soap and water and call her clinician. Do not crush or break tablets or open capsules.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "For foams: wash your hands right after applying, and let the product dry before your scalp or hair touches another person, a pillow, a hat or a towel. Do not let a woman who is pregnant or may become pregnant, a child or a pet touch the treated area or the product.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not donate blood while you take these medicines or for a set time after your last dose, so that someone who is pregnant does not receive the medicine in a transfusion. [MEDICAL DIRECTOR TO CONFIRM: blood donation period]",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Side effects to know about"
+  },
+  {
+   "t": "li",
+   "text": "**Sexual side effects.** Lower sex drive, trouble getting or keeping an erection, less semen, and ejaculation or orgasm problems. Some people report that these continued after they stopped the medicine, and no one can predict who will be affected. Tell your clinician about any sexual side effect, during or after treatment. [MEDICAL DIRECTOR TO CONFIRM: finasteride label wording]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Mood changes.** Depression and, less often, thoughts of suicide have been reported. Tell your clinician right away about low mood, anxiety or thoughts of self-harm. If you have thoughts of harming yourself, call or text 988 or call 911.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**PSA test and prostate cancer.** These medicines can lower PSA, a blood test used to screen for prostate cancer. Tell any clinician who orders or reads a PSA test that you take or took one. Studies of men taking this kind of medicine for an enlarged prostate also found more cases of a serious kind of prostate cancer (high-grade). Keep up with the prostate screening your clinicians recommend.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Breast, testicle and fertility.** Tell your clinician about breast tenderness, enlargement, a lump or nipple discharge (male breast cancer has been reported rarely), or testicle pain. Male infertility and lower sperm quality have been reported. Tell your clinician if you are trying to father a child.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Dutasteride, combinations and topical finasteride"
+  },
+  {
+   "t": "li",
+   "text": "Dutasteride stays in the body much longer than finasteride, so its side effects, its effect on PSA and the blood-donation period can last for months after your last dose. [MEDICAL DIRECTOR TO CONFIRM: dutasteride duration]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not take finasteride and dutasteride together, or finasteride in more than one form (for example a tablet and a foam), unless your clinician tells you to in writing.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "No topical finasteride product is FDA-approved. A foam with finasteride has the same active ingredient as the tablets, so assume every warning in this section may apply to you. [VERIFY: 2025 FDA topical finasteride communication]",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "7. Oral minoxidil"
+  },
+  {
+   "t": "callout",
+   "text": "**Off-label use.** Oral minoxidil is FDA-approved only for severe high blood pressure, not for hair loss. FDA has not reviewed its safety or effectiveness for hair loss. Doses for hair loss are usually lower than doses for blood pressure, but the risks at lower doses are not fully known.",
+   "kind": "info"
+  },
+  {
+   "t": "p",
+   "text": "Minoxidil tablets carry a **boxed warning** (FDA’s strongest warning). It says minoxidil is a strong blood-pressure-lowering medicine that can cause serious problems, including pericardial effusion (fluid in the sac around the heart), which can become life-threatening, and worsening chest pain (angina). The boxed warning was written for the higher doses used for blood pressure.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "If you agree to oral minoxidil for hair loss, you understand that:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "It can raise your heart rate, cause fluid retention (swelling of the face, hands, ankles, feet or belly, or fast weight gain) and lower your blood pressure. It often causes hypertrichosis, which is unwanted hair growth or darkening on the face, arms or body and usually fades after you stop.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Before prescribing and while you take it, your clinician may ask for blood-pressure and heart-rate readings, a heart assessment, tests or an in-person exam, and may decline to prescribe it or stop it. They may also ask you to track your weight or pulse. [MEDICAL DIRECTOR TO CONFIRM: oral minoxidil baseline checks] [MEDICAL DIRECTOR TO CONFIRM: self-monitoring]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not take it if you have pheochromocytoma (a rare adrenal tumor) or are allergic to minoxidil, or if you are pregnant, may become pregnant or are breastfeeding, unless your clinician has specifically decided otherwise.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Other blood-pressure medicines (including guanethidine), nitrates, erectile dysfunction medicines such as sildenafil or tadalafil, and alcohol can add to the drop in blood pressure. Tell your clinician about every medicine you take.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "8. Topical minoxidil (solution and foams)"
+  },
+  {
+   "t": "li",
+   "text": "Use it on the scalp only. Do not swallow it. Keep it out of your eyes. If it gets in, rinse with cool water.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Some solutions and foams contain alcohol or a propellant and can catch fire. Keep away from flame and heat, and do not smoke until the product is completely dry. [MEDICAL DIRECTOR TO CONFIRM: foam flammability]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Wash your hands after applying. Let it dry before your scalp touches a pillow, hat or another person. Do not let pets lick your scalp, your hands or anything the product touched. Clean up spills at once.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not use it on a scalp that is red, sunburned, infected, irritated or painful, or put other products on your scalp, unless your clinician says it is fine.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Stop using it and contact your clinician** if you have chest pain, a fast heartbeat, faintness or dizziness, sudden unexplained weight gain, swollen hands or feet, or scalp irritation that does not go away.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "9. Tretinoin and the combination foam"
+  },
+  {
+   "t": "p",
+   "text": "The finasteride, minoxidil and tretinoin foam contains tretinoin, a retinoid (a medicine related to vitamin A). It is compounded and not FDA-approved. Sections 6 and 8 also apply to it.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "**Skin irritation.** Redness, peeling, dryness, burning, stinging and itching can happen, especially at the start. Tell your clinician if it is severe or lasts. Do not apply it to broken, cut, sunburned or eczema-affected skin.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Sun.** Tretinoin can make skin more sensitive to sun and UV light. Avoid sunlamps and tanning beds, and protect your scalp with a hat or the sun protection your clinician advises. Some medicines, such as some antibiotics and water pills, add to sun sensitivity. Tell your clinician about them.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Pregnancy and trying to conceive.** Do not use this foam if you are pregnant, may become pregnant or are trying to conceive. Tell your clinician right away if you become pregnant. [MEDICAL DIRECTOR TO CONFIRM: tretinoin pregnancy wording]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Contact with others.** Keep the foam away from your eyes, mouth and nose, and wash your hands well after each use. Do not let others touch your treated scalp, pillowcases or hats until the foam is dry, especially a woman who is pregnant or may become pregnant, or a child.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Other skin products.** Tretinoin can make skin absorb other medicines more easily. [MEDICAL DIRECTOR TO CONFIRM: tretinoin and minoxidil absorption] Do not use other retinoid, acne or exfoliating products on your scalp unless your clinician says it is fine.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "10. Serious symptoms: stop and get help"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Possible problem",
+     "Symptoms",
+     "What to do"
+    ],
+    [
+     "Heart, fluid or blood-pressure problem (minoxidil)",
+     "Chest pain; shortness of breath, especially when lying down; fainting; very fast or irregular heartbeat; fast weight gain; swelling of the face, hands, ankles, feet or belly; dizziness when you stand up",
+     "Call 911 for chest pain, trouble breathing, fainting or a very fast or irregular heartbeat. For the other symptoms, contact your clinician promptly."
+    ],
+    [
+     "Mood change",
+     "Low mood, loss of interest, anxiety, thoughts of harming yourself",
+     "Contact your clinician right away. If you have thoughts of harming yourself, call or text 988 or call 911."
+    ],
+    [
+     "Serious allergic reaction",
+     "Swelling of the face, lips, tongue or throat; trouble breathing or swallowing; hives",
+     "Call 911."
+    ],
+    [
+     "Breast, testicle or sexual side effects",
+     "Breast lump, pain or nipple discharge; testicle pain; erection, sex-drive or ejaculation problems that last or worry you",
+     "Contact your clinician promptly, even after you stop the medicine."
+    ],
+    [
+     "Severe skin reaction",
+     "Severe burning, blistering, swelling or peeling of the scalp or other skin",
+     "Stop using the product. Contact your clinician promptly."
+    ],
+    [
+     "Exposure of someone else",
+     "A woman who is pregnant or may become pregnant, or a child, touched a crushed tablet, a leaking capsule or a topical product",
+     "Wash the skin with soap and water at once. Call her clinician or Poison Control (1-800-222-1222)."
+    ]
+   ],
+   "widths": [
+    1.4,
+    2.8,
+    2.5
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h2",
+   "text": "11. Other possible side effects"
+  },
+  {
+   "t": "p",
+   "text": "Topical minoxidil can cause scalp itching, dryness, flaking or redness (sometimes from alcohol or propylene glycol in the product), unwanted hair growth, more shedding at first, headache and dizziness. Oral minoxidil can also cause headache and more shedding when you start. For a compounded product, side effects and how often they happen may be different or unknown. This is not a complete list. Contact your clinician about any side effect that is severe, lasts or worries you.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "12. Dosing and use safety"
+  },
+  {
+   "t": "li",
+   "text": "Use only the medicine, strength, form and directions on your current prescription label. This page gives no doses.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Never use more than prescribed or more often than prescribed. Do not double up after a missed dose.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not use more than one product with the same ingredient (for example a finasteride tablet and a finasteride foam, or oral minoxidil with a topical or over-the-counter minoxidil) unless your clinician tells you to in writing.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Never share your medicine or use anyone else’s. Do not buy hair-loss medicine from other sources while you are in treatment.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Results vary and no medicine is guaranteed to stop hair loss or regrow hair. Hair shedding can increase at first. Ask your clinician what to expect if you stop.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "13. Storage and product quality"
+  },
+  {
+   "t": "li",
+   "text": "Follow the storage directions on your label or in your pharmacy paperwork. Keep products away from heat and flame and out of reach of children and pets.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not use a product if the package is damaged, leaking or opened, the label is missing or unclear, it looks or smells different from your last fill, or it is past the date on the label. Call the pharmacy first.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "If your package arrives late or was left in heat, contact the pharmacy before you use it. See also the Shipping and Delivery Policy.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "14. Questions and reporting problems"
+  },
+  {
+   "t": "li",
+   "text": "**Non-emergency medical questions:** message your clinician in the patient portal at [PORTAL URL].",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Orders, shipping or billing help:** [SUPPORT EMAIL] [SUPPORT PHONE AND HOURS, ONLY IF LIVE]. WellPeps support cannot answer medical questions.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Ingredients, strength, preparation, storage or the date on the label:** the pharmacy named on your label.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**To report a side effect or product problem to FDA:** MedWatch at www.fda.gov/medwatch or 1-800-FDA-1088. Please also tell your clinician.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "15. This is not everything"
+  },
+  {
+   "t": "p",
+   "text": "This page is a summary. It does not list every warning, side effect or interaction. If your prescription label, your pharmacy’s paperwork, a Drug Facts label or your clinician’s instructions disagree with this page, follow them and ask your clinician or pharmacy. Read the paperwork that comes with each fill.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "PART 2. HAIR LOSS SAFETY ACKNOWLEDGMENT (required form)"
+  },
+  {
+   "t": "callout",
+   "text": "**Build note:** configure as a required form in GEN Health, shown before provider review and checkout, after the Electronic Records, Signatures and Communications Consent. Show items 1 to 5, 7 and 11 always. Show items 6 and 8 only when a product with finasteride or dutasteride is in the cart, item 9 only for oral minoxidil, and item 10 only for a foam. Every box shown must be checked to continue. Capture and store the typed name, timestamp, document version and IP address against the order. Counsel to confirm logging and retention.",
+   "kind": "note"
+  },
+  {
+   "t": "p",
+   "text": "Please read the Hair Loss Medication Safety Information (version [VERSION], dated [EFFECTIVE DATE]) before checking each box. You can read it again at any time in the patient portal at [PORTAL URL]. Signing this acknowledgment does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "check",
+   "text": "1.  I have read the Hair Loss Medication Safety Information. I know I can ask my clinician or the pharmacy questions."
+  },
+  {
+   "t": "check",
+   "text": "2.  I understand that WellPeps is not a medical practice or a pharmacy, that an independent licensed clinician decides whether I receive a prescription, and that a prescription is not guaranteed."
+  },
+  {
+   "t": "check",
+   "text": "3.  I understand that some of my medicines may be compounded, that compounded medicines are not FDA-approved, and that FDA does not review them for safety, effectiveness or quality. I know I may ask my clinician about FDA-approved options at any time."
+  },
+  {
+   "t": "check",
+   "text": "4.  I understand that using a medicine for hair loss can be off-label, which means FDA has not reviewed its safety or effectiveness for that use, and that I may say no to off-label treatment."
+  },
+  {
+   "t": "check",
+   "text": "5.  I have answered all health questions truthfully and completely, including about my heart and blood pressure, mood and mental health, liver and kidneys, prostate, pregnancy status and plans, and every medicine and product I use. I will tell my clinician right away if anything changes."
+  },
+  {
+   "t": "check",
+   "text": "6.  I understand that finasteride, dutasteride and any foam containing finasteride must not be taken or handled by a woman who is pregnant or may become pregnant, and that I must keep these products away from anyone who is or may become pregnant, from children and from pets. If I can become pregnant, I will tell my clinician right away if I am or become pregnant."
+  },
+  {
+   "t": "check",
+   "text": "7.  I know that chest pain, trouble breathing, fainting, a very fast or irregular heartbeat, swelling of the face or throat, or thoughts of harming myself are emergencies. I will call 911 (or 988 for thoughts of harming myself)."
+  },
+  {
+   "t": "check",
+   "text": "8.  For finasteride or dutasteride, including foams: I understand the warnings about sexual side effects (which some people report continued after stopping), mood changes and suicidal thoughts, PSA tests and prostate cancer, breast changes, male infertility and blood donation. I will tell my clinician about any of these, and I will tell any clinician who orders a PSA test that I take or took this medicine."
+  },
+  {
+   "t": "check",
+   "text": "9.  For oral minoxidil: I understand that using it for hair loss is off-label and that the boxed warning describes pericardial effusion and worsening chest pain. I understand it can cause fast heartbeat, fluid retention, low blood pressure and unwanted hair growth. I understand that my clinician may require blood-pressure and heart checks and may decline or stop treatment."
+  },
+  {
+   "t": "check",
+   "text": "10.  For foams, including the tretinoin foam: I understand the warnings about skin irritation, sun sensitivity, pregnancy, broken skin, washing my hands and keeping the product off other people, children and pets."
+  },
+  {
+   "t": "check",
+   "text": "11.  I understand that I must use only the medicine, strength and directions on my current label, never use more than prescribed, never combine products with the same ingredient unless my clinician tells me to in writing, never share my medicine, and never buy hair-loss medicine from another source. I know how to report a side effect or product problem to my clinician, the pharmacy and FDA MedWatch (www.fda.gov/medwatch or 1-800-FDA-1088)."
+  },
+  {
+   "t": "h2",
+   "text": "Electronic signature"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Typed full legal name",
+     "(typed by the patient)"
+    ],
+    [
+     "Date and time",
+     "(captured by the system)"
+    ],
+    [
+     "Document version",
+     "(captured by the system)"
+    ],
+    [
+     "IP address",
+     "(captured by the system)"
+    ]
+   ],
+   "widths": [
+    1,
+    2
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "By typing my name, I agree that my electronic signature is the legal equivalent of my handwritten signature, and that I have already agreed to receive and sign documents electronically. This acknowledgment does not replace the Informed Consent to Telehealth Services and Treatment and does not by itself create a clinician-patient relationship.",
+   "italic": false,
+   "align": null
+  }
+ ],
+ "id": "A16",
+ "docTitle": "Hair Loss Medication Safety Information and Acknowledgment",
+ "source": "hair_loss_safety.py",
+ "reviewerNotesOmittedBlocks": 24
+}

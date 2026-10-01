@@ -1,0 +1,569 @@
+{
+ "title": "Accessibility Statement",
+ "version": "0.1",
+ "date": "October 1, 2026",
+ "blocks": [
+  {
+   "t": "h1",
+   "text": "Part 1. Accessibility Statement (public page)"
+  },
+  {
+   "t": "p",
+   "text": "**Statement date:** [EFFECTIVE DATE]    |    **Last reviewed:** [EFFECTIVE DATE]    |    **Version:** [VERSION]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "1. Our commitment"
+  },
+  {
+   "t": "p",
+   "text": "WellPeps wants everyone to be able to use our website and our patient portal, including people with disabilities. Information about your health should not depend on how you see, hear, move, think or use technology. We are working to make our website easier to use for everyone.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "2. The standard we aim for"
+  },
+  {
+   "t": "p",
+   "text": "We aim to meet the Web Content Accessibility Guidelines (WCAG) [2.1] Level AA. WCAG is the widely used standard for accessible websites. It is published by the World Wide Web Consortium (W3C).",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "3. Where we are today"
+  },
+  {
+   "t": "p",
+   "text": "We have not yet had an independent accessibility expert test our website, so we cannot say how well it meets WCAG [2.1] Level AA. We plan to have it tested by [AUDIT TARGET DATE]. When we do, we will update this statement with the results, including any problems we find and when we plan to fix them.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**What we have built in.** Our website includes:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "A “Skip to content” link at the top of each page.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Pages that are marked as English and have a main content area, so that screen readers can identify them.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Text names on icon-only buttons, such as the buttons that open and close the chat window.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Support for the “reduce motion” setting on your device.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Pop-up windows and the chat window that you can close with the Escape key.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Form messages (such as errors and “thank you” notes) that are marked so screen readers can announce them.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "4. Known limitations"
+  },
+  {
+   "t": "p",
+   "text": "Because we have not had an audit yet, this list is not complete. We know of these areas that may be hard to use:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "**PDF guides.** Our free Smart Patient Guides are PDF files. We have not tested them with screen readers, and some parts may not be accessible. If you need another format, such as plain text or large print, email [SUPPORT EMAIL]. We will reply within [2 business days] and send the guide in a format you can use within [5 business days].",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**The WellPeps assistant.** The chat window is a new feature. We have not yet tested it with screen readers or voice control.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Our patient portal and checkout.** See section 5.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Other pages.** We have not tested every page. Some images, forms, colors or layouts may be hard to use for some people.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "5. Content from other companies"
+  },
+  {
+   "t": "li",
+   "text": "**Patient portal, intake forms and checkout.** These run on a technology platform provided by an independent company and appear under our name at portal.wellpeps.com. We write our own forms and use our own branding, but we do not control how the platform is built. We will ask the provider about its accessibility and include the portal and checkout in our audit.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Pharmacies, laboratories and payment services.** They run their own websites and portals and have their own accessibility practices.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Fonts.** Our pages load text fonts from Google Fonts, a service run by Google. If the fonts do not load, your browser uses a standard font and the page still works.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "6. How to get help or give feedback"
+  },
+  {
+   "t": "p",
+   "text": "If you cannot use part of our website or portal, or you want information in another format, tell us:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "**Email:** [SUPPORT EMAIL]. Support hours are Monday to Friday, 9 a.m. to 6 p.m. Eastern time.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Mail:** WellPeps, a Wyoming corporation, [BUSINESS ADDRESS]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Phone:** [SUPPORT PHONE AND HOURS, ONLY IF LIVE]",
+   "level": 0
+  },
+  {
+   "t": "p",
+   "text": "Please tell us the page or address, what went wrong, the device, browser or assistive technology you use, and how you would like to get the information. We will reply within [2 business days] and work with you to find another way to get the information or service. We cannot promise a specific alternative until we understand what you need.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Please do not put health details in an email. Email is not a secure way to send them. For medical questions, use the patient portal at [PORTAL URL]. In an emergency, call 911.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "7. If you are not satisfied"
+  },
+  {
+   "t": "p",
+   "text": "Ask for a second review by [COMPLIANCE OFFICER]. We will answer within [10 business days].",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "8. About this statement"
+  },
+  {
+   "t": "p",
+   "text": "We review this statement at least once a year, after any major change to our website, and after each accessibility audit.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "Part 2. Internal appendix for whoever commissions the audit (remove before publishing)"
+  },
+  {
+   "t": "h2",
+   "text": "A. Before you publish"
+  },
+  {
+   "t": "ol",
+   "items": [
+    "Commission the audit below and book a date. Publish the “plan to have it tested by” sentence only with a real date.",
+    "Verify each “built in” item in section 3 on the live site. Delete any that fails.",
+    "Make [SUPPORT EMAIL] a monitored mailbox, assign an owner, and train support on the feedback log (section F).",
+    "Decide what alternative formats WellPeps can really deliver and by when.",
+    "Remove this Part 2 from the page you publish."
+   ]
+  },
+  {
+   "t": "callout",
+   "text": "**After the audit, replace section 3 with:** An independent audit by [AUDITOR] on [AUDIT DATE] tested [AUDIT SCOPE] against WCAG [2.1] Level AA. It found [N] issues. We have fixed some and are working on the rest, which are listed below with the dates we plan to fix them. Based on the audit, our website is partially conformant with WCAG [2.1] Level AA, which means some parts do not yet fully meet the standard. Keep the known-limitations list in section 4 up to date. Do not say “fully conformant” unless the audit says so.",
+   "kind": "info"
+  },
+  {
+   "t": "h2",
+   "text": "B. Audit scope"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Surface",
+     "What to include",
+     "Notes"
+    ],
+    [
+     "Public website, wellpeps.com",
+     "Every template and component. Pages: home; the four program pages (Weight Loss, Hair Restoration, Sexual Wellness, Healthy Aging); the waitlist page for hormone optimization; Why WellPeps; Your Plan (manage or cancel); Learning Center index, the article template and a sample of articles; legal and policy pages (Privacy Policy, Terms of Use, Notice of Privacy Practices, Consumer Health Data Privacy Policy, Your Privacy Choices, Text Messaging Terms, AI Use Disclosure, States We Serve, this statement); the cookie banner and notice once built; the 404 page. Components: navigation and mobile menu, footer, product cards and grids, FAQ accordions, the guide carousel, the assistant chat window.",
+     "Sample by template, not page by page, but cover every template."
+    ],
+    [
+     "Patient portal, portal.wellpeps.com (GEN Health)",
+     "Sign in and password reset; dashboard; intake and consent forms; e-signature; checkout, payment and saved cards; orders; messaging with attachments; joining a video visit (camera and microphone prompts, captions where offered); notification settings; profile; cancellation.",
+     "Needs test accounts from the patient portal vendor and the Practice. Ask for the portal's own conformance report."
+    ],
+    [
+     "Forms (every input)",
+     "Footer newsletter, waitlist and “notify me” forms, the guide request dialog, GEN intake and consent forms (WellPeps owns them), the text-message and email consent boxes.",
+     "Labels, instructions, error messages, autocomplete, keyboard use, time limits."
+    ],
+    [
+     "Documents",
+     "The five Smart Patient Guides as PDF (GLP-1, Sexual Wellness, Hair Restoration, Healthy Aging, NAD+); policy and consent documents offered as downloads; shipment inserts.",
+     "PDF tagging, reading order, alt text, language, bookmarks, real text. Provide an HTML or plain-text version."
+    ],
+    [
+     "Email and text",
+     "Monthly newsletter template, confirmation email, transactional emails sent by the platform, and the text-message wording.",
+     "Structure, contrast, alt text, link text, plain-text part."
+    ],
+    [
+     "Media and motion",
+     "Any video or audio (captions, transcripts, audio description), animations, scroll effects, images of text.",
+     "Reduced-motion behavior."
+    ],
+    [
+     "Devices",
+     "Responsive layouts at 320 CSS pixels wide, zoom to 200% and 400%, portrait and landscape, touch targets, iOS and Android browsers.",
+     ""
+    ],
+    [
+     "Third-party parts",
+     "Payment form, embedded scripts and fonts, and any widget added later.",
+     "Record what WellPeps controls and what it does not."
+    ]
+   ],
+   "widths": [
+    2.2,
+    6,
+    3
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h2",
+   "text": "C. Audit method and deliverables"
+  },
+  {
+   "t": "li",
+   "text": "**Target:** WCAG [2.1] Level AA, and report separately any WCAG 2.2 Level AA gaps.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Methods:** automated scans (for example axe, Lighthouse, WAVE); manual keyboard testing; screen readers (for example NVDA with Firefox or Chrome, JAWS with Chrome, VoiceOver with Safari on Mac and iPhone, TalkBack with Chrome on Android); zoom and magnifier; voice control; forced-colors and reduced-motion settings; testing by people with disabilities if the budget allows.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Sampling:** follow the WCAG evaluation method (WCAG-EM): define scope, explore, choose a representative sample, audit, report.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Deliverables:** a report with each issue's WCAG criterion, severity, steps to reproduce and a recommended fix; an accessibility conformance report (VPAT) for the website and, if possible, the portal; a retest after fixes.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Cadence:** retest after fixes, re-audit once a year and after any major redesign.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "D. Remediation checklist (for the development and content teams)"
+  },
+  {
+   "t": "p",
+   "text": "Criteria in brackets are WCAG success criteria; those marked “2.2” are new in WCAG 2.2 Level AA.",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "Perceivable"
+  },
+  {
+   "t": "check",
+   "text": "Every informative image has useful alt text; decorative images have empty alt text (1.1.1)."
+  },
+  {
+   "t": "check",
+   "text": "Video has captions and a transcript; audio has a transcript (1.2.1, 1.2.2)."
+  },
+  {
+   "t": "check",
+   "text": "Headings, lists, tables and landmarks use real HTML, and the reading order matches the visual order (1.3.1, 1.3.2)."
+  },
+  {
+   "t": "check",
+   "text": "Pages work in portrait and landscape (1.3.4). Form fields use the right autocomplete values (1.3.5)."
+  },
+  {
+   "t": "check",
+   "text": "Color is never the only way to show meaning (1.4.1)."
+  },
+  {
+   "t": "check",
+   "text": "Text contrast is at least 4.5 to 1, or 3 to 1 for large text (1.4.3). Controls and icons are at least 3 to 1 (1.4.11). Include text over gradients and photos, fine print, and placeholder and disabled text."
+  },
+  {
+   "t": "check",
+   "text": "Text resizes to 200%, and the page reflows at 320 CSS pixels wide without two-way scrolling (1.4.4, 1.4.10). Changing text spacing does not break the layout (1.4.12)."
+  },
+  {
+   "t": "check",
+   "text": "No important text is an image (1.4.5). Content that appears on hover or focus can be dismissed and stays visible (1.4.13)."
+  },
+  {
+   "t": "h3",
+   "text": "Operable"
+  },
+  {
+   "t": "check",
+   "text": "Everything works with a keyboard alone, with no keyboard trap (2.1.1, 2.1.2). Single-key shortcuts can be turned off (2.1.4)."
+  },
+  {
+   "t": "check",
+   "text": "A skip link works on every page (2.4.1). Each page has a clear title (2.4.2). Focus order makes sense (2.4.3). Link text makes sense out of context (2.4.4). Headings and labels describe their topic (2.4.6)."
+  },
+  {
+   "t": "check",
+   "text": "Keyboard focus is always visible (2.4.7) and never hidden behind a sticky bar, banner or the chat button (2.4.11, 2.2)."
+  },
+  {
+   "t": "check",
+   "text": "Moving, scrolling or auto-updating content that lasts more than 5 seconds can be paused (2.2.2). Animations respect reduced motion. Nothing flashes more than three times a second (2.3.1)."
+  },
+  {
+   "t": "check",
+   "text": "Time limits, such as portal sessions or checkout, warn the person and can be extended (2.2.1)."
+  },
+  {
+   "t": "check",
+   "text": "Touch targets are at least 24 by 24 CSS pixels (2.5.8, 2.2). Anything done by dragging has another way to do it (2.5.7, 2.2). Visible labels match the accessible names (2.5.3)."
+  },
+  {
+   "t": "h3",
+   "text": "Understandable"
+  },
+  {
+   "t": "check",
+   "text": "The page language, and any passage in another language, is marked (3.1.1, 3.1.2)."
+  },
+  {
+   "t": "check",
+   "text": "Navigation and repeated parts are consistent (3.2.3, 3.2.4). Help is in the same place on every page (3.2.6, 2.2)."
+  },
+  {
+   "t": "check",
+   "text": "Forms have visible labels and clear instructions (3.3.2). Errors are described in text and say how to fix them (3.3.1, 3.3.3). Payment, consent and e-signature steps can be reviewed or reversed (3.3.4)."
+  },
+  {
+   "t": "check",
+   "text": "People are not asked to retype information already given in the same flow (3.3.7, 2.2). Sign-in works with password managers and paste and does not require solving a puzzle (3.3.8, 2.2). Avoid CAPTCHA; the hidden “honeypot” field is fine."
+  },
+  {
+   "t": "h3",
+   "text": "Robust"
+  },
+  {
+   "t": "check",
+   "text": "Every control has a name, role and state that assistive technology can read: menus, accordions, dialogs, switches and the chat window (4.1.2)."
+  },
+  {
+   "t": "check",
+   "text": "Status messages, such as form success or error, chat replies and loading, are announced without moving focus (4.1.3)."
+  },
+  {
+   "t": "h3",
+   "text": "Documents, email and text"
+  },
+  {
+   "t": "check",
+   "text": "PDFs are tagged, with a title, language, reading order, bookmarks, alt text for images, real text (not pictures of text) and accessible tables. Each guide also has an HTML or plain-text version."
+  },
+  {
+   "t": "check",
+   "text": "Emails use real text and headings, alt text on images, strong contrast, a plain-text part and descriptive link text."
+  },
+  {
+   "t": "check",
+   "text": "Texts avoid emoji or symbols that carry meaning and avoid abbreviations that screen readers read badly."
+  },
+  {
+   "t": "h3",
+   "text": "Process"
+  },
+  {
+   "t": "check",
+   "text": "Add automated accessibility checks (for example axe) to the build and test pipeline and block releases with new serious issues."
+  },
+  {
+   "t": "check",
+   "text": "Write a “definition of done” for accessibility for every new page and component, and keep a list of known issues with owners and dates."
+  },
+  {
+   "t": "check",
+   "text": "Ask every vendor for its accessibility conformance report before signing, and add an accessibility clause to new vendor terms."
+  },
+  {
+   "t": "check",
+   "text": "Do not buy or install an “accessibility overlay” as a substitute for fixing the site."
+  },
+  {
+   "t": "check",
+   "text": "Train design, engineering, content and support staff, and name an owner ([COMPLIANCE OFFICER] or a delegate)."
+  },
+  {
+   "t": "check",
+   "text": "Retest after fixes, re-audit every year and after major redesigns, and update the statement each time."
+  },
+  {
+   "t": "h2",
+   "text": "E. Candidate issues noticed while drafting (unverified, from reading the source; confirm in the audit)"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "#",
+     "What was seen",
+     "Why it may matter"
+    ],
+    [
+     "1",
+     "Waitlist form fields (First Name, Email Address) rely on placeholder text, with no label element or accessible name (WaitlistSection.astro).",
+     "Labels and instructions (1.3.1, 3.3.2, 4.1.2). Add real labels."
+    ],
+    [
+     "2",
+     "Footer links that go to “#”: Our Mission, Careers, Contact Us, Help Center, Virtual Assistant (Footer.astro).",
+     "Dead links (2.4.4). The contact link is also needed by other legal pages."
+    ],
+    [
+     "3",
+     "Small fine print on dark backgrounds, for example “Free. No obligation.” and the eyebrow text in the guide band, uses partly transparent white.",
+     "Measure contrast (1.4.3)."
+    ],
+    [
+     "4",
+     "The guide carousel is a horizontally scrolling row with scroll snapping.",
+     "Check keyboard access to every item (2.1.1) and reflow at small sizes (1.4.10)."
+    ],
+    [
+     "5",
+     "The floating chat button is fixed at the bottom of the screen and spans the full width on phones.",
+     "May cover content when zoomed or when focus moves under it (1.4.10, 2.4.11)."
+    ],
+    [
+     "6",
+     "The chat log is a polite live region and new answers appear after a short delay.",
+     "Confirm screen readers announce answers, focus is managed, and links in answers can be reached (4.1.3)."
+    ],
+    [
+     "7",
+     "The guide request pop-up uses the browser's built-in dialog.",
+     "Confirm focus moves in, returns to the button on close, and error text is announced (2.4.3, 3.3.1)."
+    ],
+    [
+     "8",
+     "Scroll-reveal animations add content as it enters the screen.",
+     "Confirm reduced motion is honored and no content stays hidden if scripts fail (2.2.2)."
+    ],
+    [
+     "9",
+     "The eBook PDFs are built from slide and HTML sources.",
+     "Confirm real text, tags, reading order, alt text and embedded fonts (PDF checks above)."
+    ]
+   ],
+   "widths": [
+    0.4,
+    6,
+    4.4
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h2",
+   "text": "F. Accessibility feedback log (template)"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Date received",
+     "Channel",
+     "What the person needs (no health details)",
+     "Page or feature",
+     "Owner",
+     "Acknowledged (date)",
+     "Fixed or alternative given (date)"
+    ],
+    [
+     "",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ]
+   ],
+   "widths": [
+    1.2,
+    1.2,
+    3,
+    1.6,
+    1.2,
+    1.4,
+    1.8
+   ],
+   "header": true,
+   "shade": false
+  }
+ ],
+ "id": "A7",
+ "docTitle": "Accessibility Statement",
+ "source": "accessibility_statement.py",
+ "reviewerNotesOmittedBlocks": 3
+}

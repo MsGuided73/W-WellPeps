@@ -1,0 +1,543 @@
+{
+ "title": "Financial Relationship Disclosure and Acknowledgment",
+ "version": "0.1",
+ "date": "October 1, 2026",
+ "blocks": [
+  {
+   "t": "h1",
+   "text": "Part A. How WellPeps Works (public page)"
+  },
+  {
+   "t": "callout",
+   "text": "**Build note:** publish as a public page (suggested /how-wellpeps-works), linked from the footer and from every program page. The page title and heading are \"How WellPeps Works\". Page copy starts below.",
+   "kind": "info"
+  },
+  {
+   "t": "h1",
+   "text": "How WellPeps Works"
+  },
+  {
+   "t": "p",
+   "text": "Different companies do different jobs to get you care. This page explains who does what, who is responsible for what, and how the business relationships work, so you know who to ask and where your money goes.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Last updated: [LAST UPDATED]  |  Version [VERSION]",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "The short version"
+  },
+  {
+   "t": "li",
+   "text": "WellPeps is not a medical practice or a pharmacy. We provide this website, your online health assessment and intake, education, care navigation and customer support.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Independent licensed clinicians decide whether a prescription is right for you. Prescription required. A prescription is not guaranteed.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "If you are prescribed a medicine, a state-licensed pharmacy prepares and ships it. Some medicines are compounded. Compounded medicines are not FDA-approved.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Technology and management partners run the portal and support our operations. They do not practice medicine.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "You pay one monthly price. Lab tests, if your clinician recommends them, are billed separately. We do not bill insurance.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "We tell you about every financial relationship behind your care, including who owns WellPeps. See the Financial Relationship Disclosure below.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "The five parties"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Who",
+     "What they do",
+     "What they do not do"
+    ],
+    [
+     "WellPeps, a Wyoming corporation",
+     "Our brand and website. Your online health assessment and intake, education, care navigation and customer support. We contract directly with our pharmacy partners and make sure you see the consents and notices you need.",
+     "We do not practice medicine, prescribe, compound or dispense medication, or direct a clinician's medical decision."
+    ],
+    [
+     "The Practice: [PRACTICE NAME]",
+     "An independent, licensed medical practice. Its clinicians review your health information, decide whether treatment is medically appropriate, prescribe when it is, follow your care and answer your clinical questions in the portal. The Practice keeps your medical record. Its clinicians are licensed to practice in the state where you are located when you receive care (see [STATES SERVED]).",
+     "The Practice does not sell medication or run WellPeps. WellPeps cannot direct its medical decisions."
+    ],
+    [
+     "Pharmacies: [PHARMACY LIST]",
+     "Independent state-licensed pharmacies that WellPeps contracts with directly. A pharmacy fills a prescription written for you, labels the medicine, gives you the pharmacy's instructions and ships it. Compounding pharmacies prepare medicines for one patient at a time.",
+     "A pharmacy does not decide whether you need medication or set your treatment plan."
+    ],
+    [
+     "Technology and management partners: [SCRIPTFUL, INC. / GEN HEALTH] and [PEPRITE, INC.]",
+     "Our technology platform company runs your patient portal at [PORTAL URL]: intake forms, consents, secure messaging, and the system that sends prescriptions to pharmacies. Our management-services partner provides management services and access to technology, and helps with billing and settlement.",
+     "Neither practices medicine, employs your clinician, owns or runs a pharmacy or a medical practice, or ships medication."
+    ],
+    [
+     "Labs: [LAB PARTNER]",
+     "Independent clinical laboratories collect and test your samples when your clinician orders labs. Lab fees are billed separately from your monthly price.",
+     "A lab does not decide your treatment. A clinician of the Practice reviews your results."
+    ]
+   ],
+   "widths": [
+    1.4,
+    3.4,
+    2.4
+   ],
+   "header": true,
+   "shade": true
+  },
+  {
+   "t": "h2",
+   "text": "Who is responsible for what"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "If you have a question about",
+     "Go to"
+    ],
+    [
+     "Whether a medicine is right for you, side effects, doses, symptoms or lab results",
+     "Your clinician, by message in the portal"
+    ],
+    [
+     "Your order, shipping, billing, cancellation, your account or this website",
+     "WellPeps support: [SUPPORT EMAIL], Monday to Friday 9 to 6 ET [SUPPORT PHONE AND HOURS, ONLY IF LIVE]"
+    ],
+    [
+     "What is in your medicine, how to store it, or questions about the label",
+     "The pharmacy named on your label"
+    ],
+    [
+     "A problem signing in or with a form in the portal",
+     "[SUPPORT EMAIL]"
+    ],
+    [
+     "Privacy questions",
+     "[PRIVACY EMAIL]"
+    ],
+    [
+     "A concern about the care you received",
+     "The Practice, through the portal. You can also contact your state medical board."
+    ],
+    [
+     "An emergency",
+     "Call 911"
+    ]
+   ],
+   "widths": [
+    3,
+    3
+   ],
+   "header": true,
+   "shade": true
+  },
+  {
+   "t": "h2",
+   "text": "How an order works"
+  },
+  {
+   "t": "ol",
+   "items": [
+    "You start a health assessment in our secure portal at [PORTAL URL]. You create an account, read and agree to the consents and notices, answer health questions and check out.",
+    "A clinician of the Practice reviews your information, usually without a live visit. The clinician may ask you questions, ask for labs or ask for a video visit.",
+    "If the clinician decides treatment is medically appropriate, the clinician writes a prescription. A prescription is not guaranteed. If the clinician does not prescribe, [R1 DEFAULT: you receive a full refund of everything you were charged].",
+    "The prescription goes to a state-licensed pharmacy. The pharmacy prepares your medicine, labels it and ships it to you. Standard shipping is included.",
+    "You can message your clinician in the portal with questions about your treatment. Questions about orders and billing go to WellPeps support.",
+    "Your plan renews monthly until you cancel. You can cancel at any time. See the Refund, Cancellation and Auto-Renewal Policy."
+   ]
+  },
+  {
+   "t": "h2",
+   "text": "How the money works"
+  },
+  {
+   "t": "p",
+   "text": "You pay one monthly price. It is charged by [MERCHANT OF RECORD] and shown on your statement as [BILLING DESCRIPTOR]. It covers your medication if you are prescribed one, clinician care, messaging with the Practice and standard shipping. Lab tests are billed separately. You pay with your own money: we do not bill insurance, Medicare or Medicaid.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Out of what you pay, WellPeps pays the Practice for clinical care, pays the pharmacy for your medication and shipping, and pays its technology and management partners. The Practice's fee does not depend on whether you are prescribed anything. WellPeps does not pay the Practice, its clinicians or the pharmacies for referrals or for prescriptions, and none of them pays WellPeps for referrals or for prescriptions. [VERIFY: pharmacy and lab payments to WellPeps] Read the full Financial Relationship Disclosure and Acknowledgment for the details.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "Who owns WellPeps"
+  },
+  {
+   "t": "p",
+   "text": "A principal of one of our management-services partners holds a 50% ownership interest in WellPeps. The Financial Relationship Disclosure explains what that partner does and how it is paid. [COUNSEL: approve ownership wording and naming]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "Questions"
+  },
+  {
+   "t": "p",
+   "text": "Email [SUPPORT EMAIL], or message your clinician in the portal. In an emergency, call 911.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Prescription required. A prescription is not guaranteed. Compounded medicines are not FDA-approved, and FDA does not review compounded medicines for safety, effectiveness or quality before they are sold. WellPeps does not provide medical advice. Care is available only in the states listed on our States We Serve page ([STATES SERVED]).",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "Part B. Financial Relationship Disclosure"
+  },
+  {
+   "t": "p",
+   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: [LAST UPDATED]  |  Version [VERSION]",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "This page tells you about the business and money relationships behind your care. You have a right to know them. Before a clinician reviews your information, we ask you to read this disclosure and agree to it (Part C). In this disclosure, “WellPeps,” “we” and “us” mean WellPeps, a Wyoming corporation. “The Practice” means [PRACTICE NAME], the independent medical practice whose clinicians provide your care.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "1. The short version"
+  },
+  {
+   "t": "li",
+   "text": "You pay one monthly price. WellPeps uses it to pay for the services described below, and what remains is WellPeps' revenue.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "The Practice's fee is set in advance. It does not depend on whether a prescription is written.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "WellPeps pays the pharmacy for your medication and shipping. Neither the Practice nor our technology platform company earns a margin on your medication.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "A principal of one of our management-services partners owns 50% of WellPeps.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Your clinician makes medical decisions independently. You may ask about FDA-approved alternatives and about a different pharmacy.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "2. What you pay and where it goes"
+  },
+  {
+   "t": "p",
+   "text": "You pay one monthly price. It is charged by [MERCHANT OF RECORD] and shown on your statement as [BILLING DESCRIPTOR]. The price is shown at checkout before you pay. Lab tests are billed separately. We do not bill insurance, Medicare or Medicaid.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "WellPeps uses the money you pay to cover the costs in the table and its other business costs, such as payment processing, customer support and marketing. What remains is WellPeps' revenue. This page describes the kinds of payments, not the amounts. Your price is always shown before you pay.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Who we pay",
+     "What for",
+     "How the payment is set",
+     "Does it depend on prescribing?"
+    ],
+    [
+     "The Practice",
+     "Clinical care: clinician review and consultations, and keeping the Practice's clinicians available to you. [VERIFY: which entity pays the Practice]",
+     "Fees agreed in advance in a written agreement, at fair market value for the services. [VERIFY: network access fee terms]",
+     "No. The fee is the same whether or not a prescription is written, and it does not depend on which medicine is prescribed or how much."
+    ],
+    [
+     "Pharmacies: [PHARMACY LIST]",
+     "The medication prepared for you, and shipping.",
+     "WellPeps has an agreement directly with each pharmacy and pays it for medication and shipping.",
+     "WellPeps pays only for medication actually prepared and shipped to a patient. Pharmacies do not pay WellPeps for prescriptions. [VERIFY: pharmacy and lab payments to WellPeps]"
+    ],
+    [
+     "Technology platform company: [SCRIPTFUL, INC. / GEN HEALTH]",
+     "Technology, administrative, management and customer-service support: the portal, intake, forms, secure messaging, e-prescribing and sending prescriptions to pharmacies. It is not paid for medical services.",
+     "Flat monthly fees agreed in advance in writing, plus certain third-party costs passed through at cost. [VERIFY: platform fees are flat]",
+     "No. The fees do not depend on how many patients are treated or how many prescriptions are written."
+    ],
+    [
+     "Management-services partner: [PEPRITE, INC.]",
+     "Management services and access to technology, and help with billing and settlement.",
+     "Fees set in writing under a service agreement. [VERIFY: [BILLING AFFILIATE] fee structure]",
+     "[VERIFY: [BILLING AFFILIATE] fee structure]"
+    ],
+    [
+     "Lab partner: [LAB PARTNER]",
+     "Lab tests you choose or your clinician requires.",
+     "You pay the lab price shown at lab checkout, billed separately from your monthly price.",
+     "No. WellPeps does not receive a payment from the lab for sending you there. [VERIFY: pharmacy and lab payments to WellPeps]"
+    ]
+   ],
+   "widths": [
+    1.5,
+    2.4,
+    2.2,
+    2.4
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "callout",
+   "text": "**Drafting alternative for the first row (delete one).** If the billing-agent model in the agreement with the Practice section 6(b) is the true arrangement, replace the first row with: Who we pay: The Practice. What for: Clinical care. How set: Part of the price you pay is the Practice's fee for clinical care. WellPeps collects it for the Practice and passes it on, and WellPeps does not keep any part of it. The fee is agreed in advance in writing. Depends on prescribing: No.",
+   "kind": "note"
+  },
+  {
+   "t": "p",
+   "text": "Other vendors, such as payment processors, email and text providers and marketing companies, are paid for their services. They do not treat patients or choose medicines.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "3. Referrals and prescriptions"
+  },
+  {
+   "t": "li",
+   "text": "The Practice's fee is fixed in advance. It does not depend on whether a clinician writes a prescription, on which medicine is prescribed or on how much.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "WellPeps does not pay the Practice, its clinicians or any pharmacy for referring a patient or for a prescription. The Practice receives no benefit of any kind from WellPeps for referring patients to WellPeps, and it does not suffer any detriment for not doing so.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "None of these companies pays WellPeps for referrals or for prescriptions. [VERIFY: pharmacy and lab payments to WellPeps]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "[VERIFY: marketing affiliates and payments]",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "4. Your clinician decides independently"
+  },
+  {
+   "t": "p",
+   "text": "Clinicians of the Practice make their own medical decisions. WellPeps does not control, direct or pay for any particular medical decision. WellPeps' agreement with the Practice says that WellPeps may not influence a clinician's professional judgment. A clinician can decide not to treat you, can choose a different treatment than the one you asked for, and can stop treatment.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Your clinician can choose only from the medicines and pharmacies that WellPeps has set up in the platform. [VERIFY: how medicines and pharmacies are chosen]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "5. Pharmacies and your choices"
+  },
+  {
+   "t": "p",
+   "text": "WellPeps has agreements directly with the pharmacies it works with: [PHARMACY LIST]. WellPeps pays the pharmacy for your medication and for shipping. Neither the Practice nor our technology platform company receives any margin on medication. WellPeps keeps the difference between your monthly price and its costs. [VERIFY: [BILLING AFFILIATE] fee structure]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "You have these choices:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "You can ask your clinician at any time whether an FDA-approved medicine is an option for you. [VERIFY: FDA-approved medicines supplied] If your clinician prescribes one, you may fill the prescription at any pharmacy you choose.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "You can ask for your prescription to be sent to a different licensed pharmacy. Whether that is possible depends on the law and on the medicine. For example, a compounded prescription is made for one patient by one pharmacy and may not be able to be moved. [VERIFY: pharmacy-choice rules and price effect]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "You can cancel at any time under the Refund, Cancellation and Auto-Renewal Policy.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "You can ask us questions about any of this at [SUPPORT EMAIL].",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "6. Lab tests"
+  },
+  {
+   "t": "p",
+   "text": "A clinician of the Practice orders labs when they are medically appropriate. You may use [LAB PARTNER] or your own lab. The price of a lab test is shown before you pay. It may include a processing fee charged by our technology platform company. [VERIFY: platform fee on lab orders] Lab fees are billed separately and are never part of your monthly price.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "7. Ownership and affiliates"
+  },
+  {
+   "t": "p",
+   "text": "**Ownership of WellPeps.** A principal of [PEPRITE, INC.], one of our management-services partners, holds a 50% ownership interest in WellPeps and has authority to sign agreements for WellPeps. [PEPRITE, INC.] is also paid by WellPeps for the services described above. [COUNSEL: approve ownership wording and naming]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**Other relationships.** [VERIFY: other ownership and management links] Other than what is described in this section, none of the Practice, our technology platform company, our pharmacy partners or our lab partner owns any part of WellPeps, and WellPeps owns no part of them. [VERIFY: founder and officer interests]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "8. Updates"
+  },
+  {
+   "t": "p",
+   "text": "We update this disclosure when these relationships change in an important way. If that happens, we will ask you to review it again. The date and version are at the top of this page.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "9. Questions"
+  },
+  {
+   "t": "p",
+   "text": "Email [SUPPORT EMAIL] [SUPPORT PHONE AND HOURS, ONLY IF LIVE]. Privacy questions: [PRIVACY EMAIL]. Questions about your treatment: message your clinician in the portal at [PORTAL URL].",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "Part C. Patient acknowledgment (required form)"
+  },
+  {
+   "t": "callout",
+   "text": "**Build note:** configure as a required consent form in GEN Health (Forms, Patient Consents tab: a rich text block with Require Signature, then the checkbox questions). Show it before provider review, after the Electronic Records, Signatures and Communications Consent. the agreement with the Practice Exhibit B paragraph 1(d)(vi) requires WellPeps to ensure each participant is told of and agrees to these relationships, so every box must be checked to continue. Store the typed name, timestamp, document version and IP address, and re-present when the version changes.",
+   "kind": "info"
+  },
+  {
+   "t": "p",
+   "text": "Please read How WellPeps Works and the Financial Relationship Disclosure (version [VERSION], dated [EFFECTIVE DATE]) before checking each box. Agreeing does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "check",
+   "text": "I have read How WellPeps Works and the Financial Relationship Disclosure. I know I can read them again at [PORTAL URL] and that I can ask questions at [SUPPORT EMAIL]."
+  },
+  {
+   "t": "check",
+   "text": "I understand that WellPeps is not a medical practice or a pharmacy, that an independent clinician of the Practice decides whether I receive a prescription, and that a prescription is not guaranteed."
+  },
+  {
+   "t": "check",
+   "text": "I understand and agree to the financial relationships described in the disclosure: the payments WellPeps makes to the Practice, to pharmacies and to its technology and management partners, and the 50% ownership interest in WellPeps held by a principal of one of those partners."
+  },
+  {
+   "t": "check",
+   "text": "I understand that the Practice's fee does not depend on whether a prescription is written, and that WellPeps does not pay the Practice, its clinicians or pharmacies for referrals or for prescriptions."
+  },
+  {
+   "t": "check",
+   "text": "I understand that I may ask my clinician about FDA-approved alternatives and about a different pharmacy, and that I may cancel under the Refund, Cancellation and Auto-Renewal Policy."
+  },
+  {
+   "t": "check",
+   "text": "I understand that my plan is cash-pay, that WellPeps and the Practice do not bill insurance, Medicare or Medicaid, and that lab tests, if my clinician recommends them, are billed separately."
+  },
+  {
+   "t": "h2",
+   "text": "Electronic signature"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Field",
+     "Entry"
+    ],
+    [
+     "Typed full legal name",
+     "Typed by the patient"
+    ],
+    [
+     "Date and time",
+     "Captured by the system"
+    ],
+    [
+     "Document version",
+     "Captured by the system"
+    ],
+    [
+     "IP address",
+     "Captured by the system"
+    ]
+   ],
+   "widths": [
+    1,
+    2
+   ],
+   "header": true,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "By typing my name, I agree that my electronic signature is the legal equivalent of my handwritten signature, and that I have already agreed to receive and sign documents electronically (see the Electronic Records, Signatures and Communications Consent). This acknowledgment does not waive any right I have under law and does not limit any duty the Practice or a clinician owes me. It does not by itself create a clinician-patient relationship.",
+   "italic": false,
+   "align": null
+  }
+ ],
+ "id": "A13",
+ "docTitle": "Financial Relationship Disclosure and Acknowledgment (with How WellPeps Works)",
+ "source": "financial_relationship_disclosure.py",
+ "reviewerNotesOmittedBlocks": 3
+}

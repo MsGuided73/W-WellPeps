@@ -16,8 +16,11 @@ import TweakPanel from '../components/dev/TweakPanel.astro';
 interface Props {
   title?: string;
   description?: string;
+  /** Keeps a page out of search results (draft pages). */
+  noindex?: boolean;
 }
 const {
+  noindex = false,
   title = 'WellPeps — Personalized Wellness. Simplified.',
   description = 'Personalized treatment plans, licensed healthcare providers, and ongoing support—all from the comfort of home. Start your free online health assessment.',
 } = Astro.props;
@@ -29,6 +32,7 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/images/w-mark-v2.png" />
     <title>{title}</title>
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />

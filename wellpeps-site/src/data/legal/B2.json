@@ -1,0 +1,1221 @@
+{
+ "title": "Patient Terms of Service and Payment Agreement",
+ "version": "0.1",
+ "date": "October 1, 2026",
+ "blocks": [
+  {
+   "t": "p",
+   "text": "**Effective date:** [EFFECTIVE DATE]   |   **Last updated:** [EFFECTIVE DATE]   |   **Version:** [VERSION]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**The short version.** This summary is only a guide. The full agreement below is what counts.\n• **Who we are.** WellPeps is not a medical practice or a pharmacy. We run intake, education, support and billing.\n• **Who decides about your care.** A licensed clinician at an independent medical practice decides whether a prescription is right for you. A prescription is not guaranteed. A state-licensed pharmacy prepares and ships any medicine.\n• **What you pay.** One monthly price, shown at checkout. It covers your medication (if prescribed), your clinician care, messaging with the medical practice and standard shipping. There is no membership fee. Labs, if your clinician recommends them, are billed separately.\n• **Free health assessment.** If the clinician decides not to prescribe, you get a full refund of what you paid.\n• **Cash pay.** We do not bill insurance, Medicare or Medicaid.\n• **Renewing and canceling.** Your plan renews each month until you cancel. You can cancel anytime. The Refund, Cancellation and Auto-Renewal Policy has the details.\n• **Disputes.** If we cannot work out a problem together, it goes to individual arbitration, not a class action, unless you opt out within 30 days (Section 19).",
+   "kind": "info"
+  },
+  {
+   "t": "callout",
+   "text": "**Emergency?** Call 911 or go to the nearest emergency room. WellPeps and the patient portal are not for emergencies. For a mental health crisis, call or text 988. Do not wait for a reply from us or from your clinician.",
+   "kind": "warning"
+  },
+  {
+   "t": "h1",
+   "text": "1. About this agreement"
+  },
+  {
+   "t": "clause",
+   "number": "1.1",
+   "heading": "Who is making this agreement.",
+   "text": "This Patient Terms of Service and Payment Agreement (the “Agreement”) is between you and WellPeps, a Wyoming corporation (“WellPeps,” “we,” “us” or “our”). You accept it electronically in our patient portal at [PORTAL URL] (the “Portal”), before a clinician reviews your health assessment.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "1.2",
+   "heading": "What it covers.",
+   "text": "This Agreement covers your commercial relationship with WellPeps: what you buy, what it costs, how we charge you, how you cancel and get refunds, and how we resolve disputes. It also explains who does what, so you know who is responsible for each part of your experience.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "1.3",
+   "heading": "What it does not cover.",
+   "text": "This Agreement is not medical advice and does not set the terms of your medical care. Your care is governed by the consents you give to the Practice, such as the Informed Consent to Telehealth Services and Treatment.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "1.4",
+   "heading": "Other documents that apply.",
+   "text": "These documents are also part of your relationship with us. You may be asked to accept some of them separately. Each is available in the Portal and on our website.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Refund, Cancellation and Auto-Renewal Policy (the “Refund Policy”)",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Shipping and Delivery Policy",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "How WellPeps Works",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Informed Consent to Telehealth Services and Treatment",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Compounded Medication Disclosure and Consent, and the medication safety information and acknowledgment for your treatment (for example, the GLP-1 Medication Safety Information and Acknowledgment)",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Patient Intake Attestations and Laboratory Testing Consent",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Financial Relationship Disclosure and Acknowledgment",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Electronic Records, Signatures and Communications Consent, and the Text Messaging Terms",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Privacy Policy, Consumer Health Data Privacy Policy and Notice of Privacy Practices",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "AI Use Disclosure and Medical Disclaimer",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "1.5",
+   "heading": "A few words.",
+   "text": "“The Practice” means [PRACTICE NAME], the independent licensed medical practice whose clinicians evaluate you and prescribe if appropriate. “Clinician” means a licensed health care professional of the Practice. “Pharmacy” means a state-licensed pharmacy that prepares and ships your medication. “Plan” means your monthly plan for the treatment you choose at checkout.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "2. Who is who"
+  },
+  {
+   "t": "clause",
+   "number": "2.1",
+   "heading": "Independent businesses.",
+   "text": "Several independent businesses work together to serve you. Each has its own job and its own responsibilities.",
+   "level": 0
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Who",
+     "What they do",
+     "What they do not do"
+    ],
+    [
+     "WellPeps",
+     "Runs the WellPeps brand and website, intake, patient education, customer support and billing. Contracts with the pharmacies. Provides non-clinical support.",
+     "Does not practice medicine, diagnose, prescribe, compound or dispense medication, or control any clinical decision."
+    ],
+    [
+     "The Practice\n([PRACTICE NAME])",
+     "An independent, licensed medical practice. Its clinicians review your health information, decide whether treatment is medically appropriate, prescribe if it is, and answer the clinical questions you send in the Portal. It keeps your medical records.",
+     "Does not run our website, billing or shipping. Its medical decisions are its own."
+    ],
+    [
+     "Pharmacies\n([PHARMACY LIST])",
+     "Independent, state-licensed pharmacies. They prepare (including compounding, where prescribed), label and ship your medication on a prescription written for you.",
+     "Do not decide whether you get a prescription."
+    ],
+    [
+     "Laboratories",
+     "Independent laboratories that run the lab tests a clinician orders.",
+     "Do not diagnose or treat you."
+    ],
+    [
+     "Our technology and management partners",
+     "Companies that provide our technology platform, the Portal and related services (such as intake forms, messaging, secure storage and payment processing) and management and administrative services to WellPeps.",
+     "Do not practice medicine, employ the Practice’s clinicians, or ship medication."
+    ]
+   ],
+   "widths": [
+    1.3,
+    3.2,
+    2.6
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "clause",
+   "number": "2.2",
+   "heading": "WellPeps does not practice medicine.",
+   "text": "WellPeps does not practice medicine or pharmacy, and does not control or influence the professional judgment of any clinician or pharmacist. The Practice is solely responsible for medical decisions, including whether to prescribe, which medication and dose, and any change to your treatment. Each pharmacy is solely responsible for compounding, labeling, dispensing and shipping its medication.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "2.3",
+   "heading": "Separate businesses.",
+   "text": "WellPeps, the Practice, the pharmacies, the laboratories and our technology and management partners are independent of each other. None of them is the employee or partner of another. To the extent the law allows, WellPeps is not responsible for the independent decisions and acts of the Practice, its clinicians, the pharmacies or the laboratories.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "2.4",
+   "heading": "Our financial relationships.",
+   "text": "How WellPeps Works explains who does what in more detail. The Financial Relationship Disclosure and Acknowledgment explains how WellPeps works with the Practice, the pharmacies and others, including how they are paid. Please read both.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "2.5",
+   "heading": "Your own doctor.",
+   "text": "These services are not a substitute for your primary care provider or any other doctor. You are responsible for following up with your own doctor about your general care, diagnosis and treatment. You are choosing these services voluntarily, without pressure from anyone.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "3. No guarantee of a prescription"
+  },
+  {
+   "t": "clause",
+   "number": "3.1",
+   "heading": "The clinician decides.",
+   "text": "Whether you receive a prescription, which medication and dose, and when to change or stop treatment are decisions for the Practice’s clinicians, based on their independent professional judgment and the information you give them. The Practice may accept or decline your request. A clinician may ask you for more information, order labs, recommend a different kind of care, or decide not to treat you.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "3.2",
+   "heading": "No guarantee.",
+   "text": "Paying us or completing the health assessment does not guarantee a prescription, a particular medication or dose, or any result. We do not promise any weight, hair, sexual health or other health outcome.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "3.3",
+   "heading": "Timing.",
+   "text": "The Practice usually reviews your information asynchronously, which means you and the clinician do not have to be online at the same time. The Practice does not promise a specific review or reply time.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "3.4",
+   "heading": "Clinician-patient relationship.",
+   "text": "This Agreement, your payment and your use of the Portal do not by themselves create a clinician-patient relationship. That relationship begins only under the Practice’s own consents and its decision to accept you as a patient.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "4. Eligibility and your promises"
+  },
+  {
+   "t": "p",
+   "text": "To use our services, you promise that each of the following is true, and that you will keep it true.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "clause",
+   "number": "4.1",
+   "heading": "Age.",
+   "text": "You are at least 18 years old, or older if the age of adulthood where you live is higher (19 in Alabama and Nebraska, and 21 in Mississippi) [VERIFY: age of majority]. We or the Practice may ask you to verify your age and identity.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "4.2",
+   "heading": "Where you live and where you are.",
+   "text": "You live in the United States, in a state where the treatment you chose is available. The States We Serve page lists them ([STATES SERVED]). You will tell us the state where you are physically located when you complete your health assessment and whenever a clinician asks. Clinicians can treat you only where they are licensed, so do not hide your location, for example with a VPN. If you move or travel, tell your clinician.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "4.3",
+   "heading": "Truthful and complete information.",
+   "text": "Every answer you give in your health assessment, in messages and in forms is true, complete and about you. This includes your name, date of birth, health history, medicines, allergies, pregnancy status and shipping address. A clinician relies on this information to make decisions about your care. False or incomplete information can be dangerous. If anything changes, update it in the Portal or tell your clinician right away. The Patient Intake Attestations ask you to confirm your health information.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "4.4",
+   "heading": "One account, for you only.",
+   "text": "You will keep one account, for your own use. You will not let anyone else use it, use anyone else’s account, or place an order for another person. Keep your sign-in details private, and tell us right away if you think someone else has used your account.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "4.5",
+   "heading": "Not for emergencies.",
+   "text": "You will not use the Portal, email or messaging in an emergency. In an emergency, call 911.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "4.6",
+   "heading": "No selling or sharing medication.",
+   "text": "Medication prescribed for you is only for you. You will not sell, share, give away or resell it, and you will use it only as prescribed and labeled.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "4.7",
+   "heading": "Your payment method.",
+   "text": "You are allowed to use the payment method you give us, and the billing details you give us are accurate.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "4.8",
+   "heading": "Ability to contract.",
+   "text": "You are able to form a binding contract.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "5. The health assessment and your first payment"
+  },
+  {
+   "t": "clause",
+   "number": "5.1",
+   "heading": "What the assessment is.",
+   "text": "The health assessment is a set of questions about your health that you answer in the Portal. A clinician of the Practice reviews your answers, may ask for more information, and decides whether a prescription is medically appropriate for you.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "5.2",
+   "heading": "The assessment is free.",
+   "text": "The assessment itself is free. If the clinician decides not to prescribe, you get a full refund of everything you paid for that order, as Section 5.4 explains.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "5.3",
+   "heading": "When you pay.",
+   "text": "To keep things simple, you answer the health questions first and then check out once. Your payment is taken at checkout, before the clinician reviews your answers.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "5.4",
+   "heading": "If the clinician does not prescribe.",
+   "text": "If the clinician decides not to prescribe, or the Practice declines your request, we will refund everything you were charged for that order, and we will start the refund for you. The refund goes back to the payment method you used. The Refund Policy explains how and when it is made. [ALTERNATIVES FOR DECISION R1. This draft uses a full refund. Alternatives: (a) charge the card only after the clinician approves treatment; or (b) a non-refundable consult fee, if counsel approves.]",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "5.5",
+   "heading": "Other cases.",
+   "text": "Refunds in other situations, such as if you change your mind before the clinician reviews your answers, if a shipment is lost or damaged, or if we charge you in error, are covered by the Refund Policy.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "6. Your monthly price"
+  },
+  {
+   "t": "clause",
+   "number": "6.1",
+   "heading": "One monthly price.",
+   "text": "Each treatment has one monthly price. The price for the treatment you choose is shown at checkout and in your receipt.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "6.2",
+   "heading": "What the price covers.",
+   "text": "Your monthly price covers:",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "your medication, if the clinician prescribes it and a pharmacy dispenses it;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "your clinician visit or visits, including the review of your health assessment and the follow-ups the clinician decides you need;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "messaging with the Practice through the Portal;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "education and support from WellPeps; and",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "shipping of your medication to you (see the Shipping and Delivery Policy).",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "6.3",
+   "heading": "What the price does not cover.",
+   "text": "Lab tests are never included in your monthly price. If your clinician recommends labs, we can give you access to low-cost lab testing. Labs are billed separately, at a price shown to you before you agree to the order, by [LAB BILLING PARTY]. The Laboratory Testing Consent explains lab orders and results. The price also does not cover care from anyone outside the Practice, such as your own doctor, an urgent care or a hospital, or medicine you buy elsewhere.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "6.4",
+   "heading": "No membership fee and no other WellPeps fees.",
+   "text": "WellPeps does not charge a membership fee, a sign-up fee, a separate consultation fee or a cancellation fee. The only other charges are labs (Section 6.3), sales tax where it applies (Section 8.6), and any item you choose that is shown to you with its price before you are charged.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "6.5",
+   "heading": "The checkout price controls.",
+   "text": "Prices on our website are for information. The price shown at checkout, together with this Agreement, is the price you agree to pay.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "6.6",
+   "heading": "If your treatment changes.",
+   "text": "The price at checkout is for the treatment you chose. If the clinician prescribes a different medication or form that has a different price, we will show you the new price and ask for your agreement before we charge you any different amount. You may say no, and you will not be charged the different amount. A change of dose, or of the pharmacy that fills your prescription, does not change your price [VERIFY: dose-change pricing].",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "6.7",
+   "heading": "How the price is divided.",
+   "text": "Your monthly price pays for several things: the clinical services of the Practice, your medication, shipping, and WellPeps’s non-clinical services such as intake, education and support. [COUNSEL: PRICE ALLOCATION. Describe the allocation in a way that complies with fee-splitting and corporate-practice-of-medicine rules in Florida and each state served, and decide whether the Practice’s portion must be stated to the patient.] WellPeps pays the Practice’s fees for clinician reviews and visits, and the Practice does not charge you separately for them. The fee WellPeps pays the Practice for a clinician review does not depend on whether you receive a prescription.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "7. Paying in cash"
+  },
+  {
+   "t": "clause",
+   "number": "7.1",
+   "heading": "You are paying cash.",
+   "text": "You are choosing to pay for these services and products yourself, in cash. WellPeps and the Practice do not bill your health insurance, Medicare, Medicaid or any other health plan or government program, and we do not accept payment from them for these services or products. You are choosing to get them outside any health plan or government health care program.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "7.2",
+   "heading": "What this means for you.",
+   "text": "Your health plan may not count what you pay toward your deductible or out-of-pocket limit, and it may not reimburse you. We give you a receipt for each payment, but a receipt is not an insurance claim. We do not file claims for you, and we do not promise that any plan will reimburse you.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "7.3",
+   "heading": "HSA and FSA.",
+   "text": "Some health savings accounts (HSAs) and flexible spending accounts (FSAs) pay only for certain items. We do not promise that your HSA or FSA will pay for any charge from us. Please ask your plan administrator before you use plan funds [VERIFY: HSA/FSA statement].",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "7.4",
+   "heading": "Government programs.",
+   "text": "If you have Medicare, Medicaid, TRICARE or another government program, you may still choose to pay for these services yourself. We will not bill those programs, and nothing you pay us can be billed to them [VERIFY: government program patients].",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "8. Payment, recurring billing and failed payments"
+  },
+  {
+   "t": "clause",
+   "number": "8.1",
+   "heading": "Who charges you.",
+   "text": "Your payment is processed through our checkout provider. The business that charges your card, called the merchant of record, is [MERCHANT OF RECORD]. Your card details are held by our payment processor and not by WellPeps [VERIFY: card storage].",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "8.2",
+   "heading": "Your authorization.",
+   "text": "When you check out, you authorize [MERCHANT OF RECORD] to charge your payment method for the price shown at checkout, for each monthly renewal as described in Section 8.3, and for any other amount you agree to, such as labs. You also authorize us to keep your payment method on file for those charges. You can update your payment method in the Portal, but a plan cannot renew without one.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "8.3",
+   "heading": "Automatic renewal.",
+   "text": "Your plan renews every month at the price shown at checkout, and we charge your payment method once a month, on the same day of the month you were first charged, until you cancel [VERIFY: billing date rule]. At checkout we will show you these automatic renewal terms again and ask for your separate agreement to them in a box that is not checked for you. The Refund Policy explains how to cancel and the deadline to avoid the next charge.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "8.4",
+   "heading": "How the charge appears.",
+   "text": "Charges appear on your card statement as [BILLING DESCRIPTOR]. If you do not recognize a charge, contact us at [SUPPORT EMAIL] first (see Section 10).",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "8.5",
+   "heading": "If a payment fails.",
+   "text": "If a payment does not go through, for example because a card has expired or the bank declines it:",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "we will tell you by email and in the Portal;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "we may try the charge again on the schedule in the Refund Policy;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "you can fix it by updating your payment method in the Portal;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "we will not send a new order to the pharmacy until the payment goes through, and we will tell you before we pause, so you can fix the payment or talk to your clinician about your treatment;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "if the payment is still unpaid after the last try, we may cancel your plan, and you remain responsible for amounts properly charged for medication that was already prepared or shipped; and",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "we do not charge late fees or interest on a failed payment [VERIFY: no late fees].",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "8.6",
+   "heading": "Taxes.",
+   "text": "Prices do not include sales or use tax unless the checkout page says so. If tax applies to your order, we will show it at checkout [VERIFY: sales tax].",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "8.7",
+   "heading": "Price changes.",
+   "text": "We may change the monthly price for future renewals, but only after giving you notice. We will email you and post a notice in the Portal at least [30] days before the new price first applies [VERIFY: price-change window]. The notice will state the new price, the date it takes effect and how to cancel. You may cancel before that date with no fee. If you do not cancel, the new price applies from your first renewal after that date. Where the law of your state requires your fresh agreement to a higher price, we will ask for it first. A price decrease may take effect without notice. A price change never reduces a refund you are owed.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "8.8",
+   "heading": "Receipts.",
+   "text": "We email you a receipt for each charge and each refund.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "9. Refunds and cancellation"
+  },
+  {
+   "t": "clause",
+   "number": "9.1",
+   "heading": "The Refund Policy governs.",
+   "text": "How to cancel, when a cancellation takes effect, the deadline to avoid the next renewal charge, and when you are entitled to a refund are set out in the Refund, Cancellation and Auto-Renewal Policy. That policy is part of this Agreement. We do not repeat its terms here, so there is only one version.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "9.2",
+   "heading": "In short.",
+   "text": "You can cancel your plan at any time, with no cancellation fee and no minimum commitment. If the clinician does not prescribe, you are refunded in full (Section 5.4).",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "10. Disputed charges"
+  },
+  {
+   "t": "clause",
+   "number": "10.1",
+   "heading": "Please ask us first.",
+   "text": "If you see a charge you do not understand or think is wrong, contact us first at [SUPPORT EMAIL]. We will look into it promptly and, if we made a mistake, fix it. Many questions can be answered quickly, such as what a charge is for.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "10.2",
+   "heading": "Your rights.",
+   "text": "Nothing in this Agreement limits your right to dispute a charge with your card issuer, or any right you have under federal or state law or your card issuer’s rules.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "10.3",
+   "heading": "Please be accurate.",
+   "text": "If you do dispute a charge, please give your bank accurate information, and do not dispute a charge for a service you received or a charge we have already refunded. We may give your bank the records that show what you ordered, what you agreed to and what we shipped.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "10.4",
+   "heading": "Effect on your plan.",
+   "text": "If a charge for something we already delivered is reversed, we may treat that amount as unpaid under Section 8.5. The Refund Policy explains what we may do if a disputed charge was correct.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "11. Your medication"
+  },
+  {
+   "t": "clause",
+   "number": "11.1",
+   "heading": "A pharmacy prepares and ships it.",
+   "text": "If a clinician prescribes medication, a state-licensed pharmacy prepares it for you and ships it to you. The pharmacy named on your label is responsible for compounding (if the medicine is compounded), labeling, dispensing and shipping. WellPeps does not prepare or dispense medication.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "11.2",
+   "heading": "Your label comes first.",
+   "text": "Use your medication only as the prescription label and the pharmacy’s instructions say. If anything on our website, in this Agreement or in a message from WellPeps seems to differ from your label, follow your label and ask your clinician or the pharmacy.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "11.3",
+   "heading": "Compounded medication.",
+   "text": "Some medications are compounded. Compounded medications are not FDA-approved, and FDA does not review them for safety, effectiveness or quality before they are sold. The Compounded Medication Disclosure and Consent explains this. Your clinician decides whether a compounded medication is appropriate for you.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "11.4",
+   "heading": "Choice of pharmacy and transfers.",
+   "text": "You may ask your clinician whether your prescription can be sent to a different pharmacy. A compounded prescription is made for one patient and may not be transferable [VERIFY: pharmacy choice].",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "11.5",
+   "heading": "Shipping.",
+   "text": "Shipping, delivery times, address changes, and lost, late or damaged packages are covered by the Shipping and Delivery Policy.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "11.6",
+   "heading": "Problems and recalls.",
+   "text": "Tell your clinician and the pharmacy about any side effect or problem with your medication. You can also report it to FDA MedWatch at www.fda.gov/medwatch or 1-800-FDA-1088. If a pharmacy or FDA recalls a medication, we may contact you, and you agree to follow the recall instructions.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "12. Your responsibilities"
+  },
+  {
+   "t": "p",
+   "text": "In addition to your promises in Section 4, you agree to:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "read and follow your label and your clinician’s instructions, and ask if you are unsure;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "check the Portal and your email for messages from your clinician and from us, and answer requests for information promptly;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "keep your payment method, shipping address and contact details current, and be available to receive and store your shipment as the label says; and",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "treat clinicians, pharmacists and staff with respect.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "13. Electronic records, signatures and messages"
+  },
+  {
+   "t": "clause",
+   "number": "13.1",
+   "heading": "Doing business electronically.",
+   "text": "You agree to deal with us electronically. This Agreement, our policies and our notices are electronic records. Checking a box or typing your name in the Portal is your signature. The Electronic Records, Signatures and Communications Consent explains your rights, including how to get a paper copy and how to withdraw your consent.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "13.2",
+   "heading": "Messages.",
+   "text": "We and the Practice may contact you by email, in the Portal and, where you agree, by text message or phone, about your orders, billing and care. Email and text messages are not fully secure, so please do not send health details that way. Use the Portal. We send text messages only as the Text Messaging Terms describe, and we will not send marketing text messages unless you separately agree to them.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "14. Privacy"
+  },
+  {
+   "t": "clause",
+   "number": "14.1",
+   "heading": "Our privacy documents.",
+   "text": "The Privacy Policy and the Consumer Health Data Privacy Policy explain what personal and health information WellPeps collects, how we use and share it, how long we keep it and your choices. The Notice of Privacy Practices explains how health information used for your care is protected under HIPAA. WellPeps handles some of that information on the Practice’s behalf [COUNSEL: HIPAA role. Confirm the HIPAA role statement after decision H1.]",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "14.2",
+   "heading": "Sharing for your care.",
+   "text": "To provide your care, we share your information with the Practice, with the pharmacy that fills your prescription, with a laboratory if a lab is ordered, and with our technology and service providers, as those documents describe. Your medical records are kept by the Practice.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "15. AI tools"
+  },
+  {
+   "t": "clause",
+   "number": "15.1",
+   "heading": "How AI may be used.",
+   "text": "WellPeps and the Practice may use artificial intelligence (AI) tools, for example to answer support questions, help staff draft messages, or organize the information you submit. AI tools do not decide whether you receive a prescription. That decision is made by a licensed clinician. The AI Use Disclosure explains what we use AI for, what it does not do, and how to reach a person or ask for human review.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "16. Disclaimers"
+  },
+  {
+   "t": "clause",
+   "number": "16.1",
+   "heading": "No warranties.",
+   "text": "TO THE EXTENT THE LAW ALLOWS, WELLPEPS PROVIDES ITS SERVICES, THE PORTAL AND ITS WEBSITE “AS IS” AND “AS AVAILABLE.” WELLPEPS DOES NOT PROMISE ANY HEALTH OUTCOME, THAT GENERAL INFORMATION ON ITS WEBSITE IS ACCURATE IN EVERY DETAIL, OR THAT THE PORTAL WILL BE UNINTERRUPTED OR WITHOUT ERRORS. WELLPEPS DOES NOT PROMISE DELIVERY DATES, WHICH DEPEND ON THE PHARMACY AND THE CARRIER. SOME STATES DO NOT ALLOW CERTAIN PROMISES TO BE DISCLAIMED, SO PART OF THIS SECTION MAY NOT APPLY TO YOU. NOTHING IN THIS SECTION LIMITS ANY RIGHT YOU HAVE AS A CONSUMER THAT CANNOT BE WAIVED.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "16.2",
+   "heading": "Responsibility of others.",
+   "text": "The Practice, each pharmacy, each laboratory and our technology and management partners are responsible for their own services. WellPeps does not make any promise on their behalf about the quality of their services. This does not reduce what any of them owes you under the law.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "17. Limits on our liability"
+  },
+  {
+   "t": "clause",
+   "number": "17.1",
+   "heading": "Limits.",
+   "text": "TO THE EXTENT THE LAW ALLOWS, WELLPEPS WILL NOT BE LIABLE TO YOU FOR INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY OR PUNITIVE DAMAGES, OR FOR LOST PROFITS OR LOST DATA. WELLPEPS’S TOTAL LIABILITY TO YOU FOR ALL CLAIMS ARISING FROM THIS AGREEMENT AND THE SERVICES IT PROVIDES WILL NOT BE MORE THAN THE GREATER OF [US $100] AND THE TOTAL AMOUNT YOU PAID FOR THE SERVICES IN THE 12 MONTHS BEFORE THE CLAIM AROSE.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "17.2",
+   "heading": "What these limits do not cover.",
+   "text": "THESE LIMITS DO NOT APPLY TO DEATH OR PERSONAL INJURY CAUSED BY WELLPEPS’S NEGLIGENCE; TO FRAUD, GROSS NEGLIGENCE OR WILLFUL MISCONDUCT; TO REFUNDS YOU ARE OWED UNDER THIS AGREEMENT OR THE REFUND POLICY; OR TO ANY LIABILITY THAT THE LAW DOES NOT ALLOW US TO LIMIT. SOME STATES DO NOT ALLOW THE EXCLUSION OR LIMITATION OF CERTAIN DAMAGES, SO PART OF THIS SECTION MAY NOT APPLY TO YOU.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "17.3",
+   "heading": "Others are not covered.",
+   "text": "This Section 17 limits only the liability of WellPeps. It does not limit or waive what the Practice, a clinician, a pharmacy, a laboratory or anyone else may owe you for their own services or products, and it does not waive any claim you may have against them.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "18. If you cause us a loss"
+  },
+  {
+   "t": "clause",
+   "number": "18.1",
+   "heading": "Narrow reimbursement.",
+   "text": "To the extent the law allows, you agree to reimburse WellPeps for losses, costs and reasonable attorneys’ fees that WellPeps has to pay to someone else because you knowingly gave false information to obtain services, sold or shared medication prescribed to you, or used the Portal or our services in violation of the law or this Agreement. You do not have to reimburse WellPeps to the extent the claim was caused by WellPeps, the Practice, a pharmacy or anyone else other than you, or for any claim about your own medical care or injury. Some states limit clauses like this, so it may not apply to you.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "19. Resolving disputes"
+  },
+  {
+   "t": "callout",
+   "text": "**Please read this Section.** It says that disputes between you and WellPeps are decided by individual arbitration, not by a judge or jury and not in a class action, unless you opt out within 30 days (Section 19.7).",
+   "kind": "note"
+  },
+  {
+   "t": "clause",
+   "number": "19.1",
+   "heading": "Talk to us first.",
+   "text": "Most problems can be solved quickly. If you have a dispute with WellPeps, email [SUPPORT EMAIL] with your name, the email address on your account, a description of the problem and what you would like us to do. We will try in good faith to resolve it within 30 days. If WellPeps has a dispute with you, we will contact you the same way. Please try this before you start arbitration or a court case, other than small claims.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "19.2",
+   "heading": "Individual arbitration.",
+   "text": "If we cannot resolve a dispute informally, you and WellPeps agree to resolve it by binding arbitration on an individual basis, instead of in court before a judge or jury. This covers any dispute between you and WellPeps (and its owners, officers, directors, employees and affiliates) about this Agreement, the Portal, the services WellPeps provides, billing, refunds, advertising or your relationship with WellPeps, including disputes that arose before you accepted this Agreement. The arbitration will be run by the American Arbitration Association (AAA) under its Consumer Arbitration Rules, which are at www.adr.org. The Federal Arbitration Act governs this Section 19. The arbitrator must follow the law and this Agreement, may award any individual relief a court could, and will give written reasons if you ask [VERIFY: state arbitration rules].",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "19.3",
+   "heading": "What is not covered.",
+   "text": "This Section 19 does not apply to:",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "(a)",
+   "heading": null,
+   "text": "a claim that either of us brings in small claims court, if it qualifies;",
+   "level": 1
+  },
+  {
+   "t": "clause",
+   "number": "(b)",
+   "heading": null,
+   "text": "a claim against anyone other than WellPeps, such as the Practice, a clinician, a pharmacy or a laboratory, which is governed by that person’s own terms and by law;",
+   "level": 1
+  },
+  {
+   "t": "clause",
+   "number": "(c)",
+   "heading": null,
+   "text": "a claim by either of us asking a court to stop misuse of intellectual property or unauthorized access to computer systems;",
+   "level": 1
+  },
+  {
+   "t": "clause",
+   "number": "(d)",
+   "heading": null,
+   "text": "a claim or request for relief that applicable law does not allow to be arbitrated or waived, including a request for public injunctive relief where state law does not allow it to be waived [VERIFY: public injunctive relief]; or",
+   "level": 1
+  },
+  {
+   "t": "clause",
+   "number": "(e)",
+   "heading": null,
+   "text": "[OPTION FOR COUNSEL. A claim for personal injury or death.]",
+   "level": 1
+  },
+  {
+   "t": "clause",
+   "number": "19.4",
+   "heading": "How the arbitration works.",
+   "text": "The arbitration may be held by phone, by video, on written documents, or in person at a place reasonably convenient to you, as the AAA Consumer Arbitration Rules provide. If your claim is for [US $10,000] or less, WellPeps will pay all AAA filing, administrative and arbitrator fees. For a larger claim, the AAA Consumer Arbitration Rules decide who pays, but you will not have to pay more than you would pay to file the claim in court. Each of us pays our own lawyers and experts unless the law or the AAA rules give a right to recover them.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "19.5",
+   "heading": "No class actions.",
+   "text": "You and WellPeps each agree to bring claims only on an individual basis, and not as a plaintiff or class member in any class, collective, consolidated or representative action or arbitration. The arbitrator may not combine more than one person’s claims, may not preside over any class or representative proceeding, and may award relief only to the person who brought the claim and only as needed for that person’s own claim.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "19.6",
+   "heading": "If the class waiver does not hold.",
+   "text": "If a court finds that Section 19.5 cannot be enforced for a claim or a request for relief, that claim or request (and only that one) will go to court, and the court will pause it until the arbitration of the remaining claims is finished. If a court finds that this Section 19 as a whole cannot be enforced, the dispute will be decided in court under Section 20.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "19.7",
+   "heading": "You can opt out.",
+   "text": "You may opt out of arbitration and the class waiver. To do so, within 30 days after you first accept this Agreement, email [SUPPORT EMAIL] with the subject line “Arbitration Opt-Out,” your name, the email address on your account and a clear statement that you want to opt out. You may instead mail the same notice to [BUSINESS ADDRESS]. We will confirm that we received it. Opting out does not change anything else in this Agreement or your care. It also does not opt you out of the dispute section of any other WellPeps agreement, such as the Website Terms of Use, unless your notice says so. If you opt out, Section 20 decides where a dispute is heard.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "19.8",
+   "heading": "Rights that cannot be waived.",
+   "text": "Nothing in this Agreement waives any right that the law of your state does not allow to be waived. Nothing in this Agreement stops you from filing a complaint with, or taking part in an investigation by, a government agency, including your state attorney general, a state medical or pharmacy board, the Federal Trade Commission or the U.S. Food and Drug Administration, or from seeking any remedy those agencies make available.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "19.9",
+   "heading": "Changes to this Section.",
+   "text": "If we change this Section 19 in the future, the change will not apply to a dispute you have already told us about. You may opt out of the change by following Section 19.7 within 30 days after we give you notice of it.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "19.10",
+   "heading": "This Section continues.",
+   "text": "This Section 19 continues to apply after this Agreement ends.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "20. Governing law and where cases are heard"
+  },
+  {
+   "t": "clause",
+   "number": "20.1",
+   "heading": "Governing law.",
+   "text": "Wyoming law and applicable federal law govern this Agreement and any dispute between you and WellPeps, without regard to conflict-of-law rules, except that the Federal Arbitration Act governs Section 19. A consumer protection law of the state where you live that cannot be waived by contract still applies to you. Your medical care is governed by the law of the state where you are located and by the Practice’s own consents.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "20.2",
+   "heading": "Court cases.",
+   "text": "If a dispute goes to court (for example, because you opted out of arbitration or the claim is not covered), it will be heard only in a state or federal court located in [COUNSEL: VENUE], and you and WellPeps consent to that court’s jurisdiction. A small claims case may be brought in the small claims court for your county. If the law of your state requires that a consumer be sued where the consumer lives, we will follow that law.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "21. Changes to this Agreement"
+  },
+  {
+   "t": "clause",
+   "number": "21.1",
+   "heading": "Updates.",
+   "text": "We may update this Agreement. We post each version in the Portal and on our website with a version number and an effective date.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "21.2",
+   "heading": "Material changes need your acceptance.",
+   "text": "If we make a material change, we will (a) tell you by email and in the Portal at least [30] days before it takes effect, with a plain description of what changes, and (b) ask you to review and accept the updated Agreement the next time you sign in to the Portal, by a click or a typed name. Continuing to use the Portal, or leaving your plan active, is not enough on its own to accept a material change. We need your acceptance. Until you accept, the version you already accepted continues to apply to you and to orders you have already placed.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "21.3",
+   "heading": "If you do not accept.",
+   "text": "If we can no longer provide your plan on the version you accepted, we will tell you and give you the choice to accept the update or cancel. If you cancel for this reason, we will not charge you for any period we do not provide, and we will refund any unused prepaid amount [VERIFY: Refund Policy alignment].",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "21.4",
+   "heading": "Minor changes.",
+   "text": "We may fix typing errors, update contact details, or make changes that the law requires or that only help you, by posting a new version. We will tell you about these changes in the Portal.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "21.5",
+   "heading": "Price and renewal terms.",
+   "text": "Price changes follow Section 8.7. Changes to automatic renewal terms follow the Refund Policy and the law.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "21.6",
+   "heading": "No retroactive effect.",
+   "text": "A change never applies to a dispute you have already told us about, or to an order you have already placed, unless the law requires it.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "22. Which document controls"
+  },
+  {
+   "t": "p",
+   "text": "If these documents conflict:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "clause",
+   "number": "(a)",
+   "heading": null,
+   "text": "On medical questions, such as whether to prescribe, risks and benefits, telehealth and compounded medication, the consents you gave to the Practice and your clinician’s instructions control.",
+   "level": 1
+  },
+  {
+   "t": "clause",
+   "number": "(b)",
+   "heading": null,
+   "text": "On how to take, use, store or dispose of your medication, your prescription label and your pharmacy’s instructions control.",
+   "level": 1
+  },
+  {
+   "t": "clause",
+   "number": "(c)",
+   "heading": null,
+   "text": "On price, payment, billing, cancellation, refunds and disputes with WellPeps, this Agreement and the Refund Policy control. If they conflict on cancellation or refunds, the Refund Policy controls.",
+   "level": 1
+  },
+  {
+   "t": "clause",
+   "number": "(d)",
+   "heading": null,
+   "text": "On privacy, the privacy documents listed in Section 14 control.",
+   "level": 1
+  },
+  {
+   "t": "clause",
+   "number": "(e)",
+   "heading": null,
+   "text": "If a conflict remains, the document that is more protective of your health, safety or consumer rights controls.",
+   "level": 1
+  },
+  {
+   "t": "h1",
+   "text": "23. Ending your relationship with WellPeps"
+  },
+  {
+   "t": "clause",
+   "number": "23.1",
+   "heading": "You can stop at any time.",
+   "text": "You can cancel your plan at any time, as the Refund Policy explains. You may also close your account by emailing [SUPPORT EMAIL]. Closing your account does not cancel your plan, so please cancel your plan first.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "23.2",
+   "heading": "We may pause or end your service.",
+   "text": "We may pause or end your service if you break this Agreement (for example, by giving false information, sharing or selling medication, or misusing your account); if a payment is not made and not fixed (Section 8.5); if you threaten or abuse our staff or the Practice’s clinicians; if you move to a state we do not serve; if the law requires it; or if the Practice decides it cannot continue treating you. If we end your service for any other reason, we will refund any charge for a period in which you did not receive what you paid for, as the Refund Policy explains.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "23.3",
+   "heading": "Medical decisions about ending care.",
+   "text": "Only the Practice decides whether to stop treating you medically. If it does, it will follow its own continuity-of-care process. Pausing or ending your WellPeps plan is a billing and service decision. We will tell you if it may affect your medication, so you can talk to your clinician.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "23.4",
+   "heading": "If our arrangement with the Practice ends.",
+   "text": "If our arrangement with the Practice ends, we will give you reasonable written notice and work with the Practice so you have time to find another provider. Your medical records stay with the Practice, which will tell you how to request them.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "23.5",
+   "heading": "What continues.",
+   "text": "Sections that by their nature should continue after this Agreement ends continue, including Sections 5.4, 8 (for amounts owed), 10, 16 to 20 and 24.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "24. General terms"
+  },
+  {
+   "t": "clause",
+   "number": "24.1",
+   "heading": "Whole agreement.",
+   "text": "This Agreement and the documents listed in Section 1.4 are the entire agreement between you and WellPeps about the subject matter of this Agreement. They replace any earlier version, including any earlier terms that described different programs or prices.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "24.2",
+   "heading": "If part is unenforceable.",
+   "text": "If a court finds part of this Agreement unenforceable, the rest stays in effect, except as Section 19.6 says.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "24.3",
+   "heading": "No waiver.",
+   "text": "If we do not enforce part of this Agreement right away, we have not given up our right to do so later.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "24.4",
+   "heading": "Transfers.",
+   "text": "You may not transfer this Agreement to anyone else. We may transfer it to a company that buys or merges with us or takes over our services, and we will tell you if we do. Your rights under this Agreement continue.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "24.5",
+   "heading": "Events beyond our control.",
+   "text": "We are not responsible for a delay or failure caused by events beyond our reasonable control. This does not excuse a refund you are owed.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "24.6",
+   "heading": "Notices.",
+   "text": "We may give you notice by email or in the Portal. You may give us notice by emailing [SUPPORT EMAIL]. A notice about a legal claim should be sent by email with a copy by mail to [BUSINESS ADDRESS].",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "24.7",
+   "heading": "No one else has rights.",
+   "text": "No one other than you and WellPeps has a right to enforce this Agreement.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "24.8",
+   "heading": "State-specific terms.",
+   "text": "Some states give consumers rights that cannot be taken away by contract. If a state-specific rider applies to you, it is available in the Portal and is part of this Agreement for residents of that state [VERIFY: state consumer carve-outs].",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "25. Contact us"
+  },
+  {
+   "t": "p",
+   "text": "WellPeps, a Wyoming corporation",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "[BUSINESS ADDRESS]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Email: [SUPPORT EMAIL]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Privacy questions: [PRIVACY EMAIL]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "[SUPPORT PHONE AND HOURS, ONLY IF LIVE]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Support hours: Monday to Friday, 9 a.m. to 6 p.m. Eastern Time",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "WellPeps support cannot answer clinical questions or give medical advice. For a clinical question, message your clinician in the Portal. In an emergency, call 911.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "Acknowledgment (required form)"
+  },
+  {
+   "t": "callout",
+   "text": "**Build note (remove before publishing).** Configure as a required form in GEN Health, shown before provider review and checkout, after the Electronic Records, Signatures and Communications Consent form. Every box must be checked to continue. Automatic-renewal consent is a different, separate and unchecked box at checkout (item E5); do not combine it with this form. Capture and store the typed name, timestamp, document version and IP address against the order. [COUNSEL: logging and retention]",
+   "kind": "note"
+  },
+  {
+   "t": "p",
+   "text": "Please read the Patient Terms of Service and Payment Agreement (version [VERSION], dated [EFFECTIVE DATE]) before checking each box. Accepting does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "check",
+   "text": "I have read the Patient Terms of Service and Payment Agreement. I know I can read it again at any time in the Portal, and I can ask questions at [SUPPORT EMAIL]."
+  },
+  {
+   "t": "check",
+   "text": "I understand that WellPeps is not a medical practice or a pharmacy. An independent licensed clinician decides whether I receive a prescription, and a prescription is not guaranteed. The pharmacy named on my label is responsible for preparing and shipping my medication."
+  },
+  {
+   "t": "check",
+   "text": "I understand that the health assessment is free, and that if the clinician decides not to prescribe, I will be refunded everything I was charged for that order, as the Refund, Cancellation and Auto-Renewal Policy explains."
+  },
+  {
+   "t": "check",
+   "text": "I understand the one monthly price and what it covers (medication if prescribed, clinician care, messaging with the Practice and standard shipping). I understand that labs are billed separately and that there is no membership fee."
+  },
+  {
+   "t": "check",
+   "text": "I understand that I am paying in cash. WellPeps and the Practice do not bill insurance, Medicare, Medicaid or any other health plan or government program, and no one has promised me that any plan, HSA or FSA will pay or reimburse me."
+  },
+  {
+   "t": "check",
+   "text": "I authorize [MERCHANT OF RECORD] to charge the payment method I provide for the price shown at checkout and for other amounts I agree to. I understand that charges will appear as [BILLING DESCRIPTOR]. (Automatic renewal has its own separate box at checkout.)"
+  },
+  {
+   "t": "check",
+   "text": "I confirm that I am at least 18 (or older if the age of adulthood in my state is higher), that I live in and am now located in a state shown on the States We Serve page, that the information I give is true and complete, that this account is for me only, and that I will not sell or share my medication."
+  },
+  {
+   "t": "check",
+   "text": "I understand that these services do not replace my own doctor, and I am responsible for following up with my own doctor about my general care. I am choosing these services voluntarily. I have been shown the Financial Relationship Disclosure and Acknowledgment."
+  },
+  {
+   "t": "check",
+   "text": "I understand that, unless I opt out within 30 days, disputes with WellPeps will be resolved by individual arbitration and not in court or in a class action (Section 19). I know how to opt out."
+  },
+  {
+   "t": "check",
+   "text": "I understand that in an emergency I must call 911 and not use the Portal."
+  },
+  {
+   "t": "h2",
+   "text": "Electronic signature"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Typed full legal name",
+     "(typed by the patient)"
+    ],
+    [
+     "Date and time",
+     "(captured by the system)"
+    ],
+    [
+     "Document version",
+     "(captured by the system)"
+    ],
+    [
+     "IP address",
+     "(captured by the system)"
+    ]
+   ],
+   "widths": [
+    1,
+    2
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "By typing my name, I agree that my electronic signature is the legal equivalent of my handwritten signature, and that I have already agreed to receive and sign documents electronically. This acknowledgment does not replace the Informed Consent to Telehealth Services and Treatment and does not by itself create a clinician-patient relationship.",
+   "italic": false,
+   "align": null
+  }
+ ],
+ "id": "B2",
+ "docTitle": "Patient Terms of Service and Payment Agreement",
+ "source": "patient_terms_of_service.py",
+ "reviewerNotesOmittedBlocks": 3
+}

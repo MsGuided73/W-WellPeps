@@ -1,0 +1,16 @@
+---
+/** A list of draft documents with their id, a link and a one-line description. */
+import { docUrl, type LegalDoc } from '../../lib/legal-docs';
+
+interface Props { docs: readonly LegalDoc[]; showLive?: boolean }
+const { docs, showLive = false } = Astro.props;
+---
+<ul class="ld-hub__list">
+  {docs.map((d) => (
+    <li class="ld-hub__item">
+      <span class="ld-hub__id">{d.id}</span><a href={docUrl(d)}>{d.title}</a>
+      <p>{d.blurb}</p>
+      {showLive && d.existing && <p class="ld-hub__live">Live page today: <a href={d.existing}>{d.existing}</a> (its text is unchanged by this draft)</p>}
+    </li>
+  ))}
+</ul>

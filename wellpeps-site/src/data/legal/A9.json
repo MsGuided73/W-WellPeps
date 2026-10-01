@@ -1,0 +1,513 @@
+{
+ "title": "Shipping and Delivery Policy",
+ "version": "0.1",
+ "date": "October 1, 2026",
+ "blocks": [
+  {
+   "t": "p",
+   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: [LAST UPDATED]  |  Version [VERSION]",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "This policy explains how your medication gets from the pharmacy to your door, what to check when it arrives, and what to do if something goes wrong. WellPeps, a Wyoming corporation (“WellPeps,” “we” or “us”), is not a pharmacy and does not prepare or ship medication. A state-licensed pharmacy does.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "1. The short version"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Topic",
+     "What to know"
+    ],
+    [
+     "Who ships",
+     "The state-licensed pharmacy named on your label. Not WellPeps."
+    ],
+    [
+     "Where",
+     "To addresses in the states we serve: [STATES SERVED]. No international addresses."
+    ],
+    [
+     "Cost",
+     "Standard shipping is included in your monthly price."
+    ],
+    [
+     "When",
+     "After your clinician prescribes and the pharmacy prepares your medication. We cannot promise a delivery date."
+    ],
+    [
+     "Cold medicines",
+     "Some medicines, such as injections, ship in cold packaging. Follow your label."
+    ],
+    [
+     "When it arrives",
+     "Bring it in the same day. Check the label, the seal and the temperature. Store it as the label says."
+    ],
+    [
+     "If something is wrong",
+     "Do not use it. Contact the pharmacy and [SUPPORT EMAIL]."
+    ],
+    [
+     "Returns",
+     "Compounded medication generally cannot be returned once it has shipped."
+    ]
+   ],
+   "widths": [
+    1.4,
+    4.2
+   ],
+   "header": true,
+   "shade": true
+  },
+  {
+   "t": "h1",
+   "text": "2. Who ships your medication"
+  },
+  {
+   "t": "p",
+   "text": "When your clinician prescribes a medication, the prescription goes to a state-licensed pharmacy. The pharmacy prepares your medication and ships it to you. Your label names the pharmacy. WellPeps does not hold, prepare or ship medication. Your clinician, not WellPeps, decides which medication you receive.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "The pharmacies we work with are independent businesses. Today they are: [PHARMACY LIST].",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Your clinician and WellPeps choose a pharmacy that is licensed to ship to your state and that can prepare your prescription. If you would like a different pharmacy, ask your clinician. Some compounded prescriptions cannot be moved to another pharmacy. [VERIFY: pharmacy choice and prescription transfer rules by state]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Some of your medication may be compounded. A compounded medication is made by a pharmacy for you, based on your prescription. Compounded medications are not FDA-approved. To learn more, read the Compounded Medication Disclosure and Consent.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "3. Where we ship"
+  },
+  {
+   "t": "li",
+   "text": "We ship only to a street address in a state we serve: [STATES SERVED]. The States We Serve page has the current list.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "We do not ship outside the United States. We do not ship to PO boxes, military addresses or U.S. territories. [VERIFY: PO boxes, military and territory addresses]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Your shipping address must be in a state where your clinician can treat you and the pharmacy can ship. [VERIFY: shipping state must match state of care]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "We ship only to you. Your medication is for the person named on the label and cannot be sent to someone else.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "4. What shipping costs"
+  },
+  {
+   "t": "p",
+   "text": "Standard shipping is included in your monthly price. There is no separate shipping charge. If a replacement is due under this policy or the Refund, Cancellation and Auto-Renewal Policy, we do not charge for it or for its shipping. Lab tests are billed separately and are not part of your monthly price.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "5. How long it takes"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Step",
+     "What happens",
+     "Typical time"
+    ],
+    [
+     "1. Clinician review",
+     "A licensed clinician reviews your answers. They may ask you for more information.",
+     "[VERIFY: typical clinician review time]"
+    ],
+    [
+     "2. Pharmacy prepares",
+     "If prescribed, the pharmacy receives the prescription and prepares your medication. Compounded medicine is made for you.",
+     "[VERIFY: processing time per pharmacy]"
+    ],
+    [
+     "3. Pharmacy ships",
+     "The pharmacy hands the package to a carrier and you get tracking.",
+     "[VERIFY: where tracking comes from]"
+    ],
+    [
+     "4. Carrier delivers",
+     "The carrier brings the package to your address.",
+     "[VERIFY: transit time by carrier and region]"
+    ]
+   ],
+   "widths": [
+    1.3,
+    3,
+    1.6
+   ],
+   "header": true,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "These times are estimates in business days. They can be longer around holidays, in bad weather, when a medication is on backorder, or when we or your clinician need more information from you. We cannot promise a delivery date. Do not wait until you run out to plan your next order.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "6. Carriers and signatures"
+  },
+  {
+   "t": "p",
+   "text": "The pharmacy chooses the carrier and the delivery service. Rules about signatures and packaging differ by pharmacy and by medication. Some shipments need an adult signature. Your shipping email will tell you.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Pharmacy",
+     "Carrier and service",
+     "Adult signature",
+     "Cold packaging",
+     "States shipped to"
+    ],
+    [
+     "[PHARMACY LIST]",
+     "[VERIFY]",
+     "[VERIFY]",
+     "[VERIFY]",
+     "[VERIFY]"
+    ]
+   ],
+   "widths": [
+    1.6,
+    1.4,
+    1.1,
+    1.1,
+    1.4
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "p",
+   "text": "If a signature is needed and no one is home, the carrier will leave a notice or try again. Do not leave medication outside, in a car, in a mailbox or in a hot or very cold place. Choose an address where someone can receive the package.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "7. Medicines that must stay cold"
+  },
+  {
+   "t": "p",
+   "text": "Some medicines, especially injections, must be kept cold. The pharmacy packs them to stay cold while they travel, for example in insulated packaging with cold packs. [VERIFY: cold packaging by pharmacy] Your label tells you whether your medicine must be refrigerated. Follow your label.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "Bring the package inside the day it arrives. Do not leave it on a porch, in a car, in a garage or in a mailbox.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "If your label says to refrigerate, put the medication in the refrigerator right away.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "If your label says to refrigerate and the package feels warm, the cold packs are no longer cold, or the package was left in heat or sun, do not use the medication. Contact the pharmacy and [SUPPORT EMAIL] before you use it. The pharmacy decides whether it is still safe to use. Do not decide for yourself because it looks fine.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "If the medication arrives frozen, cloudy, discolored or with particles in it, do not use it. Contact the pharmacy.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not assume storage rules from an earlier shipment, another pharmacy or a different medicine apply. Your current label controls.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Keep medication, needles and syringes out of reach of children and pets.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "8. When your package arrives"
+  },
+  {
+   "t": "ol",
+   "items": [
+    "Bring it inside and open it the same day.",
+    "Check the label: your name, the medication name, the strength, the directions, the pharmacy name and the date by which to use it.",
+    "Check the package: the seal is not broken, nothing is leaking or cracked, and nothing is missing (such as needles or syringes, if they come with your medication).",
+    "Check the temperature as described in Section 7.",
+    "Store the medication the way your label says.",
+    "If anything is wrong, do not use the medication. Take photos of the label, the package and the shipping label, and contact the pharmacy and [SUPPORT EMAIL] within [48 hours].",
+    "Keep the packaging until you are sure everything is right."
+   ]
+  },
+  {
+   "t": "p",
+   "text": "Your prescription label and the pharmacy’s instructions always come first. For dosing and storage safety, read the safety information for your treatment: GLP-1 Medication Safety Information and Acknowledgment; Sexual Health Medication Safety Information and Acknowledgment; Hair Loss Medication Safety Information and Acknowledgment; or Healthy Aging and Vitality Medication Safety Information and Acknowledgment.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "9. Delays, backorders and shortages"
+  },
+  {
+   "t": "p",
+   "text": "Your order can be delayed if the pharmacy is busy, an ingredient is short, a carrier is late, the weather is bad, there is a problem with your address, your clinician needs information from you, or a payment did not go through. The pharmacy or WellPeps will tell you if your order is delayed.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "If a medication is on backorder, you can wait, ask your clinician whether another option is right for you (your clinician decides), or cancel and receive a full refund of the order that was not filled. See the Refund, Cancellation and Auto-Renewal Policy, Section 5.5.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "If your order has not shipped within [14 days] after we charged you, you can cancel it and receive a full refund.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "If you are about to run out because of a delay, message your clinician in the patient portal. Do not stretch, skip or change doses on your own, and do not use medicine from another source.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "10. Your address"
+  },
+  {
+   "t": "li",
+   "text": "Give us a complete, accurate address and a phone number the carrier can use. We may check your address and identity before an order ships. An order may be held until we can confirm.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "To change your address, tell us right away at [SUPPORT EMAIL] or in your patient portal. We can change it only before the pharmacy ships. After that, we cannot redirect the package. You can ask the carrier to hold or redirect it, if the carrier allows.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "If you move, update your address before your next renewal. We can ship only to states we serve.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "We do not offer a pause. If you will be away, update your address to a place where you can receive and store your medication, or cancel and restart later.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "We are not responsible for a package that goes to the address you gave us, if that address was wrong or incomplete.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "11. Lost, damaged or heat-exposed packages"
+  },
+  {
+   "t": "p",
+   "text": "If your package is damaged, was exposed to heat, has a broken seal or leak, or arrives with the wrong medication, do not use it. If it does not arrive, or the carrier says it was delivered and you do not have it, follow these steps.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "ol",
+   "items": [
+    "Contact the pharmacy named on the label (or on the shipping email) and [SUPPORT EMAIL]. Do this within [48 hours] after the package arrives, or within [7 days] after the expected delivery date if it did not arrive.",
+    "Send photos of the package, the label and any damage.",
+    "Keep the original packaging and the product until the pharmacy tells you what to do. Do not mail anything back unless the pharmacy or WellPeps tells you to in writing."
+   ]
+  },
+  {
+   "t": "p",
+   "text": "The pharmacy works with the carrier to find out what happened and decides whether a product is safe to use. Your clinician confirms that a replacement is right for you. We then send a replacement at no charge or, if one cannot be sent, refund that month’s charge, as the Refund, Cancellation and Auto-Renewal Policy (Sections 5.3 and 5.4) says.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "If you have symptoms or think you used a product that was damaged or too warm, message your clinician in the patient portal, and call 911 if it is an emergency. You can also report a side effect or a product problem to FDA MedWatch at www.fda.gov/medwatch or 1-800-FDA-1088.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "12. Returns"
+  },
+  {
+   "t": "p",
+   "text": "Compounded medication generally cannot be returned, restocked or sent out again once it has shipped. State pharmacy rules generally do not allow a pharmacy to take back a dispensed prescription medicine and give it to another patient. [VERIFY: returns rule by state] For that reason we do not accept returns or exchanges because you changed your mind, had side effects, or want a different dose. Talk to your clinician about those things.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**Who decides what:**",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "Whether a medication is safe to use or must be replaced: the dispensing pharmacy.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Whether a replacement or a different medication is right for you: your clinician.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Whether you are due a refund: WellPeps, under the Refund, Cancellation and Auto-Renewal Policy.",
+   "level": 0
+  },
+  {
+   "t": "p",
+   "text": "If you are asked to send a product back, the pharmacy or WellPeps will tell you in writing how to do it. Do not mail medication to WellPeps.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "13. Needles, syringes and disposal"
+  },
+  {
+   "t": "p",
+   "text": "If your treatment includes injections, put used needles and syringes in a sharps container right away. Do not throw loose needles in household trash. Rules for throwing away sharps differ by state and city, and some places do not allow sharps in household trash at all. [VERIFY: sharps disposal rules by state] Ask your pharmacy or your local health department where to get a sharps container and where to drop it off. For injection and disposal safety, read the GLP-1 Medication Safety Information and Acknowledgment. For unused or expired medication, ask your pharmacy about take-back options. Do not share it with anyone.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "14. Recalls and safety notices"
+  },
+  {
+   "t": "p",
+   "text": "If a product you received is recalled, the pharmacy or WellPeps will contact you at the email address on your account. Do not use a recalled product. Keep your contact details current so we can reach you.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "15. Your responsibilities"
+  },
+  {
+   "t": "li",
+   "text": "Give us an accurate address and keep it current.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Be available to receive your package, or choose an address where someone is.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Bring the package inside promptly and store the medication as your label says.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Check your order when it arrives and report a problem within the time in this policy.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Use medication only as your clinician and label direct, and never share it.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Order ahead. Do not wait until you run out.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "16. Contact us"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Topic",
+     "Where to go"
+    ],
+    [
+     "Orders, shipping, billing, address changes",
+     "[SUPPORT EMAIL]. Monday to Friday, 9 am to 6 pm Eastern Time. Or send a message in your patient portal at [PORTAL URL]."
+    ],
+    [
+     "Phone",
+     "[SUPPORT PHONE AND HOURS, ONLY IF LIVE]"
+    ],
+    [
+     "Mail",
+     "WellPeps, a Wyoming corporation, [BUSINESS ADDRESS]"
+    ],
+    [
+     "Ingredients, strength, preparation, storage, how long it is good for",
+     "The pharmacy named on your label."
+    ],
+    [
+     "Medical questions or side effects",
+     "Message your clinician in the patient portal. Support cannot answer medical questions."
+    ],
+    [
+     "Emergency or possible overdose",
+     "Call 911. For a possible overdose or wrong dose, you can also call Poison Control at 1-800-222-1222."
+    ]
+   ],
+   "widths": [
+    2,
+    3.6
+   ],
+   "header": true,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "**Related documents.** Refund, Cancellation and Auto-Renewal Policy. Patient Terms of Service and Payment Agreement. States We Serve. Compounded Medication Disclosure and Consent. The safety information for your treatment (Section 8). **Changes.** We will post changes here with a new date.",
+   "italic": false,
+   "align": null
+  }
+ ],
+ "id": "A9",
+ "docTitle": "Shipping and Delivery Policy",
+ "source": "shipping_delivery.py",
+ "reviewerNotesOmittedBlocks": 3
+}

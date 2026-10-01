@@ -1,0 +1,821 @@
+{
+ "title": "Website Terms of Use",
+ "version": "0.1",
+ "date": "October 1, 2026",
+ "blocks": [
+  {
+   "t": "p",
+   "text": "**Effective date:** [EFFECTIVE DATE]   |   **Last updated:** [EFFECTIVE DATE]   |   **Version:** [VERSION]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**Plain-language summary.** This summary is only a guide. The full Terms below are what count.\n• wellpeps.com is for information and education. It is not medical advice. WellPeps is not your doctor or a pharmacy.\n• Licensed clinicians at an independent medical practice make every medical decision. Treatment needs a prescription, and a prescription is not guaranteed.\n• Do not use the Site or the assistant in an emergency. Call 911.\n• You may use the Site for yourself. Please do not copy it or use it for a business.\n• If you start a health assessment or become a patient, a separate agreement covers payment and care: the Patient Terms of Service and Payment Agreement.\n• If we have a dispute, we first try to work it out. If we cannot, it goes to individual arbitration, not a class action, unless you opt out within 30 days (Section 18).",
+   "kind": "info"
+  },
+  {
+   "t": "callout",
+   "text": "**In an emergency, call 911.** The Site and the assistant are not for medical emergencies. If you may harm yourself, call or text 988 (Suicide and Crisis Lifeline).",
+   "kind": "warning"
+  },
+  {
+   "t": "h1",
+   "text": "1. About these Terms"
+  },
+  {
+   "t": "clause",
+   "number": "1.1",
+   "heading": "Who we are.",
+   "text": "These Website Terms of Use (the “Terms”) are an agreement between you and WellPeps, a Wyoming corporation (“WellPeps,” “we,” “us” or “our”). They cover your use of wellpeps.com and everything on it: our pages, Learning Center articles, eBooks and guides, sign-up forms and the virtual assistant (together, the “Site”).",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "1.2",
+   "heading": "What these Terms do not cover.",
+   "text": "These Terms do not cover medical care, the patient portal, orders or payments. If you start a health assessment or become a patient, Section 10 explains which terms apply to those things.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "1.3",
+   "heading": "How to read these Terms.",
+   "text": "Headings are only for convenience. “Including” means “including but not limited to.”",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "2. Accepting these Terms and who may use the Site"
+  },
+  {
+   "t": "clause",
+   "number": "2.1",
+   "heading": "Acceptance.",
+   "text": "By using the Site, you agree to these Terms. You show that you agree by using the Site after seeing the link to these Terms in the footer of every page, or by checking a box or submitting a form that links to them. If you do not agree, please do not use the Site.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "2.2",
+   "heading": "Adults only.",
+   "text": "You must be 18 or older (or older if the age of adulthood where you live is higher) and able to form a binding contract. The Site is not directed to children, and we do not knowingly collect information from them.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "2.3",
+   "heading": "United States.",
+   "text": "The Site is run from the United States and is meant for people located in the United States. Treatment is available only in some states. The States We Serve page lists them ([STATES SERVED]).",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "3. What the Site is, and what it is not"
+  },
+  {
+   "t": "clause",
+   "number": "3.1",
+   "heading": "Information and education only.",
+   "text": "The Site gives general information and education about health and wellness topics and about the services offered through WellPeps. It is not medical advice, diagnosis or treatment. It does not take into account your health history, your other medicines or your personal situation. Our Medical Disclaimer applies to everything on the Site.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "3.2",
+   "heading": "We are not a medical provider.",
+   "text": "WellPeps is not a medical practice or a pharmacy. We do not practice medicine, prescribe, compound or dispense medication, and we do not tell clinicians what to decide. Using the Site, reading our content or asking the assistant a question does not create a doctor-patient or other clinician-patient relationship with anyone.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "3.3",
+   "heading": "Independent clinicians and pharmacies.",
+   "text": "Medical services are provided by licensed clinicians of an independent medical practice. Medication is prepared and shipped by independent, state-licensed pharmacies. Each is solely responsible for its own services and decisions. How we work together is explained in How WellPeps Works.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "3.4",
+   "heading": "Prescription required.",
+   "text": "Any treatment mentioned on the Site requires a prescription. A licensed clinician decides whether treatment is medically appropriate for you, and a prescription is not guaranteed. Some medicines are compounded. Compounded medicines are not FDA-approved, and FDA does not review them for safety, effectiveness or quality before they are sold. Availability varies by state.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "3.5",
+   "heading": "Emergencies.",
+   "text": "Do not use the Site for a medical emergency. Call 911 or go to the nearest emergency room. For a mental health crisis, call or text 988.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "3.6",
+   "heading": "See your own clinician.",
+   "text": "Talk with your own clinician or pharmacist about your health and your medicines, and before you start, change or stop any treatment. Please do not ignore professional advice or delay getting care because of something you read on the Site.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "4. Learning Center articles and eBooks"
+  },
+  {
+   "t": "clause",
+   "number": "4.1",
+   "heading": "General education.",
+   "text": "Learning Center articles and our eBooks and guides are written for a general audience. They are not written for you, and they are not a substitute for care from a licensed clinician. Each article also carries a medical disclaimer.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "4.2",
+   "heading": "They can be out of date.",
+   "text": "Health information changes. We try to keep our content current, but we do not promise that it is complete, current or accurate in every detail. Your medicine label, current FDA information and your clinician’s instructions come before anything on the Site.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "4.3",
+   "heading": "Mentions of medicines and ingredients.",
+   "text": "An article may discuss a medicine, ingredient or treatment. That is not an offer to treat you, a statement that it is available through WellPeps, a statement that it is right for you, or a recommendation. If an article says that a clinician reviewed it, that review does not make the article medical advice for you.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "4.4",
+   "heading": "eBooks and guides.",
+   "text": "When you request an eBook or guide, we email it to the address you give us. We give you a personal, non-commercial license to read it and keep one copy for yourself. Please do not post, sell, share or change it. We may change or withdraw an eBook or guide at any time.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "5. The WellPeps assistant"
+  },
+  {
+   "t": "clause",
+   "number": "5.1",
+   "heading": "What it is.",
+   "text": "The Site has a virtual assistant (the “assistant”) that answers general questions about WellPeps and our articles. It is automated. It is not a person, a clinician or a pharmacist. Our AI Use Disclosure explains how we use artificial intelligence and other automated tools.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "5.2",
+   "heading": "What it can and cannot do.",
+   "text": "The assistant gives answers drawn from our articles and program information. It does not give medical advice, does not diagnose, does not tell you whether a treatment is right for you, and cannot start, change or cancel any treatment, order or payment. Its answers can be incomplete, out of date or wrong. Please check anything important with a clinician, a pharmacist or the original source.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "5.3",
+   "heading": "Not for emergencies.",
+   "text": "The assistant is not designed to recognize or respond to emergencies. If you think you are having an emergency, call 911.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "5.4",
+   "heading": "Please do not share sensitive information.",
+   "text": "Do not type health details about yourself, payment card numbers, Social Security numbers or passwords into the assistant. To share health information with a clinician, use the patient portal. On the date of these Terms, the assistant runs in your web browser and does not send your questions to our servers [VERIFY: assistant data handling]. If that changes, we will update these Terms, the Privacy Policy and the AI Use Disclosure before it does.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "5.5",
+   "heading": "Reaching a person.",
+   "text": "To reach a person, email [SUPPORT EMAIL]. For a clinical question, message your clinician in the patient portal.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "6. Results, reviews and customer stories"
+  },
+  {
+   "t": "clause",
+   "number": "6.1",
+   "heading": "No promise of results.",
+   "text": "We do not promise any result. People respond differently to the same treatment, and many things affect results, including health history, other conditions and medicines, and how closely a clinician’s instructions are followed.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "6.2",
+   "heading": "Reviews and stories.",
+   "text": "If the Site includes a review, testimonial or story from a customer or another person, it is that person’s own experience and opinion. It does not mean you will have the same experience, and it is not a statement by a clinician. If the person was paid, or received money, a product or another benefit, we will say so next to what they said [VERIFY: testimonial policy].",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "6.3",
+   "heading": "Your honest opinion.",
+   "text": "Nothing in these Terms stops you from sharing your honest opinion or review of WellPeps, anywhere.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "7. Our content and your license"
+  },
+  {
+   "t": "clause",
+   "number": "7.1",
+   "heading": "Who owns what.",
+   "text": "The Site and everything on it, including text, articles, eBooks, images, graphics, logos, design, software and the way they are selected and arranged (together, “WellPeps Content”), belong to WellPeps or its licensors and are protected by copyright, trademark and other laws. Some content belongs to other people, who keep their rights.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "7.2",
+   "heading": "Your license.",
+   "text": "If you follow these Terms, we give you a limited, personal, non-exclusive, non-transferable, revocable license to view the Site and to print or save a copy of an article or guide for your own personal, non-commercial use. We keep all other rights.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "7.3",
+   "heading": "What you may not do.",
+   "text": "You may not:",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "copy, republish, sell, rent, license or use WellPeps Content for a business or for any commercial purpose;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "remove or hide any copyright, trademark or other notice;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "use WellPeps Content to train a machine learning or artificial intelligence model;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "scrape, crawl or harvest the Site by automated means, other than ordinary search-engine indexing that follows our robots.txt file;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "frame or mirror the Site, or link to it in a way that suggests we endorse you; or",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "use our name, logo or content to suggest that you are us, or that we are connected with you.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "7.4",
+   "heading": "Trademarks.",
+   "text": "“WellPeps,” our logos and our other marks on the Site belong to us or our licensors. You may not use them without our written permission. Other names, including medicine names, belong to their owners. Using them on the Site does not mean the owner endorses us or is connected with us.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "7.5",
+   "heading": "Feedback.",
+   "text": "If you send us ideas or suggestions about the Site, we may use them without owing you anything. Please do not send us health information this way. Use the patient portal for that.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "7.6",
+   "heading": "Copyright concerns.",
+   "text": "If you believe something on the Site infringes your copyright, email [SUPPORT EMAIL] with a description of your work, where it appears on the Site, your contact details and a statement that you believe in good faith that the use is not authorized. We will review it and respond.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "8. Using the Site responsibly"
+  },
+  {
+   "t": "clause",
+   "number": "8.1",
+   "heading": "Please do not:",
+   "text": "",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "use the Site for anything unlawful, or in a way that harms other people;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "give false information in a form or to the assistant, or pretend to be someone else;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "try to get into parts of the Site, the patient portal or our systems that you are not allowed into, or test their security without our written permission;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "interfere with the Site, for example by overloading it, adding malicious code or getting around its protections;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "collect other people’s information from the Site; or",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "use the Site to send spam or to advertise to others.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "8.2",
+   "heading": "What we may do.",
+   "text": "We may look into suspected violations, remove content, block access, and report unlawful activity to the authorities.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "9. Sign-ups: newsletter, eBook requests and waitlists"
+  },
+  {
+   "t": "clause",
+   "number": "9.1",
+   "heading": "What we collect.",
+   "text": "When you sign up for our newsletter, request an eBook or guide, or join a waitlist for a service that is not yet available, we collect your email address and, on some forms, your first name. Our Privacy Policy explains how we use it. Please do not put health information in these forms.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "9.2",
+   "heading": "Emails.",
+   "text": "By submitting a form, you agree to receive emails from WellPeps of the kind described on the form, such as the eBook you asked for, our newsletter or updates about the waitlist. Every marketing email has an unsubscribe link. You can also unsubscribe by emailing [SUPPORT EMAIL]. We will stop sending marketing emails within 10 business days. We may still send you messages about your requests, or about changes to our legal terms and policies.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "9.3",
+   "heading": "No text messages.",
+   "text": "A sign-up form on the Site does not sign you up for text messages. We do not currently send marketing text messages, and we will not start unless you give us separate permission. If you agree to receive text messages from us, the Text Messaging Terms apply.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "9.4",
+   "heading": "A waitlist is not a promise.",
+   "text": "Joining a waitlist does not mean a service will launch, will be available in your state or will be right for you. It does not start a patient relationship.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "10. Starting a health assessment and the patient portal"
+  },
+  {
+   "t": "clause",
+   "number": "10.1",
+   "heading": "Leaving the Site.",
+   "text": "When you choose to start a health assessment, or sign in as a patient, you move to our patient portal at [PORTAL URL] (the “portal”), which runs on our technology platform.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "10.2",
+   "heading": "Separate terms apply there.",
+   "text": "Before you can continue, you will be asked to accept the Patient Terms of Service and Payment Agreement, and other documents such as the Informed Consent to Telehealth Services and Treatment and the Electronic Records, Signatures and Communications Consent. Those documents, not these Terms, govern the portal, your orders, your payments and your care. If these Terms and those documents conflict about any of those things, those documents control.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "10.3",
+   "heading": "Prices and availability.",
+   "text": "Information on the Site about treatments and prices is a summary. The price shown at checkout, and the terms you accept there, control. Treatment is available only if a licensed clinician decides it is appropriate for you, and only in the states on the States We Serve page. A treatment shown as “Opening Soon” cannot be started yet.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "10.4",
+   "heading": "Payments and refunds.",
+   "text": "If you start a health assessment, the Patient Terms of Service and Payment Agreement and the Refund, Cancellation and Auto-Renewal Policy explain what you pay, when you are charged and when you get a refund, including if a clinician decides not to prescribe.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "11. Links to other sites and services"
+  },
+  {
+   "t": "clause",
+   "number": "11.1",
+   "heading": "Others’ sites.",
+   "text": "The Site may link to websites, services or content run by other people, such as pharmacies, laboratories, social media and news sources, and may load resources from other companies, such as fonts. We do not control them and are not responsible for them. A link is not an endorsement. Their own terms and privacy practices apply when you use them. The Cookie and Tracking Technologies Notice explains what third-party resources the Site loads.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "12. Privacy"
+  },
+  {
+   "t": "clause",
+   "number": "12.1",
+   "heading": "Our privacy documents.",
+   "text": "The Privacy Policy, the Consumer Health Data Privacy Policy, the Cookie and Tracking Technologies Notice and the Your Privacy Choices page explain what we collect on the Site, why, who sees it and what choices you have. They are part of these Terms to the extent they describe how we handle information collected on the Site.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "12.2",
+   "heading": "No health information through the Site.",
+   "text": "The Site is not set up to receive health information. Please do not send health information through forms, the assistant or email. Email is not a secure way to send it. Use the patient portal. The Notice of Privacy Practices explains how health information in the portal is protected.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "13. Accuracy, availability and warranty disclaimer"
+  },
+  {
+   "t": "clause",
+   "number": "13.1",
+   "heading": "Accuracy.",
+   "text": "We try to be accurate, but the Site may contain errors, including in descriptions and prices. If a price on the Site differs from the price shown at checkout, the checkout price controls, and you do not have to buy.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "13.2",
+   "heading": "Availability and changes.",
+   "text": "We may change, suspend or remove any part of the Site, or any treatment or feature shown on it, at any time. The Site may be unavailable from time to time, for example for maintenance or because of problems outside our control.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "13.3",
+   "heading": "No warranties.",
+   "text": "TO THE EXTENT THE LAW ALLOWS, THE SITE AND ITS CONTENT ARE PROVIDED “AS IS” AND “AS AVAILABLE.” WE DO NOT MAKE ANY PROMISE, EXPRESS OR IMPLIED, ABOUT THE SITE OR ITS CONTENT, INCLUDING THAT IT IS ACCURATE, COMPLETE, CURRENT, UNINTERRUPTED OR WITHOUT ERRORS, THAT IT IS FIT FOR A PARTICULAR PURPOSE, OR THAT IT DOES NOT INFRINGE ANYONE’S RIGHTS. WE DO NOT PROMISE ANY HEALTH OUTCOME. SOME STATES DO NOT ALLOW CERTAIN PROMISES TO BE DISCLAIMED, SO PART OF THIS SECTION MAY NOT APPLY TO YOU. NOTHING IN THIS SECTION AFFECTS ANY RIGHT YOU HAVE UNDER THE PATIENT TERMS OF SERVICE AND PAYMENT AGREEMENT, OR ANY RIGHT THAT THE LAW DOES NOT ALLOW US TO DISCLAIM.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "14. Limits on our liability"
+  },
+  {
+   "t": "clause",
+   "number": "14.1",
+   "heading": "Limits.",
+   "text": "TO THE EXTENT THE LAW ALLOWS, WELLPEPS AND ITS OFFICERS, DIRECTORS, EMPLOYEES AND AGENTS WILL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY OR PUNITIVE DAMAGES, OR FOR LOST PROFITS, LOST DATA OR LOSS OF GOODWILL, ARISING FROM YOUR USE OF, OR INABILITY TO USE, THE SITE. OUR TOTAL LIABILITY FOR ALL CLAIMS ABOUT THE SITE WILL NOT BE MORE THAN THE GREATER OF [US $100] AND THE AMOUNT YOU PAID FOR WELLPEPS SERVICES IN THE 12 MONTHS BEFORE THE CLAIM AROSE.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "14.2",
+   "heading": "What these limits do not cover.",
+   "text": "THESE LIMITS DO NOT APPLY TO DEATH OR PERSONAL INJURY CAUSED BY OUR NEGLIGENCE, TO FRAUD OR WILLFUL MISCONDUCT, OR TO ANY LIABILITY THAT THE LAW DOES NOT ALLOW US TO LIMIT. SOME STATES DO NOT ALLOW THE EXCLUSION OR LIMITATION OF CERTAIN DAMAGES, SO PART OF THIS SECTION MAY NOT APPLY TO YOU.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "14.3",
+   "heading": "Others are separate.",
+   "text": "This Section 14 limits only the liability of WellPeps. It does not limit what a clinician, a medical practice, a pharmacy or anyone else may owe you for their own services or products, and it does not waive any claim you may have against them.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "14.4",
+   "heading": "If you become a patient.",
+   "text": "If you become a patient, the limits on liability in the Patient Terms of Service and Payment Agreement apply to the services covered by that agreement instead of this Section 14.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "15. If you cause us a loss"
+  },
+  {
+   "t": "clause",
+   "number": "15.1",
+   "heading": "Reimbursement.",
+   "text": "To the extent the law allows, you agree to reimburse WellPeps for losses, costs and reasonable attorneys’ fees that we have to pay to someone else because you broke these Terms (for example, by misusing the Site or infringing someone’s rights) or broke the law while using the Site. You do not have to reimburse us to the extent we caused the loss, or for any claim about your own health or treatment. Some states limit clauses like this, so it may not apply to you.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "16. Changes to these Terms"
+  },
+  {
+   "t": "clause",
+   "number": "16.1",
+   "heading": "Updates.",
+   "text": "We may update these Terms. We post the updated version on the Site with a new “Last updated” date and version number.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "16.2",
+   "heading": "Material changes.",
+   "text": "For a material change, we will post a notice on the Site at least [30] days before the change takes effect and, if you are on our email list, we may also email you. If you use the Site after the change takes effect, you accept the updated Terms. If you do not accept, please stop using the Site.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "16.3",
+   "heading": "Fairness.",
+   "text": "A change does not apply to a dispute you told us about before the change took effect. A change to Section 18 also follows Section 18.9.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "16.4",
+   "heading": "Patient terms.",
+   "text": "Changes to the Patient Terms of Service and Payment Agreement follow the rules in that agreement, not this Section 16.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "17. Ending your access"
+  },
+  {
+   "t": "clause",
+   "number": "17.1",
+   "heading": "You can stop at any time.",
+   "text": "You can stop using the Site at any time. To stop emails, see Section 9.2.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "17.2",
+   "heading": "We may suspend or block access.",
+   "text": "We may suspend or block your access if you break these Terms, if the law requires it, or to protect the Site, WellPeps or other people. Ending your access to the Site does not cancel a plan. To cancel a plan, follow the Refund, Cancellation and Auto-Renewal Policy.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "17.3",
+   "heading": "What continues.",
+   "text": "Sections that by their nature should continue after your access ends (including Sections 7, 13, 14, 15, 18, 19 and 22) continue.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "18. Resolving disputes"
+  },
+  {
+   "t": "callout",
+   "text": "**Please read this Section.** It says that disputes between you and WellPeps about the Site are decided by individual arbitration, not by a judge or jury and not in a class action, unless you opt out within 30 days (Section 18.7).",
+   "kind": "note"
+  },
+  {
+   "t": "clause",
+   "number": "18.1",
+   "heading": "Talk to us first.",
+   "text": "If you have a problem with the Site, email [SUPPORT EMAIL] with your name, the email address you used with us, a description of the problem and what you would like us to do. We will try in good faith to resolve it within 30 days. Please do this before you start arbitration or a court case, other than small claims.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "18.2",
+   "heading": "Individual arbitration.",
+   "text": "If we cannot resolve a dispute informally, you and WellPeps agree that any dispute between you and WellPeps about the Site or these Terms will be decided by binding arbitration on an individual basis, instead of in court before a judge or jury. The arbitration will be run by the American Arbitration Association (AAA) under its Consumer Arbitration Rules, which are at www.adr.org. The Federal Arbitration Act governs this Section 18. The arbitrator must follow the law and these Terms and may award any individual relief a court could.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "18.3",
+   "heading": "What is not covered.",
+   "text": "This Section 18 does not apply to:",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "(a)",
+   "heading": null,
+   "text": "a claim that either of us brings in small claims court, if it qualifies;",
+   "level": 1
+  },
+  {
+   "t": "clause",
+   "number": "(b)",
+   "heading": null,
+   "text": "a claim by either of us asking a court to stop misuse of intellectual property or unauthorized access to computer systems;",
+   "level": 1
+  },
+  {
+   "t": "clause",
+   "number": "(c)",
+   "heading": null,
+   "text": "a claim against anyone other than WellPeps, such as a clinician, a medical practice or a pharmacy, which is governed by that person’s own terms and by law;",
+   "level": 1
+  },
+  {
+   "t": "clause",
+   "number": "(d)",
+   "heading": null,
+   "text": "a claim or request for relief that applicable law does not allow to be arbitrated or waived, including a request for public injunctive relief where state law does not allow it to be waived [VERIFY: public injunctive relief]; or",
+   "level": 1
+  },
+  {
+   "t": "clause",
+   "number": "(e)",
+   "heading": null,
+   "text": "a dispute covered by the Patient Terms of Service and Payment Agreement, which has its own dispute section.",
+   "level": 1
+  },
+  {
+   "t": "clause",
+   "number": "18.4",
+   "heading": "How the arbitration works.",
+   "text": "The arbitration may be held by phone, by video, on written documents, or in person at a place reasonably convenient to you, as the AAA Consumer Arbitration Rules provide. If your claim is for [US $10,000] or less, WellPeps will pay all AAA filing, administrative and arbitrator fees. For a larger claim, the AAA Consumer Arbitration Rules decide who pays, but you will not have to pay more than you would pay to file the claim in court. Each of us pays our own lawyers and experts unless the law or the AAA rules give a right to recover them.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "18.5",
+   "heading": "No class actions.",
+   "text": "You and WellPeps each agree to bring claims only on an individual basis, and not as a plaintiff or class member in any class, collective, consolidated or representative action or arbitration. The arbitrator may not combine more than one person’s claims, may not preside over any class or representative proceeding, and may award relief only to the person who brought the claim and only as needed for that person’s own claim.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "18.6",
+   "heading": "If the class waiver does not hold.",
+   "text": "If a court finds that Section 18.5 cannot be enforced for a claim or a request for relief, that claim or request (and only that one) will go to court, and the court will pause it until the arbitration of the remaining claims is finished. If a court finds that this Section 18 as a whole cannot be enforced, the dispute will be decided in court under Section 19.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "18.7",
+   "heading": "You can opt out.",
+   "text": "You may opt out of arbitration and the class waiver in this Section 18. To do so, within 30 days after you first accept these Terms (the first time you use the Site after the effective date), email [SUPPORT EMAIL] with the subject line “Arbitration Opt-Out,” your name, the email address you use with us and a clear statement that you want to opt out. You may instead mail the same notice to [BUSINESS ADDRESS]. Opting out does not change any other part of these Terms. It also does not opt you out of the dispute section of any other WellPeps agreement, such as the Patient Terms of Service and Payment Agreement, unless your notice says so. If you opt out, Section 19.2 decides where a dispute is heard.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "18.8",
+   "heading": "Rights that cannot be waived.",
+   "text": "Nothing in these Terms waives any right that the law of your state does not allow to be waived, and nothing stops you from filing a complaint with, or taking part in an investigation by, a government agency such as your state attorney general or the Federal Trade Commission.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "18.9",
+   "heading": "Changes to this Section.",
+   "text": "If we change this Section 18 in the future, the change will not apply to a dispute you have already told us about, and you may opt out of the change by following Section 18.7 within 30 days after we post it.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "19. Governing law and where cases are heard"
+  },
+  {
+   "t": "clause",
+   "number": "19.1",
+   "heading": "Governing law.",
+   "text": "Wyoming law and applicable federal law govern these Terms and any dispute between you and WellPeps, without regard to conflict-of-law rules, except that the Federal Arbitration Act governs Section 18. A consumer protection law of the state where you live that cannot be waived by contract still applies to you.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "19.2",
+   "heading": "Court cases.",
+   "text": "If a dispute is not arbitrated (for example, because you opted out or the claim is not covered), it will be heard only in a state or federal court located in [COUNSEL: VENUE], and you and WellPeps consent to that court’s jurisdiction. A small claims case may be brought in the small claims court for your county. If the law of your state requires that a consumer be sued where the consumer lives, we will follow that law.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "20. California residents"
+  },
+  {
+   "t": "clause",
+   "number": "20.1",
+   "heading": "Consumer complaints.",
+   "text": "[VERIFY: CA notice. Insert the notice that California Civil Code section 1789.3 requires, including the current mailing address and telephone number of the Complaint Assistance Unit of the Division of Consumer Services of the California Department of Consumer Affairs. Counsel to confirm the text.]",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "20.2",
+   "heading": "Privacy and AI notices.",
+   "text": "California residents can find information about their privacy rights in the Privacy Policy and on the Your Privacy Choices page, and about our use of artificial intelligence in the AI Use Disclosure.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "21. Notices"
+  },
+  {
+   "t": "clause",
+   "number": "21.1",
+   "heading": "Notices to you.",
+   "text": "We may give you notice by posting it on the Site or by emailing the address you gave us. An email notice counts as given when we send it.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "21.2",
+   "heading": "Notices to us.",
+   "text": "Email [SUPPORT EMAIL] (or [PRIVACY EMAIL] for privacy requests), or write to WellPeps at [BUSINESS ADDRESS]. A notice about a legal claim should be sent by email with a copy by mail.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "22. General terms"
+  },
+  {
+   "t": "clause",
+   "number": "22.1",
+   "heading": "Whole agreement.",
+   "text": "These Terms, together with the documents they refer to, are the entire agreement between you and WellPeps about the Site, and they replace any earlier version.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "22.2",
+   "heading": "If part is unenforceable.",
+   "text": "If a court finds part of these Terms unenforceable, the rest stays in effect, except as Section 18.6 says.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "22.3",
+   "heading": "No waiver.",
+   "text": "If we do not enforce a part of these Terms right away, we have not given up our right to do so later.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "22.4",
+   "heading": "Transfers.",
+   "text": "You may not transfer these Terms to anyone else. We may transfer them to a company that buys or merges with us or acquires the Site, and we will post notice if we do.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "22.5",
+   "heading": "Independent parties.",
+   "text": "These Terms do not make you and WellPeps partners, employees or agents of each other. No one other than you and WellPeps has a right to enforce these Terms.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "22.6",
+   "heading": "Electronic communications.",
+   "text": "You agree that we may give you these Terms and notices electronically. For patient documents, see the Electronic Records, Signatures and Communications Consent.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "22.7",
+   "heading": "Events beyond our control.",
+   "text": "We are not responsible for a delay or failure caused by events beyond our reasonable control.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "23. Contact us"
+  },
+  {
+   "t": "p",
+   "text": "WellPeps, a Wyoming corporation",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "[BUSINESS ADDRESS]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Email: [SUPPORT EMAIL]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Privacy requests: [PRIVACY EMAIL]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "[SUPPORT PHONE AND HOURS, ONLY IF LIVE]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Support hours: Monday to Friday, 9 a.m. to 6 p.m. Eastern Time",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "WellPeps support cannot answer clinical questions or give medical advice. If you are a patient, message your clinician in the patient portal. In an emergency, call 911.",
+   "italic": false,
+   "align": null
+  }
+ ],
+ "id": "A1",
+ "docTitle": "Website Terms of Use",
+ "source": "website_terms_of_use.py",
+ "reviewerNotesOmittedBlocks": 3
+}

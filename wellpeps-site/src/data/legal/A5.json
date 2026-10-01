@@ -1,0 +1,640 @@
+{
+ "title": "Your Privacy Choices",
+ "version": "0.1",
+ "date": "October 1, 2026",
+ "blocks": [
+  {
+   "t": "h1",
+   "text": "Part 1. Page copy (publish at /your-privacy-choices)"
+  },
+  {
+   "t": "h1",
+   "text": "Your Privacy Choices"
+  },
+  {
+   "t": "p",
+   "text": "**Effective date:** [EFFECTIVE DATE]  |  **Version:** [VERSION]  |  **Last updated:** [LAST UPDATED]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "You decide how WellPeps uses your information. This page lists your choices and shows how to use them. It applies to everyone in the United States, whatever state you live in.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**Where things stand today**\nwellpeps.com does not sell your personal information and does not share it for targeted advertising. It does not use analytics or advertising tools, so there is nothing to switch off. [VERIFY: confirm for portal.wellpeps.com and checkout, Open item 6.] You can still use every other choice on this page. If we ever add a tool that is not essential, this page will get a working control before that tool turns on.",
+   "kind": "info"
+  },
+  {
+   "t": "h2",
+   "text": "1. Your choices at a glance"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Your choice",
+     "What it does",
+     "How to use it"
+    ],
+    [
+     "Opt out of sale, sharing and targeted advertising",
+     "Stops any sale of your information, any sharing for cross-context behavioral advertising and any targeted advertising.",
+     "We do none of these today. If that changes, you will find a switch on this page before any such tool turns on, and a Global Privacy Control signal will count as your choice."
+    ],
+    [
+     "Limit the use of your sensitive information",
+     "We use your health information only to provide the services you asked for.",
+     "Tell us in Section 5 and we will record your choice and honor it."
+    ],
+    [
+     "Withdraw consent",
+     "Takes back a consent you gave us to collect or share health-related information.",
+     "Section 6."
+    ],
+    [
+     "Unsubscribe from marketing email",
+     "Stops marketing email. We do not send marketing text messages.",
+     "Use the link at the bottom of any email, or Section 2."
+    ],
+    [
+     "Access, correct, delete or get a copy of your information",
+     "Shows what we hold, fixes it, deletes it or gives you a portable copy.",
+     "Section 7."
+    ],
+    [
+     "Appeal a decision",
+     "Asks us to look again if we said no.",
+     "Section 7."
+    ]
+   ],
+   "widths": [
+    1.6,
+    2.5,
+    2.8
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h2",
+   "text": "2. How to make a request"
+  },
+  {
+   "t": "p",
+   "text": "Use any of these:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "Use the **Your Privacy Choices** page on wellpeps.com.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Email [PRIVACY EMAIL].",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Use our web form: [PRIVACY REQUEST WEBFORM].",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Write to WellPeps, Attn: Privacy, [BUSINESS ADDRESS].",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "By phone: [SUPPORT PHONE AND HOURS, ONLY IF LIVE] (delete this line unless a staffed line exists; no phone line is live today).",
+   "level": 0
+  },
+  {
+   "t": "p",
+   "text": "Tell us what you want, the email address you used with us and your state. Please do not put health details in a request. You do not need an account.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**How we check it is you.** We match what you tell us with what we hold, and we may send a link to your email address. For information in the patient portal we may ask you to sign in. We do not ask for your Social Security number. Opting out, limiting, withdrawing consent and unsubscribing need less checking than access or deletion.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**How fast.** We confirm we received your request within [10 business days]. We act on opt-outs, limits, withdrawals and unsubscribes within [15 business days] (marketing email within [10 business days]). We answer access, correction, deletion and copy requests within [45 days], and we may extend once by up to [45 days] and tell you why [VERIFY: periods per state]. There is no charge.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "3. Opt out of sale, sharing and targeted advertising"
+  },
+  {
+   "t": "p",
+   "text": "Some state laws count it as a \"sale\" or \"sharing\" when a website sends your information to an advertising company, even if no money changes hands. WellPeps does not do this. We do not use advertising or analytics tools on wellpeps.com today.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Before we turn on any tool that is not essential, we will ask for your permission, build the control for it on this page, and list the tool in the Cookie and Tracking Technologies Notice. Nothing will load before you say yes.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "4. Global Privacy Control"
+  },
+  {
+   "t": "p",
+   "text": "Global Privacy Control (GPC) is a browser setting, or an extension you can add, that tells websites you want to opt out of sale, sharing and targeted advertising. Because wellpeps.com does not do any of these today, a GPC signal does not change what the site does. Before we turn on any tool that is not essential, we will build and test handling for GPC and describe it here.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "You do not need GPC to use your choices today. Use Section 2 at any time.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "5. Limit the use of your sensitive information"
+  },
+  {
+   "t": "p",
+   "text": "Health information is sensitive personal information. We use it only to provide the services you asked for, keep our systems secure, prevent fraud and meet legal duties. We do not use it for advertising. If you want us to keep our use to that and nothing more, tell us in Section 2. We will record your choice and honor it within [15 business days]. Protected health information held by the Practice is covered by the Notice of Privacy Practices.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "6. Withdraw your consent"
+  },
+  {
+   "t": "p",
+   "text": "Some health-related information is collected or shared with your consent, for example the topic of a free guide tied to your email address. You can take back that consent at any time. Use Section 2 and say which consent. We will stop the collection or sharing it covered within [15 business days]. Withdrawing does not undo what happened before. If we need the information to provide a service you asked for, we will tell you that withdrawing may end the service. To take back a permission you gave the Practice for protected health information, follow the Notice of Privacy Practices and the HIPAA Authorization Forms.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "7. Access, correct, delete, copy and appeal"
+  },
+  {
+   "t": "p",
+   "text": "You can ask to see the information we hold about you, get a portable copy, correct it or delete it. Use Section 2. We may keep what the law requires us to keep, and we will tell you what and why. Records held by the Practice are covered by the Notice of Privacy Practices.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "If we say no in whole or in part, you can appeal within [60 days]. Email [PRIVACY EMAIL] with \"Appeal\" in the subject line. A person who did not decide the first request will review it, and we will answer in writing within [45 days]. If we deny your appeal, you can contact your state attorney general. The Consumer Health Data Privacy Policy lists the offices.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "8. Authorized agents"
+  },
+  {
+   "t": "p",
+   "text": "You can ask another person to make a request for you. We will ask for your signed permission, or a power of attorney, and may confirm with you directly.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "9. No unfair treatment"
+  },
+  {
+   "t": "p",
+   "text": "We will not deny you service, charge you a different price or give you lower quality because you used a privacy choice.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "10. More information"
+  },
+  {
+   "t": "p",
+   "text": "Read the Privacy Policy, the Consumer Health Data Privacy Policy, the Cookie and Tracking Technologies Notice and the Notice of Privacy Practices. Questions: [PRIVACY EMAIL].",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**[ACTIVATION BLOCK Y-A1: WORKING CONTROL WORDING]**\n**Do not publish this block until:** Part 2 below is built and passes its tests; the Cookie and Tracking Technologies Notice block N-A1 and the Privacy Policy blocks P-A1, P-A2 and P-A3 are active; and a non-essential tool is ready to go live. It replaces Sections 3 and 4 above and the first row of the table in Section 1: move it into their place.",
+   "kind": "warning"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Element",
+     "Copy"
+    ],
+    [
+     "Banner title",
+     "Your privacy choices"
+    ],
+    [
+     "Banner text",
+     "We use a few tools that help us understand how our site is used and measure our ads. They stay off unless you say yes. Essential cookies always run. We do not use these tools on pages about specific health topics."
+    ],
+    [
+     "Banner buttons (same size, same style)",
+     "Accept all  |  Reject all  |  Choose"
+    ],
+    [
+     "Preference center heading",
+     "Choose your settings"
+    ],
+    [
+     "Essential",
+     "Always on. These keep the site working and secure. (No switch.)"
+    ],
+    [
+     "Analytics",
+     "Off unless you turn it on. Helps us count visits and improve the site. Tools: (list from Cookie notice 9.1). (Switch: Analytics)"
+    ],
+    [
+     "Advertising and sharing",
+     "Off unless you turn it on. Lets advertising companies measure our ads and show ads. Under some state laws this counts as a sale or sharing of personal information. Tools: (list from Cookie notice 9.2). (Switch: Advertising and sharing)"
+    ],
+    [
+     "Save button",
+     "Save my choices"
+    ],
+    [
+     "Saved message",
+     "Saved. Your choices apply to this browser. To apply them to your email address as well, use the request form."
+    ],
+    [
+     "GPC detected",
+     "We detected your Global Privacy Control signal. We treat it as your choice to opt out of advertising, sale and sharing, so that setting is off."
+    ],
+    [
+     "GPC conflict",
+     "Your browser's Global Privacy Control signal says opt out, but you earlier chose to allow advertising on this site. We are following your browser's signal. Do you want to allow advertising anyway?  Buttons: Allow  |  Keep it off"
+    ],
+    [
+     "Storage blocked",
+     "We could not save your choice because your browser blocks storage. We will treat analytics and advertising as off."
+    ],
+    [
+     "Withdraw",
+     "Change your privacy choices (footer link). The center has a Withdraw all button: \"Turn everything off and delete my saved choices.\""
+    ],
+    [
+     "Request received",
+     "Thank you. We sent a message to your email address to confirm it is you. We will answer within [45 days]. Your request number is (request number)."
+    ]
+   ],
+   "widths": [
+    1.4,
+    5.2
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "p",
+   "text": "**Global Privacy Control (replaces Section 4).** We honor Global Privacy Control. When your browser sends the signal, we treat it as a request to opt out of sale, sharing and targeted advertising for that browser, and for any account or email address we can connect to it. We apply it before any non-essential tool loads, and we show a message that we detected it. If the signal conflicts with a choice you made on our site, we follow the signal and may ask whether you want to opt in again.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**[END ACTIVATION BLOCK Y-A1]** When the trigger is met, delete this marker and the start marker and keep the text between them. Until then, delete the whole block before publishing.",
+   "kind": "warning"
+  },
+  {
+   "t": "h2",
+   "text": "Contact"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Privacy requests",
+     "WellPeps, a Wyoming corporation\nAttn: Privacy ([PRIVACY OFFICIAL])\n[BUSINESS ADDRESS]\nEmail: [PRIVACY EMAIL]\nWeb form: [PRIVACY REQUEST WEBFORM]"
+    ]
+   ],
+   "widths": [
+    1,
+    2.2
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "h1",
+   "text": "Part 2. Build specification for the control (engineering; do not publish)"
+  },
+  {
+   "t": "h2",
+   "text": "2.1 Purpose, scope and timing"
+  },
+  {
+   "t": "p",
+   "text": "This specification says what the privacy control must do and what it must log, so that the promises in Part 1, the Cookie and Tracking Technologies Notice and the Consumer Health Data Privacy Policy are true when a non-essential tool goes live. It has six parts: (a) the footer link and this page; (b) a consent manager (banner and preference center); (c) tag gating; (d) Global Privacy Control handling; (e) a consent log; (f) a request and appeal form with a workflow and a request log.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**Timing.** Parts (a) and (f) are needed now. Parts (b) to (e) must ship together with the first non-essential tool. No analytics, advertising or replay tool goes live without them. wellpeps.com is a static site, so the gate runs in the browser; add the server-side checks in requirements 5 and 7 if a server or edge layer is added.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "2.2 Requirements"
+  },
+  {
+   "t": "clause",
+   "number": "1.",
+   "heading": "Footer link and page.",
+   "text": "A link called \"Your Privacy Choices\" appears in the footer of every page, including the homepage, next to the Privacy Policy and Consumer Health Data Privacy Policy links. It opens this page. After activation, it also reopens the preference center from any page.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "2.",
+   "heading": "Default off.",
+   "text": "For a visitor with no stored choice, a visitor whose browser blocks storage, and a visitor who sends Global Privacy Control, no non-essential script, pixel, SDK, iframe, font, image or beacon from another company may request anything, and no resource hint (preconnect, dns-prefetch, prefetch) may point to such a host. The only allowed exception is Google Fonts until the fonts are self-hosted, and it is listed in the Cookie notice.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "3.",
+   "heading": "Banner.",
+   "text": "After the first non-essential tool exists, show the banner on a first visit. Three buttons of equal size, weight and contrast: Accept all, Reject all, Choose. No pre-checked box. It must not hide the content, must work by keyboard and screen reader, and must not reappear for [12 months] unless the notice version changes (requirement 13).",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "4.",
+   "heading": "Categories.",
+   "text": "Essential (always on, no switch), Analytics (off) and Advertising and sharing (off). Each lists its tools from the Cookie notice tables. A tool belongs to one category only. The list on screen must equal the list in the Cookie notice, checked by the inventory test in requirement 14.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "5.",
+   "heading": "Tag gating.",
+   "text": "Load every non-essential tool only through a gate that reads the stored choice. Use each vendor's consent switch where it exists (for example Google consent mode with every storage type denied by default, the Meta pixel consent revoke and grant calls, and PostHog opt-in and opt-out capture). Any server-side feed to a vendor, such as a conversions API, must check the same choice or send nothing. Never upload email addresses or hashed emails of people who signed up with a health topic to an advertiser, and never build lookalike audiences from them (HIPAA Role Determination Memo, Part 6.1). On withdrawal, stop the tool in the same session, delete its cookies and storage entries where the browser allows, and call the vendor's opt-out.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "6.",
+   "heading": "Sensitive pages.",
+   "text": "Keep a configured list of path patterns for the pages in Cookie notice Section 5. On them, advertising tools never load, and analytics loads only after the separate consent described in the Consumer Health Data Privacy Policy. Session replay, heatmaps with text capture and form-field capture are disabled everywhere, including portal.wellpeps.com if we control the setting. The build must fail if such an SDK is present or such a setting is on. Enforce the rule on client-side route changes too.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "7.",
+   "heading": "Global Privacy Control.",
+   "text": "Before any tool loads, read navigator.globalPrivacyControl in the browser and, wherever a server or edge layer handles requests, the Sec-GPC request header. If either says 1 or true, set Advertising and sharing to off, show the \"GPC detected\" message and log it. Apply it to the browser, and apply it to the account or email address as well once we can connect them [VERIFY: platform support]. If the signal conflicts with an earlier opt-in, follow the signal and offer the \"GPC conflict\" choice. Publish /.well-known/gpc.json with {\"gpc\": true, \"lastUpdate\": date} only when honoring works [VERIFY: current GPC specification].",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "8.",
+   "heading": "Saving the choice.",
+   "text": "Store it in a first-party cookie (suggested name wp_consent; Secure; SameSite=Lax; [12 months]; host-only, with no Domain attribute, so it is never sent to portal.wellpeps.com) holding the notice version, a timestamp, Analytics 0 or 1, Advertising 0 or 1, GPC 0 or 1 and a random consent ID. It is strictly necessary and must be added to the Cookie notice table when it ships. If cookies are blocked, treat every page view as no consent and show the \"Storage blocked\" message.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "9.",
+   "heading": "Fail safe.",
+   "text": "If the control fails to load or throws an error, no non-essential tool loads.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "10.",
+   "heading": "Suppression.",
+   "text": "An opt-out, limit or withdrawal received by form or email is written to a suppression list keyed to the email address. Email, advertising audiences and any server-side event feed must read the list. Remove the person from custom audiences and tell processors to do the same, within [15 business days].",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "11.",
+   "heading": "Request and appeal form.",
+   "text": "Fields: full name; email address used with WellPeps; state of residence (optional); what you want (checkboxes: opt out of sale, sharing and targeted advertising; limit sensitive information; withdraw consent; unsubscribe from marketing email; access or copy; correct; delete; appeal); details (free text with a warning not to enter health information); are you an authorized agent (if yes: agent name, email and proof of permission). Add a honeypot and rate limit. On submit: create a ticket with a request number, send an immediate acknowledgment and a verification link, and compute the due dates (confirm [10 business days]; opt-out [15 business days]; answer [45 days] with one [45 days] extension; appeal window [60 days]; appeal answer [45 days]). Send reminders before each due date. For access requests, produce a JSON or CSV export.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "12.",
+   "heading": "Accessibility and language.",
+   "text": "WCAG 2.2 AA: keyboard operation, visible focus, labels for screen readers, color contrast, readable at 200 percent zoom, respects reduced motion, works on phones. Plain language at about an 8th-grade level.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "13.",
+   "heading": "Versioning.",
+   "text": "Give the notice text, the tool list and the banner each a version. When a tool is added or a category or wording changes in meaning, bump the version and ask again.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "14.",
+   "heading": "Tests (must pass before release and on every deploy).",
+   "text": "See Section 2.4.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "15.",
+   "heading": "Build or buy.",
+   "text": "Evaluate a maintained consent platform before building. Reject any option whose vendor receives page content, form data or identifiers beyond the consent record. Record the decision.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "2.3 What it must log"
+  },
+  {
+   "t": "h3",
+   "text": "Consent event log (one row for each event)"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Field",
+     "Type",
+     "Notes"
+    ],
+    [
+     "event_id",
+     "UUID",
+     "Unique for the event."
+    ],
+    [
+     "consent_id",
+     "Random ID",
+     "The pseudonymous ID in the consent cookie. Never an email address or a device fingerprint."
+    ],
+    [
+     "occurred_at",
+     "UTC timestamp",
+     ""
+    ],
+    [
+     "action",
+     "Text",
+     "accept_all, reject_all, custom, withdraw, gpc_auto_optout, gpc_conflict_allow, gpc_conflict_keep_off, reprompt_after_expiry, reprompt_after_version_change."
+    ],
+    [
+     "analytics, advertising",
+     "True or false",
+     "The state after the event."
+    ],
+    [
+     "gpc_detected",
+     "True or false",
+     "Whether a GPC signal was present."
+    ],
+    [
+     "notice_version, banner_version",
+     "Text",
+     "Which text the person saw."
+    ],
+    [
+     "page_path",
+     "Text",
+     "Path only. No query string, no identifiers."
+    ],
+    [
+     "user_agent",
+     "Text",
+     "Browser family only [DECISION: counsel]."
+    ],
+    [
+     "ip_address",
+     "Text or null",
+     "[DECISION: counsel: store, truncate or omit]."
+    ],
+    [
+     "email_hash",
+     "Text or null",
+     "Only if the person is known through the request form or the portal [VERIFY: counsel]."
+    ]
+   ],
+   "widths": [
+    1.6,
+    1.1,
+    3.9
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "p",
+   "text": "Keep for at least [24 months], longer where a law sets a longer proof period. Limit access. Make it exportable for access requests. Do not log health information.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "Request log (one row for each request or appeal)"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Field",
+     "Notes"
+    ],
+    [
+     "request_id, received_at, channel",
+     "Webform, email or mail."
+    ],
+    [
+     "request_types, state",
+     "One or more types; state if given."
+    ],
+    [
+     "identity_verified",
+     "Yes or no, method and date."
+    ],
+    [
+     "agent",
+     "Yes or no, proof received."
+    ],
+    [
+     "due_dates, extension",
+     "Each deadline; extension used, reason and the date the person was told."
+    ],
+    [
+     "systems_touched",
+     "Each system and processor, and the date each confirmed the action."
+    ],
+    [
+     "decision, reason, response_sent_at",
+     "Granted, partly granted or denied; reason for any denial."
+    ],
+    [
+     "appeal_received_at, appeal_decision, appeal_sent_at",
+     "If any."
+    ],
+    [
+     "notes",
+     "No health details."
+    ]
+   ],
+   "widths": [
+    2.6,
+    4.0
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "p",
+   "text": "Keep for at least [24 months] after closing [VERIFY: counsel].",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "2.4 Acceptance tests"
+  },
+  {
+   "t": "ol",
+   "items": [
+    "With no stored choice, an automated browser loads every public page. Zero requests go to any host that is not on the essential or listed allow-list.",
+    "The same test with the Sec-GPC: 1 header and with navigator.globalPrivacyControl set to true gives the same result, and the Advertising setting reads off.",
+    "After Accept all, only the tools in the Cookie notice load, and only on allowed pages. On every sensitive page no advertising request fires and no analytics request fires without the separate consent.",
+    "After Reject all and a reload, zero non-essential requests fire.",
+    "After Accept all and then withdrawal, the tools stop in the same session, their cookies and storage entries are cleared where possible, and the vendor opt-outs were called.",
+    "With cookies and storage blocked, nothing non-essential loads and the Storage blocked message shows.",
+    "A consent log row is written for accept all, reject all, custom, withdraw, GPC auto opt-out and each re-prompt, with the fields in Section 2.3.",
+    "The request form creates a ticket, sends the acknowledgment and the verification link, computes every due date, writes the request log, and writes to the suppression list for opt-outs.",
+    "A keyboard-only run and a screen reader run can finish every task on the banner, the center and the form.",
+    "The tools shown in the control equal the tools in the Cookie notice (an automated diff of the tag inventory against the notice).",
+    "The build fails if a replay, heatmap or form-capture SDK is added or enabled."
+   ]
+  }
+ ],
+ "id": "A5",
+ "docTitle": "Your Privacy Choices",
+ "source": "your_privacy_choices.py",
+ "reviewerNotesOmittedBlocks": 3
+}

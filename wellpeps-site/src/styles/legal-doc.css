@@ -1,0 +1,93 @@
+/*
+ * Draft legal documents (src/components/legal/*, src/lib/legal-render.ts).
+ * Text is held at the site's 19px floor; the colour-coded [bracket] markers match
+ * the ones LegalLayout.astro uses on the five older legal pages.
+ */
+.ld__head {
+  background: linear-gradient(180deg, #f8fafe 0%, #e7f0fd 100%);
+  padding-block: clamp(2.5rem, 1.6rem + 3.5vw, 4.5rem) clamp(1.75rem, 1.2rem + 2vw, 2.75rem);
+}
+.ld__head h1 { font-size: clamp(2rem, 1.5rem + 2vw, 3.1rem); }
+.ld__tag {
+  display: inline-block; margin: 0 0 0.9rem; padding: 0.3rem 0.8rem; border-radius: 999px;
+  background: #fff3df; color: #97590b; border: 1px solid #f0d49c;
+  font-family: var(--font-sans); font-weight: 700; font-size: var(--text-body-size); letter-spacing: 0.04em; text-transform: uppercase;
+}
+.ld__blurb { margin-top: 0.8rem; max-width: 70ch; color: var(--text-body); }
+.ld__body { max-width: 56rem; padding-block: clamp(1.75rem, 1.2rem + 2vw, 3rem) clamp(3rem, 2rem + 3vw, 5rem); }
+
+/* The "this is a draft" box at the top of every page. */
+.ld-banner {
+  border: 1px solid #f0d49c; border-left: 6px solid #c9a227; background: #fffaf0; border-radius: 10px;
+  padding: 1rem 1.25rem; margin-bottom: 1.5rem;
+}
+.ld-banner strong { display: block; margin-bottom: 0.35rem; color: #6b3d06; }
+.ld-banner p { margin: 0 0 0.6rem; }
+.ld-banner ul { list-style: none; padding: 0; margin: 0.4rem 0 0; display: grid; gap: 0.4rem; }
+.ld-banner__live { margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px solid #f0d49c; }
+
+/* "On this page" */
+.ld-toc { border: 1px solid var(--border); border-radius: 10px; padding: 0.7rem 1.1rem; margin-bottom: 2rem; background: #fff; }
+.ld-toc summary { cursor: pointer; font-weight: 700; color: var(--navy); }
+.ld-toc ol { margin: 0.7rem 0 0.2rem; padding-left: 1.4rem; columns: 2 18rem; column-gap: 2rem; }
+.ld-toc li { margin-bottom: 0.35rem; break-inside: avoid; }
+
+/* The document itself. */
+.ld-doc { font-size: var(--text-body-size); line-height: 1.65; overflow-wrap: anywhere; }
+.ld-doc .ld-table { overflow-wrap: normal; }
+.ld-doc h2 { font-size: clamp(1.45rem, 1.25rem + 0.7vw, 1.9rem); margin: 2.6rem 0 0.9rem; scroll-margin-top: 6rem; }
+.ld-doc h3 { font-family: var(--font-sans); font-size: 1.25rem; font-weight: 700; margin: 2rem 0 0.7rem; scroll-margin-top: 6rem; }
+.ld-doc h4 { font-family: var(--font-sans); font-size: var(--text-body-size); font-weight: 700; margin: 1.5rem 0 0.5rem; scroll-margin-top: 6rem; }
+.ld-doc p { margin: 0 0 1rem; }
+.ld-italic { font-style: italic; }
+.ld-blank { display: inline-block; width: 12rem; max-width: 100%; height: 1.1em; border-bottom: 1px solid var(--text-body); vertical-align: baseline; }
+.ld-rule { height: 1.8rem; max-width: 34rem; border-bottom: 1px solid var(--text-body); margin: 0 0 1rem; }
+.ld-list { margin: 0 0 1.1rem; padding-left: 1.5rem; }
+.ld-list li { margin-bottom: 0.5rem; }
+.ld-list li.lv1 { margin-left: 1.5rem; list-style: circle; }
+
+.ld-clause { display: grid; grid-template-columns: 4.2rem 1fr; gap: 0.5rem; margin: 0 0 0.9rem; }
+.ld-clause.lv1 { margin-left: 2.2rem; }
+.ld-clause.lv2 { margin-left: 4.4rem; }
+.ld-clause__no { font-weight: 700; color: var(--navy); }
+
+.ld-callout { border: 1px solid #c9d8ec; border-left-width: 6px; background: #f1f6fd; border-radius: 10px; padding: 0.9rem 1.2rem; margin: 1.2rem 0; }
+.ld-callout p { margin: 0 0 0.6rem; }
+.ld-callout p:last-child { margin-bottom: 0; }
+.ld-callout--note { border-color: #e3cf86; background: #fffaf0; }
+.ld-callout--warning { border-color: #e7a09a; background: #fef6f6; }
+.ld-callout--info { border-color: #9cc3d6; background: #eef6fa; }
+
+.ld-check { display: grid; grid-template-columns: 2rem 1fr; gap: 0.3rem; margin: 0 0 0.8rem; }
+.ld-sign { margin: 1.4rem 0; display: grid; gap: 1.4rem; max-width: 34rem; }
+.ld-sign div { display: flex; align-items: flex-end; gap: 0.6rem; }
+.ld-sign i { flex: 1; border-bottom: 1px solid var(--text-body); height: 1.4rem; }
+
+.ld-table { overflow-x: auto; margin: 1.2rem 0 1.6rem; border: 1px solid var(--border); border-radius: 10px; }
+.ld-table table { border-collapse: collapse; width: 100%; min-width: 34rem; }
+.ld-table th, .ld-table td { border-bottom: 1px solid var(--border); padding: 0.6rem 0.8rem; text-align: left; vertical-align: top; }
+.ld-table th { background: var(--navy); color: #fff; font-weight: 700; }
+.ld-table tr:last-child td { border-bottom: 0; }
+.ld-table td.shade { background: #f3f6fb; font-weight: 600; }
+.ld-table p { margin: 0 0 0.4rem; }
+.ld-table p:last-child { margin-bottom: 0; }
+
+/* Open items: [bracketed] text, colour-coded by who acts. */
+.ph { font-weight: 600; border-radius: 4px; padding: 0.05em 0.3em; box-decoration-break: clone; -webkit-box-decoration-break: clone; background: #fdecec; color: #b3261e; }
+.ph--you   { background: #fdecec; color: #b3261e; }
+.ph--web   { background: #e6f0fb; color: #1560a8; }
+.ph--legal { background: #fff3df; color: #97590b; }
+
+/* The index of drafts. */
+.ld-hub__group { margin: 2.2rem 0 0.8rem; }
+.ld-hub__list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
+.ld-hub__item { border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem 1.1rem; background: #fff; }
+.ld-hub__item a { font-weight: 700; }
+.ld-hub__item p { margin: 0.25rem 0 0; color: var(--text-body); }
+.ld-hub__id { display: inline-block; min-width: 2.6rem; margin-right: 0.5rem; padding: 0.05rem 0.5rem; border-radius: 6px; background: #e7f0fd; color: var(--navy); font-weight: 700; text-align: center; }
+.ld-hub__live { color: var(--text-muted); font-size: var(--text-body-size); }
+
+@media print {
+  .ld-toc, .ld__back { display: none; }
+  .ld-table { overflow: visible; }
+}

@@ -1,0 +1,951 @@
+{
+ "title": "Patient Intake Attestations",
+ "version": "0.1",
+ "date": "October 1, 2026",
+ "blocks": [
+  {
+   "t": "h1",
+   "text": "Patient Intake Attestations"
+  },
+  {
+   "t": "p",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**How to read this form.** Each part is a table. \"What the patient sees\" is the exact wording. \"Reviewed by\" means: System, an automatic rule in GEN Health; WellPeps (non-clinical), WellPeps support staff who check only account, shipping and eligibility details and never judge health answers; Clinician, a licensed clinician of [PRACTICE NAME] (the Practice).",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "Before you start (shown at the top of the form)"
+  },
+  {
+   "t": "p",
+   "text": "Please answer every question honestly and completely. Your answers help clinicians of the Practice decide whether and how they can treat you. A clinician of the Practice, not WellPeps, reviews your health answers and makes every medical decision. Answering these questions does not make you a patient of the Practice. That happens only when a clinician accepts you.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**This form is not for emergencies.** If you think you are having a medical emergency, call 911. If you are in crisis or thinking about harming yourself, call or text 988 (Suicide and Crisis Lifeline) or call 911.",
+   "kind": "warning"
+  },
+  {
+   "t": "h2",
+   "text": "Part A. About you: identity and eligibility"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "#",
+     "What the patient sees",
+     "Response type (GEN Health)",
+     "Required?",
+     "Reviewed by"
+    ],
+    [
+     "A.1",
+     "Full legal name (as shown on your photo ID)",
+     "Patient Data Field (name)",
+     "Required",
+     "System; Clinician"
+    ],
+    [
+     "A.2",
+     "Date of birth",
+     "Date. Disqualifier: Patient is younger than 18 (see build notes for 19 and 21)",
+     "Required",
+     "System"
+    ],
+    [
+     "A.3",
+     "What sex were you assigned at birth?",
+     "Radio: Female, Male, I would rather explain in a message",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "A.4",
+     "Gender identity (only if you want your clinician to know)",
+     "Short Text",
+     "Optional",
+     "Clinician"
+    ],
+    [
+     "A.5",
+     "Email address, mobile phone number and home address",
+     "Patient Data Field (email, phone, address)",
+     "Required",
+     "System; WellPeps (non-clinical)"
+    ],
+    [
+     "A.6",
+     "I am at least 18 years old. If I live in Alabama or Nebraska, I am at least 19. If I live in Mississippi, I am at least 21. [VERIFY: age of majority by state]",
+     "Checkbox (single option: I agree)",
+     "Required",
+     "System"
+    ],
+    [
+     "A.7",
+     "In which state do you live (your home state)?",
+     "Dropdown: states served",
+     "Required",
+     "System; Clinician"
+    ],
+    [
+     "A.8",
+     "I live in the United States, in a state where WellPeps services are offered (see States We Serve).",
+     "Checkbox (single option: I agree)",
+     "Required",
+     "System"
+    ],
+    [
+     "A.9",
+     "If asked, I will give a clear photo of a valid government-issued photo ID and a photo of myself, so the Practice or WellPeps can confirm who I am. [VERIFY: ID verification requirement]",
+     "Checkbox (single option: I agree); File Upload (PNG, JPG, HEIC or PDF)",
+     "Statement required; upload when requested",
+     "Clinician (WellPeps may pre-check)"
+    ],
+    [
+     "A.10",
+     "This account is for me. I will not share my login, create more than one account, or order medicine for anyone else.",
+     "Checkbox (single option: I agree)",
+     "Required",
+     "System"
+    ],
+    [
+     "A.11",
+     "I am asking for this care myself. No one is pressuring me.",
+     "Checkbox (single option: I agree)",
+     "Required",
+     "System"
+    ]
+   ],
+   "widths": [
+    0.6,
+    5.2,
+    2.0,
+    1.1,
+    1.5
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h2",
+   "text": "Part B. Where you are right now (a short form asked every time)"
+  },
+  {
+   "t": "p",
+   "text": "*Shown with every new order, every refill and every request for a visit.*",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "#",
+     "What the patient sees",
+     "Response type (GEN Health)",
+     "Required?",
+     "Reviewed by"
+    ],
+    [
+     "B.1",
+     "In which state are you physically located right now?",
+     "Dropdown: states served, plus Another state or outside the United States. Disqualifier: any answer outside [STATES SERVED]",
+     "Required",
+     "System; Clinician"
+    ],
+    [
+     "B.2",
+     "If this is different from the state you live in, how long will you be there?",
+     "Short Text",
+     "Required if different",
+     "Clinician"
+    ],
+    [
+     "B.3",
+     "I understand that clinicians must be licensed where I am physically located during my care. I will update my location before every visit, refill or request for care, and I will not ask for care while I am outside [STATES SERVED]. [VERIFY: care while outside the state]",
+     "Checkbox (single option: I agree)",
+     "Required",
+     "System"
+    ],
+    [
+     "B.4",
+     "I understand that state rules may limit where medicine can be shipped. I will give a delivery address where I can receive it safely.",
+     "Checkbox (single option: I agree)",
+     "Required",
+     "WellPeps (non-clinical)"
+    ]
+   ],
+   "widths": [
+    0.6,
+    5.2,
+    2.0,
+    1.1,
+    1.5
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h2",
+   "text": "Part C. Your health: questions for everyone [MEDICAL DIRECTOR TO CONFIRM]"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "#",
+     "What the patient sees",
+     "Response type (GEN Health)",
+     "Required?",
+     "Reviewed by"
+    ],
+    [
+     "C.1",
+     "Height and weight",
+     "BMI",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "C.2",
+     "Which of these do you have, or have you ever had? Choose all that apply: heart disease or heart rhythm problem; high blood pressure; low blood pressure; stroke; diabetes or prediabetes; kidney disease; liver disease; thyroid disease; any cancer; pancreas, gallbladder, stomach or bowel disease; blood clotting or blood disorder; seizures; mental health condition; eating disorder; none of these.",
+     "Checkbox (list)",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "C.3",
+     "Tell us more about anything you chose, and about any other medical condition.",
+     "Long Text",
+     "Required if any chosen",
+     "Clinician"
+    ],
+    [
+     "C.4",
+     "List every medicine you take: prescription medicine, over-the-counter medicine, vitamins, supplements, hormones and peptides, including anything you got from another source. Include the dose. Write \"none\" if you take nothing.",
+     "Long Text",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "C.5",
+     "Do you have any allergies to medicines, foods, dyes or other products?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "C.6",
+     "If yes, list each allergy and what happened.",
+     "Long Text",
+     "Required if yes",
+     "Clinician"
+    ],
+    [
+     "C.7",
+     "Have you ever had a bad reaction to a medicine like the one you are asking about?",
+     "Radio: Yes, No, Not sure; Long Text if yes",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "C.8",
+     "Are you pregnant, trying to become pregnant, or breastfeeding?",
+     "Radio: Yes, No, Not applicable to me",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "C.9",
+     "Have you been in the hospital or had surgery in the last 12 months?",
+     "Radio: Yes, No, Not sure; Long Text if yes",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "C.10",
+     "Do you smoke or vape, drink alcohol, or use recreational drugs? Tell us how much.",
+     "Long Text",
+     "Optional",
+     "Clinician"
+    ]
+   ],
+   "widths": [
+    0.6,
+    5.2,
+    2.0,
+    1.1,
+    1.5
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h2",
+   "text": "Part D. Your health: questions for the program you chose [MEDICAL DIRECTOR TO CONFIRM]"
+  },
+  {
+   "t": "p",
+   "text": "Part D shows only the section for the program you chose. Every row in Part D is required and is reviewed by a clinician. Rows marked Radio use Yes, No, Not sure.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "D1. Weight Loss"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "#",
+     "What the patient sees",
+     "Response type (GEN Health)",
+     "Required?",
+     "Reviewed by"
+    ],
+    [
+     "D1.1",
+     "Have you or a close family member ever had medullary thyroid cancer?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D1.2",
+     "Have you been told you have Multiple Endocrine Neoplasia syndrome type 2 (MEN 2)?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D1.3",
+     "Have you ever had pancreatitis (inflammation of the pancreas)?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D1.4",
+     "Have you had gallbladder disease or had your gallbladder removed?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D1.5",
+     "Do you have gastroparesis (slow stomach emptying) or another serious stomach or bowel problem?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D1.6",
+     "Do you have diabetes? If yes, do you use insulin or a sulfonylurea medicine?",
+     "Radio: Yes, No, Not sure; follow-up Radio if yes",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D1.7",
+     "Do you have diabetic eye disease or other vision problems?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D1.8",
+     "Have you ever had a serious allergic reaction to semaglutide, tirzepatide or another GLP-1 medicine?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D1.9",
+     "Do you use, or have you recently used, any other GLP-1 or weight-loss medicine?",
+     "Radio: Yes, No, Not sure; Long Text for names and dates",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D1.10",
+     "Do you take birth control pills?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D1.11",
+     "Do you have surgery or a procedure with anesthesia or deep sedation planned?",
+     "Radio: Yes, No, Not sure; Short Text for the date",
+     "Required",
+     "Clinician"
+    ]
+   ],
+   "widths": [
+    0.6,
+    5.2,
+    2.0,
+    1.1,
+    1.5
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h3",
+   "text": "D2. Sexual Wellness (currently offered to men only) [VERIFY: men-only eligibility wording]"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "#",
+     "What the patient sees",
+     "Response type (GEN Health)",
+     "Required?",
+     "Reviewed by"
+    ],
+    [
+     "D2.1",
+     "Do you take any nitrate medicine (for example for chest pain), riociguat, or use \"poppers\" (nitrites)?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D2.2",
+     "In the last 6 months, have you had a heart attack, a stroke or a serious irregular heartbeat?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D2.3",
+     "Do you get chest pain, shortness of breath or dizziness with sex, or when you climb two flights of stairs?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D2.4",
+     "Has a doctor ever told you that sexual activity is not advisable for your heart?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D2.5",
+     "Do you have low blood pressure, or high blood pressure that is not controlled?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D2.6",
+     "Do you take an alpha-blocker or another blood pressure medicine?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D2.7",
+     "Do you take any other medicine for erectile dysfunction or for pulmonary hypertension?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D2.8",
+     "Have you ever had sudden vision loss or sudden hearing loss, or been told you have retinitis pigmentosa?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D2.9",
+     "Have you ever had an erection that lasted more than 4 hours, or do you have sickle cell disease, leukemia, multiple myeloma, or a curve or deformity of the penis (such as Peyronie's disease)?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D2.10",
+     "Do you have a bleeding disorder or an active stomach ulcer?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D2.11",
+     "Do you have blood in your urine, urinary problems that are getting worse, or a family history of prostate cancer?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ]
+   ],
+   "widths": [
+    0.6,
+    5.2,
+    2.0,
+    1.1,
+    1.5
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h3",
+   "text": "D3. Hair"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "#",
+     "What the patient sees",
+     "Response type (GEN Health)",
+     "Required?",
+     "Reviewed by"
+    ],
+    [
+     "D3.1",
+     "Have you had prostate problems or prostate cancer?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D3.2",
+     "Have you had depression, anxiety, or thoughts of harming yourself? (If you are in crisis now, call or text 988.)",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D3.3",
+     "Do you have swelling in your legs, ankles or face, or have you been told you have fluid around your heart?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D3.4",
+     "Do you take medicine for blood pressure or your heart, or any nitrate?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D3.5",
+     "Do you have a scalp condition, an open sore, or irritation on your scalp?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D3.6",
+     "Have you ever had a reaction to finasteride, dutasteride, minoxidil or tretinoin?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D3.7",
+     "Do you live with, or will you handle medicine around, someone who is pregnant or may become pregnant?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ]
+   ],
+   "widths": [
+    0.6,
+    5.2,
+    2.0,
+    1.1,
+    1.5
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h3",
+   "text": "D4. Healthy Aging and Vitality"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "#",
+     "What the patient sees",
+     "Response type (GEN Health)",
+     "Required?",
+     "Reviewed by"
+    ],
+    [
+     "D4.1",
+     "Have you ever been diagnosed with cancer, or are you being checked for cancer or a tumor?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D4.2",
+     "Do you have a pituitary, thyroid, adrenal or other hormone problem?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D4.3",
+     "Do you have diabetes or prediabetes, or have you had low blood sugar?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D4.4",
+     "Do you take a medicine that can raise serotonin, such as an SSRI, an SNRI, an MAOI or St. John's wort?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D4.5",
+     "Have you ever been told you have G6PD deficiency?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D4.6",
+     "Have you ever had an allergic reaction to a vitamin, an amino acid or an injection?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D4.7",
+     "Do you take a blood thinner?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "D4.8",
+     "Do you compete in a sport, or have a job, that tests for banned substances?",
+     "Radio: Yes, No, Not sure",
+     "Required",
+     "Clinician"
+    ]
+   ],
+   "widths": [
+    0.6,
+    5.2,
+    2.0,
+    1.1,
+    1.5
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h2",
+   "text": "Part E. Your primary care provider"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "#",
+     "What the patient sees",
+     "Response type (GEN Health)",
+     "Required?",
+     "Reviewed by"
+    ],
+    [
+     "E.1",
+     "Do you have a primary care provider (PCP)?",
+     "Radio: Yes, No",
+     "Required",
+     "Clinician"
+    ],
+    [
+     "E.2",
+     "PCP name, clinic and phone or fax number",
+     "Short Text",
+     "Required if yes",
+     "Clinician"
+    ],
+    [
+     "E.3",
+     "The Practice's clinician may send information about my care to my PCP. I can change my mind at any time. (Optional.) [VERIFY: PCP notice]",
+     "Radio: Yes, No. See HIPAA Authorization Forms",
+     "Optional",
+     "Clinician"
+    ],
+    [
+     "E.4",
+     "I understand that this service does not replace my primary care. I am responsible for following up with my own doctor for ongoing care and for any problem the clinician tells me to have checked.",
+     "Checkbox (single option: I agree)",
+     "Required",
+     "System"
+    ]
+   ],
+   "widths": [
+    0.6,
+    5.2,
+    2.0,
+    1.1,
+    1.5
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h2",
+   "text": "Part F. Emergency contact"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "#",
+     "What the patient sees",
+     "Response type (GEN Health)",
+     "Required?",
+     "Reviewed by"
+    ],
+    [
+     "F.1",
+     "Emergency contact name",
+     "Short Text",
+     "Required [PRACTICE TO CONFIRM]",
+     "Clinician"
+    ],
+    [
+     "F.2",
+     "Relationship to you",
+     "Short Text",
+     "Required [PRACTICE TO CONFIRM]",
+     "Clinician"
+    ],
+    [
+     "F.3",
+     "Emergency contact phone number",
+     "Phone",
+     "Required [PRACTICE TO CONFIRM]",
+     "Clinician"
+    ],
+    [
+     "F.4",
+     "I agree that the Practice may contact this person, and emergency services, if a clinician believes I am in danger.",
+     "Checkbox (single option: I agree)",
+     "Required",
+     "System"
+    ]
+   ],
+   "widths": [
+    0.6,
+    5.2,
+    2.0,
+    1.1,
+    1.5
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h2",
+   "text": "Part G. Truthfulness and your responsibilities"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "#",
+     "What the patient sees",
+     "Response type (GEN Health)",
+     "Required?",
+     "Reviewed by"
+    ],
+    [
+     "G.1",
+     "My answers are true and complete to the best of my knowledge. I have not left out anything about my health, my medicines or my allergies.",
+     "Checkbox (single option: I agree)",
+     "Required",
+     "System"
+    ],
+    [
+     "G.2",
+     "I will tell the clinician right away if anything changes, such as a new medicine, a new condition, pregnancy or a side effect.",
+     "Checkbox (single option: I agree)",
+     "Required",
+     "System"
+    ],
+    [
+     "G.3",
+     "I understand that wrong or missing information can cause serious harm, and that a clinician may decline to treat me or end my care if I give false information.",
+     "Checkbox (single option: I agree)",
+     "Required",
+     "System"
+    ],
+    [
+     "G.4",
+     "I understand that a clinician of the Practice decides whether I can be treated, that a prescription is not guaranteed, and that WellPeps is not a medical practice.",
+     "Checkbox (single option: I agree)",
+     "Required",
+     "System"
+    ],
+    [
+     "G.5",
+     "I understand that this form is not for emergencies. I will call 911 in an emergency, and call or text 988 if I am in crisis.",
+     "Checkbox (single option: I agree)",
+     "Required",
+     "System"
+    ],
+    [
+     "G.6",
+     "I understand that care by telehealth has limits, as the Informed Consent to Telehealth Services and Treatment explains, and that I will read and sign it.",
+     "Checkbox (single option: I agree)",
+     "Required",
+     "System"
+    ]
+   ],
+   "widths": [
+    0.6,
+    5.2,
+    2.0,
+    1.1,
+    1.5
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h2",
+   "text": "Part H. Documents and messages"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "#",
+     "What the patient sees",
+     "Response type (GEN Health)",
+     "Required?",
+     "Reviewed by"
+    ],
+    [
+     "H.1",
+     "I have agreed to the Electronic Records, Signatures and Communications Consent, which was shown before this form.",
+     "Checkbox (single option: I agree)",
+     "Required",
+     "System"
+    ],
+    [
+     "H.2",
+     "Text messages about my care and account: I choose whether to get them, under the Text Messaging Terms.",
+     "Radio: Yes, No",
+     "Optional",
+     "System"
+    ],
+    [
+     "H.3",
+     "I have received the Notice of Privacy Practices of the Practice, or I was given a link to it. [VERIFY: where the Notice of Privacy Practices acknowledgment is collected]",
+     "Checkbox (single option: I agree)",
+     "Required",
+     "System"
+    ]
+   ],
+   "widths": [
+    0.6,
+    5.2,
+    2.0,
+    1.1,
+    1.5
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "p",
+   "text": "This form does not sign you up for marketing messages.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "Part I. Review and sign"
+  },
+  {
+   "t": "p",
+   "text": "Please read your answers once more. Signing does not guarantee that a clinician will accept you or prescribe anything. A licensed clinician decides whether treatment is appropriate for you.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "check",
+   "text": "I have read this form (version [VERSION], effective [EFFECTIVE DATE]). My answers are my own, and they are true and complete."
+  },
+  {
+   "t": "h2",
+   "text": "Electronic signature"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Field",
+     "Entry"
+    ],
+    [
+     "Typed full legal name",
+     "Typed by the patient"
+    ],
+    [
+     "State where I am physically located right now",
+     "Selected by the patient from the list of states served"
+    ],
+    [
+     "Date and time",
+     "Captured by the system"
+    ],
+    [
+     "Document version",
+     "Captured by the system"
+    ],
+    [
+     "IP address",
+     "Captured by the system"
+    ]
+   ],
+   "widths": [
+    1,
+    2
+   ],
+   "header": true,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "By typing my name, I agree that my electronic signature is the legal equivalent of my handwritten signature, and that I have already agreed to receive and sign documents electronically (see the Electronic Records, Signatures and Communications Consent). This form does not by itself create a clinician-patient relationship. That relationship begins only when a clinician accepts me.",
+   "italic": false,
+   "align": null
+  }
+ ],
+ "id": "B3",
+ "docTitle": "Patient Intake Attestations",
+ "source": "intake_attestations.py",
+ "reviewerNotesOmittedBlocks": 5
+}

@@ -1,0 +1,1428 @@
+{
+ "title": "HIPAA Authorization Forms",
+ "version": "0.1",
+ "date": "October 1, 2026",
+ "blocks": [
+  {
+   "t": "h1",
+   "text": "Part 1. Instructions for WellPeps and the Practice (remove before publishing)"
+  },
+  {
+   "t": "h2",
+   "text": "1.1 What is in this packet"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Form",
+     "Use it when",
+     "Optional?",
+     "Where it appears in the GEN Health flow",
+     "Who receives it"
+    ],
+    [
+     "1. Release to my primary care physician or other clinician",
+     "A patient asks that records go to a named clinician.",
+     "Yes. Never a condition of care, an order or payment.",
+     "Patient Consents form. Offered beside the primary care question in intake (item F4) and any time from the portal.",
+     "The Practice"
+    ],
+    [
+     "2. Use of my information for WellPeps marketing or testimonials",
+     "Only if WellPeps uses patient photos or stories.",
+     "Yes. Never a condition of anything.",
+     "Not in intake, checkout or the order flow. Sent as a follow-up form or portal message only after a patient volunteers or is invited, with a clear \"no thanks\" path.",
+     "WellPeps and the Practice"
+    ],
+    [
+     "3. Permission to share with a person I choose",
+     "A patient wants a family member or caregiver to get information or talk with support.",
+     "Yes.",
+     "Patient Consents form, available from the portal and on request through support.",
+     "The Practice; WellPeps support for order and shipping matters"
+    ],
+    [
+     "4. Cancel (revoke) my permission",
+     "Any time, for Forms 1, 2 or 3.",
+     "A right, not a duty.",
+     "Linked from every form and the portal help page. Also accepted as a portal message or email.",
+     "The Practice and WellPeps"
+    ]
+   ],
+   "widths": [
+    2.4,
+    2.6,
+    1.8,
+    3.6,
+    1.8
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h2",
+   "text": "1.2 Rules for using these forms"
+  },
+  {
+   "t": "li",
+   "text": "**None is a condition of anything.** Do not attach any form to a product as a Required form in GEN Health (that would gate checkout). Do not pre-check boxes. Do not offer a discount, priority or other reward for signing Form 2 unless it is disclosed on the form and in the ad.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Each form stands alone.** Do not fold an authorization into the Patient Terms of Service, the Informed Consent to Telehealth Services, the Notice of Privacy Practices acknowledgment or the Electronic Records, Signatures and Communications Consent. [VERIFY: the HIPAA rule on combining authorizations with other documents, and when conditioning is allowed]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**No blanks that matter.** An authorization with a missing recipient, description or expiration is not valid. Do not add \"any person\" or \"until revoked\". [VERIFY: whether an open-ended expiration is acceptable for a non-research authorization; these forms use a fixed period or an event]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Treatment disclosures need no form.** The Practice may send information to another clinician treating the patient without an authorization, as the Notice of Privacy Practices explains. [VERIFY: whether any state served requires patient consent before telehealth records go to a primary care physician]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Do not use these forms** for psychotherapy notes or for substance-use-disorder program records covered by 42 CFR Part 2. Neither is expected. [VERIFY: 42 CFR Part 2 consent requirements, only if such records are ever held]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Verify who is signing.** For a personal representative, record the proof of authority.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**No health information in ordinary email.** Use the portal or another secure channel unless the patient has chosen ordinary email on the form.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "1.3 Building the forms in GEN Health"
+  },
+  {
+   "t": "p",
+   "text": "Create each form under Forms, Patient Consents, as a consent form. Use Rich Text for the text, Checkbox questions for the choices, Short Text for the typed name and Date for dates. Four points from the platform guide:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "A consent signature stays current until a new version is published; GEN does not expire it by date. Track expiration dates in the register in section 1.4.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Publishing an edit creates a new version and asks every patient to sign again. Batch edits and record the version number on every signed copy.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Only Active consent forms attach to a product as Required forms. Keep these four off that list. [VERIFY: whether GEN can present an optional consent outside checkout, or whether Client Staff must send it as a follow-up form or a PDF through portal messages]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Capture typed name, date and time, version and IP address against the patient record, and keep a PDF of every signed form.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "1.4 Recordkeeping and retention"
+  },
+  {
+   "t": "p",
+   "text": "Keep every signed form, and every revocation, in the Practice's patient record. Retain each for six years from the date it was signed or last in effect, whichever is later, or for the period in the agreement with the Practice section 3 (the Term plus seven years), whichever is longer, and for any longer period state law requires. [VERIFY: HIPAA's six-year documentation retention rule as applied to authorizations and revocations]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Keep a register. Suggested columns:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Patient ID",
+     "Form",
+     "Version",
+     "Date signed",
+     "Recipient or use",
+     "Expires",
+     "Copy given (date)",
+     "Revoked (date)",
+     "Handled by"
+    ],
+    [
+     "",
+     "",
+     "",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ]
+   ],
+   "widths": [
+    1.2,
+    0.8,
+    0.9,
+    1.1,
+    1.8,
+    1,
+    1.2,
+    1.1,
+    1.1
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h2",
+   "text": "1.5 Handling a cancellation"
+  },
+  {
+   "t": "ol",
+   "items": [
+    "Log the date received. Accept any clear written message, including a portal message. If someone asks by phone (only if a phone line is live), ask them to confirm in writing.",
+    "Send it to the Practice's privacy contact the same business day. The Practice decides what to stop.",
+    "Stop new uses and disclosures under that permission within [5 business days]. For Form 2, remove items on sites and accounts WellPeps controls within [10 business days].",
+    "Tell any recipient who can still act on it. Confirm to the patient in writing.",
+    "Keep the revocation with the original form. Do not delete the original."
+   ]
+  },
+  {
+   "t": "h2",
+   "text": "1.6 Form 2: marketing rules"
+  },
+  {
+   "t": "li",
+   "text": "Review every story and photo against the advertising rules before use: no outcome or weight-loss numbers, no claim a compounded medicine is FDA-approved, no brand names to describe compounded products, and \"prescription required; a prescription is not guaranteed\" wherever a treatment is mentioned.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "The endorser must have used the product and must speak honestly. Disclose any payment, free product or discount. Do not require a positive review for anything. [VERIFY: current FTC Endorsement Guides (16 CFR Part 255) and the FTC rule on reviews and testimonials: disclosure of material connections and of typical results]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Keep a substantiation file for each use. Do not use a story in any state where the product is not offered.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "A story a visitor sends through the website, outside any patient relationship, is not PHI, but still needs the release in this form and the consent text in the Consumer Health Data Privacy Policy. [VERIFY: whether Washington My Health My Data consent to collect and share must be separate from this form]",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "1.7 Element checklist (45 CFR 164.508)"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Element or statement",
+     "Form 1",
+     "Form 2",
+     "Form 3"
+    ],
+    [
+     "Description of the information",
+     "Section 3",
+     "Section 2",
+     "Section 3"
+    ],
+    [
+     "Who may disclose",
+     "Section 1",
+     "Section 1",
+     "Section 1"
+    ],
+    [
+     "Who may receive",
+     "Section 2",
+     "Section 3",
+     "Section 2"
+    ],
+    [
+     "Purpose",
+     "Section 4",
+     "Section 4",
+     "Section 5"
+    ],
+    [
+     "Expiration date or event",
+     "Section 5",
+     "Section 7",
+     "Section 6"
+    ],
+    [
+     "Signature, date, representative's authority",
+     "Signature",
+     "Signature",
+     "Signature"
+    ],
+    [
+     "Right to revoke, how, and exceptions",
+     "Section 6",
+     "Section 9",
+     "Section 7"
+    ],
+    [
+     "Treatment, payment and enrollment not conditioned",
+     "Box at top; section 6",
+     "Box at top; section 9",
+     "Box at top; section 7"
+    ],
+    [
+     "Redisclosure warning",
+     "Section 6",
+     "Section 9",
+     "Section 7"
+    ],
+    [
+     "Copy to the individual",
+     "Section 6; Signature",
+     "Section 9; Signature",
+     "Section 7; Signature"
+    ],
+    [
+     "Marketing: statement on payment from a third party",
+     "Not applicable",
+     "Section 5",
+     "Not applicable"
+    ]
+   ],
+   "widths": [
+    4,
+    1.6,
+    1.6,
+    1.6
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h1",
+   "text": "Form 1. Release of My Information to My Primary Care Doctor or Another Clinician"
+  },
+  {
+   "t": "p",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**This form is your choice.** You do not have to sign it. If you do not, you will still get the same care, the same prescription decision, the same price and the same order. [PRACTICE NAME] (the Practice) can still share information with other clinicians who treat you when the law allows it, as the Notice of Privacy Practices explains. Use this form when you want something specific sent to a clinician you name.",
+   "kind": "info"
+  },
+  {
+   "t": "h2",
+   "text": "About you"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Your full legal name",
+     ""
+    ],
+    [
+     "Date of birth",
+     ""
+    ],
+    [
+     "Email on your account",
+     ""
+    ],
+    [
+     "Order or account number, if you know it",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "h2",
+   "text": "1. Who may share my information"
+  },
+  {
+   "t": "p",
+   "text": "[PRACTICE NAME] (the Practice), its clinicians and its staff. WellPeps, a Wyoming corporation, and the technology platform that runs your patient portal may help send it for the Practice.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "2. Who may receive it"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Clinician or practice name",
+     ""
+    ],
+    [
+     "Address",
+     ""
+    ],
+    [
+     "Phone",
+     ""
+    ],
+    [
+     "Fax or secure email",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "check",
+   "text": "Send by a secure portal link or fax."
+  },
+  {
+   "t": "check",
+   "text": "Send by ordinary email. I understand ordinary email can be read by others."
+  },
+  {
+   "t": "h2",
+   "text": "3. What information may be shared"
+  },
+  {
+   "t": "p",
+   "text": "Check each item you want shared.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "check",
+   "text": "My visit notes and my clinician's summary"
+  },
+  {
+   "t": "check",
+   "text": "The medicines I was prescribed (name, strength, directions and pharmacy)"
+  },
+  {
+   "t": "check",
+   "text": "My health history and my answers on my intake forms"
+  },
+  {
+   "t": "check",
+   "text": "Lab results ordered through the Practice"
+  },
+  {
+   "t": "check",
+   "text": "My messages with my clinician"
+  },
+  {
+   "t": "check",
+   "text": "Other (describe): ______________________________"
+  },
+  {
+   "t": "p",
+   "text": "**Extra-protected information.** The law gives extra protection to some kinds of information, such as mental health, HIV or AIDS, substance use, genetic and reproductive health information. This form does not share these unless you check the box and initial. [VERIFY: state consent rules for these categories in the states served]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "check",
+   "text": "I also allow sharing of this extra-protected information: ______________________   Initials: ______"
+  },
+  {
+   "t": "h2",
+   "text": "4. Why I am asking"
+  },
+  {
+   "t": "p",
+   "text": "I am asking that my information be shared so my other clinician knows about my care. This is at my request.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "5. When this permission ends"
+  },
+  {
+   "t": "p",
+   "text": "Choose one. This is required.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "check",
+   "text": "90 days after I sign"
+  },
+  {
+   "t": "check",
+   "text": "1 year after I sign"
+  },
+  {
+   "t": "check",
+   "text": "When my care with the Practice ends"
+  },
+  {
+   "t": "check",
+   "text": "On this date: ____________________"
+  },
+  {
+   "t": "h2",
+   "text": "6. Your rights"
+  },
+  {
+   "t": "li",
+   "text": "**You do not have to sign.** The Practice and WellPeps will not refuse care, a prescription, an order, payment or sign-up because you did not sign this form.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**You can cancel at any time.** To cancel, send a message in your patient portal, email [PRIVACY EMAIL], mail a letter to [BUSINESS ADDRESS], or use Form 4. Canceling starts when the Practice or WellPeps gets your request. It does not undo sharing that already happened while the permission was in effect.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Others can share it again.** Information shared under this form may be shared again by the person who gets it. Once that happens, federal privacy law (HIPAA) may no longer protect it.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**You get a copy.** You will get a copy of this signed form.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "Signature"
+  },
+  {
+   "t": "p",
+   "text": "By typing my name below, I agree that my electronic signature has the same legal effect as my handwritten signature. I have already agreed to use electronic records and signatures. I have read this form, I filled in every blank that applies to me, and I understand it.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Typed full legal name",
+     "[typed by patient]"
+    ],
+    [
+     "Date and time",
+     "[system-captured]"
+    ],
+    [
+     "Document version",
+     "[system-captured]"
+    ],
+    [
+     "IP address",
+     "[system-captured; counsel to confirm]"
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "**If you are signing for the patient** (for example, as a legal guardian or under a power of attorney), also give your name, your relationship, and the legal authority that lets you sign. We may ask for proof.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Your name and relationship",
+     ""
+    ],
+    [
+     "Your legal authority",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "**Signing on paper instead?** Sign and date here, and send it to [BUSINESS ADDRESS] or upload it in your patient portal.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "sign",
+   "labels": [
+    "Signature",
+    "Date"
+   ]
+  },
+  {
+   "t": "p",
+   "text": "You will get a copy of this signed form. A copy will be saved in your patient portal and sent to the email on your account.",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "Form 2. Permission to Use My Story, Photos or Information in WellPeps Marketing"
+  },
+  {
+   "t": "p",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**This form is optional, and it is not a condition of anything.** Not for care, a prescription, an order, payment or your price. We will never ask you to sign it as part of intake or checkout, and your treatment will not change if you say no. Signing does not mean we must publish your story. We check every story against our advertising rules before we use it.",
+   "kind": "info"
+  },
+  {
+   "t": "h2",
+   "text": "About you"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Your full legal name",
+     ""
+    ],
+    [
+     "Date of birth",
+     ""
+    ],
+    [
+     "Email on your account",
+     ""
+    ],
+    [
+     "Order or account number, if you know it",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "h2",
+   "text": "1. Who may share my information"
+  },
+  {
+   "t": "p",
+   "text": "[PRACTICE NAME] (the Practice) may share the information I check below with WellPeps, a Wyoming corporation, for this purpose. I may also give WellPeps information directly.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "2. What information may be used"
+  },
+  {
+   "t": "p",
+   "text": "Check each item you allow.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "check",
+   "text": "My first name or first initial, and my state or city"
+  },
+  {
+   "t": "check",
+   "text": "My full name"
+  },
+  {
+   "t": "check",
+   "text": "A photo of me.  ☐ My face is visible.  ☐ My face is not visible."
+  },
+  {
+   "t": "check",
+   "text": "Before and after photos"
+  },
+  {
+   "t": "check",
+   "text": "A video or audio recording of me"
+  },
+  {
+   "t": "check",
+   "text": "My written story or review. I want to see the final words before they are used.  ☐ Yes  ☐ No"
+  },
+  {
+   "t": "check",
+   "text": "The fact that I am a patient and the type of treatment I use. I understand this tells the audience something about my health."
+  },
+  {
+   "t": "check",
+   "text": "Other (describe): ______________________________"
+  },
+  {
+   "t": "p",
+   "text": "WellPeps does not publish weight, dose or other number results. [WELLPEPS TO CONFIRM: policy of publishing no weight, dose or other numeric result claims] We may shorten or edit for clarity, and we will ask you before we change what you mean. Do not include another person's name, photo or information.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "3. Who may receive it"
+  },
+  {
+   "t": "p",
+   "text": "The public, and the companies that help WellPeps run its marketing. WellPeps may use what I allow on its website, in email newsletters, on social media, in ads (including paid ads on advertising platforms), in print and in video, and may share it with advertising agencies and platforms that help run those ads.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "4. Why"
+  },
+  {
+   "t": "p",
+   "text": "To advertise and promote WellPeps and its services.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "5. Payment and benefits"
+  },
+  {
+   "t": "check",
+   "text": "I am not getting anything of value for this."
+  },
+  {
+   "t": "check",
+   "text": "I am getting: ______________________________ (for example, a free product, a discount or a payment). WellPeps will tell the audience when a story is paid for or rewarded, as the law requires."
+  },
+  {
+   "t": "p",
+   "text": "WellPeps does not require a positive review in return for anything. WellPeps will not receive payment from any other company for using my information in marketing. [WELLPEPS TO CONFIRM: no third-party payment; if one exists, HIPAA requires this form to say so] If that ever changes, we will ask you to sign a new form.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "6. My story is true"
+  },
+  {
+   "t": "p",
+   "text": "What I say is true and is my own honest opinion and experience. I used the treatment I describe. I understand my results may not be typical, and the ad may say so. I was not asked to say anything I do not believe.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "7. When this permission ends"
+  },
+  {
+   "t": "p",
+   "text": "[24 months] after I sign, or sooner if I cancel it.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "8. Permission to use"
+  },
+  {
+   "t": "p",
+   "text": "I give WellPeps permission to use the items I checked, in the ways described above, without further payment, for the time above. I still own my story and photos. WellPeps may edit them as described in section 2. [VERIFY: scope of the release, ownership of content and right-of-publicity consent rules for the states served]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "9. Your rights"
+  },
+  {
+   "t": "li",
+   "text": "**You do not have to sign.** The Practice and WellPeps will not refuse care, a prescription, an order, payment or sign-up because you did not sign this form.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**You can cancel at any time.** To cancel, send a message in your patient portal, email [PRIVACY EMAIL], mail a letter to [BUSINESS ADDRESS], or use Form 4. Canceling starts when the Practice or WellPeps gets your request. It does not undo sharing that already happened while the permission was in effect. After you cancel, WellPeps will stop new uses within [5 business days] and remove items on websites and social accounts it controls within [10 business days]. We cannot take back printed material already given out or copies other people made.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Public information can be copied.** Information used under this form may be seen, copied and shared by others. Once that happens, federal privacy law (HIPAA) may no longer protect it.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**You get a copy.** You will get a copy of this signed form.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "Signature"
+  },
+  {
+   "t": "p",
+   "text": "By typing my name below, I agree that my electronic signature has the same legal effect as my handwritten signature. I have already agreed to use electronic records and signatures. I have read this form, I filled in every blank that applies to me, and I understand it.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Typed full legal name",
+     "[typed by patient]"
+    ],
+    [
+     "Date and time",
+     "[system-captured]"
+    ],
+    [
+     "Document version",
+     "[system-captured]"
+    ],
+    [
+     "IP address",
+     "[system-captured; counsel to confirm]"
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "**If you are signing for the patient** (for example, as a legal guardian or under a power of attorney), also give your name, your relationship, and the legal authority that lets you sign. We may ask for proof.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Your name and relationship",
+     ""
+    ],
+    [
+     "Your legal authority",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "**Signing on paper instead?** Sign and date here, and send it to [BUSINESS ADDRESS] or upload it in your patient portal.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "sign",
+   "labels": [
+    "Signature",
+    "Date"
+   ]
+  },
+  {
+   "t": "p",
+   "text": "You will get a copy of this signed form. A copy will be saved in your patient portal and sent to the email on your account.",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "Form 3. Permission to Share My Information With a Person I Choose"
+  },
+  {
+   "t": "p",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**This form is optional.** You do not have to sign it, and your care, prescription, order and price stay the same if you do not. It lets us share information with someone you trust, such as a family member or caregiver. It does not let that person make medical decisions for you, sign for you or use your portal login. Never share your password.",
+   "kind": "info"
+  },
+  {
+   "t": "h2",
+   "text": "About you"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Your full legal name",
+     ""
+    ],
+    [
+     "Date of birth",
+     ""
+    ],
+    [
+     "Email on your account",
+     ""
+    ],
+    [
+     "Order or account number, if you know it",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "h2",
+   "text": "1. Who may share my information"
+  },
+  {
+   "t": "p",
+   "text": "[PRACTICE NAME] (the Practice) may share information about my care. WellPeps, a Wyoming corporation, and the technology platform that runs my patient portal may share information about my orders, shipping, billing and account.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "2. Who may receive it"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "",
+     "Person 1",
+     "Person 2 (optional)"
+    ],
+    [
+     "Full name",
+     "",
+     ""
+    ],
+    [
+     "Relationship to me",
+     "",
+     ""
+    ],
+    [
+     "Phone",
+     "",
+     ""
+    ],
+    [
+     "Email",
+     "",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    3,
+    3
+   ],
+   "header": true,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "We may ask this person to prove who they are before we share anything.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "3. What information may be shared"
+  },
+  {
+   "t": "p",
+   "text": "Check each item you allow.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "check",
+   "text": "General information about my care and treatment"
+  },
+  {
+   "t": "check",
+   "text": "My medicines and the status of my prescriptions"
+  },
+  {
+   "t": "check",
+   "text": "Visit scheduling and my order, shipping and tracking status"
+  },
+  {
+   "t": "check",
+   "text": "Billing and payment information"
+  },
+  {
+   "t": "check",
+   "text": "My lab results"
+  },
+  {
+   "t": "check",
+   "text": "My full medical record"
+  },
+  {
+   "t": "check",
+   "text": "Other (describe): ______________________________"
+  },
+  {
+   "t": "p",
+   "text": "**Extra-protected information.** Mental health, HIV or AIDS, substance use, genetic and reproductive health information are not shared under this form unless you check this box and initial. [VERIFY: state consent rules for these categories in the states served]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "check",
+   "text": "I also allow sharing of this extra-protected information: ______________________   Initials: ______"
+  },
+  {
+   "t": "h2",
+   "text": "4. What this person may and may not do"
+  },
+  {
+   "t": "check",
+   "text": "Talk with the Practice about my care"
+  },
+  {
+   "t": "check",
+   "text": "Talk with WellPeps support about my orders, shipping and billing"
+  },
+  {
+   "t": "check",
+   "text": "Ask WellPeps to change or cancel my orders for me"
+  },
+  {
+   "t": "p",
+   "text": "This form does not make this person my legal representative. It does not let them make medical decisions, sign consents or change my account unless I check the box above. If you need someone to decide for you, talk to a lawyer about a power of attorney.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "5. Why"
+  },
+  {
+   "t": "p",
+   "text": "This is at my request. I want the person named above to have this information.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "6. When this permission ends"
+  },
+  {
+   "t": "p",
+   "text": "Choose one. This is required.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "check",
+   "text": "1 year after I sign"
+  },
+  {
+   "t": "check",
+   "text": "When my care with the Practice ends"
+  },
+  {
+   "t": "check",
+   "text": "On this date: ____________________"
+  },
+  {
+   "t": "h2",
+   "text": "7. Your rights"
+  },
+  {
+   "t": "li",
+   "text": "**You do not have to sign.** The Practice and WellPeps will not refuse care, a prescription, an order, payment or sign-up because you did not sign this form.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**You can cancel at any time.** To cancel, send a message in your patient portal, email [PRIVACY EMAIL], mail a letter to [BUSINESS ADDRESS], or use Form 4. Canceling starts when the Practice or WellPeps gets your request. It does not undo sharing that already happened while the permission was in effect.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Others can share it again.** Information shared under this form may be shared again by the person who gets it. Once that happens, federal privacy law (HIPAA) may no longer protect it.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**You get a copy.** You will get a copy of this signed form.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "Signature"
+  },
+  {
+   "t": "p",
+   "text": "By typing my name below, I agree that my electronic signature has the same legal effect as my handwritten signature. I have already agreed to use electronic records and signatures. I have read this form, I filled in every blank that applies to me, and I understand it.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Typed full legal name",
+     "[typed by patient]"
+    ],
+    [
+     "Date and time",
+     "[system-captured]"
+    ],
+    [
+     "Document version",
+     "[system-captured]"
+    ],
+    [
+     "IP address",
+     "[system-captured; counsel to confirm]"
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "**If you are signing for the patient** (for example, as a legal guardian or under a power of attorney), also give your name, your relationship, and the legal authority that lets you sign. We may ask for proof.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Your name and relationship",
+     ""
+    ],
+    [
+     "Your legal authority",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "**Signing on paper instead?** Sign and date here, and send it to [BUSINESS ADDRESS] or upload it in your patient portal.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "sign",
+   "labels": [
+    "Signature",
+    "Date"
+   ]
+  },
+  {
+   "t": "p",
+   "text": "You will get a copy of this signed form. A copy will be saved in your patient portal and sent to the email on your account.",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "Form 4. Cancel (Revoke) My Permission"
+  },
+  {
+   "t": "p",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**You can cancel any permission you gave on Form 1, Form 2 or Form 3 at any time.** Your care, prescription, order and price will not change. Canceling does not undo sharing that already happened while the permission was in effect.",
+   "kind": "info"
+  },
+  {
+   "t": "h2",
+   "text": "About you"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Your full legal name",
+     ""
+    ],
+    [
+     "Date of birth",
+     ""
+    ],
+    [
+     "Email on your account",
+     ""
+    ],
+    [
+     "Order or account number, if you know it",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "h2",
+   "text": "1. Which permission are you canceling?"
+  },
+  {
+   "t": "check",
+   "text": "Form 1: release to a clinician.   Name of the clinician: ________________________   Date I signed: ____________"
+  },
+  {
+   "t": "check",
+   "text": "Form 2: WellPeps marketing or testimonials.   Date I signed: ____________"
+  },
+  {
+   "t": "check",
+   "text": "Form 3: sharing with a person I chose.   Name of the person: ________________________   Date I signed: ____________"
+  },
+  {
+   "t": "check",
+   "text": "All permissions I have given on these forms."
+  },
+  {
+   "t": "h2",
+   "text": "2. If WellPeps is using my story or photos"
+  },
+  {
+   "t": "p",
+   "text": "Please remove them. If you know where they appear (web addresses or a description), tell us here:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "______________________________________________________________________",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "3. When this starts"
+  },
+  {
+   "t": "p",
+   "text": "When [PRACTICE NAME] (the Practice) or WellPeps gets this request.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "4. What happens next"
+  },
+  {
+   "t": "li",
+   "text": "The Practice and WellPeps will stop sharing or using your information under the permission you cancel. WellPeps will do this within [5 business days]. For Form 2, we will remove items on websites and social accounts we control within [10 business days].",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "We will confirm in writing. We keep a record that you signed and canceled.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "We cannot take back printed material already given out, copies other people made, or information already shared while the permission was in effect.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "5. How to send this form"
+  },
+  {
+   "t": "p",
+   "text": "Send a message in your patient portal at [PORTAL URL], email [PRIVACY EMAIL], or mail it to [BUSINESS ADDRESS]. WellPeps will pass it to the Practice the same business day.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "Signature"
+  },
+  {
+   "t": "p",
+   "text": "By typing my name below, I agree that my electronic signature has the same legal effect as my handwritten signature. I have already agreed to use electronic records and signatures. I have read this form, I filled in every blank that applies to me, and I understand it.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Typed full legal name",
+     "[typed by patient]"
+    ],
+    [
+     "Date and time",
+     "[system-captured]"
+    ],
+    [
+     "Document version",
+     "[system-captured]"
+    ],
+    [
+     "IP address",
+     "[system-captured; counsel to confirm]"
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "**If you are signing for the patient** (for example, as a legal guardian or under a power of attorney), also give your name, your relationship, and the legal authority that lets you sign. We may ask for proof.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Your name and relationship",
+     ""
+    ],
+    [
+     "Your legal authority",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "**Signing on paper instead?** Sign and date here, and send it to [BUSINESS ADDRESS] or upload it in your patient portal.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "sign",
+   "labels": [
+    "Signature",
+    "Date"
+   ]
+  },
+  {
+   "t": "p",
+   "text": "You will get a copy of this signed form. A copy will be saved in your patient portal and sent to the email on your account.",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "For office use only"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Date received",
+     ""
+    ],
+    [
+     "Received by",
+     ""
+    ],
+    [
+     "Sent to the Practice (date)",
+     ""
+    ],
+    [
+     "Recipients told (names and dates)",
+     ""
+    ],
+    [
+     "Posts removed (date)",
+     ""
+    ],
+    [
+     "Confirmation sent to patient (date)",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  }
+ ],
+ "id": "B7",
+ "docTitle": "HIPAA Authorization Forms",
+ "source": "hipaa_authorization_forms.py",
+ "reviewerNotesOmittedBlocks": 3
+}

@@ -1,0 +1,487 @@
+{
+ "title": "Compounded Medication Disclosure and Consent",
+ "version": "0.1",
+ "date": "October 1, 2026",
+ "blocks": [
+  {
+   "t": "h1",
+   "text": "Compounded Medication Disclosure and Consent"
+  },
+  {
+   "t": "p",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**The short version**\n• A compounded medicine is made by a pharmacy for you, from a prescription.\n• It is not FDA-approved. FDA does not review it for safety, effectiveness or quality before it is sold.\n• It is not a generic of any brand medicine, and it is not the same as any brand medicine.\n• It can differ between pharmacies and between batches, in strength, ingredients, form and beyond-use date.\n• FDA-approved medicines may be available for you. Ask your clinician at any time.\n• A clinician of the Practice decides whether a compounded medicine is right for you. A prescription is not guaranteed.\n• WellPeps does not make or ship medicine. The pharmacy named on your label does.\n• You can say no.",
+   "kind": "info"
+  },
+  {
+   "t": "h2",
+   "text": "1. Who does what"
+  },
+  {
+   "t": "clause",
+   "number": "1.1",
+   "heading": "The Practice decides.",
+   "text": "A clinician of [PRACTICE NAME] (the “Practice”) decides whether any medicine, compounded or not, is right for you. A prescription is not guaranteed.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "1.2",
+   "heading": "A pharmacy prepares it.",
+   "text": "A state-licensed pharmacy named on your prescription label prepares your compounded medicine and ships it to you. The pharmacies WellPeps works with are listed at [PHARMACY LIST]. [PHARMACY STANDARDS]",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "1.3",
+   "heading": "WellPeps does not compound.",
+   "text": "WellPeps, a Wyoming corporation, does not prescribe, compound, make, store or ship medicine. WellPeps contracts directly with the pharmacies. WellPeps' business relationships, including how it is paid, are explained in the Financial Relationship Disclosure and Acknowledgment.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "2. What “compounded” means"
+  },
+  {
+   "t": "clause",
+   "number": "2.1",
+   "heading": null,
+   "text": "Compounding is when a pharmacist prepares a medicine for one patient, from a prescription, by mixing or changing ingredients. A pharmacy that does this for individual patients under section 503A of the federal Food, Drug, and Cosmetic Act must meet conditions in that law and in state pharmacy rules.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "2.2",
+   "heading": null,
+   "text": "Depending on your prescription, your compounded medicine may be an injection, a tablet or capsule, a sublingual (under the tongue) tablet, troche or drops, a nasal spray, or a cream, foam or solution.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "2.3",
+   "heading": null,
+   "text": "A compounded medicine is prepared for you, based on your prescription. Do not share it with anyone.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "3. What this means for you"
+  },
+  {
+   "t": "li",
+   "text": "**Not FDA-approved.** FDA approves a medicine after it reviews evidence on safety, effectiveness and manufacturing quality. FDA does not do this review for compounded medicines before they are sold.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Not a generic, and not the same as a brand medicine.** Do not assume a compounded medicine is the same as, equivalent to or interchangeable with an FDA-approved medicine, even if it has the same active ingredient.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**It can differ.** Strength (concentration), ingredients, form, appearance and beyond-use date can differ between prescriptions, between pharmacies and between batches.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**No FDA-approved labeling.** A compounded medicine does not come with FDA-approved labeling or an FDA Medication Guide. Some safety information in WellPeps documents comes from the labeling of approved medicines. That does not mean a compounded medicine is the same.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Risks may not be fully known.** Quality, strength, how your body absorbs the medicine, how well it works and its long-term effects may not be fully known. A compounded injection also carries a risk of contamination or of the wrong strength.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "4. FDA-approved medicines may be available"
+  },
+  {
+   "t": "clause",
+   "number": "4.1",
+   "heading": null,
+   "text": "For many conditions, an FDA-approved medicine is available. FDA reviews approved medicines for safety, effectiveness and quality before they are sold.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "4.2",
+   "heading": null,
+   "text": "[FDA POSITION: include only if the Practice documents clinical need. FDA advises that a compounded medicine be considered only when a patient's medical needs cannot be met by an FDA-approved medicine. Your clinician decides whether a compounded medicine is appropriate for you based on your individual needs.]",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "4.3",
+   "heading": null,
+   "text": "You can ask your clinician at any time whether an FDA-approved medicine is right for you, and whether you could get one through your own doctor and pharmacy. [FDA-APPROVED OPTIONS THROUGH WELLPEPS]",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "5. Why a clinician may choose a compounded medicine"
+  },
+  {
+   "t": "clause",
+   "number": "5.1",
+   "heading": null,
+   "text": "A clinician may prescribe a compounded medicine when the clinician decides your needs call for something an approved medicine does not offer. Examples are a strength that is not sold, a different form (such as a liquid or sublingual form for a patient who cannot swallow tablets), or leaving out an ingredient you are allergic to.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "5.2",
+   "heading": null,
+   "text": "[CLINICAL NEED SENTENCE: Your clinician records in your medical record why a compounded medicine is right for you. A compounded medicine is not prescribed because it costs less, or because an approved medicine is in short supply.]",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "5.3",
+   "heading": null,
+   "text": "You can ask your clinician in a portal message why a compounded medicine was chosen in your case.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "6. Added ingredients"
+  },
+  {
+   "t": "p",
+   "text": "Some prescriptions include an extra ingredient, such as a vitamin or an amino acid. FDA has not determined that an added ingredient improves safety, effectiveness or how well you tolerate the medicine. An added ingredient can cause its own side effects, interactions or allergic reactions. Check the ingredient list on your label. If it is missing, unclear or not what you expected, do not use the medicine until your pharmacy or clinician explains it.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "7. How to read your pharmacy label"
+  },
+  {
+   "t": "p",
+   "text": "Check these things every time you get a new shipment, even if you have received the same medicine before.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Check",
+     "Why it matters"
+    ],
+    [
+     "Your name",
+     "The medicine is for you only."
+    ],
+    [
+     "Medicine name, strength (concentration) and form",
+     "Strength can differ between pharmacies and between fills. Never assume it matches your last one."
+    ],
+    [
+     "Directions: dose, how to take it, how often",
+     "Use only what the label and your prescription say."
+    ],
+    [
+     "Ingredient list, including any added ingredient",
+     "You and your clinician need it to spot allergies and interactions."
+    ],
+    [
+     "Date prepared or filled, and the beyond-use date",
+     "Do not use the medicine after the beyond-use date."
+    ],
+    [
+     "Storage instructions",
+     "Some medicines must be kept cold or away from light. Follow the label."
+    ],
+    [
+     "Pharmacy name, address and phone number",
+     "This is who prepared your medicine and who to call about it."
+    ],
+    [
+     "Prescriber name",
+     "Confirms the clinician who prescribed it."
+    ],
+    [
+     "Lot or batch number",
+     "Helps the pharmacy trace a problem or a recall."
+    ]
+   ],
+   "widths": [
+    2,
+    3
+   ],
+   "header": true,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "Labels differ by pharmacy and by state, and some of this may be on an insert instead of the label. [LABEL ELEMENTS] If anything is missing, unclear or does not match what your clinician told you, do not use the medicine until your pharmacy or clinician confirms it. If your label and a WellPeps document disagree, follow your label and ask your clinician or pharmacy.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "8. Storage and beyond-use date"
+  },
+  {
+   "t": "clause",
+   "number": "8.1",
+   "heading": "Beyond-use date.",
+   "text": "A beyond-use date is the date after which the pharmacy does not recommend using the medicine. The pharmacy sets it using pharmacy standards. It is not an FDA expiration date, and it may be earlier than the dates you are used to seeing on store-bought products. Do not use a medicine after its beyond-use date, or after the time on the label for use once opened or mixed.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "8.2",
+   "heading": "Storage.",
+   "text": "Store the medicine exactly as the label says. Do not assume instructions from another pharmacy, an earlier shipment or a brand medicine apply. Keep medicine away from heat, light, children and pets.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "8.3",
+   "heading": "Shipping problems.",
+   "text": "If your package arrives late, warm, damaged or was left in the heat, contact the pharmacy before you use it. See the Shipping and Delivery Policy.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "8.4",
+   "heading": "Never share.",
+   "text": "Do not give, sell or share your medicine.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "8.5",
+   "heading": "Disposal.",
+   "text": "Ask your pharmacist how to dispose of medicine you do not use. Put used needles and syringes in a sharps container. The safety document for your program explains how.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "9. If something looks wrong"
+  },
+  {
+   "t": "p",
+   "text": "Do not use the medicine, and contact the pharmacy named on your label, if:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "the label is missing or incomplete, or does not match your prescription;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "the seal is broken, the container is leaking or damaged, or the package was exposed to heat;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "a liquid looks cloudy, discolored, frozen or has particles in it, unless the pharmacy told you that is expected;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "the strength, ingredients or look of the medicine changed from your last fill and no one has explained why.",
+   "level": 0
+  },
+  {
+   "t": "p",
+   "text": "Then message your clinician in the portal at [PORTAL URL]. Contact WellPeps at [SUPPORT EMAIL] for shipping or billing problems. Keep the medicine, packaging and label until the pharmacy tells you what to do with them, unless keeping them is unsafe. If you feel seriously ill, call 911. If you may have taken too much or used the wrong dose, call Poison Control at 1-800-222-1222.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**Recalls.** [RECALL NOTICE PROCESS]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "10. Reporting side effects and product problems"
+  },
+  {
+   "t": "p",
+   "text": "Tell your clinician about any side effect in a portal message. Tell the pharmacy about any product problem. You can also report to FDA MedWatch at www.fda.gov/medwatch or 1-800-FDA-1088, even if you are not sure the medicine caused the problem.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "11. State rules and availability"
+  },
+  {
+   "t": "p",
+   "text": "Some states limit compounded medicines or how they can be shipped. Laws, FDA positions and pharmacy rules also change. Because of this, a medicine may not be offered in your state, or may become unavailable. If that happens, you will be told, and your clinician can talk with you about other options. Where WellPeps services are offered is listed in States We Serve. This document does not list availability by state.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "12. Off-label use (separate consent)"
+  },
+  {
+   "t": "clause",
+   "number": "12.1",
+   "heading": "What off-label means.",
+   "text": "FDA approves a medicine for specific uses, doses, forms and groups of patients. These are listed in the medicine's approved labeling. Prescribing a medicine in a way that is not in that labeling is called off-label use. Off-label prescribing is legal and common. It is not the same as compounding, and a medicine can be both.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "12.2",
+   "heading": "What it means for you.",
+   "text": "FDA has not reviewed the safety or effectiveness of a medicine for an off-label use. The risks and benefits may not be fully known, and the evidence may be limited. Your clinician should explain why they recommend it, the known risks, the alternatives and the limits of the evidence. You can say no.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "12.3",
+   "heading": "Examples.",
+   "text": "Depending on your program, an off-label or not-FDA-approved use may include:",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "oral minoxidil for hair loss. FDA-approved oral minoxidil tablets are for severe high blood pressure; the lower doses used for hair loss are not in that labeling;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "oral or sublingual (under the tongue) forms of semaglutide or tirzepatide, which are not FDA-approved in the form or dose you would receive [MEDICAL DIRECTOR TO CONFIRM];",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "any other use your clinician tells you is off-label. [OFF-LABEL USES LIST]",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "12.4",
+   "heading": null,
+   "text": "Your clinician will tell you if your prescription involves off-label use. The safety document for your program gives product details. Your agreement to off-label use is a separate box in the acknowledgment below.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "13. Your choice"
+  },
+  {
+   "t": "p",
+   "text": "You can say no to a compounded medicine, and you can say no to off-label use. If you say no, the clinician may offer another option, or may decide that WellPeps cannot meet your needs. In that case, the Refund, Cancellation and Auto-Renewal Policy explains what happens to your payment. Saying no does not affect your right to get care elsewhere. You can change your mind at any time by telling your clinician in a portal message.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "14. How this document fits with others"
+  },
+  {
+   "t": "p",
+   "text": "This is a general document. The safety document for your program has the product details: the GLP-1 Medication Safety Information and Acknowledgment, the Sexual Health Medication Safety Information and Acknowledgment, the Hair Loss Medication Safety Information and Acknowledgment, or the Healthy Aging and Vitality Medication Safety Information and Acknowledgment. Telehealth care in general is covered by the Informed Consent to Telehealth Services and Treatment. Your label and your clinician's instructions control how you use your medicine. If the law of your state gives you more rights than this document, the law applies. This document may be updated. If a change is important, or the law requires it, you will be asked to read and accept the new version.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "Acknowledgment and electronic signature"
+  },
+  {
+   "t": "p",
+   "text": "Please read this document (version [VERSION], effective [EFFECTIVE DATE]) before checking each box. Signing does not guarantee a prescription. A licensed clinician decides whether treatment is right for you. You can read this document again at [PORTAL URL].",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "check",
+   "text": "I have read this Compounded Medication Disclosure and Consent and had the chance to ask questions."
+  },
+  {
+   "t": "check",
+   "text": "I understand that a compounded medicine is made by a pharmacy for me from a prescription, that it is not FDA-approved, and that FDA does not review it for safety, effectiveness or quality."
+  },
+  {
+   "t": "check",
+   "text": "I understand that a compounded medicine is not a generic of, and is not the same as or equivalent to, any brand medicine, and that its strength, ingredients, form and beyond-use date can differ between pharmacies and batches."
+  },
+  {
+   "t": "check",
+   "text": "I understand that FDA-approved medicines may be available for me, and that I can ask my clinician about them at any time."
+  },
+  {
+   "t": "check",
+   "text": "I understand that WellPeps does not prescribe, compound or ship medicine. A clinician of the Practice decides whether to prescribe, a state-licensed pharmacy prepares the medicine, and a prescription is not guaranteed."
+  },
+  {
+   "t": "check",
+   "text": "I will check my label every time, I will not use a medicine if anything is missing or unclear, and I will store it as the label says and not use it after the beyond-use date."
+  },
+  {
+   "t": "check",
+   "text": "I know how to report a side effect or product problem to my clinician, the pharmacy and FDA MedWatch."
+  },
+  {
+   "t": "check",
+   "text": "I understand that state rules may limit what is available to me, and that I can say no to a compounded medicine."
+  },
+  {
+   "t": "check",
+   "text": "Off-label use (check only if your prescription involves off-label use): I understand what off-label use means, that FDA has not reviewed my medicine for that use, that the risks and benefits may not be fully known, and that I can say no. I agree to off-label use of the medicine my clinician prescribes for me."
+  },
+  {
+   "t": "h2",
+   "text": "Electronic signature"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Field",
+     "Entry"
+    ],
+    [
+     "Typed full legal name",
+     "Typed by the patient"
+    ],
+    [
+     "Date and time",
+     "Captured by the system"
+    ],
+    [
+     "Document version",
+     "Captured by the system"
+    ],
+    [
+     "IP address",
+     "Captured by the system"
+    ]
+   ],
+   "widths": [
+    1,
+    2
+   ],
+   "header": true,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "By typing my name, I agree that my electronic signature is the legal equivalent of my handwritten signature, and that I have already agreed to receive and sign documents electronically (see the Electronic Records, Signatures and Communications Consent).",
+   "italic": false,
+   "align": null
+  }
+ ],
+ "id": "B5",
+ "docTitle": "Compounded Medication Disclosure and Consent",
+ "source": "compounded_consent.py",
+ "reviewerNotesOmittedBlocks": 3
+}

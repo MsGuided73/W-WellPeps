@@ -1,0 +1,1547 @@
+{
+ "title": "Healthy Aging and Vitality Medication Safety Information and Acknowledgment",
+ "version": "0.1",
+ "date": "October 1, 2026",
+ "blocks": [
+  {
+   "t": "h1",
+   "text": "PART 1. HEALTHY AGING AND VITALITY MEDICATION SAFETY INFORMATION"
+  },
+  {
+   "t": "p",
+   "text": "Last updated: [LAST UPDATED]  |  Effective: [EFFECTIVE DATE]  |  Version [VERSION]",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "1. Emergency information"
+  },
+  {
+   "t": "p",
+   "text": "**If you think you are having a medical emergency, call 911 or go to the nearest emergency room right away.** Do not wait for a reply by email, chat, text message or the patient portal.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Call 911 for trouble breathing, swelling of the face, lips, tongue or throat, chest pain or pressure, fainting, a seizure, or severe confusion.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**If you may have taken too much medication or used the wrong dose, call Poison Control at 1-800-222-1222.** If the person collapses, has a seizure, has trouble breathing or cannot be woken up, call 911.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "2. About this information"
+  },
+  {
+   "t": "p",
+   "text": "This page gives general safety information for adults who are prescribed one of the six products below through WellPeps, a Wyoming corporation (“WellPeps”). It does not replace your prescription label, your pharmacy’s instructions or your clinician’s advice.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "**WellPeps is not a medical practice or a pharmacy.** WellPeps helps you reach telehealth services provided by independent licensed clinicians of [PRACTICE NAME] (the “Practice”). WellPeps does not prescribe, compound or dispense medication.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**A licensed clinician decides** whether a prescription is medically appropriate for you. A prescription is not guaranteed. A clinician may decline to prescribe, or may change or stop a prescription, at any time.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**A state-licensed pharmacy** named on your prescription label prepares and ships your medication.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Your label comes first.** Ingredients, strengths, forms, syringes, storage rules and beyond-use dates can differ between prescriptions and between pharmacies. If this page and your label disagree, follow your label and contact your clinician or pharmacy.",
+   "level": 0
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Product",
+     "Form on the site",
+     "What to read"
+    ],
+    [
+     "Sermorelin",
+     "Injection under the skin",
+     "Sections 1 to 15 and Article A"
+    ],
+    [
+     "NAD+",
+     "Injection (route as shown on your label)",
+     "Sections 1 to 15 and Article B"
+    ],
+    [
+     "Glutathione",
+     "Injection (route as shown on your label)",
+     "Sections 1 to 15 and Article C"
+    ],
+    [
+     "MIC + B12",
+     "Injection (route as shown on your label)",
+     "Sections 1 to 15 and Article D"
+    ],
+    [
+     "Lipo-C",
+     "Injection (route as shown on your label)",
+     "Sections 1 to 15 and Article E"
+    ],
+    [
+     "Methylene blue",
+     "Capsule taken by mouth",
+     "Sections 1 to 7 and 9 to 15 and Article F"
+    ]
+   ],
+   "widths": [
+    2,
+    4,
+    4
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "p",
+   "text": "If you are prescribed more than one product, read the article for each. If you are also prescribed a GLP-1 medicine, read the GLP-1 Medication Safety Information and Acknowledgment too.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "3. Important: about compounded medicines"
+  },
+  {
+   "t": "p",
+   "text": "Every product in this document is a compounded medicine. A compounded medicine is made by a pharmacy for you, based on your prescriber’s order.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "Compounded medicines are **not FDA-approved**. FDA does not review compounded medicines for safety, effectiveness or quality before they are sold. They do not come with FDA-approved labeling or an FDA Medication Guide. Strength, purity and quality can differ between pharmacies and between batches.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "A compounded medicine is not a generic version of an FDA-approved medicine. Do not assume it is the same as, equivalent to or interchangeable with one.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Some ingredients in these products are also found in FDA-approved medicines. That does not make the product you receive FDA-approved, and it does not tell you whether the product is right for you.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Some ingredients are substances your body makes or gets from food. That does not tell you what an injection or capsule will do, or whether it is appropriate for you.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Because these products have not been through FDA review, their full risks, side effects, interactions and effectiveness may not be known. Some information below comes from general medical knowledge and from FDA-approved labeling for related products. That does not mean a compounded product behaves the same way.",
+   "level": 0
+  },
+  {
+   "t": "p",
+   "text": "The Compounded Medication Disclosure and Consent explains compounded medicines in more detail. You can ask your clinician at any time about other options, including FDA-approved medicines or no medicine at all.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "4. What WellPeps does and does not claim"
+  },
+  {
+   "t": "p",
+   "text": "WellPeps does **not** claim that any product in this document treats, cures, prevents or slows aging, or any disease or condition. We do not claim that any of them reduces the side effects of another medicine. We do not promise any result. You may notice no change at all.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**What is known.** Each product contains substances that play a role in the body. A description of what a substance does in the body is not a promise of what an injection or capsule will do for you.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**What is not established.** For these products, as a pharmacy compounds them, it has not been established that they give a benefit to healthy adults for wellness, vitality or aging. Much of the research on some ingredients comes from lab studies, animal studies, small or short studies, or use in people with a specific illness. Those results do not show the same result in healthy adults. Long-term safety is unknown for several of these products. [MEDICAL DIRECTOR TO CONFIRM]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "If you see a statement from WellPeps that does not match this section, tell us at [SUPPORT EMAIL].",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "5. Before you start, tell your clinician if you"
+  },
+  {
+   "t": "li",
+   "text": "have had an allergic reaction to any medicine, vitamin, preservative (such as benzyl alcohol), dye, latex or other ingredient.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "are pregnant, may be pregnant, plan to become pregnant or are breastfeeding.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have or have had cancer or a tumor, or are being checked for one.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have diabetes or prediabetes, or take insulin or another diabetes medicine.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have heart disease, an irregular heartbeat, chest pain, or high or low blood pressure.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have kidney disease or liver disease.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have seizures, a blood disorder, a bleeding problem, or take a blood thinner.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have been told you have an inherited enzyme condition such as G6PD deficiency, or have family members who do.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "take any prescription or over-the-counter medicine, vitamin, supplement or herbal product. This includes medicines for depression, anxiety, ADHD, pain, migraine, sleep, cough and cold.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "use any other peptide, hormone, injection, IV drip or “wellness” treatment from anywhere else.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "are subject to drug testing for sport, work or school.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "6. Who should not use these products"
+  },
+  {
+   "t": "li",
+   "text": "Anyone who is not an adult. These products are for adults only. The minimum age depends on your state; see the Patient Terms of Service and Payment Agreement.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Anyone who is allergic to an ingredient on the label.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Anyone whose clinician decides the product is not appropriate. That is a medical decision, even if you want the product.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Anyone who falls under the “do not use” statements in the product article that applies to them.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "7. Serious symptoms: stop and get help"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Possible problem",
+     "Symptoms",
+     "What to do"
+    ],
+    [
+     "Serious allergic reaction",
+     "Swelling of the face, lips, tongue or throat; trouble breathing or swallowing; wheezing; hives over the body; fast heartbeat; fainting; severe dizziness",
+     "Call 911."
+    ],
+    [
+     "Heart or breathing problem",
+     "Chest pain or pressure, severe shortness of breath, fainting",
+     "Call 911."
+    ],
+    [
+     "Infection at the injection site",
+     "Spreading redness, warmth, increasing pain or swelling, pus, red streaks, fever",
+     "Contact your clinician right away. Seek urgent care if you have a fever or it spreads fast."
+    ],
+    [
+     "Other injection-site problem",
+     "Severe pain, a hard lump that grows, skin that breaks down",
+     "Contact your clinician promptly."
+    ],
+    [
+     "Too much medication or wrong dose",
+     "Severe nausea or vomiting, dizziness, confusion, or any sign that you took more than prescribed",
+     "Call Poison Control at 1-800-222-1222. Call 911 for severe symptoms."
+    ],
+    [
+     "Problems listed in a product article",
+     "See the “Stop and get help” list in the article for your product",
+     "Follow that list."
+    ]
+   ],
+   "widths": [
+    2.3,
+    5,
+    3.5
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "p",
+   "text": "Tell any clinician who treats you, including in an emergency room or before a procedure, that you use these products, and show your label. [MEDICAL DIRECTOR TO CONFIRM]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "8. Injection safety (Articles A to E)"
+  },
+  {
+   "t": "p",
+   "text": "This section applies to the injectable products. Your label and your pharmacy’s written instructions come first. If you have never injected yourself, ask for training through the patient portal before your first dose.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "Use only the product, dose, route (under the skin or into a muscle), schedule and syringe on your current label.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Units, milliliters (mL) and milligrams (mg) are not the same thing.** Syringes may be marked in units or mL, while a dose may be written in mg, mcg, mL or units. Mixing them up can cause a serious overdose. Before every injection, check the product name, the strength (amount per mL), your dose, the volume you will draw up and the markings on your syringe.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "If any direction is missing, unclear or does not match another direction, do not inject until your clinician or the pharmacy confirms it.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "A refill, or a different pharmacy, may have a different strength. Check your label every time. Never copy the number of “units” you used from a different vial.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Some products arrive as a powder that you mix before use. Mix only as your pharmacy instructs, with the diluent it supplied, and use the mixed product within the time on the label.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not mix products in one syringe or vial unless your clinician or pharmacy tells you to.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Wash your hands. Wipe the vial stopper and your skin with a new alcohol swab and let them dry. Use a new, sterile needle and syringe for every injection. Never touch the needle, and never reuse or share needles, syringes or vials.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Rotate injection sites. Do not inject into skin that is bruised, red, tender, scarred or hard.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Look at the liquid before every use. Do not use it if it is cloudy, discolored, frozen or has particles, unless your label says that is expected.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not leave a needle in a multi-dose vial. Throw the vial away after its beyond-use date even if liquid remains.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**These products are not for IV use at home.** Do not inject any of them into a vein. If your label says IV or “for office use,” do not use it yourself and contact your clinician. [MEDICAL DIRECTOR TO CONFIRM]",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "9. Sharps disposal"
+  },
+  {
+   "t": "li",
+   "text": "Put used needles and syringes in an FDA-cleared sharps disposal container right after use. If you do not have one, use a heavy-duty, puncture-resistant household container with a tight lid, such as a laundry detergent bottle.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not throw loose needles or syringes in the trash or recycling, and do not flush them. Do not bend or break needles by hand.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Some states and towns do not allow sharps in household trash. Check your state and local rules. FDA’s sharps disposal information is at www.fda.gov/safesharpsdisposal.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Keep sharps and all medication out of reach of children and pets.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "10. Storage, shipping and product quality"
+  },
+  {
+   "t": "li",
+   "text": "Follow your pharmacy label for refrigeration, room-temperature limits, protection from light and handling. Many injectable products must be kept cold. Do not freeze a product unless the label says to. Keep capsules in their original container, dry, as the label says.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Beyond-use date.** The pharmacy sets a date after which the product must not be used. Do not use it after that date, or after the time limit on the label for use after opening or mixing, even if some is left.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Some products must stay cold in transit. Open your package when it arrives and check it. If it arrives late, warm, with melted ice packs or was left in heat, contact the dispensing pharmacy before you use it. See the Shipping and Delivery Policy.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not use the product if the label is missing or incomplete, the seal is broken, the container is leaking or damaged, or the name or strength is not what you expected.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not assume storage guidance from an earlier shipment, another pharmacy or another product applies to your current prescription.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "11. Pregnancy and breastfeeding"
+  },
+  {
+   "t": "p",
+   "text": "These products have not been well studied in pregnancy or breastfeeding, and some can harm an unborn baby. Tell your clinician before you start if you are pregnant, may be pregnant, plan to become pregnant or are breastfeeding, and tell your clinician right away if this changes. If you become pregnant while using one of these products, stop it and contact your clinician. [MEDICAL DIRECTOR TO CONFIRM]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "12. Other medicines, supplements and treatments"
+  },
+  {
+   "t": "li",
+   "text": "Tell your clinician about everything you take or use, including over-the-counter medicines, vitamins, herbal products, and treatments from other places such as IV drips, injections at a spa or clinic, other peptides and hormones.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not “stack.” Do not use two of these products together, or with another similar product from anywhere else, unless your clinician has clearly told you to. Some of these products contain the same ingredients (for example vitamin B12), so using two can mean getting more of an ingredient than intended.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not buy or use peptides or other products labeled “for research use only” or “not for human consumption.” They are not made for people and may be contaminated, mislabeled or the wrong strength. WellPeps does not supply them, and it does not offer human growth hormone.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "If another clinician prescribes you a new medicine, tell them you use these products and tell your WellPeps clinician in the patient portal.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Some of these products may be banned under anti-doping or workplace drug-testing rules. If you are tested, you are responsible for checking the rules that apply to you. [MEDICAL DIRECTOR TO CONFIRM]",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "13. Lab tests, follow-up and stopping"
+  },
+  {
+   "t": "li",
+   "text": "Your clinician may ask for blood tests or other checks before or during treatment. Labs are billed separately. See the Laboratory Testing Consent.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "You can stop at any time. Tell your clinician if you stop. Stopping does not by itself cancel your plan; see the Refund, Cancellation and Auto-Renewal Policy.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not change your dose, take it more often than prescribed or double a missed dose. If you miss a dose, follow your label or ask your clinician.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Your clinician may change or stop a prescription based on your health, test results, new medicines or changes in the rules for a product.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "14. Questions and reporting problems"
+  },
+  {
+   "t": "li",
+   "text": "Non-emergency medical questions: message your prescribing clinician in the patient portal at [PORTAL URL].",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Orders, shipping or billing help: [SUPPORT EMAIL]. Phone: [SUPPORT PHONE AND HOURS, ONLY IF LIVE].",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Ingredients, strength, preparation, storage or beyond-use date: the dispensing pharmacy listed on your prescription label.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "To report a side effect or product-quality problem to FDA: FDA MedWatch at www.fda.gov/medwatch or 1-800-FDA-1088 [VERIFY: FDA web addresses]. Please also tell your clinician and the pharmacy.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "15. Additional information"
+  },
+  {
+   "t": "p",
+   "text": "This is general information, not medical advice for you. It is not a complete list of warnings, risks, side effects, interactions or instructions. Your prescription label and the information from your dispensing pharmacy control if they differ from this summary. For general information about compounded drugs, see the “Human Drug Compounding” pages at www.fda.gov.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "Product articles"
+  },
+  {
+   "t": "p",
+   "text": "Read the article for each product you are prescribed, together with Sections 1 to 15.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "Article A. Sermorelin injection"
+  },
+  {
+   "t": "p",
+   "text": "[MEDICAL DIRECTOR TO CONFIRM] Every statement in this article, before publication.",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "What it is"
+  },
+  {
+   "t": "p",
+   "text": "Sermorelin is a man-made (synthetic) peptide. It copies part of a signal your body makes that tells the pituitary gland, a small gland at the base of the brain, to release growth hormone. Sermorelin is not growth hormone itself. On WellPeps, sermorelin is a compounded injection given under the skin (subcutaneous), as your label directs.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "FDA status"
+  },
+  {
+   "t": "p",
+   "text": "A compounded sermorelin injection is **not FDA-approved**. FDA has not reviewed it for safety, effectiveness or quality.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "A different sermorelin product was approved by FDA years ago and is no longer sold in the United States. That earlier product was approved for specific medical uses, not for general wellness or to affect aging. [MEDICAL DIRECTOR TO CONFIRM]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "[COUNSEL TO CONFIRM] Sermorelin is not on FDA’s lists of ingredients that are under review for compounding. Pharmacies that prepare it rely on that earlier FDA approval instead. The pharmacy named on your label is responsible for confirming that it may lawfully prepare your medication. [VERIFY: sermorelin basis]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "What is known and what is not"
+  },
+  {
+   "t": "p",
+   "text": "**What is known.** Sermorelin is a man-made version of part of a signal your body makes to prompt the release of growth hormone. That is how it acts in the body.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**What is not established.** It has not been established that sermorelin made by a compounding pharmacy gives any benefit to healthy adults, affects aging, or treats, prevents or cures any disease or condition. WellPeps does not claim that it does. FDA has not established a dose for general wellness. The long-term effects of raising growth hormone and a related hormone called IGF-1 in adults are not fully known. You may notice no change at all.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "Do not use, or tell your clinician first, if you"
+  },
+  {
+   "t": "p",
+   "text": "**Do not use sermorelin if you have active cancer or an active tumor, or if you are being checked for one.** Growth hormone and IGF-1 help cells grow, and it is not known whether raising them could help a tumor grow.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "have had cancer, a pituitary or brain tumor, or radiation to the head.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have diabetes, prediabetes or high blood sugar.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have an underactive thyroid or take thyroid medicine.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have heart, kidney or liver disease, high blood pressure, or swelling from fluid retention.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "are allergic to sermorelin or any ingredient on the label, including a preservative.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "are pregnant, plan to become pregnant or are breastfeeding. Do not use it unless your clinician has told you to.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Possible side effects"
+  },
+  {
+   "t": "p",
+   "text": "Reported with sermorelin and similar products: pain, redness, swelling, itching or bruising at the injection site; flushing; headache; nausea; dizziness; and changes in sleep or activity level. Because sermorelin acts on growth hormone, other effects are possible: swelling of the hands, feet or ankles; joint or muscle aches; numbness or tingling in the hands; and changes in blood sugar. The body may also make antibodies to sermorelin. For a compounded product, side effects and how often they happen may be different or unknown.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "Stop and get help"
+  },
+  {
+   "t": "li",
+   "text": "**Call 911** for a serious allergic reaction or trouble breathing.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Contact your clinician right away** for sudden swelling or fast weight gain, new numbness or tingling, signs of high blood sugar (very thirsty, urinating often, blurred vision), shakiness or sweating if you take diabetes medicine, or any new lump or growth.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Medicines and products to tell your clinician about"
+  },
+  {
+   "t": "p",
+   "text": "Tell your clinician if you use corticosteroids (such as prednisone), thyroid medicine, sex hormones (such as testosterone or estrogen), insulin or other diabetes medicines, growth hormone, or any other growth-hormone-releasing product or peptide, including products bought online or at a clinic. Do not combine them with sermorelin unless your clinician has told you to. Sermorelin may be banned in sport and by some testing programs; see Section 12.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "Article B. NAD+ injection"
+  },
+  {
+   "t": "p",
+   "text": "[MEDICAL DIRECTOR TO CONFIRM] Every statement in this article, before publication.",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "What it is"
+  },
+  {
+   "t": "p",
+   "text": "NAD+ (nicotinamide adenine dinucleotide) is a coenzyme, a helper molecule found in every cell of the body that takes part in how cells use energy. NAD+ is **not a peptide**. On WellPeps, NAD+ is a compounded injection, given as your label directs.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "FDA status"
+  },
+  {
+   "t": "p",
+   "text": "A compounded NAD+ injection is **not FDA-approved**. FDA has not reviewed it for safety, effectiveness or quality. FDA lists NAD+ among substances it is still evaluating for use in compounding. That is not an approval, and the list can change. [VERIFY: NAD+ category] [COUNSEL TO CONFIRM]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "What is known and what is not"
+  },
+  {
+   "t": "p",
+   "text": "**What is known.** NAD+ takes part in chemical reactions that cells use to make and use energy.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**What is not established.** It has not been established that an NAD+ injection changes NAD+ levels inside your cells in a way that helps you, or that it affects energy, thinking, mood, aging or any disease or condition. WellPeps does not claim that it does. Research on NAD+ for these purposes is early and comes mostly from lab studies, animal studies and small studies.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "Tell your clinician first if you"
+  },
+  {
+   "t": "li",
+   "text": "have or have had cancer, or are being treated for it. It is not known how added NAD+ affects cancer cells.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have heart disease, chest pain, or high or low blood pressure.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have kidney or liver disease or diabetes.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "are allergic to NAD+ or any ingredient on the label.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "are pregnant, plan to become pregnant or are breastfeeding. The effects are not known.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Possible side effects"
+  },
+  {
+   "t": "p",
+   "text": "Reported with NAD+: pain, redness or swelling at the injection site; flushing or a feeling of warmth; nausea; stomach cramps; headache; lightheadedness; tiredness; and chest tightness or pressure. These effects are more likely if the product goes in too fast. Inject only the way your label and pharmacy instructions say.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "Stop and get help"
+  },
+  {
+   "t": "li",
+   "text": "**Stop injecting and call 911** for chest pain, chest tightness that does not pass quickly, trouble breathing or fainting.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Call 911** for a serious allergic reaction.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Contact your clinician right away** for severe or lasting nausea, vomiting or stomach cramps.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Medicines and products to tell your clinician about"
+  },
+  {
+   "t": "p",
+   "text": "How NAD+ interacts with other medicines has not been well studied. Tell your clinician about every prescription medicine, over-the-counter medicine, vitamin and supplement you use, including any other product with “NAD” or a related ingredient. [MEDICAL DIRECTOR TO CONFIRM]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "Article C. Glutathione injection"
+  },
+  {
+   "t": "p",
+   "text": "[MEDICAL DIRECTOR TO CONFIRM] Every statement in this article, before publication.",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "What it is"
+  },
+  {
+   "t": "p",
+   "text": "Glutathione is a small molecule made of three amino acids. Your body makes it. It is described as an antioxidant, a substance that takes part in chemical reactions in cells. On WellPeps, glutathione is a compounded injection, given under the skin or into a muscle as your label directs. [MEDICAL DIRECTOR TO CONFIRM]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "FDA status"
+  },
+  {
+   "t": "p",
+   "text": "A compounded glutathione injection is **not FDA-approved**. FDA has not reviewed it for safety, effectiveness or quality. FDA lists glutathione among substances it is still evaluating for use in compounding. That is not an approval, and the list can change. [VERIFY: glutathione category] [COUNSEL TO CONFIRM]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "What is known and what is not"
+  },
+  {
+   "t": "p",
+   "text": "**What is known.** Your body makes glutathione, and it takes part in many chemical reactions in cells.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**What is not established.** It has not been established that glutathione injections give any benefit to healthy adults. WellPeps does not claim that glutathione changes the color or look of the skin, removes toxins, supports the immune system, affects aging, or treats, prevents or cures any disease or condition.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "Tell your clinician first if you"
+  },
+  {
+   "t": "li",
+   "text": "are allergic to glutathione or any ingredient on the label.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have asthma or other breathing problems. Glutathione breathed in as a mist has been linked to asthma attacks. It is not known whether an injection has the same effect.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have cancer or are being treated for it. Some antioxidant products can interfere with some cancer treatments.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have kidney or liver disease.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "are pregnant, plan to become pregnant or are breastfeeding. The effects are not known.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Possible side effects"
+  },
+  {
+   "t": "p",
+   "text": "Reported with glutathione: pain, redness, swelling or itching at the injection site; rash, hives or itching; stomach cramps, bloating or loose stools; flushing; and headache. The long-term effects of glutathione injections are not well known. For a compounded product, side effects and how often they happen may be different or unknown.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "Stop and get help"
+  },
+  {
+   "t": "li",
+   "text": "**Call 911** for a serious allergic reaction or trouble breathing.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Get medical care right away** for a spreading rash, blisters, peeling skin or sores in the mouth or eyes.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Contact your clinician promptly** for wheezing or a hard time breathing, or for any rash that does not go away.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Medicines and products to tell your clinician about"
+  },
+  {
+   "t": "p",
+   "text": "Little is known about how glutathione interacts with other medicines. Tell your clinician about every prescription medicine, over-the-counter medicine, vitamin and supplement you use, and about any cancer treatment. [MEDICAL DIRECTOR TO CONFIRM]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "Article D. MIC + B12 injection"
+  },
+  {
+   "t": "p",
+   "text": "[MEDICAL DIRECTOR TO CONFIRM] Every statement in this article, before publication.",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "What it is"
+  },
+  {
+   "t": "p",
+   "text": "MIC + B12 is a compounded injection that combines several ingredients in one vial. Products sold under this name commonly contain methionine (an amino acid), inositol and choline (substances found in food and in the body) and vitamin B12. The ingredients, their amounts and the form of vitamin B12 differ between pharmacies. **Your label lists every ingredient.** [PHARMACY TO CONFIRM] It is given under the skin or into a muscle as your label directs.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "FDA status"
+  },
+  {
+   "t": "p",
+   "text": "The combination is **not FDA-approved**. FDA has not reviewed it for safety, effectiveness or quality. Some single-ingredient vitamin B12 injections are FDA-approved. That does not make this combination approved. The pharmacy that prepares it is responsible for confirming that each ingredient may lawfully be used in a compounded injection. [COUNSEL TO CONFIRM] [PHARMACY TO CONFIRM]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "What is known and what is not"
+  },
+  {
+   "t": "p",
+   "text": "**What is known.** Vitamin B12 is needed for normal cell chemistry, red blood cell formation and nerve function. Methionine, inositol and choline take part in normal body chemistry.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**What is not established.** It has not been established that this combination, given as an injection, gives any benefit to people who are not deficient in these ingredients. WellPeps does not claim that it affects weight, fat, energy, thinking or aging, or that it treats, prevents or cures any disease or condition. It is not a weight-loss treatment.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "Do not use, or tell your clinician first, if you"
+  },
+  {
+   "t": "li",
+   "text": "are allergic to vitamin B12, cobalt, or any ingredient on the label.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have Leber’s disease (a hereditary optic nerve disease).",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have kidney disease, liver disease, a low potassium level, a heart rhythm problem or a blood disorder.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have a condition that affects how your body handles amino acids, such as homocystinuria.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "are pregnant, plan to become pregnant or are breastfeeding. The effects are not known.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Possible side effects"
+  },
+  {
+   "t": "p",
+   "text": "Reported with these ingredients: pain, redness or swelling at the injection site; itching or rash; diarrhea, nausea or an upset stomach; headache; dizziness; sweating or body odor; and lightheadedness. Rarely, vitamin B12 injections cause swelling of the body, shortness of breath or a serious allergic reaction. For a compounded product, side effects and how often they happen may be different or unknown.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "Stop and get help"
+  },
+  {
+   "t": "li",
+   "text": "**Call 911** for a serious allergic reaction or trouble breathing.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Contact your clinician right away** for swelling of the legs or body, fast weight gain, a fast or irregular heartbeat, or new muscle weakness.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Medicines and products to tell your clinician about"
+  },
+  {
+   "t": "p",
+   "text": "Tell your clinician about every other product you use that contains vitamin B12, methionine, choline, inositol or carnitine. **Do not use MIC + B12 together with Lipo-C** unless your clinician has told you to, because they can contain the same ingredients. Tell your clinician about all prescription medicines, vitamins and supplements.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "Article E. Lipo-C injection"
+  },
+  {
+   "t": "p",
+   "text": "[MEDICAL DIRECTOR TO CONFIRM] Every statement in this article, before publication.",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "What it is"
+  },
+  {
+   "t": "p",
+   "text": "Lipo-C is a compounded injection. Our site describes it as L-carnitine combined with other nutrient ingredients. Products sold under this name commonly contain L-carnitine together with methionine, inositol, choline and vitamin B12, so they can overlap with MIC + B12. The ingredients, their amounts and the forms of L-carnitine and vitamin B12 differ between pharmacies. **Your label lists every ingredient.** [PHARMACY TO CONFIRM] It is given under the skin or into a muscle as your label directs.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "FDA status"
+  },
+  {
+   "t": "p",
+   "text": "The combination is **not FDA-approved**. FDA has not reviewed it for safety, effectiveness or quality. An L-carnitine injection is FDA-approved as a single-ingredient medicine for specific medical conditions. That does not make this combination approved. The pharmacy that prepares it is responsible for confirming that each ingredient may lawfully be used in a compounded injection. [COUNSEL TO CONFIRM] [PHARMACY TO CONFIRM]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "What is known and what is not"
+  },
+  {
+   "t": "p",
+   "text": "**What is known.** L-carnitine takes part in moving fatty acids into cells, where they are used for energy.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**What is not established.** It has not been established that this combination, given as an injection, helps healthy people use fat, change weight or energy, or affects aging, or that it treats, prevents or cures any disease or condition. WellPeps does not claim that it does. It is not a weight-loss treatment.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "Do not use, or tell your clinician first, if you"
+  },
+  {
+   "t": "li",
+   "text": "have seizures or a seizure disorder. Carnitine has been linked to new or worse seizures.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have kidney disease, including dialysis.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "take a blood thinner such as warfarin. Carnitine has been linked to changes in clotting tests.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "are allergic to vitamin B12, cobalt, or any ingredient on the label.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have Leber’s disease, liver disease, a low potassium level, a heart rhythm problem, or a condition that affects how your body handles amino acids, such as homocystinuria.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "are pregnant, plan to become pregnant or are breastfeeding. The effects are not known.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Possible side effects"
+  },
+  {
+   "t": "p",
+   "text": "Reported with these ingredients: nausea, vomiting, stomach cramps or diarrhea; a “fishy” body odor; pain, redness or swelling at the injection site; itching or rash; headache; dizziness; and sweating. For a compounded product, side effects and how often they happen may be different or unknown.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "Stop and get help"
+  },
+  {
+   "t": "li",
+   "text": "**Call 911** for a seizure, a serious allergic reaction or trouble breathing.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Contact your clinician right away** for severe or lasting vomiting or diarrhea, easy bruising or bleeding, swelling of the legs or body, or a fast or irregular heartbeat.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Medicines and products to tell your clinician about"
+  },
+  {
+   "t": "p",
+   "text": "Tell your clinician about blood thinners and about every other product you use that contains carnitine, vitamin B12, methionine, choline or inositol. **Do not use Lipo-C together with MIC + B12** unless your clinician has told you to. Tell your clinician about all prescription medicines, vitamins and supplements.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "Article F. Methylene blue capsule"
+  },
+  {
+   "t": "p",
+   "text": "[MEDICAL DIRECTOR TO CONFIRM] Every statement in this article, before publication.",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**Important.** Methylene blue can cause a serious, life-threatening reaction called serotonin syndrome when it is taken with many common medicines, including many antidepressants. It can also harm people who have an inherited enzyme condition called G6PD deficiency. Tell your clinician about every medicine and supplement you use. **Do not start, stop or change any other medicine on your own.**",
+   "kind": "warning"
+  },
+  {
+   "t": "h3",
+   "text": "What it is and FDA status"
+  },
+  {
+   "t": "p",
+   "text": "Methylene blue is a blue dye and medicine that has been used in medicine for many years. A methylene blue injection is FDA-approved to treat a blood condition called methemoglobinemia and is given by a health care professional. [MEDICAL DIRECTOR TO CONFIRM]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "On WellPeps, methylene blue is a compounded capsule taken by mouth. It is **not FDA-approved**. FDA has not reviewed it for safety, effectiveness or quality. Taking methylene blue by mouth for general wellness, energy, thinking, mood or aging is not an FDA-approved use.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "What is known and what is not"
+  },
+  {
+   "t": "p",
+   "text": "**What is known.** Methylene blue takes part in chemical (redox) reactions in cells and has a long history of medical use.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**What is not established.** It has not been established that methylene blue capsules help memory, focus, mood, energy, sleep or anything else in healthy adults, or what amount would be appropriate for such use. Research outside its medical uses is early. WellPeps does not claim that it does any of these things or that it treats, prevents or cures any disease or condition.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "Serotonin syndrome and other medicines"
+  },
+  {
+   "t": "p",
+   "text": "Methylene blue can block an enzyme called monoamine oxidase (MAO) and can raise serotonin to dangerous levels when combined with other medicines that act on serotonin. **Do not take methylene blue if you take, or have recently taken, any of these unless your clinician has told you in writing that it is acceptable.** This list is not complete. [MEDICAL DIRECTOR TO CONFIRM]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "SSRIs (for example sertraline, fluoxetine, citalopram, escitalopram, paroxetine).",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "SNRIs (for example venlafaxine, desvenlafaxine, duloxetine).",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "MAOIs (for example phenelzine, tranylcypromine, selegiline, rasagiline) and the antibiotic linezolid.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Other antidepressants and related medicines (for example tricyclics such as amitriptyline, bupropion, mirtazapine, trazodone, buspirone, lithium).",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Some pain medicines (for example tramadol, meperidine, methadone, fentanyl), migraine medicines called triptans, some ADHD and stimulant medicines, and the cough suppressant dextromethorphan.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Supplements such as St. John’s wort, 5-HTP and tryptophan.",
+   "level": 0
+  },
+  {
+   "t": "p",
+   "text": "**Signs of serotonin syndrome** include agitation or restlessness, confusion, a fast heartbeat, sweating, fever, shivering, muscle twitching or stiffness, tremor, diarrhea, nausea or vomiting. Call 911 for seizures, high fever, severe confusion or loss of consciousness. It can start within hours of a dose.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**Never stop another medicine on your own to be able to use methylene blue.** Stopping some medicines suddenly can cause serious problems, and some stay in the body for weeks. Talk to the clinician who prescribed that medicine. Your WellPeps clinician may decide not to prescribe methylene blue for you.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "G6PD deficiency and red blood cells"
+  },
+  {
+   "t": "p",
+   "text": "G6PD deficiency is an inherited enzyme condition. In people who have it, methylene blue can make red blood cells break apart (hemolysis). Tell your clinician if you have been told you have G6PD deficiency, if family members do, or if you have anemia or any blood disorder. Your clinician may ask for a G6PD test before prescribing. [MEDICAL DIRECTOR TO CONFIRM]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "Tell your clinician first if you"
+  },
+  {
+   "t": "li",
+   "text": "are pregnant, may be pregnant, plan to become pregnant or are breastfeeding. Labeling for the FDA-approved injection warns about harm to an unborn baby. Do not use methylene blue if you are pregnant or breastfeeding unless your clinician has told you to.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have kidney disease. Your kidneys clear methylene blue from the body.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have liver disease, heart disease, or high blood pressure.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "are allergic to methylene blue, or to any dye or ingredient on the label.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "What to expect and possible side effects"
+  },
+  {
+   "t": "p",
+   "text": "**Methylene blue turns urine blue or green.** It can also color the stool, the tongue or gums, and the skin, and it can stain clothes. This color change is expected, but it can hide other changes in urine color. Reported side effects include nausea, vomiting, stomach pain, diarrhea, headache, dizziness, sweating, burning when you urinate, anxiety and confusion. Methylene blue can make a pulse oximeter read wrong and may affect some lab tests, so tell any clinician or lab that you take it. [MEDICAL DIRECTOR TO CONFIRM]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "Stop and get help"
+  },
+  {
+   "t": "li",
+   "text": "**Call 911** for signs of serotonin syndrome with seizures, high fever or severe confusion, for a serious allergic reaction, for trouble breathing, or for blue-gray skin, lips or nails with shortness of breath, headache or chest pain.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Get medical care right away** for dark or tea-colored urine that is not just the blue-green color, pale or yellow skin or eyes, unusual tiredness, shortness of breath or a fast heartbeat. These can be signs of red blood cell breakdown.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Contact your clinician right away** for any new agitation, restlessness, tremor, sweating or diarrhea after a dose or after you start a new medicine.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Taking it correctly"
+  },
+  {
+   "t": "p",
+   "text": "Take only the number of capsules your label says. Taking more can cause serious blood problems. **Do not use methylene blue sold as a dye, stain, aquarium or lab product.** Those products are not made for people. If you may have taken too much, call Poison Control at 1-800-222-1222.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "PART 2. HEALTHY AGING AND VITALITY SAFETY ACKNOWLEDGMENT (required form)"
+  },
+  {
+   "t": "callout",
+   "text": "**Build note:** configure as required GEN Health form(s) (Forms), shown before provider review and checkout, after the Electronic Records, Signatures and Communications Consent. Always show the core boxes. Show the injectable boxes if any of Articles A to E is in the cart. Show one product block for each product in the cart. Every box displayed must be checked to continue. Capture and store the typed name, timestamp, document version, IP address and the list of products covered, against the order. Counsel to confirm logging and retention. Whenever the medical director changes an article, update the matching boxes so the acknowledgment never says more or less than the article.",
+   "kind": "note"
+  },
+  {
+   "t": "p",
+   "text": "Please read the Healthy Aging and Vitality Medication Safety Information (version [VERSION], effective [EFFECTIVE DATE]) before checking each box. Signing this acknowledgment does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "Part A. Core acknowledgments (every patient)"
+  },
+  {
+   "t": "check",
+   "text": "I have read Sections 1 to 15 of the Healthy Aging and Vitality Medication Safety Information (Section 8 applies only to injectable products) and the article for each product I selected. I know I can read them again in the patient portal at [PORTAL URL] and that I can ask my clinician or the pharmacy questions."
+  },
+  {
+   "t": "check",
+   "text": "I understand that WellPeps is not a medical practice or a pharmacy, that an independent licensed clinician decides whether I receive a prescription, that a prescription is not guaranteed, and that a clinician may decline, change or stop a prescription."
+  },
+  {
+   "t": "check",
+   "text": "I understand that every product listed here is a compounded medicine, that compounded medicines are not FDA-approved, and that FDA does not review them for safety, effectiveness or quality. I understand that the Compounded Medication Disclosure and Consent explains this in more detail and that I may ask my clinician about other options at any time."
+  },
+  {
+   "t": "check",
+   "text": "I understand that WellPeps does not claim that any of these products treats, prevents or slows aging or any disease or condition, or reduces the side effects of another medicine. I understand that results are not promised and that I may notice no change."
+  },
+  {
+   "t": "check",
+   "text": "I have answered all health questions truthfully and completely, including about allergies, cancer, heart, kidney and liver conditions, blood disorders, pregnancy and breastfeeding, and every medicine, supplement and treatment I use. I will tell my clinician right away if anything changes, including if I become pregnant."
+  },
+  {
+   "t": "check",
+   "text": "I understand that my prescription label and my pharmacy’s instructions come first, and that I must check the storage rules and the beyond-use date. I will contact the pharmacy before using a product that arrives late, warm, damaged or labeled differently from what I expected."
+  },
+  {
+   "t": "check",
+   "text": "I will not share these products. I will not combine them with each other, or with similar products from anywhere else, unless my clinician tells me to. I will not use any product labeled “for research use only.” I will tell any other clinician who treats me that I use these products."
+  },
+  {
+   "t": "check",
+   "text": "I know to call 911 in an emergency and Poison Control at 1-800-222-1222 for a possible overdose or dosing error. I know how to report a side effect or product problem to my clinician, the pharmacy and FDA MedWatch (www.fda.gov/medwatch or 1-800-FDA-1088)."
+  },
+  {
+   "t": "h2",
+   "text": "Part B. Injectable products (shown if Article A, B, C, D or E applies)"
+  },
+  {
+   "t": "check",
+   "text": "I understand that I must use only the product, dose, route, strength and syringe on my current pharmacy label, that units, milliliters and milligrams are different, and that strengths can differ between refills and pharmacies. I will not inject until my clinician or the pharmacy confirms anything that is unclear."
+  },
+  {
+   "t": "check",
+   "text": "I understand how to use a new sterile needle and syringe for every injection, never to share or reuse them, and to put used sharps in a sharps container. I will not inject any product into a vein, and I will not use at home a product labeled IV or “for office use.”"
+  },
+  {
+   "t": "check",
+   "text": "I know the signs of an injection-site infection and of a serious allergic reaction, and I know when to contact my clinician and when to call 911."
+  },
+  {
+   "t": "h2",
+   "text": "Part C. Product acknowledgments (shown only for the products in your order)"
+  },
+  {
+   "t": "h3",
+   "text": "Article A. Sermorelin injection"
+  },
+  {
+   "t": "check",
+   "text": "I understand that sermorelin made by a pharmacy is not FDA-approved, that FDA has not reviewed it for safety, effectiveness or quality, and that it has not been established that it gives any benefit to healthy adults or affects aging or any disease."
+  },
+  {
+   "t": "check",
+   "text": "I understand that sermorelin acts on growth hormone, that it must not be used with active cancer or an active tumor, and that it can cause swelling, joint or muscle aches, numbness or tingling, and changes in blood sugar. I have told my clinician about any cancer, tumor, pituitary problem, diabetes or thyroid problem."
+  },
+  {
+   "t": "check",
+   "text": "I will not use sermorelin with human growth hormone or with any other growth-hormone-releasing product, including products bought online or at a clinic, unless my clinician tells me to."
+  },
+  {
+   "t": "check",
+   "text": "I understand that sermorelin may be banned under anti-doping and drug-testing rules, and that I am responsible for checking the rules that apply to me."
+  },
+  {
+   "t": "h3",
+   "text": "Article B. NAD+ injection"
+  },
+  {
+   "t": "check",
+   "text": "I understand that NAD+ is not a peptide, that NAD+ made by a pharmacy is not FDA-approved, that FDA is still evaluating it for compounding and that this is not an approval, and that it has not been established that it gives any benefit to healthy adults or affects aging or any disease."
+  },
+  {
+   "t": "check",
+   "text": "I understand that NAD+ can cause flushing, nausea, stomach cramps and chest tightness, especially if it goes in too fast. I will inject only as my label says, and I know to stop and call 911 for chest pain, chest tightness that does not pass quickly, or trouble breathing."
+  },
+  {
+   "t": "check",
+   "text": "I understand that interactions with other medicines have not been well studied. I have told my clinician about everything I take and about any cancer history or treatment."
+  },
+  {
+   "t": "h3",
+   "text": "Article C. Glutathione injection"
+  },
+  {
+   "t": "check",
+   "text": "I understand that glutathione made by a pharmacy is not FDA-approved, that FDA is still evaluating it for compounding and that this is not an approval, and that it has not been established that it gives any benefit to healthy adults. I understand that WellPeps does not claim it changes skin color or look, removes toxins or affects aging or any disease."
+  },
+  {
+   "t": "check",
+   "text": "I understand that glutathione can cause allergic reactions and rarely serious skin reactions. I have told my clinician about any allergy, asthma or breathing problem, and any cancer treatment."
+  },
+  {
+   "t": "check",
+   "text": "I know to call 911 for a serious allergic reaction, and to get medical care right away for blisters, peeling skin or mouth sores."
+  },
+  {
+   "t": "h3",
+   "text": "Article D. MIC + B12 injection"
+  },
+  {
+   "t": "check",
+   "text": "I understand that MIC + B12 made by a pharmacy is not FDA-approved, that it is not a weight-loss treatment, and that it has not been established that it gives any benefit to people who are not deficient in its ingredients."
+  },
+  {
+   "t": "check",
+   "text": "I have checked that the ingredient list on my pharmacy label matches what my clinician or the pharmacy told me, and I will not use the product until they confirm anything that is unclear."
+  },
+  {
+   "t": "check",
+   "text": "I have told my clinician if I am allergic to vitamin B12 or cobalt, or if I have Leber’s disease, kidney disease, liver disease, a heart rhythm problem or a condition that affects how my body handles amino acids."
+  },
+  {
+   "t": "check",
+   "text": "I will not use MIC + B12 together with Lipo-C, or with any other product that has the same ingredients, unless my clinician tells me to."
+  },
+  {
+   "t": "h3",
+   "text": "Article E. Lipo-C injection"
+  },
+  {
+   "t": "check",
+   "text": "I understand that Lipo-C made by a pharmacy is not FDA-approved, that it is not a weight-loss treatment, and that it has not been established that it gives any benefit to healthy adults."
+  },
+  {
+   "t": "check",
+   "text": "I have checked that the ingredient list on my pharmacy label matches what my clinician or the pharmacy told me, and I will not use the product until they confirm anything that is unclear."
+  },
+  {
+   "t": "check",
+   "text": "I have told my clinician if I have seizures, kidney disease or dialysis, take a blood thinner, am allergic to vitamin B12 or cobalt, or have a condition that affects how my body handles amino acids."
+  },
+  {
+   "t": "check",
+   "text": "I will not use Lipo-C together with MIC + B12, or with any other product that has the same ingredients, unless my clinician tells me to."
+  },
+  {
+   "t": "h3",
+   "text": "Article F. Methylene blue capsule"
+  },
+  {
+   "t": "check",
+   "text": "I understand that methylene blue capsules made by a pharmacy are not FDA-approved, that using them for general wellness, energy, thinking, mood or aging is not an FDA-approved use, and that it has not been established that they give any benefit to healthy adults."
+  },
+  {
+   "t": "check",
+   "text": "I understand that methylene blue can cause serotonin syndrome, a life-threatening reaction, when taken with many medicines. I have told my clinician about every prescription medicine, over-the-counter medicine and supplement I use, including antidepressants (SSRIs, SNRIs, MAOIs and others), ADHD, migraine and pain medicines, cough and cold medicines, and St. John’s wort. I will tell my clinician before I start any new medicine."
+  },
+  {
+   "t": "check",
+   "text": "I understand that my clinician may decline to prescribe methylene blue, and that I must not start, stop or change any other medicine on my own because of it."
+  },
+  {
+   "t": "check",
+   "text": "I have told my clinician if I or my family have G6PD deficiency, or if I have anemia, a blood disorder, kidney disease, or liver disease. I understand I may need a test before treatment. I have told my clinician if I am pregnant, may be pregnant or am breastfeeding. I will not use methylene blue while pregnant or breastfeeding unless my clinician tells me to."
+  },
+  {
+   "t": "check",
+   "text": "I understand that methylene blue turns urine blue or green, can affect pulse oximeter readings and some lab tests, and that I will tell any clinician or lab that I take it."
+  },
+  {
+   "t": "check",
+   "text": "I know the signs of serotonin syndrome and of red blood cell breakdown, and I know to call 911 or get medical care right away. I will take only the capsules my label says and will never use methylene blue sold as a dye, stain, aquarium or lab product."
+  },
+  {
+   "t": "h2",
+   "text": "Electronic signature"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Typed full legal name",
+     "(typed by patient)"
+    ],
+    [
+     "Products covered by this acknowledgment",
+     "(captured by the system from the order)"
+    ],
+    [
+     "Date and time",
+     "(captured by the system)"
+    ],
+    [
+     "Document version",
+     "(captured by the system)"
+    ],
+    [
+     "IP address",
+     "(captured by the system)"
+    ]
+   ],
+   "widths": [
+    2,
+    3
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "By typing my name, I agree that my electronic signature is the legal equivalent of my handwritten signature, and that I have already agreed to receive and sign documents electronically. This acknowledgment does not replace the Informed Consent to Telehealth Services and Treatment and does not by itself create a clinician-patient relationship.",
+   "italic": false,
+   "align": null
+  }
+ ],
+ "id": "A17",
+ "docTitle": "Healthy Aging and Vitality Medication Safety Information and Acknowledgment",
+ "source": "healthy_aging_safety.py",
+ "reviewerNotesOmittedBlocks": 20
+}

@@ -1,0 +1,663 @@
+{
+ "title": "Laboratory Testing Consent",
+ "version": "0.1",
+ "date": "October 1, 2026",
+ "blocks": [
+  {
+   "t": "h1",
+   "text": "Laboratory Testing Consent"
+  },
+  {
+   "t": "p",
+   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: [LAST UPDATED]  |  Version [VERSION]",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "In short"
+  },
+  {
+   "t": "li",
+   "text": "Your clinician may ask you to get lab tests before or while you take a medicine. Labs help your clinician decide whether a treatment is appropriate for you and how your body is doing on it.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "You can get tests through our lab partner, [LAB PARTNER], or through your own lab or doctor. Your clinician decides whether results from another lab can be used.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Lab tests are not part of your monthly price. They are billed separately. We do not bill insurance.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "A clinician of the Practice, not WellPeps support, reviews and explains your results.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Some results are urgent. Keep your phone number and email up to date so the Practice can reach you.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "If you do not complete labs that your clinician requires, your clinician may pause, delay or decline treatment.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "1. Who is who"
+  },
+  {
+   "t": "p",
+   "text": "WellPeps, a Wyoming corporation (“WellPeps,” “we,” “us”), is not a medical practice and is not a laboratory. We do not order, run or read lab tests, and we do not give medical advice.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Your care comes from independent licensed clinicians of [PRACTICE NAME] (the “Practice”). A clinician of the Practice decides whether a lab test is medically appropriate for you and places the order [VERIFY: how lab orders are placed]. The Practice keeps your medical record.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "The laboratory is a separate company. It collects your sample (or sends you a kit), runs the test and sends the result to the Practice. Our lab partner is [LAB PARTNER]. The lab has its own prices, policies and responsibilities. Our business relationship with the lab partner is described in the Financial Relationship Disclosure and Acknowledgment. [VERIFY: lab partner ownership and payments]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "This consent works together with the Informed Consent to Telehealth Services and Treatment and the Notice of Privacy Practices. It does not replace them.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "2. What lab testing is"
+  },
+  {
+   "t": "p",
+   "text": "A lab test measures something in a sample of your blood or urine. Examples are blood sugar, cholesterol, kidney and liver tests and hormone levels. A clinician reads results together with your health history and symptoms. One result is one piece of information. It is not a diagnosis by itself.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Tests are not perfect. A result can look normal when something is wrong, or look abnormal when nothing is wrong. Your clinician may repeat a test or order another one. A normal result does not promise that you are healthy, and a test does not promise that a treatment will work for you.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "3. When your clinician may require labs"
+  },
+  {
+   "t": "p",
+   "text": "For some treatments your clinician needs lab results before writing a prescription, or while you are taking a medicine. Your clinician may ask for labs:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "before you start, to check whether a medicine is appropriate for you and to get a starting point;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "at times your clinician sets, to see how your body is handling a medicine;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "before a dose change or a refill;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "if you have new symptoms or other changes in your health; or",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "when results from another source are old, unclear or missing.",
+   "level": 0
+  },
+  {
+   "t": "p",
+   "text": "Your clinician decides which tests and when, using professional judgment. WellPeps does not decide this and cannot override it. We cannot promise that you will not need labs, or that a test will lead to a prescription. [MEDICAL DIRECTOR: confirm labs required and timing]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "If your clinician needs labs before treating you, the portal will ask you to order labs or upload recent results. Until that is done, your clinician cannot finish reviewing your order and no prescription can be written for it.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "4. Your choices: where to get tested"
+  },
+  {
+   "t": "p",
+   "text": "Unless your clinician requires one specific test, you decide where to have your tests done.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Choice",
+     "How it works",
+     "Things to know"
+    ],
+    [
+     "Our lab partner, [LAB PARTNER]",
+     "You order and pay in the portal. You get instructions and a collection location, or a kit if one is offered. The result goes to the Practice.",
+     "The price is shown before you pay and is billed separately. Not every test or state is available."
+    ],
+    [
+     "Your own lab or doctor",
+     "Ask your clinician which tests are needed. Have them done on your own. Upload a copy of the result in the portal. Your clinician decides whether it can be used.",
+     "Results usually must be recent (for example, within [90 days]), come from a certified lab, include the tests needed and show your name and the test date. You pay your own lab or use your own insurance with your own doctor. WellPeps and the Practice do not bill insurance."
+    ],
+    [
+     "No test",
+     "You may decide not to have a test.",
+     "Your clinician may not be able to start or continue treatment. See section 8."
+    ]
+   ],
+   "widths": null,
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "p",
+   "text": "Rules about who can order lab tests differ by state. In some states you can order certain tests yourself. In others a clinician must order every test, and some states limit tests ordered online or by mail. [VERIFY: state direct-access lab rules] Because of this, testing through [LAB PARTNER] may not be available in every state, and the tests offered may differ by state. We follow the rules of the state where you are located when the test is ordered.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "5. Cost and who pays"
+  },
+  {
+   "t": "li",
+   "text": "**Not in your monthly price.** Lab tests are never included in your monthly price. They are billed separately.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Who bills you.** Lab fees are billed by [LAB BILLING PARTY], as shown at lab checkout. [VERIFY: who bills for lab fees] The price of each test is shown before you pay.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Who is responsible.** You are responsible for paying for tests you order, and for tests your clinician requires if you choose to go ahead with treatment.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Other charges.** If a lab cannot use your sample and you must give another, a repeat charge may apply. [VERIFY: lab partner policies] Any extra charge will be shown to you before you pay or explained by the lab.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Failed payment.** If your payment for a lab order does not go through, the order will not be sent to the lab.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**No insurance billing.** Lab tests ordered through WellPeps are cash-pay. They are not billed to your health insurance, Medicare or Medicaid, and we cannot file claims for you. At the collection site, tell staff that you are paying through WellPeps and follow the lab's instructions about insurance. Ask your health plan administrator whether you may use health savings or flexible spending funds, and keep your receipt.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "6. Giving your sample"
+  },
+  {
+   "t": "p",
+   "text": "Follow the instructions you receive with your order. They may tell you to:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "not eat or drink anything except water for a set number of hours before the test (fasting), if the test needs it;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "bring a photo ID, and use your name and date of birth exactly as they appear in your account;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "return a collection kit by a set date if you are using one;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "keep taking your medicines unless your clinician tells you to stop or change them.",
+   "level": 0
+  },
+  {
+   "t": "p",
+   "text": "Giving a blood sample is usually uncomplicated. Common effects are pain, bruising or soreness where the needle went in. Rarely, people faint, bleed longer than expected, get an infection or have nerve irritation. Tell the staff if you faint easily, have a bleeding problem or take a blood thinner.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "A lab may not be able to use a sample if it is the wrong type, too small, damaged or labeled wrongly. If that happens you may need to give another sample. After your test, the lab handles your sample under its own rules and the law. [VERIFY: lab partner policies] WellPeps and the Practice do not receive your sample.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "This consent covers routine blood and urine tests. Some tests, such as tests for HIV or other infections, genetic tests or drug tests, need extra consent, counseling or reporting under some state laws. If your clinician orders one of those, you will receive a separate consent. [VERIFY: sensitive test rules]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "7. Your results: how you get them and who explains them"
+  },
+  {
+   "t": "li",
+   "text": "**Where results go.** The lab sends your results to the Practice through our technology platform. [VERIFY: results release and review process]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Who reviews them.** A clinician of the Practice reviews your results, usually within [2 business days] after the Practice receives them. Review can take longer on weekends and holidays or if more information is needed.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Who explains them.** Your clinician will tell you what a result means for your care, in a portal message, a visit or both. Your clinician may recommend that you repeat a test, change or stop a medicine, or see another healthcare professional.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**You may see results before your clinician does.** Some results may appear in your portal before your clinician has reviewed them. A result you see early can be hard to understand. Do not change or stop a medicine because of a result unless your clinician tells you to. Send a portal message with your questions.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**What WellPeps support does not do.** Our support team does not read, explain or make decisions about the meaning of your results and cannot give medical advice. Send questions about results to your clinician in the portal. Our team may do administrative steps, such as checking that a file you uploaded opens and shows your name and date.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Copies.** You can also ask the lab directly for a copy of your results. [VERIFY: lab partner policies]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Results from your own lab.** If you upload results from your own lab or doctor, a clinician of the Practice reviews them only to decide about your treatment. The lab or doctor who ordered those tests remains responsible for following up with you about them.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Your own doctor.** The Practice does not replace your primary care provider. If a result shows something outside your treatment, the clinician may suggest that you see your own doctor. Following up with your own doctor is your responsibility.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "8. If you do not complete labs your clinician requires"
+  },
+  {
+   "t": "p",
+   "text": "Getting labs can be hard because of cost, time or where you live. If that is a problem, tell your clinician. There may be other options, such as a different lab or a different time.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "If a lab your clinician requires is not completed, your clinician may:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "wait to finish reviewing your order;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "decline to prescribe;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "decline to renew or refill a prescription;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "change your treatment plan or dose;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "stop treatment and tell you how to stop safely; or",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "ask you to have a visit or see a healthcare professional in person.",
+   "level": 0
+  },
+  {
+   "t": "p",
+   "text": "These are medical decisions made by the Practice. They are not penalties. WellPeps cannot override them, and a pharmacy cannot fill a prescription that has not been written.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**Billing.** If a clinician does not prescribe or does not renew because required labs were not completed, your plan is handled under the Refund, Cancellation and Auto-Renewal Policy. You can cancel at any time under that policy. [COUNSEL: charges when treatment is paused for labs]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "9. Abnormal and urgent results"
+  },
+  {
+   "t": "p",
+   "text": "Many abnormal results are not serious. Some results are urgent. A result that needs fast action is sometimes called a critical result.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "If a result is urgent, a clinician of the Practice will try to reach you. The Practice may use a portal message, email, text message or phone call, and may try more than once. [VERIFY: critical result process]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "The Practice can only reach you if your contact information is correct. Please:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "keep your mobile number, email address and mailing address current in your portal profile;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "turn on portal notifications and check your email, including spam or junk folders, and your portal messages;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "tell us right away if you change your phone number or email; and",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "answer or return calls and messages from the Practice promptly in the days after a test.",
+   "level": 0
+  },
+  {
+   "t": "p",
+   "text": "If the Practice cannot reach you, it may take other steps allowed by law and by its policies, which may include pausing treatment until you respond. [VERIFY: Practice policy for unreachable patients]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**Do not wait for a lab result if you feel very sick.** If you have chest pain, trouble breathing, severe pain, confusion, fainting or any other emergency, call 911 or go to the nearest emergency room.",
+   "kind": "warning"
+  },
+  {
+   "t": "p",
+   "text": "The lab and the Practice may be required by law to report certain results to public health authorities.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "10. Who owns and who can see your results"
+  },
+  {
+   "t": "p",
+   "text": "Lab results that the Practice orders or accepts become part of your medical record. The Practice owns and keeps your medical record. It keeps records for at least [7] years, or longer if the law requires. The lab keeps its own records as the law requires.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "The people and companies who may see your results are:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "you;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "clinicians and staff of the Practice who work on your care;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "the lab;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "the technology platform company that stores and delivers records for the Practice and for us, under written agreements; and",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "others only as the law allows or with your written permission, for example your own doctor if you ask us to send results.",
+   "level": 0
+  },
+  {
+   "t": "p",
+   "text": "WellPeps staff see only what is needed for non-clinical tasks, such as handling your order or helping you with an account problem. [VERIFY: what lab data WellPeps staff can see] We do not sell your lab results. [VERIFY: lab results not sold or shared for marketing]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Your rights to see and get a copy of your records and to ask for corrections are in the Notice of Privacy Practices. How we handle other information about you is in our Privacy Policy and our Consumer Health Data Privacy Policy.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "11. Refunds for lab fees"
+  },
+  {
+   "t": "p",
+   "text": "WellPeps does not set the refund rules for lab fees. The refund policy of [LAB PARTNER] applies. [VERIFY: lab partner policies] In general, a lab fee may not be refundable after your sample has been collected or processed. If the lab cancels an order before collecting a sample, or cannot run your test, you should receive a refund or a new collection.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "The Refund, Cancellation and Auto-Renewal Policy covers your monthly plan. It does not cover lab fees unless it says so. If you have a problem with a lab charge, email [SUPPORT EMAIL] and we will help you reach the right company.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "12. Your rights and choices"
+  },
+  {
+   "t": "li",
+   "text": "You may say no to any lab test or ask questions before you decide.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "You may withdraw this consent before your sample is collected by sending a portal message to your clinician or an email to [SUPPORT EMAIL]. Your clinician may still decide that treatment is not appropriate without the test.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "You may ask your clinician about your options, including using your own lab.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "You may ask for a copy of your results and a paper copy of this consent (see the Electronic Records, Signatures and Communications Consent).",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "13. Limits"
+  },
+  {
+   "t": "p",
+   "text": "Lab tests are not emergency care and are not a full health check. They do not find every condition. No test result promises a diagnosis, a treatment or an outcome. A clinician decides whether to prescribe, and a prescription is not guaranteed.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "14. Questions"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Topic",
+     "Who to contact"
+    ],
+    [
+     "Questions about a test, a result or your treatment",
+     "Your clinician, by message in the portal at [PORTAL URL]"
+    ],
+    [
+     "Ordering, billing, your account, refunds",
+     "WellPeps support, Monday to Friday 9 to 6 ET: [SUPPORT EMAIL] [SUPPORT PHONE AND HOURS, ONLY IF LIVE]"
+    ],
+    [
+     "Collection site, kit, sample or the lab report",
+     "The lab: [LAB PARTNER CONTACT]"
+    ],
+    [
+     "Privacy questions",
+     "[PRIVACY EMAIL]"
+    ],
+    [
+     "Emergency",
+     "Call 911"
+    ]
+   ],
+   "widths": [
+    2,
+    3
+   ],
+   "header": true,
+   "shade": true
+  },
+  {
+   "t": "h1",
+   "text": "Acknowledgment"
+  },
+  {
+   "t": "callout",
+   "text": "**Build note:** configure as a required consent form in GEN Health (Forms, Patient Consents tab: a rich text block with Require Signature, then the checkbox questions). Show it before the lab step. Every box must be checked to continue. Store the typed name, timestamp, document version, IP address and the state the patient says they are in today. Re-present when the version changes.",
+   "kind": "info"
+  },
+  {
+   "t": "p",
+   "text": "Please read the Laboratory Testing Consent (version [VERSION], dated [EFFECTIVE DATE]) before checking each box. Signing does not mean a lab will be ordered and does not guarantee a prescription.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "check",
+   "text": "I have read the Laboratory Testing Consent. I know I can read it again at [PORTAL URL] and that I can ask my clinician or WellPeps support questions."
+  },
+  {
+   "t": "check",
+   "text": "I understand that WellPeps is not a medical practice or a laboratory, that a clinician of the Practice decides whether a lab is needed and reviews my results, and that WellPeps support does not interpret results."
+  },
+  {
+   "t": "check",
+   "text": "I understand that lab tests are billed separately, are not part of my monthly price and are not billed to insurance, and that I am responsible for lab fees for tests I order. I understand that refunds of lab fees follow the lab partner's policy."
+  },
+  {
+   "t": "check",
+   "text": "I understand that I may use [LAB PARTNER] or my own lab, and that my clinician decides whether results from another lab can be used."
+  },
+  {
+   "t": "check",
+   "text": "I understand that if I do not complete labs my clinician requires, my clinician may pause, delay or decline treatment."
+  },
+  {
+   "t": "check",
+   "text": "I understand that some results are urgent. I have given accurate contact information and will keep it current and check my portal and email. In an emergency I will call 911 and will not wait for a result."
+  },
+  {
+   "t": "check",
+   "text": "I agree to give a sample to the lab, and I agree that the lab may send my results to the Practice. I understand that the Notice of Privacy Practices explains how my health information is used and shared."
+  },
+  {
+   "t": "h2",
+   "text": "Electronic signature"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Field",
+     "Entry"
+    ],
+    [
+     "Typed full legal name",
+     "Typed by the patient"
+    ],
+    [
+     "State you are in today",
+     "Chosen by the patient"
+    ],
+    [
+     "Date and time",
+     "Captured by the system"
+    ],
+    [
+     "Document version",
+     "Captured by the system"
+    ],
+    [
+     "IP address",
+     "Captured by the system"
+    ]
+   ],
+   "widths": [
+    1,
+    2
+   ],
+   "header": true,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "By typing my name, I agree that my electronic signature is the legal equivalent of my handwritten signature, and that I have already agreed to receive and sign documents electronically (see the Electronic Records, Signatures and Communications Consent). This consent does not replace the Informed Consent to Telehealth Services and Treatment and does not by itself create a clinician-patient relationship.",
+   "italic": false,
+   "align": null
+  }
+ ],
+ "id": "B6",
+ "docTitle": "Laboratory Testing Consent",
+ "source": "laboratory_testing_consent.py",
+ "reviewerNotesOmittedBlocks": 3
+}

@@ -1,0 +1,721 @@
+{
+ "title": "Text Messaging Terms",
+ "version": "0.1",
+ "date": "October 1, 2026",
+ "blocks": [
+  {
+   "t": "h1",
+   "text": "Part 1. Text Messaging Terms (public page)"
+  },
+  {
+   "t": "p",
+   "text": "**Last updated:** [EFFECTIVE DATE]    |    **Version:** [VERSION]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**In short.**\nWellPeps sends text messages about your account, visits, orders and refills if you say yes. We call this Program A.\nWe do not send promotional texts. If we ever do, we will ask for your separate permission first.\nMessage frequency varies. Msg & data rates may apply.\nReply STOP to stop texts. Reply HELP for help.\nPlease do not text health details. Use your patient portal for medical questions.\nIn an emergency, call 911.",
+   "kind": "info"
+  },
+  {
+   "t": "h1",
+   "text": "1. Who sends the texts"
+  },
+  {
+   "t": "p",
+   "text": "WellPeps, a Wyoming corporation (“WellPeps,” “we,” “us”), [BUSINESS ADDRESS], runs the text messaging program described here. WellPeps is not a medical practice. Some texts, such as visit reminders, are sent through our technology platform for [PRACTICE NAME] (the “Practice”), an independent licensed medical practice. Our texts come from [SMS SENDER NUMBER]. Questions about this page: [SUPPORT EMAIL].",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "2. Program A: WellPeps account and care messages"
+  },
+  {
+   "t": "p",
+   "text": "If you agree, we may send you texts like these:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "Visit reminders.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "A note that you have a new message from your care team in your patient portal. The text does not include the message.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Refill reminders.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Order, payment and shipping updates, such as a shipping notice or a payment that did not go through.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Renewal and billing notices.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Security codes that confirm it is you.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Replies to your texts and help requests.",
+   "level": 0
+  },
+  {
+   "t": "p",
+   "text": "Program A texts are not advertising. We design them to leave out health details. A text may say “You have a new message in your patient portal.” It will not name your medicine or your condition.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "3. How you join, and your choice"
+  },
+  {
+   "t": "p",
+   "text": "You join Program A when you give us your mobile number and check the text-message box on a WellPeps or patient portal form, or when you turn on text alerts in your portal settings. We may send a first text to confirm.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**You do not have to agree to texts to get care or to buy anything.** If you leave the box unchecked, we will use email and your patient portal instead.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "By joining, you confirm that you are the user of the mobile number you gave us, or that you have the owner’s permission to use it. If your number changes, or you give it up, please update it in your portal or tell us, so that we do not text someone else.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "4. How often, and what it costs"
+  },
+  {
+   "t": "p",
+   "text": "**Message frequency varies.** It depends on your visits, orders and refills and on your portal settings.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**Msg & data rates may apply.** WellPeps does not charge you for texts. Your mobile carrier may charge for messages and data.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "5. How to stop"
+  },
+  {
+   "t": "p",
+   "text": "Reply **STOP** to any text to stop Program A texts. You can also reply END, CANCEL, UNSUBSCRIBE or QUIT. You can turn off text alerts in your patient portal settings, or email [SUPPORT EMAIL]. We may send one last text to confirm. After that we will not text you in Program A unless you sign up again. We will act on your request as soon as we can, and no later than 10 business days. [VERIFY: revocation timing]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "If you stop texts, we will still contact you by email and in your portal about your account. Some notices are required.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "6. How to get help"
+  },
+  {
+   "t": "p",
+   "text": "Reply **HELP** to any text, or email [SUPPORT EMAIL]. Support hours are Monday to Friday, 9 a.m. to 6 p.m. Eastern time. Phone: [SUPPORT PHONE AND HOURS, ONLY IF LIVE]. Support cannot give medical advice.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "7. Texts are not secure"
+  },
+  {
+   "t": "p",
+   "text": "Text messages are not a secure way to send health information. They may appear on your lock screen, other people may see them, and your carrier handles them.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "**Do not text us** your diagnosis, medicines, symptoms, test results, ID numbers or card numbers.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Medical questions belong in your patient portal** at [PORTAL URL]. Your care team answers there. We will not answer clinical questions by text.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**In an emergency, call 911.** Do not wait for a text, an email or a portal reply.",
+   "level": 0
+  },
+  {
+   "t": "p",
+   "text": "See the Electronic Records, Signatures and Communications Consent for more about electronic communications.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "8. When we send texts"
+  },
+  {
+   "t": "p",
+   "text": "We try to send Program A texts between [8 a.m. to 8 p.m.] in your local time. Time-sensitive texts, such as a security code or a visit that is about to start, may arrive at other times. [VERIFY: calling hours]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "9. Carriers and delivery"
+  },
+  {
+   "t": "p",
+   "text": "Program A may not be available on every carrier or plan. Wireless carriers are not responsible for delayed or undelivered texts, and a text may not arrive. Do not rely on a text for anything urgent. [VERIFY: carrier wording]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "10. Your mobile information"
+  },
+  {
+   "t": "p",
+   "text": "We do not share your mobile number or your text-message consent with third parties for their marketing or promotional purposes. We share your number with companies that help us send and manage texts only so they can do that work. We may also share information as our Privacy Policy and the Notice of Privacy Practices describe, for example when the law requires. To learn how we protect and use your information, see the Privacy Policy and the Consumer Health Data Privacy Policy.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "11. Promotional texts"
+  },
+  {
+   "t": "p",
+   "text": "We do not currently send promotional or marketing text messages. We will not start unless you give us separate permission, on a form that is only about promotional texts. If we start, we will update these terms first.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "12. Changes"
+  },
+  {
+   "t": "p",
+   "text": "We may change these terms or end Program A. We will post the new terms here with the date. If a change affects what you agreed to, we will ask you again where the law requires.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "13. Email from WellPeps"
+  },
+  {
+   "t": "p",
+   "text": "**Service emails.** We send emails you need in order to use our service: account and portal notices, order and shipping updates, billing and renewal notices, safety notices and replies to your questions. You cannot unsubscribe from these while you have an account or an order, because they are part of the service.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**Marketing emails.** If you join our newsletter, ask for a free guide or join a waiting list, we may email you wellness information, news about our programs and updates. We send these only to people who signed up, from WellPeps, a Wyoming corporation, [BUSINESS ADDRESS]. Every marketing email has a working unsubscribe link. We act on an unsubscribe within 10 business days, usually right away. You do not have to pay or give us anything but your email address to unsubscribe. You can also write to [SUPPORT EMAIL]. Our subject lines will not be misleading.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**Confirming your sign-up.** We may send an email asking you to confirm your address by clicking a link. We send marketing emails only after you confirm.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**Health topics.** Asking for a guide or joining a waiting list for a health program shows an interest in a health topic. We treat that as consumer health data. See the Consumer Health Data Privacy Policy for what we collect, why, and your choices.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**Email is not secure for health details.** Please do not email us health details. Use the patient portal.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**Your email address.** We do not share it with others for their own marketing. We keep website email list information until you unsubscribe and for [12 months] after, then delete it, except for a minimal do-not-email record so we do not contact you again.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "14. Other terms and contact"
+  },
+  {
+   "t": "p",
+   "text": "These terms add to the Website Terms of Use and the Patient Terms of Service and Payment Agreement. If one of them conflicts with these terms about text messages, these terms control. Disputes are handled as those documents describe.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**Contact:** WellPeps, a Wyoming corporation, [BUSINESS ADDRESS]. Email [SUPPORT EMAIL]. Phone: [SUPPORT PHONE AND HOURS, ONLY IF LIVE].",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "Part 2. Consent wording for each form (internal: for the build team)"
+  },
+  {
+   "t": "callout",
+   "text": "Remove Parts 2 to 4 before publishing. Part 2 is the exact text to build. Do not change the meaning of any line without counsel. Every consent box is **unchecked by default**, is **separate** from the Terms, Privacy and E-SIGN acceptances, and stores the number or address, the box state, the date and time, the IP address, the form version and the exact wording shown (consent-receipt log, item H9).",
+   "kind": "note"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Where",
+     "Program",
+     "What to build"
+    ],
+    [
+     "GEN Health intake: Box 4 of the Electronic Records, Signatures and Communications Consent (the first required form), or under the mobile number field if the number is asked on the intake form",
+     "A",
+     "Build ONE Program A consent, not two. The wording below is the wording of Box 4 in that consent form (the mobile number is asked only if the box is checked). If the intake form also asks for a number, it must point to the same record and must not carry different consent text. Not required to continue. Compact version below if space is tight."
+    ],
+    [
+     "Patient portal, notification settings",
+     "A",
+     "A text-alerts switch that is off until the patient turns it on. Verify the number with a one-time code (this also guards against a reassigned number; consider the FCC Reassigned Numbers Database for numbers collected another way). The first text confirms the sign-up."
+    ],
+    [
+     "Any wellpeps.com form that collects a phone number (none today)",
+     "A or B",
+     "A phone field never implies consent. Add the matching box and store the same record. Do not collect a phone number on the newsletter, waitlist or eBook forms."
+    ],
+    [
+     "Promotional sign-up form (does not exist)",
+     "B",
+     "See Part 3. Never shown inside intake or checkout."
+    ]
+   ],
+   "widths": [
+    3,
+    0.8,
+    6
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h2",
+   "text": "2.1 GEN Health intake: the Program A text consent (same as Box 4 of the Electronic Records, Signatures and Communications Consent)"
+  },
+  {
+   "t": "p",
+   "text": "Shown with the mobile number field:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "check",
+   "text": "Yes, send me text messages. I agree that WellPeps, and [PRACTICE NAME] through the WellPeps platform, may text me at the mobile number above about my account, visits, orders, refills and billing, and to tell me when I have a new portal message. Texts will not include health details. Message frequency varies. Msg & data rates may apply. Reply STOP to cancel and HELP for help. I do not have to agree to get care or to buy anything. If I leave this box unchecked, I will get email and portal notices instead."
+  },
+  {
+   "t": "p",
+   "text": "Link line under the box: Text Messaging Terms | Privacy Policy.",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**Compact version** (counsel to confirm it is enough where space is tight):",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "check",
+   "text": "Text me about my account, visits, orders and refills (no health details). Frequency varies. Msg & data rates may apply. STOP to cancel, HELP for help. Not required to get care. Text Messaging Terms | Privacy Policy."
+  },
+  {
+   "t": "h2",
+   "text": "2.2 Patient portal notification settings (Program A)"
+  },
+  {
+   "t": "p",
+   "text": "Switch label and helper text:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**Text alerts** (off until you turn it on)\nSend text alerts to the mobile number on your profile about visit reminders, new portal messages, refills, orders and billing. No health details are included. Message frequency varies. Msg & data rates may apply. Reply STOP to cancel and HELP for help. Text Messaging Terms | Privacy Policy.",
+   "kind": "info"
+  },
+  {
+   "t": "h2",
+   "text": "2.3 Any other wellpeps.com form that collects a phone number (for example a callback request; Program A)"
+  },
+  {
+   "t": "check",
+   "text": "Yes, text me at this number about my request. Message frequency varies. Msg & data rates may apply. Reply STOP to cancel and HELP for help. I do not have to agree to get help. Text Messaging Terms | Privacy Policy."
+  },
+  {
+   "t": "h2",
+   "text": "2.4 Automatic replies and sample Program A texts"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Message",
+     "Text"
+    ],
+    [
+     "First text after sign-up",
+     "WellPeps: You’re signed up for account and care texts. Message frequency varies. Msg & data rates may apply. Reply HELP for help, STOP to cancel. Terms: [TERMS URL]"
+    ],
+    [
+     "Reply to HELP",
+     "WellPeps: For help, email [SUPPORT EMAIL]. Reply STOP to cancel. Msg & data rates may apply. Terms: [TERMS URL]"
+    ],
+    [
+     "Reply to STOP",
+     "WellPeps: You’re unsubscribed and will get no more texts from us. We will still email you about your account. Questions? [SUPPORT EMAIL]"
+    ],
+    [
+     "Sample: visit reminder",
+     "WellPeps: Your video visit starts in 5 minutes. Open your patient portal to join. Reply STOP to opt out."
+    ],
+    [
+     "Sample: portal message",
+     "WellPeps: You have a new message in your patient portal. Log in at [PORTAL URL] to read it. Reply STOP to opt out."
+    ],
+    [
+     "Sample: shipping",
+     "WellPeps: Your order has shipped. Track it in your patient portal at [PORTAL URL]. Reply STOP to opt out."
+    ],
+    [
+     "Sample: refill reminder",
+     "WellPeps: It’s almost time for your refill. Log in at [PORTAL URL] to review your plan. Reply STOP to opt out."
+    ]
+   ],
+   "widths": [
+    2,
+    7
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h1",
+   "text": "Email forms (D17)"
+  },
+  {
+   "t": "callout",
+   "text": "**What is wrong today.** The footer newsletter says only “One email each month. No spam. Unsubscribe anytime.” The waitlist says “Your information is secure and will never be shared.” The eBook form says “By continuing you agree to receive emails from WellPeps, including this guide.” None names the sender, gives a postal address or links the health-data policy, and “will never be shared” cannot be promised until the vendor and tracker list is complete. Replace all three with the text below.",
+   "kind": "warning"
+  },
+  {
+   "t": "h2",
+   "text": "2.5 Footer newsletter"
+  },
+  {
+   "t": "p",
+   "text": "Replace the note under the button, and the success message:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "By subscribing, you agree to get WellPeps’s monthly wellness email. We will email you first to confirm your address. Unsubscribe any time. WellPeps, a Wyoming corporation, [BUSINESS ADDRESS]. Privacy Policy.\nSuccess message: Check your email and click the link to confirm your subscription.",
+   "kind": "info"
+  },
+  {
+   "t": "h2",
+   "text": "2.6 Waitlist and “notify me” forms (hormone optimization and hair)"
+  },
+  {
+   "t": "p",
+   "text": "Replace “Your information is secure and will never be shared” with:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "We will use your name and email address only to tell you when [PROGRAM NAME] opens and to send related updates. Joining this list shows an interest in [PROGRAM NAME], which we treat as consumer health data. Unsubscribe any time. WellPeps, a Wyoming corporation, [BUSINESS ADDRESS].",
+   "kind": "info"
+  },
+  {
+   "t": "check",
+   "text": "I agree that WellPeps may collect and use my name, email address and interest in [PROGRAM NAME] for this purpose. See the Consumer Health Data Privacy Policy and Privacy Policy."
+  },
+  {
+   "t": "p",
+   "text": "The box is unchecked and required for this form (this one is a health-interest consent). Success message: Check your email and click the link to confirm. [VERIFY: Washington and Nevada consent]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "2.7 Free eBook (Smart Patient Guide) dialog"
+  },
+  {
+   "t": "p",
+   "text": "Replace “By continuing you agree to receive emails from WellPeps, including this guide…” with:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "We will email you the guide you chose. We use your email address to send it and to follow up about your request. Requesting this guide shows an interest in [GUIDE TOPIC], which we treat as consumer health data. See the Consumer Health Data Privacy Policy and Privacy Policy. WellPeps, a Wyoming corporation, [BUSINESS ADDRESS].",
+   "kind": "info"
+  },
+  {
+   "t": "check",
+   "text": "Also send me WellPeps’s monthly wellness email. I can unsubscribe at any time."
+  },
+  {
+   "t": "p",
+   "text": "The newsletter box is optional and unchecked. The guide is delivered either way, because delivering it is what the person asked for.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "2.8 Confirmation email (double opt-in) and the footer of every marketing email"
+  },
+  {
+   "t": "p",
+   "text": "**Recommendation:** use double opt-in for every list. It reduces typos, bots and complaints, and gives a clear record of consent. Deliver the eBook right away, and treat the address as unconfirmed for marketing until the link is clicked.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**Subject:** Please confirm your email address\nHi, you asked to get email from WellPeps. Please confirm your address by clicking the button below. If you did not ask, ignore this email and we will not contact you again.\n**Footer of every marketing email:** You are receiving this because you signed up at wellpeps.com on (sign-up date). WellPeps, a Wyoming corporation, [BUSINESS ADDRESS]. Unsubscribe | Privacy Policy. Please do not reply with health details.",
+   "kind": "info"
+  },
+  {
+   "t": "li",
+   "text": "The sender name is WellPeps and the reply-to is a monitored address. Subject lines say what the email is about.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Unsubscribe works with one click and no login, and is honored within 10 business days. Keep the link working for at least 30 days after sending.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Every list shares one suppression list. Never email an address on it for marketing.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "All email marketing copy goes through the compliance review before sending: no outcome claims, no “free” except the assessment with its refund rule, “prescription required; a prescription is not guaranteed” wherever a treatment appears.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "Part 3. Switch-on block for promotional texts, Program B (internal: keep OFF)"
+  },
+  {
+   "t": "callout",
+   "text": "Program B is **off**. Do not publish any of this Part, and do not collect a promotional opt-in, unless WellPeps decides in writing to market by text and every item below is done.",
+   "kind": "warning"
+  },
+  {
+   "t": "h2",
+   "text": "3.1 Do these first"
+  },
+  {
+   "t": "ol",
+   "items": [
+    "WellPeps records the decision to send marketing texts and names the vendor. Register a separate marketing campaign with the carriers (Part 4).",
+    "Counsel signs off on TCPA, the state laws in Part 4 and the wording below, including [VERIFY: automated technology wording].",
+    "Build a separate sign-up form for Program B. It is never shown inside intake or checkout and never pre-checked.",
+    "Build a consent record (number, date and time, IP address, wording version, opt-out) kept for [4 years] [VERIFY: TCPA retention].",
+    "Use only people who opted in on that form. Do not text patients from GEN Health data: using patient records for marketing needs a HIPAA authorization (see the HIPAA Authorization Forms) and raises state health-data issues.",
+    "Scrub every list against the National Do Not Call Registry and state lists, and keep an opt-out list shared with Program A.",
+    "Set the send window ([9 a.m. to 8 p.m.] recipient local time) and a daily and monthly cap. Use double opt-in (a reply to confirm).",
+    "Run every message template through the compliance review. Use a branded link domain, not a public link shortener.",
+    "Update the Privacy Policy, the Consumer Health Data Privacy Policy and the Notice of Privacy Practices if they mention texting."
+   ]
+  },
+  {
+   "t": "h2",
+   "text": "3.2 Replacement for Part 1 section 11"
+  },
+  {
+   "t": "callout",
+   "text": "**Program B: WellPeps offers and updates.** If you sign up for this separate program, we will send you promotional text messages, such as news about our programs and offers. **Up to [MESSAGES PER MONTH] messages per month.** Msg & data rates may apply. Reply STOP to cancel and HELP for help, as in sections 5 and 6. **Agreeing to promotional texts is not a condition of buying anything or of getting care.** We send them between [9 a.m. to 8 p.m.] in your local time. We do not share your mobile number or your consent with third parties for their marketing. Joining or leaving Program B does not change Program A. If both programs text you from the same number, replying STOP ends both.",
+   "kind": "info"
+  },
+  {
+   "t": "h2",
+   "text": "3.3 Consent wording (separate form, unchecked, not bundled)"
+  },
+  {
+   "t": "check",
+   "text": "Yes, send me promotional text messages. I agree that WellPeps may send marketing text messages, such as offers and program updates, to the mobile number above, including messages sent using automated technology. Consent is not a condition of any purchase or of getting care. Up to [MESSAGES PER MONTH] messages per month. Msg & data rates may apply. Reply STOP to cancel and HELP for help. Text Messaging Terms | Privacy Policy."
+  },
+  {
+   "t": "p",
+   "text": "Under the button: By tapping Submit, I sign this agreement electronically.",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "3.4 Confirmation text"
+  },
+  {
+   "t": "callout",
+   "text": "WellPeps Offers: Reply Y to confirm you want up to [MESSAGES PER MONTH] promotional texts a month. Msg & data rates may apply. Reply HELP for help, STOP to cancel. Terms: [TERMS URL]",
+   "kind": "info"
+  },
+  {
+   "t": "h2",
+   "text": "3.5 Content rules for promotional texts"
+  },
+  {
+   "t": "li",
+   "text": "No outcome or weight-loss numbers, no “FDA-approved” or “generic” language, no brand names for compounded products, no “guaranteed,” “safe,” “natural” or “risk-free.”",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "“Free” only for the health assessment, with the refund rule shown next to it.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "“Prescription required; a prescription is not guaranteed” wherever a treatment is mentioned.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Keep sexual wellness and similar topics out of promotional texts. Carriers may filter them, and they raise sensitivity issues.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "Part 4. Carrier registration pack and state notes (internal: for counsel and the build team)"
+  },
+  {
+   "t": "h2",
+   "text": "4.1 A2P 10DLC registration pointer"
+  },
+  {
+   "t": "p",
+   "text": "Texts to US numbers from a regular business number are filtered unless the sender is registered with the carriers through a brand and campaign registration (A2P 10DLC), or sent from a verified toll-free number or a short code. Whoever sends the texts (GEN Health's provisioned number or another vendor) must complete this before Program A starts. Ask the vendor for its exact steps and fees. Gather:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "**Brand:** legal name “WellPeps” as registered, entity type, EIN, a real business address (not a registered agent), website, contact email and phone. Use the same legal name as on the Terms and Privacy Policy.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Campaign use case:** account notifications and customer care (Program A). Register Program B as a separate marketing campaign, only if it is ever used. [VERIFY: carrier wording]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Campaign description:** care and account messages for patients of an independent medical practice, with no advertising and no health details in the text.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Sample messages:** use the four samples in section 2.4.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Opt-in proof:** screenshots of the consent wording in 2.1 to 2.3 and the portal switch, and the public address of this page.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Opt-out and help:** STOP, END, CANCEL, UNSUBSCRIBE, QUIT and HELP behavior and the replies in section 2.4.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Public links:** the Privacy Policy and these Text Messaging Terms must be live and must include the mobile-data statement in section 10.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Content check:** healthcare messaging gets extra review. Keep every text generic. Do not use product names or sensitive topics.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "4.2 State notes for counsel (not an opinion)"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Law",
+     "What to check",
+     "How this draft handles it"
+    ],
+    [
+     "Florida Telephone Solicitation Act, as amended",
+     "[VERIFY: Florida law]: reported to require prior express written consent for automated sales texts, limit send times and the number of messages per day on the same subject, and allow private lawsuits.",
+     "Program A is account and care messaging, not sales. Program B would need written consent, a send window and a frequency cap."
+    ],
+    [
+     "Oklahoma telephone solicitation law",
+     "[VERIFY: Oklahoma law]: reported to be similar to Florida's for automated sales messages.",
+     "Same as Florida. Confirm whether Program A care messages are exempt."
+    ],
+    [
+     "Washington and other states",
+     "[VERIFY: Washington and other states]: Washington has commercial text rules and its My Health My Data Act limits using health data for marketing. Maryland, Virginia, Texas and others have telemarketing or text laws that may apply.",
+     "Program B off. Health-interest forms have a separate consent box. Survey the states served before any promotional text."
+    ],
+    [
+     "Federal TCPA and FCC rules",
+     "Consent standards, revocation, calling hours and the Do Not Call rules. See the open items.",
+     "Separate unchecked consent, STOP honored in any reasonable way, and a send window."
+    ]
+   ],
+   "widths": [
+    2.4,
+    4.4,
+    3.6
+   ],
+   "header": true,
+   "shade": false
+  }
+ ],
+ "id": "A11",
+ "docTitle": "Text Messaging Terms",
+ "source": "text_messaging_terms.py",
+ "reviewerNotesOmittedBlocks": 3
+}

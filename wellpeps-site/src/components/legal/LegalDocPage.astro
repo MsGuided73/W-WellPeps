@@ -1,0 +1,77 @@
+---
+/**
+ * Shell for a draft legal or patient-information page: heading, the "this is a draft"
+ * box, an "On this page" list and the document body. The pages that use it only exist
+ * when draft pages are enabled (src/lib/legal-docs.ts).
+ *
+ * Either pass `blocks` (a converted draft document) or put content in the slot.
+ */
+import '../../styles/legal-doc.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { outline, renderBlocks, type Block } from '../../lib/legal-render';
+
+interface Props {
+  title: string;
+  blurb?: string;
+  /** Document id from the index (A3, B2 ...), shown in the tag. */
+  docId?: string;
+  version?: string;
+  date?: string;
+  blocks?: Block[];
+  /** Address of the live page for the same subject, when one already exists. */
+  existing?: string;
+  /** Hide the draft box on pages that are not documents (the index of drafts). */
+  plain?: boolean;
+}
+const { title, blurb, docId, version = '0.1', date, blocks, existing, plain = false } = Astro.props;
+const html = blocks ? renderBlocks(blocks) : '';
+const toc = blocks ? outline(blocks) : [];
+const tag = plain ? 'For attorney review' : `Draft v${version}${docId ? ` · Document ${docId}` : ''}`;
+---
+<BaseLayout title={`${title} (draft) — WellPeps`} description={blurb ?? `${title}. Draft for review.`} noindex>
+  <article class="ld">
+    <header class="ld__head">
+      <div class="container">
+        <p class="ld__tag">{tag}</p>
+        <h1>{title}</h1>
+        {blurb && <p class="ld__blurb">{blurb}</p>}
+      </div>
+    </header>
+
+    <div class="container ld__body">
+      {!plain && (
+        <div class="ld-banner" role="note">
+          <strong>Draft for attorney review. Not in effect.</strong>
+          <p>
+            This is version {version}{date ? `, prepared ${date}` : ''}. It has not been approved, and nothing on this page
+            binds anyone yet. It is shown here so counsel can read it in place on the site. Items in [brackets] are still open:
+          </p>
+          <ul>
+            <li><mark class="ph ph--legal">[Amber]</mark> a lawyer or the medical director must decide or confirm it.</li>
+            <li><mark class="ph ph--you">[Red]</mark> WellPeps supplies a fact (an address, an email, a date, a fee).</li>
+            <li><mark class="ph ph--web">[Blue]</mark> the web team builds or fills it.</li>
+          </ul>
+          <p class="ld-banner__live">
+            Each section has its own address: choose it in &ldquo;On this page&rdquo;, then copy the address from the browser, so a
+            comment can point to an exact place. The reviewer notes and open-items tables for this document are kept in the
+            separate drafting file.
+            {existing && <Fragment> The live page at <a href={existing}>{existing}</a> still shows its earlier text; this draft would replace it once approved.</Fragment>}
+            <br /><a href="/legal-review">All draft documents</a>
+          </p>
+        </div>
+      )}
+
+      {toc.length > 3 && (
+        <details class="ld-toc">
+          <summary>On this page ({toc.length} sections)</summary>
+          <ol>{toc.map((t) => <li><a href={`#${t.id}`}>{t.text}</a></li>)}</ol>
+        </details>
+      )}
+
+      {html && <div class="ld-doc" set:html={html} />}
+      <div class="ld-doc"><slot /></div>
+
+      <p class="ld__back"><a href="/legal-review">&larr; All draft documents</a></p>
+    </div>
+  </article>
+</BaseLayout>

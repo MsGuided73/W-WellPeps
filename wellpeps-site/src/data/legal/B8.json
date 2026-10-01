@@ -1,0 +1,1800 @@
+{
+ "title": "Patient Records Request Procedure and Forms",
+ "version": "0.1",
+ "date": "October 1, 2026",
+ "blocks": [
+  {
+   "t": "h1",
+   "text": "Part 1. Procedure (internal; remove before publishing)"
+  },
+  {
+   "t": "h2",
+   "text": "1.1 Purpose and scope"
+  },
+  {
+   "t": "p",
+   "text": "This procedure tells WellPeps and the Practice how to receive, route, decide and answer patient requests about their medical records under HIPAA. It covers six requests: access, amendment, accounting of disclosures, restriction, confidential communications, and a portal records export. It does not cover privacy-rights requests about website data (access, delete, correct, opt out) under state privacy laws; those follow the Privacy Policy and Your Privacy Choices. If one message asks for both, handle both.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "The Practice (the covered entity) holds the medical record and decides every request (the agreement with the Practice section 3(a); Addendum 10(a)). WellPeps is its business associate: it receives requests, verifies identity, routes, tracks deadlines, and sends the Practice's answers. **WellPeps never decides, denies or discloses record content on its own.**",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "1.2 Who does what"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Role",
+     "Responsibility"
+    ],
+    [
+     "WellPeps support (front line)",
+     "Receive and log requests the same business day. Verify identity. Forward to the Practice within 1 business day. Send the acknowledgment within 2 business days. Track due dates. Send the Practice's response."
+    ],
+    [
+     "[PRIVACY OFFICIAL] (WellPeps)",
+     "Owns this procedure at WellPeps. Reviews the request log monthly. Trains staff. Escalates late items."
+    ],
+    [
+     "The Practice's privacy contact",
+     "Decides every request. Signs the response letters. Sets fees. Names the reviewer for reviewable denials. Holds the record. [PRACTICE PRIVACY CONTACT]."
+    ],
+    [
+     "[PRACTICE REVIEWER]",
+     "A licensed health care professional, not involved in the original decision, who reviews reviewable denials of access."
+    ],
+    [
+     "GEN Health platform",
+     "Holds the record. Runs exports at the Practice's direction. Support may help with technical steps only."
+    ],
+    [
+     "Pharmacies",
+     "Each pharmacy is its own covered entity and keeps its own dispensing records. Support tells the patient which pharmacy filled the order and passes on the request if the patient asks."
+    ]
+   ],
+   "widths": [
+    2.5,
+    7.5
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h2",
+   "text": "1.3 What is held where"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Record",
+     "Held by",
+     "How it is handled"
+    ],
+    [
+     "Medical record: intake answers, clinician notes, orders and prescriptions, lab results, portal messages, signed clinical consents",
+     "The Practice, in GEN Health",
+     "This procedure."
+    ],
+    [
+     "Orders, shipping, payment and support records",
+     "WellPeps (and [BILLING AFFILIATE] for billing)",
+     "WellPeps gives the Practice copies within 3 business days of a request (the agreement with the Practice 3(d)). [VERIFY: whether billing and payment records kept for the Practice are part of the designated record set]"
+    ],
+    [
+     "Pharmacy dispensing records",
+     "Each pharmacy",
+     "Tell the patient which pharmacy to ask, and forward on request."
+    ],
+    [
+     "Website and marketing data (email lists)",
+     "WellPeps",
+     "Privacy Policy request process, not this procedure."
+    ]
+   ],
+   "widths": [
+    4.5,
+    2.5,
+    4
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h2",
+   "text": "1.4 Request types and deadlines"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Request",
+     "What the patient may ask for",
+     "Response time",
+     "Extension",
+     "Form"
+    ],
+    [
+     "Access",
+     "See and get a copy of the record, in electronic form if wanted, and have it sent to someone else",
+     "30 days after receipt",
+     "One extension of 30 days, with a written notice of the reason and the new date",
+     "A"
+    ],
+    [
+     "Amendment",
+     "Ask to correct the record",
+     "60 days",
+     "One extension of 30 days, with a written notice",
+     "B"
+    ],
+    [
+     "Accounting of disclosures",
+     "A list of certain disclosures in the six years before the request",
+     "60 days",
+     "One extension of 30 days, with a written notice",
+     "C"
+    ],
+    [
+     "Restriction",
+     "Ask to limit how information is used or shared",
+     "Answer promptly: target [10 business days]",
+     "None set",
+     "D"
+    ],
+    [
+     "Confidential communications",
+     "Ask to be contacted a certain way or place",
+     "Honor reasonable requests",
+     "None set",
+     "E"
+    ],
+    [
+     "Portal export",
+     "Self-service copy from the portal",
+     "Immediate if self-service; otherwise treat as access",
+     "As access",
+     "F"
+    ]
+   ],
+   "widths": [
+    2,
+    4,
+    2,
+    3,
+    0.8
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "p",
+   "text": "State law can require a faster answer (Part 1.14). Where it does, follow the faster rule. Internal target: finish access requests within [20 days].",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "1.5 Receiving a request"
+  },
+  {
+   "t": "p",
+   "text": "Requests may arrive by email to [PRIVACY EMAIL], by a portal message, by mail to [BUSINESS ADDRESS], through [SUPPORT EMAIL], or, only if a phone line is live ([SUPPORT PHONE AND HOURS, ONLY IF LIVE]), by phone (ask for a written follow-up, but start the clock now). **Any clear written request counts, with or without a form.** Do not require a form, an in-person visit or use of the portal only. Do not ask why the patient wants the records.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "ol",
+   "items": [
+    "**Log it the same business day** (section 1.13). The clock starts on the day any of the Practice, WellPeps or the platform's support first receives the request. [VERIFY: whether the 30-day period runs from receipt by WellPeps as business associate; this procedure uses the conservative rule]",
+    "**Do not decide, and do not read out or email record content.** Never send health information in an ordinary email.",
+    "**Verify identity** (section 1.6). Verification must not stop the clock.",
+    "**Forward to the Practice within 1 business day** by a secure channel, with the request, the verification result and the due date.",
+    "**Send the acknowledgment** (Letter 1) within 2 business days.",
+    "**Track the due date.** Check open items at day 10 and day 20. If the Practice needs more time, it must send Letter 3 before the original due date.",
+    "**Send the Practice's answer** (Letters 2, 4 or 5) and record the outcome."
+   ]
+  },
+  {
+   "t": "h2",
+   "text": "1.6 Identity and authority"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "How the request arrives",
+     "How to verify"
+    ],
+    [
+     "Inside the logged-in patient portal",
+     "The login is the verification. No more checks for the patient's own record."
+    ],
+    [
+     "Email from the address on the account",
+     "Send a one-time link or message into the portal, or ask the patient to confirm two account details (date of birth and a recent order date or shipping ZIP code). Do not ask for a Social Security number."
+    ],
+    [
+     "Mail or any other channel",
+     "Confirm through a message to the email on the account, plus the same two details. Ask for a copy of an ID only if still unsure."
+    ],
+    [
+     "Someone acting for the patient",
+     "Needs the patient's signed direction (Form 3 in the HIPAA Authorization Forms, or the signed direction in Form A) or proof of legal authority (guardian, power of attorney, estate representative). The Practice decides. [VERIFY: state laws on who may request records for a minor, incapacitated or deceased patient]"
+    ]
+   ],
+   "widths": [
+    3,
+    8
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "p",
+   "text": "Keep verification reasonable. Do not require notarization, an in-person visit or more identity information than needed.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "1.7 Access requests"
+  },
+  {
+   "t": "li",
+   "text": "**Scope.** The patient's designated record set. The Practice decides what, if anything, is outside it.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Form and format.** The form and format the patient asks for, if the Practice can readily produce it. Otherwise a readable electronic format agreed with the patient. Paper if asked. A patient may ask that records go to a health app; the Practice sends them if the request is clear. [VERIFY: OCR guidance on sending records to a patient's chosen app and on unencrypted email sent at the patient's request]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Delivery.** Portal download, secure link, encrypted email, or mail. Ordinary email only if the patient asks for it after being told ordinary email can be read by others (Form A has the warning).",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Sending to someone else.** A signed, written direction that names the person and where to send it.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Fees.** Only a reasonable, cost-based fee: labor for copying (paper or electronic), supplies for paper or media, postage, and a summary only if the patient asked for it and agreed to its fee. Nothing for searching or finding records. Tell the patient the fee before sending. The Practice sets the fee ([FEE SCHEDULE]). [VERIFY: state fee caps and the fee schedule against the HIPAA cost-based fee rule]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Never delay or refuse** because the patient canceled, left, disputes a charge or owes money.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Inspection.** If the patient wants to look at the record, arrange a time and a secure way (for example a screen-share through the portal).",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "1.8 Amendment requests"
+  },
+  {
+   "t": "p",
+   "text": "The Practice answers within 60 days (one 30-day extension with a written notice). It may deny if the entry is accurate and complete, was not created by the Practice, is not part of the record, or is not something the patient may inspect. If it accepts: add the correction (never erase the original), tell the patient, and tell the people the patient names and those known to have relied on the entry. If it denies: send Letter 5 with the reason, the patient's right to file a statement of disagreement, the right to ask that the request and denial go with future disclosures, and how to complain. The Practice may write a rebuttal and must give the patient a copy. Keep everything in the record. The Practice does not change a clinician's medical judgment, but it will add the patient's statement.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "1.9 Accounting of disclosures"
+  },
+  {
+   "t": "p",
+   "text": "The accounting lists disclosures of the patient's information in the six years before the request, except disclosures for treatment, payment and health care operations, to the patient, under the patient's authorization, and certain others. Each entry shows the date, the recipient and address if known, what was disclosed, and the purpose (or a copy of the request). The Practice answers within 60 days (one 30-day extension). The first accounting in any 12 months is free; later ones may carry a cost-based fee, told in advance. WellPeps and the platform must keep a record of disclosures that would appear on an accounting (for example, to a regulator or under a subpoena) and give it to the Practice within 3 business days of a request.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "1.10 Restrictions and confidential communications"
+  },
+  {
+   "t": "li",
+   "text": "**Restriction.** The Practice does not have to agree, with one exception: when the patient has paid in full out of pocket for an item or service and asks that it not be shared with a health plan. This program is cash-pay and bills no health plan. [VERIFY: whether the full-payment restriction right applies to a cash-pay program that bills no plan] If the Practice agrees, it records the agreement, tells WellPeps and the platform, and follows it, except in an emergency or where the law requires sharing. Either side may end it for future information with notice.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Confidential communications.** Accommodate reasonable requests (a different email, address, or no texts). Do not ask why. The Practice may ask how payment will be handled. Record the preference in GEN Health and in WellPeps support records, and check it before every outreach. Receipts go to the checkout email unless the patient names another.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "1.11 Portal export"
+  },
+  {
+   "t": "p",
+   "text": "Where the portal offers a self-service export, point the patient to it and log the request as answered. If the export does not hold the whole record, or the patient cannot or will not use it, treat the request as an access request (Form A). Do not let the export become a barrier. [VERIFY: whether the patient portal offers a self-service export, its steps, and whether it covers the whole designated record set]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "1.12 Denials, review and complaints"
+  },
+  {
+   "t": "p",
+   "text": "**Only the Practice denies.** WellPeps staff send the Practice's letter.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "**Denial without review.** For example: psychotherapy notes, information prepared for a legal proceeding, and certain laboratory information restricted by law. [VERIFY: the full list of unreviewable grounds for denying access]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Reviewable denial.** A licensed health care professional decides that access is reasonably likely to endanger the life or physical safety of the patient or another person, or that the record refers to another person (not a health care provider) and access is reasonably likely to cause substantial harm to that person. The patient may ask for review by a licensed professional chosen by the Practice who did not take part in the first decision. The Practice decides within a reasonable time and tells the patient in writing.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Partial denial.** Give access to everything else.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Written denial (Letter 4)** in plain language: the basis, the review right where it applies, how to complain to the Practice (name or title and phone) and to the U.S. Department of Health and Human Services, Office for Civil Rights. If the Practice does not hold the information but knows who does, say so.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "1.13 Record of requests"
+  },
+  {
+   "t": "p",
+   "text": "Keep a log. WellPeps and the Practice each keep the part they handle. Keep the log, the letters, written denials and the designation of who receives and processes requests for six years from the date created or last in effect. [VERIFY: HIPAA's six-year documentation retention for the request log, letters and designations]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "#",
+     "Date received",
+     "Channel",
+     "Patient ID",
+     "Type",
+     "Verified (date, by)",
+     "Sent to Practice",
+     "Due date",
+     "Extended to",
+     "Outcome and date"
+    ],
+    [
+     "",
+     "",
+     "",
+     "",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ]
+   ],
+   "widths": [
+    0.4,
+    1.1,
+    1,
+    1,
+    1,
+    1.4,
+    1.1,
+    1,
+    1,
+    1.5
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h2",
+   "text": "1.14 State law and information blocking"
+  },
+  {
+   "t": "p",
+   "text": "**State law.** Some states require faster responses, cap fees or add rules for minors and deceased patients. Where a state rule is stricter than HIPAA, follow it. States such as California, Texas, Washington and New York are reported to set shorter periods for some requests. [VERIFY: current state response times and fee caps for each state served] Keep a table for [STATES SERVED].",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**Information blocking (21st Century Cures Act, 45 CFR Part 171).** These rules bar practices likely to interfere with access to, or exchange or use of, electronic health information unless an exception applies. The Practice is a health care provider and so an actor. The platform vendor may be an actor, and WellPeps does not appear to be one. [VERIFY: information-blocking status of the Practice, the platform vendor and WellPeps, and which exceptions apply] WellPeps still configures the portal and runs support, so it must not create delays or barriers. Do: release results and clinician notes through the portal on a documented schedule; keep request steps few; charge nothing beyond what the access rule allows; document any delay under a named exception. Do not: hold records for payment, require a visit, or send a patient to a form when a message will do.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "1.15 Retention, portability and ending care (item F13)"
+  },
+  {
+   "t": "li",
+   "text": "The Practice keeps the medical record for at least [7] years after the the agreement with the Practice ends (the agreement with the Practice 3(b)), or longer where state law requires. [VERIFY: medical-record retention minimums in the Practice's state and in the states served]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Closing a membership or a portal account does not delete the medical record. Tell patients this plainly.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "A patient may always ask for an electronic copy to give to another clinician or a health app (Form A).",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "If care through WellPeps ends (the agreement with the Practice sections 11 and 12; the services agreement), the Practice and WellPeps give patients written notice with how to get their records. Nothing is withheld during a billing dispute.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "Form A. Request for a Copy of My Records (Right of Access)"
+  },
+  {
+   "t": "p",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "Use this form to see or get a copy of your medical records. You do not have to use this form. A clear message in your patient portal or an email to [PRIVACY EMAIL] works too. There is no charge to make a request. You will hear from us within 2 business days to confirm we got it. Mailing address: [BUSINESS ADDRESS].",
+   "kind": "info"
+  },
+  {
+   "t": "h2",
+   "text": "About you"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Your full legal name",
+     ""
+    ],
+    [
+     "Date of birth",
+     ""
+    ],
+    [
+     "Email on your account",
+     ""
+    ],
+    [
+     "Order or account number, if you know it",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "h2",
+   "text": "1. Which records"
+  },
+  {
+   "t": "check",
+   "text": "All of my records"
+  },
+  {
+   "t": "check",
+   "text": "Only these (check all that apply):"
+  },
+  {
+   "t": "check",
+   "text": "Visit notes and clinician summaries"
+  },
+  {
+   "t": "check",
+   "text": "Prescriptions and orders"
+  },
+  {
+   "t": "check",
+   "text": "Lab results"
+  },
+  {
+   "t": "check",
+   "text": "My intake answers and health history"
+  },
+  {
+   "t": "check",
+   "text": "My messages with my clinician"
+  },
+  {
+   "t": "check",
+   "text": "Billing and payment records"
+  },
+  {
+   "t": "p",
+   "text": "Dates (optional): from ____________ to ____________. Pharmacy records are kept by the pharmacy. Tell us if you want us to tell you which pharmacy filled your orders.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "2. How I want them"
+  },
+  {
+   "t": "check",
+   "text": "An electronic copy (download in my portal or a secure link).  Format:  ☐ PDF  ☐ Other readable format: ____________"
+  },
+  {
+   "t": "check",
+   "text": "A paper copy, mailed to me"
+  },
+  {
+   "t": "check",
+   "text": "I want to look at my records first. Contact me to set a time."
+  },
+  {
+   "t": "check",
+   "text": "A summary of my records instead. I agree to any fee for preparing it."
+  },
+  {
+   "t": "h2",
+   "text": "3. Where to send them"
+  },
+  {
+   "t": "check",
+   "text": "To me, in my portal, by secure link, or by mail to: ______________________________"
+  },
+  {
+   "t": "check",
+   "text": "To me by ordinary email. I understand ordinary email can be read by others, and I still want it. Email: ______________"
+  },
+  {
+   "t": "check",
+   "text": "To another person or a health app, as my written direction. Name: ____________  Where to send: ____________"
+  },
+  {
+   "t": "h2",
+   "text": "4. Fees"
+  },
+  {
+   "t": "p",
+   "text": "The Practice may charge only a reasonable, cost-based fee for the labor of copying, supplies and postage. There is no fee for searching for or finding your records. We will tell you the fee before we send anything. [FEE SCHEDULE]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "5. Time"
+  },
+  {
+   "t": "p",
+   "text": "We will answer within 30 days. If we need more time, we will tell you in writing why and by when. We can take one extra 30 days at most. If your state requires a faster answer, we follow the faster rule.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "6. If we say no"
+  },
+  {
+   "t": "p",
+   "text": "If we cannot give you some or all of your records, we will tell you why in writing. In some cases you can ask for a review. You can also complain to the Practice or to the U.S. Department of Health and Human Services, Office for Civil Rights.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "Your name and the date"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Typed full legal name",
+     "[typed by patient]"
+    ],
+    [
+     "Date and time",
+     "[system-captured]"
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "If you are asking for someone else (for example, as a guardian or under a power of attorney), also give your name and the legal authority that lets you ask. We may ask for proof.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Your name and relationship",
+     ""
+    ],
+    [
+     "Your legal authority",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "Sending this on paper? Sign and date here.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "sign",
+   "labels": [
+    "Signature",
+    "Date"
+   ]
+  },
+  {
+   "t": "h2",
+   "text": "For office use only"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Date received (the clock starts here)",
+     ""
+    ],
+    [
+     "Identity verified (how, by whom, date)",
+     ""
+    ],
+    [
+     "Sent to the Practice (date)",
+     ""
+    ],
+    [
+     "Acknowledgment sent (date)",
+     ""
+    ],
+    [
+     "Due date",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "h1",
+   "text": "Form B. Request to Correct My Records (Amendment)"
+  },
+  {
+   "t": "p",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "Use this form to ask the Practice to correct something in your medical record. You do not have to use this form. A clear message in your patient portal or an email to [PRIVACY EMAIL] works too. There is no charge to make a request. You will hear from us within 2 business days to confirm we got it. Mailing address: [BUSINESS ADDRESS].",
+   "kind": "info"
+  },
+  {
+   "t": "h2",
+   "text": "About you"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Your full legal name",
+     ""
+    ],
+    [
+     "Date of birth",
+     ""
+    ],
+    [
+     "Email on your account",
+     ""
+    ],
+    [
+     "Order or account number, if you know it",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "h2",
+   "text": "1. Which entry"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Date of the entry or visit",
+     ""
+    ],
+    [
+     "Clinician, if you know",
+     ""
+    ],
+    [
+     "Which document or message",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "h2",
+   "text": "2. What is wrong or missing"
+  },
+  {
+   "t": "p",
+   "text": "What it says now, and what it should say:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "______________________________________________________________________",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "______________________________________________________________________",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "3. Why I think it is wrong"
+  },
+  {
+   "t": "p",
+   "text": "______________________________________________________________________",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "You may upload or attach documents that support your request.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "4. Who should be told"
+  },
+  {
+   "t": "check",
+   "text": "People or companies I name: ______________________________"
+  },
+  {
+   "t": "check",
+   "text": "Anyone who may have relied on the wrong entry"
+  },
+  {
+   "t": "h2",
+   "text": "5. What happens next"
+  },
+  {
+   "t": "p",
+   "text": "The Practice will answer within 60 days, or tell you in writing why it needs up to 30 more days. If it agrees, it will add the correction to your record and tell the people you named. If it does not agree, it will tell you why in writing. You may then send a statement of disagreement, which becomes part of your record. You may also ask that your request and the Practice's answer go along with any future sharing of that entry, and you may complain to the Practice or to the U.S. Department of Health and Human Services, Office for Civil Rights. A clinician's medical judgment is not changed by this request, but your statement will be added.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "Your name and the date"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Typed full legal name",
+     "[typed by patient]"
+    ],
+    [
+     "Date and time",
+     "[system-captured]"
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "If you are asking for someone else (for example, as a guardian or under a power of attorney), also give your name and the legal authority that lets you ask. We may ask for proof.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Your name and relationship",
+     ""
+    ],
+    [
+     "Your legal authority",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "Sending this on paper? Sign and date here.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "sign",
+   "labels": [
+    "Signature",
+    "Date"
+   ]
+  },
+  {
+   "t": "h2",
+   "text": "For office use only"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Date received (the clock starts here)",
+     ""
+    ],
+    [
+     "Identity verified (how, by whom, date)",
+     ""
+    ],
+    [
+     "Sent to the Practice (date)",
+     ""
+    ],
+    [
+     "Acknowledgment sent (date)",
+     ""
+    ],
+    [
+     "Due date",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "h1",
+   "text": "Form C. Request for a List of Disclosures (Accounting)"
+  },
+  {
+   "t": "p",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "Use this form to ask for a list of certain times your information was shared. You do not have to use this form. A clear message in your patient portal or an email to [PRIVACY EMAIL] works too. There is no charge to make a request. You will hear from us within 2 business days to confirm we got it. Mailing address: [BUSINESS ADDRESS].",
+   "kind": "info"
+  },
+  {
+   "t": "h2",
+   "text": "About you"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Your full legal name",
+     ""
+    ],
+    [
+     "Date of birth",
+     ""
+    ],
+    [
+     "Email on your account",
+     ""
+    ],
+    [
+     "Order or account number, if you know it",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "h2",
+   "text": "1. Time period"
+  },
+  {
+   "t": "p",
+   "text": "From ____________ to ____________. You may ask for up to six years before today.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "2. What the list covers"
+  },
+  {
+   "t": "p",
+   "text": "The list shows certain disclosures made outside treatment, payment and the Practice's normal operations, and outside anything you authorized or asked for yourself. Examples are disclosures the law requires, to health regulators, and for legal proceedings. It shows the date, who received the information, what was shared, and why.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "3. Fees and time"
+  },
+  {
+   "t": "p",
+   "text": "The first list in any 12 months is free. For more, we may charge a reasonable, cost-based fee and will tell you first, so you can change or withdraw your request. We will answer within 60 days, or tell you in writing why we need up to 30 more days.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "Your name and the date"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Typed full legal name",
+     "[typed by patient]"
+    ],
+    [
+     "Date and time",
+     "[system-captured]"
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "If you are asking for someone else (for example, as a guardian or under a power of attorney), also give your name and the legal authority that lets you ask. We may ask for proof.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Your name and relationship",
+     ""
+    ],
+    [
+     "Your legal authority",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "Sending this on paper? Sign and date here.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "sign",
+   "labels": [
+    "Signature",
+    "Date"
+   ]
+  },
+  {
+   "t": "h2",
+   "text": "For office use only"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Date received (the clock starts here)",
+     ""
+    ],
+    [
+     "Identity verified (how, by whom, date)",
+     ""
+    ],
+    [
+     "Sent to the Practice (date)",
+     ""
+    ],
+    [
+     "Acknowledgment sent (date)",
+     ""
+    ],
+    [
+     "Due date",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "h1",
+   "text": "Form D. Request to Limit How My Information Is Used or Shared (Restriction)"
+  },
+  {
+   "t": "p",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "Use this form to ask the Practice to limit how it uses or shares your information. You do not have to use this form. A clear message in your patient portal or an email to [PRIVACY EMAIL] works too. There is no charge to make a request. You will hear from us within 2 business days to confirm we got it. Mailing address: [BUSINESS ADDRESS].",
+   "kind": "info"
+  },
+  {
+   "t": "h2",
+   "text": "About you"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Your full legal name",
+     ""
+    ],
+    [
+     "Date of birth",
+     ""
+    ],
+    [
+     "Email on your account",
+     ""
+    ],
+    [
+     "Order or account number, if you know it",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "h2",
+   "text": "1. What I want limited"
+  },
+  {
+   "t": "p",
+   "text": "______________________________________________________________________",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "2. Who or what it applies to"
+  },
+  {
+   "t": "check",
+   "text": "Use or sharing for my treatment, payment or the Practice's normal operations"
+  },
+  {
+   "t": "check",
+   "text": "Sharing with family or friends involved in my care"
+  },
+  {
+   "t": "check",
+   "text": "Other: ______________________________"
+  },
+  {
+   "t": "h2",
+   "text": "3. Paid out of pocket"
+  },
+  {
+   "t": "check",
+   "text": "I paid in full out of pocket for this item or service, and I ask that it not be shared with my health plan. Plan name: ____________"
+  },
+  {
+   "t": "p",
+   "text": "This program is cash-pay, and we do not bill health plans.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "4. What happens next"
+  },
+  {
+   "t": "p",
+   "text": "The Practice does not have to agree to most limits. If you paid in full out of pocket and ask that information not go to your health plan, the Practice must agree. The Practice will tell you its decision in writing within [10 business days]. If it agrees, it will follow the limit, except in an emergency or when the law requires sharing. You or the Practice can end the agreement for future information by telling the other.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "Your name and the date"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Typed full legal name",
+     "[typed by patient]"
+    ],
+    [
+     "Date and time",
+     "[system-captured]"
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "If you are asking for someone else (for example, as a guardian or under a power of attorney), also give your name and the legal authority that lets you ask. We may ask for proof.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Your name and relationship",
+     ""
+    ],
+    [
+     "Your legal authority",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "Sending this on paper? Sign and date here.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "sign",
+   "labels": [
+    "Signature",
+    "Date"
+   ]
+  },
+  {
+   "t": "h2",
+   "text": "For office use only"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Date received (the clock starts here)",
+     ""
+    ],
+    [
+     "Identity verified (how, by whom, date)",
+     ""
+    ],
+    [
+     "Sent to the Practice (date)",
+     ""
+    ],
+    [
+     "Acknowledgment sent (date)",
+     ""
+    ],
+    [
+     "Due date",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "h1",
+   "text": "Form E. Request to Be Contacted a Certain Way (Confidential Communications)"
+  },
+  {
+   "t": "p",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "Use this form to ask us to contact you in a particular way or place. You do not have to use this form. A clear message in your patient portal or an email to [PRIVACY EMAIL] works too. There is no charge to make a request. You will hear from us within 2 business days to confirm we got it. Mailing address: [BUSINESS ADDRESS].",
+   "kind": "info"
+  },
+  {
+   "t": "h2",
+   "text": "About you"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Your full legal name",
+     ""
+    ],
+    [
+     "Date of birth",
+     ""
+    ],
+    [
+     "Email on your account",
+     ""
+    ],
+    [
+     "Order or account number, if you know it",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "h2",
+   "text": "1. How and where to contact me"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Email",
+     ""
+    ],
+    [
+     "Phone",
+     ""
+    ],
+    [
+     "Mailing address",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "check",
+   "text": "No text messages"
+  },
+  {
+   "t": "check",
+   "text": "No voicemail with details"
+  },
+  {
+   "t": "check",
+   "text": "Only through my patient portal"
+  },
+  {
+   "t": "check",
+   "text": "Other: ______________________________"
+  },
+  {
+   "t": "h2",
+   "text": "2. Which messages"
+  },
+  {
+   "t": "check",
+   "text": "From the Practice (about my care)"
+  },
+  {
+   "t": "check",
+   "text": "From WellPeps (orders, shipping, billing, support)"
+  },
+  {
+   "t": "check",
+   "text": "Both"
+  },
+  {
+   "t": "h2",
+   "text": "3. What to know"
+  },
+  {
+   "t": "p",
+   "text": "You do not have to tell us why. We will honor reasonable requests. If we cannot, we will tell you promptly. Payment receipts go to the email you used at checkout unless you name another here.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "Your name and the date"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Typed full legal name",
+     "[typed by patient]"
+    ],
+    [
+     "Date and time",
+     "[system-captured]"
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "If you are asking for someone else (for example, as a guardian or under a power of attorney), also give your name and the legal authority that lets you ask. We may ask for proof.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Your name and relationship",
+     ""
+    ],
+    [
+     "Your legal authority",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "Sending this on paper? Sign and date here.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "sign",
+   "labels": [
+    "Signature",
+    "Date"
+   ]
+  },
+  {
+   "t": "h2",
+   "text": "For office use only"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Date received (the clock starts here)",
+     ""
+    ],
+    [
+     "Identity verified (how, by whom, date)",
+     ""
+    ],
+    [
+     "Sent to the Practice (date)",
+     ""
+    ],
+    [
+     "Acknowledgment sent (date)",
+     ""
+    ],
+    [
+     "Due date",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "h1",
+   "text": "Form F. Request for My Portal Records Export"
+  },
+  {
+   "t": "p",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "Use this form to get your records from the patient portal. You do not have to use this form. A clear message in your patient portal or an email to [PRIVACY EMAIL] works too. There is no charge to make a request. You will hear from us within 2 business days to confirm we got it. Mailing address: [BUSINESS ADDRESS].",
+   "kind": "info"
+  },
+  {
+   "t": "h2",
+   "text": "About you"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Your full legal name",
+     ""
+    ],
+    [
+     "Date of birth",
+     ""
+    ],
+    [
+     "Email on your account",
+     ""
+    ],
+    [
+     "Order or account number, if you know it",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "h2",
+   "text": "1. How I want to get them"
+  },
+  {
+   "t": "check",
+   "text": "I will use the export tool in my portal. [VERIFY: the portal export steps and what the export contains, to be written here once confirmed]"
+  },
+  {
+   "t": "check",
+   "text": "I cannot or do not want to use the portal. Please send my records another way."
+  },
+  {
+   "t": "h2",
+   "text": "2. What to know"
+  },
+  {
+   "t": "p",
+   "text": "If the export does not include everything you want, use Form A. There is no charge for the portal export. If you ask us to send the records another way, we will treat your request as a request for a copy of your records, and the 30-day deadline in Form A applies.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "Your name and the date"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Typed full legal name",
+     "[typed by patient]"
+    ],
+    [
+     "Date and time",
+     "[system-captured]"
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "If you are asking for someone else (for example, as a guardian or under a power of attorney), also give your name and the legal authority that lets you ask. We may ask for proof.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Your name and relationship",
+     ""
+    ],
+    [
+     "Your legal authority",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "Sending this on paper? Sign and date here.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "sign",
+   "labels": [
+    "Signature",
+    "Date"
+   ]
+  },
+  {
+   "t": "h2",
+   "text": "For office use only"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Date received (the clock starts here)",
+     ""
+    ],
+    [
+     "Identity verified (how, by whom, date)",
+     ""
+    ],
+    [
+     "Sent to the Practice (date)",
+     ""
+    ],
+    [
+     "Acknowledgment sent (date)",
+     ""
+    ],
+    [
+     "Due date",
+     ""
+    ]
+   ],
+   "widths": [
+    2,
+    4
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "h1",
+   "text": "Part 3. Template response letters"
+  },
+  {
+   "t": "p",
+   "text": "Send on the Practice's letterhead, or from WellPeps on the Practice's behalf with the Practice's approval. Fill every bracket for the specific request. In Letters 4 and 5, [DESCRIBE] names what is denied and [REASON] gives the basis in plain language. Do not put health information in the body of an ordinary email: send the letter through the portal or as a secure attachment. Keep a copy in the log.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "Letter 1. Acknowledgment"
+  },
+  {
+   "t": "callout",
+   "text": "[DATE]\nDear [PATIENT NAME],\nWe received your [REQUEST TYPE] request on [REQUEST DATE]. We sent it to [PRACTICE NAME] (the Practice), which keeps your medical record and makes the decision.\n**What happens next.** The Practice will answer by [DUE DATE]. If it needs more time, it will tell you in writing before then, say why, and give you the new date.\n**Confirming it is you.** If we need to confirm your identity, we will contact you at the email on your account. We will not ask for more than we need.\n**Cost.** There is no charge to make this request. If a copy of your records will carry a fee for copying, supplies or postage, we will tell you before we send it.\n**If your request is about a pharmacy's records,** the pharmacy keeps those. We will tell you which pharmacy filled your order, and we can pass your request on if you ask.\nQuestions: [PRIVACY EMAIL].\nSincerely,\n[SENDER NAME AND TITLE], for [PRACTICE NAME] and WellPeps",
+   "kind": "info"
+  },
+  {
+   "t": "h2",
+   "text": "Letter 2. Fulfillment"
+  },
+  {
+   "t": "callout",
+   "text": "[DATE]\nDear [PATIENT NAME],\nYou asked on [REQUEST DATE] for [DESCRIBE]. It is ready. We are giving it to you by [DELIVERY METHOD].\n**What is included:** [DESCRIBE]. **Fee:** [FEE].\n**For an amendment we accepted:** we added your correction to your record and told [DESCRIBE]. **For an accounting:** the list of disclosures is attached.\nIf you think something is missing or wrong, you can ask us to look again, or ask for a correction (Form B).\n**Please keep this safe.** If you asked us to send your records to another person or a health app, they may no longer be protected by HIPAA once received.\nIf you are not happy with how we handled your request, you can complain to the Practice at [PRACTICE PRIVACY CONTACT] or to the U.S. Department of Health and Human Services, Office for Civil Rights (1-800-368-1019, hhs.gov/ocr/complaints). We will not hold it against you.\nSincerely,\n[SENDER NAME AND TITLE], for [PRACTICE NAME]",
+   "kind": "info"
+  },
+  {
+   "t": "h2",
+   "text": "Letter 3. Extension (send before the original due date)"
+  },
+  {
+   "t": "callout",
+   "text": "[DATE]\nDear [PATIENT NAME],\nOn [REQUEST DATE] you made a [REQUEST TYPE] request. We need more time to answer.\n**Why:** [REASON].\n**New date:** we will answer by [NEW DUE DATE]. That is no more than 30 days after the first date, and this is the only extension we can take.\nWe are sorry for the delay. Questions: [PRIVACY EMAIL].\nSincerely,\n[SENDER NAME AND TITLE], for [PRACTICE NAME]",
+   "kind": "info"
+  },
+  {
+   "t": "h2",
+   "text": "Letter 4. Denial of access (in whole or in part)"
+  },
+  {
+   "t": "callout",
+   "text": "[DATE]\nDear [PATIENT NAME],\nOn [REQUEST DATE] you asked for [DESCRIBE]. We are not able to give you [DESCRIBE]. We are giving you everything else, by [DELIVERY METHOD].\n**Why:** [REASON].\n**If this denial can be reviewed:** you may ask for a review. A licensed health care professional who was not involved in this decision will look at it. To ask, [REVIEW METHOD]. We will tell you the result in writing.\n**If we do not keep the information but know who does,** we will tell you: [DESCRIBE].\n**Complaints.** You can complain to the Practice at [PRACTICE PRIVACY CONTACT] (name or title and phone), or to the U.S. Department of Health and Human Services, Office for Civil Rights (1-800-368-1019, hhs.gov/ocr/complaints). We will not hold it against you.\nSincerely,\n[SENDER NAME AND TITLE], for [PRACTICE NAME]",
+   "kind": "info"
+  },
+  {
+   "t": "h2",
+   "text": "Letter 5. Denial of amendment"
+  },
+  {
+   "t": "callout",
+   "text": "[DATE]\nDear [PATIENT NAME],\nOn [REQUEST DATE] you asked us to correct [DESCRIBE]. We are not able to make that change.\n**Why:** [REASON].\n**Your choices.** You may send us a statement saying why you disagree, by [REVIEW METHOD]. We will add it to your record. If you do not send one, you may ask that your request and this letter go along with any future sharing of that entry. We may write a reply to your statement, and if we do, we will send you a copy.\n**Complaints.** You can complain to the Practice at [PRACTICE PRIVACY CONTACT] (name or title and phone), or to the U.S. Department of Health and Human Services, Office for Civil Rights (1-800-368-1019, hhs.gov/ocr/complaints). We will not hold it against you.\nSincerely,\n[SENDER NAME AND TITLE], for [PRACTICE NAME]",
+   "kind": "info"
+  },
+  {
+   "t": "h1",
+   "text": "Part 4. Your Medical Record Rights (patient-facing page)"
+  },
+  {
+   "t": "p",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "[PRACTICE NAME] (the Practice) keeps your medical record. WellPeps, a Wyoming corporation, helps you reach the Practice and passes your requests to it. You have these rights:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "**See and get a copy of your records,** in electronic form if you want, and have them sent to someone else you name. We answer within 30 days. We may take one extra 30 days, and we will tell you why. Some states require a faster answer.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Ask for a correction** if something in your record is wrong or missing. We answer within 60 days.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Ask for a list of certain disclosures** of your information from the last six years.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Ask us to limit** how your information is used or shared, and **ask to be contacted** in a certain way or place.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Get a copy of the Notice of Privacy Practices,** which explains how your information is used and shared.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Complain** to the Practice or to the U.S. Department of Health and Human Services, Office for Civil Rights, without any penalty.",
+   "level": 0
+  },
+  {
+   "t": "p",
+   "text": "**How to ask.** Send a message in your patient portal at [PORTAL URL], email [PRIVACY EMAIL], or write to [BUSINESS ADDRESS]. You can use Forms A to F, or just write to us. There is no charge to ask. A fee may apply to a copy for copying, supplies and postage, and we will tell you before we charge it.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**How long we keep records.** The Practice keeps your medical record for at least [7] years, or longer if your state requires. Closing your membership or portal account does not delete your medical record.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**Florida patients.** The Practice follows the Florida Patient's Bill of Rights and Responsibilities. [VERIFY: the statute and current text, as cited in the draft State Telehealth Consent Addendum, and the Practice's one-page summary to insert here] Weight-loss program patients may also receive the Weight-Loss Consumer Bill of Rights. [VERIFY: whether that notice, as cited in the draft State Telehealth Consent Addendum, applies to a physician-prescribed telehealth program]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "In an emergency, call 911. Do not use this page for medical questions; message your clinician in the portal.",
+   "italic": false,
+   "align": null
+  }
+ ],
+ "id": "B8",
+ "docTitle": "Patient Records Request Procedure and Forms",
+ "source": "patient_records_procedure.py",
+ "reviewerNotesOmittedBlocks": 3
+}

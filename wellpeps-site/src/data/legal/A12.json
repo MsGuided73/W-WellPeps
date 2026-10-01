@@ -1,0 +1,589 @@
+{
+ "title": "AI Use Disclosure",
+ "version": "0.1",
+ "date": "October 1, 2026",
+ "blocks": [
+  {
+   "t": "h1",
+   "text": "Part 1. AI Use Disclosure (public page)"
+  },
+  {
+   "t": "p",
+   "text": "**Last updated:** [EFFECTIVE DATE]    |    **Version:** [VERSION]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "callout",
+   "text": "**EMERGENCY.** Automated tools, including the WellPeps assistant, cannot respond to emergencies. If you think you are having a medical emergency, call 911 or go to the nearest emergency room right away. If you are thinking about harming yourself, call or text 988. If you may have taken too much medicine or the wrong dose, call Poison Control at 1-800-222-1222.",
+   "kind": "warning"
+  },
+  {
+   "t": "h1",
+   "text": "1. The short version"
+  },
+  {
+   "t": "li",
+   "text": "The only AI tool WellPeps runs today is the WellPeps assistant on wellpeps.com. It is the “Ask WellPeps” chat window.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "The assistant answers questions about WellPeps and general health topics using our own articles and program pages. It does not give medical advice.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "It works inside your web browser. What you type is not sent to an AI company and is not saved.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Licensed clinicians, not software, decide whether you get treatment.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "To reach a person, email [SUPPORT EMAIL].",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "AI features in the technology platform that supports your care are described in section 6.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "2. Who we are"
+  },
+  {
+   "t": "p",
+   "text": "WellPeps, a Wyoming corporation (“WellPeps”), is not a medical practice. It does not diagnose, prescribe or treat. Your clinical care is provided by independent licensed clinicians of [PRACTICE NAME] (the “Practice”). This page explains how WellPeps uses AI on its website and what you should know about AI in the platform that supports your care.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "By “AI” we mean software that interprets your words or your information and produces an answer, a draft or a prediction.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "3. The WellPeps assistant"
+  },
+  {
+   "t": "h2",
+   "text": "3.1 What it is"
+  },
+  {
+   "t": "p",
+   "text": "The assistant is software, not a person. When you ask a question, it finds the closest match among pre-written answers taken from our articles, FAQs and program pages, and shows you the answer with links to its sources. It does this with simple word matching that runs on your own device. It does not write new answers using a generative AI model, and it does not send your question to an outside AI service.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "3.2 What it does"
+  },
+  {
+   "t": "li",
+   "text": "Answers questions about our programs, pricing, the assessment, shipping, privacy and how our care works.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Shows where an answer came from, with a link to the article or page when there is one.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Points you to a person or a clinician when it cannot help.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "3.3 What it does not do"
+  },
+  {
+   "t": "li",
+   "text": "It does not give medical advice, diagnose you, suggest a medicine or dose, or say whether a treatment is safe for you.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "It does not decide whether you can get treatment. A clinician decides, and a prescription is not guaranteed.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "It cannot see your account, orders, records or patient portal.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "It cannot respond to emergencies.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "It is not a person, a doctor, a nurse or any other licensed professional, and it will not say it is.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "3.4 It can be wrong"
+  },
+  {
+   "t": "p",
+   "text": "Its answers come from our content, which may be out of date or incomplete. Check the linked source. For anything about your health or your treatment, ask a clinician.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "3.5 Built-in safety checks"
+  },
+  {
+   "t": "p",
+   "text": "If your words suggest an emergency, the assistant shows an emergency message. If you ask a clinical question, such as what dose to take or whether a medicine is safe for you, it will not answer and will point you to a clinician. These checks look for key words and can miss things. Do not rely on them in an emergency.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "4. Your information and the assistant"
+  },
+  {
+   "t": "li",
+   "text": "**What you type stays in your browser.** It is not sent to our servers or to any AI company, and we do not save it. When you close or refresh the page, the chat is gone.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Please do not type** your name, health details, medicines, account numbers or other personal information. The assistant does not need them.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Retention.** We keep none of what you type into the assistant. Because your questions are not sent to anyone, no AI model is trained on them.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Ordinary website records.** Visiting wellpeps.com creates normal records, such as your IP address, the pages you view and your device type. We describe them in the Privacy Policy and, for health-related pages, the Consumer Health Data Privacy Policy. Those records do not include what you type into the assistant.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**If this changes,** we will update this page and the notice at the top of the chat window before the change takes effect.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "5. If you need a person"
+  },
+  {
+   "t": "li",
+   "text": "**Email** [SUPPORT EMAIL]. Support hours are Monday to Friday, 9 a.m. to 6 p.m. Eastern time. We aim to reply within [1 business day].",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Phone:** [SUPPORT PHONE AND HOURS, ONLY IF LIVE]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Medical questions.** If you are a WellPeps patient, message your care team in the patient portal at [PORTAL URL]. WellPeps support staff cannot give medical advice.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Emergencies.** Call 911.",
+   "level": 0
+  },
+  {
+   "t": "p",
+   "text": "The assistant cannot connect you to a person inside the chat. It will show you these options.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "6. AI in your care"
+  },
+  {
+   "t": "p",
+   "text": "No AI tool at WellPeps makes decisions about your care. Your clinicians decide whether you receive treatment and what you receive. The technology platform that supports your care (the patient portal, the intake forms and your clinician’s workspace) includes optional AI features that the Practice, and in one case WellPeps, can switch on or off:",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "a tool that drafts visit notes from information in your chart;",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "a chart assistant that a clinician can ask questions about one patient’s chart; and",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "a tool that drafts a reply to a message for staff to edit.",
+   "level": 0
+  },
+  {
+   "t": "callout",
+   "text": "**Choose ONE version of the rest of this section after the Practice answers open item 2. Delete the other version and this note.**",
+   "kind": "note"
+  },
+  {
+   "t": "h2",
+   "text": "Version A. Use only if the Practice confirms in writing that these features are off and not used"
+  },
+  {
+   "t": "p",
+   "text": "These features are switched off. [PRACTICE NAME] has told us that it does not use AI to write notes about your visits, to answer questions about your chart, or to draft messages to you. If that changes, we will update this page before the change takes effect.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "Version B. Use if the Practice uses any of them"
+  },
+  {
+   "t": "li",
+   "text": "**Visit notes and chart review.** A clinician may use an AI tool to draft notes about your visit or to ask questions about your chart. The tool may use your intake answers, forms, orders, earlier visit notes, lab results and, for a video visit, a transcript. The clinician edits the draft, reviews it and is responsible for your record.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Messages.** Staff may use an AI tool to draft a reply to your message. A person reads and edits every draft before it is sent.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Who receives your information.** These tools send the information they use to an AI service provider ([AI VENDOR]) that runs the model for our platform. [VERIFY: AI vendor terms] The provider must protect your information under a written agreement and may not use it to train its own models.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**No AI decisions.** AI does not decide whether you are treated or which medicine you get. Your clinician makes those decisions and signs them.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Messages written by generative AI.** If the Practice sends you a message about your health that was written by generative AI and was not read and approved by a licensed clinician, the message will say so at the start and tell you how to reach a person.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Recording and transcripts.** If a video visit is recorded or transcribed, the clinician will tell you first and, where the law requires, ask for your permission. [VERIFY: recording laws]",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Your choice.** You can ask the Practice not to use AI tools in your care. Send a message in the patient portal. The Practice will answer your request.",
+   "level": 0
+  },
+  {
+   "t": "p",
+   "text": "Some states, including California, Texas, Utah and Colorado, have laws about AI in health care or in consumer chat tools. We follow the law that applies where you are. [VERIFY: state AI laws]",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "7. Your choices"
+  },
+  {
+   "t": "li",
+   "text": "You do not need to use the assistant to buy anything or to get care. Closing the chat window ends the chat.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "You can ask for a person at any time (section 5).",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "You can ask the Practice about AI in your care, or ask a person to review something you are unhappy with, by sending a message in the portal at [PORTAL URL].",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "If information about you is wrong, you can ask for a correction as the Notice of Privacy Practices explains.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "If you have a concern about this page or the assistant, email [SUPPORT EMAIL].",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "8. How WellPeps oversees AI"
+  },
+  {
+   "t": "li",
+   "text": "Before WellPeps starts using a new AI tool, [COMPLIANCE OFFICER] reviews what information it uses, who receives it, how it can fail and whether the law requires a notice.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "No AI vendor receives patient information unless the written agreement the law requires is in place, and that agreement does not let the vendor use the information to train its own models.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "The assistant answers only from content we have reviewed. We review changes to that content before they go live.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "We test the emergency and clinical-question responses whenever we change the assistant.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Staff may not enter patient information into AI tools we have not approved.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "We keep a record of changes and review this page at least once a year and whenever our use of AI changes.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "9. Changes"
+  },
+  {
+   "t": "p",
+   "text": "We update this page when our use of AI or the law changes. The date at the top shows the latest version. We will update this page, and the notice in the chat window, before a change takes effect.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "10. Contact"
+  },
+  {
+   "t": "p",
+   "text": "WellPeps, a Wyoming corporation, [BUSINESS ADDRESS]. Email [SUPPORT EMAIL]. Phone: [SUPPORT PHONE AND HOURS, ONLY IF LIVE].",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "Part 2. Assistant wording for the developer (internal)"
+  },
+  {
+   "t": "callout",
+   "text": "These lines replace the current text in Assistant.astro and assistant.ts. They add a banner and a “talk to a person” reply. **Do not add** “type agent”, “reply HUMAN” or any phone number: those routes do not exist. Text must be real text (not an image), inside the chat region so screen readers announce it, visible without a click, and not conveyed by colour alone. Link the footer item “Virtual Assistant” (now “#”) to the assistant or to this page.",
+   "kind": "note"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Element",
+     "Current text (from the code)",
+     "Proposed text"
+    ],
+    [
+     "One-line banner (new, always visible under the header)",
+     "None.",
+     "Automated assistant, not a person. No medical advice. Emergency? Call 911."
+    ],
+    [
+     "First message (replaces ASSISTANT_GREETING)",
+     "Hi! I’m the WellPeps assistant. I can answer questions about our programs, pricing, the assessment process, and how our care works, and I’ll point you to the source. I can’t give medical advice.",
+     "Hi! I’m the WellPeps assistant, an automated program. I’m not a person or a clinician. I answer questions about WellPeps using our articles and program pages, and I show my sources. I can’t give medical advice or help in an emergency. If you think you are having one, call 911. To reach a person, email [SUPPORT EMAIL]. What you type stays in your browser and is not saved. Please don’t type personal or health details."
+    ],
+    [
+     "Line under the input (wa__disclaimer)",
+     "Not medical advice. For care, start your free assessment.",
+     "Not medical advice. Your questions stay in your browser. To reach a person, email [SUPPORT EMAIL]. Start your health assessment. (Drop “free” here unless the refund rule is linked beside it.)"
+    ],
+    [
+     "Reply to a clinical question (CLINICAL_REPLY)",
+     "That’s a clinical question, and only a licensed healthcare provider who knows your history can answer it safely. I’m not able to give medical advice or recommend a dose. The good news is that a provider review is included: start the free health assessment and a licensed provider will evaluate your situation and recommend what’s appropriate for you.",
+     "That’s a medical question, and only a licensed clinician who knows your history can answer it safely. I can’t give medical advice or suggest a dose. If you are already a patient, message your care team in the patient portal at [PORTAL URL]. If you are not yet a patient, you can start the health assessment, and an independent licensed clinician will review your answers. A prescription is not guaranteed."
+    ],
+    [
+     "Reply to an emergency (EMERGENCY_REPLY)",
+     "This may be a medical emergency. Please call 911 or go to your nearest emergency room right away. I’m not able to help with urgent medical situations.",
+     "This may be a medical emergency. Call 911 or go to the nearest emergency room right away. I can’t help with urgent medical situations. If you are thinking about harming yourself, call or text 988. If you may have taken too much medicine or the wrong dose, call Poison Control at 1-800-222-1222."
+    ],
+    [
+     "Reply when the person asks for a human (new; trigger words such as person, human, agent, representative, call, phone)",
+     "None.",
+     "I can’t transfer you to a person in this chat, but you can email [SUPPORT EMAIL]. Support is open Monday to Friday, 9 a.m. to 6 p.m. Eastern time. If you are a patient with a medical question, message your care team in the patient portal at [PORTAL URL]. In an emergency, call 911."
+    ],
+    [
+     "Reply when nothing matches (NO_MATCH_REPLY)",
+     "I don’t have information on that yet. I can answer questions about our programs (weight management, hair restoration, sexual wellness, and peptide therapies), pricing, the assessment process, shipping, privacy, and how our pharmacy and lab partners work. You can also start a free assessment and a licensed provider will follow up with you directly.",
+     "I don’t have an answer for that. I can answer questions about our programs, pricing, the assessment, shipping, privacy and how our care works. To reach a person, email [SUPPORT EMAIL]."
+    ]
+   ],
+   "widths": [
+    2.2,
+    4,
+    4.4
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h1",
+   "text": "Part 3. Ready-to-activate block for the vector-search upgrade (internal: keep OFF)"
+  },
+  {
+   "t": "callout",
+   "text": "**Do not activate until the checklist is done.** Today no question text leaves the browser, and Part 1 section 4 says so. The planned upgrade (the comment in assistant.ts says to replace getKnowledgeBase() with a Supabase vector search) changes that. The assistant, this page and the privacy policies must change together, before launch.",
+   "kind": "warning"
+  },
+  {
+   "t": "h2",
+   "text": "3.1 Checklist"
+  },
+  {
+   "t": "ol",
+   "items": [
+    "Decide what is sent and kept: the question text only; no account, order or patient data; no profile linked to an IP address; a retention period of [30 days] and then deletion; a named person who may read logs.",
+    "Vendor review. Supabase (database host) and, if an outside model creates embeddings or answers, [AI VENDOR]. Written terms that allow processing only on our instructions, bar training on inputs, require deletion and set security. Decide whether a business associate agreement is needed, or build the assistant so it warns against and filters health details. [VERIFY: AI vendor terms]",
+    "Notice before the first question. Show the activated banner and first message below, and consider a click to start chatting. A chat sent to a third party can raise wiretap claims (California CIPA); counsel to advise.",
+    "Analytics. Exclude and mask the assistant input in PostHog, Curve, session replay and ad pixels.",
+    "Guardrails. Re-test the emergency and clinical-question replies, and block obvious personal data (card and Social Security numbers).",
+    "Content. Every knowledge-base answer goes through the compliance review. The current file is labelled mock data.",
+    "Update the Privacy Policy, the Consumer Health Data Privacy Policy and, if relevant, the Cookie and Tracking Technologies Notice (categories, purposes, retention, vendors). Then swap in the text below on this page.",
+    "Security review: rate limits, abuse protection, and keys kept on the server only."
+   ]
+  },
+  {
+   "t": "h2",
+   "text": "3.2 Replacement for Part 1 section 4"
+  },
+  {
+   "t": "callout",
+   "text": "**Your information and the assistant.** When you ask a question, what you type is sent over an encrypted connection to our database provider, Supabase (and, if an outside model is used, [AI VENDOR]), which searches our articles for the best match. We keep your question text for [30 days] to fix problems and improve the assistant, and then delete it. We do not link it to your name, account or orders. We do not allow our providers to use it to train their own AI models. Please do not type your name, health details, medicines or other personal information. If you do, it may be stored for that period.",
+   "kind": "info"
+  },
+  {
+   "t": "h2",
+   "text": "3.3 Replacement banner and first message"
+  },
+  {
+   "t": "callout",
+   "text": "**Banner:** Automated assistant, not a person. No medical advice. Your questions are sent to our servers. Emergency? Call 911.\n**First message:** Hi! I’m the WellPeps assistant, an automated program. I’m not a person or a clinician. I answer questions about WellPeps using our articles and program pages, and I show my sources. I can’t give medical advice or help in an emergency. If you think you are having one, call 911. To reach a person, email [SUPPORT EMAIL]. What you type is sent to our servers to find answers and is kept for [30 days]. Please don’t type personal or health details.",
+   "kind": "info"
+  },
+  {
+   "t": "h2",
+   "text": "3.4 If the assistant ever writes answers with a generative AI model"
+  },
+  {
+   "t": "p",
+   "text": "Part 1 sections 3.1 and 3.3 must change to say so, name the provider, and explain that answers are written by a generative model and can be wrong. Re-check the Utah and California duties in Part 4 and the vendor terms before launch. Do not turn this on without a new review.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "Part 4. State-law table and change log (internal: for counsel)"
+  },
+  {
+   "t": "h2",
+   "text": "4.1 State and federal rules to verify (not an opinion)"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Law",
+     "What to check",
+     "Where this draft deals with it"
+    ],
+    [
+     "California AB 3030 (generative AI in patient communications by health facilities, clinics, physician's offices and group practices)",
+     "[VERIFY: state AI laws]: disclaimer and how to reach a human on generative-AI patient messages about clinical information, unless a licensed provider reviewed them.",
+     "Applies, if at all, to the Practice. Version B of section 6 carries the same style of notice. WellPeps is not described as a regulated facility."
+    ],
+    [
+     "California rules on chat bots in commercial settings, and on AI implying a health license (AB 489)",
+     "[VERIFY: state AI laws]: whether the site assistant is covered, and what a disclosure must say.",
+     "Banner and first message say “automated”. The assistant never claims a license."
+    ],
+    [
+     "Texas: SB 1188 (practitioner use of AI) and HB 149 (the Responsible AI Governance Act)",
+     "[VERIFY: state AI laws]: effective dates and the duty to disclose AI use to patients in health care services.",
+     "Version B of section 6."
+    ],
+    [
+     "Utah Artificial Intelligence Policy Act",
+     "[VERIFY: state AI laws]: disclose generative AI when asked, and prominently in regulated-occupation interactions; sunset date.",
+     "The assistant says up front it is automated. Revisit if it becomes generative."
+    ],
+    [
+     "Colorado AI Act (SB 24-205)",
+     "[VERIFY: Colorado AI Act date]: obligations for high-risk AI used in consequential decisions, including health care; the effective date has moved more than once.",
+     "Section 6 says no AI tool makes decisions about care. The earlier draft's June 30, 2026 date is stale."
+    ],
+    [
+     "Other",
+     "CCPA rules on automated decision-making; FTC Act section 5 for claims about AI; California CIPA for chat transcripts.",
+     "No decisions are made by AI today; wording avoids claims about accuracy; no chat is recorded today."
+    ]
+   ],
+   "widths": [
+    3,
+    4.6,
+    3.6
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h2",
+   "text": "4.2 What changed from the earlier draft"
+  },
+  {
+   "t": "li",
+   "text": "**Removed** the tools WellPeps does not run: customer-support chat as a service, drafting communications, intake triage, clinical documentation and administrative AI. The platform features that do exist are now in section 6.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Removed** the promised routes that do not exist: typing “agent” in the chat, replying “HUMAN” to a text, audio call disclaimers, a phone number, and the right to human-only communications.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Removed** the statement that WellPeps is a regulated health facility under AB 3030, and the defined term “Affiliated Medical Group”.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Removed** the registered agent's street address, the phone number and support@wellpeps.com; the document now uses [SUPPORT EMAIL] and [BUSINESS ADDRESS].",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Replaced** the Colorado paragraph (stale date) with a bracketed item for counsel.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Added** the facts about what the assistant does and does not do (from the source code), a data-handling and retention statement, an escalation route that exists, a governance statement, and the platform-AI finding.",
+   "level": 0
+  }
+ ],
+ "id": "A12",
+ "docTitle": "AI Use Disclosure",
+ "source": "ai_use_disclosure.py",
+ "reviewerNotesOmittedBlocks": 3
+}
