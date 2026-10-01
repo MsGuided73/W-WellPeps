@@ -22,6 +22,21 @@ export default defineConfig({
     port: process.env.PORT ? Number(process.env.PORT) : 4321,
   },
   build: {
-    inlineStylesheets: 'auto',
+    // Security headers (W4): production nginx sends a Content-Security-Policy
+    // with `script-src 'self'` and `style-src 'self'` (nginx.conf.template).
+    // That only works if the build emits NO inline executable script and NO
+    // inline <style> element, so small scripts and stylesheets are written out
+    // as external files under /_astro/ instead of being pasted into the HTML.
+    // The rendered pages look and behave the same; the cost is a few more
+    // small, immutable-cached requests. `node scripts/security-headers-check.mjs`
+    // fails if an inline one ever comes back.
+    inlineStylesheets: 'never',
+  },
+  vite: {
+    build: {
+      // Vite/Astro paste any script or asset smaller than this (default 4 KB)
+      // into the HTML or into CSS as a data: URI. 0 = always emit a file.
+      assetsInlineLimit: 0,
+    },
   },
 });

@@ -39,6 +39,9 @@ const searchIndex = categories.flatMap((c) =>
     m: a.reading_minutes,
   }))
 );
+// Rendered into a JSON data block, which the Content-Security-Policy does not
+// treat as script. "<" is escaped so no title can close the block early.
+const searchIndexJson = JSON.stringify(searchIndex).replace(/</g, '\\u003c');
 ---
 
 <BaseLayout
@@ -84,7 +87,8 @@ const searchIndex = categories.flatMap((c) =>
   </section>
 
   <div class="container lc-body">
-    <form class="lc-search" role="search" onsubmit="return false">
+    <form class="lc-search" role="search">
+      <script type="application/json" data-search-index set:html={searchIndexJson} />
       <Icon name="search" />
       <label class="sr-only" for="lc-q">Search articles</label>
       <input
@@ -181,21 +185,38 @@ const searchIndex = categories.flatMap((c) =>
   <EbookOffer books={EBOOKS} variant="carousel" />
 </BaseLayout>
 
-<script is:inline define:vars={{ searchIndex }}>
-  (() => {
-    const input = document.querySelector('[data-search]');
-    const browse = document.querySelector('[data-browse]');
-    const results = document.querySelector('[data-results]');
-    const list = document.querySelector('[data-results-list]');
-    const title = document.querySelector('[data-results-title]');
-    if (!input || !browse || !results || !list || !title) return;
+<script>
+  // Search box. A bundled script (not an inline one) so the site's
+  // Content-Security-Policy can stay `script-src 'self'`; the index comes from
+  // the JSON data block rendered inside the search form.
+  type SearchEntry = { t: string; d: string; c: string; u: string; m: number };
 
-    const esc = (s) =>
+  (() => {
+    const input = document.querySelector<HTMLInputElement>('[data-search]');
+    const form = input?.closest('form');
+    const browse = document.querySelector<HTMLElement>('[data-browse]');
+    const results = document.querySelector<HTMLElement>('[data-results]');
+    const list = document.querySelector<HTMLElement>('[data-results-list]');
+    const title = document.querySelector<HTMLElement>('[data-results-title]');
+    const data = document.querySelector('[data-search-index]');
+    if (!input || !form || !browse || !results || !list || !title || !data) return;
+
+    // Not a real form: Enter must not reload the page.
+    form.addEventListener('submit', (e) => e.preventDefault());
+
+    let searchIndex: SearchEntry[] = [];
+    try {
+      searchIndex = JSON.parse(data.textContent ?? '[]');
+    } catch {
+      return;
+    }
+
+    const esc = (s: string) =>
       s.replace(/[&<>"']/g, (c) =>
-        ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]
+        ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c] as string
       );
 
-    const render = (q) => {
+    const render = (q: string) => {
       const terms = q.toLowerCase().split(/\s+/).filter(Boolean);
       if (!terms.length) {
         results.hidden = true;
@@ -224,7 +245,7 @@ const searchIndex = categories.flatMap((c) =>
         .join('');
     };
 
-    let timer;
+    let timer: ReturnType<typeof setTimeout>;
     input.addEventListener('input', () => {
       clearTimeout(timer);
       timer = setTimeout(() => render(input.value.trim()), 120);
