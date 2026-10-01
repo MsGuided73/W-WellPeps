@@ -50,6 +50,25 @@ Notes:
   nginx. The page itself can be previewed in dev at `/preview-access/`
   (production returns 404 there except as the gate response).
 
+## Security headers (nginx)
+
+`nginx.conf.template` sends a Content-Security-Policy, Strict-Transport-Security,
+X-Content-Type-Options, X-Frame-Options, Referrer-Policy and Permissions-Policy on
+every response, and redirects http to https when the proxy reports
+`X-Forwarded-Proto: http`. They exist only in nginx: `npm run dev` and
+`npm run preview` send none, so a policy problem will not show up there.
+
+- The CSP allows scripts and styles from the site's own files only, so the build
+  must not emit inline scripts or `<style>` elements (`astro.config.mjs` sets
+  `inlineStylesheets: 'never'` and `assetsInlineLimit: 0`) and a page must not use
+  `is:inline` scripts or `onclick=` attributes. A new outside address a page calls
+  must be added to `connect-src` in the template.
+- Change the policy in the `$wp_csp` line, then run `npm test` and, after
+  `npm run build`, `npm run check:headers`. The check serves the build with the
+  template's exact headers and drives Chromium through every page and the
+  dialogs, forms and menus. It does not run nginx itself; run `nginx -t` on the
+  image when Docker is available.
+
 ## Adding new images
 
 Design delivers photography as PNG. **Do not commit PNG/JPG photos** — PNG is

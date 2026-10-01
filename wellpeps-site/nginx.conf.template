@@ -13,6 +13,79 @@
 # While on, every HTML route answers 401 with the branded gate page
 # (/preview-access/index.html) until the visitor holds a wp_gate cookie equal
 # to the hash. Static assets stay public so the gate page can render.
+#
+# --- Security headers (W4) ---------------------------------------------------
+# Every response carries Content-Security-Policy, Strict-Transport-Security,
+# X-Content-Type-Options, X-Frame-Options, Referrer-Policy and
+# Permissions-Policy, including errors (`always`), redirects, static assets and
+# the gate page. nginx's add_header has one trap: a block that has ANY
+# add_header of its own drops every header inherited from the level above. So
+# the full set is written at server level (this covers the redirects, the
+# 403/404 answers and the unlock rate-limit reply) and repeated, identically, in
+# each location that adds a header of its own. CSP and Permissions-Policy are
+# defined once (the two maps below) and referenced by name.
+# `node scripts/security-headers-check.mjs` and src/lib/security-headers.test.ts
+# read this file and fail if any location misses a header or differs.
+#
+# Two things must stay true for the CSP below to hold:
+#  * The build emits no inline <script> and no inline <style> element
+#    (astro.config.mjs: inlineStylesheets 'never', assetsInlineLimit 0), and no
+#    inline event handlers (onclick=...). The check script scans the build.
+#  * Any new host the pages fetch from must be added to connect-src (and to the
+#    endpoint list the test reads), or the browser silently blocks the call.
+
+# Content-Security-Policy. One line on purpose: nginx would keep a line break
+# inside a quoted value and send it in the header. Directive by directive:
+#   default-src 'self'          anything not listed below: same origin only.
+#   script-src 'self'           only our own bundled files under /_astro/. No
+#                               'unsafe-inline' and no 'unsafe-eval', so an
+#                               injected <script> or onclick= cannot run. JSON
+#                               data blocks (type="application/json") are not
+#                               script and are unaffected.
+#   style-src 'self'            stylesheets are external files (no <style>).
+#   style-src-attr 'unsafe-inline'
+#                               style="..." attributes only (a few chips on the
+#                               hero and the peptide cards, plus styles set from
+#                               script). Attributes cannot run code, so this is
+#                               the low-risk exception; <style> elements stay
+#                               blocked.
+#   img-src 'self'              all images are served from this site.
+#   font-src 'self'             Inter and Lora are self-hosted (W3); no Google.
+#   connect-src 'self' https://kwgwbupqzpusydzflyvi.supabase.co
+#                               fetch/beacon targets: this site (gate unlock)
+#                               and our Supabase project (email signups, and the
+#                               consent-log / privacy-request / analytics
+#                               functions). That exact host only, no wildcard.
+#                               GEN Health (portal.wellpeps.com) is reached by
+#                               plain links, which no CSP directive restricts.
+#   frame-src 'none'            the site embeds nothing.
+#   object-src 'none'           no plugins.
+#   base-uri 'self'             an injected <base> cannot redirect relative URLs.
+#   form-action 'self'          forms post only to this site (all are handled
+#                               by script today).
+#   frame-ancestors 'none'      nobody may frame the site (clickjacking). Matches
+#                               X-Frame-Options DENY for older browsers.
+#   upgrade-insecure-requests   any stray http:// subresource is fetched as https.
+map $uri $wp_csp {
+    default "default-src 'self'; script-src 'self'; style-src 'self'; style-src-attr 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'self' https://kwgwbupqzpusydzflyvi.supabase.co; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests";
+}
+
+# Permissions-Policy: nothing on the page may use these browser features, and
+# none may be delegated to another origin. browsing-topics=() opts visitors out
+# of Chrome's ad-topic profiling (a health site should not feed it).
+map $uri $wp_permissions_policy {
+    default "camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()";
+}
+
+# Strict-Transport-Security is written in each block as
+#   max-age=31536000; includeSubDomains
+# One year, subdomains included (portal.wellpeps.com is HTTPS-only). Deliberately
+# NO `preload`: that submits the domain to browsers' built-in list and is hard
+# to undo. Browsers ignore this header on plain http, so it is safe to send
+# from the proxy-facing port too.
+#
+# Referrer-Policy strict-origin-when-cross-origin: links to other sites
+# (portal.wellpeps.com, hhs.gov) receive our origin only, never the page path.
 
 # 1 = let the request through. Key is "<hash>:<cookie>".
 #   "^:"            hash empty -> gate off, pass everyone (even stale cookies)
@@ -55,6 +128,26 @@ server {
     # so absolute redirects downgraded visitors from https to http.
     absolute_redirect off;
 
+    # HTTP -> HTTPS. TLS ends at the proxy, so nginx only ever sees http and
+    # cannot use $scheme. The proxy says what the visitor used in
+    # X-Forwarded-Proto. Redirect ONLY when that header is exactly "http".
+    # A request without it (the container health check, `docker run` on a
+    # laptop) is served normally, and so is "https", so this cannot loop.
+    if ($http_x_forwarded_proto = "http") {
+        return 301 https://$host$request_uri;
+    }
+
+    # Server-level copy of the security headers: inherited by every location
+    # below that has no add_header of its own (the /peptides redirects, the
+    # 404 and 403 locations, the unlock rate-limit reply) and by the redirect
+    # above.
+    add_header Content-Security-Policy $wp_csp always;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-Frame-Options "DENY" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    add_header Permissions-Policy $wp_permissions_policy always;
+
     # Locked HTML routes return 401 and render the gate page in place, so the
     # visitor stays on the URL they asked for.
     error_page 401 /preview-access/index.html;
@@ -63,12 +156,24 @@ server {
     location /_astro/ {
         expires 1y;
         add_header Cache-Control "public, immutable";
+        add_header Content-Security-Policy $wp_csp always;
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header X-Frame-Options "DENY" always;
+        add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+        add_header Permissions-Policy $wp_permissions_policy always;
     }
 
     # Other static media — cache moderately.
     location ~* \.(?:jpg|jpeg|png|webp|avif|gif|svg|ico|woff2?|ttf)$ {
         expires 30d;
         add_header Cache-Control "public";
+        add_header Content-Security-Policy $wp_csp always;
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header X-Frame-Options "DENY" always;
+        add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+        add_header Permissions-Policy $wp_permissions_policy always;
     }
 
     # Gate page: only reachable as the 401 error page (internal). Direct hits
@@ -77,10 +182,12 @@ server {
         internal;
         add_header Cache-Control "no-store" always;
         add_header X-Robots-Tag "noindex, nofollow" always;
+        add_header Content-Security-Policy $wp_csp always;
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
         add_header X-Content-Type-Options "nosniff" always;
-        add_header X-Frame-Options "SAMEORIGIN" always;
+        add_header X-Frame-Options "DENY" always;
         add_header Referrer-Policy "strict-origin-when-cross-origin" always;
-        add_header Permissions-Policy "camera=(), microphone=(), geolocation=()" always;
+        add_header Permissions-Policy $wp_permissions_policy always;
     }
     location ^~ /preview-access/ {
         return 404;
@@ -98,10 +205,22 @@ server {
     location @gate_unlock {
         add_header Cache-Control "no-store" always;
         add_header X-Robots-Tag "noindex, nofollow" always;
+        add_header Content-Security-Policy $wp_csp always;
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header X-Frame-Options "DENY" always;
+        add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+        add_header Permissions-Policy $wp_permissions_policy always;
         if ($gate_unlock_ok = 1) {
             # add_header inside `if` replaces the outer ones, so repeat them.
             add_header Cache-Control "no-store" always;
             add_header X-Robots-Tag "noindex, nofollow" always;
+            add_header Content-Security-Policy $wp_csp always;
+            add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+            add_header X-Content-Type-Options "nosniff" always;
+            add_header X-Frame-Options "DENY" always;
+            add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+            add_header Permissions-Policy $wp_permissions_policy always;
             add_header Set-Cookie "wp_gate=${SITE_GATE_HASH}; Path=/; Max-Age=2592000; HttpOnly; Secure; SameSite=Lax" always;
             return 204;
         }
@@ -112,6 +231,7 @@ server {
     # /peptides to /healthy-aging. Astro also emits a meta-refresh stub at
     # /peptides/, but a real 301 here is what search engines need, and it
     # takes precedence because an exact-match location beats the prefix below.
+    # (No add_header here on purpose: both inherit the server-level set.)
     location = /peptides {
         if ($gate_ok = 0) { return 401; }
         return 301 /healthy-aging;
@@ -128,13 +248,15 @@ server {
         try_files $uri $uri/ $uri.html =404;
 
         # Security headers on document responses.
+        add_header Content-Security-Policy $wp_csp always;
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
         add_header X-Content-Type-Options "nosniff" always;
-        add_header X-Frame-Options "SAMEORIGIN" always;
+        add_header X-Frame-Options "DENY" always;
         add_header Referrer-Policy "strict-origin-when-cross-origin" always;
-        add_header Permissions-Policy "camera=(), microphone=(), geolocation=()" always;
+        add_header Permissions-Policy $wp_permissions_policy always;
         add_header Cache-Control $gate_html_cache_control;
     }
 
-    # Don't serve dotfiles.
+    # Don't serve dotfiles. (Inherits the server-level headers.)
     location ~ /\. { deny all; }
 }

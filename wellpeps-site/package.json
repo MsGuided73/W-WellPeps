@@ -11,6 +11,7 @@
     "seed:articles": "node scripts/seed-articles.mjs",
     "images": "node scripts/convert-images.mjs",
     "test": "vitest run",
+    "check:headers": "node scripts/security-headers-check.mjs",
     "typecheck": "astro check",
     "lock:checkout": "vite-node scripts/lock-checkout.ts"
   },
