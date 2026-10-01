@@ -15,7 +15,7 @@
   },
   {
    "t": "callout",
-   "text": "**Summary**\nThis is the short version. The full policy follows.\n• **Who we are.** WellPeps, a Wyoming corporation. We run wellpeps.com and the WellPeps patient experience. We are not a medical practice or a pharmacy. We do not prescribe, compound or dispense medication.\n• **What wellpeps.com collects today.** Your email address (and a first name, if a form asks for it) and which form you used, such as the newsletter, a free guide or a waitlist. There are no accounts, health forms or payments on wellpeps.com.\n• **Where your health information goes.** Your health assessment, intake, payment and messages with your clinician happen in our technology platform at portal.wellpeps.com. The Practice and the pharmacy get what they need to care for you. Health information held for your care is covered by the Notice of Privacy Practices.\n• **We do not sell your personal information.** We do not share it for cross-context behavioral advertising. [VERIFY: confirm for portal.wellpeps.com and checkout, Open item 6.]\n• **Cookies.** wellpeps.com uses one essential cookie and no analytics or advertising tags. We will ask before we turn any on. See the Cookie and Tracking Technologies Notice.\n• **Your choices.** You can ask to see, correct or delete your information, and to opt out of or limit how it is used. Use Your Privacy Choices or email [PRIVACY EMAIL].",
+   "text": "**Summary**\nThis is the short version. The full policy follows.\n• **Who we are.** WellPeps, a Wyoming corporation. We run wellpeps.com and the WellPeps patient experience. We are not a medical practice or a pharmacy. We do not prescribe, compound or dispense medication.\n• **What wellpeps.com collects today.** Your email address (and a first name, if a form asks for it) and which form you used, such as the newsletter, a free guide or a waitlist. There are no accounts, health forms or payments on wellpeps.com.\n• **Where your health information goes.** Your health assessment, intake, payment and messages with your clinician happen in our technology platform at portal.wellpeps.com. The Practice and the pharmacy get what they need to care for you. Health information held for your care is covered by the Notice of Privacy Practices.\n• **We do not sell your personal information.** We do not share it for cross-context behavioral advertising. [VERIFY: confirm for portal.wellpeps.com and checkout, Open item 6.]\n• **Cookies.** wellpeps.com uses only essential cookies and no analytics or advertising tags. We will ask before we turn any on. See the Cookie and Tracking Technologies Notice.\n• **Your choices.** You can ask to see, correct or delete your information, and to opt out of or limit how it is used. Use Your Privacy Choices or email [PRIVACY EMAIL].",
    "kind": "info"
   },
   {
@@ -178,7 +178,7 @@
   },
   {
    "t": "callout",
-   "text": "**What wellpeps.com does and does not collect today**\n**Does:** your email address; a first name where a form asks for it; which form you used (newsletter, a free guide, a program notice or a waitlist, for example for hormone optimization); the date and time; and standard web server logs (IP address, browser, pages requested). When a page loads, your browser also asks Google for the fonts we use, so Google receives your IP address and browser details.\n**Does not:** no accounts or log-ins; no health questions; no payments; no cookies other than the essential cookie described in Section 6; no analytics, advertising or social media tags; no session recording; no location tracking. The AI assistant runs in your browser. What you type is not sent to us or to an AI company, and the assistant does not give medical advice (see the AI Use Disclosure).",
+   "text": "**What wellpeps.com does and does not collect today**\n**Does:** your email address; a first name where a form asks for it; which form you used (newsletter, a free guide, a program notice or a waitlist, for example for hormone optimization); the date and time; and standard web server logs (IP address, browser, pages requested). Our text fonts are served from wellpeps.com itself, so loading them does not send your IP address or browser details to another company.\n**Does not:** no accounts or log-ins; no health questions; no payments; no cookies other than the essential cookies described in Section 6; no analytics, advertising or social media tags; no session recording; no location tracking. The AI assistant runs in your browser. What you type is not sent to us or to an AI company, and the assistant does not give medical advice (see the AI Use Disclosure).",
    "kind": "info"
   },
   {
@@ -322,12 +322,6 @@
      "Work under contract and may not use the information for their own purposes [VERIFY: written data protection terms in place, item B12]."
     ],
     [
-     "Google (Google Fonts)",
-     "Your IP address, browser details and our site address, sent by your browser.",
-     "To load the fonts on our pages.",
-     "Google gets this directly from your browser. We plan to host the fonts ourselves. See the Cookie and Tracking Technologies Notice."
-    ],
-    [
      "Laboratories, only if you order labs",
      "Name, date of birth and the test order.",
      "To run the tests you order.",
@@ -427,13 +421,13 @@
   },
   {
    "t": "p",
-   "text": "wellpeps.com sets one cookie, called wp_gate. It is a first-party cookie that remembers that you entered the preview password, so you do not have to enter it again for 30 days. It is strictly necessary for that purpose. If the preview password page is removed, the site will set no cookies of its own. [VERIFY: gate status at publication.]",
+   "text": "wellpeps.com sets two essential cookies. **wp_gate** is a first-party cookie that remembers that you entered the preview password, so you do not have to enter it again for 30 days. **wp_consent** is a first-party cookie, set only if you make a choice in Your Privacy Choices, that remembers that choice, with a random ID (not your name or email), for 12 months. Each is strictly necessary for its purpose. If the preview password page is removed, the site will set only wp_consent, and only if you make a choice. [VERIFY: gate status at publication.]",
    "italic": false,
    "align": null
   },
   {
    "t": "p",
-   "text": "When a page loads, your browser also asks Google for the fonts we use (Google Fonts). We do not use analytics, advertising or social media tags, or session recording, today. The Cookie and Tracking Technologies Notice lists everything. portal.wellpeps.com is run for us by our technology platform provider and has its own cookies [VERIFY: inventory, Open item 6].",
+   "text": "Our text fonts are served from wellpeps.com itself, so loading them does not contact another company. We do not use analytics, advertising or social media tags, or session recording, today. The Cookie and Tracking Technologies Notice lists everything. portal.wellpeps.com is run for us by our technology platform provider and has its own cookies [VERIFY: inventory, Open item 6].",
    "italic": false,
    "align": null
   },

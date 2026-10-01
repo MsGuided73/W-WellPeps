@@ -125,7 +125,7 @@
   },
   {
    "t": "li",
-   "text": "**Fonts.** Our pages load text fonts from Google Fonts, a service run by Google. If the fonts do not load, your browser uses a standard font and the page still works.",
+   "text": "**Fonts.** Our text fonts are served from our own site. If the fonts do not load, your browser uses a standard font and the page still works.",
    "level": 0
   },
   {

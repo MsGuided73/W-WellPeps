@@ -371,7 +371,7 @@
    "t": "clause",
    "number": "2.",
    "heading": "Default off.",
-   "text": "For a visitor with no stored choice, a visitor whose browser blocks storage, and a visitor who sends Global Privacy Control, no non-essential script, pixel, SDK, iframe, font, image or beacon from another company may request anything, and no resource hint (preconnect, dns-prefetch, prefetch) may point to such a host. The only allowed exception is Google Fonts until the fonts are self-hosted, and it is listed in the Cookie notice.",
+   "text": "For a visitor with no stored choice, a visitor whose browser blocks storage, and a visitor who sends Global Privacy Control, no non-essential script, pixel, SDK, iframe, font, image or beacon from another company may request anything, and no resource hint (preconnect, dns-prefetch, prefetch) may point to such a host. The site serves its own fonts, so there is no exception.",
    "level": 0
   },
   {

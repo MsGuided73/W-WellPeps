@@ -15,7 +15,7 @@
   },
   {
    "t": "callout",
-   "text": "**Summary**\n• Today, wellpeps.com uses one cookie, and only if you enter the preview password. It is essential. It does not track you.\n• We do not use analytics, advertising or social media tools, or session recording.\n• When a page loads, your browser asks Google for the fonts we use. We plan to host the fonts ourselves.\n• Before we turn on any tool that is not essential, we will ask for your permission. Nothing loads before you say yes.\n• The health assessment, checkout and patient portal at portal.wellpeps.com have their own cookies (Section 3.5).\n• To make or change a choice, use Your Privacy Choices in the footer.",
+   "text": "**Summary**\n• Today, wellpeps.com uses only essential cookies: one if you enter the preview password, and one that remembers your privacy choices if you make any. Neither tracks you.\n• We do not use analytics, advertising or social media tools, or session recording.\n• Our text fonts are served from wellpeps.com itself, so loading them does not contact any other company.\n• Before we turn on any tool that is not essential, we will ask for your permission. Nothing loads before you say yes.\n• The health assessment, checkout and patient portal at portal.wellpeps.com have their own cookies (Section 3.5).\n• To make or change a choice, use Your Privacy Choices in the footer.",
    "kind": "info"
   },
   {
@@ -99,6 +99,13 @@
      "Remembers that you entered the preview password, so you are not asked again.",
      "30 days.",
      "Strictly necessary. Secure, HttpOnly (page scripts cannot read it) and SameSite=Lax."
+    ],
+    [
+     "wp_consent",
+     "WellPeps (first party), from the page you are on.",
+     "Remembers the choices you made in Your Privacy Choices, with a random ID (not your name, email or device) so we can show what choice you made.",
+     "12 months, or until the notice changes or you delete your choices.",
+     "Strictly necessary for your choices to work. Set only if you make a choice. Secure when the site is served over HTTPS, and SameSite=Lax."
     ]
    ],
    "widths": [
@@ -113,13 +120,19 @@
   },
   {
    "t": "p",
-   "text": "The cookie holds a code that shows the preview password was entered. It holds no information about you [VERIFY: the value is a code derived from the preview password, the same for every visitor]. Because it is strictly necessary, we do not ask for consent to set it. If the preview password page is removed, wellpeps.com will set no cookies of its own [VERIFY: gate status at publication].",
+   "text": "The wp_gate cookie holds a code that shows the preview password was entered. It holds no information about you [VERIFY: the value is a code derived from the preview password, the same for every visitor]. The wp_consent cookie holds your choices and a random ID, and nothing else about you. Because both are strictly necessary, we do not ask for consent to set them. If the preview password page is removed, wellpeps.com will set only wp_consent, and only if you make a choice [VERIFY: gate status at publication].",
    "italic": false,
    "align": null
   },
   {
    "t": "h3",
    "text": "3.2 Requests to other companies"
+  },
+  {
+   "t": "p",
+   "text": "Our text fonts (Inter and Lora) are served from wellpeps.com itself, so loading them does not contact any other company.",
+   "italic": false,
+   "align": null
   },
   {
    "t": "table",
@@ -129,12 +142,6 @@
      "What happens",
      "What the company receives",
      "Our plan"
-    ],
-    [
-     "Google (Google Fonts: fonts.googleapis.com and fonts.gstatic.com)",
-     "When a page loads, your browser downloads font files from Google.",
-     "Your IP address, browser and device details and our site address, as in any web request [VERIFY: referrer policy]. We do not set a cookie for this [VERIFY: Google's current statement].",
-     "We plan to host the fonts ourselves and remove this request. Google's privacy policy applies to what it receives."
     ],
     [
      "Supabase (our database provider)",
@@ -232,7 +239,7 @@
   },
   {
    "t": "p",
-   "text": "Today we set only the one essential cookie, so there is no cookie banner. A banner will appear when we add our first tool that needs your consent. This is how we will run wellpeps.com and how we will change it:",
+   "text": "Today we set only essential cookies, so there is no cookie banner. A banner will appear when we add our first tool that needs your consent. This is how we will run wellpeps.com and how we will change it:",
    "italic": false,
    "align": null
   },
