@@ -12,6 +12,7 @@
  *   variant="rail"      a compact card for a Learning Center article sidebar
  */
 import Icon from './Icon.astro';
+import FreeStar from './FreeStar.astro';
 import FormConsent from './legal/FormConsent.astro';
 import type { Ebook } from '../data/ebooks';
 
@@ -52,12 +53,12 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
             {books.map((book, i) => (
               <button type="button" class:list={['book', `book--fan-${i}`]} data-ebook-open={book.slug} aria-label={`Get the free guide: ${book.title}`}>
                 <img src={book.cover} alt="" width="600" height="776" loading="lazy" />
+                <span class="book__star" aria-hidden="true"><FreeStar /></span>
               </button>
             ))}
           </div>
 
           <div class="ebook-band__copy">
-            <p class="ebook__eyebrow"><span class="ebook__tag-pill">Smart Patient Guide{single ? '' : 's'}</span><span class="ebook__eyebrow-meta">{books[0].pages} pages{single ? '' : ' each'}</span></p>
             {single ? (
               <Fragment>
                 <h2 class="ebook-band__title">The Smart Patient’s Guide to <span>{single.title}</span></h2>
@@ -101,13 +102,14 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
           <div class="ebook-carousel__head">
             <p class="ebook__eyebrow"><span class="ebook__tag-pill">The Smart Patient’s Guides</span></p>
             <h2 class="ebook-band__title">Know Your Options <span>Before You Decide</span></h2>
-            <p class="ebook-band__lead">Clear answers to the questions patients ask most. Pick a guide, and it’s yours free.</p>
+            <p class="ebook-band__lead">Be an Informed Patient. Make Confident Decisions.<br />Pick a guide, and it’s yours free.</p>
           </div>
           <ul class="ebook-carousel__row" role="list">
             {books.map((book) => (
               <li class="ebook-carousel__item">
                 <button type="button" class="book" data-ebook-open={book.slug} aria-label={`Get the free guide: ${book.title}`}>
                   <img src={book.cover} alt="" width="600" height="776" decoding="async" />
+                  <span class="book__star" aria-hidden="true"><FreeStar /></span>
                 </button>
                 <h3>{book.title}</h3>
                 <button type="button" class="ebook__link" data-ebook-open={book.slug}>Get the free guide<Icon name="arrow-right" /></button>
@@ -273,6 +275,10 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
   }
   .book:hover, .book:focus-visible { transform: perspective(1400px) rotateY(-6deg) rotateX(1deg) translateY(-8px); }
   .book:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 10px; }
+  /* The royal-blue "FREE" star sticks to the cover's top-right corner and moves with the book.
+     Its width is a share of the cover, so it scales with every layout. */
+  .book__star { position: absolute; z-index: 3; top: -8%; right: -10%; width: 34%; pointer-events: none; }
+  .ebook-band__books .book__star { top: -3%; right: -7%; width: 30%; }
   /* ---------- Shared: navy stage, eyebrow, buttons ---------- */
   .ebook-stage {
     position: relative; overflow: hidden; color: #fff;
@@ -305,7 +311,6 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   }
   .ebook-rail .ebook__tag-pill { font-size: var(--text-note); padding: 0.35rem 0.8rem; }
-  .ebook__eyebrow-meta { color: rgba(255, 255, 255, 0.82); font-weight: 600; }
   .ebook__btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
     padding: 1rem 1.8rem; border: 0; border-radius: 999px; cursor: pointer;
@@ -322,14 +327,16 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
   .ebook__btn--block { width: 100%; }
 
   /* ---------- Band (program pages) ---------- */
-  .ebook-band { display: grid; grid-template-columns: minmax(320px, 1fr) 1fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: center; }
-  .ebook-band__books { position: relative; display: grid; place-items: center; min-height: 600px; }
-  .ebook-band__books .book { width: min(430px, 90%); }
+  .ebook-band { display: grid; grid-template-columns: minmax(380px, 1.15fr) 1fr; gap: clamp(2.5rem, 5vw, 5rem); align-items: center; }
+  .ebook-band__books { position: relative; display: grid; place-items: center; min-height: 720px; }
+  .ebook-band__books .book { width: min(560px, 94%); }
   .ebook-band__halo {
-    position: absolute; width: 560px; max-width: 120%; aspect-ratio: 1; border-radius: 50%;
+    position: absolute; width: 720px; max-width: 125%; aspect-ratio: 1; border-radius: 50%;
     background: radial-gradient(circle, rgba(46, 168, 247, 0.45), rgba(46, 168, 247, 0.08) 55%, transparent 70%);
   }
   .ebook-band__books--pair .book { position: absolute; width: min(330px, 62%); }
+  /* The front book covers the back book's right corner, so the back book's star sits over its visible top. */
+  .ebook-band__books--pair .book--fan-0 .book__star { right: auto; left: 24%; top: -9%; }
   .ebook-band__books--pair .book--fan-0 { transform: perspective(1400px) translateX(-40%) rotateY(-20deg) rotate(-5deg); z-index: 1; }
   .ebook-band__books--pair .book--fan-1 { transform: perspective(1400px) translateX(34%) translateY(18px) rotateY(-20deg) rotate(4deg); z-index: 2; }
   .ebook-band__books--pair .book:hover, .ebook-band__books--pair .book:focus-visible { z-index: 3; }
@@ -342,6 +349,10 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
   }
   .ebook-band__title span { display: block; color: var(--blue-soft); }
   .ebook-band__lead { margin-top: 1rem; font-size: var(--text-lead); color: rgba(255, 255, 255, 0.86); max-width: 36rem; }
+  /* On a program page the title opens the column, and the line under it is the headline's partner,
+     so it is set larger than the lead on the home band. */
+  .ebook-band__copy .ebook-band__title { margin-top: 0; }
+  .ebook-band__copy .ebook-band__lead { font-size: clamp(1.4rem, 1.05rem + 1.1vw, 2rem); line-height: 1.35; max-width: 40rem; }
   .ebook-band__inside-head { margin-top: 1.75rem; font-weight: 700; color: #fff; letter-spacing: 0.02em; }
   .ebook-band__inside { list-style: none; padding: 0; margin: 0.8rem 0 0; display: grid; gap: 0.7rem; }
   .ebook-band__inside li { display: flex; gap: 0.75rem; align-items: flex-start; color: rgba(255, 255, 255, 0.92); font-size: var(--text-card-body); line-height: 1.4; }
@@ -367,7 +378,7 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
   .ebook-carousel__head .ebook-band__title span { display: inline; }
   .ebook-carousel__head .ebook-band__lead { margin-inline: auto; }
   .ebook-carousel__row {
-    list-style: none; padding: 1.5rem 0.5rem 1rem; margin: clamp(2rem, 4vw, 3.5rem) 0 0;
+    list-style: none; padding: 3rem 1.5rem 1rem; margin: clamp(0.5rem, 2vw, 1.5rem) 0 0;
     display: grid; grid-auto-flow: column; grid-auto-columns: minmax(200px, 1fr); gap: clamp(1.5rem, 3vw, 2.75rem);
     overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin;
   }
@@ -418,7 +429,7 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
   }
   .ebook-dialog__close:hover { background: #EEF4FB; }
   .ebook-dialog__close:focus-visible { outline: 3px solid var(--blue); }
-  .ebook-dialog__kicker { font-size: var(--text-note); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); }
+  .ebook-dialog__kicker { padding-right: 2.5rem; font-size: var(--text-note); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); }
   .ebook-dialog__title { margin-top: 0.35rem; font-family: var(--font-serif); font-size: clamp(1.7rem, 1.4rem + 1vw, 2.1rem); font-weight: 600; line-height: 1.15; color: var(--navy); }
   .ebook-dialog__lead { margin-top: 0.5rem; color: var(--text-body); }
   .ebook-dialog__form { margin-top: 1.25rem; display: grid; gap: 0.55rem; }
@@ -440,9 +451,18 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
   /* All five books fit on wide screens: no scroll container, so the last
      book's 3D page edge doesn't add a stray scrollbar. */
   @media (min-width: 1180px) { .ebook-carousel__row { overflow: visible; } }
+  @media (max-width: 1200px) {
+    .ebook-band__books:not(.ebook-band__books--pair) .book { width: min(520px, 88%); }
+    .ebook-band__books--pair .book { width: min(280px, 54%); }
+    .ebook-band__books .book__star { right: -4%; width: 28%; }
+  }
+  @media (min-width: 901px) {
+    .ebook-band:has(.ebook-band__books--pair) { grid-template-columns: minmax(320px, 1fr) 1fr; }
+  }
   @media (max-width: 900px) {
     .ebook-band { grid-template-columns: 1fr; text-align: left; }
     .ebook-band__books { min-height: 440px; }
+    .ebook-band__books .book__star { right: -4%; }
   }
   @media (max-width: 620px) {
     .ebook-dialog[open] { grid-template-columns: 1fr; }

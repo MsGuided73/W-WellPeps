@@ -27,7 +27,7 @@ export interface Ebook {
   source: SignupSource;
   /** Four "inside the guide" highlights, from the chapter titles in
    *  eBooks/_build/outlines/<slug>.json (sentence case; Healthy Aging item 3
-   *  sums up chapters 06-09). */
+   *  sums up chapters 06-09, GLP-1 item 3 sums up chapters 05-07). */
   inside: readonly string[];
   pages: number;
   pdf?: string;
@@ -45,7 +45,7 @@ export const EBOOKS: readonly Ebook[] = [
     inside: [
       'What are GLP-1 medications?',
       'Semaglutide, tirzepatide and your treatment options',
-      'Injections, tablets and what “FDA-approved” means',
+      'Injections, oral tablets and additives',
       'What’s actually included in the price',
     ],
   },
