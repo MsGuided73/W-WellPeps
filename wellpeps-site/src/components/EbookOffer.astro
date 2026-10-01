@@ -26,7 +26,7 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
   <div class:list={['ebook', `ebook--${variant}`]} data-ebook-offer>
     {variant === 'rail' && (
       <div class="ebook-rail">
-        <p class="ebook__eyebrow"><span>Free Guide</span></p>
+        <p class="ebook__eyebrow"><span class="ebook__tag-pill">Free Guide</span></p>
         <div class="ebook-rail__books">
           {books.map((book) => (
             <button type="button" class="book book--sm" data-ebook-open={book.slug} aria-label={`Get the free guide: ${book.title}`}>
@@ -51,13 +51,12 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
             {books.map((book, i) => (
               <button type="button" class:list={['book', `book--fan-${i}`]} data-ebook-open={book.slug} aria-label={`Get the free guide: ${book.title}`}>
                 <img src={book.cover} alt="" width="600" height="776" loading="lazy" />
-                {i === 0 && <span class="book__badge" aria-hidden="true">Free</span>}
               </button>
             ))}
           </div>
 
           <div class="ebook-band__copy">
-            <p class="ebook__eyebrow"><span>Free Smart Patient Guide{single ? '' : 's'}</span> · {books[0].pages} pages{single ? '' : ' each'}</p>
+            <p class="ebook__eyebrow"><span class="ebook__tag"><span class="ebook__tag-badge">Free</span><span class="ebook__tag-pill">Smart Patient Guide{single ? '' : 's'}</span></span><span class="ebook__eyebrow-meta">{books[0].pages} pages{single ? '' : ' each'}</span></p>
             {single ? (
               <Fragment>
                 <h2 class="ebook-band__title">The Smart Patient’s Guide to <span>{single.title}</span></h2>
@@ -99,7 +98,7 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
       <section class="ebook-stage">
         <div class="container">
           <div class="ebook-carousel__head">
-            <p class="ebook__eyebrow"><span>Free Smart Patient Guides</span></p>
+            <p class="ebook__eyebrow"><span class="ebook__tag"><span class="ebook__tag-badge">Free</span><span class="ebook__tag-pill">Smart Patient Guides</span></span></p>
             <h2 class="ebook-band__title">Know Your Options <span>Before You Decide</span></h2>
             <p class="ebook-band__lead">Clear answers to the questions patients ask most. Pick a guide, and it’s yours free.</p>
           </div>
@@ -107,7 +106,7 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
             {books.map((book) => (
               <li class="ebook-carousel__item">
                 <button type="button" class="book" data-ebook-open={book.slug} aria-label={`Get the free guide: ${book.title}`}>
-                  <img src={book.cover} alt="" width="600" height="776" loading="lazy" />
+                  <img src={book.cover} alt="" width="600" height="776" decoding="async" />
                 </button>
                 <h3>{book.title}</h3>
                 <button type="button" class="ebook__link" data-ebook-open={book.slug}>Get the free guide<Icon name="arrow-right" /></button>
@@ -266,14 +265,6 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
   }
   .book:hover, .book:focus-visible { transform: perspective(1400px) rotateY(-6deg) rotateX(1deg) translateY(-8px); }
   .book:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 10px; }
-  .book__badge {
-    position: absolute; z-index: 3; top: -14px; right: -18px; width: 64px; height: 64px; border-radius: 50%;
-    display: grid; place-items: center; transform: rotate(12deg);
-    background: radial-gradient(circle at 35% 30%, #5CC0FF, var(--blue-soft) 45%, var(--blue));
-    color: #fff; font-family: var(--font-sans); font-weight: 800; font-size: 1.05rem; letter-spacing: 0.04em; text-transform: uppercase;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35), inset 0 2px 0 rgba(255, 255, 255, 0.35);
-  }
-
   /* ---------- Shared: navy stage, eyebrow, buttons ---------- */
   .ebook-stage {
     position: relative; overflow: hidden; color: #fff;
@@ -295,10 +286,25 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
     font-family: var(--font-sans); font-size: var(--text-note); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
     color: rgba(255, 255, 255, 0.8);
   }
-  .ebook__eyebrow span {
-    padding: 0.35rem 0.8rem; border-radius: 999px; color: #fff;
-    background: rgba(46, 168, 247, 0.22); border: 1px solid rgba(46, 168, 247, 0.55);
+  .ebook__eyebrow { gap: 0.9rem; }
+  /* The eyebrow pill with the round "Free" badge tucked behind its left end. */
+  .ebook__tag { position: relative; display: inline-flex; isolation: isolate; margin-left: 58px; }
+  .ebook__tag-pill {
+    position: relative; z-index: 1; padding: 0.6rem 1.25rem; border-radius: 999px; color: #fff;
+    font-size: clamp(1.05rem, 0.95rem + 0.4vw, 1.3rem); font-weight: 700; letter-spacing: 0.08em;
+    background: linear-gradient(180deg, #1B5FAE, #124682);
+    border: 1px solid rgba(46, 168, 247, 0.7);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   }
+  .ebook-rail .ebook__tag-pill { font-size: var(--text-note); padding: 0.35rem 0.8rem; }
+  .ebook__tag-badge {
+    position: absolute; z-index: 0; left: -60px; top: 50%; width: 72px; height: 72px; border-radius: 50%;
+    display: grid; place-items: center; padding-right: 14px; transform: translateY(-50%) rotate(-14deg);
+    background: radial-gradient(circle at 35% 30%, #6CC8FF, var(--blue-soft) 45%, var(--blue));
+    color: #fff; font-family: var(--font-sans); font-weight: 800; font-size: 0.95rem; letter-spacing: 0.04em;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35), inset 0 2px 0 rgba(255, 255, 255, 0.35);
+  }
+  .ebook__eyebrow-meta { color: rgba(255, 255, 255, 0.82); font-weight: 600; }
   .ebook__btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
     padding: 1rem 1.8rem; border: 0; border-radius: 999px; cursor: pointer;
@@ -315,14 +321,14 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
   .ebook__btn--block { width: 100%; }
 
   /* ---------- Band (program pages) ---------- */
-  .ebook-band { display: grid; grid-template-columns: minmax(280px, 0.9fr) 1.1fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: center; }
-  .ebook-band__books { position: relative; display: grid; place-items: center; min-height: 480px; }
-  .ebook-band__books .book { width: min(340px, 78%); }
+  .ebook-band { display: grid; grid-template-columns: minmax(320px, 1fr) 1fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: center; }
+  .ebook-band__books { position: relative; display: grid; place-items: center; min-height: 600px; }
+  .ebook-band__books .book { width: min(430px, 90%); }
   .ebook-band__halo {
-    position: absolute; width: 440px; max-width: 110%; aspect-ratio: 1; border-radius: 50%;
+    position: absolute; width: 560px; max-width: 120%; aspect-ratio: 1; border-radius: 50%;
     background: radial-gradient(circle, rgba(46, 168, 247, 0.45), rgba(46, 168, 247, 0.08) 55%, transparent 70%);
   }
-  .ebook-band__books--pair .book { position: absolute; width: min(250px, 55%); }
+  .ebook-band__books--pair .book { position: absolute; width: min(330px, 62%); }
   .ebook-band__books--pair .book--fan-0 { transform: perspective(1400px) translateX(-40%) rotateY(-20deg) rotate(-5deg); z-index: 1; }
   .ebook-band__books--pair .book--fan-1 { transform: perspective(1400px) translateX(34%) translateY(18px) rotateY(-20deg) rotate(4deg); z-index: 2; }
   .ebook-band__books--pair .book:hover, .ebook-band__books--pair .book:focus-visible { z-index: 3; }
@@ -361,7 +367,7 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
   .ebook-carousel__head .ebook-band__lead { margin-inline: auto; }
   .ebook-carousel__row {
     list-style: none; padding: 1.5rem 0.5rem 1rem; margin: clamp(2rem, 4vw, 3.5rem) 0 0;
-    display: grid; grid-auto-flow: column; grid-auto-columns: minmax(170px, 1fr); gap: clamp(1.5rem, 3vw, 2.75rem);
+    display: grid; grid-auto-flow: column; grid-auto-columns: minmax(200px, 1fr); gap: clamp(1.5rem, 3vw, 2.75rem);
     overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin;
   }
   .ebook-carousel__item { scroll-snap-align: start; display: flex; flex-direction: column; align-items: center; text-align: center; }
@@ -382,7 +388,7 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
       linear-gradient(160deg, #0B3670, var(--navy-deep));
   }
   .ebook-rail__books { display: flex; justify-content: center; gap: 1.5rem; margin: 1.5rem 0 1.4rem; }
-  .ebook-rail__books .book { width: 120px; }
+  .ebook-rail__books .book { width: 150px; }
   .ebook-rail__title { font-family: var(--font-serif); font-size: var(--text-card-title); font-weight: 600; line-height: 1.25; color: #fff; }
   .ebook-rail .ebook__btn { margin-top: 1rem; font-size: 1rem; padding: 0.85rem 1.2rem; }
 
@@ -430,9 +436,12 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
   .ebook-dialog__done-icon { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: #E6F4EA; color: #1E7B3A; }
   .ebook-dialog__done-icon :global(svg) { width: 28px; height: 28px; stroke-width: 3; }
 
+  /* All five books fit on wide screens: no scroll container, so the last
+     book's 3D page edge doesn't add a stray scrollbar. */
+  @media (min-width: 1180px) { .ebook-carousel__row { overflow: visible; } }
   @media (max-width: 900px) {
     .ebook-band { grid-template-columns: 1fr; text-align: left; }
-    .ebook-band__books { min-height: 340px; }
+    .ebook-band__books { min-height: 440px; }
   }
   @media (max-width: 620px) {
     .ebook-dialog[open] { grid-template-columns: 1fr; }
@@ -440,7 +449,7 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
     .book--dialog { width: 110px; }
     .ebook-dialog__panel { padding: 1.75rem 1.25rem 1.5rem; }
     .ebook-band__pick li { flex-direction: column; align-items: flex-start; }
-    .ebook-carousel__row { grid-auto-columns: 58vw; }
+    .ebook-carousel__row { grid-auto-columns: 64vw; }
   }
   @media (prefers-reduced-motion: reduce) {
     .book, .ebook__btn, .ebook__btn :global(svg), .ebook__link :global(svg) { transition: none; }
