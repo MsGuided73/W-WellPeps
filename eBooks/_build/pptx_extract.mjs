@@ -52,6 +52,10 @@ const data = await page.evaluate(async () => {
       radius: ['borderTopLeftRadius', 'borderTopRightRadius', 'borderBottomRightRadius', 'borderBottomLeftRadius'].map((k) => px(cs[k])), shadow, cls: el.className && el.className.baseVal === undefined ? String(el.className) : '' };
   }
 
+  // absolutely positioned children (the two-column ✓/✕/• marks) sit outside the text flow: they compute as display:block,
+  // which used to disqualify the whole list item as a text block and drop its text (Hair 07, Modern Healthcare 11)
+  const outOfFlow = (n) => /absolute|fixed/.test(getComputedStyle(n).position);
+
   function isTextBlock(el) {
     let hasText = false;
     for (const n of el.childNodes) {
@@ -60,6 +64,7 @@ const data = await page.evaluate(async () => {
       if (n.tagName === 'BR') continue;
       const cs = getComputedStyle(n);
       if (!visible(cs)) continue;
+      if (outOfFlow(n)) continue;  // extracted on its own by walk()
       if (!INLINE.has(cs.display)) return false;  // inline <img>/<svg> (e.g. the checklist headline's checkbox) stay in the text block
       if (n.textContent.trim()) hasText = true;
     }
@@ -74,6 +79,9 @@ const data = await page.evaluate(async () => {
       if (node.nodeType === 1) { if (node.tagName === 'BR') forcedBreak = true; continue; }
       const pe = node.parentElement; const ps = getComputedStyle(pe);
       if (!visible(ps)) continue;
+      let inMark = false;
+      for (let a = pe; a && a !== el; a = a.parentElement) if (outOfFlow(a)) { inMark = true; break; }
+      if (inMark) continue;  // an out-of-flow child's text (a • mark) becomes its own text box
       const v = node.nodeValue;
       const re = /\S+?(?:-(?=\S)|—(?=\S)|(?=\s|$))/g; let m; let last = 0;
       while ((m = re.exec(v))) {
@@ -161,7 +169,9 @@ const data = await page.evaluate(async () => {
       const before = pseudo(el, '::before', r, P); if (before) items.push(before);
       if (isTextBlock(el)) {
         const t = textOf(el, cs, r, P); if (t) items.push(t);
-        for (const c of el.querySelectorAll('img, svg')) await walk(c);  // inline icons inside the text block
+        const marks = [...el.children].filter((c) => visible(getComputedStyle(c)) && outOfFlow(c));
+        for (const c of el.querySelectorAll('img, svg')) if (!marks.some((m) => m.contains(c))) await walk(c);  // inline icons inside the text block
+        for (const m of marks) await walk(m);
       }
       else for (const c of el.children) await walk(c);
       const after = pseudo(el, '::after', r, P); if (after) items.push(after);

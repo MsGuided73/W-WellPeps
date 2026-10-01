@@ -56,6 +56,16 @@ building another book.
   already matched). **GLP-1 v14 still has the older Why page** from the approved v10 content (telehealth intro, Lab
   Access, U.S.-Based Prescription Fulfillment, Patient-Friendly Cancellations, default kicker). Whether GLP-1 adopts the
   revised page is Derek's call; nothing was changed there.
+- **Healthy Aging v6, 2026-09-30:** page 03's four cards (Strength & Muscle, Energy & Metabolism, Sleep & Recovery,
+  Cognitive Wellness) were four skinny columns; at the client's request they are now four full-width horizontal rows
+  (`"layout": "rows"` on the cards element, no photos: title in a 1.6in left column, copy beside it). New CSS rule
+  `.cards.rows:not(.withimg)` in `render_html.py`. Still 18 pages, every section on one page; PDF + PPTX in `eBooks/`.
+- **Fonts, 2026-09-30 (Healthy Aging v7):** every PDF through v6 embedded Inter/Lora as **Type 3** glyphs (Chromium does
+  this for variable fonts), and some viewers drew them as broken, half-missing letters. `font_css()` now embeds the
+  static TTFs in `pptx/fonts/` (Inter 400/500/600/700 at opsz 16, Lora 600), which print as ordinary TrueType; the
+  variable woff2 bundle is only a fallback. Static Inter is slightly wider than the variable font at large sizes, so a
+  few leads re-wrap by a line (all pages still fit). `esc()` keeps "NAD+—" together. Other books still carry Type 3
+  fonts until rebuilt.
 - **Draft for review:** Sexual Wellness, v2 (built 2026-09-16 from Derek's `eBooks/Manuscripts/sexual-wellness_revised-final.docx`,
   which replaced the first pasted manuscript wholesale: new cover subtitle, new page order, no Before You Decide page).
   Outline `outlines/sexual-wellness.json`, config `config/sexual-wellness.json`, PDF `eBooks/sexual-wellness_ebook-v2.pdf`
@@ -115,8 +125,21 @@ building another book.
   imperatives ("Start with good questions." ...) and the two-line intro are not on the CTA page; the seven legal
   paragraphs are merged into two without dropping a word; the disclaimer headline is the series' "Educational
   information, not medical advice."; the back-page series list omits NAD+ itself.
-- **No "Modern Health" manuscript exists** (asked 2026-09-29): nothing by that name in `eBooks/`, the archive or docs. The
-  website has a Mental Health program (`program-mental.webp`), so that may be the intended title; nothing to build yet.
+- **Draft for review:** Modern Healthcare, v1 (built 2026-10-01 from `eBooks/Manuscripts/THE SMART PATIENT’S GUIDE TO
+  MODERN HEALTHCARE.docx`, straight onto `editorial-v6`). Outline `outlines/modern-healthcare.json`, config
+  `config/modern-healthcare-v6.json`, PDF `eBooks/modern-healthcare_ebook-v1.pdf`. 19 pages: cover, 00–13, Why (14),
+  a closing section (15, The Future of Healthcare), CTA, disclaimer; every section on one page. Borrowed photos: cover
+  `weight/why-doctor`, 00 `journey-1`, 02 `journey-5`, 03 `journey-3`, 05 `weight/why-lab`, 09 `journey-4`, 15 hero
+  `about/built-around-you` + `about/our-promise`, CTA `learning-center/couple`. Page 08 waits for a privacy-safe
+  WellPeps portal screenshot (the manuscript's design note; the user is supplying it). Layout: 07's six connected-care
+  steps are six numbered cards (`flow` takes labels only); 11 is the ✓/✕ two-column block with the connected
+  experience first; 12's eight red flags are a bold-lead-in list (cards ran 0.7in over); 13's nine-item checklist uses
+  the new `"compact": true` (0.52in number squares, .12in row gap, same type) and its closing principle renders as the
+  tagline line. Deviations to raise with Derek: SMART PATIENT PRINCIPLE renders as INSIGHT (section 5); page 14
+  follows the series (kicker A BETTER APPROACH TO CARE); the CTA uses the series kicker with the manuscript's EXPLORE
+  WELLPEPS paragraph; 11's column order. Derek sent a mockup (light cover with a couple on a tablet, pill-style
+  kicker); 2026-10-01 decision: reference only, the book stays in the series style. WARNs left: 15 has 1.9in free,
+  10's "WHO CAN ACCESS MY INFORMATION?" card title wraps one word.
 - **Archived:** every earlier GLP-1 version and the old NAD+, Peptides, Sexual Wellness and Healthy Aging guides are in
   `eBooks/_archive/`. Their content is being rewritten; new manuscripts arrive one at a time. Do not rebuild from the
   archived outlines.
@@ -164,6 +187,30 @@ any parsed outline against the element kinds in section 5.
 
 ### Editable PowerPoint export (added 2026-09-28)
 
+**Every deck must carry the known-good embedded fonts: run `pptx_fonts.py` after PowerPoint's Save As (2026-09-30).**
+Every deck PowerPoint embedded fonts into on 2026-09-30 drew scrambled letters in PowerPoint for the web (Outlook's
+attachment preview, Derek's machine): "HEALTHY" as a block, Y as v, G as C, on every page. Desktop PowerPoint with the
+fonts installed looked fine, which hid it. Affected: Healthy Aging v5, v6, v7 and the 21:39 re-saves of GLP-1 v14,
+Hair v5, NAD v1 and Sexual Wellness v6, with both subset and full embedding, from the same installed font files as
+before. All of them are in `eBooks/_archive/scrambled-fonts-2026-09-30/`. The fonts embedded on 2026-09-28/29 render
+correctly and are byte-identical in every deck from those days. They are kept in `pptx/embedded-fonts/` (from Healthy
+Aging v4, with `coverage.txt`, every character the five books use). The exact defect in the new embeds is unknown:
+PowerPoint compresses embedded fonts in a format we cannot unpack. The desktop TTFs do have overlapping contours left
+from the variable font, which fits the symptom but is unproven. The 2026-09-28 originals of the four re-saved decks
+are in `eBooks/_archive/subset-fonts/` and back in `eBooks/`. Healthy Aging v8 is v7 with the good fonts swapped in.
+
+```bash
+python pptx_fonts.py ../<book>_ebook-vN.pptx           # swap in the known-good fonts (in place), then reports GOOD
+python pptx_fonts.py --check ../*.pptx                  # GOOD / BAD per deck; run before sending any deck
+```
+
+The swap refuses a deck that uses a character outside `coverage.txt`. If that ever happens, the known-good fonts may
+lack it, so test that deck in Outlook's preview before sending. `pptx_build.py` writes `saveSubsetFonts="1"` to match
+the known-good decks. It also strips invisible characters the fonts lack (the renderer's U+2060 word joiner in
+"NAD+—") and refuses to build if any character is missing from the desktop fonts. PowerPoint keeps already-embedded
+font data on a re-save, so save from the fontless `-draft.pptx`. Customers only ever get the PDF; the PPTX is the
+team's editing copy, and `eBooks/WellPeps-eBook-Fonts.zip` installs the fonts for whoever edits.
+
 Rebuilds a built book's HTML as a fully editable .pptx (one 8.5 x 11 slide per page): every box, rule, card, callout,
 photo and text block is its own PowerPoint object at the PDF's exact position, font, size, colour and tracking.
 
@@ -173,11 +220,16 @@ uv run --with python-pptx python pptx_build.py pptx/<book>-vN.json pptx/<book>-v
 ```
 
 Then open the draft in PowerPoint and Save As with "Embed fonts" (COM: `Presentation.SaveAs(path, 24, -1)`) so the file
-carries Inter / Inter Medium / Inter SemiBold / Lora SemiBold. Those desktop fonts are static instances generated from
+carries Inter / Inter Medium / Inter SemiBold / Lora SemiBold, then run `pptx_fonts.py` on the saved deck (above).
+Never ship a deck straight from PowerPoint's save. Those desktop fonts are static instances generated from
 the bundled woff2 (`pptx/fonts/*.ttf`, Inter at opsz 16); PowerPoint must have them installed to render or embed them
 (installed per-user on this machine 2026-09-28). Text keeps the browser's line breaks as soft line breaks, so it wraps
 exactly as the PDF; after editing a paragraph, remove or move those breaks by hand. Photos keep their crop as an
-editable PowerPoint crop; inline SVG icons become small PNG pictures. QA: export slides via PowerPoint COM and compare
+editable PowerPoint crop; inline SVG icons become small PNG pictures. 2026-10-01 fix: the extractor dropped the
+text of every two-column (`twocol`) row, because the row's absolutely positioned mark computes as display:block. It now
+skips out-of-flow children when deciding what is a text block and extracts them separately. Every Hair Restoration deck
+before this date has an empty page 07 comparison. The twocol ✓/✕ marks are now inline SVG, because desktop Inter has no
+glyph for them. QA: export slides via PowerPoint COM and compare
 against the PDF pages (GLP-1 v14: all 18 slides matched).
 
 ## 3. Design system (theme `editorial-v5`)

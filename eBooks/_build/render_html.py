@@ -19,7 +19,8 @@ AUTHOR_NOTES = ('This should be one of the ebook', 'This is where I think we can
 
 
 def esc(t):
-    return H.escape(t, quote=False)
+    # word joiner after '+' so 'NAD+—or' never breaks into 'NAD+' / '—or'
+    return H.escape(t, quote=False).replace('+—', '+⁠—')
 
 
 GLUE = re.compile(r'\b(Weight|weight) (Loss|loss|Management|management)\b')
@@ -59,7 +60,21 @@ def font_css():
     if not os.path.exists(manifest):
         print('WARNING: _assets/fonts/manifest.json missing; falling back to Google Fonts (Arial if offline)', file=sys.stderr)
         return GOOGLE_FONTS
+    # Static TTF instances first (pptx/fonts, generated from the same woff2 files): Chromium embeds a variable font as
+    # Type 3 glyph outlines, which some PDF viewers draw as broken, half-missing letters (client report 2026-09-30).
+    # Static fonts embed as ordinary TrueType that every viewer renders. The variable woff2 rules stay as a fallback.
     rules = []
+    static = os.path.join(HERE, 'pptx', 'fonts')
+    for family, weight, file in (('Inter', 400, 'Inter-Regular.ttf'), ('Inter', 500, 'Inter-Medium.ttf'),
+                                 ('Inter', 600, 'Inter-SemiBold.ttf'), ('Inter', 700, 'Inter-Bold.ttf'),
+                                 ('Lora', 600, 'Lora-SemiBold.ttf')):
+        path = os.path.join(static, file)
+        if os.path.exists(path):
+            data = base64.b64encode(open(path, 'rb').read()).decode()
+            rules.append(f"@font-face{{font-family:'{family}';font-style:normal;font-weight:{weight};font-display:block;"
+                         f"src:url(data:font/ttf;base64,{data}) format('truetype')}}")
+    if rules:
+        return chr(10).join(rules)
     for f in json.load(open(manifest, encoding='utf8')):
         if f['subset'] not in FONT_SUBSETS:
             continue
@@ -189,7 +204,8 @@ def render_el(e, book):
         return f'<div class="flow">{steps}</div>'
     if k == 'checklist':
         rows = ''.join(f'<div class="ck"><div class="num">{i:02d}</div><div class="ckt"><h4>{esc(it["title"])}</h4>' + (f'<p>{esc(it["desc"])}</p>' if it.get('desc') else '') + '</div></div>' for i, it in enumerate(e['items'], 1))
-        return f'<div class="checklist">{rows}</div>'
+        # "compact": true -> smaller number squares and row gaps (same type), for a long checklist (Modern Healthcare 13, nine items)
+        return f'<div class="checklist{" compact" if e.get("compact") else ""}">{rows}</div>'
     if k == 'callout':
         return f'<div class="callout"><img class="icon" src="{book["_icon"]}" alt=""><div class="ct"><h4>{CALLOUT_TITLE[e.get("style", "principle")]}</h4><p>{esc(e["text"])}</p></div></div>'
     if k == 'approach':
@@ -203,10 +219,14 @@ def render_el(e, book):
     if k == 'twocol':
         # default: good (✓, blue) vs bad (✕, red). "style": "neutral" renders two equal blue columns with bullets,
         # for comparisons where neither side is wrong (oral vs topical, daily vs as needed).
+        # ✓ and ✕ are inline SVG, not glyphs: the desktop Inter used by the PowerPoint export has neither, so an editable
+        # deck would fall back to another font (pptx_build.py refuses to build); the bullet is in every font.
         neutral = e.get('style') == 'neutral'
+        tick = '<svg viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M2 6.4 4.9 9.3 10 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+        cross = '<svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M3 3l6 6M9 3l-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>'
         cols = ''
         for c, col in enumerate(e['cols']):
-            mark = '•' if neutral else ('✓' if c == 0 else '✕')
+            mark = '•' if neutral else (tick if c == 0 else cross)
             cls = 'neu' if neutral else ('good' if c == 0 else 'bad')
             lis = ''.join(f'<li><span class="mk">{mark}</span>{esc(x)}</li>' for x in col['items'])
             cols += f'<div class="col {cls}"><h4>{esc(col["title"])}</h4><ul>{lis}</ul></div>'
@@ -826,6 +846,9 @@ p.quote{font-size:19pt;line-height:1.2;font-weight:700;color:var(--blue);margin-
 .theme-editorial-v4 .cards.withimg .card{justify-content:flex-start;padding:.14in}
 .theme-editorial-v4 .cards.withimg .cimg{flex:0 0 auto;width:100%;height:auto;aspect-ratio:9/5;object-fit:cover;border-radius:4px;margin-bottom:.14in}
 .cards.rows{grid-auto-rows:auto}.cards.rows .card{display:grid;grid-template-columns:1.35in 1fr;column-gap:.2in;align-items:center;padding:.11in .18in .11in .11in}.cards.rows .ctext{min-width:0}.cards.rows .ctext h5{margin-top:0}.theme-editorial-v4 .cards.rows .cimg{aspect-ratio:4/3;width:100%;height:auto;margin:0;border-radius:4px}.theme-editorial-v4 .cards.rows.profile .card p{margin-top:.05in}.theme-editorial-v4 .cards.rows{gap:.13in}
+/* rows with no photo: the title sits in a fixed left column and the copy runs beside it, so a four-card group reads as
+   four wide horizontal bands instead of four skinny columns (Healthy Aging 03, client request 2026-09-30) */
+.cards.rows:not(.withimg) .card{grid-template-columns:1fr;padding:.08in .18in}.cards.rows:not(.withimg) .ctext{display:grid;grid-template-columns:1.6in 1fr;column-gap:.2in;align-items:center}.theme-editorial-v4 .cards.rows:not(.withimg){gap:.09in}.theme-editorial-v4 .cards.rows:not(.withimg) .ctext p{margin-top:0}
 .theme-editorial-v4 .cards.withimg .card h5{margin-bottom:.02in}
 .theme-editorial-v4 .cards.withimg .card p{margin-top:.06in}
 .theme-editorial-v4 .callout{background:#fff;border-left:.07in solid var(--blue);border-radius:0 8px 8px 0;padding:.16in .22in .15in 1.22in;min-height:.95in}
@@ -940,6 +963,9 @@ p.quote{font-size:19pt;line-height:1.2;font-weight:700;color:var(--blue);margin-
 .theme-editorial-v6 .approach h4{font-size:9.5pt;letter-spacing:.16em;font-weight:700}
 .theme-editorial-v6 .approach p{font-size:13pt;line-height:1.42}
 .theme-editorial-v6 .cta .ctapanel p.body{font-size:12pt;line-height:16.5pt}
+.theme-editorial-v6 .checklist.compact .ck{grid-template-columns:.52in 1fr;column-gap:.18in;margin-bottom:.12in}
+.theme-editorial-v6 .checklist.compact .ck .num{width:.52in;height:.52in}
+.theme-editorial-v6 .checklist.compact .ck p{margin-top:.03in}
 /* one-book elements that the v6 scale had not covered (font audit 2026-09-29): the neutral two-column headings
    (Hair 07, were 11pt) and the flow steps (Healthy Aging 12, were 10.5pt) take the 12pt card-heading size */
 .theme-editorial-v6 .twocol h4{font-size:12pt}

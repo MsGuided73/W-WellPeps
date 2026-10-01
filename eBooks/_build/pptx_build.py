@@ -1,7 +1,7 @@
 """Build an editable PowerPoint from pptx_extract.mjs output: one portrait slide per eBook page, every box, rule,
 photo, icon and text block as its own PowerPoint object at the position, size, colour and type the PDF uses.
 
-Usage: uv run --with python-pptx python pptx_build.py pptx/<book>.json out.pptx
+Usage: uv run --with python-pptx --with fonttools python pptx_build.py pptx/<book>.json out.pptx
 
 Text keeps the browser's line breaks (soft line breaks inside each text box) so it wraps exactly as the PDF does;
 fonts are Inter / Inter Medium / Inter SemiBold / Lora SemiBold (desktop files in pptx/fonts/). Photos keep their
@@ -202,6 +202,13 @@ def add_image(slide, it, images):
     pic.name = 'icon' if it.get('icon') else 'photo'
 
 
+# Invisible formatting characters the browser uses (the renderer glues "NAD+—" with a word joiner, U+2060) but the
+# embedded desktop fonts do not contain. PowerPoint on a machine without Inter/Lora installed can only draw from the
+# embedded subsets, and a character missing from them made it substitute fonts across the whole deck (Healthy Aging
+# v7, 2026-09-30). Line breaks are already explicit in the export, so these characters do nothing here: drop them.
+INVISIBLE = dict.fromkeys(map(ord, '⁠​‌‍﻿­'))
+
+
 def face(style):
     fam = style['family'].split(',')[0].strip().strip('"\'')
     wt = int(style['weight'])
@@ -244,7 +251,7 @@ def add_text(slide, it):
         if r.get('br'):
             p.add_line_break(); continue
         st = r['style']
-        run = p.add_run(); run.text = r['text']
+        run = p.add_run(); run.text = r['text'].translate(INVISIBLE)
         first_text = first_text or r['text']
         name, bold = face(st)
         f = run.font
@@ -259,11 +266,39 @@ def add_text(slide, it):
             if el is None:
                 el = etree.SubElement(rPr, qn(tag))
             el.set('typeface', name)
-    tb.name = (first_text[:40] or 'text')
+    tb.name = (first_text.translate(INVISIBLE)[:40] or 'text')
+
+
+def check_glyphs(d):
+    """Every character must exist in the desktop font it will be drawn with, or PowerPoint substitutes fonts on
+    machines that rely on the embedded copies. Fails the export with the offending characters."""
+    import os
+    from fontTools.ttLib import TTFont
+    here = os.path.dirname(os.path.abspath(__file__))
+    files = {'Inter': 'Inter-Regular', 'Inter Medium': 'Inter-Medium', 'Inter SemiBold': 'Inter-SemiBold', 'Lora SemiBold': 'Lora-SemiBold', 'Lora': 'Lora-SemiBold'}
+    cmaps = {}
+    missing = {}
+    for pg in d['pages']:
+        for it in pg['items']:
+            if it['t'] != 'text':
+                continue
+            for r in it['runs']:
+                if r.get('br'):
+                    continue
+                name, bold = face(r['style'])
+                fn = 'Inter-Bold' if (name == 'Inter' and bold) else files[name]
+                if fn not in cmaps:
+                    cmaps[fn] = TTFont(os.path.join(here, 'pptx', 'fonts', fn + '.ttf')).getBestCmap()
+                for ch in r['text'].translate(INVISIBLE):
+                    if ord(ch) not in cmaps[fn] and not ch.isspace():
+                        missing.setdefault(f'U+{ord(ch):04X} {ch!r}', set()).add(fn)
+    if missing:
+        raise SystemExit('characters missing from the embedded fonts: ' + '; '.join(f'{k} in {sorted(v)}' for k, v in missing.items()))
 
 
 def build(src, out):
     d = json.load(open(src, encoding='utf8'))
+    check_glyphs(d)
     prs = Presentation()
     W, H = d['pages'][0]['w'], d['pages'][0]['h']
     prs.slide_width, prs.slide_height = e(W), e(H)
@@ -272,6 +307,9 @@ def build(src, out):
         s = prs.slides.add_slide(blank)
         for it in pg['items']:
             {'box': add_box, 'text': add_text}.get(it['t'], lambda sl, x: add_image(sl, x, d['images']))(s, it)
+    # Embed only the characters in use, like the known-good decks. Whatever PowerPoint embeds is replaced afterwards by
+    # pptx_fonts.py: fresh embeds from 2026-09-30 on (subset or full) drew scrambled letters in PowerPoint for the web.
+    prs.part._element.set('saveSubsetFonts', '1')
     prs.save(out)
     print(f'{len(d["pages"])} slides -> {out}')
 
