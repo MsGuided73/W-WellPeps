@@ -1,8 +1,7 @@
 /**
  * Loads every draft legal page and checks it renders properly: status 200, one h1, the draft
  * box, noindex, a real amount of text, no script errors and no sideways scroll at phone and
- * desktop widths. Needs `npm run dev` (draft pages always exist there) or BASE_URL for a build
- * made with SHOW_DRAFT_PAGES=true.
+ * desktop widths. Needs `npm run dev` (draft pages always exist there) or BASE_URL for a pre-launch build.
  *   node scripts/legal-pages-check.mjs [baseUrl] [--shots=<dir>]
  */
 import { chromium } from 'playwright';

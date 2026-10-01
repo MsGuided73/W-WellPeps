@@ -6,9 +6,12 @@
  * src/data/legal/<id>.json (docs/Legal Docs/_build/export_site_content.py). They are
  * not approved text. So every page here is built only when draft pages are enabled:
  *   - always under `npm run dev`;
- *   - in a build only when the build variable SHOW_DRAFT_PAGES is "true" (set it on
- *     the client-preview deployment so the attorney can review the documents in the
- *     site; leave it unset on the live site so none of these pages exist there).
+ *   - in a build, by the build variable SHOW_DRAFT_PAGES: "true" forces them on, "false"
+ *     forces them off, and when it is unset they follow the site's pre-launch state
+ *     (CHECKOUT_LOCKED in src/config.ts). So while the site is pre-launch, every deployment
+ *     shows the drafts for counsel and the client to review, and at launch, when the
+ *     checkout lock is turned off, they disappear on their own unless a document has been
+ *     approved. Nothing has to be remembered on launch day.
  * Footer links to these pages are hidden whenever the pages are not built, so a visitor
  * never meets a dead link.
  *
@@ -16,6 +19,8 @@
  * replace its JSON with the approved text. An approved document is built in every
  * deployment and its draft banner disappears.
  */
+
+import { CHECKOUT_LOCKED } from '../config';
 
 export type DocGroup = 'site' | 'patient' | 'checkout';
 
@@ -102,19 +107,26 @@ export const CUSTOM_PAGES: readonly CustomPage[] = [
 export interface DraftEnv {
   /** True under `astro dev`. */
   dev?: boolean;
+  /** True while the site is pre-launch (the checkout lock is on). Decides the case where no flag is set. */
+  preLaunch?: boolean;
   /** The SHOW_DRAFT_PAGES build variable. Astro turns "true" into a real boolean, so accept both. */
   flag?: string | boolean | undefined;
 }
 
 /** Whether draft pages exist in this build. */
 export function draftPagesEnabled(env: DraftEnv): boolean {
-  return env.dev === true || env.flag === true || /^(true|1|yes)$/i.test(String(env.flag ?? '').trim());
+  if (env.dev === true) return true;
+  const flag = String(env.flag ?? '').trim().toLowerCase();
+  if (env.flag === true || /^(true|1|yes|on)$/.test(flag)) return true;
+  if (env.flag === false || /^(false|0|no|off)$/.test(flag)) return false;
+  // No flag set (an empty build variable counts as unset): follow the pre-launch state.
+  return env.preLaunch === true;
 }
 
 /** Reads the switch from the build environment (works in Astro frontmatter and in Node). */
 export function draftPagesEnabledNow(): boolean {
   const flag = (import.meta.env?.SHOW_DRAFT_PAGES as string | boolean | undefined) ?? (typeof process !== 'undefined' ? process.env.SHOW_DRAFT_PAGES : undefined);
-  return draftPagesEnabled({ dev: import.meta.env?.DEV === true, flag });
+  return draftPagesEnabled({ dev: import.meta.env?.DEV === true, flag, preLaunch: CHECKOUT_LOCKED });
 }
 
 export const docUrl = (d: LegalDoc) => `/${d.path}`;

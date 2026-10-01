@@ -15,9 +15,9 @@ ARG SUPABASE_PUBLISHABLE_KEY
 ENV SUPABASE_URL=$SUPABASE_URL \
     SUPABASE_PUBLISHABLE_KEY=$SUPABASE_PUBLISHABLE_KEY
 
-# Draft legal pages (src/lib/legal-docs.ts): built only when this is "true". Set it as a
-# Build-time variable on the client-preview deployment so counsel can review the documents
-# in the site; leave it unset on the live site, where those pages must not exist.
+# Draft legal pages (src/lib/legal-docs.ts). Unset: they follow the site's pre-launch state, so they
+# show while the checkout lock is on (so counsel and the client can review them) and disappear on
+# their own at launch. "true" forces them on, "false" forces them off.
 ARG SHOW_DRAFT_PAGES
 ENV SHOW_DRAFT_PAGES=$SHOW_DRAFT_PAGES
 

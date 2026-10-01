@@ -1,7 +1,7 @@
 /**
  * Checks the real footer in either mode.
- *   node scripts/footer-check.mjs drafts   [baseUrl]   dev, or a build made with SHOW_DRAFT_PAGES=true
- *   node scripts/footer-check.mjs nodrafts [baseUrl]   an ordinary build (draft pages not built)
+ *   node scripts/footer-check.mjs drafts   [baseUrl]   dev, or a pre-launch build (the default)
+ *   node scripts/footer-check.mjs nodrafts [baseUrl]   a build made with SHOW_DRAFT_PAGES=false (draft pages not built)
  * In both modes: every internal footer link must load (a footer never shows a dead link),
  * and the removed claims stay removed. Default base URL is the dev server.
  */

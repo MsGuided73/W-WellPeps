@@ -53,7 +53,8 @@ function python() {
 step('Unit tests (includes the claims guard, the header tests and the legal-document hygiene tests)', () => run(npm, ['test', '--silent']));
 step('Type check', () => run(npm, ['run', 'typecheck', '--silent']));
 step('Production build (draft legal pages off)', () => {
-  const env = { ...process.env, SHOW_DRAFT_PAGES: '' };
+  // Forced off: the check judges what the live site will be after launch, whatever the pre-launch default is.
+  const env = { ...process.env, SHOW_DRAFT_PAGES: 'false' };
   return run(npm, ['run', 'build', '--silent'], { env });
 });
 

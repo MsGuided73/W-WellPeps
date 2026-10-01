@@ -17,7 +17,7 @@ const dataDir = resolve(root, 'src/data/legal');
 const loadDoc = (id: string): LegalDocData => JSON.parse(readFileSync(resolve(dataDir, `${id}.json`), 'utf8'));
 
 describe('draft page switch', () => {
-  test('on under dev, off in a build unless SHOW_DRAFT_PAGES is true', () => {
+  test('on under dev; in a build the variable decides, and when it is unset the pre-launch state does', () => {
     expect(draftPagesEnabled({ dev: true })).toBe(true);
     expect(draftPagesEnabled({ dev: false })).toBe(false);
     expect(draftPagesEnabled({})).toBe(false);
@@ -30,6 +30,23 @@ describe('draft page switch', () => {
     // Astro hands a build variable of "true" to the code as a boolean.
     expect(draftPagesEnabled({ flag: true })).toBe(true);
     expect(draftPagesEnabled({ flag: false })).toBe(false);
+  });
+
+  test('with no variable set, the drafts follow the pre-launch state: shown while the checkout lock is on, gone at launch', () => {
+    expect(draftPagesEnabled({ preLaunch: true })).toBe(true);
+    expect(draftPagesEnabled({ preLaunch: true, flag: '' })).toBe(true);
+    expect(draftPagesEnabled({ preLaunch: true, flag: undefined })).toBe(true);
+    expect(draftPagesEnabled({ preLaunch: false })).toBe(false);
+    expect(draftPagesEnabled({ preLaunch: false, flag: '' })).toBe(false);
+  });
+
+  test('an explicit variable overrides the pre-launch state in both directions', () => {
+    expect(draftPagesEnabled({ preLaunch: true, flag: 'false' })).toBe(false);
+    expect(draftPagesEnabled({ preLaunch: true, flag: false })).toBe(false);
+    expect(draftPagesEnabled({ preLaunch: true, flag: '0' })).toBe(false);
+    expect(draftPagesEnabled({ preLaunch: true, flag: ' OFF ' })).toBe(false);
+    expect(draftPagesEnabled({ preLaunch: false, flag: 'true' })).toBe(true);
+    expect(draftPagesEnabled({ preLaunch: false, flag: true })).toBe(true);
   });
 
   test('a build without the switch makes no draft page and hides every link to one', () => {
