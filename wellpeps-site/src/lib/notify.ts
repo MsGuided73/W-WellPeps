@@ -22,6 +22,8 @@ export type SignupSource =
   | 'ebook_healthy_aging'
   | 'ebook_nad';
 
+import { consentFields, type ConsentChoice } from './form-consent';
+
 export const NOTIFY_ENDPOINT =
   'https://kwgwbupqzpusydzflyvi.supabase.co/functions/v1/notify-signup';
 
@@ -31,6 +33,8 @@ export interface SignupPayload {
   firstName?: string;
   /** Honeypot value. Non-empty means a bot filled a field humans cannot see. */
   company?: string;
+  /** What the person ticked on a health-topic form (see form-consent.ts). Omitted for forms with no health topic. */
+  consent?: ConsentChoice;
 }
 
 export interface SignupResult {
@@ -57,6 +61,7 @@ export async function submitSignup(payload: SignupPayload): Promise<SignupResult
         source: payload.source,
         first_name: payload.firstName ?? null,
         company: payload.company ?? '',
+        ...(payload.consent ? consentFields(payload.consent) : {}),
       }),
     });
 

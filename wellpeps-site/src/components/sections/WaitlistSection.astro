@@ -1,5 +1,7 @@
 ---
 import Icon from '../Icon.astro';
+import FormConsent from '../legal/FormConsent.astro';
+import { topicLabel } from '../../lib/form-consent';
 
 interface Props {
   eyebrowIcon: string;
@@ -18,6 +20,8 @@ const {
   imageWidth = 814, imageHeight = 931,
   successBody = 'Thanks for your interest. We’ll email you the moment enrollment opens.',
 } = Astro.props;
+// The health topic named in the consent sentences, e.g. "Hormone Optimization".
+const consentTopic = topicLabel(titleLead);
 ---
 <section class="wls">
   <div class="container wls__inner">
@@ -47,6 +51,7 @@ const {
           <label for="wls-company">Company</label>
           <input id="wls-company" type="text" name="company" tabindex="-1" autocomplete="off" />
         </div>
+        <FormConsent topic={consentTopic} idPrefix="wls" />
         <button type="submit" class="btn btn--primary btn--lg btn--block wls__submit">Join the Priority List <Icon name="arrow-right" /></button>
         <p class="wls__error" data-waitlist-error hidden role="alert"></p>
         <p class="wls__note"><Icon name="lock" /> We do not sell your email address or share it for advertising. See our <a href="/privacy-policy">Privacy Policy</a>.</p>
@@ -150,6 +155,7 @@ const {
         source: 'waitlist',
         firstName: String(data.get('firstName') ?? ''),
         company: String(data.get('company') ?? ''),
+        consent: { collect: data.get('consentCollect') === 'on', marketing: data.get('consentMarketing') === 'on' },
       });
 
       if (result.ok) {

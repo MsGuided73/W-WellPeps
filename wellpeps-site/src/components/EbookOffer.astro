@@ -12,6 +12,7 @@
  *   variant="rail"      a compact card for a Learning Center article sidebar
  */
 import Icon from './Icon.astro';
+import FormConsent from './legal/FormConsent.astro';
 import type { Ebook } from '../data/ebooks';
 
 interface Props {
@@ -139,12 +140,9 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
           <div class="ebook-dialog__hp" aria-hidden="true">
             <label>Company <input name="company" type="text" tabindex="-1" autocomplete="off" /></label>
           </div>
+          <FormConsent topic={books[0].title} idPrefix={`${dialogId}-consent`} />
           <p class="ebook-dialog__error" role="alert" hidden data-ebook-error></p>
           <button type="submit" class="ebook__btn ebook__btn--block">Send Me the Guide<Icon name="arrow-right" /></button>
-          <p class="ebook-dialog__fine">
-            By continuing you agree to receive emails from WellPeps, including this guide. Unsubscribe anytime.
-            See our <a href="/privacy-policy">Privacy Policy</a>.
-          </p>
         </form>
       </div>
       <div class="ebook-dialog__done" role="status" hidden data-ebook-done>
@@ -159,6 +157,7 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
 
 <script>
   import { submitSignup, type SignupSource } from '../lib/notify';
+  import { formConsentText } from '../lib/form-consent';
 
   document.querySelectorAll<HTMLElement>('[data-ebook-offer]').forEach((offer) => {
     const dialog = offer.nextElementSibling as HTMLDialogElement | null;
@@ -182,6 +181,14 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
         if (!current) return;
         nameEl.textContent = current.title ?? '';
         coverEl.src = current.cover ?? '';
+        // The consent sentences name the guide's topic, and start unchecked every time.
+        const consent = form.querySelector<HTMLElement>('[data-fconsent]');
+        const words = formConsentText(current.title ?? '', consent?.dataset.privacyEmail ?? '');
+        const collectText = consent?.querySelector('[data-fconsent-collect]');
+        const marketingText = consent?.querySelector('[data-fconsent-marketing]');
+        if (collectText) collectText.textContent = words.collect;
+        if (marketingText) marketingText.textContent = words.marketing;
+        form.querySelectorAll<HTMLInputElement>('input[type="checkbox"]').forEach((box) => { box.checked = false; });
         formView.hidden = false;
         done.hidden = true;
         errorEl.hidden = true;
@@ -208,6 +215,7 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
         email,
         source: current.source as SignupSource,
         company: String(data.get('company') ?? ''),
+        consent: { collect: data.get('consentCollect') === 'on', marketing: data.get('consentMarketing') === 'on' },
       });
 
       if (!result.ok) {

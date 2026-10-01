@@ -12,6 +12,7 @@
  * so both signup surfaces get wired to the real ESP in one pass at launch.
  */
 import Icon from '../../Icon.astro';
+import FormConsent from '../../legal/FormConsent.astro';
 ---
 <section class="hcs" id="hair-notify" aria-labelledby="hcs-title">
   <div class="container hcs__inner">
@@ -48,6 +49,7 @@ import Icon from '../../Icon.astro';
           <label for="hcs-company">Company</label>
           <input id="hcs-company" type="text" name="company" tabindex="-1" autocomplete="off" />
         </div>
+        <FormConsent topic="hair restoration" idPrefix="hcs" />
         <button type="submit" class="hcs__submit">
           Notify Me <Icon name="arrow-right" />
         </button>
@@ -261,6 +263,7 @@ import Icon from '../../Icon.astro';
         email: String(data.get('email') ?? ''),
         source: 'hair_notify',
         company: String(data.get('company') ?? ''),
+        consent: { collect: data.get('consentCollect') === 'on', marketing: data.get('consentMarketing') === 'on' },
       });
 
       if (result.ok) {
