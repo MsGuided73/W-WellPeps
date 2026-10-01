@@ -56,7 +56,7 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
           </div>
 
           <div class="ebook-band__copy">
-            <p class="ebook__eyebrow"><span class="ebook__tag"><span class="ebook__tag-badge">Free</span><span class="ebook__tag-pill">Smart Patient Guide{single ? '' : 's'}</span></span><span class="ebook__eyebrow-meta">{books[0].pages} pages{single ? '' : ' each'}</span></p>
+            <p class="ebook__eyebrow"><span class="ebook__tag-pill">Smart Patient Guide{single ? '' : 's'}</span><span class="ebook__eyebrow-meta">{books[0].pages} pages{single ? '' : ' each'}</span></p>
             {single ? (
               <Fragment>
                 <h2 class="ebook-band__title">The Smart Patient’s Guide to <span>{single.title}</span></h2>
@@ -98,7 +98,7 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
       <section class="ebook-stage">
         <div class="container">
           <div class="ebook-carousel__head">
-            <p class="ebook__eyebrow"><span class="ebook__tag"><span class="ebook__tag-badge">Free</span><span class="ebook__tag-pill">Smart Patient Guides</span></span></p>
+            <p class="ebook__eyebrow"><span class="ebook__tag-pill">The Smart Patient’s Guides</span></p>
             <h2 class="ebook-band__title">Know Your Options <span>Before You Decide</span></h2>
             <p class="ebook-band__lead">Clear answers to the questions patients ask most. Pick a guide, and it’s yours free.</p>
           </div>
@@ -287,23 +287,16 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
     color: rgba(255, 255, 255, 0.8);
   }
   .ebook__eyebrow { gap: 0.9rem; }
-  /* The eyebrow pill with the round "Free" badge tucked behind its left end. */
-  .ebook__tag { position: relative; display: inline-flex; isolation: isolate; margin-left: 58px; }
+  /* The "Smart Patient Guides" pill. Sized in em so the padding grows with the
+     text; it tops out at about two thirds of the heading below it. */
   .ebook__tag-pill {
-    position: relative; z-index: 1; padding: 0.6rem 1.25rem; border-radius: 999px; color: #fff;
-    font-size: clamp(1.05rem, 0.95rem + 0.4vw, 1.3rem); font-weight: 700; letter-spacing: 0.08em;
+    padding: 0.3em 0.8em; border-radius: 200px; color: #fff; text-align: center;
+    font-size: clamp(1.25rem, 0.8rem + 1.4vw, 2.25rem); font-weight: 600; letter-spacing: 0.08em; line-height: 1.2;
     background: linear-gradient(180deg, #1B5FAE, #124682);
     border: 1px solid rgba(46, 168, 247, 0.7);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   }
   .ebook-rail .ebook__tag-pill { font-size: var(--text-note); padding: 0.35rem 0.8rem; }
-  .ebook__tag-badge {
-    position: absolute; z-index: 0; left: -60px; top: 50%; width: 72px; height: 72px; border-radius: 50%;
-    display: grid; place-items: center; padding-right: 14px; transform: translateY(-50%) rotate(-14deg);
-    background: radial-gradient(circle at 35% 30%, #6CC8FF, var(--blue-soft) 45%, var(--blue));
-    color: #fff; font-family: var(--font-sans); font-weight: 800; font-size: 0.95rem; letter-spacing: 0.04em;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35), inset 0 2px 0 rgba(255, 255, 255, 0.35);
-  }
   .ebook__eyebrow-meta { color: rgba(255, 255, 255, 0.82); font-weight: 600; }
   .ebook__btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
