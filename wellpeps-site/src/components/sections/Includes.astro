@@ -45,8 +45,13 @@ import { includes } from '../../data/content';
   /* Enlarged per the 7-9 notes ("enlarge button font, for these"). */
   .includes__card .pill-link { margin-top: 1.25rem; font-size: var(--text-card-body); padding: 0.55rem 1.1rem; }
   @media (max-width: 1100px) { .includes__grid { grid-template-columns: repeat(2, 1fr); } }
+  /* The one-line heading is wider than the screen below about 760px (it ran
+     past the edge and scrolled the page sideways from 621px down), so it wraps
+     from 800px down. */
+  @media (max-width: 800px) {
+    .includes__head h2, .includes__head p { white-space: normal; }
+  }
   @media (max-width: 620px) {
     .includes__grid { grid-template-columns: 1fr; }
-    .includes__head h2, .includes__head p { white-space: normal; }
   }
 </style>

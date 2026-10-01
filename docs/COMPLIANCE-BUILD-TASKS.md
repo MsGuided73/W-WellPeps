@@ -34,7 +34,7 @@ Status: **Done** | **Ready** | **Blocked** (waiting on a decision or an outside 
 | W11 | AI disclosure banner and link on the assistant chat | Required disclosure for AI chat in several states | A12 |
 | W12 | Run the claims and disclosure scan (LegitScript audit skill) on every release and keep it green | Catches missing disclosures and banned claims before deploy | all |
 | W13 | Accessibility audit to WCAG 2.2 AA: keyboard, focus, contrast, reduced motion, screen reader pass on the privacy panel, forms and menus | Accessibility statement promises it | A7 |
-| W14 | Fix sideways scrolling at 900 to 1400 px windows (header buttons overflow) | Found while testing the banner; present without the banner too | A7 |
+| W14 | ~~Fix sideways scrolling at 900 to 1400 px windows (header buttons overflow)~~ **Fixed 2026-10-01.** Cause was the header row, not the privacy notice. Menu button below 1440 px, Patient Portal shrinks to an icon from 1440 to 1699 px, plus the home page "Every WellPeps Program Includes" heading. Re-check with `node scripts/header-overflow-check.mjs` | Found while testing the banner; present without the banner too | A7 |
 | W15 | Gate "States We Serve" and the checkout location check from the 50-state readiness matrix | Never list a state until every gate is yes | A13 |
 | W16 | Make the repository private, or move the legal and partner material out of it | The GitHub repository is public | all |
 | W17 | At launch: set `CHECKOUT_LOCKED` to false, remove the lock files, deploy | Lock is for pre-launch review only | n/a |

@@ -16,7 +16,9 @@ import { NAV_LINKS, PATIENT_PORTAL_URL } from '../config';
     </nav>
 
     <div class="nav__cta">
-      <a href={PATIENT_PORTAL_URL} class="btn btn--secondary nav__cta-btn">Patient Portal</a>
+      <a href={PATIENT_PORTAL_URL} class="btn btn--secondary nav__cta-btn nav__portal">
+        <Icon name="user" /><span class="nav__portal-text">Patient Portal</span>
+      </a>
       <AssessmentCta class="btn btn--primary nav__cta-btn" />
     </div>
 
@@ -50,12 +52,15 @@ import { NAV_LINKS, PATIENT_PORTAL_URL } from '../config';
   .brand { display: flex; align-items: center; flex: none; }
   .brand__logo { height: 54px; width: auto; display: block; }
   .nav__links {
-    display: flex; align-items: center; gap: 1.9rem;
+    display: flex; align-items: center; gap: 1.5rem;
     margin-inline: auto;
   }
   .nav__links a {
     font-family: var(--font-sans); font-weight: 500; font-size: var(--text-body-size);
     color: var(--navy); position: relative; padding: 0.25rem 0;
+    /* A link never breaks onto two lines; when the row runs out of room the
+       bar switches to the menu instead (see the breakpoints below). */
+    white-space: nowrap;
   }
   .nav__links a::after {
     content: ''; position: absolute; left: 0; right: 100%; bottom: -2px;
@@ -67,6 +72,8 @@ import { NAV_LINKS, PATIENT_PORTAL_URL } from '../config';
   .nav__cta { display: flex; align-items: center; gap: 0.75rem; }
   .nav__cta-btn { padding: 0.7rem 1.25rem; font-size: var(--text-body-size); white-space: nowrap; }
   .nav__links-cta { display: none; }
+  /* The person icon is only shown when the button shrinks to icon-only. */
+  .nav__portal :global(.ic) { display: none; width: 1.4rem; height: 1.4rem; }
 
   .nav__toggle {
     display: none; flex-direction: column; gap: 5px;
@@ -77,7 +84,31 @@ import { NAV_LINKS, PATIENT_PORTAL_URL } from '../config';
     transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
   }
 
-  @media (max-width: 900px) {
+  /* The nav text is held at the site's 19px floor, so the only things that can
+     give are spacing, the logo and the Patient Portal button. Widths are the
+     window width, scrollbar included.
+       1700px and up   full row: logo, five links, Patient Portal, assessment
+       1440 to 1699    tighter spacing, Patient Portal shrinks to its icon
+       1439 and down   the menu button; the drawer holds everything
+     (The row measures about 1665px in full and 1390px tightened.)
+     scripts/header-overflow-check.mjs fails if any width scrolls sideways, a
+     link wraps, or the row has under a scrollbar's width to spare. */
+  @media (max-width: 1699px) {
+    .nav__inner { gap: 0.75rem; }
+    .brand__logo { height: 44px; }
+    .nav__links { gap: 1rem; }
+    .nav__cta { gap: 0.5rem; }
+    .nav__cta-btn { padding-inline: 0.95rem; }
+    /* Icon only; the words stay in the page for screen readers. */
+    .nav__portal { padding-inline: 0.75rem; }
+    .nav__portal :global(.ic) { display: block; }
+    .nav__portal-text {
+      position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
+  }
+
+  @media (max-width: 1439px) {
     .nav__links {
       position: fixed; inset: 76px 0 auto 0;
       flex-direction: column; align-items: flex-start; gap: 0;
@@ -100,5 +131,12 @@ import { NAV_LINKS, PATIENT_PORTAL_URL } from '../config';
     :global(.nav.nav-open) .nav__toggle span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
     :global(.nav.nav-open) .nav__toggle span:nth-child(2) { opacity: 0; }
     :global(.nav.nav-open) .nav__toggle span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+  }
+
+  /* Small phones (320 to 380px): the full-size logo plus the menu button is
+     wider than the screen, so the logo steps down. */
+  @media (max-width: 380px) {
+    .nav__inner { gap: 0.75rem; }
+    .brand__logo { height: 42px; }
   }
 </style>
