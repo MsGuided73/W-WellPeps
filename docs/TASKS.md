@@ -2,6 +2,8 @@
 
 Last updated 2026-09-30. Status: **On hold** = parked by the client; **Blocked** = waiting on an answer or input; **Ready** = can start when approved.
 
+**Compliance work (privacy control, legal pages, headers, analytics, claims):** see `docs/COMPLIANCE-BUILD-TASKS.md`.
+
 ## Uncommitted work in progress (as of 2026-09-30 evening)
 
 Built, tests/typecheck/build passing, NOT committed or deployed:
