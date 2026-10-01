@@ -1,0 +1,116 @@
+---
+/**
+ * PrivacyCenter — the preference center: switches, Global Privacy Control
+ * messages, Accept all / Reject all / Withdraw all, and shortcuts to the
+ * request form. Used twice: inside the slide-over panel (variant "dialog",
+ * opened from the footer on any page) and on /your-privacy-choices (variant
+ * "page"). Both are brought into line with the visitor's saved choice by
+ * src/lib/privacy/ui.ts; this file is markup only.
+ */
+interface Props {
+  variant: 'dialog' | 'page';
+  idPrefix: string;
+}
+import { FONTS_SELF_HOSTED } from '../../lib/privacy/config';
+const { variant, idPrefix } = Astro.props;
+const id = (s: string) => `${idPrefix}-${s}`;
+
+const requestShortcuts = [
+  { id: 'limit_sensitive', label: 'Limit the use of my sensitive information' },
+  { id: 'withdraw_consent', label: 'Withdraw a consent I gave' },
+  { id: 'unsubscribe_email', label: 'Unsubscribe from marketing email' },
+  { id: 'access', label: 'See or get a copy of my information' },
+  { id: 'correct', label: 'Correct my information' },
+  { id: 'delete', label: 'Delete my information' },
+  { id: 'appeal', label: 'Appeal a decision' },
+];
+---
+<div class="pc" data-privacy-center data-variant={variant}>
+  <p class="pc__summary" data-pc-summary></p>
+  <p class="pc__saved" data-pc-saved></p>
+  <p class="pc__notice" data-pc-sensitive-note hidden></p>
+  <p class="pc__notice pc__notice--warn" data-pc-storage-blocked hidden role="alert"></p>
+
+  <div class="pc__gpc" data-pc-gpc hidden role="status">
+    <p data-pc-gpc-text></p>
+    <div class="pc__gpc-buttons">
+      <button type="button" class="pc-btn pc-btn--secondary" data-pc-action="gpcAllowAnyway" hidden>Allow advertising anyway</button>
+      <button type="button" class="pc-btn pc-btn--secondary" data-pc-action="gpcKeepOff" hidden>Keep it off</button>
+    </div>
+  </div>
+
+  <ul class="pc__list" role="list">
+    <li class="pc__row">
+      <div class="pc__rowhead">
+        <div>
+          <h3 id={id('essential')}>Essential</h3>
+          <p>
+            Always on. These keep the site working and secure, and remember your privacy choices.
+            {!FONTS_SELF_HOSTED && ' This site loads its fonts from Google Fonts, so Google receives your browser’s IP address when a page loads.'}
+          </p>
+        </div>
+        <span class="pc__always" aria-labelledby={id('essential')}>Always on</span>
+      </div>
+    </li>
+
+    <li class="pc__row" data-pc-row="analytics">
+      <div class="pc__rowhead">
+        <div>
+          <h3 id={id('analytics')}>Analytics</h3>
+          <p id={id('analytics-desc')}>Off unless you turn it on. Helps us count visits and improve the site.</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" role="switch" data-pc-toggle="analytics" aria-labelledby={id('analytics')} aria-describedby={id('analytics-desc')} />
+          <span class="switch__track" aria-hidden="true"></span>
+        </label>
+      </div>
+      <div class="pc__sub" data-pc-health-switch hidden>
+        <div class="pc__rowhead pc__rowhead--sub">
+          <div>
+            <h4 id={id('analytics-health')}>Also allow analytics on pages about health topics</h4>
+            <p id={id('analytics-health-desc')}>Off unless you separately allow it. Applies to the program pages and Learning Center. Advertising never runs there.</p>
+          </div>
+          <label class="switch">
+            <input type="checkbox" role="switch" data-pc-toggle="analyticsSensitive" aria-labelledby={id('analytics-health')} aria-describedby={id('analytics-health-desc')} disabled />
+            <span class="switch__track" aria-hidden="true"></span>
+          </label>
+        </div>
+      </div>
+      <div class="pc__tools" data-pc-tools="analytics"></div>
+    </li>
+
+    <li class="pc__row" data-pc-row="advertising">
+      <div class="pc__rowhead">
+        <div>
+          <h3 id={id('advertising')}>Advertising and sharing</h3>
+          <p id={id('advertising-desc')}>
+            Off unless you turn it on. Lets advertising companies measure our ads and show ads. Under some
+            state laws this counts as a sale or sharing of personal information. It never runs on pages about
+            health topics.
+          </p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" role="switch" data-pc-toggle="advertising" aria-labelledby={id('advertising')} aria-describedby={id('advertising-desc')} />
+          <span class="switch__track" aria-hidden="true"></span>
+        </label>
+      </div>
+      <p class="pc__lock" data-pc-lock="advertising" hidden></p>
+      <div class="pc__tools" data-pc-tools="advertising"></div>
+    </li>
+  </ul>
+
+  <div class="pc__buttons">
+    <button type="button" class="pc-btn pc-btn--primary" data-pc-action="acceptAll">Accept all</button>
+    <button type="button" class="pc-btn pc-btn--primary" data-pc-action="rejectAll">Reject all</button>
+    <button type="button" class="pc-btn pc-btn--secondary" data-pc-action="withdrawAll">Turn everything off and delete my saved choices</button>
+  </div>
+  <p class="pc__status" data-pc-status role="status" aria-live="polite"></p>
+
+  <h3 class="pc__more-title">Other choices</h3>
+  <p class="pc__more-intro">These need a request, because they change what we hold about you or send to you.</p>
+  <ul class="pc__more" role="list">
+    {requestShortcuts.map((r) => (
+      <li><a href={`/your-privacy-choices?request=${r.id}#request-form`} data-pc-request={r.id}>{r.label}</a></li>
+    ))}
+  </ul>
+</div>

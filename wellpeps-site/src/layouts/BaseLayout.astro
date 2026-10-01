@@ -3,6 +3,8 @@ import '../styles/global.css';
 import NavBar from '../components/NavBar.astro';
 import Footer from '../components/Footer.astro';
 import Assistant from '../components/Assistant.astro';
+import PrivacyRoot from '../components/privacy/PrivacyRoot.astro';
+import PrivacyBanner from '../components/privacy/PrivacyBanner.astro';
 
 interface Props {
   title?: string;
@@ -36,12 +38,14 @@ const {
   </head>
   <body>
     <a href="#main" class="skip-link">Skip to content</a>
+    <PrivacyBanner />
     <NavBar />
     <main id="main">
       <slot />
     </main>
     <Footer />
     <Assistant />
+    <PrivacyRoot />
 
     <style>
       .skip-link {

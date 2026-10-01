@@ -1,0 +1,190 @@
+/* ==========================================================================
+   Privacy controls — banner, panel (dialog), preference center, request form.
+   Uses the site tokens (tokens.css). Buttons in the banner and center are the
+   same size, weight and contrast on purpose: no choice is made to look like
+   the "right" one.
+   ========================================================================== */
+
+.pc-sr {
+  position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ---- Buttons ---- */
+.pc-btn {
+  font-family: var(--font-sans); font-weight: 700; font-size: 1.0625rem; line-height: 1.2;
+  padding: 0.85rem 1.4rem; min-height: 48px;
+  border-radius: var(--radius-sm); border: 2px solid var(--blue);
+  cursor: pointer; text-align: center; text-decoration: none; display: inline-flex;
+  align-items: center; justify-content: center;
+  transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+.pc-btn--primary { background: var(--blue); color: #fff; }
+.pc-btn--primary:hover { background: var(--blue-hover); border-color: var(--blue-hover); color: #fff; }
+.pc-btn--secondary { background: #fff; color: var(--blue); }
+.pc-btn--secondary:hover { background: var(--bg-pale-blue); color: var(--blue-hover); }
+.pc-btn[disabled] { opacity: 0.55; cursor: not-allowed; }
+.pc-btn[hidden] { display: none; }
+
+/* ---- Banner (only shown when an optional tool exists to ask about) ----
+   An ordinary bar at the very top of the page, above the sticky menu. It is not fixed or floating,
+   so it cannot cover the hero headline or buttons at any window size; it pushes the page down until
+   the visitor chooses, then goes away. The words and buttons are centered in the page width. */
+.pbanner {
+  background: var(--bg-pale-blue); color: var(--text-body);
+  border-bottom: 1px solid var(--border-strong);
+  padding: 0.7rem var(--gutter);
+  font-size: 0.9375rem; line-height: 1.45;
+}
+.pbanner[hidden] { display: none; }
+.pbanner__inner {
+  max-width: 64rem; margin: 0 auto;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0.5rem 1.5rem;
+}
+.pbanner__title { font-size: 1.0625rem; margin: 0 0 0.15rem; }
+.pbanner p { margin: 0; }
+.pbanner__buttons { display: flex; flex-wrap: nowrap; gap: 0.5rem; }
+.pbanner__buttons .pc-btn { flex: none; padding: 0.6rem 1.1rem; font-size: 1rem; }
+
+@media (max-width: 860px) {
+  .pbanner { padding: 0.6rem var(--gutter) 0.7rem; font-size: 0.875rem; }
+  .pbanner__inner { grid-template-columns: 1fr; gap: 0.5rem; }
+  .pbanner__title { font-size: 0.9375rem; }
+  .pbanner__buttons { gap: 0.4rem; }
+  .pbanner__buttons .pc-btn { flex: 1 1 0; min-width: 0; min-height: 44px; padding: 0.5rem 0.4rem; font-size: 0.9375rem; }
+}
+
+/* ---- Panel (modal dialog) ---- */
+.pdialog {
+  /* The site-wide reset (* { margin: 0 }) removes the dialog's automatic centering, so restore it. */
+  margin: auto;
+  width: min(46rem, 94vw); max-height: 92vh; padding: 0;
+  border: 0; border-radius: var(--radius); background: #fff; color: var(--text-body);
+  box-shadow: var(--shadow-lg); overflow: hidden;
+}
+.pdialog[open] { display: flex; flex-direction: column; }
+.pdialog::backdrop { background: rgba(8, 43, 89, 0.5); }
+.pdialog__bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 1rem 1.25rem; border-bottom: 1px solid var(--border);
+  background: var(--bg-pale-blue); flex: none;
+}
+.pdialog__bar h2 { font-size: 1.5rem; }
+.pdialog__close {
+  width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--border-strong);
+  background: #fff; color: var(--navy); cursor: pointer; display: grid; place-items: center;
+}
+.pdialog__close svg { width: 22px; height: 22px; }
+.pdialog__close:hover { background: var(--bg-light-blue-gray); }
+.pdialog__body { padding: 1.25rem; overflow-y: auto; }
+.pdialog__more { margin-top: 1rem; font-size: 1rem; }
+
+/* ---- Preference center ---- */
+.pc { font-size: 1.0625rem; line-height: 1.55; color: var(--text-body); }
+.pc h3 { font-size: 1.2rem; margin: 0 0 0.25rem; }
+.pc h4 { font-family: var(--font-sans); font-size: 1.05rem; font-weight: 700; color: var(--text-heading); margin: 0 0 0.2rem; }
+.pc p { margin: 0 0 0.5rem; }
+.pc [hidden] { display: none !important; }
+.pc__summary { font-weight: 700; color: var(--navy); margin-bottom: 0.15rem; }
+.pc__saved { color: var(--text-muted); font-size: 0.975rem; margin-bottom: 0.9rem; }
+.pc__notice {
+  background: var(--bg-cool-blue); border-radius: var(--radius-sm);
+  padding: 0.7rem 0.9rem; margin-bottom: 0.9rem; font-size: 0.975rem;
+}
+.pc__notice--warn { background: #fdecec; color: #8a1f17; }
+.pc__gpc {
+  border: 1px solid var(--blue); background: var(--bg-pale-blue);
+  border-radius: var(--radius-sm); padding: 0.85rem 1rem; margin-bottom: 1rem;
+}
+.pc__gpc-buttons { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.4rem; }
+
+.pc__list { list-style: none; padding: 0; margin: 0 0 1.1rem; display: grid; gap: 0.75rem; }
+.pc__row {
+  border: 1px solid var(--border-strong); border-radius: var(--radius-sm);
+  padding: 0.95rem 1rem; background: #fff;
+}
+.pc__rowhead { display: flex; gap: 1rem; align-items: flex-start; justify-content: space-between; }
+.pc__rowhead p { margin: 0; font-size: 0.975rem; }
+.pc__rowhead--sub { margin-top: 0.1rem; }
+.pc__always {
+  flex: none; font-weight: 700; font-size: 0.9rem; color: var(--navy);
+  background: var(--bg-light-blue-gray); border-radius: var(--radius-pill); padding: 0.3rem 0.75rem;
+}
+.pc__sub {
+  margin: 0.75rem 0 0; padding: 0.75rem 0 0 0.9rem; border-top: 1px dashed var(--border-strong);
+  border-left: 3px solid var(--bg-blue-gray);
+}
+.pc__lock { color: #8a1f17; font-weight: 600; margin: 0.5rem 0 0; font-size: 0.975rem; }
+.pc__tools { margin-top: 0.7rem; font-size: 0.95rem; color: var(--text-muted); }
+.pc__tools ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.4rem; }
+.pc__tools p { margin: 0; }
+.pc-chip {
+  display: inline-block; font-size: 0.8rem; font-weight: 700; padding: 0.1rem 0.55rem;
+  border-radius: var(--radius-pill); background: var(--bg-light-blue-gray); color: var(--navy);
+}
+.pc-chip[data-state="on"] { background: #d9f2e3; color: #1d6b3d; }
+
+.pc__buttons { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.pc__buttons .pc-btn { flex: 1 1 10rem; }
+.pc__buttons .pc-btn--secondary { flex: 2 1 16rem; }
+.pc__status {
+  margin-top: 0.8rem; padding: 0.65rem 0.9rem; border-radius: var(--radius-sm);
+  background: #e9f7ef; color: #1d6b3d; font-weight: 600;
+}
+.pc__status:empty { margin: 0; padding: 0; background: none; }
+.pc__more-title { margin-top: 1.6rem; }
+.pc__more-intro { color: var(--text-muted); }
+.pc__more { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.35rem; }
+.pc__more a { display: inline-block; padding: 0.35rem 0; font-weight: 600; }
+
+/* ---- Switch ---- */
+.switch { position: relative; display: inline-flex; flex: none; cursor: pointer; padding-top: 0.15rem; }
+.switch input {
+  /* On top of the visual track, so clicks and taps land on the real control. */
+  position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; z-index: 1;
+}
+.switch__track {
+  width: 3.4rem; height: 1.9rem; border-radius: var(--radius-pill);
+  background: var(--icon-disabled); position: relative;
+  transition: background var(--dur-fast) var(--ease);
+}
+.switch__track::after {
+  content: ''; position: absolute; top: 0.2rem; left: 0.2rem; width: 1.5rem; height: 1.5rem;
+  border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(8, 43, 89, 0.35);
+  transition: transform var(--dur-fast) var(--ease);
+}
+.switch input:checked + .switch__track { background: var(--blue); }
+.switch input:checked + .switch__track::after { transform: translateX(1.5rem); }
+.switch input:focus-visible + .switch__track { outline: 3px solid var(--blue); outline-offset: 3px; }
+.switch input:disabled { cursor: not-allowed; }
+.switch input:disabled + .switch__track { opacity: 0.5; }
+
+/* ---- Request form ---- */
+.pform { margin-top: 2.5rem; padding: 1.4rem; border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--bg-gray); }
+.pform h3 { margin-bottom: 0.4rem; }
+.pform__intro { color: var(--text-body); }
+.pform fieldset { border: 0; padding: 0; margin: 1rem 0; min-width: 0; }
+.pform legend { font-weight: 700; color: var(--text-heading); margin-bottom: 0.4rem; }
+.pform__check { display: flex; gap: 0.6rem; align-items: flex-start; padding: 0.35rem 0; cursor: pointer; }
+.pform__check input { width: 1.25rem; height: 1.25rem; margin-top: 0.25rem; flex: none; }
+.pform__field { margin: 0.85rem 0; display: grid; gap: 0.3rem; }
+.pform__field--short { max-width: 14rem; }
+.pform label { font-weight: 600; }
+.pform__check span { font-weight: 400; }
+.pform input[type="text"], .pform input[type="email"], .pform textarea {
+  font: inherit; padding: 0.7rem 0.85rem; border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm); background: #fff; color: var(--text-body); width: 100%;
+}
+.pform__err { color: #b3261e; font-weight: 600; font-size: 0.975rem; margin: 0; }
+.pform__err[hidden], .pform__result[hidden], .pform__agent[hidden] { display: none; }
+.pform__agent { margin: 0.4rem 0 0.8rem; padding: 0.8rem 1rem; border-left: 3px solid var(--bg-blue-gray); }
+.pform .pc-btn { margin-top: 0.5rem; }
+.pform__result { margin-top: 1rem; padding: 0.9rem 1rem; border-radius: var(--radius-sm); outline: none; }
+.pform__result[data-kind="ok"] { background: #e9f7ef; color: #1d6b3d; }
+.pform__result[data-kind="error"] { background: #fdecec; color: #8a1f17; }
+.pform__result a { margin-top: 0.4rem; }
+
+@media (max-width: 640px) {
+  .pc__rowhead { flex-direction: column; }
+  .pc__buttons .pc-btn, .pc__buttons .pc-btn--secondary { flex: 1 1 100%; }
+}

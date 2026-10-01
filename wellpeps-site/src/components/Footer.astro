@@ -66,12 +66,12 @@ const columns: { heading: string; links: FooterLink[] }[] = [
   },
 ];
 
-const legal = [
+const legal: { label: string; href: string; opensPanel?: boolean }[] = [
   { label: 'Privacy Policy', href: '/privacy-policy' },
   { label: 'Terms of Use', href: '/terms-of-use' },
   { label: 'Notice of Privacy Practices', href: '/notice-of-privacy-practices' },
   { label: 'Accessibility', href: '/accessibility' },
-  { label: 'Do Not Sell or Share My Personal Information', href: '/your-privacy-choices' },
+  { label: 'Your Privacy Choices', href: '/your-privacy-choices', opensPanel: true },
 ];
 ---
 <footer class="footer">
@@ -172,7 +172,7 @@ const legal = [
     <hr class="footer__rule footer__rule--legal" />
 
     <ul class="footer__legal">
-      {legal.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+      {legal.map((l) => <li><a href={l.href} data-privacy-open={l.opensPanel ? '' : undefined}>{l.label}</a></li>)}
     </ul>
 
     <div class="footer__bottom">

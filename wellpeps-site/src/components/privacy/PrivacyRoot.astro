@@ -1,0 +1,40 @@
+---
+/**
+ * PrivacyRoot — mounted once in BaseLayout, so every page gets:
+ *  - the privacy panel (a modal <dialog>) that the footer's
+ *    "Your Privacy Choices" link opens, and
+ *  - the script that starts the consent gate and binds the panel, the banner
+ *    (PrivacyBanner.astro, placed above the menu in BaseLayout) and the request form to it.
+ *
+ * Without JavaScript the footer link is an ordinary link to /your-privacy-choices.
+ */
+import PrivacyCenter from './PrivacyCenter.astro';
+import '../../styles/privacy.css';
+---
+<dialog class="pdialog" data-privacy-dialog aria-labelledby="privacy-dialog-title">
+  <div class="pdialog__bar">
+    <h2 id="privacy-dialog-title">Your privacy choices</h2>
+    <button type="button" class="pdialog__close" data-pc-close aria-label="Close your privacy choices">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" /></svg>
+    </button>
+  </div>
+  <div class="pdialog__body">
+    <PrivacyCenter variant="dialog" idPrefix="dlg" />
+    <p class="pdialog__more"><a href="/your-privacy-choices">Read about all your privacy rights</a></p>
+  </div>
+</dialog>
+
+<script>
+  import { startPrivacy } from '../../lib/privacy/browser';
+  import { initPrivacyUI } from '../../lib/privacy/ui';
+  import { initRequestForm } from '../../lib/privacy/request-ui';
+
+  // Fail safe: if anything here throws, no optional tool has loaded and the page still works.
+  try {
+    const { gate, trackers } = startPrivacy();
+    initPrivacyUI({ gate, trackers });
+    initRequestForm();
+  } catch (err) {
+    console.error('[privacy] control failed to start; optional tools stay off.', err);
+  }
+</script>

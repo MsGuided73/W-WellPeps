@@ -1,0 +1,81 @@
+---
+/**
+ * PrivacyRequestForm — the request and appeal form (Your Privacy Choices,
+ * sections 2 and 7). Behaviour is in src/lib/privacy/request-ui.ts and the
+ * rules in request.ts. Until the privacy-request function is deployed, the
+ * form offers a pre-filled email to the address passed in `privacyEmail`.
+ */
+import { REQUEST_TYPES } from '../../lib/privacy/request';
+
+interface Props {
+  privacyEmail: string;
+}
+const { privacyEmail } = Astro.props;
+---
+<form class="pform" id="request-form" data-pc-form data-privacy-email={privacyEmail} novalidate>
+  <h3>Make a request</h3>
+  <p class="pform__intro">
+    Tell us what you want, the email address you use with WellPeps, and your state. You do not need an account.
+    <strong>Please do not put health details in this form.</strong>
+  </p>
+
+  <fieldset class="pform__types">
+    <legend>What would you like to do?</legend>
+    {REQUEST_TYPES.map((t) => (
+      <label class="pform__check">
+        <input type="checkbox" name="types" value={t.id} />
+        <span>{t.label}</span>
+      </label>
+    ))}
+    <p class="pform__err" data-err="types" hidden role="alert"></p>
+  </fieldset>
+
+  <div class="pform__field">
+    <label for="pr-name">Full name</label>
+    <input id="pr-name" name="fullName" type="text" autocomplete="name" required />
+    <p class="pform__err" data-err="fullName" hidden role="alert"></p>
+  </div>
+  <div class="pform__field">
+    <label for="pr-email">Email address you use with WellPeps</label>
+    <input id="pr-email" name="email" type="email" autocomplete="email" required />
+    <p class="pform__err" data-err="email" hidden role="alert"></p>
+  </div>
+  <div class="pform__field pform__field--short">
+    <label for="pr-state">State (optional, two letters)</label>
+    <input id="pr-state" name="state" type="text" maxlength="2" autocomplete="address-level1" />
+    <p class="pform__err" data-err="state" hidden role="alert"></p>
+  </div>
+  <div class="pform__field">
+    <label for="pr-details">Anything else we should know (optional)</label>
+    <textarea id="pr-details" name="details" rows="3" maxlength="2000"></textarea>
+    <p class="pform__err" data-err="details" hidden role="alert"></p>
+  </div>
+
+  <label class="pform__check">
+    <input type="checkbox" name="isAgent" />
+    <span>I am an authorized agent making this request for someone else</span>
+  </label>
+  <div class="pform__agent" data-pc-agent-fields hidden>
+    <div class="pform__field">
+      <label for="pr-agent-name">Agent's full name</label>
+      <input id="pr-agent-name" name="agentName" type="text" />
+    </div>
+    <div class="pform__field">
+      <label for="pr-agent-email">Agent's email address</label>
+      <input id="pr-agent-email" name="agentEmail" type="email" />
+    </div>
+    <label class="pform__check">
+      <input type="checkbox" name="agentProof" />
+      <span>I have the person's signed permission and will send it if asked</span>
+    </label>
+    <p class="pform__err" data-err="agent" hidden role="alert"></p>
+  </div>
+
+  <!-- Spam trap: people never see or fill this field. -->
+  <p class="pc-sr" aria-hidden="true">
+    <label>Leave this field empty <input name="homepage_url" type="text" tabindex="-1" autocomplete="off" /></label>
+  </p>
+
+  <button type="submit" class="pc-btn pc-btn--primary">Send my request</button>
+  <div class="pform__result" data-pc-form-result tabindex="-1" hidden></div>
+</form>

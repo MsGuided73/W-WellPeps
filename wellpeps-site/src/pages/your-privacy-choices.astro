@@ -1,94 +1,138 @@
 ---
 import LegalLayout from '../components/LegalLayout.astro';
+import PrivacyCenter from '../components/privacy/PrivacyCenter.astro';
+import PrivacyRequestForm from '../components/privacy/PrivacyRequestForm.astro';
+import { CONTACT } from '../config';
+import { hasNonEssential, productionTrackers } from '../lib/privacy/registry';
+
+/* The statement under "Where things stand today" is generated from the tool
+   registry (src/lib/privacy/registry.ts), so it cannot say "nothing optional
+   runs" once a tool is added. */
+const optionalToolsExist = hasNonEssential(productionTrackers());
 
 const clientNeeds = [
-  'A privacy-request email address (we recommend privacy@wellpeps.com).',
-  'Who inside your company owns these opt-out requests and makes sure they are handled within 15 business days.',
-  'Once a year, who will track how many requests came in (only required if you get a large volume).',
+  'A privacy-request email address (we recommend privacy@wellpeps.com). Until you choose one, requests go to the general address below.',
+  'Who inside your company owns these requests and makes sure they are handled on time (10 business days to confirm, 15 to act on an opt-out, 45 to answer an access or delete request).',
+  'Whether a toll-free number is required for opt-out requests in the states you serve (your lawyer decides). No phone line is live today.',
 ];
+
+/* Interim channel until a dedicated privacy mailbox exists. */
+const privacyEmail = CONTACT.email;
 ---
 <LegalLayout
   title="Your Privacy Choices"
-  description="Do Not Sell or Share My Personal Information — exercise your state privacy rights."
-  subtitle="Do Not Sell or Share My Personal Information / Limit the Use of My Sensitive Personal Information"
+  description="Choose how WellPeps uses your information: turn optional tools on or off, limit sensitive information, withdraw consent, and make privacy requests."
+  subtitle="You decide how WellPeps uses your information. This page lists your choices and shows how to use them. It applies to everyone in the United States, whatever state you live in."
   clientNeeds={clientNeeds}
 >
   <div class="callout callout--note">
-    <strong>Before this page can go live, the opt-out button has to actually work</strong>
+    <strong>What is built and what is switched off</strong>
     <p>
-      This page promises visitors a right — to opt out of their data being sold or shared. A link
-      that says that but doesn't do anything is worse than no link at all. The web team needs to
-      build the working opt-out control and confirm the site respects browser privacy signals
-      (the blue items below); you supply the contact details (the red items).
+      <span class="ph ph--web">Web team:</span> the switches, Global Privacy Control handling and the request form below work in
+      the browser today. Server-side recording of choices (consent log) and online delivery of requests are written but not
+      switched on until their Supabase functions are deployed; until then choices are kept in the visitor&rsquo;s browser and
+      requests go out as a pre-filled email. Remove this box when both are live.
     </p>
   </div>
 
-  <h2>Your Right to Opt Out</h2>
+  <h2>Where things stand today</h2>
+  {optionalToolsExist ? (
+    <p>
+      wellpeps.com uses a small number of optional tools. They stay off until you say yes, and you can turn them off again
+      below. The tools are listed under each switch.
+    </p>
+  ) : (
+    <p>
+      wellpeps.com does not sell your personal information and does not share it for targeted advertising. It does not use
+      analytics or advertising tools, so there is nothing to switch off today. The switches below are ready: if we ever add
+      such a tool, it will stay off until you turn it on.
+      <span class="ph ph--web">Web team: confirm the same is true for portal.wellpeps.com and checkout before publishing this sentence.</span>
+    </p>
+  )}
+
+  <h2>Your choices</h2>
   <p>
-    If you are a resident of California or another state with a comparable privacy law, you have
-    the right to opt out of the &ldquo;sale&rdquo; of your personal information and of
-    &ldquo;sharing&rdquo; / processing for targeted advertising. &ldquo;Sharing&rdquo; includes
-    common website practices like sending browsing data to advertising platforms through cookies
-    and pixels — it does not require money to change hands.
-  </p>
-  <p>
-    <span class="ph ph--web">Web team: list the site's cookies and advertising pixels, then state accurately whether WellPeps sells or shares data. If ad pixels are active, the answer is likely &ldquo;we share,&rdquo; and the opt-out button below must switch those tags off.</span>
+    Each switch applies the moment you change it, and the page shows what is running right now. Your choice is saved in this
+    browser for twelve months, or until we change this notice. We do not use these tools on pages about specific health topics.
   </p>
 
-  <h2>How to Submit Your Request</h2>
+  <PrivacyCenter variant="page" idPrefix="pg" />
+
+  <h2 id="gpc">Global Privacy Control</h2>
+  <p>
+    Global Privacy Control (GPC) is a browser setting, or an extension you can add, that tells websites you want to opt out of
+    sale, sharing and targeted advertising. We honor it. When your browser sends the signal, we turn advertising off before any
+    tool loads, tell you we detected it, and keep it off. If the signal conflicts with a choice you made on our site, we follow
+    the signal and ask whether you want to allow advertising anyway.
+  </p>
+
+  <h2>Limit the use of your sensitive information</h2>
+  <p>
+    Health information is sensitive personal information. We use it only to provide the services you asked for, keep our
+    systems secure, prevent fraud and meet legal duties. We do not use it for advertising. If you want us to keep our use to that
+    and nothing more, ask using the form below and we will record your choice and honor it. Protected health information held by
+    the medical practice is covered by the <a href="/notice-of-privacy-practices">Notice of Privacy Practices</a>.
+  </p>
+
+  <h2>Withdraw your consent</h2>
+  <p>
+    Some health-related information is collected or shared with your consent, for example the topic of a free guide tied to your
+    email address. You can take that consent back at any time using the form below. Withdrawing does not undo what happened
+    before. To take back a permission you gave the medical practice for protected health information, follow the Notice of
+    Privacy Practices.
+  </p>
+
+  <h2>Access, correct, delete, copy and appeal</h2>
+  <p>
+    You can ask to see what we hold about you, get a portable copy, correct it or delete it. If we say no in whole or in part,
+    you can appeal, and a person who did not decide the first request will review it. Records held by the medical practice are
+    covered by the Notice of Privacy Practices.
+  </p>
+
+  <h2>How to make a request</h2>
   <ul>
+    <li><strong>Online:</strong> use the form below.</li>
     <li>
-      <strong>Online:</strong>
-      <span class="ph ph--web">Web team: a working opt-out button or cookie-preference control that genuinely disables non-essential tags.</span>
+      <strong>Email:</strong> <a href={`mailto:${privacyEmail}`}>{privacyEmail}</a>
+      <span class="ph ph--you">You provide: a dedicated privacy address, for example privacy@wellpeps.com.</span>
     </li>
     <li>
-      <strong>Email:</strong>
-      <span class="ph ph--you">You provide: a privacy-request email (e.g. privacy@wellpeps.com)</span> with the
-      subject &ldquo;Opt-Out Request&rdquo;
+      <strong>Mail:</strong> WellPeps, a Wyoming corporation, Attn: Privacy,
+      <span class="ph ph--you">You provide: a real business address (not the registered agent&rsquo;s).</span>
     </li>
-    <li><strong>Phone:</strong> <span class="ph ph--legal">Lawyer: confirm whether a toll-free number is required for opt-out requests in the states you serve; AI phone answering is not ready yet.</span></li>
+    <li>
+      <strong>Phone:</strong>
+      <span class="ph ph--legal">Lawyer: confirm whether a toll-free number is required; delete this line unless a staffed line exists.</span>
+    </li>
   </ul>
   <p>
-    We will honor opt-out requests within 15 business days. You do not need an account to submit a
-    request, and we only ask for the information needed to locate your data.
+    <strong>How we check it is you.</strong> We match what you tell us with what we hold, and we may send a link to your email
+    address. We do not ask for your Social Security number. Opting out, limiting, withdrawing and unsubscribing need less
+    checking than access or deletion.
+  </p>
+  <p>
+    <strong>How fast.</strong> We confirm we received your request within 10 business days. We act on opt-outs, limits,
+    withdrawals and unsubscribes within 15 business days. We answer access, correction, deletion and copy requests within 45
+    days, and we may extend once by up to 45 days and tell you why. There is no charge.
+    <span class="ph ph--legal">Lawyer: confirm these periods by state.</span>
   </p>
 
-  <h2>Global Privacy Control</h2>
+  <PrivacyRequestForm privacyEmail={privacyEmail} />
+
+  <h2>Authorized agents</h2>
   <p>
-    Our website recognizes the Global Privacy Control (GPC) browser signal as a valid opt-out of
-    sale/sharing for the browser you are using, as required by California law.
-    <span class="ph ph--web">Web team: confirm this browser-signal handling is actually built before launch — this sentence is a factual claim.</span>
+    You can ask another person to make a request for you. We will ask for your signed permission, or a power of attorney, and
+    may confirm with you directly.
   </p>
 
-  <h2>Sensitive Personal Information</h2>
+  <h2>No unfair treatment</h2>
   <p>
-    Health-related information you provide is sensitive personal information. We use it only to
-    provide the services you request and for purposes permitted by law, and — where state law
-    provides a right to limit — you may direct us to restrict its use to those purposes using the
-    contact methods above. Protected health information is additionally governed by our
-    <a href="/notice-of-privacy-practices">Notice of Privacy Practices</a>.
+    We will not deny you service, charge you a different price or give you lower quality because you used a privacy choice.
   </p>
 
-  <h2>Authorized Agents</h2>
+  <h2>More information</h2>
   <p>
-    You may designate an authorized agent to submit requests on your behalf. We will require the
-    agent to demonstrate written authorization, and we may verify your identity directly.
-  </p>
-
-  <h2>No Discrimination</h2>
-  <p>
-    We will not deny you services, charge you a different price, or provide a different level of
-    quality because you exercised any privacy right.
-  </p>
-
-  <h2>Other Privacy Rights</h2>
-  <p>
-    To exercise access, deletion, correction, or portability rights, see Section 7 of our
-    <a href="/privacy-policy">Privacy Policy</a> or use the contact methods on this page.
-  </p>
-
-  <h2>Request Metrics</h2>
-  <p>
-    <span class="ph ph--you">You provide: if you receive a large volume of privacy requests each year, decide who will publish the yearly totals here. Most businesses are below the threshold and can leave this out.</span>
+    Read the <a href="/privacy-policy">Privacy Policy</a>, the Consumer Health Data Privacy Policy, the Cookie and Tracking
+    Technologies Notice and the <a href="/notice-of-privacy-practices">Notice of Privacy Practices</a>.
   </p>
 </LegalLayout>

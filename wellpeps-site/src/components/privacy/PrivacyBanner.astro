@@ -1,0 +1,22 @@
+---
+/**
+ * PrivacyBanner — the first-visit choice bar. It sits in the page above the menu (not floating over
+ * it), so it never covers the hero headline or buttons; it scrolls away with the page and goes
+ * away for good once the visitor chooses. It is shown only when the site has an optional tool to
+ * ask about, and its wording is written by src/lib/privacy/ui.ts from the tool list.
+ */
+import '../../styles/privacy.css';
+---
+<section class="pbanner" data-privacy-banner hidden aria-label="Your privacy choices">
+  <div class="pbanner__inner">
+    <div class="pbanner__text">
+      <h2 class="pbanner__title">Your privacy choices</h2>
+      <p data-pc-banner-text></p>
+    </div>
+    <div class="pbanner__buttons">
+      <button type="button" class="pc-btn pc-btn--primary" data-pc-action="acceptAll">Accept all</button>
+      <button type="button" class="pc-btn pc-btn--primary" data-pc-action="rejectAll">Reject all</button>
+      <button type="button" class="pc-btn pc-btn--primary" data-privacy-choose>Choose</button>
+    </div>
+  </div>
+</section>
