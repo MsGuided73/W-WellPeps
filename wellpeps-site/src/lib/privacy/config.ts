@@ -17,8 +17,9 @@ export const CONSENT_LOG_ENDPOINT = `${FUNCTIONS}/consent-log`;
 export const PRIVACY_REQUEST_ENDPOINT = '';
 
 /**
- * True once the site stops loading fonts from Google (BaseLayout.astro). While false,
- * the panel tells visitors that Google receives their IP address. The inventory test
- * fails if this flag and BaseLayout disagree.
+ * True once the site stops loading fonts from Google. Inter and Lora are now served from
+ * this site (styles/fonts.css), so a visit sends nothing to Google. While false, the panel
+ * tells visitors that Google receives their IP address. The inventory test fails if this
+ * flag and any layout or page disagree.
  */
-export const FONTS_SELF_HOSTED = false;
+export const FONTS_SELF_HOSTED = true;

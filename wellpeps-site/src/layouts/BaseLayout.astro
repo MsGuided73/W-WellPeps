@@ -1,5 +1,10 @@
 ---
+import '../styles/fonts.css';
 import '../styles/global.css';
+// The two files nearly every page needs, preloaded so text does not shift when
+// the fonts arrive. Same files fonts.css points to, so they are fetched once.
+import interLatin from '../../node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
+import loraLatin from '../../node_modules/@fontsource-variable/lora/files/lora-latin-wght-normal.woff2?url';
 import NavBar from '../components/NavBar.astro';
 import Footer from '../components/Footer.astro';
 import Assistant from '../components/Assistant.astro';
@@ -29,14 +34,10 @@ const {
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
 
-    <!-- Fonts: Lora (editorial serif headings, per MASTER Guide) + Inter (UI/body).
-         Production TODO: self-host to remove the third-party request. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Fonts: Lora (editorial serif headings, per MASTER Guide) + Inter (UI/body),
+         served from this site (styles/fonts.css), so a visit sends nothing to Google. -->
+    <link rel="preload" href={interLatin} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={loraLatin} as="font" type="font/woff2" crossorigin />
   </head>
   <body>
     <a href="#main" class="skip-link">Skip to content</a>
