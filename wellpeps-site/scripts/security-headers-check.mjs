@@ -33,7 +33,8 @@ const argv = process.argv.slice(2);
 const distIdx = argv.indexOf('--dist');
 const DIST = path.resolve(distIdx > -1 ? argv[distIdx + 1] : path.join(SITE, 'dist'));
 const HEADED = argv.includes('--headed');
-const TEMPLATE_TEXT = fs.readFileSync(path.join(SITE, 'nginx.conf.template'), 'utf8');
+// Unix line endings regardless of how git checked the file out (autocrlf gives CRLF on Windows).
+const TEMPLATE_TEXT = fs.readFileSync(path.join(SITE, 'nginx.conf.template'), 'utf8').replace(/\r\n/g, '\n');
 const GATE_PASSWORD = 'security-check-password';
 const GATE_HASH = gateHash(GATE_PASSWORD);
 const SUPABASE = 'https://kwgwbupqzpusydzflyvi.supabase.co';
@@ -317,6 +318,8 @@ async function interactions(browser) {
     await open.click();
     await page.locator('dialog[data-ebook-dialog][open]').waitFor({ timeout: 5000 });
     await page.locator('dialog[data-ebook-dialog] input[name="email"]').fill('csp-check@example.com');
+    // The required consent box (W9): the form refuses to send without it.
+    await page.locator('dialog[data-ebook-dialog] input[name="consentCollect"]').check();
     await page.locator('dialog[data-ebook-dialog] [data-ebook-form] button[type="submit"]').click();
     await page.locator('[data-ebook-done]:not([hidden])').waitFor({ timeout: 5000 });
     if (!bag.supabase.slice(before).some((r) => r.startsWith('POST'))) throw new Error('the signup request never left the page');
@@ -342,6 +345,8 @@ async function interactions(browser) {
     await form.scrollIntoViewIfNeeded();
     await form.locator('input[name="firstName"]').fill('Csp');
     await form.locator('input[name="email"]').fill('csp-check@example.com');
+    // The required consent box (W9): the form refuses to send without it.
+    await form.locator('input[name="consentCollect"]').check();
     await form.locator('button[type="submit"]').click();
     await page.locator('[data-waitlist-success]:not([hidden])').first().waitFor({ timeout: 5000 });
     if (!bag.supabase.slice(before).some((r) => r.startsWith('POST'))) throw new Error('the signup request never left the page');

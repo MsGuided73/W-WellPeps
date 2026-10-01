@@ -34,7 +34,9 @@ import { NOTIFY_ENDPOINT } from './notify';
 
 const SITE = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const REPO = resolve(SITE, '..');
-const TEMPLATE = readFileSync(join(SITE, 'nginx.conf.template'), 'utf8');
+// Unix line endings regardless of how git checked the file out: with autocrlf a Windows checkout
+// has CRLF, and the mutation tests below rewrite the text by matching on "\n".
+const TEMPLATE = readFileSync(join(SITE, 'nginx.conf.template'), 'utf8').replace(/\r\n/g, '\n');
 const HASH = 'a'.repeat(64);
 const GATE_HEADER = 'x-wp-gate';
 
