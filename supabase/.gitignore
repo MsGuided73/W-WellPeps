@@ -1,0 +1,6 @@
+# Written by `supabase link` and `supabase start`; machine-specific, never committed.
+.branches
+.temp
+.env
+.env.*
+!.env.example

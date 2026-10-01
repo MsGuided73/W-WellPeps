@@ -1,0 +1,23 @@
+# Minimal Supabase CLI configuration for deploying the WellPeps edge functions.
+#
+# Visitors have no Supabase session, so the three public functions must accept
+# requests without a JWT. Each function guards itself instead: an origin
+# allow-list, a request size cap, strict validation and a rate limit
+# (see supabase/README.md and supabase/functions/_shared/).
+#
+# The remote project is linked with `supabase link --project-ref kwgwbupqzpusydzflyvi`
+# (the project ref is public; it is the host in the function URLs).
+#
+# If the CLI asks for more settings, run `supabase init` and merge the three
+# [functions.*] blocks below into the generated file.
+
+project_id = "wellpeps"
+
+[functions.consent-log]
+verify_jwt = false
+
+[functions.privacy-request]
+verify_jwt = false
+
+[functions.analytics-event]
+verify_jwt = false

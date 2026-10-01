@@ -12,16 +12,24 @@
  */
 import { BANNER_VERSION, isSensitivePath, type ConsentState } from './consent';
 
-export type ConsentLogAction =
-  | 'accept_all'
-  | 'reject_all'
-  | 'custom'
-  | 'withdraw'
-  | 'gpc_auto_optout'
-  | 'gpc_conflict_allow'
-  | 'gpc_conflict_keep_off'
-  | 'reprompt_after_expiry'
-  | 'reprompt_after_version_change';
+/**
+ * Every action the browser can log. The consent-log function validates against its
+ * own copy of this list (supabase/functions/_shared/consent-event.ts);
+ * src/lib/edge/consent-event.test.ts fails if the two ever differ.
+ */
+export const CONSENT_LOG_ACTIONS = [
+  'accept_all',
+  'reject_all',
+  'custom',
+  'withdraw',
+  'gpc_auto_optout',
+  'gpc_conflict_allow',
+  'gpc_conflict_keep_off',
+  'reprompt_after_expiry',
+  'reprompt_after_version_change',
+] as const;
+
+export type ConsentLogAction = (typeof CONSENT_LOG_ACTIONS)[number];
 
 export type PageClass = 'health' | 'other';
 
@@ -37,7 +45,8 @@ export interface ConsentLogEvent {
   notice_version: string;
   banner_version: string;
   page_class: PageClass;
-  user_agent: string;
+  /** Coarse browser family only (see browserFamily). */
+  user_agent: BrowserFamily;
 }
 
 export interface LogContext {
@@ -47,8 +56,11 @@ export interface LogContext {
   userAgent: string;
 }
 
+export const BROWSER_FAMILIES = ['Chrome', 'Edge', 'Firefox', 'Safari', 'Other'] as const;
+export type BrowserFamily = (typeof BROWSER_FAMILIES)[number];
+
 /** A coarse browser family. The full user-agent string is not kept (counsel decision pending). */
-export function browserFamily(ua: string): string {
+export function browserFamily(ua: string): BrowserFamily {
   if (!ua) return 'Other';
   if (/Edg\//.test(ua)) return 'Edge';
   if (/Firefox\//.test(ua)) return 'Firefox';
