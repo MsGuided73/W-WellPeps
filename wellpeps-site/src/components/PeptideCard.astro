@@ -8,6 +8,7 @@
  */
 import Icon from './Icon.astro';
 import AssessmentCta from './AssessmentCta.astro';
+import ProductDisclosures from './ProductDisclosures.astro';
 import type { PeptideProduct } from '../data/peptide';
 
 interface Props { product: PeptideProduct; }
@@ -39,6 +40,8 @@ const { name, subtitle, description, icon, photo, photoAlt, vial, methodOfUse, f
       ))}
     </ul>
 
+    <ProductDisclosures part="notes" program="healthy-aging" name={name} />
+
     <div class="pepcard__foot">
       <div class="pepcard__price">
         <span class="pepcard__price-label">Starting at</span>
@@ -46,6 +49,7 @@ const { name, subtitle, description, icon, photo, photoAlt, vial, methodOfUse, f
           <span class="pepcard__price-amount">${price}</span>
           <span class="pepcard__price-unit">/month</span>
         </span>
+        <ProductDisclosures part="renewal" />
       </div>
       <AssessmentCta program="healthy-aging" product={name} class="pepcard__cta" arrow />
     </div>

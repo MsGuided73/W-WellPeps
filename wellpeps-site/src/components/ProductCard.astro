@@ -8,6 +8,7 @@
  */
 import Icon from './Icon.astro';
 import AssessmentCta from './AssessmentCta.astro';
+import ProductDisclosures from './ProductDisclosures.astro';
 import type { Product } from '../data/hair';
 
 interface Props {
@@ -43,6 +44,8 @@ const {
       <p class="pcard__method-value">{methodOfUse}</p>
     </div>
 
+    <ProductDisclosures part="notes" program="hair-restoration" name={name} />
+
     <p class="pcard__price">
       <span class="pcard__price-label">Starting at</span>
       <span class="pcard__price-row">
@@ -50,6 +53,7 @@ const {
         <span class="pcard__price-unit">{priceUnit}</span>
       </span>
     </p>
+    <ProductDisclosures part="renewal" />
 
     <AssessmentCta program="hair-restoration" product={name} class="pcard__cta" arrow>
       <span slot="soon" class="pcard__cta pcard__cta--soon"><Icon name="clock" /> Coming Soon</span>

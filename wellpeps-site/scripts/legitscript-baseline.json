@@ -38,16 +38,6 @@
       "hits": 0,
       "missing": []
     },
-    "LS7-RX-REQUIRED-DISCLOSED": {
-      "verdict": "FAIL",
-      "kind": "must_exist_per_program",
-      "hits": 0,
-      "missing": [
-        "hair",
-        "peptide",
-        "sexual"
-      ]
-    },
     "LS8-FDA-STRUCTURE-FUNCTION-STATEMENT": {
       "verdict": "FAIL",
       "kind": "must_exist",

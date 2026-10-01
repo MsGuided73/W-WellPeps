@@ -124,15 +124,15 @@
       "id": "LS7-RX-REQUIRED-DISCLOSED",
       "standard": 7,
       "kind": "must_exist_per_program",
-      "scope": "data",
+      "scope": "built",
       "pattern": "prescription\\s+required|requires\\s+a\\s+prescription|only\\s+available\\s+by\\s+prescription",
       "programs": {
-        "weight": "wellpeps-site/src/data/weight.ts",
-        "peptide": "wellpeps-site/src/data/peptide.ts",
-        "hair": "wellpeps-site/src/data/hair.ts",
-        "sexual": "wellpeps-site/src/data/sexual.ts"
+        "weight": "wellpeps-site/dist/weight-loss/index.html",
+        "peptide": "wellpeps-site/dist/healthy-aging/index.html",
+        "hair": "wellpeps-site/dist/hair-restoration/index.html",
+        "sexual": "wellpeps-site/dist/sexual-wellness/index.html"
       },
-      "hint": "LegitScript names missing prescription-required language as the most common application-delaying gap. Expect hair and sexual to fail."
+      "hint": "LegitScript names missing prescription-required language as the most common application-delaying gap. Checked in the BUILT program pages (needs a fresh build): the line is rendered by the shared product-card disclosures (src/data/product-disclosures.ts), so it cannot be found in the per-program data files."
     },
     {
       "id": "LS8-NO-DEAD-LINKS",

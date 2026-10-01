@@ -1,0 +1,64 @@
+---
+/**
+ * The compliance lines beside a product card (data/product-disclosures.ts explains each).
+ *
+ *   <ProductDisclosures part="notes"   program="weight-loss" name="Compounded Semaglutide" />   above the price
+ *   <ProductDisclosures part="renewal" />                                                       under the price
+ *
+ * The prescription line, the compounded or off-label tag and the renewal line always show. A link to a
+ * page (safety information, what compounded means, refund policy) shows only when that page is built
+ * (src/lib/legal-docs.ts), so a card never links to a page that does not exist.
+ */
+import {
+  COMPOUNDED_PAGE, COMPOUNDED_SENTENCE, OFF_LABEL_SENTENCE, REFUND_PAGE, RENEWAL_LINE, RX_LINE, SAFETY_PAGE, TAG_LABEL,
+  disclosureFor,
+} from '../data/product-disclosures';
+import { draftPagesEnabledNow, linkVisible } from '../lib/legal-docs';
+import type { ProgramSlug } from '../lib/cta';
+
+interface Props {
+  part: 'notes' | 'renewal';
+  program?: ProgramSlug;
+  name?: string;
+}
+const { part, program, name } = Astro.props;
+
+const showDrafts = draftPagesEnabledNow();
+const live = (href: string) => linkVisible(href, showDrafts);
+const d = part === 'notes' && program && name ? disclosureFor(program, name) : undefined;
+const safety = program ? SAFETY_PAGE[program] : undefined;
+---
+{part === 'notes' && d && (
+  <div class="pdisc">
+    <p class="pdisc__rx">{RX_LINE}</p>
+    {d.regulatory && (
+      <p class="pdisc__tag">
+        <span class={`pdisc__pill pdisc__pill--${d.regulatory}`}>{TAG_LABEL[d.regulatory]}</span>
+        <span>{d.regulatory === 'compounded' ? COMPOUNDED_SENTENCE : OFF_LABEL_SENTENCE}</span>
+      </p>
+    )}
+    {d.note && <p class="pdisc__note">{d.note}</p>}
+    {((safety && live(safety)) || (d.regulatory && live(COMPOUNDED_PAGE))) && (
+      <p class="pdisc__links">
+        {safety && live(safety) && <a href={safety}>Important safety information</a>}
+        {d.regulatory && live(COMPOUNDED_PAGE) && <a href={COMPOUNDED_PAGE}>{d.regulatory === 'compounded' ? 'What compounded means' : 'What off-label means'}</a>}
+      </p>
+    )}
+  </div>
+)}
+{part === 'renewal' && (
+  <p class="pdisc__renew">{RENEWAL_LINE}{live(REFUND_PAGE) && <Fragment>{' '}<a href={REFUND_PAGE}>Refund &amp; cancellation</a></Fragment>}</p>
+)}
+
+<style>
+  .pdisc { display: grid; gap: 0.45rem; margin: 0.9rem 0 0.2rem; text-align: left; font-family: var(--font-sans); font-size: var(--text-note); line-height: 1.4; color: var(--text-body); }
+  .pdisc p { margin: 0; }
+  .pdisc__rx { font-weight: 700; color: var(--navy); }
+  .pdisc__tag { display: flex; flex-wrap: wrap; gap: 0.4rem 0.6rem; align-items: baseline; }
+  .pdisc__pill { display: inline-block; padding: 0.1rem 0.65rem; border-radius: 999px; font-weight: 700; background: #fff3df; color: #7a4708; border: 1px solid #f0d49c; white-space: nowrap; }
+  .pdisc__pill--off-label { background: #eef2ff; color: #2c3f94; border-color: #c9d2f5; }
+  .pdisc__note { font-weight: 600; }
+  .pdisc__links { display: flex; flex-wrap: wrap; gap: 0.2rem 1.1rem; }
+  .pdisc__links a, .pdisc__renew a { color: var(--blue); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+  .pdisc__renew { margin: 0.35rem 0 0; font-family: var(--font-sans); font-size: var(--text-note); line-height: 1.4; color: var(--text-body); }
+</style>

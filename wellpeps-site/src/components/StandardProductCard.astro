@@ -12,6 +12,7 @@
  */
 import Icon from './Icon.astro';
 import AssessmentCta from './AssessmentCta.astro';
+import ProductDisclosures from './ProductDisclosures.astro';
 import type { ProgramSlug } from '../lib/cta';
 
 interface Props {
@@ -66,6 +67,8 @@ const {
       <p class="scard__availability"><span class="scard__availability-icon"><Icon name="info" /></span>{availability}</p>
     )}
 
+    <ProductDisclosures part="notes" program={program} name={name} />
+
     <div class="scard__price">
       <span class="scard__price-label">{price ? 'Starting at' : 'Pricing'}</span>
       <span class="scard__price-row">
@@ -74,6 +77,7 @@ const {
           : <span class="scard__price-pending">Shown at checkout</span>}
       </span>
     </div>
+    <ProductDisclosures part="renewal" />
 
     <AssessmentCta program={program} product={name} class="scard__cta" arrow />
   </div>
