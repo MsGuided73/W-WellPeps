@@ -336,14 +336,20 @@ every patient (see Rule 3).
 
 ## Rule 12. Transparency items LegitScript checks beyond claims
 
-Flag, do not rewrite, anything touching:
-- pricing, what is and is not included, refund and cancellation terms
-- provider licensing and the states served
-- eligibility restrictions (age, pregnancy, conditions)
-- the online-visit process (must not read as "no prescription required")
-- affiliate, referral, or partner representations
-- privacy, terms, and consent language
-- any statement of LegitScript status
+**The authoritative list lives elsewhere.** The `legitscript-audit` skill owns the
+requirement register, organised by LegitScript's nine certification standards, in
+`.claude/skills/legitscript-audit/references/standards.md`. Maintaining a second copy
+here guarantees the two drift apart, so this rule is deliberately a pointer.
+
+Your job in this skill is unchanged: **flag, do not rewrite**, anything touching
+pricing and what is included, refund and cancellation terms, provider licensing and
+states served, eligibility restrictions, the online-visit process, affiliate or
+partner representations, privacy/terms/consent language, or any statement of
+LegitScript status.
+
+A missing transparency item is by definition an audit finding, not a claim. Record it
+as an S1 FLAG and say that `legitscript-audit` owns it — do not attempt to resolve it
+here, and do not try to enumerate what LegitScript requires from memory.
 
 Items the analyst review specifically looks for, and that a content sweep
 should confirm are present and accurate (LS Step §3 Inadequate Provider

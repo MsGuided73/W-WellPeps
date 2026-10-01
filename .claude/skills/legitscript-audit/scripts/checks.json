@@ -1,0 +1,203 @@
+{
+  "_comment": "Check table for disclosure_scan.py. Keys are register IDs from references/standards.md, so the scanner and the findings share one namespace. Adding a check should never require touching Python. Patterns are Python re, case-insensitive by default.",
+  "_scopes": {
+    "data": [
+      "wellpeps-site/src/data/*.ts"
+    ],
+    "pages": [
+      "wellpeps-site/src/pages/**/*.astro"
+    ],
+    "components": [
+      "wellpeps-site/src/components/**/*.astro"
+    ],
+    "config": [
+      "wellpeps-site/src/config.ts"
+    ],
+    "articles": [
+      "wellpeps-site/scripts/data/articles.json"
+    ],
+    "site": [
+      "wellpeps-site/src/data/*.ts",
+      "wellpeps-site/src/pages/**/*.astro",
+      "wellpeps-site/src/components/**/*.astro",
+      "wellpeps-site/src/config.ts"
+    ],
+    "built": [
+      "wellpeps-site/dist/**/*.html"
+    ],
+    "infra": [
+      "wellpeps-site/nginx.conf"
+    ]
+  },
+  "checks": [
+    {
+      "id": "LS1-LEGAL-ENTITY-NAMED",
+      "standard": 1,
+      "kind": "must_exist",
+      "scope": "site",
+      "pattern": "\\b[A-Z][A-Za-z&.'\\-]{1,30}(?:\\s[A-Z][A-Za-z&.'\\-]{1,30}){0,4},?\\s(?:LLC|L\\.L\\.C\\.|Inc\\.|Corp\\.|PLLC|P\\.C\\.|P\\.A\\.)\\b",
+      "hint": "A registered entity name plus suffix (e.g. 'Something Health, Inc.'), not the bare word 'incorporated'. Template placeholders are excluded automatically, so a hit here means a real entity name is published somewhere - read the context to confirm it is WellPeps' own and appears in Terms, Privacy, NPP and the footer."
+    },
+    {
+      "id": "LS1-BUSINESS-ADDRESS-PUBLISHED",
+      "standard": 1,
+      "kind": "must_exist",
+      "scope": "site",
+      "pattern": "\\b\\d{1,6}\\s+[A-Z][A-Za-z.\\- ]+(Street|St\\.|Avenue|Ave\\.|Road|Rd\\.|Boulevard|Blvd\\.|Suite|Ste\\.|Drive|Dr\\.|Parkway|Pkwy\\.)",
+      "hint": "A street address anywhere on the site. Zero hits means Standard 1 is unmet. Regulator addresses (HHS OCR in the NPP) are excluded - they are not the merchant's address.",
+      "exclude": "Office for Civil Rights|Independence Avenue|Washington, D\\.C\\.|HHS"
+    },
+    {
+      "id": "LS1-PROVIDER-LICENSURE-SUBSTANTIATED",
+      "standard": 1,
+      "kind": "report_only",
+      "scope": "site",
+      "pattern": "all\\s+50\\s+states|50\\s+states|nationwide",
+      "hint": "Every blanket licensure claim. Each hit must be backed by the licensure matrix or removed."
+    },
+    {
+      "id": "LS2-PEPTIDE-TIER-COMPLIANT",
+      "standard": 2,
+      "kind": "must_not_exist",
+      "scope": "site",
+      "pattern": "BPC-?157|TB-?500|CJC-?1295|ipamorelin|AOD-?9604|Melanotan|Selank|Semax|\\bKPV\\b|\\bDSIP\\b|Epitalon|MOTS-?c|thymosin\\s+alpha|GHRP-?[26]",
+      "hint": "Tier 3 peptides per COMPLIANCE-CHEAT-SHEET.md s1. Any hit presented as a therapy or benefit is S1."
+    },
+    {
+      "id": "LS4-PHARMACY-NAMED",
+      "standard": 4,
+      "kind": "report_only",
+      "scope": "site",
+      "pattern": "licensed\\s+U\\.?S\\.?\\s+pharmac|FDA-registered\\s+compounding\\s+pharmac|pharmacy\\s+partners?",
+      "hint": "Every place the site refers to a pharmacy generically. Each is a slot where the named pharmacy belongs."
+    },
+    {
+      "id": "LS4-MSO-ROLE-DISCLOSED",
+      "standard": 4,
+      "kind": "must_exist",
+      "scope": "components",
+      "pattern": "does\\s+not\\s+provide\\s+medical\\s+advice|does\\s+not\\s+prescribe|does\\s+not\\s+dispense",
+      "hint": "The MSO role disclaimer. Verify it survives any footer rewrite."
+    },
+    {
+      "id": "LS5-STATES-DISCLOSED",
+      "standard": 5,
+      "kind": "must_exist",
+      "scope": "site",
+      "pattern": "\\b(Alabama|Alaska|Arizona|Arkansas|California|Colorado|Connecticut|Delaware|Florida|Georgia|Hawaii|Idaho|Illinois|Indiana|Iowa|Kansas|Kentucky|Louisiana|Maine|Maryland|Massachusetts|Michigan|Minnesota|Mississippi|Missouri|Montana|Nebraska|Nevada|New Hampshire|New Jersey|New Mexico|New York|North Carolina|North Dakota|Ohio|Oklahoma|Oregon|Pennsylvania|Rhode Island|South Carolina|South Dakota|Tennessee|Texas|Utah|Vermont|Virginia|Washington|West Virginia|Wisconsin|Wyoming)\\b",
+      "hint": "An actually enumerated state list: at least 10 distinct state names must appear. Prose saying 'all 50 states' does not satisfy Standard 5, and a single incidental mention (a state of incorporation, a privacy-law reference) must not pass it.",
+      "min_distinct": 10
+    },
+    {
+      "id": "LS6-LEGAL-PAGES-LIVE",
+      "standard": 6,
+      "kind": "must_not_exist",
+      "scope": "site",
+      "pattern": "Draft\\s+for\\s+review|working\\s+template|not\\s+a\\s+live\\s+legal\\s+notice|ph--you|ph--web|ph--legal|You\\s+provide:|Web\\s+team:|Lawyer:",
+      "hint": "Draft banner and internal workflow placeholders. Verified rendering in production 2026-09-22. Highest single application risk."
+    },
+    {
+      "id": "LS6-EFFECTIVE-DATES-SET",
+      "standard": 6,
+      "kind": "report_only",
+      "scope": "pages",
+      "pattern": "Effective\\s+date|Last\\s+updated",
+      "hint": "Read each hit: a real date, or a placeholder?"
+    },
+    {
+      "id": "LS6-SSL-END-TO-END",
+      "standard": 6,
+      "kind": "must_exist",
+      "scope": "infra",
+      "pattern": "absolute_redirect\\s+off",
+      "hint": "Without absolute_redirect off, nginx builds redirects from its own listen 80 scheme and downgrades HTTPS to HTTP. Confirmed live 2026-09-22."
+    },
+    {
+      "id": "LS6-CCPA-CONTROL-FUNCTIONAL",
+      "standard": 6,
+      "kind": "must_not_exist",
+      "scope": "pages",
+      "pattern": "needs to\\s+build|must still be built|still (has|needs) to be built|not yet wired|doesn't do anything|does not do anything|build the working opt-out",
+      "hint": "Unbuilt privacy controls the page nonetheless promises. Calibrated against the real wording in your-privacy-choices.astro."
+    },
+    {
+      "id": "LS7-RX-REQUIRED-DISCLOSED",
+      "standard": 7,
+      "kind": "must_exist_per_program",
+      "scope": "data",
+      "pattern": "prescription\\s+required|requires\\s+a\\s+prescription|only\\s+available\\s+by\\s+prescription",
+      "programs": {
+        "weight": "wellpeps-site/src/data/weight.ts",
+        "peptide": "wellpeps-site/src/data/peptide.ts",
+        "hair": "wellpeps-site/src/data/hair.ts",
+        "sexual": "wellpeps-site/src/data/sexual.ts"
+      },
+      "hint": "LegitScript names missing prescription-required language as the most common application-delaying gap. Expect hair and sexual to fail."
+    },
+    {
+      "id": "LS8-NO-DEAD-LINKS",
+      "standard": 8,
+      "kind": "must_not_exist",
+      "scope": "components",
+      "pattern": "href:\\s*['\"]#['\"]",
+      "hint": "Placeholder navigation links. Expect 5 in Footer.astro."
+    },
+    {
+      "id": "LS8-FDA-STRUCTURE-FUNCTION-STATEMENT",
+      "standard": 8,
+      "kind": "must_exist",
+      "scope": "site",
+      "pattern": "not\\s+been\\s+evaluated\\s+by\\s+the\\s+(U\\.?S\\.?\\s+)?Food\\s+and\\s+Drug|not\\s+evaluated\\s+by\\s+the\\s+FDA",
+      "hint": "The structure/function statement specified in COMPLIANCE-CHEAT-SHEET.md:264 and :197."
+    },
+    {
+      "id": "LS8-COMPOUNDED-NOT-FDA-APPROVED-DISCLOSED",
+      "standard": 8,
+      "kind": "report_only",
+      "scope": "site",
+      "pattern": "compounded\\s+medications?\\s+are\\s+not\\s+FDA-approved|not\\s+FDA-approved\\s+finished\\s+drug",
+      "hint": "Check coverage across all four programs, not just where it already appears."
+    },
+    {
+      "id": "LS8-AVAILABILITY-REPRESENTATION-HONEST",
+      "standard": 8,
+      "kind": "report_only",
+      "scope": "config",
+      "pattern": "ASSESSMENTS_PAUSED\\s*=\\s*(true|false)",
+      "hint": "Records the current value. A reviewer seeing Opening Soon everywhere cannot evaluate the prescription flow."
+    },
+    {
+      "id": "LS9-NO-CERTIFICATION-CLAIM",
+      "standard": 9,
+      "kind": "must_not_exist",
+      "scope": "built",
+      "pattern": "LegitScript",
+      "hint": "Pre-certification: nothing in the BUILT output may claim or imply certification. Source comments are fine; rendered HTML is not."
+    }
+  ],
+  "live": {
+    "_comment": "Routes checked by the --live pass. Each is fetched without a trailing slash to expose redirect behaviour.",
+    "routes": [
+      "/",
+      "/weight-loss",
+      "/hair-restoration",
+      "/sexual-wellness",
+      "/healthy-aging",
+      "/why-wellpeps",
+      "/membership",
+      "/wellness-learning-center",
+      "/privacy-policy",
+      "/terms-of-use",
+      "/notice-of-privacy-practices",
+      "/accessibility",
+      "/your-privacy-choices"
+    ],
+    "forbidden_html": {
+      "LS6-LEGAL-PAGES-LIVE": "Draft for review|not a live legal notice|You provide:|Web team:|Lawyer:",
+      "LS9-NO-CERTIFICATION-CLAIM": "LegitScript"
+    },
+    "expect_in_html": {
+      "LS8-CONTACT-DETAILS-MATCH-LIVE": "hello@wellpeps\\.com"
+    }
+  }
+}
