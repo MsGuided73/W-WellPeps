@@ -54,7 +54,9 @@ const measure = () => {
   const brandEl = document.querySelector('.brand');
   const linksEl = document.querySelector('.nav__links');
   const ctaEl = document.querySelector('.nav__cta');
-  if (brandEl && linksEl && ctaEl && visible(ctaEl)) {
+  // Only while the links sit in the bar; in menu mode they live in the fixed drawer (the portal
+  // icon stays in the bar, so .nav__cta is visible at every width).
+  if (brandEl && linksEl && ctaEl && visible(ctaEl) && getComputedStyle(linksEl).position !== 'fixed') {
     const gap = parseFloat(getComputedStyle(document.querySelector('.nav__inner')).columnGap) || 0;
     const b = brandEl.getBoundingClientRect();
     const l = linksEl.getBoundingClientRect();

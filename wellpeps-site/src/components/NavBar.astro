@@ -16,10 +16,10 @@ import { NAV_LINKS, PATIENT_PORTAL_URL } from '../config';
     </nav>
 
     <div class="nav__cta">
-      <a href={PATIENT_PORTAL_URL} class="btn btn--secondary nav__cta-btn nav__portal">
+      <a href={PATIENT_PORTAL_URL} class="btn btn--secondary nav__cta-btn nav__portal" data-tooltip="Patient Portal: sign in to your account">
         <Icon name="user" /><span class="nav__portal-text">Patient Portal</span>
       </a>
-      <AssessmentCta class="btn btn--primary nav__cta-btn" />
+      <AssessmentCta class="btn btn--primary nav__cta-btn nav__cta-assess" />
     </div>
 
     <button class="nav__toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false">
@@ -75,6 +75,24 @@ import { NAV_LINKS, PATIENT_PORTAL_URL } from '../config';
   /* The person icon is only shown when the button shrinks to icon-only. */
   .nav__portal :global(.ic) { display: none; width: 1.4rem; height: 1.4rem; }
 
+  /* Hover/focus tooltip on the icon-only portal button (client request 2026-10-02). It hangs
+     below the button and grows leftward from its right edge, so it never runs off the screen. */
+  .nav__portal { position: relative; }
+  .nav__portal::after {
+    content: attr(data-tooltip); position: absolute; top: calc(100% + 10px); right: 0; z-index: 2;
+    display: none; padding: 0.5rem 0.75rem; border-radius: 8px; white-space: nowrap; pointer-events: none;
+    font-family: var(--font-sans); font-weight: 600; font-size: 0.9375rem; line-height: 1.2; color: var(--navy);
+    background: #fff; border: 1px solid var(--border); box-shadow: 0 10px 24px rgba(8, 43, 89, 0.18);
+    opacity: 0; transform: translateY(-4px); transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+  .nav__portal::before {
+    content: ''; position: absolute; top: calc(100% + 5px); right: 1.15rem; z-index: 3; display: none;
+    width: 10px; height: 10px; background: #fff; border: 1px solid var(--border); border-right: 0; border-bottom: 0;
+    transform: rotate(45deg); pointer-events: none; opacity: 0; transition: opacity 0.15s ease;
+  }
+  .nav__portal:hover::after, .nav__portal:focus-visible::after { opacity: 1; transform: none; }
+  .nav__portal:hover::before, .nav__portal:focus-visible::before { opacity: 1; }
+
   .nav__toggle {
     display: none; flex-direction: column; gap: 5px;
     background: none; border: 0; cursor: pointer; padding: 0.5rem;
@@ -89,7 +107,7 @@ import { NAV_LINKS, PATIENT_PORTAL_URL } from '../config';
      window width, scrollbar included.
        1700px and up   full row: logo, five links, Patient Portal, assessment
        1440 to 1699    tighter spacing, Patient Portal shrinks to its icon
-       1439 and down   the menu button; the drawer holds everything
+       1439 and down   portal icon + menu button; the drawer holds the links and assessment
      (The row measures about 1665px in full and 1390px tightened.)
      scripts/header-overflow-check.mjs fails if any width scrolls sideways, a
      link wraps, or the row has under a scrollbar's width to spare. */
@@ -102,6 +120,7 @@ import { NAV_LINKS, PATIENT_PORTAL_URL } from '../config';
     /* Icon only; the words stay in the page for screen readers. */
     .nav__portal { padding-inline: 0.75rem; }
     .nav__portal :global(.ic) { display: block; }
+    .nav__portal::after, .nav__portal::before { display: block; }
     .nav__portal-text {
       position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
       overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
@@ -121,13 +140,16 @@ import { NAV_LINKS, PATIENT_PORTAL_URL } from '../config';
     }
     .nav__links a { width: 100%; padding: 0.9rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-body-size); }
     :global(.nav.nav-open) .nav__links { transform: none; opacity: 1; pointer-events: auto; }
-    .nav__cta { display: none; }
+    /* The portal icon stays in the bar on every screen, with the menu button to its right;
+       only the assessment button moves into the drawer. */
+    .nav__cta { margin-inline-start: auto; }
+    .nav__cta-assess { display: none; }
     .nav__links-cta { display: inline-flex; width: 100%; margin-top: 1.1rem; border-bottom: 0; }
     /* Portal sits just above the primary CTA in the drawer, with a little more
        top gap to separate it from the last nav link. */
     .nav__links-portal { margin-top: 1.4rem; }
     .nav__links-portal + .nav__links-cta { margin-top: 0.75rem; }
-    .nav__toggle { display: flex; margin-inline-start: auto; }
+    .nav__toggle { display: flex; }
     :global(.nav.nav-open) .nav__toggle span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
     :global(.nav.nav-open) .nav__toggle span:nth-child(2) { opacity: 0; }
     :global(.nav.nav-open) .nav__toggle span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
@@ -136,7 +158,8 @@ import { NAV_LINKS, PATIENT_PORTAL_URL } from '../config';
   /* Small phones (320 to 380px): the full-size logo plus the menu button is
      wider than the screen, so the logo steps down. */
   @media (max-width: 380px) {
-    .nav__inner { gap: 0.75rem; }
-    .brand__logo { height: 42px; }
+    .nav__inner { gap: 0.5rem; }
+    .brand__logo { height: 36px; }
+    .nav__portal { padding-inline: 0.6rem; }
   }
 </style>
