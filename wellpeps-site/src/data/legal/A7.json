@@ -237,7 +237,7 @@
     [
      "Patient portal, portal.wellpeps.com (GEN Health)",
      "Sign in and password reset; dashboard; intake and consent forms; e-signature; checkout, payment and saved cards; orders; messaging with attachments; joining a video visit (camera and microphone prompts, captions where offered); notification settings; profile; cancellation.",
-     "Needs test accounts from the patient portal vendor and the Practice. Ask for the portal's own conformance report."
+     "Needs test accounts from Scriptful and the Practice. Ask for the portal's own conformance report."
     ],
     [
      "Forms (every input)",
