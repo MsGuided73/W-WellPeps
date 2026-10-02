@@ -10,13 +10,13 @@
   },
   {
    "t": "p",
-   "text": "**Effective date:** [EFFECTIVE DATE]    |    **Version:** [VERSION]    |    **Issued by:** [PRACTICE NAME]",
+   "text": "**Effective date:** [EFFECTIVE DATE]    |    **Last updated:** October 2, 2026    |    **Version:** [VERSION]    |    **Issued by:** OSI Medical Services, P.A.",
    "italic": false,
    "align": null
   },
   {
    "t": "callout",
-   "text": "**The short version.** [PRACTICE NAME] and its clinicians use your health information to care for you, to get paid, and to run the practice. We share it with others only when this notice allows it or when you say yes in writing. You can see your records, ask for corrections, and ask us to limit how we use your information. If you think we got something wrong, you can complain, and we will not hold it against you.",
+   "text": "**The short version.** OSI Medical Services, P.A. and its clinicians use your health information to care for you, to get paid, and to run the practice. We share it with others only when this notice allows it or when you say yes in writing. You can see your records, ask for corrections, and ask us to limit how we use your information. If you think we got something wrong, you can complain, and we will not hold it against you.",
    "kind": "info"
   },
   {
@@ -25,7 +25,7 @@
   },
   {
    "t": "p",
-   "text": "This notice applies to [PRACTICE NAME] (“the Practice,” “we,” “us”). It covers the Practice’s doctors, nurse practitioners, physician assistants and other licensed clinicians, and its staff, who care for you through our telehealth service.",
+   "text": "This notice applies to OSI Medical Services, P.A. (“the Practice,” “we,” “us”). It covers the Practice’s doctors, nurse practitioners, physician assistants and other licensed clinicians, and its staff, who care for you through our telehealth service.",
    "italic": false,
    "align": null
   },
@@ -474,11 +474,11 @@
    "rows": [
     [
      "Privacy Official",
-     "[PRIVACY OFFICIAL], [PRACTICE NAME]"
+     "[PRIVACY OFFICIAL], OSI Medical Services, P.A."
     ],
     [
      "Mail",
-     "[PRIVACY OFFICIAL], [PRACTICE NAME] Privacy Office, c/o WellPeps, 30 N Gould St., Suite R, Sheridan, WY 82801"
+     "[PRIVACY OFFICIAL], OSI Medical Services, P.A. Privacy Office, c/o WellPeps, 30 N Gould St., Suite R, Sheridan, WY 82801"
     ],
     [
      "Email",
@@ -538,13 +538,13 @@
   },
   {
    "t": "p",
-   "text": "Please read the Notice of Privacy Practices of [PRACTICE NAME] (version [VERSION], effective [EFFECTIVE DATE]). It explains how we may use and share your health information and what rights you have.",
+   "text": "Please read the Notice of Privacy Practices of OSI Medical Services, P.A. (version [VERSION], effective [EFFECTIVE DATE]). It explains how we may use and share your health information and what rights you have.",
    "italic": false,
    "align": null
   },
   {
    "t": "check",
-   "text": "I received the Notice of Privacy Practices of [PRACTICE NAME]. I know I can read it again at any time at portal.wellpeps.com and in the footer of the WellPeps website."
+   "text": "I received the Notice of Privacy Practices of OSI Medical Services, P.A.. I know I can read it again at any time at portal.wellpeps.com and in the footer of the WellPeps website."
   },
   {
    "t": "check",

@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
    "italic": true,
    "align": null
   },
@@ -259,7 +259,7 @@
   },
   {
    "t": "p",
-   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
    "italic": true,
    "align": null
   },
@@ -488,7 +488,7 @@
   },
   {
    "t": "p",
-   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
    "italic": true,
    "align": null
   },
@@ -660,7 +660,7 @@
   },
   {
    "t": "p",
-   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
    "italic": true,
    "align": null
   },
@@ -852,7 +852,7 @@
   },
   {
    "t": "p",
-   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
    "italic": true,
    "align": null
   },
@@ -1063,7 +1063,7 @@
   },
   {
    "t": "p",
-   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
    "italic": true,
    "align": null
   },
@@ -1237,7 +1237,7 @@
   },
   {
    "t": "callout",
-   "text": "[DATE]\nDear [PATIENT NAME],\nWe received your [REQUEST TYPE] request on [REQUEST DATE]. We sent it to [PRACTICE NAME] (the Practice), which keeps your medical record and makes the decision.\n**What happens next.** The Practice will answer by [DUE DATE]. If it needs more time, it will tell you in writing before then, say why, and give you the new date.\n**Confirming it is you.** If we need to confirm your identity, we will contact you at the email on your account. We will not ask for more than we need.\n**Cost.** There is no charge to make this request. If a copy of your records will carry a fee for copying, supplies or postage, we will tell you before we send it.\n**If your request is about a pharmacy's records,** the pharmacy keeps those. We will tell you which pharmacy filled your order, and we can pass your request on if you ask.\nQuestions: privacy@wellpeps.com.\nSincerely,\n[SENDER NAME AND TITLE], for [PRACTICE NAME] and WellPeps",
+   "text": "[DATE]\nDear [PATIENT NAME],\nWe received your [REQUEST TYPE] request on [REQUEST DATE]. We sent it to OSI Medical Services, P.A. (the Practice), which keeps your medical record and makes the decision.\n**What happens next.** The Practice will answer by [DUE DATE]. If it needs more time, it will tell you in writing before then, say why, and give you the new date.\n**Confirming it is you.** If we need to confirm your identity, we will contact you at the email on your account. We will not ask for more than we need.\n**Cost.** There is no charge to make this request. If a copy of your records will carry a fee for copying, supplies or postage, we will tell you before we send it.\n**If your request is about a pharmacy's records,** the pharmacy keeps those. We will tell you which pharmacy filled your order, and we can pass your request on if you ask.\nQuestions: privacy@wellpeps.com.\nSincerely,\n[SENDER NAME AND TITLE], for OSI Medical Services, P.A. and WellPeps",
    "kind": "info"
   },
   {
@@ -1246,7 +1246,7 @@
   },
   {
    "t": "callout",
-   "text": "[DATE]\nDear [PATIENT NAME],\nYou asked on [REQUEST DATE] for [DESCRIBE]. It is ready. We are giving it to you by [DELIVERY METHOD].\n**What is included:** [DESCRIBE]. **Fee:** [FEE].\n**For an amendment we accepted:** we added your correction to your record and told [DESCRIBE]. **For an accounting:** the list of disclosures is attached.\nIf you think something is missing or wrong, you can ask us to look again, or ask for a correction (Form B).\n**Please keep this safe.** If you asked us to send your records to another person or a health app, they may no longer be protected by HIPAA once received.\nIf you are not happy with how we handled your request, you can complain to the Practice at [PRACTICE PRIVACY CONTACT] or to the U.S. Department of Health and Human Services, Office for Civil Rights (1-800-368-1019, hhs.gov/ocr/complaints). We will not hold it against you.\nSincerely,\n[SENDER NAME AND TITLE], for [PRACTICE NAME]",
+   "text": "[DATE]\nDear [PATIENT NAME],\nYou asked on [REQUEST DATE] for [DESCRIBE]. It is ready. We are giving it to you by [DELIVERY METHOD].\n**What is included:** [DESCRIBE]. **Fee:** [FEE].\n**For an amendment we accepted:** we added your correction to your record and told [DESCRIBE]. **For an accounting:** the list of disclosures is attached.\nIf you think something is missing or wrong, you can ask us to look again, or ask for a correction (Form B).\n**Please keep this safe.** If you asked us to send your records to another person or a health app, they may no longer be protected by HIPAA once received.\nIf you are not happy with how we handled your request, you can complain to the Practice at OSI Medical Services, P.A., 433 Plaza Real, Suite 275, Boca Raton, FL 33432 or to the U.S. Department of Health and Human Services, Office for Civil Rights (1-800-368-1019, hhs.gov/ocr/complaints). We will not hold it against you.\nSincerely,\n[SENDER NAME AND TITLE], for OSI Medical Services, P.A.",
    "kind": "info"
   },
   {
@@ -1255,7 +1255,7 @@
   },
   {
    "t": "callout",
-   "text": "[DATE]\nDear [PATIENT NAME],\nOn [REQUEST DATE] you made a [REQUEST TYPE] request. We need more time to answer.\n**Why:** [REASON].\n**New date:** we will answer by [NEW DUE DATE]. That is no more than 30 days after the first date, and this is the only extension we can take.\nWe are sorry for the delay. Questions: privacy@wellpeps.com.\nSincerely,\n[SENDER NAME AND TITLE], for [PRACTICE NAME]",
+   "text": "[DATE]\nDear [PATIENT NAME],\nOn [REQUEST DATE] you made a [REQUEST TYPE] request. We need more time to answer.\n**Why:** [REASON].\n**New date:** we will answer by [NEW DUE DATE]. That is no more than 30 days after the first date, and this is the only extension we can take.\nWe are sorry for the delay. Questions: privacy@wellpeps.com.\nSincerely,\n[SENDER NAME AND TITLE], for OSI Medical Services, P.A.",
    "kind": "info"
   },
   {
@@ -1264,7 +1264,7 @@
   },
   {
    "t": "callout",
-   "text": "[DATE]\nDear [PATIENT NAME],\nOn [REQUEST DATE] you asked for [DESCRIBE]. We are not able to give you [DESCRIBE]. We are giving you everything else, by [DELIVERY METHOD].\n**Why:** [REASON].\n**If this denial can be reviewed:** you may ask for a review. A licensed health care professional who was not involved in this decision will look at it. To ask, [REVIEW METHOD]. We will tell you the result in writing.\n**If we do not keep the information but know who does,** we will tell you: [DESCRIBE].\n**Complaints.** You can complain to the Practice at [PRACTICE PRIVACY CONTACT] (name or title and phone), or to the U.S. Department of Health and Human Services, Office for Civil Rights (1-800-368-1019, hhs.gov/ocr/complaints). We will not hold it against you.\nSincerely,\n[SENDER NAME AND TITLE], for [PRACTICE NAME]",
+   "text": "[DATE]\nDear [PATIENT NAME],\nOn [REQUEST DATE] you asked for [DESCRIBE]. We are not able to give you [DESCRIBE]. We are giving you everything else, by [DELIVERY METHOD].\n**Why:** [REASON].\n**If this denial can be reviewed:** you may ask for a review. A licensed health care professional who was not involved in this decision will look at it. To ask, [REVIEW METHOD]. We will tell you the result in writing.\n**If we do not keep the information but know who does,** we will tell you: [DESCRIBE].\n**Complaints.** You can complain to the Practice at OSI Medical Services, P.A., 433 Plaza Real, Suite 275, Boca Raton, FL 33432 (name or title and phone), or to the U.S. Department of Health and Human Services, Office for Civil Rights (1-800-368-1019, hhs.gov/ocr/complaints). We will not hold it against you.\nSincerely,\n[SENDER NAME AND TITLE], for OSI Medical Services, P.A.",
    "kind": "info"
   },
   {
@@ -1273,7 +1273,7 @@
   },
   {
    "t": "callout",
-   "text": "[DATE]\nDear [PATIENT NAME],\nOn [REQUEST DATE] you asked us to correct [DESCRIBE]. We are not able to make that change.\n**Why:** [REASON].\n**Your choices.** You may send us a statement saying why you disagree, by [REVIEW METHOD]. We will add it to your record. If you do not send one, you may ask that your request and this letter go along with any future sharing of that entry. We may write a reply to your statement, and if we do, we will send you a copy.\n**Complaints.** You can complain to the Practice at [PRACTICE PRIVACY CONTACT] (name or title and phone), or to the U.S. Department of Health and Human Services, Office for Civil Rights (1-800-368-1019, hhs.gov/ocr/complaints). We will not hold it against you.\nSincerely,\n[SENDER NAME AND TITLE], for [PRACTICE NAME]",
+   "text": "[DATE]\nDear [PATIENT NAME],\nOn [REQUEST DATE] you asked us to correct [DESCRIBE]. We are not able to make that change.\n**Why:** [REASON].\n**Your choices.** You may send us a statement saying why you disagree, by [REVIEW METHOD]. We will add it to your record. If you do not send one, you may ask that your request and this letter go along with any future sharing of that entry. We may write a reply to your statement, and if we do, we will send you a copy.\n**Complaints.** You can complain to the Practice at OSI Medical Services, P.A., 433 Plaza Real, Suite 275, Boca Raton, FL 33432 (name or title and phone), or to the U.S. Department of Health and Human Services, Office for Civil Rights (1-800-368-1019, hhs.gov/ocr/complaints). We will not hold it against you.\nSincerely,\n[SENDER NAME AND TITLE], for OSI Medical Services, P.A.",
    "kind": "info"
   },
   {
@@ -1282,13 +1282,13 @@
   },
   {
    "t": "p",
-   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
    "italic": true,
    "align": null
   },
   {
    "t": "p",
-   "text": "[PRACTICE NAME] (the Practice) keeps your medical record. WellPeps, a Wyoming corporation, helps you reach the Practice and passes your requests to it. You have these rights:",
+   "text": "OSI Medical Services, P.A. (the Practice) keeps your medical record. WellPeps, a Wyoming corporation, helps you reach the Practice and passes your requests to it. You have these rights:",
    "italic": false,
    "align": null
   },
@@ -1396,7 +1396,7 @@
     ],
     [
      "The Practice's privacy contact",
-     "Decides every request. Signs the response letters. Sets fees. Names the reviewer for reviewable denials. Holds the record. [PRACTICE PRIVACY CONTACT]."
+     "Decides every request. Signs the response letters. Sets fees. Names the reviewer for reviewable denials. Holds the record. OSI Medical Services, P.A., 433 Plaza Real, Suite 275, Boca Raton, FL 33432."
     ],
     [
      "[PRACTICE REVIEWER]",

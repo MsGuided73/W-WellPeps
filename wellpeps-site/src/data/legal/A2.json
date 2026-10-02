@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "**Effective date:** [EFFECTIVE DATE]  |  **Version:** [VERSION]  |  **Last updated:** [LAST UPDATED]",
+   "text": "**Effective date:** [EFFECTIVE DATE]  |  **Version:** [VERSION]  |  **Last updated:** October 2, 2026",
    "italic": false,
    "align": null
   },
@@ -44,7 +44,7 @@
   },
   {
    "t": "p",
-   "text": "Independent licensed clinicians who belong to [PRACTICE NAME] (the \"Practice\") review your health information and decide whether to prescribe. A prescription is not guaranteed. Independent state-licensed pharmacies prepare and ship medication.",
+   "text": "Independent licensed clinicians who belong to OSI Medical Services, P.A. (the \"Practice\") review your health information and decide whether to prescribe. A prescription is not guaranteed. Independent state-licensed pharmacies prepare and ship medication.",
    "italic": false,
    "align": null
   },
@@ -286,13 +286,13 @@
      "Good to know"
     ],
     [
-     "The Practice ([PRACTICE NAME]) and its clinicians",
+     "The Practice (OSI Medical Services, P.A.) and its clinicians",
      "What you enter in the assessment and intake, your contact details and order status.",
      "To decide whether treatment is appropriate and to care for you.",
      "The Practice is legally separate from WellPeps. Its use of your health information is covered by the Notice of Privacy Practices."
     ],
     [
-     "Pharmacies ([PHARMACY LIST])",
+     "Pharmacies (OSI / Scriptful Rx, 433 Plaza Real, Suite 275, Boca Raton, FL 33432)",
      "Name, shipping address, date of birth, the prescription and the health details needed to prepare it safely.",
      "To prepare and ship your medication.",
      "Independent, state-licensed pharmacies. Each has its own privacy notice."

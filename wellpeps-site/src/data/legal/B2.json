@@ -5,7 +5,7 @@
  "blocks": [
   {
    "t": "p",
-   "text": "**Effective date:** [EFFECTIVE DATE]   |   **Last updated:** [EFFECTIVE DATE]   |   **Version:** [VERSION]",
+   "text": "**Effective date:** [EFFECTIVE DATE]   |   **Last updated:** October 2, 2026   |   **Version:** [VERSION]",
    "italic": false,
    "align": null
   },
@@ -105,7 +105,7 @@
    "t": "clause",
    "number": "1.5",
    "heading": "A few words.",
-   "text": "“The Practice” means [PRACTICE NAME], the independent licensed medical practice whose clinicians evaluate you and prescribe if appropriate. “Clinician” means a licensed health care professional of the Practice. “Pharmacy” means a state-licensed pharmacy that prepares and ships your medication. “Plan” means your monthly plan for the treatment you choose at checkout.",
+   "text": "“The Practice” means OSI Medical Services, P.A., the independent licensed medical practice whose clinicians evaluate you and prescribe if appropriate. “Clinician” means a licensed health care professional of the Practice. “Pharmacy” means a state-licensed pharmacy that prepares and ships your medication. “Plan” means your monthly plan for the treatment you choose at checkout.",
    "level": 0
   },
   {
@@ -133,12 +133,12 @@
      "Does not practice medicine, diagnose, prescribe, compound or dispense medication, or control any clinical decision."
     ],
     [
-     "The Practice\n([PRACTICE NAME])",
+     "The Practice\n(OSI Medical Services, P.A.)",
      "An independent, licensed medical practice. Its clinicians review your health information, decide whether treatment is medically appropriate, prescribe if it is, and answer the clinical questions you send in the Portal. It keeps your medical records.",
      "Does not run our website, billing or shipping. Its medical decisions are its own."
     ],
     [
-     "Pharmacies\n([PHARMACY LIST])",
+     "Pharmacies\n(OSI / Scriptful Rx, 433 Plaza Real, Suite 275, Boca Raton, FL 33432)",
      "Independent, state-licensed pharmacies. They prepare (including compounding, where prescribed), label and ship your medication on a prescription written for you.",
      "Do not decide whether you get a prescription."
     ],

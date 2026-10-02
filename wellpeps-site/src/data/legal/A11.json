@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "**Last updated:** [EFFECTIVE DATE]    |    **Version:** [VERSION]",
+   "text": "**Last updated:** October 2, 2026    |    **Version:** [VERSION]",
    "italic": false,
    "align": null
   },
@@ -24,7 +24,7 @@
   },
   {
    "t": "p",
-   "text": "WellPeps, a Wyoming corporation (“WellPeps,” “we,” “us”), 30 N Gould St., Suite R, Sheridan, WY 82801, runs the text messaging program described here. WellPeps is not a medical practice. Some texts, such as visit reminders, are sent through our technology platform for [PRACTICE NAME] (the “Practice”), an independent licensed medical practice. Our texts come from [SMS SENDER NUMBER]. Questions about this page: support@wellpeps.com.",
+   "text": "WellPeps, a Wyoming corporation (“WellPeps,” “we,” “us”), 30 N Gould St., Suite R, Sheridan, WY 82801, runs the text messaging program described here. WellPeps is not a medical practice. Some texts, such as visit reminders, are sent through our technology platform for OSI Medical Services, P.A. (the “Practice”), an independent licensed medical practice. Our texts come from [SMS SENDER NUMBER]. Questions about this page: support@wellpeps.com.",
    "italic": false,
    "align": null
   },
@@ -456,7 +456,7 @@
   },
   {
    "t": "check",
-   "text": "Yes, send me text messages. I agree that WellPeps, and [PRACTICE NAME] through the WellPeps platform, may text me at the mobile number above about my account, visits, orders, refills and billing, and to tell me when I have a new portal message. Texts will not include health details. Message frequency varies. Msg & data rates may apply. Reply STOP to cancel and HELP for help. I do not have to agree to get care or to buy anything. If I leave this box unchecked, I will get email and portal notices instead."
+   "text": "Yes, send me text messages. I agree that WellPeps, and OSI Medical Services, P.A. through the WellPeps platform, may text me at the mobile number above about my account, visits, orders, refills and billing, and to tell me when I have a new portal message. Texts will not include health details. Message frequency varies. Msg & data rates may apply. Reply STOP to cancel and HELP for help. I do not have to agree to get care or to buy anything. If I leave this box unchecked, I will get email and portal notices instead."
   },
   {
    "t": "p",

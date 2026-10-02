@@ -9,13 +9,13 @@
   },
   {
    "t": "p",
-   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
    "italic": true,
    "align": null
   },
   {
    "t": "callout",
-   "text": "**This form is your choice.** You do not have to sign it. If you do not, you will still get the same care, the same prescription decision, the same price and the same order. [PRACTICE NAME] (the Practice) can still share information with other clinicians who treat you when the law allows it, as the Notice of Privacy Practices explains. Use this form when you want something specific sent to a clinician you name.",
+   "text": "**This form is your choice.** You do not have to sign it. If you do not, you will still get the same care, the same prescription decision, the same price and the same order. OSI Medical Services, P.A. (the Practice) can still share information with other clinicians who treat you when the law allows it, as the Notice of Privacy Practices explains. Use this form when you want something specific sent to a clinician you name.",
    "kind": "info"
   },
   {
@@ -55,7 +55,7 @@
   },
   {
    "t": "p",
-   "text": "[PRACTICE NAME] (the Practice), its clinicians and its staff. WellPeps, a Wyoming corporation, and the technology platform that runs your patient portal may help send it for the Practice.",
+   "text": "OSI Medical Services, P.A. (the Practice), its clinicians and its staff. WellPeps, a Wyoming corporation, and the technology platform that runs your patient portal may help send it for the Practice.",
    "italic": false,
    "align": null
   },
@@ -289,7 +289,7 @@
   },
   {
    "t": "p",
-   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
    "italic": true,
    "align": null
   },
@@ -335,7 +335,7 @@
   },
   {
    "t": "p",
-   "text": "[PRACTICE NAME] (the Practice) may share the information I check below with WellPeps, a Wyoming corporation, for this purpose. I may also give WellPeps information directly.",
+   "text": "OSI Medical Services, P.A. (the Practice) may share the information I check below with WellPeps, a Wyoming corporation, for this purpose. I may also give WellPeps information directly.",
    "italic": false,
    "align": null
   },
@@ -566,7 +566,7 @@
   },
   {
    "t": "p",
-   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
    "italic": true,
    "align": null
   },
@@ -612,7 +612,7 @@
   },
   {
    "t": "p",
-   "text": "[PRACTICE NAME] (the Practice) may share information about my care. WellPeps, a Wyoming corporation, and the technology platform that runs my patient portal may share information about my orders, shipping, billing and account.",
+   "text": "OSI Medical Services, P.A. (the Practice) may share information about my care. WellPeps, a Wyoming corporation, and the technology platform that runs my patient portal may share information about my orders, shipping, billing and account.",
    "italic": false,
    "align": null
   },
@@ -876,7 +876,7 @@
   },
   {
    "t": "p",
-   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
    "italic": true,
    "align": null
   },
@@ -958,7 +958,7 @@
   },
   {
    "t": "p",
-   "text": "When [PRACTICE NAME] (the Practice) or WellPeps gets this request.",
+   "text": "When OSI Medical Services, P.A. (the Practice) or WellPeps gets this request.",
    "italic": false,
    "align": null
   },

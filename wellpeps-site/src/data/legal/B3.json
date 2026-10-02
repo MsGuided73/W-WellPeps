@@ -9,13 +9,13 @@
   },
   {
    "t": "p",
-   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
    "italic": true,
    "align": null
   },
   {
    "t": "p",
-   "text": "**How to read this form.** Each part is a table. \"What the patient sees\" is the exact wording. \"Reviewed by\" means: System, an automatic rule in GEN Health; WellPeps (non-clinical), WellPeps support staff who check only account, shipping and eligibility details and never judge health answers; Clinician, a licensed clinician of [PRACTICE NAME] (the Practice).",
+   "text": "**How to read this form.** Each part is a table. \"What the patient sees\" is the exact wording. \"Reviewed by\" means: System, an automatic rule in GEN Health; WellPeps (non-clinical), WellPeps support staff who check only account, shipping and eligibility details and never judge health answers; Clinician, a licensed clinician of OSI Medical Services, P.A. (the Practice).",
    "italic": false,
    "align": null
   },

@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: [LAST UPDATED]  |  Version [VERSION]",
+   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: October 2, 2026  |  Version [VERSION]",
    "italic": true,
    "align": null
   },
@@ -59,7 +59,7 @@
   },
   {
    "t": "p",
-   "text": "Your care comes from independent licensed clinicians of [PRACTICE NAME] (the “Practice”). A clinician of the Practice decides whether a lab test is medically appropriate for you and places the order [VERIFY: how lab orders are placed]. The Practice keeps your medical record.",
+   "text": "Your care comes from independent licensed clinicians of OSI Medical Services, P.A. (the “Practice”). A clinician of the Practice decides whether a lab test is medically appropriate for you and places the order [VERIFY: how lab orders are placed]. The Practice keeps your medical record.",
    "italic": false,
    "align": null
   },

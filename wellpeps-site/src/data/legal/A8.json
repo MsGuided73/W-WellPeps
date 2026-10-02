@@ -51,7 +51,7 @@
   },
   {
    "t": "p",
-   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: [LAST UPDATED]  |  Version [VERSION]",
+   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: October 2, 2026  |  Version [VERSION]",
    "italic": true,
    "align": null
   },
@@ -87,7 +87,7 @@
    "t": "clause",
    "number": "5.",
    "heading": "Who provides care.",
-   "text": "Medical care is provided by independent licensed clinicians of [PRACTICE NAME] (“the Practice”), which is separate from WellPeps. Medications are prepared and shipped by independent state-licensed pharmacies. Read How WellPeps Works for details.",
+   "text": "Medical care is provided by independent licensed clinicians of OSI Medical Services, P.A. (“the Practice”), which is separate from WellPeps. Medications are prepared and shipped by independent state-licensed pharmacies. Read How WellPeps Works for details.",
    "level": 0
   },
   {
@@ -324,7 +324,7 @@
   },
   {
    "t": "p",
-   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: [LAST UPDATED]  |  Version [VERSION]",
+   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: October 2, 2026  |  Version [VERSION]",
    "italic": true,
    "align": null
   },
@@ -421,16 +421,87 @@
   },
   {
    "t": "callout",
-   "text": "**States We Serve**\nIndependent licensed clinicians can treat you only in states where they are licensed, and state-licensed pharmacies can ship only to states where they are licensed. This table shows where care and each kind of medication are available today. A state on this list does not guarantee that you will be prescribed treatment or that every medication is available to you. If your state is not listed, we cannot serve you yet. Last verified: [LAST VERIFIED DATE]. We serve: [STATES SERVED].\nYou must be at least 18 to use our services. The minimum age is 19 in Alabama and Nebraska and 21 in Mississippi.",
+   "text": "**States We Serve**\nWellPeps serves patients located in all 50 states. A licensed clinician can review your health assessment wherever you are in the United States. Some medications are not available in every state: if a medication cannot be shipped to your state, we will tell you before you check out. Being in a state we serve does not guarantee that you will be prescribed treatment.\nLast updated: October 2, 2026  |  Last verified: October 2, 2026",
    "kind": "info"
   },
   {
    "t": "h3",
-   "text": "Copy: footnotes under the table"
+   "text": "Copy: who provides your care"
+  },
+  {
+   "t": "p",
+   "text": "**Medical care.** Every health assessment is reviewed by an independent, state-licensed clinician of OSI Medical Services, P.A., 433 Plaza Real, Suite 275, Boca Raton, FL 33432, licensed in the state where you are located. The clinician decides whether treatment is appropriate. WellPeps does not provide medical care.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**Prescriptions.** Prescriptions are filled and shipped by state-licensed pharmacies in the OSI / Scriptful Rx pharmacy network, 433 Plaza Real, Suite 275, Boca Raton, FL 33432. Each pharmacy ships only to states where it is licensed.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**Where you are matters.** You must be located in one of the 50 states when you complete your assessment and at every visit, and your medication ships to your address in that state.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "Copy: state-specific notes"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "State",
+     "Note"
+    ],
+    [
+     "California",
+     "Oral weight-loss tablets (semaglutide and tirzepatide) are not available to California residents. Weekly injections may be."
+    ],
+    [
+     "Alabama",
+     "You must be at least 19."
+    ],
+    [
+     "Nebraska",
+     "You must be at least 19."
+    ],
+    [
+     "Mississippi",
+     "You must be at least 21."
+    ],
+    [
+     "Washington and Nevada",
+     "See our Consumer Health Data Privacy Policy."
+    ]
+   ],
+   "widths": [
+    1.8,
+    5.7
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h3",
+   "text": "Copy: age requirement"
+  },
+  {
+   "t": "p",
+   "text": "You must be at least 18 to use our services (19 in Alabama and Nebraska, 21 in Mississippi).",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "Copy: footnotes"
   },
   {
    "t": "callout",
-   "text": "Availability can change. Some medications are not available in every state. Your clinician decides whether treatment is appropriate for you, and a prescription is not guaranteed. If you move or travel to another state, tell us before your next renewal. See the Shipping and Delivery Policy for where we ship.",
+   "text": "Availability can change. Your clinician decides whether treatment is appropriate for you, and a prescription is not guaranteed. If you move or travel to another state, tell us before your next visit or renewal. Questions: support@wellpeps.com or (307) 881-8700, during normal business hours. See the Shipping and Delivery Policy for where we ship.",
    "kind": "info"
   },
   {
@@ -731,348 +802,23 @@
   },
   {
    "t": "li",
-   "text": "Clinician availability: “Available” only if a licensed clinician of the Practice can treat patients located in that state. Otherwise “Not available.” Use “Limited” only with an explanation in Notes.",
+   "text": "Source facts (client, 2026-10-02): LegitScript certified the OSI provider network for all 50 states and each pharmacy for the states it ships to; the GEN Health platform tells a patient at checkout when a medication is not available in their state.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "Medication forms available: list the forms a patient in that state can receive (injection, oral, sublingual, topical), by program. A form is listed only if a pharmacy that can ship there carries it and state rules allow it.",
+   "text": "Add a state note only for a restriction the platform does not already enforce at checkout (an age rule, a program the state bars, a state privacy law).",
    "level": 0
   },
   {
    "t": "li",
-   "text": "Delete any state whose cells cannot be confirmed. Do not list a state as “coming soon.”",
+   "text": "Counsel to confirm: District of Columbia (not in the 50-state certification as stated); state positions on compounded semaglutide and tirzepatide (e.g. Ohio, Connecticut) if not already enforced by pharmacy coverage; New York telehealth requirements.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "Re-verify at least monthly and whenever licensure, a pharmacy or a state rule changes. Update “Last verified.”",
+   "text": "Re-verify whenever the provider network, a pharmacy or a state rule changes, and update “Last verified.”",
    "level": 0
-  },
-  {
-   "t": "table",
-   "rows": [
-    [
-     "State",
-     "Clinician availability",
-     "Medication forms available",
-     "Notes"
-    ],
-    [
-     "Alabama",
-     "[VERIFY]",
-     "[VERIFY]",
-     "Minimum age 19."
-    ],
-    [
-     "Alaska",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Arizona",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Arkansas",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "California",
-     "[VERIFY]",
-     "[VERIFY]",
-     "Oral and sublingual weight-loss forms are not offered in California. [VERIFY]"
-    ],
-    [
-     "Colorado",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Connecticut",
-     "[VERIFY]",
-     "[VERIFY]",
-     "[VERIFY: state board position on compounded semaglutide and tirzepatide]"
-    ],
-    [
-     "Delaware",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "District of Columbia",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Florida",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Georgia",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Hawaii",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Idaho",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Illinois",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Indiana",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Iowa",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Kansas",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Kentucky",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Louisiana",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Maine",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Maryland",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Massachusetts",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Michigan",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Minnesota",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Mississippi",
-     "[VERIFY]",
-     "[VERIFY]",
-     "Minimum age 21."
-    ],
-    [
-     "Missouri",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Montana",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Nebraska",
-     "[VERIFY]",
-     "[VERIFY]",
-     "Minimum age 19."
-    ],
-    [
-     "Nevada",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "New Hampshire",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "New Jersey",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "New Mexico",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "New York",
-     "[VERIFY]",
-     "[VERIFY]",
-     "[VERIFY: New York telehealth requirements]"
-    ],
-    [
-     "North Carolina",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "North Dakota",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Ohio",
-     "[VERIFY]",
-     "[VERIFY]",
-     "[VERIFY: state board position on compounded semaglutide and tirzepatide]"
-    ],
-    [
-     "Oklahoma",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Oregon",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Pennsylvania",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Rhode Island",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "South Carolina",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "South Dakota",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Tennessee",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Texas",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Utah",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Vermont",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Virginia",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Washington",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "West Virginia",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Wisconsin",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ],
-    [
-     "Wyoming",
-     "[VERIFY]",
-     "[VERIFY]",
-     ""
-    ]
-   ],
-   "widths": [
-    1.5,
-    1.5,
-    1.9,
-    2.6
-   ],
-   "header": true,
-   "shade": false
   },
   {
    "t": "p",

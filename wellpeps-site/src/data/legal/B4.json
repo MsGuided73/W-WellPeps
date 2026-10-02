@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
    "italic": true,
    "align": null
   },
@@ -20,7 +20,7 @@
   },
   {
    "t": "callout",
-   "text": "**The short version**\n• WellPeps is not a medical practice and does not give medical care. Care is given by independent licensed clinicians of [PRACTICE NAME] (the “Practice”).\n• Filling out forms or paying does not make you a patient of the Practice. The relationship starts only when a clinician accepts you. A clinician can say no, ask for more information or a live visit, or end your care.\n• Telehealth cannot do everything an in-person visit can. The clinician cannot examine you in person and depends on what you tell them. You must give complete and truthful information.\n• Clinicians are licensed by state. Each time you ask for care, you must tell us which state you are in.\n• A prescription is not guaranteed, and results are not guaranteed.\n• You can say no to telehealth, withdraw this consent at any time, and ask for in-person care.\n• The Practice keeps your medical record, and you can ask for a copy.\n• If you have a problem, start with the Practice. You can contact your state medical board at any time.",
+   "text": "**The short version**\n• WellPeps is not a medical practice and does not give medical care. Care is given by independent licensed clinicians of OSI Medical Services, P.A. (the “Practice”).\n• Filling out forms or paying does not make you a patient of the Practice. The relationship starts only when a clinician accepts you. A clinician can say no, ask for more information or a live visit, or end your care.\n• Telehealth cannot do everything an in-person visit can. The clinician cannot examine you in person and depends on what you tell them. You must give complete and truthful information.\n• Clinicians are licensed by state. Each time you ask for care, you must tell us which state you are in.\n• A prescription is not guaranteed, and results are not guaranteed.\n• You can say no to telehealth, withdraw this consent at any time, and ask for in-person care.\n• The Practice keeps your medical record, and you can ask for a copy.\n• If you have a problem, start with the Practice. You can contact your state medical board at any time.",
    "kind": "info"
   },
   {
@@ -38,7 +38,7 @@
    "t": "clause",
    "number": "1.2",
    "heading": "The Practice.",
-   "text": "[PRACTICE NAME] (the “Practice”) is an independent, licensed medical practice. Its clinicians, such as physicians, nurse practitioners and physician assistants, review your information and decide whether to treat you. In this consent, “clinician” means a licensed health care professional of the Practice. The Practice is legally separate from WellPeps.",
+   "text": "OSI Medical Services, P.A. (the “Practice”) is an independent, licensed medical practice. Its clinicians, such as physicians, nurse practitioners and physician assistants, review your information and decide whether to treat you. In this consent, “clinician” means a licensed health care professional of the Practice. The Practice is legally separate from WellPeps.",
    "level": 0
   },
   {
@@ -419,7 +419,7 @@
    "t": "clause",
    "number": "12.2",
    "heading": "Your rights.",
-   "text": "Under the federal privacy rule (HIPAA) you can ask to see and get a copy of your records, ask the Practice to correct them, and ask for a list of certain disclosures. You can ask for your records to be sent to you or to another clinician. The Notice of Privacy Practices explains how. You can ask in a portal message or by contacting the Practice at [PRACTICE CONTACT]. Where the law allows, the Practice may charge a reasonable, cost-based fee for copies.",
+   "text": "Under the federal privacy rule (HIPAA) you can ask to see and get a copy of your records, ask the Practice to correct them, and ask for a list of certain disclosures. You can ask for your records to be sent to you or to another clinician. The Notice of Privacy Practices explains how. You can ask in a portal message or by contacting the Practice at OSI Medical Services, P.A., 433 Plaza Real, Suite 275, Boca Raton, FL 33432. Where the law allows, the Practice may charge a reasonable, cost-based fee for copies.",
    "level": 0
   },
   {
@@ -508,7 +508,7 @@
    "t": "clause",
    "number": "15.1",
    "heading": "Start with the Practice.",
-   "text": "If you have a concern about your clinical care, tell the Practice in a portal message or at [PRACTICE CONTACT]. The Practice will review your concern and answer you. [PRACTICE TO CONFIRM]",
+   "text": "If you have a concern about your clinical care, tell the Practice in a portal message or at OSI Medical Services, P.A., 433 Plaza Real, Suite 275, Boca Raton, FL 33432. The Practice will review your concern and answer you. [PRACTICE TO CONFIRM]",
    "level": 0
   },
   {
@@ -575,7 +575,7 @@
    "t": "clause",
    "number": "16.4",
    "heading": "Other rights.",
-   "text": "You have the right to ask questions before you agree and at any time, to get a copy of this consent, to know your clinician's identity and license, to get your records, to be treated with respect, and to ask for help if you have a disability or need language help (email support@wellpeps.com; see the Accessibility Statement). WellPeps support can explain how the service works but cannot give medical advice. [PRACTICE CONTACT] can answer questions about this consent.",
+   "text": "You have the right to ask questions before you agree and at any time, to get a copy of this consent, to know your clinician's identity and license, to get your records, to be treated with respect, and to ask for help if you have a disability or need language help (email support@wellpeps.com; see the Accessibility Statement). WellPeps support can explain how the service works but cannot give medical advice. OSI Medical Services, P.A., 433 Plaza Real, Suite 275, Boca Raton, FL 33432 can answer questions about this consent.",
    "level": 0
   },
   {

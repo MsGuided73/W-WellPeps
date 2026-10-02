@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated [LAST UPDATED]",
+   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
    "italic": true,
    "align": null
   },
@@ -26,14 +26,14 @@
    "t": "clause",
    "number": "1.1",
    "heading": "The Practice decides.",
-   "text": "A clinician of [PRACTICE NAME] (the “Practice”) decides whether any medicine, compounded or not, is right for you. A prescription is not guaranteed.",
+   "text": "A clinician of OSI Medical Services, P.A. (the “Practice”) decides whether any medicine, compounded or not, is right for you. A prescription is not guaranteed.",
    "level": 0
   },
   {
    "t": "clause",
    "number": "1.2",
    "heading": "A pharmacy prepares it.",
-   "text": "A state-licensed pharmacy named on your prescription label prepares your compounded medicine and ships it to you. The pharmacies WellPeps works with are listed at [PHARMACY LIST]. [PHARMACY STANDARDS]",
+   "text": "A state-licensed pharmacy named on your prescription label prepares your compounded medicine and ships it to you. The pharmacies WellPeps works with are listed at OSI / Scriptful Rx, 433 Plaza Real, Suite 275, Boca Raton, FL 33432. [PHARMACY STANDARDS]",
    "level": 0
   },
   {

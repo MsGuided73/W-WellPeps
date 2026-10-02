@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "**Effective date:** [EFFECTIVE DATE]  |  **Version:** [VERSION]  |  **Last updated:** [LAST UPDATED]",
+   "text": "**Effective date:** [EFFECTIVE DATE]  |  **Version:** [VERSION]  |  **Last updated:** October 2, 2026",
    "italic": false,
    "align": null
   },
@@ -28,7 +28,7 @@
   },
   {
    "t": "p",
-   "text": "WellPeps, a Wyoming corporation (\"WellPeps,\" \"we,\" \"us\"), runs wellpeps.com. We are a brand and service company. We are not a medical practice or a pharmacy, and we do not prescribe, compound or dispense medication. Independent licensed clinicians of [PRACTICE NAME] (the \"Practice\") decide whether to prescribe. A prescription is not guaranteed. State-licensed pharmacies prepare and ship medication. Our contact details are in Section 11.",
+   "text": "WellPeps, a Wyoming corporation (\"WellPeps,\" \"we,\" \"us\"), runs wellpeps.com. We are a brand and service company. We are not a medical practice or a pharmacy, and we do not prescribe, compound or dispense medication. Independent licensed clinicians of OSI Medical Services, P.A. (the \"Practice\") decide whether to prescribe. A prescription is not guaranteed. State-licensed pharmacies prepare and ship medication. Our contact details are in Section 11.",
    "italic": false,
    "align": null
   },
@@ -343,13 +343,13 @@
      "Separate consent?"
     ],
     [
-     "The Practice ([PRACTICE NAME]), an independent medical practice",
+     "The Practice (OSI Medical Services, P.A.), an independent medical practice",
      "What you enter in the assessment and intake, contact details, order status.",
      "To evaluate you and prescribe if appropriate.",
      "No. Necessary to provide the service you asked for."
     ],
     [
-     "Pharmacies ([PHARMACY LIST])",
+     "Pharmacies (OSI / Scriptful Rx, 433 Plaza Real, Suite 275, Boca Raton, FL 33432)",
      "Name, address, date of birth, the prescription and the health details needed to prepare it.",
      "To prepare and ship medication.",
      "No. Necessary to provide the service you asked for."

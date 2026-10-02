@@ -159,8 +159,9 @@ describe('reading order of the converted documents', () => {
 
 describe('what the converted documents may contain', () => {
   // Restricted partner identities, contract titles and internal paths must never reach the site or the public repo.
-  // Scriptful, Inc. may be named (client, 2026-10-02); the medical practice (OSI) may not without its written consent.
-  const DENY = [/\bOSI\b/, /\bNAA\b/, /Network Access Agreement/, /PepRite/, /docs\//, /Side Letter/, /Service Agreement/];
+  // Scriptful, Inc., Scriptful Rx and OSI Medical Services, P.A. may be named (client, 2026-10-02: the CEO holds
+  // OSI's written authorization to identify it on the website).
+  const DENY = [/\bNAA\b/, /Network Access Agreement/, /PepRite/, /docs\//, /Side Letter/, /Service Agreement/];
 
   test('no restricted partner name, contract title or internal path', () => {
     for (const d of LEGAL_DOCS) {

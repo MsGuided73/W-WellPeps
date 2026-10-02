@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "Last updated: [EFFECTIVE DATE]  |  Version [VERSION]",
+   "text": "Last updated: October 2, 2026  |  Version [VERSION]",
    "italic": true,
    "align": null
   },
@@ -52,7 +52,7 @@
   },
   {
    "t": "li",
-   "text": "**WellPeps is not a medical practice or a pharmacy.** WellPeps helps you reach telehealth services provided by independent licensed clinicians of [PRACTICE NAME] (the “Practice”). WellPeps does not prescribe, compound or dispense medication.",
+   "text": "**WellPeps is not a medical practice or a pharmacy.** WellPeps helps you reach telehealth services provided by independent licensed clinicians of OSI Medical Services, P.A. (the “Practice”). WellPeps does not prescribe, compound or dispense medication.",
    "level": 0
   },
   {
@@ -62,7 +62,7 @@
   },
   {
    "t": "li",
-   "text": "**A state-licensed pharmacy** prepares and ships your medication. Your label names it. Pharmacies that fill WellPeps prescriptions: [PHARMACY LIST].",
+   "text": "**A state-licensed pharmacy** prepares and ships your medication. Your label names it. Pharmacies that fill WellPeps prescriptions: OSI / Scriptful Rx, 433 Plaza Real, Suite 275, Boca Raton, FL 33432.",
    "level": 0
   },
   {

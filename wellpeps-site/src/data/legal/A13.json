@@ -19,7 +19,7 @@
   },
   {
    "t": "p",
-   "text": "Last updated: [LAST UPDATED]  |  Version [VERSION]",
+   "text": "Last updated: October 2, 2026  |  Version [VERSION]",
    "italic": true,
    "align": null
   },
@@ -75,12 +75,12 @@
      "We do not practice medicine, prescribe, compound or dispense medication, or direct a clinician's medical decision."
     ],
     [
-     "The Practice: [PRACTICE NAME]",
+     "The Practice: OSI Medical Services, P.A.",
      "An independent, licensed medical practice. Its clinicians review your health information, decide whether treatment is medically appropriate, prescribe when it is, follow your care and answer your clinical questions in the portal. The Practice keeps your medical record. Its clinicians are licensed to practice in the state where you are located when you receive care (see [STATES SERVED]).",
      "The Practice does not sell medication or run WellPeps. WellPeps cannot direct its medical decisions."
     ],
     [
-     "Pharmacies: [PHARMACY LIST]",
+     "Pharmacies: OSI / Scriptful Rx, 433 Plaza Real, Suite 275, Boca Raton, FL 33432",
      "Independent state-licensed pharmacies that WellPeps contracts with directly. A pharmacy fills a prescription written for you, labels the medicine, gives you the pharmacy's instructions and ships it. Compounding pharmacies prepare medicines for one patient at a time.",
      "A pharmacy does not decide whether you need medication or set your treatment plan."
     ],
@@ -213,13 +213,13 @@
   },
   {
    "t": "p",
-   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: [LAST UPDATED]  |  Version [VERSION]",
+   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: October 2, 2026  |  Version [VERSION]",
    "italic": true,
    "align": null
   },
   {
    "t": "p",
-   "text": "This page tells you about the business and money relationships behind your care. You have a right to know them. Before a clinician reviews your information, we ask you to read this disclosure and agree to it (Part C). In this disclosure, “WellPeps,” “we” and “us” mean WellPeps, a Wyoming corporation. “The Practice” means [PRACTICE NAME], the independent medical practice whose clinicians provide your care.",
+   "text": "This page tells you about the business and money relationships behind your care. You have a right to know them. Before a clinician reviews your information, we ask you to read this disclosure and agree to it (Part C). In this disclosure, “WellPeps,” “we” and “us” mean WellPeps, a Wyoming corporation. “The Practice” means OSI Medical Services, P.A., the independent medical practice whose clinicians provide your care.",
    "italic": false,
    "align": null
   },
@@ -284,7 +284,7 @@
      "No. The fee is the same whether or not a prescription is written, and it does not depend on which medicine is prescribed or how much."
     ],
     [
-     "Pharmacies: [PHARMACY LIST]",
+     "Pharmacies: OSI / Scriptful Rx, 433 Plaza Real, Suite 275, Boca Raton, FL 33432",
      "The medication prepared for you, and shipping.",
      "WellPeps has an agreement directly with each pharmacy and pays it for medication and shipping.",
      "WellPeps pays only for medication actually prepared and shipped to a patient. Pharmacies do not pay WellPeps for prescriptions. [VERIFY: pharmacy and lab payments to WellPeps]"
@@ -374,7 +374,7 @@
   },
   {
    "t": "p",
-   "text": "WellPeps has agreements directly with the pharmacies it works with: [PHARMACY LIST]. WellPeps pays the pharmacy for your medication and for shipping. Neither the Practice nor our technology platform company receives any margin on medication. WellPeps keeps the difference between your monthly price and its costs. [VERIFY: [BILLING AFFILIATE] fee structure]",
+   "text": "WellPeps has agreements directly with the pharmacies it works with: OSI / Scriptful Rx, 433 Plaza Real, Suite 275, Boca Raton, FL 33432. WellPeps pays the pharmacy for your medication and for shipping. Neither the Practice nor our technology platform company receives any margin on medication. WellPeps keeps the difference between your monthly price and its costs. [VERIFY: [BILLING AFFILIATE] fee structure]",
    "italic": false,
    "align": null
   },

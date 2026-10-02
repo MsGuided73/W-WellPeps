@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "**Last updated:** [EFFECTIVE DATE]    |    **Version:** [VERSION]",
+   "text": "**Last updated:** October 2, 2026    |    **Version:** [VERSION]",
    "italic": false,
    "align": null
   },
@@ -58,7 +58,7 @@
   },
   {
    "t": "p",
-   "text": "WellPeps, a Wyoming corporation (“WellPeps”), is not a medical practice. It does not diagnose, prescribe or treat. Your clinical care is provided by independent licensed clinicians of [PRACTICE NAME] (the “Practice”). This page explains how WellPeps uses AI on its website and what you should know about AI in the platform that supports your care.",
+   "text": "WellPeps, a Wyoming corporation (“WellPeps”), is not a medical practice. It does not diagnose, prescribe or treat. Your clinical care is provided by independent licensed clinicians of OSI Medical Services, P.A. (the “Practice”). This page explains how WellPeps uses AI on its website and what you should know about AI in the platform that supports your care.",
    "italic": false,
    "align": null
   },
@@ -245,7 +245,7 @@
   },
   {
    "t": "p",
-   "text": "These features are switched off. [PRACTICE NAME] has told us that it does not use AI to write notes about your visits, to answer questions about your chart, or to draft messages to you. If that changes, we will update this page before the change takes effect.",
+   "text": "These features are switched off. OSI Medical Services, P.A. has told us that it does not use AI to write notes about your visits, to answer questions about your chart, or to draft messages to you. If that changes, we will update this page before the change takes effect.",
    "italic": false,
    "align": null
   },

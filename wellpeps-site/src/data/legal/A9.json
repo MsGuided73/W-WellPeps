@@ -5,7 +5,7 @@
  "blocks": [
   {
    "t": "p",
-   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: [LAST UPDATED]  |  Version [VERSION]",
+   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: October 2, 2026  |  Version [VERSION]",
    "italic": true,
    "align": null
   },
@@ -78,7 +78,7 @@
   },
   {
    "t": "p",
-   "text": "The pharmacies we work with are independent businesses. Today they are: [PHARMACY LIST].",
+   "text": "The pharmacies we work with are independent businesses. Today they are: OSI / Scriptful Rx, 433 Plaza Real, Suite 275, Boca Raton, FL 33432.",
    "italic": false,
    "align": null
   },
@@ -196,7 +196,7 @@
      "States shipped to"
     ],
     [
-     "[PHARMACY LIST]",
+     "OSI / Scriptful Rx, 433 Plaza Real, Suite 275, Boca Raton, FL 33432",
      "[VERIFY]",
      "[VERIFY]",
      "[VERIFY]",
