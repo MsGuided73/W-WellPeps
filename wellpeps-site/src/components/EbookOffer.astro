@@ -111,8 +111,7 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
                 <button type="button" class="book" data-ebook-open={book.slug} aria-label={`Get the free guide: ${book.title}`}>
                   <img src={book.cover} alt="" width="600" height="776" decoding="async" />
                 </button>
-                <h3>{book.title}</h3>
-                <button type="button" class="ebook__link" data-ebook-open={book.slug}>Get the free guide<Icon name="arrow-right" /></button>
+                <button type="button" class="ebook__download" data-ebook-open={book.slug} aria-label={`Download the free guide: ${book.title}`}><Icon name="download" />Download Free Guide</button>
               </li>
             ))}
           </ul>
@@ -385,14 +384,26 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
     overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin;
   }
   .ebook-carousel__item { scroll-snap-align: start; display: flex; flex-direction: column; align-items: center; text-align: center; }
-  .ebook-carousel__item h3 { margin-top: 1.9rem; min-height: 2.4em; color: #fff; font-size: var(--text-card-title); font-weight: 600; line-height: 1.2; text-wrap: balance; }
-  .ebook__link {
-    margin-top: 0.6rem; display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.25rem; border: 0; background: none; cursor: pointer;
-    color: var(--blue-soft); font-family: var(--font-sans); font-weight: 700; font-size: var(--text-card-body);
+  /* Home banner (client mock 2026-10-01): royal-blue stage, upright FREE seal, and one pill
+     "Download Free Guide" button under each cover in place of the title and text link. */
+  .ebook--carousel .ebook-stage {
+    background:
+      radial-gradient(60rem 30rem at 12% 10%, rgba(46, 168, 247, 0.22), transparent 60%),
+      linear-gradient(180deg, #0C2E6E 0%, #0E3F93 55%, #1452B4 100%);
   }
-  .ebook__link :global(svg) { width: 18px; height: 18px; transition: transform 0.2s ease; }
-  .ebook__link:hover :global(svg) { transform: translateX(3px); }
-  .ebook__link:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 2px; border-radius: 4px; }
+  .ebook-carousel__star :global(.free-star) { transform: none; }
+  .ebook__download {
+    margin-top: 1.6rem; width: 100%; max-width: 300px; display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+    padding: 0.95rem 1.1rem; border: 1.5px solid rgba(255, 255, 255, 0.28); border-radius: 999px; cursor: pointer;
+    font-family: var(--font-sans); font-weight: 800; font-size: clamp(0.85rem, 0.7rem + 0.35vw, 1.05rem); letter-spacing: 0.04em;
+    text-transform: uppercase; color: #fff; white-space: nowrap;
+    background: linear-gradient(180deg, #2E8EF0, #1667D2);
+    box-shadow: 0 10px 24px rgba(4, 22, 64, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+  .ebook__download :global(svg) { width: 1.3em; height: 1.3em; flex: none; stroke-width: 2.4; }
+  .ebook__download:hover { transform: translateY(-2px); filter: brightness(1.08); box-shadow: 0 14px 30px rgba(4, 22, 64, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.25); }
+  .ebook__download:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
 
   /* ---------- Rail (article sidebar) ---------- */
   .ebook-rail {
@@ -482,6 +493,6 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
     .ebook-carousel__row { grid-auto-columns: 64vw; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .book, .ebook__btn, .ebook__btn :global(svg), .ebook__link :global(svg) { transition: none; }
+    .book, .ebook__btn, .ebook__btn :global(svg), .ebook__download { transition: none; }
   }
 </style>
