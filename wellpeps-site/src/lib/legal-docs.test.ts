@@ -158,10 +158,11 @@ describe('reading order of the converted documents', () => {
 });
 
 describe('what the converted documents may contain', () => {
-  // Partner identities, contract titles and internal paths must never reach the site or the public repo.
-  const DENY = [/\bOSI\b/, /Scriptful/, /\bNAA\b/, /Network Access Agreement/, /PepRite/, /docs\//, /Side Letter/, /Service Agreement/];
+  // Restricted partner identities, contract titles and internal paths must never reach the site or the public repo.
+  // Scriptful, Inc. may be named (client, 2026-10-02); the medical practice (OSI) may not without its written consent.
+  const DENY = [/\bOSI\b/, /\bNAA\b/, /Network Access Agreement/, /PepRite/, /docs\//, /Side Letter/, /Service Agreement/];
 
-  test('no partner name, contract title or internal path', () => {
+  test('no restricted partner name, contract title or internal path', () => {
     for (const d of LEGAL_DOCS) {
       const raw = readFileSync(resolve(dataDir, `${d.id}.json`), 'utf8');
       for (const re of DENY) expect(re.test(raw), `${d.id} matches ${re}`).toBe(false);
