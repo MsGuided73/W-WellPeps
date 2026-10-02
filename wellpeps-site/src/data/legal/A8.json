@@ -87,7 +87,7 @@
    "t": "clause",
    "number": "5.",
    "heading": "Who provides care.",
-   "text": "Medical care is provided by independent licensed clinicians of OSI Medical Services, P.A. (“the Practice”), which is separate from WellPeps. Medications are prepared and shipped by independent state-licensed pharmacies. Read How WellPeps Works for details.",
+   "text": "Medical care is provided by licensed clinicians of OSI Medical Services, P.A. (“the Practice”), an independent medical practice contracted with WellPeps and separate from it. Medications are prepared and shipped by independent state-licensed pharmacies. Read How WellPeps Works for details.",
    "level": 0
   },
   {
@@ -430,7 +430,7 @@
   },
   {
    "t": "p",
-   "text": "**Medical care.** Every health assessment is reviewed by an independent, state-licensed clinician of OSI Medical Services, P.A., 433 Plaza Real, Suite 275, Boca Raton, FL 33432, licensed in the state where you are located. The clinician decides whether treatment is appropriate. WellPeps does not provide medical care.",
+   "text": "**Medical care.** Every health assessment is reviewed by a state-licensed clinician of OSI Medical Services, P.A., 433 Plaza Real, Suite 275, Boca Raton, FL 33432, an independent medical practice contracted with WellPeps. Your clinician is licensed in the state where you are located and decides whether treatment is appropriate. WellPeps does not provide medical care.",
    "italic": false,
    "align": null
   },

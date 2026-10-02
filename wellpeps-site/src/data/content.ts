@@ -51,11 +51,23 @@ export const insights = [
 
 /* ---- Section 9: Common Questions (FAQ) ---- */
 export const faqs = [
+  {
+    q: 'Who is WellPeps?',
+    a: 'WellPeps is a U.S. telehealth company that makes it simple to get provider-guided care for weight management, hair restoration, sexual wellness and healthy aging. '
+      + 'WellPeps does not practice medicine. Medical care is provided by state-licensed clinicians of OSI Medical Services, P.A., an independent medical practice contracted with WellPeps, and prescriptions are filled by state-licensed pharmacies in the OSI / Scriptful Rx pharmacy network. '
+      + 'WellPeps brings these together in one place, with one monthly price.',
+  },
+  {
+    q: 'How does the WellPeps platform work?',
+    a: 'You start with a free online health assessment. A licensed clinician licensed in your state reviews your health history and goals, may ask follow-up questions or request a video visit, and decides whether treatment is appropriate for you. '
+      + 'If you are prescribed treatment, a state-licensed pharmacy prepares your medication and ships it to your home. Your care team is available through secure messaging in your patient portal, and you can cancel your plan at any time. '
+      + 'If you are not approved for medication, your payment is refunded in full.',
+  },
   ...planHomeFaqs,
   { q: 'How do I know if I’m a candidate for treatment?', a: 'Start with our free online health assessment. A licensed healthcare provider reviews your health history, symptoms, and goals to determine whether a treatment is clinically appropriate for you.' },
   { q: 'How do online consultations work?', a: 'After you complete your assessment, a licensed provider reviews your information online. If needed, they’ll follow up with questions before recommending a personalized treatment plan—no in-person visit required.' },
   { q: 'Are your healthcare providers licensed?', a: 'Yes. All treatment decisions are made by independent healthcare providers licensed in your state. Availability varies by state.' },
-  { q: 'What states do you serve?', a: 'Availability varies by state and by program. Care is available only where an independent licensed provider can treat you and a state-licensed pharmacy can ship to you.' },
+  { q: 'What states do you serve?', a: 'WellPeps serves patients located in all 50 states. Some medications are not available in every state; if one cannot be shipped to yours, we will tell you before you check out.' },
   { q: 'How are medications delivered?', a: 'If prescribed, medications are prepared by licensed U.S. pharmacies and shipped directly to your home in discreet, secure packaging.' },
   { q: 'Is my personal information secure?', a: 'We take your privacy seriously and use secure technology to protect your information. Our Privacy Policy explains what we collect, why, and the choices you have.' },
   { q: 'What payment methods do you accept?', a: 'We accept Visa, Mastercard, American Express, Discover, FSA/HSA cards, Apple Pay and Google Pay. You’ll see transparent, upfront pricing before you begin.' },

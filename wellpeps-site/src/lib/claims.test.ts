@@ -10,7 +10,10 @@ import { describe, expect, test } from 'vitest';
  */
 const BANNED: { pattern: RegExp; why: string }[] = [
   { pattern: /HIPAA[- ]compliant|strict HIPAA standards/i, why: 'No agency certifies HIPAA compliance, and WellPeps’ HIPAA role is undecided' },
-  { pattern: /all 50 states|50-state|50 states ·|nationwide (care|network|lab)|patients nationwide|available nationwide/i, why: 'Licensure and pharmacy availability are state by state; needs a verified state matrix' },
+  // "all 50 states" is allowed since 2026-10-02: LegitScript certified the provider network (OSI) for all 50 states, and the
+  // platform tells a patient at checkout when a medication cannot ship to their state (client-verified). Unqualified
+  // nationwide-network and lab claims stay banned.
+  { pattern: /50-state|50 states ·|nationwide (care|network|lab)|patients nationwide|available nationwide/i, why: 'Medication and lab availability are state by state; say which states, and that some medications vary' },
   { pattern: /FDA[- ]registered/i, why: '503A compounding pharmacies are state-licensed, not FDA-registered' },
   { pattern: /FDA[- ]approved treatments/i, why: 'Only some listed products are FDA-approved; compounded products are not' },
   { pattern: /Physician (&|&amp;|and) Pharmacy Founded/i, why: 'Needs proof of the founders’ current licensure' },
