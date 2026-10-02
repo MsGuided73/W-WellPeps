@@ -21,6 +21,12 @@ ENV SUPABASE_URL=$SUPABASE_URL \
 ARG SHOW_DRAFT_PAGES
 ENV SHOW_DRAFT_PAGES=$SHOW_DRAFT_PAGES
 
+# How the free Smart Patient Guides are offered (src/lib/guide-flow.ts, docs/GUIDE-FLOW.md). Unset or
+# "dialog": the current email dialogs. "landing": the guide-funnel flow (3D ring, a landing page and a
+# thank-you page per guide, a Smart Patient Guides index). Set it as a Build-time variable in Coolify.
+ARG PUBLIC_GUIDE_FLOW
+ENV PUBLIC_GUIDE_FLOW=$PUBLIC_GUIDE_FLOW
+
 # Install deps from the lockfile first for layer caching.
 COPY package.json package-lock.json ./
 RUN npm ci

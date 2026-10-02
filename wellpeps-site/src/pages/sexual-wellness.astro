@@ -7,6 +7,8 @@ import SexRecommendation from '../components/sections/sexual/SexRecommendation.a
 import SexFaq from '../components/sections/sexual/SexFaq.astro';
 import SexCta from '../components/sections/sexual/SexCta.astro';
 import EbookOffer from '../components/EbookOffer.astro';
+import GuideBand from '../components/guides/GuideBand.astro';
+import { GUIDE_LANDING_FLOW } from '../config';
 import { ebooksFor } from '../data/ebooks';
 ---
 <BaseLayout
@@ -15,9 +17,10 @@ import { ebooksFor } from '../data/ebooks';
 >
   <SexHero />
   <SexEducation />
+  {GUIDE_LANDING_FLOW && <GuideBand program="sexual-wellness" />}
   <SexProducts />
   <SexRecommendation />
-  <EbookOffer books={ebooksFor('sexual-wellness')} variant="band" />
+  {!GUIDE_LANDING_FLOW && <EbookOffer books={ebooksFor('sexual-wellness')} variant="band" />}
   <SexFaq />
   <SexCta />
 </BaseLayout>

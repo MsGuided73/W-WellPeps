@@ -1,0 +1,58 @@
+---
+/**
+ * The Smart Patient's Guide Series pages (guide-funnel flow, GUIDE_FLOW = 'landing'):
+ *
+ *   /smart-patient-guides                      the series index (never behind a form)
+ *   /smart-patient-guides/<guide>              a guide's landing page, with the email form
+ *   /smart-patient-guides/<guide>/thank-you    where the form leads; carries the download
+ *
+ * One route builds all three, because the index needs a rest route to exist at the folder's own
+ * address. In the default 'dialog' flow it builds nothing, so none of these addresses exist and
+ * nothing links to them: the current flow is untouched. See src/lib/guide-flow.ts.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GuideIndex from '../../components/guides/GuideIndex.astro';
+import GuideLanding from '../../components/guides/GuideLanding.astro';
+import GuideThanks from '../../components/guides/GuideThanks.astro';
+import { GUIDE_LANDING_FLOW } from '../../config';
+import { EBOOKS, type Ebook } from '../../data/ebooks';
+import { GUIDE_SERIES, guidePageFor } from '../../data/guide-pages';
+
+type Kind = 'index' | 'guide' | 'thanks';
+
+export function getStaticPaths() {
+  if (!GUIDE_LANDING_FLOW) return [];
+  return [
+    { params: { path: undefined }, props: { kind: 'index' as Kind } },
+    ...EBOOKS.map((book) => ({ params: { path: book.slug }, props: { kind: 'guide' as Kind, book } })),
+    ...EBOOKS.map((book) => ({ params: { path: `${book.slug}/thank-you` }, props: { kind: 'thanks' as Kind, book } })),
+  ];
+}
+
+interface Props {
+  kind: Kind;
+  book?: Ebook;
+}
+const { kind, book } = Astro.props;
+
+const meta =
+  kind === 'index'
+    ? {
+        title: 'The Smart Patient’s Guide Series: Free Healthcare Guides | WellPeps',
+        description: GUIDE_SERIES.indexMeta,
+      }
+    : kind === 'guide' && book
+      ? {
+          title: `The Smart Patient’s Guide to ${book.title}: Free eBook | WellPeps`,
+          description: guidePageFor(book.slug).metaDescription,
+        }
+      : {
+          title: `Your Smart Patient’s Guide to ${book?.title ?? ''} | WellPeps`,
+          description: 'Your free Smart Patient’s Guide.',
+        };
+---
+<BaseLayout title={meta.title} description={meta.description} noindex={kind === 'thanks'}>
+  {kind === 'index' && <GuideIndex />}
+  {kind === 'guide' && book && <GuideLanding book={book} />}
+  {kind === 'thanks' && book && <GuideThanks book={book} />}
+</BaseLayout>

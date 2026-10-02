@@ -1,0 +1,11 @@
+---
+/**
+ * Stands in for every other component in this folder when the guide-funnel flow is off.
+ *
+ * Astro puts a component's CSS and script into every page that imports it, whether or not the
+ * component renders. So in the default 'dialog' flow astro.config.mjs points each import of a
+ * guides/Guide*.astro component here, and the default pages carry none of the new flow's CSS or
+ * JavaScript (the guide-funnel flow is a build-time choice, see docs/GUIDE-FLOW.md). This renders
+ * nothing and ignores whatever props it is given.
+ */
+---

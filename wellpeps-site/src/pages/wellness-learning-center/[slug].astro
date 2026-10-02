@@ -11,7 +11,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import EverythingIncludedStrip from '../../components/EverythingIncludedStrip.astro';
 import EbookOffer from '../../components/EbookOffer.astro';
+import GuideArticleCta from '../../components/guides/GuideArticleCta.astro';
+import { GUIDE_LANDING_FLOW } from '../../config';
 import { ebooksForCategory } from '../../data/ebooks';
+import { guideForArticle, splitAtMiddleSection } from '../../lib/guide-flow';
 import HairTreatmentOptions from '../../components/sections/HairTreatmentOptions.astro';
 import PeptideTherapies from '../../components/sections/PeptideTherapies.astro';
 import SexualTreatmentOptions from '../../components/sections/SexualTreatmentOptions.astro';
@@ -36,6 +39,11 @@ interface Props {
 const { article } = Astro.props;
 const { html: bodyHtml, toc } = withToc(article.body_html);
 const related = await getRelatedArticles(article);
+
+/* Guide-funnel flow: the guide that matches the article's subject, offered once partway through the
+   article and once after its last section. In the default flow the sidebar card below does this. */
+const guide = GUIDE_LANDING_FLOW ? guideForArticle(article) : undefined;
+const [proseBefore, proseAfter] = guide ? splitAtMiddleSection(bodyHtml) : [bodyHtml, ''];
 
 /* Treatment inserts are scoped per category, matched on the SLUG. Each renders
    between the article's closing prose section and Key Takeaways.
@@ -116,7 +124,9 @@ const updated = article.published_at
           </nav>
         )}
 
-        <div class="prose" set:html={bodyHtml} />
+        <div class="prose" set:html={proseBefore} />
+        {guide && proseAfter && <GuideArticleCta book={guide} placement="inline" />}
+        {proseAfter && <div class="prose prose--cont" set:html={proseAfter} />}
 
         {showTherapies && <PeptideTherapies />}
 
@@ -134,6 +144,8 @@ const updated = article.published_at
             </ul>
           </section>
         )}
+
+        {guide && <GuideArticleCta book={guide} placement="end" />}
 
         {related.length > 0 && (
           <section class="related" aria-labelledby="related-articles">
@@ -160,7 +172,7 @@ const updated = article.published_at
 
         {showIncludedBar && <EverythingIncludedStrip stacked />}
 
-        <EbookOffer books={ebooksForCategory(article.category.slug)} variant="rail" />
+        {!GUIDE_LANDING_FLOW && <EbookOffer books={ebooksForCategory(article.category.slug)} variant="rail" />}
 
         {article.disclaimer_html && (
           <div class="rail__card">
@@ -264,8 +276,10 @@ const updated = article.published_at
   .prose :global(p) { margin-bottom: 1rem; }
   .prose :global(ul) { margin: 0 0 1.25rem; padding-left: 1.25rem; }
   .prose :global(li) { margin-bottom: 0.4rem; }
-  /* Hairline under each section, matching the mockup's rhythm. */
-  .prose :global(h2:not(:first-child)) {
+  /* Hairline under each section, matching the mockup's rhythm. The second half of a split article
+     starts with a section heading, which is its container's first child. */
+  .prose :global(h2:not(:first-child)),
+  .prose--cont :global(h2:first-child) {
     border-top: 1px solid #E4EAF2; padding-top: 2.25rem;
   }
 

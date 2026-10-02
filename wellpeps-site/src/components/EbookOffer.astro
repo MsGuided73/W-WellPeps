@@ -111,7 +111,7 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
                 <button type="button" class="book" data-ebook-open={book.slug} aria-label={`Get the free guide: ${book.title}`}>
                   <img src={book.cover} alt="" width="600" height="776" decoding="async" />
                 </button>
-                <button type="button" class="ebook__download" data-ebook-open={book.slug} aria-label={`Download the free guide: ${book.title}`}><Icon name="download" />Download Free Guide</button>
+                <button type="button" class="ebook__download" data-ebook-open={book.slug} aria-label={`Download the free guide: ${book.title}`}>Download Free Guide</button>
               </li>
             ))}
           </ul>
@@ -393,16 +393,15 @@ const dialogId = `ebook-dialog-${Math.random().toString(36).slice(2, 8)}`;
   }
   .ebook-carousel__star :global(.free-star) { transform: none; }
   .ebook__download {
-    margin-top: 1.6rem; width: 100%; max-width: 300px; display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
-    padding: 0.95rem 1.1rem; border: 1.5px solid rgba(255, 255, 255, 0.28); border-radius: 999px; cursor: pointer;
-    font-family: var(--font-sans); font-weight: 800; font-size: clamp(0.85rem, 0.7rem + 0.35vw, 1.05rem); letter-spacing: 0.04em;
-    text-transform: uppercase; color: #fff; white-space: nowrap;
-    background: linear-gradient(180deg, #2E8EF0, #1667D2);
-    box-shadow: 0 10px 24px rgba(4, 22, 64, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    margin-top: 1.6rem; width: 100%; max-width: 300px; display: inline-flex; align-items: center; justify-content: center;
+    padding: 0.95rem 0.75rem; border: 0; border-radius: 999px; cursor: pointer;
+    font-family: var(--font-sans); font-weight: 800; font-size: clamp(0.8rem, 0.62rem + 0.35vw, 1rem); letter-spacing: 0.03em;
+    text-transform: uppercase; color: var(--navy); white-space: nowrap;
+    background: linear-gradient(180deg, #FFFFFF, #E9F3FC);
+    box-shadow: 0 10px 24px rgba(4, 22, 64, 0.4), inset 0 -2px 0 rgba(21, 118, 196, 0.12);
     transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
   }
-  .ebook__download :global(svg) { width: 1.3em; height: 1.3em; flex: none; stroke-width: 2.4; }
-  .ebook__download:hover { transform: translateY(-2px); filter: brightness(1.08); box-shadow: 0 14px 30px rgba(4, 22, 64, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.25); }
+  .ebook__download:hover { transform: translateY(-2px); background: #fff; box-shadow: 0 14px 30px rgba(4, 22, 64, 0.5); }
   .ebook__download:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
 
   /* ---------- Rail (article sidebar) ---------- */

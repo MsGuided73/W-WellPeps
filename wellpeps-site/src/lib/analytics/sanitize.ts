@@ -48,6 +48,9 @@ export function pageTemplateOf(path: string): PageTemplate {
   if (PROGRAM_PATHS.some((p) => under(path, p))) return 'program';
   if (path === '/wellness-learning-center') return 'learning_center_index';
   if (path.startsWith('/wellness-learning-center/')) return 'learning_center_article';
+  // The Smart Patient Guides are educational content, reported as the Learning Center is.
+  if (path === '/smart-patient-guides') return 'learning_center_index';
+  if (path.startsWith('/smart-patient-guides/')) return 'learning_center_article';
   if (LEGAL_PATHS.some((p) => under(path, p))) return 'legal';
   if (under(path, '/your-privacy-choices')) return 'privacy_choices';
   if (under(path, '/your-plan')) return 'plan';

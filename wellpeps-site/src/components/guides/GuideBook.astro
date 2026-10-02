@@ -1,0 +1,53 @@
+---
+/**
+ * A guide cover as a 3D book: it leans back on its spine, with page edges, a spine crease and a floor
+ * shadow. Used by the guide-funnel flow (landing pages, program bands, article calls to action, the
+ * series index). The caller sets the width; the book keeps the cover's shape. `star` sticks the
+ * royal-blue FREE sticker to the top-right corner.
+ */
+import FreeStar from '../FreeStar.astro';
+
+interface Props {
+  src: string;
+  alt?: string;
+  star?: boolean;
+  /** Leaning (default) or flat, square-on to the viewer. */
+  flat?: boolean;
+  loading?: 'eager' | 'lazy';
+}
+const { src, alt = '', star = false, flat = false, loading = 'lazy' } = Astro.props;
+---
+<div class:list={['gbook', { 'gbook--flat': flat }]}>
+  <img src={src} alt={alt} width="600" height="776" loading={loading} decoding="async" />
+  {star && <span class="gbook__star" aria-hidden="true"><FreeStar /></span>}
+</div>
+
+<style>
+  .gbook {
+    position: relative; display: block; width: 100%; aspect-ratio: 600 / 776;
+    transform: perspective(1400px) rotateY(-20deg) rotateX(3deg);
+    transform-origin: left center;
+    transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .gbook--flat { transform: none; }
+  .gbook img {
+    position: relative; z-index: 1; display: block; width: 100%; height: 100%; object-fit: cover;
+    border-radius: 2px 6px 6px 2px;
+    box-shadow:
+      5px 4px 0 -1px #F7F8FA, 6px 5px 0 -1px #C9D1DC,
+      10px 8px 0 -2px #F7F8FA, 11px 9px 0 -2px #C9D1DC,
+      15px 12px 0 -3px #F2F4F7, 16px 13px 0 -3px #B9C3D0;
+  }
+  .gbook::before {
+    content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none; border-radius: 2px 6px 6px 2px;
+    background:
+      linear-gradient(90deg, rgba(0,0,0,0.38) 0, rgba(255,255,255,0.22) 2.2%, rgba(0,0,0,0.18) 4%, transparent 7%),
+      linear-gradient(118deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 38%);
+  }
+  .gbook::after {
+    content: ''; position: absolute; z-index: 0; left: 6%; right: -12%; bottom: -9%; height: 12%;
+    background: radial-gradient(closest-side, rgba(0, 10, 30, 0.55), transparent); filter: blur(4px);
+  }
+  .gbook__star { position: absolute; z-index: 3; top: -3%; right: -7%; width: 30%; pointer-events: none; }
+  @media (prefers-reduced-motion: reduce) { .gbook { transition: none; } }
+</style>

@@ -247,6 +247,7 @@ svg.inline-arrow    { width: 0.9em; height: 0.9em; }
 .card:hover .medallion { box-shadow: var(--medallion-shadow); transform: translateY(-2px); }
 
 /* ---- Reveal-on-scroll (progressive enhancement) ---- */
+.nb { white-space: nowrap; } /* keeps a term such as GLP-1 on one line */
 .reveal { opacity: 0; transform: translateY(18px); }
 .reveal.is-in { opacity: 1; transform: none; transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }

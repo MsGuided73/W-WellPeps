@@ -311,20 +311,41 @@ async function interactions(browser) {
     if (!page.url().endsWith('/wellness-learning-center/')) throw new Error(`Enter navigated to ${page.url()}`);
     if (await form.count() !== 1) throw new Error('search form disappeared');
   });
-  await step('eBook dialog: opens, takes an email, submits to the signup function and shows the confirmation', bag, async () => {
-    const before = bag.supabase.length;
-    const open = page.locator('[data-ebook-open]:visible').first();
-    await open.scrollIntoViewIfNeeded();
-    await open.click();
-    await page.locator('dialog[data-ebook-dialog][open]').waitFor({ timeout: 5000 });
-    await page.locator('dialog[data-ebook-dialog] input[name="email"]').fill('csp-check@example.com');
-    // The required consent box (W9): the form refuses to send without it.
-    await page.locator('dialog[data-ebook-dialog] input[name="consentCollect"]').check();
-    await page.locator('dialog[data-ebook-dialog] [data-ebook-form] button[type="submit"]').click();
-    await page.locator('[data-ebook-done]:not([hidden])').waitFor({ timeout: 5000 });
-    if (!bag.supabase.slice(before).some((r) => r.startsWith('POST'))) throw new Error('the signup request never left the page');
-    await page.locator('dialog[data-ebook-dialog] [data-ebook-close]').click();
-  });
+  // The guide offer is one of two flows (PUBLIC_GUIDE_FLOW, docs/GUIDE-FLOW.md); check the one that was built.
+  const ringFlow = (await page.locator('[data-guide-ring]').count()) > 0;
+  if (ringFlow) {
+    await step('guide ring turns under the policy; a guide landing form submits to the signup function and opens the thank-you page', bag, async () => {
+      const before = bag.supabase.length;
+      await page.locator('[data-guide-ring]').scrollIntoViewIfNeeded();
+      await page.locator('[data-ring-next]').click();
+      await page.waitForFunction(() => document.querySelector('[data-ring-track]')?.style.getPropertyValue('--angle') === '-72');
+      await page.goto(`${OPEN}/smart-patient-guides/glp-1-weight-loss/`, { waitUntil: 'networkidle' });
+      const form = page.locator('form[data-guide-form]');
+      await form.scrollIntoViewIfNeeded();
+      await form.locator('input[name="email"]').fill('csp-check@example.com');
+      // The required consent box (W9): the form refuses to send without it.
+      await form.locator('input[name="consentCollect"]').check();
+      await form.locator('button[type="submit"]').click();
+      await page.waitForURL('**/thank-you/**', { timeout: 8000 }).catch(async () => { await page.waitForURL('**/thank-you', { timeout: 4000 }); });
+      if (!bag.supabase.slice(before).some((r) => r.startsWith('POST'))) throw new Error('the signup request never left the page');
+    });
+  } else {
+    await step('eBook dialog: opens, takes an email, submits to the signup function and shows the confirmation', bag, async () => {
+      const before = bag.supabase.length;
+      const open = page.locator('[data-ebook-open]:visible').first();
+      await open.scrollIntoViewIfNeeded();
+      await open.click();
+      await page.locator('dialog[data-ebook-dialog][open]').waitFor({ timeout: 5000 });
+      await page.locator('dialog[data-ebook-dialog] input[name="email"]').fill('csp-check@example.com');
+      // The required consent box (W9): the form refuses to send without it.
+      await page.locator('dialog[data-ebook-dialog] input[name="consentCollect"]').check();
+      await page.locator('dialog[data-ebook-dialog] [data-ebook-form] button[type="submit"]').click();
+      await page.locator('[data-ebook-done]:not([hidden])').waitFor({ timeout: 5000 });
+      if (!bag.supabase.slice(before).some((r) => r.startsWith('POST'))) throw new Error('the signup request never left the page');
+      await page.locator('dialog[data-ebook-dialog] [data-ebook-close]').click();
+    });
+
+  }
 
   await page.goto(`${OPEN}/weight-loss/`, { waitUntil: 'networkidle' });
   await step('checkout lock: the assessment button opens the password box, a wrong password shows the error', bag, async () => {

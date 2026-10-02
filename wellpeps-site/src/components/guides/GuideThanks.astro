@@ -1,0 +1,76 @@
+---
+/**
+ * A guide's thank-you page (guide-funnel flow): where the form on the landing page leads, and the
+ * one place the download lives, so the PDF's address is never on the landing page. It is the best
+ * moment to offer the assessment, because the visitor has just raised their hand about a topic.
+ *
+ * Kept out of search results and not linked from anywhere else. While the guide's PDF is not
+ * published yet (no `pdf` on the guide in src/data/ebooks.ts, which waits for Derek's approval) the
+ * headline and the text say the request is in and the guide will be emailed, instead of "Ready" and a
+ * download button. It does not say a copy
+ * "has been sent" until the email system that sends one exists.
+ */
+import Icon from '../Icon.astro';
+import AssessmentCta from '../AssessmentCta.astro';
+import { guidePageFor } from '../../data/guide-pages';
+import { GUIDES_INDEX_PATH, keepGlpTogether } from '../../lib/guide-flow';
+import type { Ebook } from '../../data/ebooks';
+
+interface Props {
+  book: Ebook;
+}
+const { book } = Astro.props;
+const page = guidePageFor(book.slug);
+---
+<section class="gthanks">
+  <div class="container gthanks__inner">
+    <div class="gthanks__card" role="status">
+      <span class="gthanks__icon"><Icon name="check" /></span>
+      <h1 class="gthanks__title">{book.pdf ? 'Your Smart Patient’s Guide Is Ready.' : 'Thanks, We’ve Got Your Request.'}</h1>
+      <p class="gthanks__lead">Thanks for requesting The Smart Patient’s Guide to {book.title}.</p>
+      {book.pdf
+        ? <a class="gthanks__btn" href={book.pdf} target="_blank" rel="noopener" data-guide-download>Download Your Guide<Icon name="arrow-right" /></a>
+        : <p class="gthanks__soon">We’re putting the finishing touches on it. We’ll email it to the address you gave us as soon as it’s published.</p>}
+      <p class="gthanks__more"><a href={GUIDES_INDEX_PATH}>Browse all Smart Patient Guides</a></p>
+    </div>
+
+    <div class="gthanks__next">
+      <h2 set:html={keepGlpTogether(page.thanks.assessmentHeading)} />
+      <p>{page.thanks.assessmentBody}</p>
+      <AssessmentCta program={page.assessmentProgram} class="btn btn--primary btn--lg" arrow />
+    </div>
+  </div>
+</section>
+
+<style>
+  .gthanks {
+    padding-block: clamp(3rem, 6vw, 5.5rem);
+    background:
+      radial-gradient(60rem 30rem at 12% 0%, rgba(46, 168, 247, 0.28), transparent 60%),
+      linear-gradient(160deg, #0B3670 0%, var(--navy) 55%, var(--navy-deep) 100%);
+  }
+  .gthanks__inner { display: grid; gap: 1.75rem; max-width: 46rem; }
+  .gthanks__card { display: grid; justify-items: center; gap: 1rem; padding: clamp(1.75rem, 1.2rem + 2.5vw, 3rem); border-radius: 22px; background: #fff; text-align: center; box-shadow: 0 24px 60px rgba(3, 18, 40, 0.4); }
+  .gthanks__icon { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: #E6F4EA; color: #1E7B3A; }
+  .gthanks__icon :global(svg) { width: 32px; height: 32px; stroke-width: 3; }
+  .gthanks__title { font-family: var(--font-serif); font-weight: 600; color: var(--navy); font-size: var(--text-section-title); line-height: 1.12; margin: 0; }
+  .gthanks__lead { font-size: var(--text-lead); margin: 0; }
+  .gthanks__soon { max-width: 32rem; margin: 0; font-size: var(--text-body-size); line-height: 1.55; }
+  .gthanks__btn {
+    display: inline-flex; align-items: center; gap: 0.55rem; padding: 1.05rem 1.9rem; border-radius: 999px;
+    font-family: var(--font-sans); font-weight: 700; font-size: 1.125rem; letter-spacing: 0.03em; text-transform: uppercase; color: #fff;
+    background: linear-gradient(180deg, #1E86D8, var(--blue)); box-shadow: 0 10px 24px rgba(21, 118, 196, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .gthanks__btn :global(svg) { width: 20px; height: 20px; transition: transform 0.2s ease; }
+  .gthanks__btn:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 14px 30px rgba(21, 118, 196, 0.45); }
+  .gthanks__btn:hover :global(svg) { transform: translateX(3px); }
+  .gthanks__btn:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 3px; color: #fff; }
+  .gthanks__more { margin: 0; font-size: 1rem; }
+  .gthanks__more a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+
+  .gthanks__next { display: grid; justify-items: center; gap: 0.9rem; padding: clamp(1.5rem, 1rem + 2vw, 2.25rem); border-radius: 22px; text-align: center; color: #fff; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); }
+  .gthanks__next h2 { font-family: var(--font-serif); font-weight: 600; color: #fff; font-size: var(--text-card-title); margin: 0; }
+  .gthanks__next p { margin: 0; max-width: 34rem; color: rgba(255, 255, 255, 0.88); font-size: var(--text-body-size); }
+  @media (prefers-reduced-motion: reduce) { .gthanks__btn, .gthanks__btn :global(svg) { transition: none; } }
+</style>

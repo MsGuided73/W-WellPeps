@@ -1,0 +1,117 @@
+---
+/**
+ * The email form on a guide's landing page (guide-funnel flow). Email is the only field (the
+ * client dropped first name on 2026-10-02): no name, no phone, no date of birth, no health questions, no "what are you interested in" menu,
+ * because which guide it is already says what they are interested in.
+ *
+ * It uses the same sign-up function and the same two separate consent boxes as the email dialog
+ * (src/components/legal/FormConsent.astro, src/lib/form-consent.ts), with the guide named in both.
+ * On success it opens the guide's thank-you page, which carries the download.
+ */
+import Icon from '../Icon.astro';
+import FormConsent from '../legal/FormConsent.astro';
+import { CONTACT } from '../../config';
+import { guideThanksPath } from '../../lib/guide-flow';
+import type { Ebook } from '../../data/ebooks';
+
+interface Props {
+  book: Ebook;
+}
+const { book } = Astro.props;
+const id = `gform-${book.slug}`;
+---
+<form class="gform" id={id} method="post" novalidate data-guide-form data-source={book.source} data-next={guideThanksPath(book.slug)} aria-labelledby={`${id}-title`}>
+  <div class="gform__head">
+    <h2 class="gform__title" id={`${id}-title`}>Get Your Free Guide</h2>
+    <img class="gform__mark" src="/images/w-mark-v2.png" alt="" width="450" height="300" />
+  </div>
+  <div class="gform__fields">
+    <div class="gform__field">
+      <label for={`${id}-email`}>Email address</label>
+      <input id={`${id}-email`} name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
+    </div>
+  </div>
+  <div class="gform__hp" aria-hidden="true">
+    <label>Company <input name="company" type="text" tabindex="-1" autocomplete="off" /></label>
+  </div>
+  <FormConsent topic={book.title} idPrefix={`${id}-consent`} forGuide />
+  <p class="gform__error" role="alert" hidden data-guide-error></p>
+  <button type="submit" class="gform__submit">Send Me the Free Guide<Icon name="arrow-right" /></button>
+  <p class="gform__note">We’ll use your email address to send your guide.</p>
+  <noscript><p class="gform__error">This form needs JavaScript. Please turn it on, or email {CONTACT.email} and ask for the guide.</p></noscript>
+</form>
+
+<script>
+  import { submitSignup, type SignupSource } from '../../lib/notify';
+
+  document.querySelectorAll<HTMLFormElement>('[data-guide-form]').forEach((form) => {
+    const errorEl = form.querySelector<HTMLElement>('[data-guide-error]')!;
+    const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+    const submitHtml = submit.innerHTML;
+    // The Back button can restore this page from memory with the button stuck on "Sending…".
+    window.addEventListener('pageshow', (e) => {
+      if (!e.persisted) return;
+      submit.disabled = false;
+      submit.innerHTML = submitHtml;
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      const data = new FormData(form);
+      errorEl.hidden = true;
+      submit.disabled = true;
+      submit.textContent = 'Sending…';
+
+      const result = await submitSignup({
+        email: String(data.get('email') ?? '').trim(),
+        source: form.dataset.source as SignupSource,
+        company: String(data.get('company') ?? ''),
+        consent: { collect: data.get('consentCollect') === 'on', marketing: data.get('consentMarketing') === 'on' },
+      });
+
+      if (!result.ok) {
+        submit.disabled = false;
+        submit.innerHTML = submitHtml;
+        errorEl.textContent = result.message ?? '';
+        errorEl.hidden = false;
+        return;
+      }
+      // The thank-you page carries the download, so the PDF's address is never on this page.
+      window.location.assign(form.dataset.next ?? '/');
+    });
+  });
+</script>
+
+<style>
+  .gform {
+    display: grid; gap: 0.9rem; padding: clamp(1.25rem, 1rem + 1.5vw, 1.9rem); border-radius: 18px; background: #fff; color: var(--text-body);
+    box-shadow: 0 24px 60px rgba(3, 18, 40, 0.4);
+  }
+  .gform__head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .gform__mark { flex: none; width: 62px; height: auto; }
+  .gform__title { font-family: var(--font-serif); font-weight: 600; color: var(--navy); font-size: calc(var(--text-body-size) * 1.35); line-height: 1.2; margin: 0; }
+  .gform__fields { display: grid; gap: 0.9rem; }
+  .gform__field { display: grid; gap: 0.35rem; min-width: 0; }
+  .gform__field label { font-weight: 600; color: var(--navy); font-size: 1rem; }
+  .gform__field input {
+    width: 100%; padding: 0.8rem 0.95rem; font: inherit; font-size: 1.0625rem; border: 1.5px solid #C6D3E3; border-radius: 12px; background: #F8FBFE;
+  }
+  .gform__field input:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 1px; border-color: var(--blue); }
+  .gform__hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .gform__error { color: #B42318; font-weight: 600; margin: 0; }
+  .gform__error[hidden] { display: none; }
+  .gform__submit {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; width: 100%; padding: 1rem 1.6rem; border: 0; border-radius: 999px; cursor: pointer;
+    font-family: var(--font-sans); font-weight: 700; font-size: 1.125rem; letter-spacing: 0.02em; color: #fff;
+    background: linear-gradient(180deg, #1E86D8, var(--blue)); box-shadow: 0 10px 24px rgba(21, 118, 196, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .gform__submit :global(svg) { width: 20px; height: 20px; transition: transform 0.2s ease; }
+  .gform__submit:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(21, 118, 196, 0.45); }
+  .gform__submit:hover:not(:disabled) :global(svg) { transform: translateX(3px); }
+  .gform__submit:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 3px; }
+  .gform__submit:disabled { opacity: 0.7; cursor: progress; }
+  .gform__note { margin: 0; text-align: center; font-size: 0.8125rem; line-height: 1.45; color: var(--text-body); }
+  @media (prefers-reduced-motion: reduce) { .gform__submit, .gform__submit :global(svg) { transition: none; } }
+</style>

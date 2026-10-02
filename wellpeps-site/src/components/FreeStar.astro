@@ -1,36 +1,79 @@
 ---
 /**
- * Royal-blue starburst sticker that says FREE. Decorative: the button or link it sits on already
+ * Blue metallic 3D coin that says FREE (client design, 2026-10-02; replaced the starburst sticker).
+ * The coin's top face has a rounded, lit rim, a double white ring around its edge and FREE across the middle; a
+ * darker band below the face gives it thickness. Decorative: the button or link it sits on already
  * says the guide is free, so it is hidden from screen readers. The parent sets its size and place
- * (the SVG fills whatever width it is given and keeps its shape).
+ * (the SVG fills whatever width it is given and keeps its shape). Kept the FreeStar name so every
+ * page that uses it picks up the new badge.
  */
-const POINTS = 16;
-const OUTER = 48;
-const INNER = 41;
-const burst = Array.from({ length: POINTS * 2 }, (_, i) => {
-  const r = i % 2 === 0 ? OUTER : INNER;
-  const a = (Math.PI * i) / POINTS - Math.PI / 2;
-  return `${(50 + r * Math.cos(a)).toFixed(2)},${(50 + r * Math.sin(a)).toFixed(2)}`;
-}).join(' ');
-// One gradient id per star, so several stars on a page never share (or lose) a definition.
-const gradId = `free-star-${Math.random().toString(36).slice(2, 8)}`;
+// One set of gradient ids per badge, so several badges on a page never share (or lose) a definition.
+const uid = Math.random().toString(36).slice(2, 8);
+const face = `free-face-${uid}`;
+const side = `free-side-${uid}`;
+const sheen = `free-sheen-${uid}`;
+const gloss = `free-gloss-${uid}`;
+const dome = `free-dome-${uid}`;
+const rim = `free-rim-${uid}`;
 ---
 <svg class="free-star" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
   <defs>
-    <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#4F7BF7" />
-      <stop offset="1" stop-color="#2146C8" />
+    <linearGradient id={face} x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#A9D6FF" />
+      <stop offset="0.28" stop-color="#4C9BF2" />
+      <stop offset="0.62" stop-color="#1D5FCB" />
+      <stop offset="1" stop-color="#0D3486" />
     </linearGradient>
+    <linearGradient id={side} x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0A2768" />
+      <stop offset="0.45" stop-color="#2A64C4" />
+      <stop offset="1" stop-color="#081F57" />
+    </linearGradient>
+    <!-- brushed-metal bands across the face -->
+    <linearGradient id={sheen} x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0" />
+      <stop offset="0.3" stop-color="#fff" stop-opacity="0.28" />
+      <stop offset="0.42" stop-color="#fff" stop-opacity="0" />
+      <stop offset="0.66" stop-color="#fff" stop-opacity="0.14" />
+      <stop offset="0.8" stop-color="#fff" stop-opacity="0" />
+    </linearGradient>
+    <!-- rounded rim: the face darkens toward its edge, then a lit lip catches the light on top -->
+    <radialGradient id={dome} cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0.8" stop-color="#03163F" stop-opacity="0" />
+      <stop offset="0.95" stop-color="#03163F" stop-opacity="0.35" />
+      <stop offset="1" stop-color="#03163F" stop-opacity="0.55" />
+    </radialGradient>
+    <linearGradient id={rim} x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.9" />
+      <stop offset="0.45" stop-color="#fff" stop-opacity="0.15" />
+      <stop offset="1" stop-color="#021034" stop-opacity="0.5" />
+    </linearGradient>
+    <radialGradient id={gloss} cx="0.4" cy="0.2" r="0.6">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.55" />
+      <stop offset="1" stop-color="#fff" stop-opacity="0" />
+    </radialGradient>
   </defs>
-  <polygon points={burst} fill={`url(#${gradId})`} stroke="#fff" stroke-width="2.4" stroke-linejoin="round" />
-  <circle cx="50" cy="50" r="33" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.2" />
-  <text x="50" y="51" text-anchor="middle" dominant-baseline="central" textLength="52" lengthAdjust="spacingAndGlyphs"
-    fill="#fff" font-family="var(--font-sans), system-ui, sans-serif" font-weight="800" font-size="23">FREE</text>
+  <!-- thickness: the coin's edge, showing below the face -->
+  <circle cx="50" cy="54" r="44" fill={`url(#${side})`} />
+  <!-- top face -->
+  <circle cx="50" cy="48" r="44" fill={`url(#${face})`} />
+  <circle cx="50" cy="48" r="44" fill={`url(#${sheen})`} />
+  <circle cx="50" cy="48" r="44" fill={`url(#${dome})`} />
+  <circle cx="50" cy="48" r="42.8" fill="none" stroke={`url(#${rim})`} stroke-width="2.4" />
+  <ellipse cx="44" cy="28" rx="30" ry="17" fill={`url(#${gloss})`} />
+  <!-- double white line around the edge of the face -->
+  <circle cx="50" cy="48" r="39.4" fill="none" stroke="#fff" stroke-width="1.8" />
+  <circle cx="50" cy="48" r="35.6" fill="none" stroke="#fff" stroke-width="1" stroke-opacity="0.9" />
+  <!-- FREE, with a soft pressed-in shadow -->
+  <text x="50" y="50" text-anchor="middle" dominant-baseline="central" textLength="54" lengthAdjust="spacingAndGlyphs"
+    fill="#062058" fill-opacity="0.45" font-family="var(--font-sans), system-ui, sans-serif" font-weight="800" font-size="24">FREE</text>
+  <text x="50" y="48.6" text-anchor="middle" dominant-baseline="central" textLength="54" lengthAdjust="spacingAndGlyphs"
+    fill="#fff" font-family="var(--font-sans), system-ui, sans-serif" font-weight="800" font-size="24">FREE</text>
 </svg>
 
 <style>
   .free-star {
     display: block; width: 100%; height: auto; transform: rotate(-12deg);
-    filter: drop-shadow(0 6px 10px rgba(0, 10, 40, 0.4));
+    filter: drop-shadow(0 8px 12px rgba(0, 10, 40, 0.45));
   }
 </style>

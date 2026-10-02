@@ -1,0 +1,252 @@
+---
+/**
+ * A guide's landing page (guide-funnel flow): compact on purpose. Someone asking for a free guide
+ * does not need twelve sections of persuasion, so the whole offer is above the fold on a laptop:
+ * title, what it covers, the form, and a large cover. Below it, six topic cards, a short "Become a
+ * Smart Patient" note, and a quiet way into treatment.
+ */
+import Icon from '../Icon.astro';
+import AssessmentCta from '../AssessmentCta.astro';
+import GuideBook from './GuideBook.astro';
+import GuideLeadForm from './GuideLeadForm.astro';
+import { GUIDE_SERIES, guidePageFor } from '../../data/guide-pages';
+import { EBOOKS, type Ebook } from '../../data/ebooks';
+import { GUIDES_INDEX_PATH, guidePath, keepGlpTogether } from '../../lib/guide-flow';
+
+interface Props {
+  book: Ebook;
+}
+const { book } = Astro.props;
+const page = guidePageFor(book.slug);
+// The series rotator starts with the next guide and ends on this page's own.
+const at = EBOOKS.findIndex((b) => b.slug === book.slug);
+const series = [...EBOOKS.slice(at + 1), ...EBOOKS.slice(0, at + 1)];
+---
+<section class="glp-hero">
+  <div class="container glp-hero__inner">
+    <div class="glp-hero__copy">
+      <p class="glp-eyebrow"><a href={GUIDES_INDEX_PATH}>{GUIDE_SERIES.name}</a></p>
+      <!-- The eyebrow already names the series, so the words stay for screen readers and search only. -->
+      <h1 class="glp-title"><span class="visually-hidden">The Smart Patient’s </span>Guide to {book.title}</h1>
+      <p class="glp-sub">{page.headline[0]}<span set:html={keepGlpTogether(page.headline[1])} /></p>
+      <p class="glp-intro" set:html={keepGlpTogether(page.intro)} />
+
+      <GuideLeadForm book={book} />
+    </div>
+
+    <div class="glp-hero__book">
+      <span class="glp-hero__halo" aria-hidden="true"></span>
+      <div class="glp-hero__cover"><GuideBook src={book.cover} alt={`Cover of The Smart Patient’s Guide to ${book.title}`} star loading="eager" /></div>
+    </div>
+
+    <div class="glp-inside-wrap">
+      <h2 class="glp-inside-head">Inside the guide</h2>
+      <ul class="glp-inside" role="list">
+        {page.inside.map((item) => (
+          <li><span class="glp-tick"><Icon name="check" /></span><span set:html={keepGlpTogether(item)} /></li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="glp-learn" aria-labelledby="glp-learn-title">
+  <div class="container">
+    <h2 class="glp-section-title" id="glp-learn-title">What You’ll Learn</h2>
+    <ul class="glp-cards" role="list">
+      {page.topics.map((topic) => (
+        <li class="glp-card">
+          <span class="glp-card__icon"><Icon name={topic.icon} /></span>
+          <h3 set:html={keepGlpTogether(topic.title)} />
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<section class="glp-become" aria-labelledby="glp-become-title">
+  <div class="container glp-become__inner">
+    <div class="glp-become__copy">
+      <p class="glp-become__label">{GUIDE_SERIES.educationLabel}</p>
+      <h2 class="glp-section-title glp-section-title--left" id="glp-become-title">{GUIDE_SERIES.becomeTitle}</h2>
+      <p class="glp-become__body">{GUIDE_SERIES.becomeBody}</p>
+      <p class="glp-become__more"><a href={GUIDES_INDEX_PATH}>{GUIDE_SERIES.exploreAll}<Icon name="arrow-right" /></a></p>
+    </div>
+    <!-- One cover at a time, cycling through the whole series (client request 2026-10-02). -->
+    <div class="glp-show" data-guide-show role="group" aria-roledescription="carousel" aria-label="The Smart Patient’s Guide Series">
+      <div class="glp-show__stage">
+        <span class="glp-show__glow" aria-hidden="true"></span>
+        {series.map((b, i) => (
+          <a class="glp-show__slide" href={guidePath(b.slug)} data-show-slide data-title={b.title} data-state={i === 0 ? 'active' : undefined}
+            aria-hidden={i === 0 ? undefined : 'true'} tabindex={i === 0 ? undefined : -1} aria-label={`The Smart Patient’s Guide to ${b.title}`}>
+            <img src={b.cover} alt="" width="600" height="776" loading="lazy" decoding="async" draggable="false" />
+            <span class="glp-show__sheen" aria-hidden="true"></span>
+          </a>
+        ))}
+      </div>
+      <p class="glp-show__name visually-hidden" data-show-name aria-live="off">{series[0].title}</p>
+      <div class="glp-show__dots">
+        {series.map((b, i) => (
+          <button type="button" class="glp-show__dot" data-show-dot={i} aria-label={`Show ${b.title}`} aria-current={i === 0 ? 'true' : undefined}></button>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="glp-ready" aria-labelledby="glp-ready-title">
+  <div class="container glp-ready__inner">
+    <h2 id="glp-ready-title">Ready to explore treatment?</h2>
+    <AssessmentCta program={page.assessmentProgram} class="btn btn--primary btn--lg" arrow />
+  </div>
+</section>
+
+<script>
+  // Series rotator (see .glp-show styles). Turns every few seconds while on screen; holds while keyboard
+  // focus is on it; never turns by itself with reduced motion (the dots still work).
+  const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const EVERY_MS = 3600;
+  document.querySelectorAll<HTMLElement>('[data-guide-show]').forEach((root) => {
+    const slides = [...root.querySelectorAll<HTMLAnchorElement>('[data-show-slide]')];
+    const dots = [...root.querySelectorAll<HTMLButtonElement>('[data-show-dot]')];
+    const nameEl = root.querySelector<HTMLElement>('[data-show-name]')!;
+    let index = 0;
+    let timer = 0;
+    let held = false;
+    let onScreen = false;
+
+    function show(k: number) {
+      const next = ((k % slides.length) + slides.length) % slides.length;
+      if (next === index) return;
+      slides.forEach((slide, i) => {
+        slide.dataset.state = i === next ? 'active' : i === index ? 'leaving' : '';
+        if (i === next) { slide.removeAttribute('aria-hidden'); slide.removeAttribute('tabindex'); }
+        else { slide.setAttribute('aria-hidden', 'true'); slide.setAttribute('tabindex', '-1'); }
+      });
+      dots.forEach((d, i) => (i === next ? d.setAttribute('aria-current', 'true') : d.removeAttribute('aria-current')));
+      nameEl.textContent = slides[next].dataset.title ?? '';
+      index = next;
+    }
+    function sync() {
+      window.clearInterval(timer);
+      if (!REDUCED && !held && onScreen && !document.hidden) timer = window.setInterval(() => show(index + 1), EVERY_MS);
+    }
+    dots.forEach((d, i) => d.addEventListener('click', () => { show(i); sync(); }));
+    root.addEventListener('focusin', () => { held = true; sync(); });
+    root.addEventListener('focusout', () => { held = false; sync(); });
+    document.addEventListener('visibilitychange', sync);
+    new IntersectionObserver(([e]) => { onScreen = e.isIntersecting; sync(); }, { threshold: 0.3 }).observe(root);
+  });
+</script>
+
+<style>
+  /* ---------- Hero ---------- */
+  .glp-hero {
+    position: relative; overflow: hidden; color: #fff;
+    padding-block: clamp(2rem, 3.5vw, 3.5rem) clamp(2.5rem, 4vw, 4rem);
+    background:
+      radial-gradient(60rem 30rem at 12% 20%, rgba(46, 168, 247, 0.28), transparent 60%),
+      radial-gradient(50rem 30rem at 95% 100%, rgba(21, 118, 196, 0.35), transparent 60%),
+      linear-gradient(160deg, #0B3670 0%, var(--navy) 45%, var(--navy-deep) 100%);
+  }
+  .glp-hero__inner {
+    position: relative; display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr); grid-template-rows: auto 1fr;
+    grid-template-areas: 'copy book' 'copy inside'; column-gap: clamp(2rem, 4.5vw, 4.5rem); row-gap: 0; align-items: start;
+  }
+  .glp-hero__copy { grid-area: copy; }
+  .glp-eyebrow { font-family: var(--font-sans); font-weight: 700; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  .glp-eyebrow a { color: var(--blue-soft); }
+  .glp-eyebrow a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .glp-title {
+    margin-top: 0.6rem; font-family: var(--font-serif); font-weight: 600; color: #fff; text-wrap: balance;
+    font-size: clamp(2.2rem, 1.4rem + 2.3vw, 3.4rem); line-height: 1.08; letter-spacing: -0.01em;
+  }
+  .glp-sub { margin-top: 0.7rem; font-family: var(--font-serif); font-weight: 600; font-size: clamp(1.15rem, 0.95rem + 0.8vw, 1.5rem); line-height: 1.25; color: rgba(255, 255, 255, 0.95); }
+  .glp-sub span { display: block; color: var(--blue-soft); }
+  .glp-intro { margin: 0.7rem 0 1.1rem; max-width: 42rem; font-size: clamp(1rem, 0.95rem + 0.2vw, 1.125rem); line-height: 1.5; color: rgba(255, 255, 255, 0.88); }
+  .glp-inside-wrap { grid-area: inside; position: relative; width: 100%; margin-top: 3.25rem; }
+  .glp-inside-head { font-family: var(--font-sans); font-weight: 700; font-size: 1rem; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; margin: 0; }
+  .glp-inside { list-style: none; margin: 0.9rem 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem 1.75rem; }
+  .glp-inside li { display: flex; gap: 0.65rem; align-items: flex-start; color: rgba(255, 255, 255, 0.92); font-size: 0.9375rem; line-height: 1.4; }
+  .glp-tick { flex: none; display: grid; place-items: center; width: 22px; height: 22px; margin-top: 1px; border-radius: 50%; background: var(--blue-soft); color: var(--navy); }
+  .glp-tick :global(svg) { width: 14px; height: 14px; stroke-width: 3; }
+
+  .glp-hero__book { grid-area: book; position: relative; display: grid; justify-items: center; align-content: start; }
+  .glp-hero__halo { position: absolute; top: -8%; width: 560px; max-width: 125%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(46, 168, 247, 0.45), rgba(46, 168, 247, 0.08) 55%, transparent 70%); }
+  .glp-hero__cover { position: relative; width: min(390px, 86%); padding-right: 1.2rem; margin-top: 0.75rem; }
+
+  /* ---------- What you'll learn ---------- */
+  .glp-learn { padding-block: clamp(3rem, 5vw, 5rem); background: var(--bg-pale-blue); }
+  .glp-section-title { text-align: center; font-family: var(--font-serif); font-weight: 600; color: var(--navy); font-size: var(--text-section-title); line-height: 1.12; }
+  .glp-section-title--left { text-align: left; color: #fff; margin-top: 0.5rem; }
+  .glp-cards { list-style: none; margin: clamp(1.75rem, 3vw, 2.75rem) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .glp-card {
+    display: flex; align-items: center; gap: 1rem; padding: 1.25rem 1.4rem; border-radius: 16px; background: #fff; border: 1px solid var(--border);
+    box-shadow: 0 6px 18px rgba(8, 43, 89, 0.06);
+  }
+  .glp-card__icon {
+    flex: none; display: grid; place-items: center; width: 54px; height: 54px; border-radius: 50%; color: var(--blue);
+    background: var(--medallion-bg); border: 1px solid var(--medallion-ring); box-shadow: var(--medallion-shadow);
+  }
+  .glp-card__icon :global(svg) { width: 26px; height: 26px; }
+  .glp-card h3 { font-family: var(--font-serif); font-weight: 600; font-size: calc(var(--text-body-size) * 1.05); line-height: 1.3; color: var(--navy); margin: 0; }
+
+  /* ---------- Become a Smart Patient ---------- */
+  .glp-become { overflow-x: clip; padding-block: clamp(3rem, 5vw, 4.75rem); color: #fff; background: linear-gradient(160deg, #0B3670 0%, var(--navy) 55%, var(--navy-deep) 100%); }
+  .glp-become__inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+  .glp-become__label { font-family: var(--font-sans); font-weight: 700; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-soft); }
+  .glp-become__body { margin-top: 1rem; max-width: 36rem; font-size: var(--text-lead); line-height: 1.5; color: rgba(255, 255, 255, 0.88); }
+  .glp-become__more { margin-top: 1.4rem; }
+  .glp-become__more a { display: inline-flex; align-items: center; gap: 0.45rem; color: var(--blue-soft); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+  .glp-become__more a :global(svg) { width: 18px; height: 18px; transition: transform 0.2s ease; }
+  .glp-become__more a:hover :global(svg) { transform: translateX(3px); }
+
+  /* Series rotator: the incoming cover swings in from the right out of a soft blur while the
+     outgoing one swings away to the left; a light sheen sweeps the new cover as it lands. */
+  .glp-show { display: grid; justify-items: center; gap: 1.4rem; }
+  .glp-show__stage { position: relative; width: min(300px, 70vw); aspect-ratio: 600 / 776; perspective: 1200px; }
+  .glp-show__glow { position: absolute; inset: -18% -30%; border-radius: 50%; background: radial-gradient(closest-side, rgba(46, 168, 247, 0.4), transparent); pointer-events: none; }
+  .glp-show__slide {
+    position: absolute; inset: 0; display: block; overflow: hidden; border-radius: 3px 6px 6px 3px;
+    box-shadow: 0 24px 48px rgba(0, 8, 28, 0.55);
+    opacity: 0; transform: translateX(22%) rotateY(-28deg) scale(0.9); filter: blur(8px);
+    transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.95s cubic-bezier(0.22, 1, 0.36, 1), filter 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+  }
+  .glp-show__slide img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .glp-show__slide[data-state='active'] { opacity: 1; transform: none; filter: none; pointer-events: auto; z-index: 2; }
+  .glp-show__slide[data-state='leaving'] { opacity: 0; transform: translateX(-22%) rotateY(28deg) scale(0.9); filter: blur(8px); z-index: 1; }
+  .glp-show__slide:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 5px; }
+  .glp-show__sheen {
+    position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.38) 50%, transparent 65%);
+    transform: translateX(-120%);
+  }
+  .glp-show__slide[data-state='active'] .glp-show__sheen { transform: translateX(120%); transition: transform 1.1s cubic-bezier(0.4, 0, 0.2, 1) 0.35s; }
+  .glp-show__name { margin: 0.4rem 0 0; min-height: 1.3em; font-family: var(--font-serif); font-weight: 600; font-size: calc(var(--text-body-size) * 1.15); color: #fff; text-align: center; }
+  .glp-show__dots { display: flex; }
+  .glp-show__dot { position: relative; width: 24px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer; }
+  .glp-show__dot::before { content: ''; position: absolute; left: 7px; top: 7px; width: 10px; height: 10px; border-radius: 50%; background: rgba(255, 255, 255, 0.35); transition: background 0.3s ease, transform 0.3s ease; }
+  .glp-show__dot[aria-current='true']::before { background: #fff; transform: scale(1.3); }
+  .glp-show__dot:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 0; border-radius: 50%; }
+
+  /* ---------- Ready to explore ---------- */
+  .glp-ready { padding-block: clamp(2.25rem, 4vw, 3.5rem); background: #fff; }
+  .glp-ready__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.25rem 2rem; text-align: center; }
+  .glp-ready h2 { font-family: var(--font-serif); font-weight: 600; color: var(--navy); font-size: var(--text-card-title); margin: 0; }
+
+  @media (max-width: 1000px) {
+    .glp-hero__inner { grid-template-columns: 1fr; grid-template-rows: none; grid-template-areas: 'book' 'copy' 'inside'; }
+    .glp-hero__halo { width: 420px; }
+    .glp-hero__book { padding-bottom: 1.75rem; }
+    .glp-hero__cover { width: min(290px, 72%); }
+    .glp-inside-wrap { margin-top: 1.5rem; }
+    .glp-cards { grid-template-columns: repeat(2, 1fr); }
+    .glp-become__inner { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 620px) {
+    .glp-inside { grid-template-columns: 1fr; }
+    .glp-cards { grid-template-columns: 1fr; }
+    }
+  @media (prefers-reduced-motion: reduce) { .glp-show__slide, .glp-show__sheen, .glp-show__dot::before, .glp-become__more a :global(svg) { transition: none !important; } }
+</style>

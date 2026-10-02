@@ -7,6 +7,8 @@ import PeptideProducts from '../components/sections/peptide/PeptideProducts.astr
 import PeptideFaq from '../components/sections/peptide/PeptideFaq.astro';
 import PeptideCta from '../components/sections/peptide/PeptideCta.astro';
 import EbookOffer from '../components/EbookOffer.astro';
+import GuideBand from '../components/guides/GuideBand.astro';
+import { GUIDE_LANDING_FLOW } from '../config';
 import { ebooksFor } from '../data/ebooks';
 ---
 <BaseLayout
@@ -15,9 +17,10 @@ import { ebooksFor } from '../data/ebooks';
 >
   <PeptideHero />
   <PeptideScience />
+  {GUIDE_LANDING_FLOW && <GuideBand program="healthy-aging" />}
   <PeptideBenefits />
   <PeptideProducts />
-  <EbookOffer books={ebooksFor('healthy-aging')} variant="band" />
+  {!GUIDE_LANDING_FLOW && <EbookOffer books={ebooksFor('healthy-aging')} variant="band" />}
   <PeptideFaq />
   <PeptideCta />
 </BaseLayout>

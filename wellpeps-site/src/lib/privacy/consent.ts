@@ -262,6 +262,8 @@ const SENSITIVE_PREFIXES = [
   '/mental-wellness',
   '/peptides',
   '/wellness-learning-center',
+  // The Smart Patient Guides (guide-funnel flow): every guide is about a health topic.
+  '/smart-patient-guides',
 ] as const;
 
 /**

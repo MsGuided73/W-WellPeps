@@ -1,0 +1,96 @@
+---
+/**
+ * The guide invitation on a program page (guide-funnel flow): a question about that program, the
+ * series' one invitation ("Become a Smart Patient. Download Our Free eBook."), a line on what the
+ * guide covers, and the cover. The button goes to the guide's landing page, where the email form is.
+ * It sits high on the page, after the program has been explained (see each program page).
+ */
+import Icon from '../Icon.astro';
+import GuideBook from './GuideBook.astro';
+import { GUIDE_SERIES, PROGRAM_BAND_COPY } from '../../data/guide-pages';
+import { ebooksFor } from '../../data/ebooks';
+import { guidePath, keepGlpTogether, primaryGuideFor } from '../../lib/guide-flow';
+import type { ProgramSlug } from '../../lib/cta';
+
+interface Props {
+  program: ProgramSlug;
+}
+const { program } = Astro.props;
+const book = primaryGuideFor(program);
+const copy = PROGRAM_BAND_COPY[program];
+// Healthy Aging has a second guide (NAD+); it gets a quiet link under the button.
+const alsoFree = ebooksFor(program).filter((b) => b.slug !== book?.slug);
+const headingId = `gband-${program}`;
+---
+{book && (
+  <section class="gband" aria-labelledby={headingId} data-guide-band={program}>
+    <div class="container gband__inner">
+      <a class="gband__book" href={guidePath(book.slug)} tabindex="-1" aria-hidden="true">
+        <GuideBook src={book.cover} star />
+      </a>
+      <div class="gband__copy">
+        <p class="gband__question" set:html={keepGlpTogether(copy.question)} />
+        <h2 class="gband__title" id={headingId}>{GUIDE_SERIES.bandHeadline}</h2>
+        <p class="gband__lead" set:html={keepGlpTogether(copy.body)} />
+        <div class="gband__actions">
+          <a class="gband__btn" href={guidePath(book.slug)}>{GUIDE_SERIES.bandButton}<Icon name="arrow-right" /></a>
+          <span class="gband__fine">Free. No obligation.</span>
+        </div>
+        {alsoFree.map((other) => (
+          <p class="gband__also">Also free: <a href={guidePath(other.slug)}>The Smart Patient’s Guide to {other.title}</a></p>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .gband {
+    position: relative; overflow: hidden; color: #fff;
+    padding-block: clamp(3.5rem, 6vw, 5.5rem);
+    background:
+      radial-gradient(60rem 30rem at 12% 20%, rgba(46, 168, 247, 0.28), transparent 60%),
+      radial-gradient(50rem 30rem at 95% 100%, rgba(21, 118, 196, 0.35), transparent 60%),
+      linear-gradient(160deg, #0B3670 0%, var(--navy) 45%, var(--navy-deep) 100%);
+  }
+  .gband::before { /* faint dot grid */
+    content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.35;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+    background-size: 22px 22px; mask-image: linear-gradient(90deg, #000, transparent 55%);
+  }
+  .gband__inner { position: relative; display: grid; grid-template-columns: minmax(300px, 0.8fr) 1.2fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: center; }
+  .gband__book { display: block; width: min(420px, 100%); margin-inline: auto; padding-right: 1.5rem; }
+  .gband__book:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 8px; }
+  .gband__book:hover :global(.gbook), .gband__book:focus-visible :global(.gbook) { transform: perspective(1400px) rotateY(-6deg) rotateX(1deg) translateY(-8px); }
+
+  .gband__question {
+    font-family: var(--font-sans); font-weight: 700; font-size: var(--text-card-body); letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--blue-soft); line-height: 1.35;
+  }
+  .gband__title {
+    margin-top: 0.9rem; font-family: var(--font-serif); font-weight: 600; color: #fff;
+    font-size: clamp(2.1rem, 1.5rem + 2.2vw, 3.3rem); line-height: 1.1; letter-spacing: -0.01em;
+  }
+  .gband__lead { margin-top: 1.1rem; max-width: 40rem; font-size: clamp(1.3rem, 1.05rem + 0.9vw, 1.75rem); line-height: 1.4; color: rgba(255, 255, 255, 0.88); }
+  .gband__actions { margin-top: 2rem; display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+  .gband__btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; padding: 1rem 1.8rem; border-radius: 999px;
+    font-family: var(--font-sans); font-weight: 700; font-size: 1.125rem; letter-spacing: 0.03em; text-transform: uppercase; color: var(--navy);
+    background: linear-gradient(180deg, #FFFFFF, #E4F2FD);
+    box-shadow: 0 10px 26px rgba(46, 168, 247, 0.35), inset 0 -2px 0 rgba(21, 118, 196, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .gband__btn :global(svg) { width: 20px; height: 20px; transition: transform 0.2s ease; }
+  .gband__btn:hover { transform: translateY(-2px); box-shadow: 0 16px 34px rgba(46, 168, 247, 0.45), inset 0 -2px 0 rgba(21, 118, 196, 0.15); }
+  .gband__btn:hover :global(svg) { transform: translateX(3px); }
+  .gband__btn:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 3px; }
+  .gband__fine { color: rgba(255, 255, 255, 0.78); font-size: var(--text-note); }
+  .gband__also { margin-top: 1.4rem; color: rgba(255, 255, 255, 0.82); font-size: var(--text-note); }
+  .gband__also a { color: var(--blue-soft); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+
+  @media (max-width: 900px) {
+    .gband__inner { grid-template-columns: 1fr; }
+    .gband__book { width: min(300px, 78%); }
+  }
+  @media (prefers-reduced-motion: reduce) { .gband__btn, .gband__btn :global(svg) { transition: none; } }
+</style>

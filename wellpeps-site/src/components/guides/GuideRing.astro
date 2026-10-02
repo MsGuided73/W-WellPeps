@@ -1,0 +1,393 @@
+---
+/**
+ * The home page's Smart Patient's Guide Series section, as a 3D ring of covers (guide-funnel flow).
+ *
+ * The covers stand on a circle and the whole ring turns, so the front guide faces you and its
+ * neighbours curve away behind it. Drag or swipe it, use the arrows, the dots or the left and right
+ * arrow keys, or send a sideways scroll. Clicking a cover that is not at the front brings it round
+ * first; clicking the front cover opens that guide's landing page. It drifts on its own every few
+ * seconds until someone touches it (and never with reduced motion), and a button pauses it.
+ *
+ * Without JavaScript the ring stays still: every cover is a plain link to its guide.
+ *
+ * Geometry is CSS: each card sits at rotateY(i * step) translateZ(radius), and the track carries the
+ * ring's turn in --angle. The script only sets --angle and which card is "front", "near" or "far".
+ * Every cover is drawn twice (front face, and a back face for when it is on the far side of the
+ * ring), so covers behind the front one are still readable.
+ */
+import Icon from '../Icon.astro';
+import FreeStar from '../FreeStar.astro';
+import { GUIDE_SERIES } from '../../data/guide-pages';
+import { GUIDES_INDEX_PATH, guidePath } from '../../lib/guide-flow';
+import type { Ebook } from '../../data/ebooks';
+
+interface Props {
+  books: readonly Ebook[];
+}
+const { books } = Astro.props;
+const first = books[0];
+---
+{books.length > 0 && (
+  <section class="gring-stage" aria-labelledby="gring-title">
+    <div class="container">
+      <div class="gring-head">
+        <p class="gring-pill">{GUIDE_SERIES.name}</p>
+        <h2 class="gring-title" id="gring-title">{GUIDE_SERIES.homeTitle}</h2>
+        <p class="gring-lead">{GUIDE_SERIES.homeBody}</p>
+      </div>
+
+      <div class="gring" data-guide-ring role="group" aria-roledescription="carousel" aria-label="Free Smart Patient Guides" style={`--n:${books.length}`}>
+        <span class="gring__star" aria-hidden="true"><FreeStar /></span>
+        <div class="gring__viewport" data-ring-viewport>
+          <ul class="gring__track" data-ring-track role="list">
+            {books.map((book, i) => (
+              <li class="gring__card" data-ring-card data-title={book.title} data-href={guidePath(book.slug)} data-pos={i === 0 ? 'front' : 'far'} style={`--i:${i}`}>
+                <a class="gring__link" href={guidePath(book.slug)} aria-label={`Free guide: ${book.title}`}>
+                  <img class="gring__face gring__face--front" src={book.cover} alt="" width="600" height="776" decoding="async" draggable="false" />
+                  <img class="gring__face gring__face--back" src={book.cover} alt="" width="600" height="776" decoding="async" draggable="false" aria-hidden="true" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="gring__controls" data-ring-controls>
+          <button type="button" class="gring__btn" data-ring-prev aria-label="Previous guide"><Icon name="arrow-right" /></button>
+          <ul class="gring__dots" role="list">
+            {books.map((book, i) => (
+              <li><button type="button" class="gring__dot" data-ring-dot={i} aria-label={`Show ${book.title}`} aria-current={i === 0 ? 'true' : undefined}></button></li>
+            ))}
+          </ul>
+          <button type="button" class="gring__btn" data-ring-next aria-label="Next guide"><Icon name="arrow-right" /></button>
+          <button type="button" class="gring__btn gring__btn--pause" data-ring-pause aria-pressed="false" aria-label="Pause automatic turning">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="gring__pause-icon"><rect x="6" y="5" width="4" height="14" rx="1" /><rect x="14" y="5" width="4" height="14" rx="1" /></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="gring__play-icon"><path d="M8 5v14l11-7z" /></svg>
+          </button>
+        </div>
+
+        <div class="gring__caption" data-ring-caption aria-live="off">
+          <!-- The cover already shows the title; the name stays for screen readers (announced on turn). -->
+          <h3 class="gring__name visually-hidden" data-ring-name>{first.title}</h3>
+          <a class="gring__cta" data-ring-cta href={guidePath(first.slug)}>{GUIDE_SERIES.viewGuide}<Icon name="arrow-right" /></a>
+        </div>
+      </div>
+
+      <p class="gring__all"><a href={GUIDES_INDEX_PATH}>{GUIDE_SERIES.exploreAll}<Icon name="arrow-right" /></a></p>
+    </div>
+  </section>
+)}
+
+<script>
+  import { angleFor, degreesPerPixel, indexAt, mod, releaseIndex } from '../../lib/ring-math';
+
+  const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const AUTO_MS = 4200;
+  const DRAG_CLICK_SLOP = 6;
+  const WHEEL_COOLDOWN_MS = 450;
+
+  document.querySelectorAll<HTMLElement>('[data-guide-ring]').forEach((root) => {
+    const track = root.querySelector<HTMLElement>('[data-ring-track]')!;
+    const viewport = root.querySelector<HTMLElement>('[data-ring-viewport]')!;
+    const cards = [...root.querySelectorAll<HTMLElement>('[data-ring-card]')];
+    const dots = [...root.querySelectorAll<HTMLButtonElement>('[data-ring-dot]')];
+    const nameEl = root.querySelector<HTMLElement>('[data-ring-name]')!;
+    const ctaEl = root.querySelector<HTMLAnchorElement>('[data-ring-cta]')!;
+    const captionEl = root.querySelector<HTMLElement>('[data-ring-caption]')!;
+    const pauseBtn = root.querySelector<HTMLButtonElement>('[data-ring-pause]')!;
+    const n = cards.length;
+
+    let angle = 0; // degrees the ring is turned; guide k is at the front when angle = -k * step
+    let index = 0;
+    let autoplay = !REDUCED;
+    let focusedIn = false;
+    let resumedByUser = false; // after "turn automatically", hover and focus on the ring no longer hold it still
+    let onScreen = true;
+    let timer = 0;
+
+    const setAngle = (a: number) => track.style.setProperty('--angle', String(a));
+    const frontLink = () => cards[index].querySelector('a')!;
+
+    function paint(k: number) {
+      index = mod(k, n);
+      cards.forEach((card, i) => {
+        const d = Math.min(mod(i - index, n), mod(index - i, n));
+        card.dataset.pos = d === 0 ? 'front' : d === 1 ? 'near' : 'far';
+      });
+      dots.forEach((dot, i) => (i === index ? dot.setAttribute('aria-current', 'true') : dot.removeAttribute('aria-current')));
+      // The button under the ring is the keyboard route to the front guide, so the covers are not extra tab stops.
+      cards.forEach((card) => card.querySelector('a')!.setAttribute('tabindex', '-1'));
+      // If focus is on a cover (it was clicked), keep it on whichever cover is now at the front.
+      if (cards.some((c) => c.contains(document.activeElement)) && document.activeElement !== frontLink()) frontLink().focus({ preventScroll: true });
+      const card = cards[index];
+      nameEl.textContent = card.dataset.title ?? '';
+      ctaEl.href = card.dataset.href ?? ctaEl.href;
+      ctaEl.setAttribute('aria-label', `View free guide: ${card.dataset.title ?? ''}`);
+    }
+
+    /** Turn to guide k by the shortest way round. */
+    function goTo(k: number) {
+      angle = angleFor(k, n, angle);
+      setAngle(angle);
+      paint(k);
+    }
+
+    function syncAuto() {
+      window.clearInterval(timer);
+      // Autoplay is the default (client, 2026-10-02): resting the mouse on the ring no longer holds it;
+      // keyboard focus, the pause button, leaving the screen and reduced motion still do.
+      const held = !resumedByUser && focusedIn;
+      const running = autoplay && !held && onScreen && !document.hidden;
+      if (running) timer = window.setInterval(() => goTo(index + 1), AUTO_MS);
+      captionEl.setAttribute('aria-live', autoplay ? 'off' : 'polite');
+      // One fixed label; the pressed state says whether it is paused.
+      pauseBtn.setAttribute('aria-pressed', String(!autoplay));
+      pauseBtn.classList.toggle('is-paused', !autoplay);
+    }
+    /** Anyone using the ring takes it over from the automatic turning. */
+    function userTookOver() {
+      resumedByUser = false;
+      if (!autoplay) return;
+      autoplay = false;
+      syncAuto();
+    }
+
+    // ---- buttons, dots, keys
+    root.querySelector('[data-ring-prev]')!.addEventListener('click', () => { userTookOver(); goTo(index - 1); });
+    root.querySelector('[data-ring-next]')!.addEventListener('click', () => { userTookOver(); goTo(index + 1); });
+    dots.forEach((dot, i) => dot.addEventListener('click', () => { userTookOver(); goTo(i); }));
+    pauseBtn.addEventListener('click', () => {
+      autoplay = !autoplay;
+      resumedByUser = autoplay; // the button still has focus and the pointer is on it
+      syncAuto();
+    });
+    root.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { userTookOver(); goTo(index + (e.key === 'ArrowRight' ? 1 : -1)); e.preventDefault(); }
+      else if (e.key === 'Home') { userTookOver(); goTo(0); e.preventDefault(); }
+      else if (e.key === 'End') { userTookOver(); goTo(n - 1); e.preventDefault(); }
+    });
+
+    let dragging = false;
+    let captured = false;
+    let suppressClick = false;
+    let startX = 0;
+    let startAngle = 0;
+    let lastX = 0;
+    let lastT = 0;
+    let velocity = 0; // pixels per millisecond, smoothed
+
+    // ---- a cover that is not at the front comes round first; the front one opens its guide
+    cards.forEach((card, i) => {
+      card.querySelector('a')!.addEventListener('click', (e) => {
+        if (suppressClick) { e.preventDefault(); return; }
+        if (i !== index) { e.preventDefault(); userTookOver(); goTo(i); }
+      });
+    });
+
+    // ---- drag / swipe (vertical page scroll is left to the browser by touch-action: pan-y)
+    // offsetWidth is the cover's layout width; getBoundingClientRect would change as the ring turns.
+    const degPerPx = () => degreesPerPixel(cards[0].offsetWidth, n);
+    viewport.addEventListener('pointerdown', (e) => {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      dragging = true; captured = false; suppressClick = false; startX = e.clientX; startAngle = angle;
+      lastX = e.clientX; lastT = performance.now(); velocity = 0;
+    });
+    viewport.addEventListener('dragstart', (e) => e.preventDefault());
+    viewport.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) <= DRAG_CLICK_SLOP && !captured) return;
+      if (!captured) {
+        captured = true; suppressClick = true; userTookOver();
+        track.classList.add('is-dragging');
+        viewport.setPointerCapture(e.pointerId);
+      }
+      const now = performance.now();
+      if (now > lastT) velocity = 0.7 * velocity + 0.3 * ((e.clientX - lastX) / (now - lastT));
+      lastX = e.clientX; lastT = now;
+      angle = startAngle + dx * degPerPx();
+      setAngle(angle);
+      const live = indexAt(angle, n);
+      if (live !== index) paint(live);
+    });
+    const endDrag = () => {
+      if (!dragging) return;
+      dragging = false;
+      track.classList.remove('is-dragging');
+      if (captured) {
+        // A quick flick carries on by at most one guide; a pointer that stopped before letting go does not flick.
+        goTo(releaseIndex({ angle, velocity, idleMs: performance.now() - lastT, degPerPx: degPerPx(), n }));
+      }
+      captured = false;
+      // The click that follows a drag must not open a guide.
+      window.setTimeout(() => { suppressClick = false; }, 0);
+    };
+    viewport.addEventListener('pointerup', endDrag);
+    viewport.addEventListener('pointercancel', endDrag);
+
+    // ---- sideways scroll (trackpad, tilt wheel) turns it one guide at a time
+    let lastWheel = 0;
+    viewport.addEventListener('wheel', (e) => {
+      if (Math.abs(e.deltaX) <= Math.abs(e.deltaY) || Math.abs(e.deltaX) < 12) return;
+      e.preventDefault();
+      const now = performance.now();
+      if (now - lastWheel < WHEEL_COOLDOWN_MS) return;
+      lastWheel = now;
+      userTookOver();
+      goTo(index + (e.deltaX > 0 ? 1 : -1));
+    }, { passive: false });
+
+    // ---- automatic turning pauses while the ring is hovered or keyboard-focused, off-screen, or the tab is hidden
+    root.addEventListener('focusin', (e) => { focusedIn = (e.target as HTMLElement).matches(':focus-visible'); syncAuto(); });
+    root.addEventListener('focusout', () => { focusedIn = false; resumedByUser = false; syncAuto(); });
+    document.addEventListener('visibilitychange', syncAuto);
+    new IntersectionObserver(([entry]) => { onScreen = entry.isIntersecting; syncAuto(); }, { threshold: 0.35 }).observe(root);
+
+    paint(0);
+    root.classList.add('is-ready');
+    syncAuto();
+  });
+</script>
+
+<style>
+  /* ---------- Stage ---------- */
+  .gring-stage {
+    position: relative; overflow: hidden; color: #fff;
+    padding-block: clamp(4rem, 7vw, 6.5rem);
+    background:
+      radial-gradient(60rem 30rem at 12% 20%, rgba(46, 168, 247, 0.28), transparent 60%),
+      radial-gradient(50rem 30rem at 95% 100%, rgba(21, 118, 196, 0.35), transparent 60%),
+      linear-gradient(160deg, #0B3670 0%, var(--navy) 45%, var(--navy-deep) 100%);
+  }
+  .gring-stage::before { /* faint dot grid */
+    content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.35;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+    background-size: 22px 22px;
+    mask-image: linear-gradient(90deg, #000, transparent 55%);
+  }
+  .gring-stage > .container { position: relative; }
+
+  /* ---------- Heading ---------- */
+  .gring-head { text-align: center; display: grid; justify-items: center; }
+  .gring-pill {
+    padding: 0.3em 0.8em; border-radius: 200px; color: #fff; text-align: center;
+    font-family: var(--font-sans); text-transform: uppercase;
+    font-size: clamp(1.25rem, 0.8rem + 1.4vw, 2.25rem); font-weight: 600; letter-spacing: 0.08em; line-height: 1.2;
+    background: linear-gradient(180deg, #1B5FAE, #124682);
+    border: 1px solid rgba(46, 168, 247, 0.7);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  }
+  .gring-title {
+    margin-top: 1.1rem; font-family: var(--font-serif); font-weight: 600; color: #fff;
+    font-size: clamp(2rem, 1.5rem + 1.9vw, 3rem); line-height: 1.08; letter-spacing: -0.01em;
+  }
+  .gring-lead { margin: 1rem auto 0; max-width: 62rem; font-size: var(--text-lead); color: rgba(255, 255, 255, 0.86); }
+
+  /* ---------- The ring ---------- */
+  .gring {
+    --w: clamp(180px, 26vw, 370px);                 /* one cover's width */
+    --h: calc(var(--w) * 776 / 600);                /* ...and height */
+    /* The radius that lets n covers just touch, widened so the neighbours show between them. */
+    --r: calc(var(--w) * 0.5 / tan(calc(180deg / var(--n, 5))) * 1.6);
+    --step: calc(360deg / var(--n, 5));
+    position: relative;
+    margin-top: clamp(1.25rem, 2.5vw, 2.25rem);
+    display: grid; justify-items: center; gap: 1.5rem;
+  }
+  /* The FREE coin sits low and to the left of the ring, just outside its outermost covers. */
+  .gring__star {
+    --sw: clamp(84px, 10vw, 170px);
+    position: absolute; z-index: 5; top: calc(var(--h) * 0.08); width: var(--sw); pointer-events: none;
+    left: max(0px, calc(50% - var(--w) * 1.05 - var(--sw) * 1.45));
+  }
+  .gring__viewport {
+    position: relative; width: 100%; height: calc(var(--h) + 2.5rem);
+    perspective: 1700px; perspective-origin: 50% 32%;
+    touch-action: pan-y; cursor: grab; user-select: none; -webkit-user-select: none;
+  }
+  .gring__viewport:active { cursor: grabbing; }
+  .gring__viewport::after { /* the floor the ring stands on */
+    content: ''; position: absolute; left: 50%; bottom: -0.5rem; width: calc(var(--w) * 3.4); height: 2.2rem; transform: translateX(-50%);
+    background: radial-gradient(closest-side, rgba(0, 10, 30, 0.5), transparent); filter: blur(8px); pointer-events: none;
+  }
+  .gring__track {
+    --angle: 0;
+    position: absolute; left: 0; right: 0; top: 1rem; height: var(--h); margin: 0; padding: 0; list-style: none;
+    transform-style: preserve-3d;
+    transform: translateZ(calc(var(--r) * -1)) rotateY(calc(var(--angle) * 1deg));
+    transition: transform 0.95s cubic-bezier(0.22, 0.8, 0.22, 1);
+  }
+  .gring__track.is-dragging { transition: none; }
+  .gring__card {
+    position: absolute; left: 50%; top: 0; width: var(--w); height: var(--h); margin-left: calc(var(--w) / -2);
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--i) * var(--step))) translateZ(var(--r));
+  }
+  .gring__link { position: absolute; inset: 0; display: block; transform-style: preserve-3d; border-radius: 3px 6px 6px 3px; }
+  .gring__link:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 6px; }
+  .gring__face {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    border-radius: 3px 6px 6px 3px;
+    box-shadow: 0 18px 38px rgba(0, 8, 28, 0.45), 3px 0 0 #E9EDF3, 5px 0 0 #B9C3D0;
+    transition: filter 0.7s ease, opacity 0.7s ease;
+  }
+  .gring__face--back { transform: rotateY(180deg); }
+  /* Depth: the front guide is full colour; its neighbours dim; the far side of the ring recedes. */
+  .gring__card[data-pos='near'] .gring__face { filter: brightness(0.74) saturate(0.92); }
+  .gring__card[data-pos='far'] .gring__face { filter: brightness(0.5) blur(0.6px); opacity: 0.78; }
+
+  /* ---------- Controls and caption ---------- */
+  .gring__controls { display: flex; align-items: center; justify-content: center; gap: 1rem; visibility: hidden; }
+  .gring.is-ready .gring__controls { visibility: visible; }
+  .gring__btn {
+    display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; cursor: pointer; color: #fff;
+    background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.35);
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .gring__btn:hover { background: rgba(255, 255, 255, 0.22); }
+  .gring__btn:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 3px; }
+  .gring__btn :global(svg) { width: 22px; height: 22px; }
+  .gring__btn[data-ring-prev] :global(svg) { transform: scaleX(-1); }
+  .gring__btn--pause { width: 40px; height: 40px; margin-left: 0.5rem; }
+  .gring__btn--pause svg { width: 18px; height: 18px; fill: currentColor; }
+  .gring__play-icon { display: none; }
+  .gring__btn--pause.is-paused .gring__play-icon { display: block; }
+  .gring__btn--pause.is-paused .gring__pause-icon { display: none; }
+  .gring__dots { display: flex; gap: 0; list-style: none; margin: 0; padding: 0; }
+  /* The dot is 12px; its button is 24px (WCAG 2.2 target size) with no overlap between neighbours. */
+  .gring__dot { position: relative; width: 24px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer; }
+  .gring__dot::before { content: ''; position: absolute; left: 6px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: rgba(255, 255, 255, 0.35); transition: background 0.2s ease, transform 0.2s ease; }
+  .gring__dot[aria-current='true']::before { background: #fff; transform: scale(1.3); }
+  .gring__dot:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 0; border-radius: 50%; }
+
+  .gring__caption { display: grid; justify-items: center; gap: 1rem; text-align: center; }
+  .gring__name { font-family: var(--font-serif); font-weight: 600; font-size: var(--text-card-title); color: #fff; line-height: 1.2; min-height: 1.2em; }
+  .gring__cta {
+    display: inline-flex; align-items: center; gap: 0.55rem; padding: 1rem 1.8rem; border-radius: 999px;
+    font-family: var(--font-sans); font-weight: 700; font-size: 1.125rem; letter-spacing: 0.02em; text-transform: uppercase; color: var(--navy);
+    background: linear-gradient(180deg, #FFFFFF, #E4F2FD);
+    box-shadow: 0 10px 26px rgba(46, 168, 247, 0.35), inset 0 -2px 0 rgba(21, 118, 196, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .gring__cta :global(svg) { width: 20px; height: 20px; transition: transform 0.2s ease; }
+  .gring__cta:hover { transform: translateY(-2px); box-shadow: 0 16px 34px rgba(46, 168, 247, 0.45), inset 0 -2px 0 rgba(21, 118, 196, 0.15); }
+  .gring__cta:hover :global(svg) { transform: translateX(3px); }
+  .gring__cta:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 3px; }
+  .gring__all { margin-top: 1.75rem; text-align: center; }
+  .gring__all a {
+    display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.25rem; color: var(--blue-soft);
+    font-family: var(--font-sans); font-weight: 700; font-size: var(--text-card-body); text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  .gring__all a :global(svg) { width: 18px; height: 18px; transition: transform 0.2s ease; }
+  .gring__all a:hover :global(svg) { transform: translateX(3px); }
+  .gring__all a:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 2px; border-radius: 4px; }
+
+  @media (max-width: 760px) {
+    .gring { --w: min(50vw, 210px); }
+    .gring__star { top: 0.25rem; }
+    .gring__viewport { perspective: 1100px; }
+    .gring__all a { font-size: 0.95rem; letter-spacing: 0.02em; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gring__track, .gring__face, .gring__btn, .gring__dot::before, .gring__cta, .gring__cta :global(svg) { transition: none; }
+  }
+</style>

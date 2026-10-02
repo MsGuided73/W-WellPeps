@@ -1,0 +1,58 @@
+---
+/**
+ * The guide call to action inside a Learning Center article (guide-funnel flow). One sits partway
+ * through the article and one after the last section, each pointing at the guide that matches the
+ * article's subject (src/lib/guide-flow.ts, guideForArticle). It links to the guide's landing page,
+ * where the email form is.
+ */
+import Icon from '../Icon.astro';
+import GuideBook from './GuideBook.astro';
+import { guidePageFor } from '../../data/guide-pages';
+import { guidePath, keepGlpTogether } from '../../lib/guide-flow';
+import type { Ebook } from '../../data/ebooks';
+
+interface Props {
+  book: Ebook;
+  /** Where in the article it sits; recorded so the two can be told apart. */
+  placement: 'inline' | 'end';
+}
+const { book, placement } = Astro.props;
+const { articleCta } = guidePageFor(book.slug);
+---
+<aside class="gcta" aria-label={`Free guide: ${book.title}`} data-guide-cta={placement}>
+  <a class="gcta__book" href={guidePath(book.slug)} tabindex="-1" aria-hidden="true">
+    <GuideBook src={book.cover} star />
+  </a>
+  <div class="gcta__copy">
+    <h2 class="gcta__title" set:html={keepGlpTogether(articleCta.title)} />
+    <p class="gcta__body" set:html={keepGlpTogether(articleCta.body)} />
+    <a class="gcta__btn" href={guidePath(book.slug)}>{articleCta.button}<Icon name="arrow-right" /></a>
+  </div>
+</aside>
+
+<style>
+  .gcta {
+    display: grid; grid-template-columns: minmax(120px, 170px) 1fr; gap: clamp(1.25rem, 3vw, 2.25rem); align-items: center;
+    margin: 2.5rem 0; padding: clamp(1.25rem, 1rem + 1.5vw, 2rem) clamp(1.25rem, 1rem + 2vw, 2.25rem);
+    border-radius: 16px; border: 1px solid var(--border-strong);
+    background: linear-gradient(135deg, var(--bg-cool-blue), var(--bg-pale-blue));
+  }
+  .gcta__book { display: block; padding-right: 0.9rem; }
+  .gcta__title { font-family: var(--font-serif); font-weight: 600; color: var(--navy); font-size: calc(var(--text-body-size) * 1.45); line-height: 1.2; margin: 0; border: 0; padding: 0; }
+  .gcta__body { margin-top: 0.6rem; font-size: var(--text-body-size); line-height: 1.55; }
+  .gcta__btn {
+    display: inline-flex; align-items: center; gap: 0.55rem; margin-top: 1.1rem; padding: 0.9rem 1.5rem; border-radius: 999px;
+    font-family: var(--font-sans); font-weight: 700; font-size: 1rem; letter-spacing: 0.03em; text-transform: uppercase; color: #fff;
+    background: linear-gradient(180deg, #1E86D8, var(--blue)); box-shadow: 0 8px 20px rgba(21, 118, 196, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .gcta__btn :global(svg) { width: 18px; height: 18px; transition: transform 0.2s ease; }
+  .gcta__btn:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 12px 26px rgba(21, 118, 196, 0.4); }
+  .gcta__btn:hover :global(svg) { transform: translateX(3px); }
+  .gcta__btn:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 3px; color: #fff; }
+  @media (max-width: 560px) {
+    .gcta { grid-template-columns: 1fr; text-align: left; }
+    .gcta__book { width: 130px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .gcta__btn, .gcta__btn :global(svg) { transition: none; } }
+</style>

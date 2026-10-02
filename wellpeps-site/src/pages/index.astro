@@ -12,6 +12,8 @@ import Insights from '../components/sections/Insights.astro';
 import Faq from '../components/sections/Faq.astro';
 import FinalCta from '../components/sections/FinalCta.astro';
 import EbookOffer from '../components/EbookOffer.astro';
+import GuideRing from '../components/guides/GuideRing.astro';
+import { GUIDE_LANDING_FLOW } from '../config';
 import { EBOOKS } from '../data/ebooks';
 ---
 <BaseLayout>
@@ -24,7 +26,9 @@ import { EBOOKS } from '../data/ebooks';
   <WhatsIncluded tinted />
   <Safety />
   <Insights />
-  <EbookOffer books={EBOOKS} variant="carousel" />
+  {GUIDE_LANDING_FLOW
+    ? <GuideRing books={EBOOKS} />
+    : <EbookOffer books={EBOOKS} variant="carousel" />}
   <Faq />
   <FinalCta />
 </BaseLayout>

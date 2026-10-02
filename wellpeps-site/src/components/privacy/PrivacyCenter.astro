@@ -11,9 +11,12 @@ interface Props {
   variant: 'dialog' | 'page';
   idPrefix: string;
 }
+import { GUIDE_LANDING_FLOW } from '../../config';
 import { FONTS_SELF_HOSTED } from '../../lib/privacy/config';
 const { variant, idPrefix } = Astro.props;
 const id = (s: string) => `${idPrefix}-${s}`;
+// The health-topic pages: the Smart Patient Guides pages exist only in the guide-funnel flow.
+const healthPages = GUIDE_LANDING_FLOW ? 'the program pages, the Learning Center and the Smart Patient Guides' : 'the program pages and Learning Center';
 
 const requestShortcuts = [
   { id: 'limit_sensitive', label: 'Limit the use of my sensitive information' },
@@ -68,7 +71,7 @@ const requestShortcuts = [
         <div class="pc__rowhead pc__rowhead--sub">
           <div>
             <h4 id={id('analytics-health')}>Also allow analytics on pages about health topics</h4>
-            <p id={id('analytics-health-desc')}>Off unless you separately allow it. Applies to the program pages and Learning Center. Advertising never runs there.</p>
+            <p id={id('analytics-health-desc')}>Off unless you separately allow it. Applies to {healthPages}. Advertising never runs there.</p>
           </div>
           <label class="switch">
             <input type="checkbox" role="switch" data-pc-toggle="analyticsSensitive" aria-labelledby={id('analytics-health')} aria-describedby={id('analytics-health-desc')} disabled />

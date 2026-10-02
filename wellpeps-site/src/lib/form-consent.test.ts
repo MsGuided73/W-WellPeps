@@ -117,7 +117,7 @@ describe('submitSignup carries the consent', () => {
 describe('every health-topic form asks for it', () => {
   const root = resolve(__dirname, '../..');
   const read = (p: string) => readFileSync(resolve(root, p), 'utf8');
-  for (const f of ['src/components/EbookOffer.astro', 'src/components/sections/WaitlistSection.astro', 'src/components/sections/hair/HairComingSoon.astro']) {
+  for (const f of ['src/components/EbookOffer.astro', 'src/components/guides/GuideLeadForm.astro', 'src/components/sections/WaitlistSection.astro', 'src/components/sections/hair/HairComingSoon.astro']) {
     test(`${f.split('/').pop()} uses the consent component and sends the choice`, () => {
       const src = read(f);
       expect(src).toContain('FormConsent');
@@ -135,6 +135,9 @@ describe('every health-topic form asks for it', () => {
     const src = read('src/components/EbookOffer.astro');
     expect(src).toMatch(/<FormConsent[^>]*forGuide/);
     expect(src).toContain('{ forGuide: true }');
+    // The landing-page form is a guide form too, and has a first-name field.
+    expect(read('src/components/guides/GuideLeadForm.astro')).toMatch(/<FormConsent[^>]*forGuide/);
+    expect(read('src/components/guides/GuideLeadForm.astro')).not.toContain('withFirstName');
     expect(read('src/components/sections/WaitlistSection.astro')).not.toContain('forGuide');
     expect(read('src/components/sections/hair/HairComingSoon.astro')).not.toContain('forGuide');
   });
