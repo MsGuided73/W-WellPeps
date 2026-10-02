@@ -58,6 +58,6 @@ export const faqs = [
   { q: 'What states do you serve?', a: 'Availability varies by state and by program. Care is available only where an independent licensed provider can treat you and a state-licensed pharmacy can ship to you.' },
   { q: 'How are medications delivered?', a: 'If prescribed, medications are prepared by licensed U.S. pharmacies and shipped directly to your home in discreet, secure packaging.' },
   { q: 'Is my personal information secure?', a: 'We take your privacy seriously and use secure technology to protect your information. Our Privacy Policy explains what we collect, why, and the choices you have.' },
-  { q: 'What payment methods do you accept?', a: 'We accept Visa, Mastercard, FSA/HSA, Apple Pay, and Google Pay. You’ll see transparent, upfront pricing before you begin.' },
+  { q: 'What payment methods do you accept?', a: 'We accept Visa, Mastercard, American Express, Discover, FSA/HSA cards, Apple Pay and Google Pay. You’ll see transparent, upfront pricing before you begin.' },
   { q: 'What programs does WellPeps offer?', a: 'Weight Management, Hair Restoration, Sexual Wellness, and Healthy Aging & Vitality are available today, with Hormone Optimization coming soon.' },
 ];

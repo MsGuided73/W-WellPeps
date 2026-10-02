@@ -302,7 +302,7 @@
    "t": "clause",
    "number": "9.1",
    "heading": "Non-emergency side effects or concerns.",
-   "text": "Message your clinician in the portal at [PORTAL URL].",
+   "text": "Message your clinician in the portal at portal.wellpeps.com.",
    "level": 0
   },
   {
@@ -323,7 +323,7 @@
    "t": "clause",
    "number": "9.4",
    "heading": "Orders, shipping, billing and website problems.",
-   "text": "Contact WellPeps at [SUPPORT EMAIL] [SUPPORT PHONE AND HOURS, ONLY IF LIVE]. WellPeps support cannot give medical advice. If you tell WellPeps about a side effect or a concern about your care, WellPeps will pass it to the Practice, but do not rely on this when a problem is urgent.",
+   "text": "Contact WellPeps at support@wellpeps.com or (307) 881-8700, during normal business hours. WellPeps support cannot give medical advice. If you tell WellPeps about a side effect or a concern about your care, WellPeps will pass it to the Practice, but do not rely on this when a problem is urgent.",
    "level": 0
   },
   {
@@ -515,7 +515,7 @@
    "t": "clause",
    "number": "15.2",
    "heading": "WellPeps.",
-   "text": "For website, ordering, shipping, billing or privacy concerns about WellPeps, contact [SUPPORT EMAIL]. For privacy concerns, you can also contact [PRIVACY EMAIL].",
+   "text": "For website, ordering, shipping, billing or privacy concerns about WellPeps, contact support@wellpeps.com. For privacy concerns, you can also contact privacy@wellpeps.com.",
    "level": 0
   },
   {
@@ -561,7 +561,7 @@
    "t": "clause",
    "number": "16.2",
    "heading": "How to withdraw.",
-   "text": "Send a portal message to your clinician, or email [SUPPORT EMAIL] and WellPeps will pass your request to the Practice.",
+   "text": "Send a portal message to your clinician, or email support@wellpeps.com and WellPeps will pass your request to the Practice.",
    "level": 0
   },
   {
@@ -575,7 +575,7 @@
    "t": "clause",
    "number": "16.4",
    "heading": "Other rights.",
-   "text": "You have the right to ask questions before you agree and at any time, to get a copy of this consent, to know your clinician's identity and license, to get your records, to be treated with respect, and to ask for help if you have a disability or need language help (email [SUPPORT EMAIL]; see the Accessibility Statement). WellPeps support can explain how the service works but cannot give medical advice. [PRACTICE CONTACT] can answer questions about this consent.",
+   "text": "You have the right to ask questions before you agree and at any time, to get a copy of this consent, to know your clinician's identity and license, to get your records, to be treated with respect, and to ask for help if you have a disability or need language help (email support@wellpeps.com; see the Accessibility Statement). WellPeps support can explain how the service works but cannot give medical advice. [PRACTICE CONTACT] can answer questions about this consent.",
    "level": 0
   },
   {
@@ -730,7 +730,7 @@
   },
   {
    "t": "p",
-   "text": "Please read this consent (version [VERSION], effective [EFFECTIVE DATE]) before checking each box. Signing does not guarantee that a clinician will accept you or prescribe anything. You can read this consent again at [PORTAL URL].",
+   "text": "Please read this consent (version [VERSION], effective [EFFECTIVE DATE]) before checking each box. Signing does not guarantee that a clinician will accept you or prescribe anything. You can read this consent again at portal.wellpeps.com.",
    "italic": false,
    "align": null
   },

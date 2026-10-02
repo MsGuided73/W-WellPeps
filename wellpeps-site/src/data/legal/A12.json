@@ -44,7 +44,7 @@
   },
   {
    "t": "li",
-   "text": "To reach a person, email [SUPPORT EMAIL].",
+   "text": "To reach a person, email support@wellpeps.com.",
    "level": 0
   },
   {
@@ -185,17 +185,17 @@
   },
   {
    "t": "li",
-   "text": "**Email** [SUPPORT EMAIL]. Support hours are Monday to Friday, 9 a.m. to 6 p.m. Eastern time. We aim to reply within [1 business day].",
+   "text": "**Email** support@wellpeps.com. Support hours are Monday to Friday, 9 a.m. to 6 p.m. Eastern time. We aim to reply within [1 business day].",
    "level": 0
   },
   {
    "t": "li",
-   "text": "**Phone:** [SUPPORT PHONE AND HOURS, ONLY IF LIVE]",
+   "text": "**Phone:** (307) 881-8700, during normal business hours",
    "level": 0
   },
   {
    "t": "li",
-   "text": "**Medical questions.** If you are a WellPeps patient, message your care team in the patient portal at [PORTAL URL]. WellPeps support staff cannot give medical advice.",
+   "text": "**Medical questions.** If you are a WellPeps patient, message your care team in the patient portal at portal.wellpeps.com. WellPeps support staff cannot give medical advice.",
    "level": 0
   },
   {
@@ -310,7 +310,7 @@
   },
   {
    "t": "li",
-   "text": "You can ask the Practice about AI in your care, or ask a person to review something you are unhappy with, by sending a message in the portal at [PORTAL URL].",
+   "text": "You can ask the Practice about AI in your care, or ask a person to review something you are unhappy with, by sending a message in the portal at portal.wellpeps.com.",
    "level": 0
   },
   {
@@ -320,7 +320,7 @@
   },
   {
    "t": "li",
-   "text": "If you have a concern about this page or the assistant, email [SUPPORT EMAIL].",
+   "text": "If you have a concern about this page or the assistant, email support@wellpeps.com.",
    "level": 0
   },
   {
@@ -373,7 +373,7 @@
   },
   {
    "t": "p",
-   "text": "WellPeps, a Wyoming corporation, [BUSINESS ADDRESS]. Email [SUPPORT EMAIL]. Phone: [SUPPORT PHONE AND HOURS, ONLY IF LIVE].",
+   "text": "WellPeps, a Wyoming corporation, 30 N Gould St., Suite R, Sheridan, WY 82801. Email support@wellpeps.com. Phone: (307) 881-8700, during normal business hours.",
    "italic": false,
    "align": null
   },
@@ -411,17 +411,17 @@
     [
      "First message (replaces ASSISTANT_GREETING)",
      "Hi! I’m the WellPeps assistant. I can answer questions about our programs, pricing, the assessment process, and how our care works, and I’ll point you to the source. I can’t give medical advice.",
-     "Hi! I’m the WellPeps assistant, an automated program. I’m not a person or a clinician. I answer questions about WellPeps using our articles and program pages, and I show my sources. I can’t give medical advice or help in an emergency. If you think you are having one, call 911. To reach a person, email [SUPPORT EMAIL]. What you type stays in your browser and is not saved. Please don’t type personal or health details."
+     "Hi! I’m the WellPeps assistant, an automated program. I’m not a person or a clinician. I answer questions about WellPeps using our articles and program pages, and I show my sources. I can’t give medical advice or help in an emergency. If you think you are having one, call 911. To reach a person, email support@wellpeps.com. What you type stays in your browser and is not saved. Please don’t type personal or health details."
     ],
     [
      "Line under the input (wa__disclaimer)",
      "Not medical advice. For care, start your free assessment.",
-     "Not medical advice. Your questions stay in your browser. To reach a person, email [SUPPORT EMAIL]. Start your health assessment. (Drop “free” here unless the refund rule is linked beside it.)"
+     "Not medical advice. Your questions stay in your browser. To reach a person, email support@wellpeps.com. Start your health assessment. (Drop “free” here unless the refund rule is linked beside it.)"
     ],
     [
      "Reply to a clinical question (CLINICAL_REPLY)",
      "That’s a clinical question, and only a licensed healthcare provider who knows your history can answer it safely. I’m not able to give medical advice or recommend a dose. The good news is that a provider review is included: start the free health assessment and a licensed provider will evaluate your situation and recommend what’s appropriate for you.",
-     "That’s a medical question, and only a licensed clinician who knows your history can answer it safely. I can’t give medical advice or suggest a dose. If you are already a patient, message your care team in the patient portal at [PORTAL URL]. If you are not yet a patient, you can start the health assessment, and an independent licensed clinician will review your answers. A prescription is not guaranteed."
+     "That’s a medical question, and only a licensed clinician who knows your history can answer it safely. I can’t give medical advice or suggest a dose. If you are already a patient, message your care team in the patient portal at portal.wellpeps.com. If you are not yet a patient, you can start the health assessment, and an independent licensed clinician will review your answers. A prescription is not guaranteed."
     ],
     [
      "Reply to an emergency (EMERGENCY_REPLY)",
@@ -431,12 +431,12 @@
     [
      "Reply when the person asks for a human (new; trigger words such as person, human, agent, representative, call, phone)",
      "None.",
-     "I can’t transfer you to a person in this chat, but you can email [SUPPORT EMAIL]. Support is open Monday to Friday, 9 a.m. to 6 p.m. Eastern time. If you are a patient with a medical question, message your care team in the patient portal at [PORTAL URL]. In an emergency, call 911."
+     "I can’t transfer you to a person in this chat, but you can email support@wellpeps.com. Support is open Monday to Friday, 9 a.m. to 6 p.m. Eastern time. If you are a patient with a medical question, message your care team in the patient portal at portal.wellpeps.com. In an emergency, call 911."
     ],
     [
      "Reply when nothing matches (NO_MATCH_REPLY)",
      "I don’t have information on that yet. I can answer questions about our programs (weight management, hair restoration, sexual wellness, and peptide therapies), pricing, the assessment process, shipping, privacy, and how our pharmacy and lab partners work. You can also start a free assessment and a licensed provider will follow up with you directly.",
-     "I don’t have an answer for that. I can answer questions about our programs, pricing, the assessment, shipping, privacy and how our care works. To reach a person, email [SUPPORT EMAIL]."
+     "I don’t have an answer for that. I can answer questions about our programs, pricing, the assessment, shipping, privacy and how our care works. To reach a person, email support@wellpeps.com."
     ]
    ],
    "widths": [
@@ -488,7 +488,7 @@
   },
   {
    "t": "callout",
-   "text": "**Banner:** Automated assistant, not a person. No medical advice. Your questions are sent to our servers. Emergency? Call 911.\n**First message:** Hi! I’m the WellPeps assistant, an automated program. I’m not a person or a clinician. I answer questions about WellPeps using our articles and program pages, and I show my sources. I can’t give medical advice or help in an emergency. If you think you are having one, call 911. To reach a person, email [SUPPORT EMAIL]. What you type is sent to our servers to find answers and is kept for [30 days]. Please don’t type personal or health details.",
+   "text": "**Banner:** Automated assistant, not a person. No medical advice. Your questions are sent to our servers. Emergency? Call 911.\n**First message:** Hi! I’m the WellPeps assistant, an automated program. I’m not a person or a clinician. I answer questions about WellPeps using our articles and program pages, and I show my sources. I can’t give medical advice or help in an emergency. If you think you are having one, call 911. To reach a person, email support@wellpeps.com. What you type is sent to our servers to find answers and is kept for [30 days]. Please don’t type personal or health details.",
    "kind": "info"
   },
   {
@@ -577,7 +577,7 @@
   },
   {
    "t": "li",
-   "text": "**Removed** the registered agent's street address, the phone number and support@wellpeps.com; the document now uses [SUPPORT EMAIL] and [BUSINESS ADDRESS].",
+   "text": "**Removed** the registered agent's street address, the phone number and support@wellpeps.com; the document now uses support@wellpeps.com and 30 N Gould St., Suite R, Sheridan, WY 82801.",
    "level": 0
   },
   {

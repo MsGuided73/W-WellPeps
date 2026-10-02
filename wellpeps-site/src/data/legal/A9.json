@@ -52,7 +52,7 @@
     ],
     [
      "If something is wrong",
-     "Do not use it. Contact the pharmacy and [SUPPORT EMAIL]."
+     "Do not use it. Contact the pharmacy and support@wellpeps.com."
     ],
     [
      "Returns",
@@ -241,7 +241,7 @@
   },
   {
    "t": "li",
-   "text": "If your label says to refrigerate and the package feels warm, the cold packs are no longer cold, or the package was left in heat or sun, do not use the medication. Contact the pharmacy and [SUPPORT EMAIL] before you use it. The pharmacy decides whether it is still safe to use. Do not decide for yourself because it looks fine.",
+   "text": "If your label says to refrigerate and the package feels warm, the cold packs are no longer cold, or the package was left in heat or sun, do not use the medication. Contact the pharmacy and support@wellpeps.com before you use it. The pharmacy decides whether it is still safe to use. Do not decide for yourself because it looks fine.",
    "level": 0
   },
   {
@@ -271,7 +271,7 @@
     "Check the package: the seal is not broken, nothing is leaking or cracked, and nothing is missing (such as needles or syringes, if they come with your medication).",
     "Check the temperature as described in Section 7.",
     "Store the medication the way your label says.",
-    "If anything is wrong, do not use the medication. Take photos of the label, the package and the shipping label, and contact the pharmacy and [SUPPORT EMAIL] within [48 hours].",
+    "If anything is wrong, do not use the medication. Take photos of the label, the package and the shipping label, and contact the pharmacy and support@wellpeps.com within [48 hours].",
     "Keep the packaging until you are sure everything is right."
    ]
   },
@@ -317,7 +317,7 @@
   },
   {
    "t": "li",
-   "text": "To change your address, tell us right away at [SUPPORT EMAIL] or in your patient portal. We can change it only before the pharmacy ships. After that, we cannot redirect the package. You can ask the carrier to hold or redirect it, if the carrier allows.",
+   "text": "To change your address, tell us right away at support@wellpeps.com or in your patient portal. We can change it only before the pharmacy ships. After that, we cannot redirect the package. You can ask the carrier to hold or redirect it, if the carrier allows.",
    "level": 0
   },
   {
@@ -348,7 +348,7 @@
   {
    "t": "ol",
    "items": [
-    "Contact the pharmacy named on the label (or on the shipping email) and [SUPPORT EMAIL]. Do this within [48 hours] after the package arrives, or within [7 days] after the expected delivery date if it did not arrive.",
+    "Contact the pharmacy named on the label (or on the shipping email) and support@wellpeps.com. Do this within [48 hours] after the package arrives, or within [7 days] after the expected delivery date if it did not arrive.",
     "Send photos of the package, the label and any damage.",
     "Keep the original packaging and the product until the pharmacy tells you what to do. Do not mail anything back unless the pharmacy or WellPeps tells you to in writing."
    ]
@@ -469,15 +469,15 @@
     ],
     [
      "Orders, shipping, billing, address changes",
-     "[SUPPORT EMAIL]. Monday to Friday, 9 am to 6 pm Eastern Time. Or send a message in your patient portal at [PORTAL URL]."
+     "support@wellpeps.com. Monday to Friday, 9 am to 6 pm Eastern Time. Or send a message in your patient portal at portal.wellpeps.com."
     ],
     [
      "Phone",
-     "[SUPPORT PHONE AND HOURS, ONLY IF LIVE]"
+     "(307) 881-8700, during normal business hours"
     ],
     [
      "Mail",
-     "WellPeps, a Wyoming corporation, [BUSINESS ADDRESS]"
+     "WellPeps, a Wyoming corporation, 30 N Gould St., Suite R, Sheridan, WY 82801"
     ],
     [
      "Ingredients, strength, preparation, storage, how long it is good for",

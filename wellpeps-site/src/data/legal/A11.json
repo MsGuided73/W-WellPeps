@@ -24,7 +24,7 @@
   },
   {
    "t": "p",
-   "text": "WellPeps, a Wyoming corporation (“WellPeps,” “we,” “us”), [BUSINESS ADDRESS], runs the text messaging program described here. WellPeps is not a medical practice. Some texts, such as visit reminders, are sent through our technology platform for [PRACTICE NAME] (the “Practice”), an independent licensed medical practice. Our texts come from [SMS SENDER NUMBER]. Questions about this page: [SUPPORT EMAIL].",
+   "text": "WellPeps, a Wyoming corporation (“WellPeps,” “we,” “us”), 30 N Gould St., Suite R, Sheridan, WY 82801, runs the text messaging program described here. WellPeps is not a medical practice. Some texts, such as visit reminders, are sent through our technology platform for [PRACTICE NAME] (the “Practice”), an independent licensed medical practice. Our texts come from [SMS SENDER NUMBER]. Questions about this page: support@wellpeps.com.",
    "italic": false,
    "align": null
   },
@@ -123,7 +123,7 @@
   },
   {
    "t": "p",
-   "text": "Reply **STOP** to any text to stop Program A texts. You can also reply END, CANCEL, UNSUBSCRIBE or QUIT. You can turn off text alerts in your patient portal settings, or email [SUPPORT EMAIL]. We may send one last text to confirm. After that we will not text you in Program A unless you sign up again. We will act on your request as soon as we can, and no later than 10 business days. [VERIFY: revocation timing]",
+   "text": "Reply **STOP** to any text to stop Program A texts. You can also reply END, CANCEL, UNSUBSCRIBE or QUIT. You can turn off text alerts in your patient portal settings, or email support@wellpeps.com. We may send one last text to confirm. After that we will not text you in Program A unless you sign up again. We will act on your request as soon as we can, and no later than 10 business days. [VERIFY: revocation timing]",
    "italic": false,
    "align": null
   },
@@ -139,7 +139,7 @@
   },
   {
    "t": "p",
-   "text": "Reply **HELP** to any text, or email [SUPPORT EMAIL]. Support hours are Monday to Friday, 9 a.m. to 6 p.m. Eastern time. Phone: [SUPPORT PHONE AND HOURS, ONLY IF LIVE]. Support cannot give medical advice.",
+   "text": "Reply **HELP** to any text, or email support@wellpeps.com. Support hours are Monday to Friday, 9 a.m. to 6 p.m. Eastern time. Phone: (307) 881-8700, during normal business hours. Support cannot give medical advice.",
    "italic": false,
    "align": null
   },
@@ -160,7 +160,7 @@
   },
   {
    "t": "li",
-   "text": "**Medical questions belong in your patient portal** at [PORTAL URL]. Your care team answers there. We will not answer clinical questions by text.",
+   "text": "**Medical questions belong in your patient portal** at portal.wellpeps.com. Your care team answers there. We will not answer clinical questions by text.",
    "level": 0
   },
   {
@@ -236,7 +236,7 @@
   },
   {
    "t": "p",
-   "text": "**Marketing emails.** If you join our newsletter, ask for a free guide or join a waiting list, we may email you wellness information, news about our programs and updates. We send these only to people who signed up, from WellPeps, a Wyoming corporation, [BUSINESS ADDRESS]. Every marketing email has a working unsubscribe link. We act on an unsubscribe within 10 business days, usually right away. You do not have to pay or give us anything but your email address to unsubscribe. You can also write to [SUPPORT EMAIL]. Our subject lines will not be misleading.",
+   "text": "**Marketing emails.** If you join our newsletter, ask for a free guide or join a waiting list, we may email you wellness information, news about our programs and updates. We send these only to people who signed up, from WellPeps, a Wyoming corporation, 30 N Gould St., Suite R, Sheridan, WY 82801. Every marketing email has a working unsubscribe link. We act on an unsubscribe within 10 business days, usually right away. You do not have to pay or give us anything but your email address to unsubscribe. You can also write to support@wellpeps.com. Our subject lines will not be misleading.",
    "italic": false,
    "align": null
   },
@@ -276,7 +276,7 @@
   },
   {
    "t": "p",
-   "text": "**Contact:** WellPeps, a Wyoming corporation, [BUSINESS ADDRESS]. Email [SUPPORT EMAIL]. Phone: [SUPPORT PHONE AND HOURS, ONLY IF LIVE].",
+   "text": "**Contact:** WellPeps, a Wyoming corporation, 30 N Gould St., Suite R, Sheridan, WY 82801. Email support@wellpeps.com. Phone: (307) 881-8700, during normal business hours.",
    "italic": false,
    "align": null
   },
@@ -301,7 +301,7 @@
   },
   {
    "t": "callout",
-   "text": "By subscribing, you agree to get WellPeps’s monthly wellness email. We will email you first to confirm your address. Unsubscribe any time. WellPeps, a Wyoming corporation, [BUSINESS ADDRESS]. Privacy Policy.\nSuccess message: Check your email and click the link to confirm your subscription.",
+   "text": "By subscribing, you agree to get WellPeps’s monthly wellness email. We will email you first to confirm your address. Unsubscribe any time. WellPeps, a Wyoming corporation, 30 N Gould St., Suite R, Sheridan, WY 82801. Privacy Policy.\nSuccess message: Check your email and click the link to confirm your subscription.",
    "kind": "info"
   },
   {
@@ -316,7 +316,7 @@
   },
   {
    "t": "callout",
-   "text": "We will use your name and email address only to tell you when [PROGRAM NAME] opens and to send related updates. Joining this list shows an interest in [PROGRAM NAME], which we treat as consumer health data. Unsubscribe any time. WellPeps, a Wyoming corporation, [BUSINESS ADDRESS].",
+   "text": "We will use your name and email address only to tell you when [PROGRAM NAME] opens and to send related updates. Joining this list shows an interest in [PROGRAM NAME], which we treat as consumer health data. Unsubscribe any time. WellPeps, a Wyoming corporation, 30 N Gould St., Suite R, Sheridan, WY 82801.",
    "kind": "info"
   },
   {
@@ -341,7 +341,7 @@
   },
   {
    "t": "callout",
-   "text": "We will email you the guide you chose. We use your email address to send it and to follow up about your request. Requesting this guide shows an interest in [GUIDE TOPIC], which we treat as consumer health data. See the Consumer Health Data Privacy Policy and Privacy Policy. WellPeps, a Wyoming corporation, [BUSINESS ADDRESS].",
+   "text": "We will email you the guide you chose. We use your email address to send it and to follow up about your request. Requesting this guide shows an interest in [GUIDE TOPIC], which we treat as consumer health data. See the Consumer Health Data Privacy Policy and Privacy Policy. WellPeps, a Wyoming corporation, 30 N Gould St., Suite R, Sheridan, WY 82801.",
    "kind": "info"
   },
   {
@@ -366,7 +366,7 @@
   },
   {
    "t": "callout",
-   "text": "**Subject:** Please confirm your email address\nHi, you asked to get email from WellPeps. Please confirm your address by clicking the button below. If you did not ask, ignore this email and we will not contact you again.\n**Footer of every marketing email:** You are receiving this because you signed up at wellpeps.com on (sign-up date). WellPeps, a Wyoming corporation, [BUSINESS ADDRESS]. Unsubscribe | Privacy Policy. Please do not reply with health details.",
+   "text": "**Subject:** Please confirm your email address\nHi, you asked to get email from WellPeps. Please confirm your address by clicking the button below. If you did not ask, ignore this email and we will not contact you again.\n**Footer of every marketing email:** You are receiving this because you signed up at wellpeps.com on (sign-up date). WellPeps, a Wyoming corporation, 30 N Gould St., Suite R, Sheridan, WY 82801. Unsubscribe | Privacy Policy. Please do not reply with health details.",
    "kind": "info"
   },
   {
@@ -514,11 +514,11 @@
     ],
     [
      "Reply to HELP",
-     "WellPeps: For help, email [SUPPORT EMAIL]. Reply STOP to cancel. Msg & data rates may apply. Terms: [TERMS URL]"
+     "WellPeps: For help, email support@wellpeps.com. Reply STOP to cancel. Msg & data rates may apply. Terms: [TERMS URL]"
     ],
     [
      "Reply to STOP",
-     "WellPeps: You’re unsubscribed and will get no more texts from us. We will still email you about your account. Questions? [SUPPORT EMAIL]"
+     "WellPeps: You’re unsubscribed and will get no more texts from us. We will still email you about your account. Questions? support@wellpeps.com"
     ],
     [
      "Sample: visit reminder",
@@ -526,15 +526,15 @@
     ],
     [
      "Sample: portal message",
-     "WellPeps: You have a new message in your patient portal. Log in at [PORTAL URL] to read it. Reply STOP to opt out."
+     "WellPeps: You have a new message in your patient portal. Log in at portal.wellpeps.com to read it. Reply STOP to opt out."
     ],
     [
      "Sample: shipping",
-     "WellPeps: Your order has shipped. Track it in your patient portal at [PORTAL URL]. Reply STOP to opt out."
+     "WellPeps: Your order has shipped. Track it in your patient portal at portal.wellpeps.com. Reply STOP to opt out."
     ],
     [
      "Sample: refill reminder",
-     "WellPeps: It’s almost time for your refill. Log in at [PORTAL URL] to review your plan. Reply STOP to opt out."
+     "WellPeps: It’s almost time for your refill. Log in at portal.wellpeps.com to review your plan. Reply STOP to opt out."
     ]
    ],
    "widths": [

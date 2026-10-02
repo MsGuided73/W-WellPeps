@@ -2,7 +2,7 @@
 import LegalLayout from '../components/LegalLayout.astro';
 import PrivacyCenter from '../components/privacy/PrivacyCenter.astro';
 import PrivacyRequestForm from '../components/privacy/PrivacyRequestForm.astro';
-import { CONTACT } from '../config';
+import { CONTACT, EMAILS } from '../config';
 import { hasNonEssential, productionTrackers } from '../lib/privacy/registry';
 
 /* The statement under "Where things stand today" is generated from the tool
@@ -17,7 +17,7 @@ const clientNeeds = [
 ];
 
 /* Interim channel until a dedicated privacy mailbox exists. */
-const privacyEmail = CONTACT.email;
+const privacyEmail = EMAILS.privacy;
 ---
 <LegalLayout
   title="Your Privacy Choices"
@@ -94,15 +94,12 @@ const privacyEmail = CONTACT.email;
     <li><strong>Online:</strong> use the form below.</li>
     <li>
       <strong>Email:</strong> <a href={`mailto:${privacyEmail}`}>{privacyEmail}</a>
-      <span class="ph ph--you">You provide: a dedicated privacy address, for example privacy@wellpeps.com.</span>
     </li>
     <li>
-      <strong>Mail:</strong> WellPeps, a Wyoming corporation, Attn: Privacy,
-      <span class="ph ph--you">You provide: a real business address (not the registered agent&rsquo;s).</span>
+      <strong>Mail:</strong> WellPeps, a Wyoming corporation, Attn: Privacy, 30 N Gould St., Suite R, Sheridan, WY 82801
     </li>
     <li>
-      <strong>Phone:</strong>
-      <span class="ph ph--legal">Lawyer: confirm whether a toll-free number is required; delete this line unless a staffed line exists.</span>
+      <strong>Phone:</strong> <a href="tel:+13078818700">(307) 881-8700</a> (normal business hours)
     </li>
   </ul>
   <p>

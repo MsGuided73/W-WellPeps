@@ -487,12 +487,12 @@
   },
   {
    "t": "li",
-   "text": "**Non-emergency medical questions:** message your clinician in the patient portal at [PORTAL URL].",
+   "text": "**Non-emergency medical questions:** message your clinician in the patient portal at portal.wellpeps.com.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "**Orders, shipping or billing help:** [SUPPORT EMAIL] [SUPPORT PHONE AND HOURS, ONLY IF LIVE]. WellPeps support cannot answer medical questions.",
+   "text": "**Orders, shipping or billing help:** support@wellpeps.com or (307) 881-8700, during normal business hours. WellPeps support cannot answer medical questions.",
    "level": 0
   },
   {
@@ -521,7 +521,7 @@
   },
   {
    "t": "p",
-   "text": "Please read the Hair Loss Medication Safety Information (version [VERSION], dated [EFFECTIVE DATE]) before checking each box. You can read it again at any time in the patient portal at [PORTAL URL]. Signing this acknowledgment does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
+   "text": "Please read the Hair Loss Medication Safety Information (version [VERSION], dated [EFFECTIVE DATE]) before checking each box. You can read it again at any time in the patient portal at portal.wellpeps.com. Signing this acknowledgment does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
    "italic": false,
    "align": null
   },

@@ -54,7 +54,7 @@
     ],
     [
      "How do I cancel?",
-     "Any time, in your patient portal at [PORTAL URL] or by email to [SUPPORT EMAIL]. We confirm in writing within 1 business day. You do not need to call anyone or give a reason."
+     "Any time, in your patient portal at portal.wellpeps.com or by email to support@wellpeps.com. We confirm in writing within 1 business day. You do not need to call anyone or give a reason."
     ],
     [
      "What is the deadline?",
@@ -205,17 +205,17 @@
   },
   {
    "t": "li",
-   "text": "**In your patient portal:** sign in at [PORTAL URL] and send us a message that says you want to cancel.",
+   "text": "**In your patient portal:** sign in at portal.wellpeps.com and send us a message that says you want to cancel.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "**By email:** write to [SUPPORT EMAIL] from the email address on your account and say you want to cancel.",
+   "text": "**By email:** write to support@wellpeps.com from the email address on your account and say you want to cancel.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "**By phone:** [SUPPORT PHONE AND HOURS, ONLY IF LIVE]",
+   "text": "**By phone:** (307) 881-8700, during normal business hours",
    "level": 0
   },
   {
@@ -326,14 +326,14 @@
    "t": "clause",
    "number": "5.3",
    "heading": "Pharmacy error.",
-   "text": "If you receive the wrong medication, strength or amount, do not use it. Contact the pharmacy named on the label and [SUPPORT EMAIL] right away. The pharmacy will confirm the error. If your clinician agrees a corrected order is right for you, the pharmacy sends it at no charge. If a corrected order cannot be sent, or you prefer, we refund that month’s charge.",
+   "text": "If you receive the wrong medication, strength or amount, do not use it. Contact the pharmacy named on the label and support@wellpeps.com right away. The pharmacy will confirm the error. If your clinician agrees a corrected order is right for you, the pharmacy sends it at no charge. If a corrected order cannot be sent, or you prefer, we refund that month’s charge.",
    "level": 0
   },
   {
    "t": "clause",
    "number": "5.4",
    "heading": "Lost, damaged or heat-exposed shipment.",
-   "text": "If a package is damaged, was exposed to heat, or arrives with a broken seal or leak, do not use the medication. Contact the pharmacy and [SUPPORT EMAIL] within [48 hours] after it arrives. If a package does not arrive, contact us within [7 days] after the expected delivery date. Send photos of the package and the label if you can. The pharmacy decides whether the product is safe to use, and your clinician confirms that a replacement is appropriate. We send a replacement at no charge or, if a replacement cannot be sent, refund that month’s charge. See the Shipping and Delivery Policy for what to check when your package arrives.",
+   "text": "If a package is damaged, was exposed to heat, or arrives with a broken seal or leak, do not use the medication. Contact the pharmacy and support@wellpeps.com within [48 hours] after it arrives. If a package does not arrive, contact us within [7 days] after the expected delivery date. Send photos of the package and the label if you can. The pharmacy decides whether the product is safe to use, and your clinician confirms that a replacement is appropriate. We send a replacement at no charge or, if a replacement cannot be sent, refund that month’s charge. See the Shipping and Delivery Policy for what to check when your package arrives.",
    "level": 0
   },
   {
@@ -397,7 +397,7 @@
    "t": "clause",
    "number": "5.8",
    "heading": "How to ask for a refund.",
-   "text": "Email [SUPPORT EMAIL] or send a message in your patient portal. Tell us your name, the email on your account, the charge date and what happened. We reply within 1 business day. You do not need to use special words.",
+   "text": "Email support@wellpeps.com or send a message in your patient portal. Tell us your name, the email on your account, the charge date and what happened. We reply within 1 business day. You do not need to use special words.",
    "level": 0
   },
   {
@@ -469,7 +469,7 @@
    "t": "clause",
    "number": "8.1",
    "heading": "Please contact us first.",
-   "text": "If you think a charge is wrong, email [SUPPORT EMAIL]. We can often fix it faster than your bank can, and we will tell you what we find within 1 business day.",
+   "text": "If you think a charge is wrong, email support@wellpeps.com. We can often fix it faster than your bank can, and we will tell you what we find within 1 business day.",
    "level": 0
   },
   {
@@ -571,15 +571,15 @@
     ],
     [
      "Cancel, refunds, billing, shipping, your account",
-     "[SUPPORT EMAIL]. Monday to Friday, 9 am to 6 pm Eastern Time. Or send a message in your patient portal at [PORTAL URL]."
+     "support@wellpeps.com. Monday to Friday, 9 am to 6 pm Eastern Time. Or send a message in your patient portal at portal.wellpeps.com."
     ],
     [
      "Phone",
-     "[SUPPORT PHONE AND HOURS, ONLY IF LIVE]"
+     "(307) 881-8700, during normal business hours"
     ],
     [
      "Mail",
-     "WellPeps, a Wyoming corporation, [BUSINESS ADDRESS]"
+     "WellPeps, a Wyoming corporation, 30 N Gould St., Suite R, Sheridan, WY 82801"
     ],
     [
      "Medical questions, side effects, your prescription",
@@ -619,7 +619,7 @@
   },
   {
    "t": "check",
-   "text": "I understand that my plan renews every month until I cancel, and that I can cancel by message in the patient portal or by email to [SUPPORT EMAIL]."
+   "text": "I understand that my plan renews every month until I cancel, and that I can cancel by message in the patient portal or by email to support@wellpeps.com."
   },
   {
    "t": "check",
@@ -740,7 +740,7 @@
   },
   {
    "t": "callout",
-   "text": "**AUTOMATIC RENEWAL: PLEASE READ BEFORE YOU PAY**\nYour {{plan_name}} renews automatically every month until you cancel.\nYou will pay {{price_today}} today. Then your card will be charged {{price}} every month, starting {{first_renewal_date}}, plus any tax, by [MERCHANT OF RECORD]. It will appear on your statement as [BILLING DESCRIPTOR]. There is no minimum commitment, no membership fee and no cancellation fee.\nYour price covers your medication if prescribed, your clinician’s review and care, messaging with your care team and standard shipping. Lab tests, if your clinician recommends them, are billed separately.\n**HOW TO CANCEL:** Cancel any time in your patient portal at [PORTAL URL] or by email to [SUPPORT EMAIL]. To avoid your next charge, cancel at least [72 hours] before {{next_charge_date}}. We confirm every cancellation in writing within 1 business day.\n**REFUNDS:** A prescription is not guaranteed. If your clinician does not prescribe treatment, you get a full refund of everything you paid. Once the pharmacy has started preparing your medication, that charge cannot be refunded except as described in our Refund, Cancellation and Auto-Renewal Policy {{policy_link}}.",
+   "text": "**AUTOMATIC RENEWAL: PLEASE READ BEFORE YOU PAY**\nYour {{plan_name}} renews automatically every month until you cancel.\nYou will pay {{price_today}} today. Then your card will be charged {{price}} every month, starting {{first_renewal_date}}, plus any tax, by [MERCHANT OF RECORD]. It will appear on your statement as [BILLING DESCRIPTOR]. There is no minimum commitment, no membership fee and no cancellation fee.\nYour price covers your medication if prescribed, your clinician’s review and care, messaging with your care team and standard shipping. Lab tests, if your clinician recommends them, are billed separately.\n**HOW TO CANCEL:** Cancel any time in your patient portal at portal.wellpeps.com or by email to support@wellpeps.com. To avoid your next charge, cancel at least [72 hours] before {{next_charge_date}}. We confirm every cancellation in writing within 1 business day.\n**REFUNDS:** A prescription is not guaranteed. If your clinician does not prescribe treatment, you get a full refund of everything you paid. Once the pharmacy has started preparing your medication, that charge cannot be refunded except as described in our Refund, Cancellation and Auto-Renewal Policy {{policy_link}}.",
    "kind": "info"
   },
   {
@@ -896,7 +896,7 @@
   },
   {
    "t": "callout",
-   "text": "**Subject:** Your WellPeps monthly plan: renewal and cancellation details\nHi {{first_name}},\nThank you for starting your {{plan_name}}. This email confirms what you agreed to on {{consent_date}} at {{consent_time}} {{time_zone}}.\n**Your plan renews every month until you cancel.**\nCharged today: {{price_today}}\nNext charge: {{price}} on {{first_renewal_date}}, then every month on the same day, plus any tax\nCard: {{card_brand}} ending in {{card_last4}}\nBilled by: [MERCHANT OF RECORD]. Your statement shows [BILLING DESCRIPTOR].\nMinimum commitment: none. Cancellation fee: none.\nYour price covers your medication if prescribed, your clinician’s review and care, messaging with your care team and standard shipping. Lab tests are billed separately.\nA prescription is not guaranteed. Your clinician decides whether treatment is right for you. If your clinician does not prescribe, we refund everything you paid.\n**How to cancel:** Any time, in your patient portal at [PORTAL URL] ({{cancel_link}}), by replying to this email, or by writing to [SUPPORT EMAIL]. To avoid your next charge, cancel at least [72 hours] before {{next_charge_date}}. We confirm every cancellation in writing within 1 business day.\nRead the full policy: {{policy_link}}\nQuestions about orders, billing or shipping? [SUPPORT EMAIL], Monday to Friday, 9 am to 6 pm ET. For medical questions, message your clinician in the patient portal. In an emergency, call 911.\nWellPeps, a Wyoming corporation, [BUSINESS ADDRESS]",
+   "text": "**Subject:** Your WellPeps monthly plan: renewal and cancellation details\nHi {{first_name}},\nThank you for starting your {{plan_name}}. This email confirms what you agreed to on {{consent_date}} at {{consent_time}} {{time_zone}}.\n**Your plan renews every month until you cancel.**\nCharged today: {{price_today}}\nNext charge: {{price}} on {{first_renewal_date}}, then every month on the same day, plus any tax\nCard: {{card_brand}} ending in {{card_last4}}\nBilled by: [MERCHANT OF RECORD]. Your statement shows [BILLING DESCRIPTOR].\nMinimum commitment: none. Cancellation fee: none.\nYour price covers your medication if prescribed, your clinician’s review and care, messaging with your care team and standard shipping. Lab tests are billed separately.\nA prescription is not guaranteed. Your clinician decides whether treatment is right for you. If your clinician does not prescribe, we refund everything you paid.\n**How to cancel:** Any time, in your patient portal at portal.wellpeps.com ({{cancel_link}}), by replying to this email, or by writing to support@wellpeps.com. To avoid your next charge, cancel at least [72 hours] before {{next_charge_date}}. We confirm every cancellation in writing within 1 business day.\nRead the full policy: {{policy_link}}\nQuestions about orders, billing or shipping? support@wellpeps.com, Monday to Friday, 9 am to 6 pm ET. For medical questions, message your clinician in the patient portal. In an emergency, call 911.\nWellPeps, a Wyoming corporation, 30 N Gould St., Suite R, Sheridan, WY 82801",
    "kind": "info"
   },
   {
@@ -905,7 +905,7 @@
   },
   {
    "t": "callout",
-   "text": "**Subject:** Your WellPeps receipt: {{price}} on {{charge_date}}\nHi {{first_name}},\nWe charged {{price}} to your {{card_brand}} ending in {{card_last4}} for your {{plan_name}}. Your next charge is {{next_charge_date}}.\nTo avoid the next charge, cancel at least [72 hours] before that date: {{cancel_link}}, or write to [SUPPORT EMAIL]. Full policy: {{policy_link}}",
+   "text": "**Subject:** Your WellPeps receipt: {{price}} on {{charge_date}}\nHi {{first_name}},\nWe charged {{price}} to your {{card_brand}} ending in {{card_last4}} for your {{plan_name}}. Your next charge is {{next_charge_date}}.\nTo avoid the next charge, cancel at least [72 hours] before that date: {{cancel_link}}, or write to support@wellpeps.com. Full policy: {{policy_link}}",
    "kind": "info"
   },
   {
@@ -914,7 +914,7 @@
   },
   {
    "t": "callout",
-   "text": "**Subject:** Your WellPeps plan renews on {{renewal_date}}\nHi {{first_name}},\nThis is a reminder that your {{plan_name}} renews automatically on {{renewal_date}}. We will charge {{price}} to your {{card_brand}} ending in {{card_last4}}.\nTo avoid this charge, cancel by {{cancel_by_date}}: {{cancel_link}}. You can also reply to this email or write to [SUPPORT EMAIL]. Cancelling stops all future charges. If you cancel after {{cancel_by_date}} we still stop future charges, and we refund this charge if the pharmacy has not started preparing your medication.\nIf you take a prescribed medicine, talk to your clinician in the patient portal before you stop it.\nQuestions? [SUPPORT EMAIL]. Full policy: {{policy_link}}",
+   "text": "**Subject:** Your WellPeps plan renews on {{renewal_date}}\nHi {{first_name}},\nThis is a reminder that your {{plan_name}} renews automatically on {{renewal_date}}. We will charge {{price}} to your {{card_brand}} ending in {{card_last4}}.\nTo avoid this charge, cancel by {{cancel_by_date}}: {{cancel_link}}. You can also reply to this email or write to support@wellpeps.com. Cancelling stops all future charges. If you cancel after {{cancel_by_date}} we still stop future charges, and we refund this charge if the pharmacy has not started preparing your medication.\nIf you take a prescribed medicine, talk to your clinician in the patient portal before you stop it.\nQuestions? support@wellpeps.com. Full policy: {{policy_link}}",
    "kind": "info"
   },
   {
@@ -923,7 +923,7 @@
   },
   {
    "t": "callout",
-   "text": "**Subject:** Important: your WellPeps monthly price is changing\nHi {{first_name}},\nStarting {{renewal_date}}, the price of your {{plan_name}} will change from {{old_price}} to {{new_price}} per month. {{other_change_text}} Your first charge at the new price will be on {{renewal_date}}.\nYou do not have to accept this change. You can cancel at any time: {{cancel_link}}. If you cancel before {{renewal_date}}, you will not pay the new price. If you do nothing, your plan continues at the new price.\nQuestions? [SUPPORT EMAIL]. Full policy: {{policy_link}}",
+   "text": "**Subject:** Important: your WellPeps monthly price is changing\nHi {{first_name}},\nStarting {{renewal_date}}, the price of your {{plan_name}} will change from {{old_price}} to {{new_price}} per month. {{other_change_text}} Your first charge at the new price will be on {{renewal_date}}.\nYou do not have to accept this change. You can cancel at any time: {{cancel_link}}. If you cancel before {{renewal_date}}, you will not pay the new price. If you do nothing, your plan continues at the new price.\nQuestions? support@wellpeps.com. Full policy: {{policy_link}}",
    "kind": "info"
   },
   {
@@ -932,7 +932,7 @@
   },
   {
    "t": "callout",
-   "text": "**Subject:** We could not process your WellPeps payment\nHi {{first_name}},\nWe tried to charge {{price}} to your {{card_brand}} ending in {{card_last4}} for your {{plan_name}}, but the payment did not go through.\nTo fix it, update your card in your patient portal at [PORTAL URL]. We may try again up to [3 attempts] before {{final_attempt_date}}. We do not charge a late fee. We cannot send a new order to the pharmacy until payment goes through. If it is still unpaid on {{final_attempt_date}}, we will cancel your plan. You can restart at any time.\nYou can also cancel now: {{cancel_link}}. Questions? [SUPPORT EMAIL].",
+   "text": "**Subject:** We could not process your WellPeps payment\nHi {{first_name}},\nWe tried to charge {{price}} to your {{card_brand}} ending in {{card_last4}} for your {{plan_name}}, but the payment did not go through.\nTo fix it, update your card in your patient portal at portal.wellpeps.com. We may try again up to [3 attempts] before {{final_attempt_date}}. We do not charge a late fee. We cannot send a new order to the pharmacy until payment goes through. If it is still unpaid on {{final_attempt_date}}, we will cancel your plan. You can restart at any time.\nYou can also cancel now: {{cancel_link}}. Questions? support@wellpeps.com.",
    "kind": "info"
   },
   {
@@ -941,7 +941,7 @@
   },
   {
    "t": "callout",
-   "text": "**Subject:** Your WellPeps plan has been canceled\nHi {{first_name}},\nWe canceled your {{plan_name}}. We received your request on {{request_date}} at {{request_time}}. Reference number: {{reference_number}}.\nWhat happens next. Choose one:\n(a) No further charges will be made to your card.\n(b) We received your request after the cancellation deadline for your {{charge_date}} charge. The pharmacy had not started preparing your medication, so we canceled the order and are refunding {{refund_amount}}.\n(c) We received your request after the cancellation deadline for your {{charge_date}} charge. The pharmacy had already started preparing your medication, so that charge of {{price}} is not refundable and your order will ship. No further charges will be made.\nYour plan stays active through {{service_end_date}}. You can message your clinician in the patient portal until then.\nTalk to your clinician before you stop a prescribed medicine. If you did not ask to cancel, or you think you were charged in error, write to [SUPPORT EMAIL] now. In an emergency, call 911.",
+   "text": "**Subject:** Your WellPeps plan has been canceled\nHi {{first_name}},\nWe canceled your {{plan_name}}. We received your request on {{request_date}} at {{request_time}}. Reference number: {{reference_number}}.\nWhat happens next. Choose one:\n(a) No further charges will be made to your card.\n(b) We received your request after the cancellation deadline for your {{charge_date}} charge. The pharmacy had not started preparing your medication, so we canceled the order and are refunding {{refund_amount}}.\n(c) We received your request after the cancellation deadline for your {{charge_date}} charge. The pharmacy had already started preparing your medication, so that charge of {{price}} is not refundable and your order will ship. No further charges will be made.\nYour plan stays active through {{service_end_date}}. You can message your clinician in the patient portal until then.\nTalk to your clinician before you stop a prescribed medicine. If you did not ask to cancel, or you think you were charged in error, write to support@wellpeps.com now. In an emergency, call 911.",
    "kind": "info"
   },
   {
@@ -950,7 +950,7 @@
   },
   {
    "t": "callout",
-   "text": "**Subject:** Your WellPeps refund of {{refund_amount}}\nHi {{first_name}},\nWe issued a refund of {{refund_amount}} on {{refund_date}} to your {{card_brand}} ending in {{card_last4}}. Reason: {{refund_reason}}. Reference number: {{reference_number}}.\nRefunds usually appear within [5 to 10 business days], depending on your bank or card issuer. You do not need to do anything. If you do not see it after that time, write to [SUPPORT EMAIL] and give us the reference number.\nFull policy: {{policy_link}}",
+   "text": "**Subject:** Your WellPeps refund of {{refund_amount}}\nHi {{first_name}},\nWe issued a refund of {{refund_amount}} on {{refund_date}} to your {{card_brand}} ending in {{card_last4}}. Reason: {{refund_reason}}. Reference number: {{reference_number}}.\nRefunds usually appear within [5 to 10 business days], depending on your bank or card issuer. You do not need to do anything. If you do not see it after that time, write to support@wellpeps.com and give us the reference number.\nFull policy: {{policy_link}}",
    "kind": "info"
   },
   {
@@ -1068,7 +1068,7 @@
      "14",
      "Patient messaging and cancel",
      "Cancellation channel",
-     "Keep “Allow patients to send messages” on. Route cancellation messages to a destination WellPeps staff monitor (the Client care team), not to clinicians. Monitor [SUPPORT EMAIL]. Target: confirm within 1 business day. Recommended: add a self-serve “Cancel plan” link or button (portal custom link or dashboard section) so cancelling is as easy as signing up. Confirm a self-serve cancel is possible. [VERIFY WITH GEN]",
+     "Keep “Allow patients to send messages” on. Route cancellation messages to a destination WellPeps staff monitor (the Client care team), not to clinicians. Monitor support@wellpeps.com. Target: confirm within 1 business day. Recommended: add a self-serve “Cancel plan” link or button (portal custom link or dashboard section) so cancelling is as easy as signing up. Confirm a self-serve cancel is possible. [VERIFY WITH GEN]",
      "☐"
     ],
     [

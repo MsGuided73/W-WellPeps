@@ -179,7 +179,7 @@ export const knowledgeBase: KnowledgeDoc[] = [
     body: `Every program includes transparent pricing, a licensed healthcare provider review, ongoing
       provider support, and the ability to cancel anytime. No insurance required — affordable self-pay
       programs make personalized wellness accessible. Accepted payment methods: Visa, Mastercard,
-      FSA/HSA, Apple Pay, Google Pay. Provider follow-ups are included in your monthly price.`,
+      American Express, Discover, FSA/HSA cards, Apple Pay, Google Pay. Provider follow-ups are included in your monthly price.`,
   },
   {
     id: 'program-cancel',

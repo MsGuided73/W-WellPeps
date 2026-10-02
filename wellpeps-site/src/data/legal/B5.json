@@ -295,7 +295,7 @@
   },
   {
    "t": "p",
-   "text": "Then message your clinician in the portal at [PORTAL URL]. Contact WellPeps at [SUPPORT EMAIL] for shipping or billing problems. Keep the medicine, packaging and label until the pharmacy tells you what to do with them, unless keeping them is unsafe. If you feel seriously ill, call 911. If you may have taken too much or used the wrong dose, call Poison Control at 1-800-222-1222.",
+   "text": "Then message your clinician in the portal at portal.wellpeps.com. Contact WellPeps at support@wellpeps.com for shipping or billing problems. Keep the medicine, packaging and label until the pharmacy tells you what to do with them, unless keeping them is unsafe. If you feel seriously ill, call 911. If you may have taken too much or used the wrong dose, call Poison Control at 1-800-222-1222.",
    "italic": false,
    "align": null
   },
@@ -398,7 +398,7 @@
   },
   {
    "t": "p",
-   "text": "Please read this document (version [VERSION], effective [EFFECTIVE DATE]) before checking each box. Signing does not guarantee a prescription. A licensed clinician decides whether treatment is right for you. You can read this document again at [PORTAL URL].",
+   "text": "Please read this document (version [VERSION], effective [EFFECTIVE DATE]) before checking each box. Signing does not guarantee a prescription. A licensed clinician decides whether treatment is right for you. You can read this document again at portal.wellpeps.com.",
    "italic": false,
    "align": null
   },

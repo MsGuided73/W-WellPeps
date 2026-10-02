@@ -15,20 +15,37 @@
  * exist only in dev and in deployments built with SHOW_DRAFT_PAGES=true, so the footer never
  * shows a dead link, and a column with no links left disappears.
  */
-import { CONTACT, CONTACT_ADDRESS, PATIENT_PORTAL_URL } from '../config';
+import { CONTACT, CONTACT_ADDRESS, GUIDE_LANDING_FLOW, PATIENT_PORTAL_URL } from '../config';
+import { GUIDES_INDEX_PATH } from '../lib/guide-flow';
 import { draftPagesEnabledNow, linkVisible } from '../lib/legal-docs';
 
-const payments: { label: string; src?: string }[] = [
+const payments: { label: string; src?: string; caption?: string }[] = [
   { label: 'Visa', src: '/images/payment/logo-visa.png' },
   { label: 'Mastercard', src: '/images/payment/logo-mastercard.png' },
-  { label: 'Apple Pay', src: '/images/payment/logo-apple-pay.png' },
-  { label: 'Google Pay' },
-  { label: 'FSA/HSA' },
+  { label: 'American Express', src: '/images/payment/logo-amex.png' },
+  { label: 'Discover', src: '/images/payment/logo-discover.png' },
+  { label: 'Apple Pay', src: '/images/payment/logo-apple-pay-v2.png' },
+  { label: 'Google Pay', src: '/images/payment/logo-google-pay.png' },
+  { label: 'FSA and HSA cards', src: '/images/payment/logo-fsa-hsa.png', caption: 'HSA & FSA' },
 ];
 
 interface FooterLink { label: string; href: string; note?: string }
 
 const columns: { heading: string; links: FooterLink[] }[] = [
+  {
+    heading: 'Patient Information',
+    links: [
+      { label: 'Medical Disclaimer', href: '/medical-disclaimer' },
+      { label: 'GLP-1 Safety Information', href: '/safety/glp-1' },
+      { label: 'Sexual Health Safety Information', href: '/safety/sexual-health' },
+      { label: 'Hair Loss Safety Information', href: '/safety/hair-loss' },
+      { label: 'Healthy Aging Safety Information', href: '/safety/healthy-aging' },
+      { label: 'Compounded Medications', href: '/compounded-medications' },
+      { label: 'Telehealth Consent', href: '/telehealth-consent' },
+      { label: 'Patient Terms', href: '/patient-terms' },
+      { label: 'All Patient Information', href: '/patient-information' },
+    ],
+  },
   {
     heading: 'Programs',
     links: [
@@ -43,6 +60,7 @@ const columns: { heading: string; links: FooterLink[] }[] = [
     heading: 'Resources',
     links: [
       { label: 'Learning Center', href: '/wellness-learning-center' },
+      ...(GUIDE_LANDING_FLOW ? [{ label: 'Smart Patient Guides', href: GUIDES_INDEX_PATH }] : []),
       { label: 'FAQ', href: '/#faq' },
       { label: 'Treatment Process', href: '/#journey' },
       { label: 'Pricing', href: '/#whats-included' },
@@ -60,20 +78,6 @@ const columns: { heading: string; links: FooterLink[] }[] = [
       { label: 'Contact Us', href: '/contact' },
     ],
   },
-  {
-    heading: 'Patient Information',
-    links: [
-      { label: 'Medical Disclaimer', href: '/medical-disclaimer' },
-      { label: 'GLP-1 Safety Information', href: '/safety/glp-1' },
-      { label: 'Sexual Health Safety Information', href: '/safety/sexual-health' },
-      { label: 'Hair Loss Safety Information', href: '/safety/hair-loss' },
-      { label: 'Healthy Aging Safety Information', href: '/safety/healthy-aging' },
-      { label: 'Compounded Medications', href: '/compounded-medications' },
-      { label: 'Telehealth Consent', href: '/telehealth-consent' },
-      { label: 'Patient Terms', href: '/patient-terms' },
-      { label: 'All Patient Information', href: '/patient-information' },
-    ],
-  },
 ];
 
 /** opensPanel links open the privacy panel on any page (see PrivacyRoot.astro). */
@@ -88,6 +92,8 @@ const legal: { label: string; href: string; opensPanel?: boolean }[] = [
 ];
 
 const year = new Date().getFullYear();
+// "Mon–Fri, 9am–6pm ET" shown as two lines: the days, then the times.
+const [hoursDays, hoursTimes] = CONTACT.hours.includes(', ') ? [CONTACT.hours.slice(0, CONTACT.hours.indexOf(', ') + 1), CONTACT.hours.slice(CONTACT.hours.indexOf(', ') + 2)] : [CONTACT.hours, ''];
 
 const showDrafts = draftPagesEnabledNow();
 const visible = (href: string) => linkVisible(href, showDrafts);
@@ -169,6 +175,12 @@ const showAddress = CONTACT_ADDRESS !== '' || showDrafts;
             </svg>
             <span><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></span>
           </li>
+          <li>
+            <svg class="footer__cicon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1l-2.2 2.2Z" />
+            </svg>
+            <span><a href={CONTACT.phoneHref}>{CONTACT.phone}</a></span>
+          </li>
           {showAddress && (
             <li>
               <svg class="footer__cicon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -181,15 +193,18 @@ const showAddress = CONTACT_ADDRESS !== '' || showDrafts;
             <svg class="footer__cicon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm.75 5v5.2l3.6 2.1-.75 1.3-4.35-2.6V7h1.5Z" />
             </svg>
-            <span>Support: {CONTACT.hours}<br /><a href={PATIENT_PORTAL_URL}>Patient Portal</a></span>
+            <span>Support: {hoursDays}<br />{hoursTimes}<br /><a href={PATIENT_PORTAL_URL}><strong>Patient Portal</strong></a></span>
           </li>
         </ul>
 
         <h4 class="footer__pay-head">We Accept</h4>
         <ul class="footer__pay" role="list">
           {payments.map((p) => (
-            <li class="footer__pay-tile">
-              {p.src ? <img src={p.src} alt={p.label} width="56" height="38" loading="lazy" /> : <span>{p.label}</span>}
+            <li class="footer__pay-item">
+              <span class="footer__pay-tile">
+                {p.src ? <img src={p.src} alt={p.label} width="56" height="38" loading="lazy" /> : <span>{p.label}</span>}
+              </span>
+              {p.caption && <span class="footer__pay-cap" aria-hidden="true">{p.caption}</span>}
             </li>
           ))}
         </ul>
@@ -236,6 +251,9 @@ const showAddress = CONTACT_ADDRESS !== '' || showDrafts;
 <style>
   .footer__pay-head { margin-top: 1.5rem; }
   .footer__col .footer__pay { list-style: none; padding: 0; margin: 0.75rem 0 0; display: flex; flex-direction: row; flex-wrap: wrap; gap: 0.5rem; max-width: 220px; }
+  .footer__col .footer__pay .footer__pay-item { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; width: 56px; } /* the tile width, so a wider caption centres under its card without moving it */
+  /* Says what the two-card image stands for (client, 2026-10-02); the image's alt text already does for screen readers. */
+  .footer__col .footer__pay-cap { font-family: var(--font-sans); font-size: 0.6875rem; font-weight: 700; line-height: 1.1; letter-spacing: 0; color: var(--navy); white-space: nowrap; }
   .footer__col .footer__pay-tile {
     display: inline-grid; place-items: center; width: 56px; height: 38px;
     border-radius: 6px; overflow: hidden; background: #fff;
@@ -333,7 +351,9 @@ const showAddress = CONTACT_ADDRESS !== '' || showDrafts;
     letter-spacing: 0.06em; text-transform: uppercase;
     color: var(--f-blue); margin-bottom: 1.4rem;
   }
-  .footer__col ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem; }
+  .footer__col ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.55rem; }
+  .footer__col li { line-height: 1.35; }
+  .footer__contact ul { gap: 0.85rem; }
   .footer__soon {
     display: block; margin-top: 0.15rem;
     font-size: var(--text-legal); color: var(--f-blue);

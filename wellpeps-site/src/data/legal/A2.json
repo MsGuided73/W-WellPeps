@@ -15,7 +15,7 @@
   },
   {
    "t": "callout",
-   "text": "**Summary**\nThis is the short version. The full policy follows.\n• **Who we are.** WellPeps, a Wyoming corporation. We run wellpeps.com and the WellPeps patient experience. We are not a medical practice or a pharmacy. We do not prescribe, compound or dispense medication.\n• **What wellpeps.com collects today.** Your email address (and a first name, if a form asks for it) and which form you used, such as the newsletter, a free guide or a waitlist. There are no accounts, health forms or payments on wellpeps.com.\n• **Where your health information goes.** Your health assessment, intake, payment and messages with your clinician happen in our technology platform at portal.wellpeps.com. The Practice and the pharmacy get what they need to care for you. Health information held for your care is covered by the Notice of Privacy Practices.\n• **We do not sell your personal information.** We do not share it for cross-context behavioral advertising. [VERIFY: confirm for portal.wellpeps.com and checkout, Open item 6.]\n• **Cookies.** wellpeps.com uses only essential cookies and no analytics or advertising tags. We will ask before we turn any on. See the Cookie and Tracking Technologies Notice.\n• **Your choices.** You can ask to see, correct or delete your information, and to opt out of or limit how it is used. Use Your Privacy Choices or email [PRIVACY EMAIL].",
+   "text": "**Summary**\nThis is the short version. The full policy follows.\n• **Who we are.** WellPeps, a Wyoming corporation. We run wellpeps.com and the WellPeps patient experience. We are not a medical practice or a pharmacy. We do not prescribe, compound or dispense medication.\n• **What wellpeps.com collects today.** Your email address (and a first name, if a form asks for it) and which form you used, such as the newsletter, a free guide or a waitlist. There are no accounts, health forms or payments on wellpeps.com.\n• **Where your health information goes.** Your health assessment, intake, payment and messages with your clinician happen in our technology platform at portal.wellpeps.com. The Practice and the pharmacy get what they need to care for you. Health information held for your care is covered by the Notice of Privacy Practices.\n• **We do not sell your personal information.** We do not share it for cross-context behavioral advertising. [VERIFY: confirm for portal.wellpeps.com and checkout, Open item 6.]\n• **Cookies.** wellpeps.com uses only essential cookies and no analytics or advertising tags. We will ask before we turn any on. See the Cookie and Tracking Technologies Notice.\n• **Your choices.** You can ask to see, correct or delete your information, and to opt out of or limit how it is used. Use Your Privacy Choices or email privacy@wellpeps.com.",
    "kind": "info"
   },
   {
@@ -28,7 +28,7 @@
   },
   {
    "t": "p",
-   "text": "WellPeps, a Wyoming corporation (\"WellPeps,\" \"we,\" \"us\"), runs wellpeps.com and the WellPeps patient experience. Our contact address is [BUSINESS ADDRESS]. For privacy questions, email [PRIVACY EMAIL].",
+   "text": "WellPeps, a Wyoming corporation (\"WellPeps,\" \"we,\" \"us\"), runs wellpeps.com and the WellPeps patient experience. Our contact address is 30 N Gould St., Suite R, Sheridan, WY 82801. For privacy questions, email privacy@wellpeps.com.",
    "italic": false,
    "align": null
   },
@@ -572,7 +572,7 @@
   },
   {
    "t": "p",
-   "text": "Our services are for adults. You must be at least 18 to use them (19 in Alabama and Nebraska, 21 in Mississippi). Do not sign up for our email if you are under 18. We do not knowingly collect personal information from anyone under 18. If you believe a child gave us information, email [PRIVACY EMAIL] and we will delete it.",
+   "text": "Our services are for adults. You must be at least 18 to use them (19 in Alabama and Nebraska, 21 in Mississippi). Do not sign up for our email if you are under 18. We do not knowingly collect personal information from anyone under 18. If you believe a child gave us information, email privacy@wellpeps.com and we will delete it.",
    "italic": false,
    "align": null
   },
@@ -652,7 +652,7 @@
   },
   {
    "t": "li",
-   "text": "Email [PRIVACY EMAIL].",
+   "text": "Email privacy@wellpeps.com.",
    "level": 0
   },
   {
@@ -662,12 +662,12 @@
   },
   {
    "t": "li",
-   "text": "Write to WellPeps, Attn: Privacy, [BUSINESS ADDRESS].",
+   "text": "Write to WellPeps, Attn: Privacy, 30 N Gould St., Suite R, Sheridan, WY 82801.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "By phone: [SUPPORT PHONE AND HOURS, ONLY IF LIVE] (delete this line unless a staffed line exists; no phone line is live today).",
+   "text": "By phone: (307) 881-8700, during normal business hours (delete this line unless a staffed line exists; no phone line is live today).",
    "level": 0
   },
   {
@@ -726,7 +726,7 @@
   },
   {
    "t": "p",
-   "text": "If we deny your request in whole or in part, you can appeal within [60 days] of our answer. Email [PRIVACY EMAIL] with \"Appeal\" in the subject line and say why you disagree. A person who did not decide the first request will review it, and we will answer in writing within [45 days] and explain our reasons [VERIFY: appeal timing per state]. If we deny your appeal, you can contact your state attorney general. Section 12.1 lists the laws that give this right.",
+   "text": "If we deny your request in whole or in part, you can appeal within [60 days] of our answer. Email privacy@wellpeps.com with \"Appeal\" in the subject line and say why you disagree. A person who did not decide the first request will review it, and we will answer in writing within [45 days] and explain our reasons [VERIFY: appeal timing per state]. If we deny your appeal, you can contact your state attorney general. Section 12.1 lists the laws that give this right.",
    "italic": false,
    "align": null
   },
@@ -756,7 +756,7 @@
   },
   {
    "t": "p",
-   "text": "**Email.** We send marketing email only to people who signed up for it (the newsletter, a free guide or a program notice). Each email has an unsubscribe link and our postal address, [BUSINESS ADDRESS]. We stop marketing email within [10 business days] of your request. We may still send messages about your account, orders, safety and care.",
+   "text": "**Email.** We send marketing email only to people who signed up for it (the newsletter, a free guide or a program notice). Each email has an unsubscribe link and our postal address, 30 N Gould St., Suite R, Sheridan, WY 82801. We stop marketing email within [10 business days] of your request. We may still send messages about your account, orders, safety and care.",
    "italic": false,
    "align": null
   },
@@ -960,7 +960,7 @@
   },
   {
    "t": "li",
-   "text": "**Shine the Light.** California residents may ask once a year about personal information we disclosed to other companies for their own direct marketing. We do not disclose personal information for that purpose [VERIFY]. Email [PRIVACY EMAIL].",
+   "text": "**Shine the Light.** California residents may ask once a year about personal information we disclosed to other companies for their own direct marketing. We do not disclose personal information for that purpose [VERIFY]. Email privacy@wellpeps.com.",
    "level": 0
   },
   {
@@ -1008,11 +1008,11 @@
    "rows": [
     [
      "Privacy questions and requests",
-     "WellPeps, a Wyoming corporation\nAttn: Privacy ([PRIVACY OFFICIAL])\n[BUSINESS ADDRESS]\nEmail: [PRIVACY EMAIL]"
+     "WellPeps, a Wyoming corporation\nAttn: Privacy ([PRIVACY OFFICIAL])\n30 N Gould St., Suite R, Sheridan, WY 82801\nEmail: privacy@wellpeps.com"
     ],
     [
      "Orders, shipping and billing help",
-     "[SUPPORT EMAIL] (Monday to Friday, 9 to 6 ET)\n[SUPPORT PHONE AND HOURS, ONLY IF LIVE]"
+     "support@wellpeps.com (Monday to Friday, 9 to 6 ET)\n(307) 881-8700, during normal business hours"
     ],
     [
      "Medical questions",

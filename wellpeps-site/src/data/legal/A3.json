@@ -15,7 +15,7 @@
   },
   {
    "t": "callout",
-   "text": "**Summary**\n• This policy is about health-related information that is not part of your medical record. Your medical record and other protected health information (PHI) are covered by the Notice of Privacy Practices.\n• Today, wellpeps.com collects your email address and the health topic you pick, such as a free guide or a waitlist. We ask for your consent first, with a separate checkbox.\n• We share health-related information only as needed to give you the service you asked for. We do not share it for advertising. We will ask for a separate consent before we ever do.\n• We do not sell consumer health data, and we will not without your signed authorization. [VERIFY: confirm for portal.wellpeps.com, Open item 6.]\n• We do not use location fences around health care places.\n• You can ask us to confirm what we hold, give you a copy and a list of who received it, withdraw your consent, or delete it. Use Your Privacy Choices or email [PRIVACY EMAIL]. If we say no, you can appeal.",
+   "text": "**Summary**\n• This policy is about health-related information that is not part of your medical record. Your medical record and other protected health information (PHI) are covered by the Notice of Privacy Practices.\n• Today, wellpeps.com collects your email address and the health topic you pick, such as a free guide or a waitlist. We ask for your consent first, with a separate checkbox.\n• We share health-related information only as needed to give you the service you asked for. We do not share it for advertising. We will ask for a separate consent before we ever do.\n• We do not sell consumer health data, and we will not without your signed authorization. [VERIFY: confirm for portal.wellpeps.com, Open item 6.]\n• We do not use location fences around health care places.\n• You can ask us to confirm what we hold, give you a copy and a list of who received it, withdraw your consent, or delete it. Use Your Privacy Choices or email privacy@wellpeps.com. If we say no, you can appeal.",
    "kind": "info"
   },
   {
@@ -315,7 +315,7 @@
   },
   {
    "t": "p",
-   "text": "You can withdraw any consent at any time on the Your Privacy Choices page or by emailing [PRIVACY EMAIL]. We will stop the collection or sharing the consent covered within [15 business days]. Withdrawing does not undo what happened before. If we need the information to provide a service you asked for, withdrawing may mean we can no longer provide it, and we will tell you. To take back permission you gave the Practice for PHI, follow the Notice of Privacy Practices and the HIPAA Authorization Forms.",
+   "text": "You can withdraw any consent at any time on the Your Privacy Choices page or by emailing privacy@wellpeps.com. We will stop the collection or sharing the consent covered within [15 business days]. Withdrawing does not undo what happened before. If we need the information to provide a service you asked for, withdrawing may mean we can no longer provide it, and we will tell you. To take back permission you gave the Practice for PHI, follow the Notice of Privacy Practices and the HIPAA Authorization Forms.",
    "italic": false,
    "align": null
   },
@@ -598,7 +598,7 @@
   },
   {
    "t": "li",
-   "text": "Email [PRIVACY EMAIL].",
+   "text": "Email privacy@wellpeps.com.",
    "level": 0
   },
   {
@@ -608,12 +608,12 @@
   },
   {
    "t": "li",
-   "text": "Write to WellPeps, Attn: Privacy, [BUSINESS ADDRESS].",
+   "text": "Write to WellPeps, Attn: Privacy, 30 N Gould St., Suite R, Sheridan, WY 82801.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "By phone: [SUPPORT PHONE AND HOURS, ONLY IF LIVE] (delete this line unless a staffed line exists; no phone line is live today).",
+   "text": "By phone: (307) 881-8700, during normal business hours (delete this line unless a staffed line exists; no phone line is live today).",
    "level": 0
   },
   {
@@ -638,7 +638,7 @@
   },
   {
    "t": "p",
-   "text": "If we deny your request in whole or in part, you can appeal within [60 days] of our answer. Email [PRIVACY EMAIL] with \"Appeal\" in the subject line and say why you disagree. A person who did not decide the first request will review it, and we will answer in writing within [45 days] and give our reasons [VERIFY: appeal timing per state].",
+   "text": "If we deny your request in whole or in part, you can appeal within [60 days] of our answer. Email privacy@wellpeps.com with \"Appeal\" in the subject line and say why you disagree. A person who did not decide the first request will review it, and we will answer in writing within [45 days] and give our reasons [VERIFY: appeal timing per state].",
    "italic": false,
    "align": null
   },
@@ -749,7 +749,7 @@
    "rows": [
     [
      "Questions and requests",
-     "WellPeps, a Wyoming corporation\nAttn: Privacy ([PRIVACY OFFICIAL])\n[BUSINESS ADDRESS]\nEmail: [PRIVACY EMAIL]\nWeb form: [PRIVACY REQUEST WEBFORM]\n[SUPPORT PHONE AND HOURS, ONLY IF LIVE]"
+     "WellPeps, a Wyoming corporation\nAttn: Privacy ([PRIVACY OFFICIAL])\n30 N Gould St., Suite R, Sheridan, WY 82801\nEmail: privacy@wellpeps.com\nWeb form: [PRIVACY REQUEST WEBFORM]\n(307) 881-8700, during normal business hours"
     ],
     [
      "Medical questions",
@@ -787,7 +787,7 @@
   },
   {
    "t": "p",
-   "text": "Small print shown once, directly under both boxes (smaller type than the boxes): You can withdraw either consent at any time in Your Privacy Choices or by emailing [PRIVACY EMAIL]. Then the links: Consumer Health Data Privacy Policy, Privacy Policy, Your Privacy Choices.",
+   "text": "Small print shown once, directly under both boxes (smaller type than the boxes): You can withdraw either consent at any time in Your Privacy Choices or by emailing privacy@wellpeps.com. Then the links: Consumer Health Data Privacy Policy, Privacy Policy, Your Privacy Choices.",
    "italic": false,
    "align": null
   },
@@ -803,7 +803,7 @@
   },
   {
    "t": "check",
-   "text": "I agree that WellPeps may use my email address and the health program I chose to send me educational emails and updates about that program. This is optional. If I say no, my care and my order are not affected. I can withdraw this consent at any time through Your Privacy Choices or by emailing [PRIVACY EMAIL]."
+   "text": "I agree that WellPeps may use my email address and the health program I chose to send me educational emails and updates about that program. This is optional. If I say no, my care and my order are not affected. I can withdraw this consent at any time through Your Privacy Choices or by emailing privacy@wellpeps.com."
   },
   {
    "t": "h3",
@@ -873,7 +873,7 @@
   },
   {
    "t": "check",
-   "text": "I agree that WellPeps may share [CATEGORIES OF DATA] about me with [NAMES OR CATEGORIES OF RECIPIENTS] so that they can [PURPOSE]. This is optional and does not affect my care or my order. I can withdraw this consent at any time through Your Privacy Choices or by emailing [PRIVACY EMAIL]."
+   "text": "I agree that WellPeps may share [CATEGORIES OF DATA] about me with [NAMES OR CATEGORIES OF RECIPIENTS] so that they can [PURPOSE]. This is optional and does not affect my care or my order. I can withdraw this consent at any time through Your Privacy Choices or by emailing privacy@wellpeps.com."
   },
   {
    "t": "callout",

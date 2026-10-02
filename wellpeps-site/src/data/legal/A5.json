@@ -96,7 +96,7 @@
   },
   {
    "t": "li",
-   "text": "Email [PRIVACY EMAIL].",
+   "text": "Email privacy@wellpeps.com.",
    "level": 0
   },
   {
@@ -106,12 +106,12 @@
   },
   {
    "t": "li",
-   "text": "Write to WellPeps, Attn: Privacy, [BUSINESS ADDRESS].",
+   "text": "Write to WellPeps, Attn: Privacy, 30 N Gould St., Suite R, Sheridan, WY 82801.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "By phone: [SUPPORT PHONE AND HOURS, ONLY IF LIVE] (delete this line unless a staffed line exists; no phone line is live today).",
+   "text": "By phone: (307) 881-8700, during normal business hours (delete this line unless a staffed line exists; no phone line is live today).",
    "level": 0
   },
   {
@@ -196,7 +196,7 @@
   },
   {
    "t": "p",
-   "text": "If we say no in whole or in part, you can appeal within [60 days]. Email [PRIVACY EMAIL] with \"Appeal\" in the subject line. A person who did not decide the first request will review it, and we will answer in writing within [45 days]. If we deny your appeal, you can contact your state attorney general. The Consumer Health Data Privacy Policy lists the offices.",
+   "text": "If we say no in whole or in part, you can appeal within [60 days]. Email privacy@wellpeps.com with \"Appeal\" in the subject line. A person who did not decide the first request will review it, and we will answer in writing within [45 days]. If we deny your appeal, you can contact your state attorney general. The Consumer Health Data Privacy Policy lists the offices.",
    "italic": false,
    "align": null
   },
@@ -226,7 +226,7 @@
   },
   {
    "t": "p",
-   "text": "Read the Privacy Policy, the Consumer Health Data Privacy Policy, the Cookie and Tracking Technologies Notice and the Notice of Privacy Practices. Questions: [PRIVACY EMAIL].",
+   "text": "Read the Privacy Policy, the Consumer Health Data Privacy Policy, the Cookie and Tracking Technologies Notice and the Notice of Privacy Practices. Questions: privacy@wellpeps.com.",
    "italic": false,
    "align": null
   },
@@ -326,7 +326,7 @@
    "rows": [
     [
      "Privacy requests",
-     "WellPeps, a Wyoming corporation\nAttn: Privacy ([PRIVACY OFFICIAL])\n[BUSINESS ADDRESS]\nEmail: [PRIVACY EMAIL]\nWeb form: [PRIVACY REQUEST WEBFORM]"
+     "WellPeps, a Wyoming corporation\nAttn: Privacy ([PRIVACY OFFICIAL])\n30 N Gould St., Suite R, Sheridan, WY 82801\nEmail: privacy@wellpeps.com\nWeb form: [PRIVACY REQUEST WEBFORM]"
     ]
    ],
    "widths": [

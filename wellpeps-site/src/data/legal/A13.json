@@ -86,7 +86,7 @@
     ],
     [
      "Technology and management partners: [SCRIPTFUL, INC. / GEN HEALTH] and [PEPRITE, INC.]",
-     "Our technology platform company runs your patient portal at [PORTAL URL]: intake forms, consents, secure messaging, and the system that sends prescriptions to pharmacies. Our management-services partner provides management services and access to technology, and helps with billing and settlement.",
+     "Our technology platform company runs your patient portal at portal.wellpeps.com: intake forms, consents, secure messaging, and the system that sends prescriptions to pharmacies. Our management-services partner provides management services and access to technology, and helps with billing and settlement.",
      "Neither practices medicine, employs your clinician, owns or runs a pharmacy or a medical practice, or ships medication."
     ],
     [
@@ -120,7 +120,7 @@
     ],
     [
      "Your order, shipping, billing, cancellation, your account or this website",
-     "WellPeps support: [SUPPORT EMAIL], Monday to Friday 9 to 6 ET [SUPPORT PHONE AND HOURS, ONLY IF LIVE]"
+     "WellPeps support: support@wellpeps.com, Monday to Friday 9 to 6 ET (307) 881-8700, during normal business hours"
     ],
     [
      "What is in your medicine, how to store it, or questions about the label",
@@ -128,11 +128,11 @@
     ],
     [
      "A problem signing in or with a form in the portal",
-     "[SUPPORT EMAIL]"
+     "support@wellpeps.com"
     ],
     [
      "Privacy questions",
-     "[PRIVACY EMAIL]"
+     "privacy@wellpeps.com"
     ],
     [
      "A concern about the care you received",
@@ -157,7 +157,7 @@
   {
    "t": "ol",
    "items": [
-    "You start a health assessment in our secure portal at [PORTAL URL]. You create an account, read and agree to the consents and notices, answer health questions and check out.",
+    "You start a health assessment in our secure portal at portal.wellpeps.com. You create an account, read and agree to the consents and notices, answer health questions and check out.",
     "A clinician of the Practice reviews your information, usually without a live visit. The clinician may ask you questions, ask for labs or ask for a video visit.",
     "If the clinician decides treatment is medically appropriate, the clinician writes a prescription. A prescription is not guaranteed. If the clinician does not prescribe, [R1 DEFAULT: you receive a full refund of everything you were charged].",
     "The prescription goes to a state-licensed pharmacy. The pharmacy prepares your medicine, labels it and ships it to you. Standard shipping is included.",
@@ -197,7 +197,7 @@
   },
   {
    "t": "p",
-   "text": "Email [SUPPORT EMAIL], or message your clinician in the portal. In an emergency, call 911.",
+   "text": "Email support@wellpeps.com, or message your clinician in the portal. In an emergency, call 911.",
    "italic": false,
    "align": null
   },
@@ -401,7 +401,7 @@
   },
   {
    "t": "li",
-   "text": "You can ask us questions about any of this at [SUPPORT EMAIL].",
+   "text": "You can ask us questions about any of this at support@wellpeps.com.",
    "level": 0
   },
   {
@@ -446,7 +446,7 @@
   },
   {
    "t": "p",
-   "text": "Email [SUPPORT EMAIL] [SUPPORT PHONE AND HOURS, ONLY IF LIVE]. Privacy questions: [PRIVACY EMAIL]. Questions about your treatment: message your clinician in the portal at [PORTAL URL].",
+   "text": "Email support@wellpeps.com or (307) 881-8700, during normal business hours. Privacy questions: privacy@wellpeps.com. Questions about your treatment: message your clinician in the portal at portal.wellpeps.com.",
    "italic": false,
    "align": null
   },
@@ -462,7 +462,7 @@
   },
   {
    "t": "check",
-   "text": "I have read How WellPeps Works and the Financial Relationship Disclosure. I know I can read them again at [PORTAL URL] and that I can ask questions at [SUPPORT EMAIL]."
+   "text": "I have read How WellPeps Works and the Financial Relationship Disclosure. I know I can read them again at portal.wellpeps.com and that I can ask questions at support@wellpeps.com."
   },
   {
    "t": "check",

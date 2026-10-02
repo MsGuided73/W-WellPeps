@@ -490,7 +490,7 @@
   },
   {
    "t": "p",
-   "text": "The Refund, Cancellation and Auto-Renewal Policy covers your monthly plan. It does not cover lab fees unless it says so. If you have a problem with a lab charge, email [SUPPORT EMAIL] and we will help you reach the right company.",
+   "text": "The Refund, Cancellation and Auto-Renewal Policy covers your monthly plan. It does not cover lab fees unless it says so. If you have a problem with a lab charge, email support@wellpeps.com and we will help you reach the right company.",
    "italic": false,
    "align": null
   },
@@ -505,7 +505,7 @@
   },
   {
    "t": "li",
-   "text": "You may withdraw this consent before your sample is collected by sending a portal message to your clinician or an email to [SUPPORT EMAIL]. Your clinician may still decide that treatment is not appropriate without the test.",
+   "text": "You may withdraw this consent before your sample is collected by sending a portal message to your clinician or an email to support@wellpeps.com. Your clinician may still decide that treatment is not appropriate without the test.",
    "level": 0
   },
   {
@@ -541,11 +541,11 @@
     ],
     [
      "Questions about a test, a result or your treatment",
-     "Your clinician, by message in the portal at [PORTAL URL]"
+     "Your clinician, by message in the portal at portal.wellpeps.com"
     ],
     [
      "Ordering, billing, your account, refunds",
-     "WellPeps support, Monday to Friday 9 to 6 ET: [SUPPORT EMAIL] [SUPPORT PHONE AND HOURS, ONLY IF LIVE]"
+     "WellPeps support, Monday to Friday 9 to 6 ET: support@wellpeps.com (307) 881-8700, during normal business hours"
     ],
     [
      "Collection site, kit, sample or the lab report",
@@ -553,7 +553,7 @@
     ],
     [
      "Privacy questions",
-     "[PRIVACY EMAIL]"
+     "privacy@wellpeps.com"
     ],
     [
      "Emergency",
@@ -579,7 +579,7 @@
   },
   {
    "t": "check",
-   "text": "I have read the Laboratory Testing Consent. I know I can read it again at [PORTAL URL] and that I can ask my clinician or WellPeps support questions."
+   "text": "I have read the Laboratory Testing Consent. I know I can read it again at portal.wellpeps.com and that I can ask my clinician or WellPeps support questions."
   },
   {
    "t": "check",

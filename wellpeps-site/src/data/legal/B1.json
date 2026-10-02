@@ -122,7 +122,7 @@
   },
   {
    "t": "p",
-   "text": "You have the right to get any of these records on paper. To ask, send a portal message or email [SUPPORT EMAIL]. Tell us which document you want and the mailing address to use. We will mail it within [10 business days] at no charge. [VERIFY: paper copy fee and timing] You can also save or print any record from the portal at any time. If you ask for a copy of your medical record, the Practice follows the Notice of Privacy Practices, which explains any cost-based fee the law allows.",
+   "text": "You have the right to get any of these records on paper. To ask, send a portal message or email support@wellpeps.com. Tell us which document you want and the mailing address to use. We will mail it within [10 business days] at no charge. [VERIFY: paper copy fee and timing] You can also save or print any record from the portal at any time. If you ask for a copy of your medical record, the Practice follows the Notice of Privacy Practices, which explains any cost-based fee the law allows.",
    "italic": false,
    "align": null
   },
@@ -132,7 +132,7 @@
   },
   {
    "t": "p",
-   "text": "You may withdraw this consent at any time and for any reason. To withdraw, send a portal message or email [SUPPORT EMAIL] and say that you withdraw your consent to electronic records and signatures. We will confirm in writing. There is no fee for withdrawing.",
+   "text": "You may withdraw this consent at any time and for any reason. To withdraw, send a portal message or email support@wellpeps.com and say that you withdraw your consent to electronic records and signatures. We will confirm in writing. There is no fee for withdrawing.",
    "italic": false,
    "align": null
   },
@@ -168,7 +168,7 @@
   },
   {
    "t": "p",
-   "text": "To get records electronically you must keep your email address up to date, and your mobile number if you choose texts. You can change them in your portal profile or by emailing [SUPPORT EMAIL] from the address on your account. We may rely on the most recent contact details you gave us. If an email bounces or a message cannot be delivered, we may not be able to get time-sensitive information to you, such as a safety notice or a lab result.",
+   "text": "To get records electronically you must keep your email address up to date, and your mobile number if you choose texts. You can change them in your portal profile or by emailing support@wellpeps.com from the address on your account. We may rely on the most recent contact details you gave us. If an email bounces or a message cannot be delivered, we may not be able to get time-sensitive information to you, such as a safety notice or a lab result.",
    "italic": false,
    "align": null
   },
@@ -219,7 +219,7 @@
   },
   {
    "t": "p",
-   "text": "Before you agree, please open the sample document at [SAMPLE DOCUMENT LINK]. If you can open and read it on the device you are using, check box 2 below. If you cannot, do not check the box. Email [SUPPORT EMAIL] for help. [VERIFY: E-SIGN consent mechanics]",
+   "text": "Before you agree, please open the sample document at [SAMPLE DOCUMENT LINK]. If you can open and read it on the device you are using, check box 2 below. If you cannot, do not check the box. Email support@wellpeps.com for help. [VERIFY: E-SIGN consent mechanics]",
    "italic": false,
    "align": null
   },
@@ -289,7 +289,7 @@
   },
   {
    "t": "p",
-   "text": "We keep a record of your consent: your name, the date and time, your IP address, the version you saw and how you agreed. We keep these records for at least [7] years, or longer if the law requires. You can ask for a copy of your consent record by emailing [SUPPORT EMAIL]. Your medical records are kept by the Practice.",
+   "text": "We keep a record of your consent: your name, the date and time, your IP address, the version you saw and how you agreed. We keep these records for at least [7] years, or longer if the law requires. You can ask for a copy of your consent record by emailing support@wellpeps.com. Your medical records are kept by the Practice.",
    "italic": false,
    "align": null
   },
@@ -423,7 +423,7 @@
   },
   {
    "t": "p",
-   "text": "Reply STOP to any text. You can also reply QUIT, END, CANCEL or UNSUBSCRIBE, send a portal message, email [SUPPORT EMAIL] or tell us in any other reasonable way. We will stop as soon as we can, and within the time the law requires. You may get one last text to confirm. Reply HELP, or email [SUPPORT EMAIL], for help. If you get a new phone number, tell us so that texts do not go to someone else.",
+   "text": "Reply STOP to any text. You can also reply QUIT, END, CANCEL or UNSUBSCRIBE, send a portal message, email support@wellpeps.com or tell us in any other reasonable way. We will stop as soon as we can, and within the time the law requires. You may get one last text to confirm. Reply HELP, or email support@wellpeps.com, for help. If you get a new phone number, tell us so that texts do not go to someone else.",
    "italic": false,
    "align": null
   },
@@ -439,7 +439,7 @@
   },
   {
    "t": "p",
-   "text": "Email and text messages are not fully secure. They can be intercepted, read by other people who use your phone or email account, forwarded, delayed, lost or stored by your phone carrier or email provider. A message that shows on a lock screen can be seen by others. By checking box 5 you tell us you understand these risks and choose to receive care and service messages this way. If you prefer portal messages only, tell us at [SUPPORT EMAIL].",
+   "text": "Email and text messages are not fully secure. They can be intercepted, read by other people who use your phone or email account, forwarded, delayed, lost or stored by your phone carrier or email provider. A message that shows on a lock screen can be seen by others. By checking box 5 you tell us you understand these risks and choose to receive care and service messages this way. If you prefer portal messages only, tell us at support@wellpeps.com.",
    "italic": false,
    "align": null
   },
@@ -482,7 +482,7 @@
   },
   {
    "t": "p",
-   "text": "Watch for scams. We will never ask you to pay by gift card, cryptocurrency or wire. Our real messages come from the addresses and numbers we list at [PORTAL URL]. [VERIFY: official sender addresses and numbers]",
+   "text": "Watch for scams. We will never ask you to pay by gift card, cryptocurrency or wire. Our real messages come from the addresses and numbers we list at portal.wellpeps.com. [VERIFY: official sender addresses and numbers]",
    "italic": false,
    "align": null
   },
@@ -492,7 +492,7 @@
   },
   {
    "t": "p",
-   "text": "For anything about your health, use secure messaging in the portal at [PORTAL URL]. It is built for private messages with your clinician. The portal uses security safeguards designed to protect your information. [VERIFY: portal message security statement] Messages you send to your clinician become part of your medical record.",
+   "text": "For anything about your health, use secure messaging in the portal at portal.wellpeps.com. It is built for private messages with your clinician. The portal uses security safeguards designed to protect your information. [VERIFY: portal message security statement] Messages you send to your clinician become part of your medical record.",
    "italic": false,
    "align": null
   },
@@ -548,7 +548,7 @@
   },
   {
    "t": "p",
-   "text": "Your consent in Part A lasts until you withdraw it. Your consent to texts and calls lasts until you reply STOP or tell us you want to stop. You can change your choices at any time in your portal profile or by emailing [SUPPORT EMAIL]. We keep records of your choices as described in section 12.",
+   "text": "Your consent in Part A lasts until you withdraw it. Your consent to texts and calls lasts until you reply STOP or tell us you want to stop. You can change your choices at any time in your portal profile or by emailing support@wellpeps.com. We keep records of your choices as described in section 12.",
    "italic": false,
    "align": null
   },
@@ -565,19 +565,19 @@
     ],
     [
      "Questions about this form, paper copies, withdrawing consent, texts",
-     "[SUPPORT EMAIL], Monday to Friday 9 to 6 ET [SUPPORT PHONE AND HOURS, ONLY IF LIVE]"
+     "support@wellpeps.com, Monday to Friday 9 to 6 ET (307) 881-8700, during normal business hours"
     ],
     [
      "Questions about your health or treatment",
-     "Your clinician, by message in the portal at [PORTAL URL]"
+     "Your clinician, by message in the portal at portal.wellpeps.com"
     ],
     [
      "Privacy questions",
-     "[PRIVACY EMAIL]"
+     "privacy@wellpeps.com"
     ],
     [
      "Mail",
-     "WellPeps, [BUSINESS ADDRESS]"
+     "WellPeps, 30 N Gould St., Suite R, Sheridan, WY 82801"
     ],
     [
      "Emergency",

@@ -91,7 +91,7 @@
   },
   {
    "t": "li",
-   "text": "**PDF guides.** Our free Smart Patient Guides are PDF files. We have not tested them with screen readers, and some parts may not be accessible. If you need another format, such as plain text or large print, email [SUPPORT EMAIL]. We will reply within [2 business days] and send the guide in a format you can use within [5 business days].",
+   "text": "**PDF guides.** Our free Smart Patient Guides are PDF files. We have not tested them with screen readers, and some parts may not be accessible. If you need another format, such as plain text or large print, email support@wellpeps.com. We will reply within [2 business days] and send the guide in a format you can use within [5 business days].",
    "level": 0
   },
   {
@@ -140,17 +140,17 @@
   },
   {
    "t": "li",
-   "text": "**Email:** [SUPPORT EMAIL]. Support hours are Monday to Friday, 9 a.m. to 6 p.m. Eastern time.",
+   "text": "**Email:** support@wellpeps.com. Support hours are Monday to Friday, 9 a.m. to 6 p.m. Eastern time.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "**Mail:** WellPeps, a Wyoming corporation, [BUSINESS ADDRESS]",
+   "text": "**Mail:** WellPeps, a Wyoming corporation, 30 N Gould St., Suite R, Sheridan, WY 82801",
    "level": 0
   },
   {
    "t": "li",
-   "text": "**Phone:** [SUPPORT PHONE AND HOURS, ONLY IF LIVE]",
+   "text": "**Phone:** (307) 881-8700, during normal business hours",
    "level": 0
   },
   {
@@ -161,7 +161,7 @@
   },
   {
    "t": "p",
-   "text": "Please do not put health details in an email. Email is not a secure way to send them. For medical questions, use the patient portal at [PORTAL URL]. In an emergency, call 911.",
+   "text": "Please do not put health details in an email. Email is not a secure way to send them. For medical questions, use the patient portal at portal.wellpeps.com. In an emergency, call 911.",
    "italic": false,
    "align": null
   },
@@ -207,7 +207,7 @@
    "items": [
     "Commission the audit below and book a date. Publish the “plan to have it tested by” sentence only with a real date.",
     "Verify each “built in” item in section 3 on the live site. Delete any that fails.",
-    "Make [SUPPORT EMAIL] a monitored mailbox, assign an owner, and train support on the feedback log (section F).",
+    "Make support@wellpeps.com a monitored mailbox, assign an owner, and train support on the feedback log (section F).",
     "Decide what alternative formats WellPeps can really deliver and by when.",
     "Remove this Part 2 from the page you publish."
    ]

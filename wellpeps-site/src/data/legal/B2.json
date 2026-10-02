@@ -27,7 +27,7 @@
    "t": "clause",
    "number": "1.1",
    "heading": "Who is making this agreement.",
-   "text": "This Patient Terms of Service and Payment Agreement (the “Agreement”) is between you and WellPeps, a Wyoming corporation (“WellPeps,” “we,” “us” or “our”). You accept it electronically in our patient portal at [PORTAL URL] (the “Portal”), before a clinician reviews your health assessment.",
+   "text": "This Patient Terms of Service and Payment Agreement (the “Agreement”) is between you and WellPeps, a Wyoming corporation (“WellPeps,” “we,” “us” or “our”). You accept it electronically in our patient portal at portal.wellpeps.com (the “Portal”), before a clinician reviews your health assessment.",
    "level": 0
   },
   {
@@ -465,7 +465,7 @@
    "t": "clause",
    "number": "8.4",
    "heading": "How the charge appears.",
-   "text": "Charges appear on your card statement as [BILLING DESCRIPTOR]. If you do not recognize a charge, contact us at [SUPPORT EMAIL] first (see Section 10).",
+   "text": "Charges appear on your card statement as [BILLING DESCRIPTOR]. If you do not recognize a charge, contact us at support@wellpeps.com first (see Section 10).",
    "level": 0
   },
   {
@@ -552,7 +552,7 @@
    "t": "clause",
    "number": "10.1",
    "heading": "Please ask us first.",
-   "text": "If you see a charge you do not understand or think is wrong, contact us first at [SUPPORT EMAIL]. We will look into it promptly and, if we made a mistake, fix it. Many questions can be answered quickly, such as what a charge is for.",
+   "text": "If you see a charge you do not understand or think is wrong, contact us first at support@wellpeps.com. We will look into it promptly and, if we made a mistake, fix it. Many questions can be answered quickly, such as what a charge is for.",
    "level": 0
   },
   {
@@ -766,7 +766,7 @@
    "t": "clause",
    "number": "19.1",
    "heading": "Talk to us first.",
-   "text": "Most problems can be solved quickly. If you have a dispute with WellPeps, email [SUPPORT EMAIL] with your name, the email address on your account, a description of the problem and what you would like us to do. We will try in good faith to resolve it within 30 days. If WellPeps has a dispute with you, we will contact you the same way. Please try this before you start arbitration or a court case, other than small claims.",
+   "text": "Most problems can be solved quickly. If you have a dispute with WellPeps, email support@wellpeps.com with your name, the email address on your account, a description of the problem and what you would like us to do. We will try in good faith to resolve it within 30 days. If WellPeps has a dispute with you, we will contact you the same way. Please try this before you start arbitration or a court case, other than small claims.",
    "level": 0
   },
   {
@@ -843,7 +843,7 @@
    "t": "clause",
    "number": "19.7",
    "heading": "You can opt out.",
-   "text": "You may opt out of arbitration and the class waiver. To do so, within 30 days after you first accept this Agreement, email [SUPPORT EMAIL] with the subject line “Arbitration Opt-Out,” your name, the email address on your account and a clear statement that you want to opt out. You may instead mail the same notice to [BUSINESS ADDRESS]. We will confirm that we received it. Opting out does not change anything else in this Agreement or your care. It also does not opt you out of the dispute section of any other WellPeps agreement, such as the Website Terms of Use, unless your notice says so. If you opt out, Section 20 decides where a dispute is heard.",
+   "text": "You may opt out of arbitration and the class waiver. To do so, within 30 days after you first accept this Agreement, email support@wellpeps.com with the subject line “Arbitration Opt-Out,” your name, the email address on your account and a clear statement that you want to opt out. You may instead mail the same notice to 30 N Gould St., Suite R, Sheridan, WY 82801. We will confirm that we received it. Opting out does not change anything else in this Agreement or your care. It also does not opt you out of the dispute section of any other WellPeps agreement, such as the Website Terms of Use, unless your notice says so. If you opt out, Section 20 decides where a dispute is heard.",
    "level": 0
   },
   {
@@ -984,7 +984,7 @@
    "t": "clause",
    "number": "23.1",
    "heading": "You can stop at any time.",
-   "text": "You can cancel your plan at any time, as the Refund Policy explains. You may also close your account by emailing [SUPPORT EMAIL]. Closing your account does not cancel your plan, so please cancel your plan first.",
+   "text": "You can cancel your plan at any time, as the Refund Policy explains. You may also close your account by emailing support@wellpeps.com. Closing your account does not cancel your plan, so please cancel your plan first.",
    "level": 0
   },
   {
@@ -1058,7 +1058,7 @@
    "t": "clause",
    "number": "24.6",
    "heading": "Notices.",
-   "text": "We may give you notice by email or in the Portal. You may give us notice by emailing [SUPPORT EMAIL]. A notice about a legal claim should be sent by email with a copy by mail to [BUSINESS ADDRESS].",
+   "text": "We may give you notice by email or in the Portal. You may give us notice by emailing support@wellpeps.com. A notice about a legal claim should be sent by email with a copy by mail to 30 N Gould St., Suite R, Sheridan, WY 82801.",
    "level": 0
   },
   {
@@ -1087,25 +1087,25 @@
   },
   {
    "t": "p",
-   "text": "[BUSINESS ADDRESS]",
+   "text": "30 N Gould St., Suite R, Sheridan, WY 82801",
    "italic": false,
    "align": null
   },
   {
    "t": "p",
-   "text": "Email: [SUPPORT EMAIL]",
+   "text": "Email: support@wellpeps.com",
    "italic": false,
    "align": null
   },
   {
    "t": "p",
-   "text": "Privacy questions: [PRIVACY EMAIL]",
+   "text": "Privacy questions: privacy@wellpeps.com",
    "italic": false,
    "align": null
   },
   {
    "t": "p",
-   "text": "[SUPPORT PHONE AND HOURS, ONLY IF LIVE]",
+   "text": "(307) 881-8700, during normal business hours",
    "italic": false,
    "align": null
   },
@@ -1133,7 +1133,7 @@
   },
   {
    "t": "check",
-   "text": "I have read the Patient Terms of Service and Payment Agreement. I know I can read it again at any time in the Portal, and I can ask questions at [SUPPORT EMAIL]."
+   "text": "I have read the Patient Terms of Service and Payment Agreement. I know I can read it again at any time in the Portal, and I can ask questions at support@wellpeps.com."
   },
   {
    "t": "check",

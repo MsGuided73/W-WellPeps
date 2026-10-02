@@ -157,7 +157,7 @@
    "t": "clause",
    "number": "15.",
    "heading": "Questions.",
-   "text": "Write to [SUPPORT EMAIL]. For medical questions, message your clinician in the patient portal at [PORTAL URL].",
+   "text": "Write to support@wellpeps.com. For medical questions, message your clinician in the patient portal at portal.wellpeps.com.",
    "level": 0
   },
   {
@@ -381,7 +381,7 @@
    "t": "clause",
    "number": "8.",
    "heading": "Your privacy.",
-   "text": "We do not publish your name, photo, health information or story without your written permission. Where the information comes from your care records, we also need a signed authorization. See the HIPAA Authorization Forms. You can withdraw your permission at any time by writing to [SUPPORT EMAIL], and we will stop using your story going forward.",
+   "text": "We do not publish your name, photo, health information or story without your written permission. Where the information comes from your care records, we also need a signed authorization. See the HIPAA Authorization Forms. You can withdraw your permission at any time by writing to support@wellpeps.com, and we will stop using your story going forward.",
    "level": 0
   },
   {
@@ -395,7 +395,7 @@
    "t": "clause",
    "number": "10.",
    "heading": "Concerns.",
-   "text": "If you think a review or promotion of WellPeps is misleading, write to [SUPPORT EMAIL].",
+   "text": "If you think a review or promotion of WellPeps is misleading, write to support@wellpeps.com.",
    "level": 0
   },
   {
@@ -408,7 +408,7 @@
   },
   {
    "t": "callout",
-   "text": "**WellPeps, a Wyoming corporation**\n[BUSINESS ADDRESS]\nEmail: [SUPPORT EMAIL]\nHours: Monday to Friday, 9 am to 6 pm Eastern Time\nPhone: [SUPPORT PHONE AND HOURS, ONLY IF LIVE]\nPrivacy requests: [PRIVACY EMAIL]\nRegistered office (for legal notices only): [REGISTERED OFFICE]\nCustomer support can help with orders, shipping, billing, your account and cancellations. Support cannot give medical advice. For medical questions, message your clinician in the patient portal. In an emergency, call 911.\nWellPeps is not a medical practice or a pharmacy. Medical care is provided by independent licensed clinicians. Medications are prepared and shipped by state-licensed pharmacies. WellPeps does not bill insurance, Medicare or Medicaid.\nWellPeps is owned in part by a principal of our management-services partner. Read How WellPeps Works for how the companies involved in your care are related.",
+   "text": "**WellPeps, a Wyoming corporation**\n30 N Gould St., Suite R, Sheridan, WY 82801\nEmail: support@wellpeps.com\nHours: Monday to Friday, 9 am to 6 pm Eastern Time\nPhone: (307) 881-8700, during normal business hours\nPrivacy requests: privacy@wellpeps.com\nRegistered office (for legal notices only): [REGISTERED OFFICE]\nCustomer support can help with orders, shipping, billing, your account and cancellations. Support cannot give medical advice. For medical questions, message your clinician in the patient portal. In an emergency, call 911.\nWellPeps is not a medical practice or a pharmacy. Medical care is provided by independent licensed clinicians. Medications are prepared and shipped by state-licensed pharmacies. WellPeps does not bill insurance, Medicare or Medicaid.\nWellPeps is owned in part by a principal of our management-services partner. Read How WellPeps Works for how the companies involved in your care are related.",
    "kind": "info"
   },
   {
