@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "Last updated: October 2, 2026  |  Version [VERSION]",
+   "text": "Last updated: October 2, 2026  |  Version 1.0",
    "italic": true,
    "align": null
   },
@@ -521,7 +521,7 @@
   },
   {
    "t": "p",
-   "text": "Please read the Hair Loss Medication Safety Information (version [VERSION], dated [EFFECTIVE DATE]) before checking each box. You can read it again at any time in the patient portal at portal.wellpeps.com. Signing this acknowledgment does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
+   "text": "Please read the Hair Loss Medication Safety Information (version 1.0, dated [EFFECTIVE DATE]) before checking each box. You can read it again at any time in the patient portal at portal.wellpeps.com. Signing this acknowledgment does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
    "italic": false,
    "align": null
   },

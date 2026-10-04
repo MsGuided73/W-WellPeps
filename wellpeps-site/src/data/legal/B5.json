@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
+   "text": "Version 1.0  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
    "italic": true,
    "align": null
   },
@@ -398,7 +398,7 @@
   },
   {
    "t": "p",
-   "text": "Please read this document (version [VERSION], effective [EFFECTIVE DATE]) before checking each box. Signing does not guarantee a prescription. A licensed clinician decides whether treatment is right for you. You can read this document again at portal.wellpeps.com.",
+   "text": "Please read this document (version 1.0, effective [EFFECTIVE DATE]) before checking each box. Signing does not guarantee a prescription. A licensed clinician decides whether treatment is right for you. You can read this document again at portal.wellpeps.com.",
    "italic": false,
    "align": null
   },

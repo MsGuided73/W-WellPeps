@@ -5,7 +5,7 @@
  "blocks": [
   {
    "t": "p",
-   "text": "**Effective date:** [EFFECTIVE DATE]   |   **Last updated:** October 2, 2026   |   **Version:** [VERSION]",
+   "text": "**Effective date:** [EFFECTIVE DATE]   |   **Last updated:** October 2, 2026   |   **Version:** 1.0",
    "italic": false,
    "align": null
   },
@@ -242,7 +242,7 @@
    "t": "clause",
    "number": "4.2",
    "heading": "Where you live and where you are.",
-   "text": "You live in the United States, in a state where the treatment you chose is available. The States We Serve page lists them ([STATES SERVED]). You will tell us the state where you are physically located when you complete your health assessment and whenever a clinician asks. Clinicians can treat you only where they are licensed, so do not hide your location, for example with a VPN. If you move or travel, tell your clinician.",
+   "text": "You live in the United States, in a state where the treatment you chose is available. The States We Serve page lists them (all 50 states). You will tell us the state where you are physically located when you complete your health assessment and whenever a clinician asks. Clinicians can treat you only where they are licensed, so do not hide your location, for example with a VPN. If you move or travel, tell your clinician.",
    "level": 0
   },
   {
@@ -1127,7 +1127,7 @@
   },
   {
    "t": "p",
-   "text": "Please read the Patient Terms of Service and Payment Agreement (version [VERSION], dated [EFFECTIVE DATE]) before checking each box. Accepting does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
+   "text": "Please read the Patient Terms of Service and Payment Agreement (version 1.0, dated [EFFECTIVE DATE]) before checking each box. Accepting does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
    "italic": false,
    "align": null
   },

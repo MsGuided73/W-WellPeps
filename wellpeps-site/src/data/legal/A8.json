@@ -51,7 +51,7 @@
   },
   {
    "t": "p",
-   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: October 2, 2026  |  Version [VERSION]",
+   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: October 2, 2026  |  Version 1.0",
    "italic": true,
    "align": null
   },
@@ -324,7 +324,7 @@
   },
   {
    "t": "p",
-   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: October 2, 2026  |  Version [VERSION]",
+   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: October 2, 2026  |  Version 1.0",
    "italic": true,
    "align": null
   },
@@ -563,8 +563,8 @@
     [
      "**“Licensed Providers in All 50 States,” “50 States · Nationwide Care,” “50-State Licensed Provider Network”** (Footer.astro; config.ts coverage string; content.ts; knowledge.ts; weight.ts; why-wellpeps.astro). The Terms page already flags it.",
      "The licensure record (Schedule B) is not in hand, and the the agreement with the Practice warrants licensure only in “applicable states” (section 9(b)). Pharmacies must also be licensed per state, and some states restrict compounded GLP-1 (OH and CT positions; the California oral-form exclusion). LegitScript Standards 1 and 5 compare the claim to the licensure record (items LS1-PROVIDER-LICENSURE-SUBSTANTIATED and LS5-STATES-MATCH-LICENSURE). Publishing a shorter list on the States We Serve page while the footer says all 50 is the worst outcome.",
-     "Footer: “Licensed clinicians in the states we serve. See States We Serve.”\nUntil the table is verified: “Care is available in select states. See where we serve.”\nFAQ “What states do you serve?”: “We serve [STATES SERVED]. See the States We Serve page for the current list. Availability of each medication varies by state.”",
-     "The States We Serve table matches the licensure record and the pharmacy dispensing matrix, and [STATES SERVED] is filled."
+     "Footer: “Licensed clinicians in the states we serve. See States We Serve.”\nUntil the table is verified: “Care is available in select states. See where we serve.”\nFAQ “What states do you serve?”: “We serve all 50 states. See the States We Serve page for the current list. Availability of each medication varies by state.”",
+     "The States We Serve table matches the licensure record and the pharmacy dispensing matrix, and all 50 states is filled."
     ],
     [
      "**“Compounded in FDA-registered U.S. facilities” / “prepared by FDA-registered U.S. compounding pharmacies”** (weight.ts lead and body; knowledge.ts; hair.ts FAQ).",

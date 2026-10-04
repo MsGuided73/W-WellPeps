@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "*Last updated: October 2, 2026  |  Version [1.0]*",
+   "text": "*Last updated: October 2, 2026  |  Version 1.0*",
    "italic": false,
    "align": null
   },
@@ -453,7 +453,7 @@
   },
   {
    "t": "p",
-   "text": "Please read the GLP-1 Medication Safety Information (version [VERSION], dated [DATE]) before checking each box. Signing this acknowledgment does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
+   "text": "Please read the GLP-1 Medication Safety Information (version 1.0, dated [DATE]) before checking each box. Signing this acknowledgment does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
    "italic": false,
    "align": null
   },

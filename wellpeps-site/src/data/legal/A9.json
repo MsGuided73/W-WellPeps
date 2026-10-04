@@ -5,7 +5,7 @@
  "blocks": [
   {
    "t": "p",
-   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: October 2, 2026  |  Version [VERSION]",
+   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: October 2, 2026  |  Version 1.0",
    "italic": true,
    "align": null
   },
@@ -32,7 +32,7 @@
     ],
     [
      "Where",
-     "To addresses in the states we serve: [STATES SERVED]. No international addresses."
+     "To addresses in the states we serve: all 50 states. No international addresses."
     ],
     [
      "Cost",
@@ -100,7 +100,7 @@
   },
   {
    "t": "li",
-   "text": "We ship only to a street address in a state we serve: [STATES SERVED]. The States We Serve page has the current list.",
+   "text": "We ship only to a street address in a state we serve: all 50 states. The States We Serve page has the current list.",
    "level": 0
   },
   {

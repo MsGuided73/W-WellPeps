@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "**Effective date:** [EFFECTIVE DATE]  |  **Version:** [VERSION]  |  **Last updated:** October 2, 2026",
+   "text": "**Effective date:** [EFFECTIVE DATE]  |  **Version:** 1.0  |  **Last updated:** October 2, 2026",
    "italic": false,
    "align": null
   },
@@ -1032,7 +1032,7 @@
   },
   {
    "t": "check",
-   "text": "I have read the Privacy Policy (version [VERSION], effective [EFFECTIVE DATE]) and I know where to find it again. I understand it explains how WellPeps handles my information, and that the Practice's Notice of Privacy Practices explains how my health information is handled for my care."
+   "text": "I have read the Privacy Policy (version 1.0, effective [EFFECTIVE DATE]) and I know where to find it again. I understand it explains how WellPeps handles my information, and that the Practice's Notice of Privacy Practices explains how my health information is handled for my care."
   },
   {
    "t": "h3",

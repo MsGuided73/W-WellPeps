@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
+   "text": "Version 1.0  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
    "italic": true,
    "align": null
   },
@@ -159,7 +159,7 @@
     [
      "B.1",
      "In which state are you physically located right now?",
-     "Dropdown: states served, plus Another state or outside the United States. Disqualifier: any answer outside [STATES SERVED]",
+     "Dropdown: states served, plus Another state or outside the United States. Disqualifier: any answer outside all 50 states",
      "Required",
      "System; Clinician"
     ],
@@ -172,7 +172,7 @@
     ],
     [
      "B.3",
-     "I understand that clinicians must be licensed where I am physically located during my care. I will update my location before every visit, refill or request for care, and I will not ask for care while I am outside [STATES SERVED]. [VERIFY: care while outside the state]",
+     "I understand that clinicians must be licensed where I am physically located during my care. I will update my location before every visit, refill or request for care, and I will not ask for care while I am outside all 50 states. [VERIFY: care while outside the state]",
      "Checkbox (single option: I agree)",
      "Required",
      "System"
@@ -896,7 +896,7 @@
   },
   {
    "t": "check",
-   "text": "I have read this form (version [VERSION], effective [EFFECTIVE DATE]). My answers are my own, and they are true and complete."
+   "text": "I have read this form (version 1.0, effective [EFFECTIVE DATE]). My answers are my own, and they are true and complete."
   },
   {
    "t": "h2",

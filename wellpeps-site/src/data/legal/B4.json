@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "Version [VERSION]  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
+   "text": "Version 1.0  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
    "italic": true,
    "align": null
   },
@@ -212,7 +212,7 @@
    "t": "clause",
    "number": "6.2",
    "heading": "Tell us where you are, every time.",
-   "text": "Clinicians are licensed by state. A clinician generally must be licensed in the state where you are physically located during your care. [VERIFY: confirm licensing rule and any exceptions] Each time you ask for care, a refill or a visit, you must tell us the state you are in at that moment. If you travel or move, update your location before you ask for care. Do not give a false location. Care may not be available while you are outside [STATES SERVED], or while you are in a state where the Practice has no clinician licensed to treat you. [VERIFY: care while traveling]",
+   "text": "Clinicians are licensed by state. A clinician generally must be licensed in the state where you are physically located during your care. [VERIFY: confirm licensing rule and any exceptions] Each time you ask for care, a refill or a visit, you must tell us the state you are in at that moment. If you travel or move, update your location before you ask for care. Do not give a false location. Care may not be available while you are outside all 50 states, or while you are in a state where the Practice has no clinician licensed to treat you. [VERIFY: care while traveling]",
    "level": 0
   },
   {
@@ -707,7 +707,7 @@
      "[VERIFY: board contact]"
     ],
     [
-     "Every other state in [STATES SERVED]",
+     "Every other state in all 50 states",
      "Counsel to add a row for each state served, or confirm that the general paragraph above is enough.",
      "[VERIFY: required language]",
      "[VERIFY: visit-type rule]",
@@ -730,7 +730,7 @@
   },
   {
    "t": "p",
-   "text": "Please read this consent (version [VERSION], effective [EFFECTIVE DATE]) before checking each box. Signing does not guarantee that a clinician will accept you or prescribe anything. You can read this consent again at portal.wellpeps.com.",
+   "text": "Please read this consent (version 1.0, effective [EFFECTIVE DATE]) before checking each box. Signing does not guarantee that a clinician will accept you or prescribe anything. You can read this consent again at portal.wellpeps.com.",
    "italic": false,
    "align": null
   },

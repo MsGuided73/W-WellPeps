@@ -19,7 +19,7 @@
   },
   {
    "t": "p",
-   "text": "Last updated: October 2, 2026  |  Version [VERSION]",
+   "text": "Last updated: October 2, 2026  |  Version 1.0",
    "italic": true,
    "align": null
   },
@@ -76,7 +76,7 @@
     ],
     [
      "The Practice: OSI Medical Services, P.A.",
-     "An independent, licensed medical practice. Its clinicians review your health information, decide whether treatment is medically appropriate, prescribe when it is, follow your care and answer your clinical questions in the portal. The Practice keeps your medical record. Its clinicians are licensed to practice in the state where you are located when you receive care (see [STATES SERVED]).",
+     "An independent, licensed medical practice. Its clinicians review your health information, decide whether treatment is medically appropriate, prescribe when it is, follow your care and answer your clinical questions in the portal. The Practice keeps your medical record. Its clinicians are licensed to practice in the state where you are located when you receive care (see all 50 states).",
      "The Practice does not sell medication or run WellPeps. WellPeps cannot direct its medical decisions."
     ],
     [
@@ -203,7 +203,7 @@
   },
   {
    "t": "p",
-   "text": "Prescription required. A prescription is not guaranteed. Compounded medicines are not FDA-approved, and FDA does not review compounded medicines for safety, effectiveness or quality before they are sold. WellPeps does not provide medical advice. Care is available only in the states listed on our States We Serve page ([STATES SERVED]).",
+   "text": "Prescription required. A prescription is not guaranteed. Compounded medicines are not FDA-approved, and FDA does not review compounded medicines for safety, effectiveness or quality before they are sold. WellPeps does not provide medical advice. Care is available only in the states listed on our States We Serve page (all 50 states).",
    "italic": true,
    "align": null
   },
@@ -213,7 +213,7 @@
   },
   {
    "t": "p",
-   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: October 2, 2026  |  Version [VERSION]",
+   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: October 2, 2026  |  Version 1.0",
    "italic": true,
    "align": null
   },
@@ -456,7 +456,7 @@
   },
   {
    "t": "p",
-   "text": "Please read How WellPeps Works and the Financial Relationship Disclosure (version [VERSION], dated [EFFECTIVE DATE]) before checking each box. Agreeing does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
+   "text": "Please read How WellPeps Works and the Financial Relationship Disclosure (version 1.0, dated [EFFECTIVE DATE]) before checking each box. Agreeing does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
    "italic": false,
    "align": null
   },
