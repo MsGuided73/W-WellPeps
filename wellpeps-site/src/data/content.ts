@@ -53,9 +53,16 @@ export const insights = [
 export const faqs = [
   {
     q: 'Who is WellPeps?',
-    a: 'WellPeps is a U.S. telehealth company that makes it simple to get provider-guided care for weight management, hair restoration, sexual wellness and healthy aging. '
-      + 'WellPeps does not practice medicine. Medical care is provided by state-licensed clinicians of OSI Medical Services, P.A., an independent medical practice contracted with WellPeps, and prescriptions are filled by state-licensed pharmacies in the OSI / Scriptful Rx pharmacy network. '
-      + 'WellPeps brings these together in one place, with one monthly price.',
+    // One paragraph per partner, so each one's role reads on its own (rendered as separate paragraphs).
+    a: [
+      'WellPeps is a U.S. wellness company that makes it simple to get provider-guided care for weight management, hair restoration, sexual wellness and healthy aging. '
+        + 'WellPeps does not practice medicine or pharmacy. Your care comes from three independent partners, each responsible for its own part:',
+      { lead: 'Telehealth platform.', text: 'Your health assessment, patient portal, secure messaging and checkout run on GEN Health, a telehealth technology platform operated by Scriptful, Inc.' },
+      { lead: 'Medical providers.', text: 'Your assessment is reviewed by a state-licensed clinician of OSI Medical Services, P.A., an independent medical practice contracted with WellPeps. '
+        + 'Your clinician alone decides whether treatment is right for you, and which medication and dose.' },
+      { lead: 'Pharmacies.', text: 'If you are prescribed treatment, your medication is prepared and shipped by a state-licensed U.S. pharmacy in the OSI / Scriptful Rx pharmacy network.' },
+      'WellPeps handles education, enrollment and customer support, and brings it all together in one place, with one monthly price.',
+    ],
   },
   {
     q: 'How does the WellPeps platform work?',

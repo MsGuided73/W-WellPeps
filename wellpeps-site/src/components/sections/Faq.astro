@@ -16,7 +16,12 @@ import { faqs } from '../../data/content';
             <span>{f.q}</span>
             <span class="faq__icon"><Icon name="plus" /></span>
           </button>
-          <div class="faq__panel" id={`faq-${i}`}><p>{f.a}</p></div>
+          <div class="faq__panel" id={`faq-${i}`}>
+            {/* An answer is one paragraph, or a list of paragraphs; a paragraph may open with a bold label. */}
+            <div class="faq__body">{(typeof f.a === 'string' ? [f.a] : f.a).map((para) => (
+              typeof para === 'string' ? <p>{para}</p> : <p><strong>{para.lead}</strong> {para.text}</p>
+            ))}</div>
+          </div>
         </div>
       ))}
     </div>
@@ -51,9 +56,11 @@ import { faqs } from '../../data/content';
     display: grid; grid-template-rows: 0fr;
     transition: grid-template-rows var(--dur) var(--ease);
   }
-  .faq__panel > p { overflow: hidden; color: var(--text-body); padding: 0 1.6rem; font-size: var(--text-faq-a); line-height: 1.65; }
+  .faq__body { overflow: hidden; color: var(--text-body); padding: 0 1.6rem; font-size: var(--text-faq-a); line-height: 1.65; }
+  .faq__body p + p { margin-top: 0.85rem; }
+  .faq__body strong { color: var(--navy); font-weight: 700; }
   .faq__item button[aria-expanded='true'] + .faq__panel { grid-template-rows: 1fr; }
-  .faq__item button[aria-expanded='true'] + .faq__panel > p { padding-bottom: 1.5rem; }
+  .faq__item button[aria-expanded='true'] + .faq__panel > .faq__body { padding-bottom: 1.5rem; }
 
   .inline-arrow { width: 0.9em; height: 0.9em; }
 </style>
