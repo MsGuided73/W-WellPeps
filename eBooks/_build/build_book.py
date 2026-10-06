@@ -18,6 +18,8 @@ BANNED = [
     ('"included" next to lab tests (labs are offered, never included)', re.compile(r'\blab[^.]{0,60}\bincluded?\b|\bincluded?\b[^.]{0,60}\blab', re.I), 'all'),
     ('"Care Coaching" (say ongoing/continued support)', re.compile(r'care coaching', re.I), 'all'),
     ('"if prescribed" in pricing copy', re.compile(r'if prescribed', re.I), 'pricing'),
+    ('membership / member fee (the model is one monthly price, no membership fee to mention)', re.compile(r'member(ship)?s? fees?|separate member', re.I), 'all'),
+    ('"free" assessment / consultation / clinician review (only the book itself is free; button reads "See If You Qualify")', re.compile(r'(?<![\w-])free\b[^.]{0,30}\b(assessment|consult\w*|review|evaluation)|start (your )?free', re.I), 'all'),
     ('callout labelled PRINCIPLE (must read SMART PATIENT INSIGHT)', re.compile(r'SMART PATIENT PRINCIPLE'), 'rendered'),
 ]
 PRICING = re.compile(r'price|pricing|cost', re.I)

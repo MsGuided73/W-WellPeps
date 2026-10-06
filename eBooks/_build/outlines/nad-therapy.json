@@ -670,7 +670,7 @@
       },
       {
        "title": "Straightforward Pricing",
-       "desc": "Provider care, medication and ongoing support are included without a separate membership fee."
+       "desc": "One monthly price: provider review, follow-up care, messaging, shipping and medication when prescribed."
       },
       {
        "title": "Healthcare Without the Runaround",
@@ -691,7 +691,7 @@
    "elements": [
     {
      "kind": "body",
-     "text": "Start with a free health assessment. A licensed healthcare provider will review your information and determine whether treatment may be appropriate."
+     "text": "Start with an online health assessment. A licensed healthcare provider will review your information and determine whether treatment may be appropriate."
     }
    ]
   },

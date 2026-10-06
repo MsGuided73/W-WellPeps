@@ -149,7 +149,7 @@
    "elements": [
     {
      "kind": "lead",
-     "text": "Spend a few minutes researching weight-loss treatment online and you’ll encounter a confusing collection of names. They aren’t interchangeable terms."
+     "text": "Researching weight-loss treatment online, you’ll encounter a confusing collection of names. They aren’t interchangeable."
     },
     {
      "kind": "cards",
@@ -471,7 +471,7 @@
     },
     {
      "kind": "body",
-     "text": "Before comparing costs, find out what you’re actually paying for. Depending on the program, charges may involve medication, provider evaluation, ongoing support, laboratory services, shipping, coaching, membership or platform fees, and cancellation terms."
+     "text": "Before comparing costs, find out what you’re actually paying for. Depending on the program, charges may involve medication, provider evaluation, ongoing support, laboratory services, shipping, coaching, platform fees, and cancellation terms."
     },
     {
      "kind": "body",
@@ -511,7 +511,7 @@
       },
       {
        "icon": "tag",
-       "title": "No separate member fee"
+       "title": "One monthly price"
       },
       {
        "icon": "calendar",
@@ -526,11 +526,11 @@
     },
     {
      "kind": "approach",
-     "text": "WellPeps’ current consumer pricing model is designed around all-inclusive pricing, with medication, provider care and ongoing support included and no separate membership fee. Standard shipping is included; cancellation is subject to the program’s medication-order policy."
+     "text": "WellPeps’ current consumer pricing model is one monthly price. It covers the provider’s review, follow-up care, medication when prescribed, care-team messaging and standard shipping. Lab tests are offered separately. Cancellation is subject to the program’s medication-order policy."
     },
     {
      "kind": "tagline",
-     "text": "One Simple Price. Everything Included."
+     "text": "One Simple Monthly Price."
     }
    ]
   },
@@ -568,7 +568,7 @@
       },
       {
        "title": "The full price and complete package",
-       "desc": "Does the price include the medical review, medication, membership fees and ongoing support, and are lab tests offered?"
+       "desc": "Does the price include the medical review, medication, ongoing support and shipping, and are lab tests offered?"
       },
       {
        "title": "Cancellation terms",
@@ -612,7 +612,7 @@
       },
       {
        "title": "Straightforward Pricing",
-       "desc": "Medication, provider care and ongoing support are included without a separate membership fee."
+       "desc": "One monthly price: provider review, follow-up care, messaging, shipping and medication when prescribed."
       },
       {
        "title": "Healthcare Without the Runaround",

@@ -411,7 +411,7 @@ def decide_page(book, sec, num, cfg):
 def cta_page(book, sec, num, cfg):
     bodies = ''.join(f'<p class="body">{esc(e["text"])}</p>' for e in sec['elements'] if e['kind'] == 'body')
     fx, fy = cfg.get('focus', (0.5, 0.4))
-    button = cfg.get('button', 'Start Your Free Assessment')
+    button = cfg.get('button', 'See If You Qualify')
     url = book['cta_url']
     inner = f'''<div class="ctahero">
   <img src="{img_uri(cfg["image"])}" style="object-position:{fx*100:.0f}% {fy*100:.0f}%" alt="">

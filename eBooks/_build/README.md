@@ -77,7 +77,7 @@ building another book.
   the peptide page. Layout notes: the Why page runs `dense` (eight cards plus a two-sentence founder intro); 06 and 07
   carry no photo (any figure was dropped by the paginator); the disclaimer stepped its type down to fit four legal
   paragraphs plus the series list; on 04 the middle card is much taller than its neighbours because the tadalafil copy
-  is three times longer. CTA button now "Start Your Free Assessment" per the manuscript, matching the series.
+  is three times longer. CTA button was "Start Your Free Assessment" per the manuscript; it reads "See If You Qualify" since 2026-10-06 (see the 2026-10-06 entry above).
 - **Draft for review:** Hair Restoration, v2 (built 2026-09-16 evening from Derek's "HAIR RESTORATION - Final Text.docx",
   filed in `eBooks/9-16-26/`, plus his revised page 14 from `eBooks/Manuscripts/hair-restoration-revised.docx`: new
   kicker "A BETTER APPROACH TO CARE", founder-story intro, eight reworded cards). Outline `outlines/hair-restoration.json`,
@@ -140,6 +140,21 @@ building another book.
   WELLPEPS paragraph; 11's column order. Derek sent a mockup (light cover with a couple on a tablet, pill-style
   kicker); 2026-10-01 decision: reference only, the book stays in the series style. WARNs left: 15 has 1.9in free,
   10's "WHO CAN ACCESS MY INFORMATION?" card title wraps one word.
+- **Wording pass, 2026-10-06 (owner decisions on pricing and the CTA):** every current book rebuilt with the CTA button
+  "See If You Qualify" (default in `render_html.py` and `config/_template.json`; every config updated, old v5 configs
+  included), no membership-fee wording anywhere and no "free" assessment (NAD CTA now "Start with an online health
+  assessment."). The Why-page "Straightforward Pricing" card now reads "One monthly price: provider review, follow-up
+  care, messaging, shipping and medication when prescribed." in all six books (a longer card made page 14 continue onto a
+  15%-full page). GLP-1 page 12: grid card "One monthly price", "membership or" dropped from the charges list, checklist
+  item 06 asks about "medical review, medication, ongoing support and shipping", Approach box now "one monthly price... Lab
+  tests are offered separately", tagline "One Simple Monthly Price." (was "...Everything Included."). Builds, all 18 pages
+  (Modern Healthcare 19), PDF + PPTX in `eBooks/`: GLP-1 **v16**, Sexual Wellness **v7**, Hair Restoration **v6**, Healthy
+  Aging **v9**, NAD+ **v2**, Modern Healthcare **v2**; every PPTX passes `pptx_fonts.py --check`. GLP-1 v16 is its first
+  build on the no-crop product-photo rule, so page 04 ran 0.26in over: the lead became "Researching weight-loss treatment
+  online, you'll encounter a confusing collection of names. They aren't interchangeable." (two lines instead of three).
+  PowerPoint only embeds the fonts if Inter/Lora are loaded in the session that runs COM (per-user installs can be
+  missing from a background shell: load them with `AddFontResourceW` first, remove after). Report:
+  `see-if-you-qualify-update-report.md`. The earlier versions are still in `eBooks/`.
 - **Archived:** every earlier GLP-1 version and the old NAD+, Peptides, Sexual Wellness and Healthy Aging guides are in
   `eBooks/_archive/`. Their content is being rewritten; new manuscripts arrive one at a time. Do not rebuild from the
   archived outlines.
@@ -344,8 +359,15 @@ boxes in Preview and is not used.
   providers and continued support, with lab tests offered as needed."
 - Pricing copy never says "if prescribed" (kept only on page 03 where it is a clinical statement).
 - Price grid: eight cards (Medication, Provider care, Ongoing support, Medical reviews, Providers in 50 states,
-  U.S.A. pharmacies, No separate member fee, Easy cancel policy). Header forced to two lines:
+  U.S.A. pharmacies, One monthly price, Easy cancel policy). Header forced to two lines:
   "Make sure you choose a provider that offers comprehensive care / for one all-inclusive price."
+- **Pricing and CTA wording (owner decision 2026-10-06).** The CTA button/label is **See If You Qualify** ("see if you
+  qualify" inside a sentence); never "Start (Your) Free (Health) Assessment". Never mention a membership fee. The model is
+  one monthly all-in price covering the provider's review, follow-up care, the medication when prescribed, care-team
+  messaging and standard shipping; lab tests are the only extra (offered separately). Never call the clinician review,
+  consultation or assessment "free" (only the eBook itself is free). Never imply a prescription is guaranteed. Say "when
+  prescribed" in pricing copy ("if prescribed" is still banned there). `build_book.py` FAILs on member(ship) fee, "free
+  assessment/consultation/review" and "start free" wording.
 - Checklist item 05 asks whether the provider will say if the medication is FDA-approved or compounded.
 - Author notes addressed to the designer are dropped from outlines.
 
