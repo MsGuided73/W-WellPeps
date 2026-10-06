@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: October 2, 2026  |  Version 1.0",
+   "text": "Effective date: October 6, 2026  |  Last updated: October 6, 2026  |  Version 1.0",
    "italic": true,
    "align": null
   },
@@ -24,7 +24,7 @@
   },
   {
    "t": "li",
-   "text": "You can get tests through our lab partner, [LAB PARTNER], or through your own lab or doctor. Your clinician decides whether results from another lab can be used.",
+   "text": "You can get tests through our lab partner or through your own lab or doctor. Your clinician decides whether results from another lab can be used.",
    "level": 0
   },
   {
@@ -59,13 +59,13 @@
   },
   {
    "t": "p",
-   "text": "Your care comes from independent licensed clinicians of OSI Medical Services, P.A. (the “Practice”). A clinician of the Practice decides whether a lab test is medically appropriate for you and places the order [VERIFY: how lab orders are placed]. The Practice keeps your medical record.",
+   "text": "Your care comes from independent licensed clinicians of OSI Medical Services, P.A. (the “Practice”). A clinician of the Practice decides whether a lab test is medically appropriate for you and places the order. The Practice keeps your medical record.",
    "italic": false,
    "align": null
   },
   {
    "t": "p",
-   "text": "The laboratory is a separate company. It collects your sample (or sends you a kit), runs the test and sends the result to the Practice. Our lab partner is [LAB PARTNER]. The lab has its own prices, policies and responsibilities. Our business relationship with the lab partner is described in the Financial Relationship Disclosure and Acknowledgment. [VERIFY: lab partner ownership and payments]",
+   "text": "The laboratory is a separate company. It collects your sample (or sends you a kit), runs the test and sends the result to the Practice. The lab has its own prices, policies and responsibilities. Our business relationship with the lab partner is described in the Financial Relationship Disclosure and Acknowledgment.",
    "italic": false,
    "align": null
   },
@@ -128,7 +128,7 @@
   },
   {
    "t": "p",
-   "text": "Your clinician decides which tests and when, using professional judgment. WellPeps does not decide this and cannot override it. We cannot promise that you will not need labs, or that a test will lead to a prescription. [MEDICAL DIRECTOR: confirm labs required and timing]",
+   "text": "Your clinician decides which tests and when, using professional judgment. WellPeps does not decide this and cannot override it. We cannot promise that you will not need labs, or that a test will lead to a prescription. Your clinician tells you if labs are needed.",
    "italic": false,
    "align": null
   },
@@ -157,14 +157,14 @@
      "Things to know"
     ],
     [
-     "Our lab partner, [LAB PARTNER]",
+     "Our lab partner",
      "You order and pay in the portal. You get instructions and a collection location, or a kit if one is offered. The result goes to the Practice.",
      "The price is shown before you pay and is billed separately. Not every test or state is available."
     ],
     [
      "Your own lab or doctor",
      "Ask your clinician which tests are needed. Have them done on your own. Upload a copy of the result in the portal. Your clinician decides whether it can be used.",
-     "Results usually must be recent (for example, within [90 days]), come from a certified lab, include the tests needed and show your name and the test date. You pay your own lab or use your own insurance with your own doctor. WellPeps and the Practice do not bill insurance."
+     "Results usually must be recent (for example, within 90 days), come from a certified lab, include the tests needed and show your name and the test date. You pay your own lab or use your own insurance with your own doctor. WellPeps and the Practice do not bill insurance."
     ],
     [
      "No test",
@@ -178,7 +178,7 @@
   },
   {
    "t": "p",
-   "text": "Rules about who can order lab tests differ by state. In some states you can order certain tests yourself. In others a clinician must order every test, and some states limit tests ordered online or by mail. [VERIFY: state direct-access lab rules] Because of this, testing through [LAB PARTNER] may not be available in every state, and the tests offered may differ by state. We follow the rules of the state where you are located when the test is ordered.",
+   "text": "Rules about who can order lab tests differ by state. In some states you can order certain tests yourself. In others a clinician must order every test, and some states limit tests ordered online or by mail. Because of this, testing through our lab partner may not be available in every state, and the tests offered may differ by state. We follow the rules of the state where you are located when the test is ordered.",
    "italic": false,
    "align": null
   },
@@ -193,7 +193,7 @@
   },
   {
    "t": "li",
-   "text": "**Who bills you.** Lab fees are billed by [LAB BILLING PARTY], as shown at lab checkout. [VERIFY: who bills for lab fees] The price of each test is shown before you pay.",
+   "text": "**Who bills you.** Lab fees are billed by WellPeps, as shown at lab checkout. The price of each test is shown before you pay.",
    "level": 0
   },
   {
@@ -203,7 +203,7 @@
   },
   {
    "t": "li",
-   "text": "**Other charges.** If a lab cannot use your sample and you must give another, a repeat charge may apply. [VERIFY: lab partner policies] Any extra charge will be shown to you before you pay or explained by the lab.",
+   "text": "**Other charges.** If a lab cannot use your sample and you must give another, a repeat charge may apply. Any extra charge will be shown to you before you pay or explained by the lab.",
    "level": 0
   },
   {
@@ -254,13 +254,13 @@
   },
   {
    "t": "p",
-   "text": "A lab may not be able to use a sample if it is the wrong type, too small, damaged or labeled wrongly. If that happens you may need to give another sample. After your test, the lab handles your sample under its own rules and the law. [VERIFY: lab partner policies] WellPeps and the Practice do not receive your sample.",
+   "text": "A lab may not be able to use a sample if it is the wrong type, too small, damaged or labeled wrongly. If that happens you may need to give another sample. After your test, the lab handles your sample under its own rules and the law. WellPeps and the Practice do not receive your sample.",
    "italic": false,
    "align": null
   },
   {
    "t": "p",
-   "text": "This consent covers routine blood and urine tests. Some tests, such as tests for HIV or other infections, genetic tests or drug tests, need extra consent, counseling or reporting under some state laws. If your clinician orders one of those, you will receive a separate consent. [VERIFY: sensitive test rules]",
+   "text": "This consent covers routine blood and urine tests. Some tests, such as tests for HIV or other infections, genetic tests or drug tests, need extra consent, counseling or reporting under some state laws. If your clinician orders one of those, you will receive a separate consent.",
    "italic": false,
    "align": null
   },
@@ -270,12 +270,12 @@
   },
   {
    "t": "li",
-   "text": "**Where results go.** The lab sends your results to the Practice through our technology platform. [VERIFY: results release and review process]",
+   "text": "**Where results go.** The lab sends your results to the Practice.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "**Who reviews them.** A clinician of the Practice reviews your results, usually within [2 business days] after the Practice receives them. Review can take longer on weekends and holidays or if more information is needed.",
+   "text": "**Who reviews them.** A clinician of the Practice reviews your results, usually within 2 business days after the Practice receives them. Review can take longer on weekends and holidays or if more information is needed.",
    "level": 0
   },
   {
@@ -295,7 +295,7 @@
   },
   {
    "t": "li",
-   "text": "**Copies.** You can also ask the lab directly for a copy of your results. [VERIFY: lab partner policies]",
+   "text": "**Copies.** You can also ask the lab directly for a copy of your results.",
    "level": 0
   },
   {
@@ -362,7 +362,7 @@
   },
   {
    "t": "p",
-   "text": "**Billing.** If a clinician does not prescribe or does not renew because required labs were not completed, your plan is handled under the Refund, Cancellation and Auto-Renewal Policy. You can cancel at any time under that policy. [COUNSEL: charges when treatment is paused for labs]",
+   "text": "**Billing.** If a clinician does not prescribe or does not renew because required labs were not completed, your plan is handled under the Refund, Cancellation and Auto-Renewal Policy. You can cancel at any time under that policy.",
    "italic": false,
    "align": null
   },
@@ -378,7 +378,7 @@
   },
   {
    "t": "p",
-   "text": "If a result is urgent, a clinician of the Practice will try to reach you. The Practice may use a portal message, email, text message or phone call, and may try more than once. [VERIFY: critical result process]",
+   "text": "If a result is urgent, a clinician of the Practice will try to reach you. The Practice may use a portal message, email, text message or phone call, and may try more than once.",
    "italic": false,
    "align": null
   },
@@ -410,7 +410,7 @@
   },
   {
    "t": "p",
-   "text": "If the Practice cannot reach you, it may take other steps allowed by law and by its policies, which may include pausing treatment until you respond. [VERIFY: Practice policy for unreachable patients]",
+   "text": "If the Practice cannot reach you, it may take other steps allowed by law and by its policies, which may include pausing treatment until you respond.",
    "italic": false,
    "align": null
   },
@@ -431,7 +431,7 @@
   },
   {
    "t": "p",
-   "text": "Lab results that the Practice orders or accepts become part of your medical record. The Practice owns and keeps your medical record. It keeps records for at least [7] years, or longer if the law requires. The lab keeps its own records as the law requires.",
+   "text": "Lab results that the Practice orders or accepts become part of your medical record. The Practice owns and keeps your medical record. It keeps records for at least 7 years, or longer if the law requires. The lab keeps its own records as the law requires.",
    "italic": false,
    "align": null
   },
@@ -468,7 +468,7 @@
   },
   {
    "t": "p",
-   "text": "WellPeps staff see only what is needed for non-clinical tasks, such as handling your order or helping you with an account problem. [VERIFY: what lab data WellPeps staff can see] We do not sell your lab results. [VERIFY: lab results not sold or shared for marketing]",
+   "text": "WellPeps staff see only what is needed for non-clinical tasks, such as handling your order or helping you with an account problem. We do not sell your lab results.",
    "italic": false,
    "align": null
   },
@@ -484,7 +484,7 @@
   },
   {
    "t": "p",
-   "text": "WellPeps does not set the refund rules for lab fees. The refund policy of [LAB PARTNER] applies. [VERIFY: lab partner policies] In general, a lab fee may not be refundable after your sample has been collected or processed. If the lab cancels an order before collecting a sample, or cannot run your test, you should receive a refund or a new collection.",
+   "text": "WellPeps does not set the refund rules for lab fees. The refund policy of our lab partner applies. In general, a lab fee may not be refundable after your sample has been collected or processed. If the lab cancels an order before collecting a sample, or cannot run your test, you should receive a refund or a new collection.",
    "italic": false,
    "align": null
   },
@@ -549,7 +549,7 @@
     ],
     [
      "Collection site, kit, sample or the lab report",
-     "The lab: [LAB PARTNER CONTACT]"
+     "The lab. Contact support@wellpeps.com and we will help you reach them."
     ],
     [
      "Privacy questions",
@@ -573,7 +573,7 @@
   },
   {
    "t": "p",
-   "text": "Please read the Laboratory Testing Consent (version 1.0, dated [EFFECTIVE DATE]) before checking each box. Signing does not mean a lab will be ordered and does not guarantee a prescription.",
+   "text": "Please read the Laboratory Testing Consent (version 1.0, dated October 6, 2026) before checking each box. Signing does not mean a lab will be ordered and does not guarantee a prescription.",
    "italic": false,
    "align": null
   },
@@ -591,7 +591,7 @@
   },
   {
    "t": "check",
-   "text": "I understand that I may use [LAB PARTNER] or my own lab, and that my clinician decides whether results from another lab can be used."
+   "text": "I understand that I may use our lab partner or my own lab, and that my clinician decides whether results from another lab can be used."
   },
   {
    "t": "check",

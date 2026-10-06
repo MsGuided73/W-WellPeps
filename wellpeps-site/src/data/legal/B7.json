@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "Version 1.0  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
+   "text": "Version 1.0  |  Effective October 6, 2026  |  Last updated October 6, 2026",
    "italic": true,
    "align": null
   },
@@ -134,7 +134,7 @@
   },
   {
    "t": "p",
-   "text": "**Extra-protected information.** The law gives extra protection to some kinds of information, such as mental health, HIV or AIDS, substance use, genetic and reproductive health information. This form does not share these unless you check the box and initial. [VERIFY: state consent rules for these categories in the states served]",
+   "text": "**Extra-protected information.** The law gives extra protection to some kinds of information, such as mental health, HIV or AIDS, substance use, genetic and reproductive health information. This form does not share these unless you check the box and initial.",
    "italic": false,
    "align": null
   },
@@ -217,19 +217,19 @@
    "rows": [
     [
      "Typed full legal name",
-     "[typed by patient]"
+     "(typed by patient)"
     ],
     [
      "Date and time",
-     "[system-captured]"
+     "(system-captured)"
     ],
     [
      "Document version",
-     "[system-captured]"
+     "(system-captured)"
     ],
     [
      "IP address",
-     "[system-captured; counsel to confirm]"
+     "(system-captured)"
     ]
    ],
    "widths": [
@@ -289,7 +289,7 @@
   },
   {
    "t": "p",
-   "text": "Version 1.0  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
+   "text": "Version 1.0  |  Effective October 6, 2026  |  Last updated October 6, 2026",
    "italic": true,
    "align": null
   },
@@ -383,7 +383,7 @@
   },
   {
    "t": "p",
-   "text": "WellPeps does not publish weight, dose or other number results. [WELLPEPS TO CONFIRM: policy of publishing no weight, dose or other numeric result claims] We may shorten or edit for clarity, and we will ask you before we change what you mean. Do not include another person's name, photo or information.",
+   "text": "WellPeps does not publish weight, dose or other number results. We may shorten or edit for clarity, and we will ask you before we change what you mean. Do not include another person's name, photo or information.",
    "italic": false,
    "align": null
   },
@@ -421,7 +421,7 @@
   },
   {
    "t": "p",
-   "text": "WellPeps does not require a positive review in return for anything. WellPeps will not receive payment from any other company for using my information in marketing. [WELLPEPS TO CONFIRM: no third-party payment; if one exists, HIPAA requires this form to say so] If that ever changes, we will ask you to sign a new form.",
+   "text": "WellPeps does not require a positive review in return for anything. WellPeps will not receive payment from any other company for using my information in marketing. If that ever changes, we will ask you to sign a new form.",
    "italic": false,
    "align": null
   },
@@ -441,7 +441,7 @@
   },
   {
    "t": "p",
-   "text": "[24 months] after I sign, or sooner if I cancel it.",
+   "text": "24 months after I sign, or sooner if I cancel it.",
    "italic": false,
    "align": null
   },
@@ -451,7 +451,7 @@
   },
   {
    "t": "p",
-   "text": "I give WellPeps permission to use the items I checked, in the ways described above, without further payment, for the time above. I still own my story and photos. WellPeps may edit them as described in section 2. [VERIFY: scope of the release, ownership of content and right-of-publicity consent rules for the states served]",
+   "text": "I give WellPeps permission to use the items I checked, in the ways described above, without further payment, for the time above. I still own my story and photos. WellPeps may edit them as described in section 2.",
    "italic": false,
    "align": null
   },
@@ -466,7 +466,7 @@
   },
   {
    "t": "li",
-   "text": "**You can cancel at any time.** To cancel, send a message in your patient portal, email privacy@wellpeps.com, mail a letter to 30 N Gould St., Suite R, Sheridan, WY 82801, or use Form 4. Canceling starts when the Practice or WellPeps gets your request. It does not undo sharing that already happened while the permission was in effect. After you cancel, WellPeps will stop new uses within [5 business days] and remove items on websites and social accounts it controls within [10 business days]. We cannot take back printed material already given out or copies other people made.",
+   "text": "**You can cancel at any time.** To cancel, send a message in your patient portal, email privacy@wellpeps.com, mail a letter to 30 N Gould St., Suite R, Sheridan, WY 82801, or use Form 4. Canceling starts when the Practice or WellPeps gets your request. It does not undo sharing that already happened while the permission was in effect. After you cancel, WellPeps will stop new uses within 5 business days and remove items on websites and social accounts it controls within 10 business days. We cannot take back printed material already given out or copies other people made.",
    "level": 0
   },
   {
@@ -494,19 +494,19 @@
    "rows": [
     [
      "Typed full legal name",
-     "[typed by patient]"
+     "(typed by patient)"
     ],
     [
      "Date and time",
-     "[system-captured]"
+     "(system-captured)"
     ],
     [
      "Document version",
-     "[system-captured]"
+     "(system-captured)"
     ],
     [
      "IP address",
-     "[system-captured; counsel to confirm]"
+     "(system-captured)"
     ]
    ],
    "widths": [
@@ -566,7 +566,7 @@
   },
   {
    "t": "p",
-   "text": "Version 1.0  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
+   "text": "Version 1.0  |  Effective October 6, 2026  |  Last updated October 6, 2026",
    "italic": true,
    "align": null
   },
@@ -703,7 +703,7 @@
   },
   {
    "t": "p",
-   "text": "**Extra-protected information.** Mental health, HIV or AIDS, substance use, genetic and reproductive health information are not shared under this form unless you check this box and initial. [VERIFY: state consent rules for these categories in the states served]",
+   "text": "**Extra-protected information.** Mental health, HIV or AIDS, substance use, genetic and reproductive health information are not shared under this form unless you check this box and initial.",
    "italic": false,
    "align": null
   },
@@ -729,7 +729,7 @@
   },
   {
    "t": "p",
-   "text": "This form does not make this person my legal representative. It does not let them make medical decisions, sign consents or change my account unless I check the box above. If you need someone to decide for you, talk to a lawyer about a power of attorney.",
+   "text": "This form does not make this person my legal representative. It does not let them make medical decisions, sign consents or change my account unless I check the box above. If you need someone to decide for you, talk to an attorney about a power of attorney.",
    "italic": false,
    "align": null
   },
@@ -804,19 +804,19 @@
    "rows": [
     [
      "Typed full legal name",
-     "[typed by patient]"
+     "(typed by patient)"
     ],
     [
      "Date and time",
-     "[system-captured]"
+     "(system-captured)"
     ],
     [
      "Document version",
-     "[system-captured]"
+     "(system-captured)"
     ],
     [
      "IP address",
-     "[system-captured; counsel to confirm]"
+     "(system-captured)"
     ]
    ],
    "widths": [
@@ -876,7 +876,7 @@
   },
   {
    "t": "p",
-   "text": "Version 1.0  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
+   "text": "Version 1.0  |  Effective October 6, 2026  |  Last updated October 6, 2026",
    "italic": true,
    "align": null
   },
@@ -968,7 +968,7 @@
   },
   {
    "t": "li",
-   "text": "The Practice and WellPeps will stop sharing or using your information under the permission you cancel. WellPeps will do this within [5 business days]. For Form 2, we will remove items on websites and social accounts we control within [10 business days].",
+   "text": "The Practice and WellPeps will stop sharing or using your information under the permission you cancel. WellPeps will do this within 5 business days. For Form 2, we will remove items on websites and social accounts we control within 10 business days.",
    "level": 0
   },
   {
@@ -1006,19 +1006,19 @@
    "rows": [
     [
      "Typed full legal name",
-     "[typed by patient]"
+     "(typed by patient)"
     ],
     [
      "Date and time",
-     "[system-captured]"
+     "(system-captured)"
     ],
     [
      "Document version",
-     "[system-captured]"
+     "(system-captured)"
     ],
     [
      "IP address",
-     "[system-captured; counsel to confirm]"
+     "(system-captured)"
     ]
    ],
    "widths": [
@@ -1311,7 +1311,7 @@
    "items": [
     "Log the date received. Accept any clear written message, including a portal message. If someone asks by phone (only if a phone line is live), ask them to confirm in writing.",
     "Send it to the Practice's privacy contact the same business day. The Practice decides what to stop.",
-    "Stop new uses and disclosures under that permission within [5 business days]. For Form 2, remove items on sites and accounts WellPeps controls within [10 business days].",
+    "Stop new uses and disclosures under that permission within 5 business days. For Form 2, remove items on sites and accounts WellPeps controls within 10 business days.",
     "Tell any recipient who can still act on it. Confirm to the patient in writing.",
     "Keep the revocation with the original form. Do not delete the original."
    ]

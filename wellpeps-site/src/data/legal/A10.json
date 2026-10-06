@@ -5,7 +5,7 @@
  "blocks": [
   {
    "t": "p",
-   "text": "Effective date: October 5, 2026  |  Last updated: October 5, 2026  |  Version 1.0",
+   "text": "Effective date: October 6, 2026  |  Last updated: October 6, 2026  |  Version 1.0",
    "italic": true,
    "align": null
   },
@@ -74,7 +74,7 @@
     ],
     [
      "Who charges my card?",
-     "[MERCHANT OF RECORD], through our checkout. Your statement shows [BILLING DESCRIPTOR]."
+     "WellPeps, through our checkout. Your statement shows WellPeps."
     ]
    ],
    "widths": [
@@ -288,7 +288,7 @@
   },
   {
    "t": "li",
-   "text": "Your plan stays active through the month you have already paid for. You can keep messaging your clinician in the patient portal through the end of that month. [VERIFY: portal access after cancellation]",
+   "text": "Your plan stays active through the month you have already paid for. You can keep messaging your clinician in the patient portal through the end of that month.",
    "level": 0
   },
   {
@@ -403,7 +403,7 @@
   },
   {
    "t": "li",
-   "text": "Lab tests, which are billed separately and follow the lab partner’s rules. [VERIFY: lab partner refund terms]",
+   "text": "Lab tests, which are billed separately through WellPeps and follow our lab partner’s rules.",
    "level": 0
   },
   {
@@ -421,7 +421,7 @@
    "t": "clause",
    "number": "5.9",
    "heading": "How and when we pay refunds.",
-   "text": "We refund to the card you used at checkout. We start the refund within 2 business days after we approve it. It usually appears on your statement within 5 to 10 business days, depending on your bank or card issuer. [VERIFY: processor refund timing] We email you when the refund is issued. If your card has been closed, contact us and we will find another way to pay you.",
+   "text": "We refund to the card you used at checkout. We start the refund within 2 business days after we approve it. It usually appears on your statement within several business days, depending on your bank or card issuer. We email you when the refund is issued. If your card has been closed, contact us and we will find another way to pay you.",
    "level": 0
   },
   {
@@ -439,7 +439,7 @@
    "t": "clause",
    "number": "6.1",
    "heading": "Your monthly price.",
-   "text": "Your price is the price you saw at checkout. A change of dose alone does not change your price, and neither does a change of pharmacy. If your clinician prescribes a different medication, form or strength that has a different price, we show you the new price and ask for your agreement before we charge any different amount. You can say no, and you will not be charged the different amount. [VERIFY: GEN product price stays fixed when dose or pharmacy changes]",
+   "text": "Your price is the price you saw at checkout. If your clinician prescribes a different medication, form, strength or dose that has a different price, we show you the new price and ask for your agreement before we charge any different amount. You can say no, and you will not be charged the different amount.",
    "level": 0
   },
   {
@@ -474,7 +474,7 @@
   },
   {
    "t": "li",
-   "text": "We may try the charge again up to 3 attempts over 10 days. We do not charge a late fee. [VERIFY: processor retry rules and late-fee position]",
+   "text": "We may try the charge again up to 3 attempts over 10 days. We do not charge a late fee.",
    "level": 0
   },
   {
@@ -489,7 +489,7 @@
   },
   {
    "t": "li",
-   "text": "A failed payment never takes back medication that has already been shipped to you. You can still message your clinician about your care. [VERIFY: Practice to confirm messaging access while unpaid]",
+   "text": "A failed payment never takes back medication that has already been shipped to you. If you have a medical concern, contact your clinician, or call 911 in an emergency.",
    "level": 0
   },
   {
@@ -521,7 +521,7 @@
    "t": "clause",
    "number": "8.4",
    "heading": "Disputes we have already refunded.",
-   "text": "If you dispute a charge that we already refunded or that this policy allows, we may pause new orders until the dispute is resolved. We may close an account after repeated disputes of charges that were correct. [VERIFY: Counsel to confirm]",
+   "text": "If you dispute a charge that we already refunded or that this policy allows, we may pause new orders until the dispute is resolved. We may close an account after repeated disputes of charges that were correct.",
    "level": 0
   },
   {
@@ -536,58 +536,9 @@
   },
   {
    "t": "p",
-   "text": "**The law behind this policy.** In July 2025 a federal court struck down a federal rule called “Click-to-Cancel.” A different federal law, ROSCA, and many state laws still apply, and federal and state officials are enforcing them. We follow ROSCA and the strictest state rule we know of. [VERIFY: current FTC rulemaking status]",
+   "text": "**The law behind this policy.** A federal law called ROSCA and many state laws apply to plans that renew automatically. WellPeps follows ROSCA and the automatic-renewal laws of the state where you live.",
    "italic": false,
    "align": null
-  },
-  {
-   "t": "p",
-   "text": "Counsel checklist (internal): delete this table before publishing and replace it with a short plain-language statement for any state that needs one.",
-   "italic": true,
-   "align": null
-  },
-  {
-   "t": "table",
-   "rows": [
-    [
-     "State",
-     "What counsel must confirm before launch in that state"
-    ],
-    [
-     "California",
-     "California Automatic Renewal Law as amended in 2025 [VERIFY: current text]: separate express consent; acknowledgment with cancellation details; online cancellation when sign-up is online; reminders; notice of price changes; consent records."
-    ],
-    [
-     "New York",
-     "State automatic-renewal law [VERIFY: current text]: required notices, cancellation channels and any timing rules."
-    ],
-    [
-     "Illinois",
-     "Automatic Contract Renewal Act [VERIFY: current text]: notice and cancellation rules and which plans are covered."
-    ],
-    [
-     "Vermont",
-     "State automatic-renewal law [VERIFY: current text]: notice and cancellation rules."
-    ],
-    [
-     "Minnesota",
-     "State automatic-renewal law in force from 2025 [VERIFY: current text]: consent, online cancellation, notices."
-    ],
-    [
-     "Colorado",
-     "State automatic-renewal law [VERIFY: current text]: notice and cancellation rules."
-    ],
-    [
-     "Every other state served",
-     "[VERIFY: 50-state automatic-renewal survey for every state on the States We Serve page]"
-    ]
-   ],
-   "widths": [
-    1.3,
-    4.3
-   ],
-   "header": true,
-   "shade": true
   },
   {
    "t": "h1",
@@ -630,7 +581,7 @@
   },
   {
    "t": "p",
-   "text": "**Related documents.** Patient Terms of Service and Payment Agreement. Shipping and Delivery Policy. GLP-1 Medication Safety Information and Acknowledgment. Privacy Policy. If this policy and the Patient Terms of Service and Payment Agreement differ about refunds, cancellation or renewal, this policy applies. [VERIFY: Counsel to confirm]",
+   "text": "**Related documents.** Patient Terms of Service and Payment Agreement. Shipping and Delivery Policy. GLP-1 Medication Safety Information and Acknowledgment. Privacy Policy. If this policy and the Patient Terms of Service and Payment Agreement differ about refunds, cancellation or renewal, this policy applies.",
    "italic": false,
    "align": null
   },
@@ -681,7 +632,7 @@
     ],
     [
      "IP address",
-     "(system-captured; counsel to confirm)"
+     "(system-captured)"
     ]
    ],
    "widths": [
@@ -771,7 +722,7 @@
   },
   {
    "t": "callout",
-   "text": "**AUTOMATIC RENEWAL: PLEASE READ BEFORE YOU PAY**\nYour {{plan_name}} renews automatically every month until you cancel.\nYou will pay {{price}} today, plus any tax, for your first month. Then your card will be charged {{price}} every month on the same day, starting {{next_charge_date}}, by [MERCHANT OF RECORD]. It will appear on your statement as [BILLING DESCRIPTOR]. There is no minimum commitment, no setup fee and no cancellation fee.\nYour price covers your medication if prescribed, your clinician’s review and care, messaging with your care team and standard shipping. Lab tests, if your clinician recommends them, are billed separately.\n**HOW TO CANCEL:** Cancel any time in your patient portal at portal.wellpeps.com or by email to support@wellpeps.com. To avoid your next charge, cancel at least 72 hours before {{next_charge_date}}. We confirm every cancellation in writing within 1 business day.\n**REFUNDS:** Once the pharmacy has started preparing your medication, that charge cannot be refunded except as described in our Refund, Cancellation and Auto-Renewal Policy {{policy_link}}.",
+   "text": "**AUTOMATIC RENEWAL: PLEASE READ BEFORE YOU PAY**\nYour {{plan_name}} renews automatically every month until you cancel.\nYou will pay {{price}} today, plus any tax, for your first month. Then your card will be charged {{price}} every month on the same day, starting {{next_charge_date}}, by WellPeps. It will appear on your statement as WellPeps. There is no minimum commitment, no setup fee and no cancellation fee.\nYour price covers your medication if prescribed, your clinician’s review and care, messaging with your care team and standard shipping. Lab tests, if your clinician recommends them, are billed separately.\n**HOW TO CANCEL:** Cancel any time in your patient portal at portal.wellpeps.com or by email to support@wellpeps.com. To avoid your next charge, cancel at least 72 hours before {{next_charge_date}}. We confirm every cancellation in writing within 1 business day.\n**REFUNDS:** Once the pharmacy has started preparing your medication, that charge cannot be refunded except as described in our Refund, Cancellation and Auto-Renewal Policy {{policy_link}}.",
    "kind": "info"
   },
   {
@@ -838,7 +789,7 @@
     ],
     [
      "Who is charging the card",
-     "[MERCHANT OF RECORD] and [BILLING DESCRIPTOR] in A.3"
+     "The merchant and statement name in A.3"
     ]
    ],
    "widths": [
@@ -931,7 +882,7 @@
   },
   {
    "t": "callout",
-   "text": "**Subject:** Your WellPeps monthly plan: renewal and cancellation details\nHi {{first_name}},\nThank you for starting your {{plan_name}}. This email confirms what you agreed to on {{consent_date}} at {{consent_time}} {{time_zone}}.\n**Your plan renews every month until you cancel.**\nCharged today: {{price}}, plus any tax\nNext charge: {{price}} on {{next_charge_date}}, then every month on the same day\nCard: {{card_brand}} ending in {{card_last4}}\nBilled by: [MERCHANT OF RECORD]. Your statement shows [BILLING DESCRIPTOR].\nMinimum commitment: none. Cancellation fee: none.\nYour price covers your medication if prescribed, your clinician’s review and care, messaging with your care team and standard shipping. Lab tests are billed separately.\nYour clinician decides whether to renew your prescription each month. If your clinician does not renew it for a month we have charged, we refund that charge.\n**How to cancel:** Any time, in your patient portal at portal.wellpeps.com ({{cancel_link}}), by replying to this email, or by writing to support@wellpeps.com. To avoid your next charge, cancel at least 72 hours before {{next_charge_date}}. We confirm every cancellation in writing within 1 business day.\nRead the full policy: {{policy_link}}\nQuestions about orders, billing or shipping? support@wellpeps.com, Monday to Friday, 9 am to 6 pm ET. For medical questions, message your clinician in the patient portal. In an emergency, call 911.\nWellPeps, a Wyoming corporation, 30 N Gould St., Suite R, Sheridan, WY 82801",
+   "text": "**Subject:** Your WellPeps monthly plan: renewal and cancellation details\nHi {{first_name}},\nThank you for starting your {{plan_name}}. This email confirms what you agreed to on {{consent_date}} at {{consent_time}} {{time_zone}}.\n**Your plan renews every month until you cancel.**\nCharged today: {{price}}, plus any tax\nNext charge: {{price}} on {{next_charge_date}}, then every month on the same day\nCard: {{card_brand}} ending in {{card_last4}}\nBilled by: WellPeps. Your statement shows WellPeps.\nMinimum commitment: none. Cancellation fee: none.\nYour price covers your medication if prescribed, your clinician’s review and care, messaging with your care team and standard shipping. Lab tests are billed separately.\nYour clinician decides whether to renew your prescription each month. If your clinician does not renew it for a month we have charged, we refund that charge.\n**How to cancel:** Any time, in your patient portal at portal.wellpeps.com ({{cancel_link}}), by replying to this email, or by writing to support@wellpeps.com. To avoid your next charge, cancel at least 72 hours before {{next_charge_date}}. We confirm every cancellation in writing within 1 business day.\nRead the full policy: {{policy_link}}\nQuestions about orders, billing or shipping? support@wellpeps.com, Monday to Friday, 9 am to 6 pm ET. For medical questions, message your clinician in the patient portal. In an emergency, call 911.\nWellPeps, a Wyoming corporation, 30 N Gould St., Suite R, Sheridan, WY 82801",
    "kind": "info"
   },
   {
@@ -985,7 +936,7 @@
   },
   {
    "t": "callout",
-   "text": "**Subject:** Your WellPeps refund of {{refund_amount}}\nHi {{first_name}},\nWe issued a refund of {{refund_amount}} on {{refund_date}} to your {{card_brand}} ending in {{card_last4}}. Reason: {{refund_reason}}. Reference number: {{reference_number}}.\nRefunds usually appear within 5 to 10 business days, depending on your bank or card issuer. You do not need to do anything. If you do not see it after that time, write to support@wellpeps.com and give us the reference number.\nFull policy: {{policy_link}}",
+   "text": "**Subject:** Your WellPeps refund of {{refund_amount}}\nHi {{first_name}},\nWe issued a refund of {{refund_amount}} on {{refund_date}} to your {{card_brand}} ending in {{card_last4}}. Reason: {{refund_reason}}. Reference number: {{reference_number}}.\nRefunds can take several business days to appear, depending on your bank or card issuer. You do not need to do anything. If you do not see it after that time, write to support@wellpeps.com and give us the reference number.\nFull policy: {{policy_link}}",
    "kind": "info"
   },
   {
@@ -1075,7 +1026,7 @@
      "10",
      "Billing",
      "Payment processor",
-     "Live keys for the chosen processor (not the None tile; hosted checkout needs a real processor). Statement descriptor set to [BILLING DESCRIPTOR]. Merchant of record decided: [MERCHANT OF RECORD].",
+     "Live keys for the chosen processor (not the None tile; hosted checkout needs a real processor). Statement descriptor set to WellPeps. Merchant of record: WellPeps.",
      "☐"
     ],
     [

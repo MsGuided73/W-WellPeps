@@ -5,7 +5,7 @@
  "blocks": [
   {
    "t": "p",
-   "text": "**Effective date:** [EFFECTIVE DATE]   |   **Last updated:** October 2, 2026   |   **Version:** 1.0",
+   "text": "**Effective date:** October 6, 2026   |   **Last updated:** October 6, 2026   |   **Version:** 1.0",
    "italic": false,
    "align": null
   },
@@ -235,7 +235,7 @@
    "t": "clause",
    "number": "4.1",
    "heading": "Age.",
-   "text": "You are at least 18 years old, or older if the age of adulthood where you live is higher (19 in Alabama and Nebraska, and 21 in Mississippi) [VERIFY: age of majority]. We or the Practice may ask you to verify your age and identity.",
+   "text": "You are at least 18 years old, or older if the age of adulthood where you live is higher. We or the Practice may ask you to confirm your age and identity.",
    "level": 0
   },
   {
@@ -309,7 +309,7 @@
    "t": "clause",
    "number": "5.3",
    "heading": "When you are charged.",
-   "text": "To keep things simple, you answer the health questions first and then check out once. At checkout you enter your payment method and agree to this Agreement and to the automatic renewal terms, but you are not charged then. We charge your payment method for your first month only when a clinician prescribes treatment [VERIFY: charge trigger]. After that first charge, your plan renews each month on the same day of the month until you cancel (Section 8.3).",
+   "text": "To keep things simple, you answer the health questions first and then check out once. At checkout you enter your payment method and agree to this Agreement and to the automatic renewal terms, but you are not charged then. We charge your payment method for your first month only when a clinician prescribes treatment. After that first charge, your plan renews each month on the same day of the month until you cancel (Section 8.3).",
    "level": 0
   },
   {
@@ -378,7 +378,7 @@
    "t": "clause",
    "number": "6.3",
    "heading": "What the price does not cover.",
-   "text": "Lab tests are never included in your monthly price. If your clinician recommends labs, we can give you access to low-cost lab testing. Labs are billed separately, at a price shown to you before you agree to the order, by [LAB BILLING PARTY]. The Laboratory Testing Consent explains lab orders and results. The price also does not cover care from anyone outside the Practice, such as your own doctor, an urgent care or a hospital, or medicine you buy elsewhere.",
+   "text": "Lab tests are never included in your monthly price. If your clinician recommends labs, we can give you access to low-cost lab testing. Labs are billed separately, at a price shown to you before you agree to the order, through WellPeps. The Laboratory Testing Consent explains lab orders and results. The price also does not cover care from anyone outside the Practice, such as your own doctor, an urgent care or a hospital, or medicine you buy elsewhere.",
    "level": 0
   },
   {
@@ -399,14 +399,14 @@
    "t": "clause",
    "number": "6.6",
    "heading": "If your treatment changes.",
-   "text": "The price at checkout is for the treatment you chose. If the clinician prescribes a different medication or form that has a different price, we will show you the new price and ask for your agreement before we charge you any different amount. You may say no, and you will not be charged the different amount. A change of dose, or of the pharmacy that fills your prescription, does not change your price [VERIFY: dose-change pricing].",
+   "text": "The price at checkout is for the treatment you chose. If the clinician prescribes a different medication, form or dose that has a different price, we will show you the new price and ask for your agreement before we charge you any different amount. You may say no, and you will not be charged the different amount.",
    "level": 0
   },
   {
    "t": "clause",
    "number": "6.7",
    "heading": "How the price is divided.",
-   "text": "Your monthly price pays for several things: the clinical services of the Practice, your medication, shipping, and WellPeps’s non-clinical services such as intake, education and support. [COUNSEL: PRICE ALLOCATION. Describe the allocation in a way that complies with fee-splitting and corporate-practice-of-medicine rules in Florida and each state served, and decide whether the Practice’s portion must be stated to the patient.] WellPeps pays the Practice’s fees for clinician reviews and visits, and the Practice does not charge you separately for them. The fee WellPeps pays the Practice for a clinician review does not depend on whether you receive a prescription.",
+   "text": "Your monthly price pays for several things: the clinical services of the Practice, your medication, shipping, and WellPeps’s non-clinical services such as intake, education and support. WellPeps pays the Practice’s fees for clinician reviews and visits, and the Practice does not charge you separately for them. The fee WellPeps pays the Practice for a clinician review does not depend on whether you receive a prescription.",
    "level": 0
   },
   {
@@ -431,14 +431,14 @@
    "t": "clause",
    "number": "7.3",
    "heading": "HSA and FSA.",
-   "text": "Some health savings accounts (HSAs) and flexible spending accounts (FSAs) pay only for certain items. We do not promise that your HSA or FSA will pay for any charge from us. Please ask your plan administrator before you use plan funds [VERIFY: HSA/FSA statement].",
+   "text": "Some health savings accounts (HSAs) and flexible spending accounts (FSAs) pay only for certain items. We do not promise that your HSA or FSA will pay for any charge from us. Please ask your plan administrator before you use plan funds.",
    "level": 0
   },
   {
    "t": "clause",
    "number": "7.4",
    "heading": "Government programs.",
-   "text": "If you have Medicare, Medicaid, TRICARE or another government program, you may still choose to pay for these services yourself. We will not bill those programs, and nothing you pay us can be billed to them [VERIFY: government program patients].",
+   "text": "If you have Medicare, Medicaid, TRICARE or another government program, you may still choose to pay for these services yourself. We will not bill those programs, and nothing you pay us can be billed to them.",
    "level": 0
   },
   {
@@ -449,28 +449,28 @@
    "t": "clause",
    "number": "8.1",
    "heading": "Who charges you.",
-   "text": "Your payment is processed through our checkout provider. The business that charges your card, called the merchant of record, is [MERCHANT OF RECORD]. Your card details are held by our payment processor and not by WellPeps [VERIFY: card storage].",
+   "text": "Your payment is processed through our checkout provider. The business that charges your card, called the merchant of record, is WellPeps. Your card details are held by our payment processor and not by WellPeps.",
    "level": 0
   },
   {
    "t": "clause",
    "number": "8.2",
    "heading": "Your authorization.",
-   "text": "When you check out, you authorize [MERCHANT OF RECORD] to charge your payment method, once a clinician prescribes treatment (Section 5.3), for the price shown at checkout, for each monthly renewal as described in Section 8.3, and for any other amount you agree to, such as labs. You also authorize us to keep your payment method on file for those charges. You can update your payment method in the Portal, but a plan cannot renew without one.",
+   "text": "When you check out, you authorize WellPeps to charge your payment method, once a clinician prescribes treatment (Section 5.3), for the price shown at checkout, for each monthly renewal as described in Section 8.3, and for any other amount you agree to, such as labs. You also authorize us to keep your payment method on file for those charges. You can update your payment method in the Portal, but a plan cannot renew without one.",
    "level": 0
   },
   {
    "t": "clause",
    "number": "8.3",
    "heading": "Automatic renewal.",
-   "text": "Your plan renews every month at the price shown at checkout, and we charge your payment method once a month, on the same day of the month as your first charge (the day a clinician prescribed treatment), until you cancel [VERIFY: billing date rule]. At checkout we will show you these automatic renewal terms again and ask for your separate agreement to them in a box that is not checked for you. The Refund Policy explains how to cancel and the deadline to avoid the next charge.",
+   "text": "Your plan renews every month at the price shown at checkout, and we charge your payment method once a month, on the same day of the month as your first charge (the day a clinician prescribed treatment), until you cancel. At checkout we will show you these automatic renewal terms again and ask for your separate agreement to them in a box that is not checked for you. The Refund Policy explains how to cancel and the deadline to avoid the next charge.",
    "level": 0
   },
   {
    "t": "clause",
    "number": "8.4",
    "heading": "How the charge appears.",
-   "text": "Charges appear on your card statement as [BILLING DESCRIPTOR]. If you do not recognize a charge, contact us at support@wellpeps.com first (see Section 10).",
+   "text": "Charges appear on your card statement as WellPeps. If you do not recognize a charge, contact us at support@wellpeps.com first (see Section 10).",
    "level": 0
   },
   {
@@ -507,21 +507,21 @@
   },
   {
    "t": "li",
-   "text": "we do not charge late fees or interest on a failed payment [VERIFY: no late fees].",
+   "text": "we do not charge late fees or interest on a failed payment.",
    "level": 0
   },
   {
    "t": "clause",
    "number": "8.6",
    "heading": "Taxes.",
-   "text": "Prices do not include sales or use tax unless the checkout page says so. If tax applies to your order, we will show it at checkout [VERIFY: sales tax].",
+   "text": "Prices do not include sales or use tax unless the checkout page says so. If tax applies to your order, we will show it at checkout.",
    "level": 0
   },
   {
    "t": "clause",
    "number": "8.7",
    "heading": "Price changes.",
-   "text": "We may change the monthly price for future renewals, but only after giving you notice. We will email you and post a notice in the Portal at least [30] days before the new price first applies [VERIFY: price-change window]. The notice will state the new price, the date it takes effect and how to cancel. You may cancel before that date with no fee. If you do not cancel, the new price applies from your first renewal after that date. Where the law of your state requires your fresh agreement to a higher price, we will ask for it first. A price decrease may take effect without notice. A price change never reduces a refund you are owed.",
+   "text": "We may change the monthly price for future renewals, but only after giving you notice. We will email you and post a notice in the Portal at least 30 days before the new price first applies. The notice will state the new price, the date it takes effect and how to cancel. You may cancel before that date with no fee. If you do not cancel, the new price applies from your first renewal after that date. Where the law of your state requires your fresh agreement to a higher price, we will ask for it first. A price decrease may take effect without notice. A price change never reduces a refund you are owed.",
    "level": 0
   },
   {
@@ -610,7 +610,7 @@
    "t": "clause",
    "number": "11.4",
    "heading": "Choice of pharmacy and transfers.",
-   "text": "You may ask your clinician whether your prescription can be sent to a different pharmacy. A compounded prescription is made for one patient and may not be transferable [VERIFY: pharmacy choice].",
+   "text": "You may ask your clinician whether your prescription can be sent to a different pharmacy. A compounded prescription is made for one patient and may not be transferable.",
    "level": 0
   },
   {
@@ -683,7 +683,7 @@
    "t": "clause",
    "number": "14.1",
    "heading": "Our privacy documents.",
-   "text": "The Privacy Policy and the Consumer Health Data Privacy Policy explain what personal and health information WellPeps collects, how we use and share it, how long we keep it and your choices. The Notice of Privacy Practices explains how health information used for your care is protected under HIPAA. WellPeps handles some of that information on the Practice’s behalf [COUNSEL: HIPAA role. Confirm the HIPAA role statement after decision H1.]",
+   "text": "The Privacy Policy and the Consumer Health Data Privacy Policy explain what personal and health information WellPeps collects, how we use and share it, how long we keep it and your choices. The Notice of Privacy Practices explains how health information used for your care is protected under HIPAA. WellPeps handles some of that information on the Practice’s behalf.",
    "level": 0
   },
   {
@@ -701,7 +701,7 @@
    "t": "clause",
    "number": "15.1",
    "heading": "How AI may be used.",
-   "text": "WellPeps and the Practice may use artificial intelligence (AI) tools, for example to answer support questions, help staff draft messages, or organize the information you submit. AI tools do not decide whether you receive a prescription. That decision is made by a licensed clinician. The AI Use Disclosure explains what we use AI for, what it does not do, and how to reach a person or ask for human review.",
+   "text": "The WellPeps website assistant is an artificial intelligence (AI) tool. It runs in your browser and answers only from WellPeps’s own knowledge base. It does not send your messages to an outside AI provider. AI is not used in clinical care, and AI tools do not decide whether you receive a prescription. That decision is made by a licensed clinician. The AI Use Disclosure explains what we use AI for, what it does not do, and how to reach a person or ask for human review.",
    "level": 0
   },
   {
@@ -730,7 +730,7 @@
    "t": "clause",
    "number": "17.1",
    "heading": "Limits.",
-   "text": "TO THE EXTENT THE LAW ALLOWS, WELLPEPS WILL NOT BE LIABLE TO YOU FOR INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY OR PUNITIVE DAMAGES, OR FOR LOST PROFITS OR LOST DATA. WELLPEPS’S TOTAL LIABILITY TO YOU FOR ALL CLAIMS ARISING FROM THIS AGREEMENT AND THE SERVICES IT PROVIDES WILL NOT BE MORE THAN THE GREATER OF [US $100] AND THE TOTAL AMOUNT YOU PAID FOR THE SERVICES IN THE 12 MONTHS BEFORE THE CLAIM AROSE.",
+   "text": "TO THE EXTENT THE LAW ALLOWS, WELLPEPS WILL NOT BE LIABLE TO YOU FOR INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY OR PUNITIVE DAMAGES, OR FOR LOST PROFITS OR LOST DATA. WELLPEPS’S TOTAL LIABILITY TO YOU FOR ALL CLAIMS ARISING FROM THIS AGREEMENT AND THE SERVICES IT PROVIDES WILL NOT BE MORE THAN THE GREATER OF US $100 AND THE TOTAL AMOUNT YOU PAID FOR THE SERVICES IN THE 12 MONTHS BEFORE THE CLAIM AROSE.",
    "level": 0
   },
   {
@@ -778,7 +778,7 @@
    "t": "clause",
    "number": "19.2",
    "heading": "Individual arbitration.",
-   "text": "If we cannot resolve a dispute informally, you and WellPeps agree to resolve it by binding arbitration on an individual basis, instead of in court before a judge or jury. This covers any dispute between you and WellPeps (and its owners, officers, directors, employees and affiliates) about this Agreement, the Portal, the services WellPeps provides, billing, refunds, advertising or your relationship with WellPeps, including disputes that arose before you accepted this Agreement. The arbitration will be run by the American Arbitration Association (AAA) under its Consumer Arbitration Rules, which are at www.adr.org. The Federal Arbitration Act governs this Section 19. The arbitrator must follow the law and this Agreement, may award any individual relief a court could, and will give written reasons if you ask [VERIFY: state arbitration rules].",
+   "text": "If we cannot resolve a dispute informally, you and WellPeps agree to resolve it by binding arbitration on an individual basis, instead of in court before a judge or jury. This covers any dispute between you and WellPeps (and its owners, officers, directors, employees and affiliates) about this Agreement, the Portal, the services WellPeps provides, billing, refunds, advertising or your relationship with WellPeps, including disputes that arose before you accepted this Agreement. The arbitration will be run by the American Arbitration Association (AAA) under its Consumer Arbitration Rules, which are at www.adr.org. The Federal Arbitration Act governs this Section 19. The arbitrator must follow the law and this Agreement, may award any individual relief a court could, and will give written reasons if you ask.",
    "level": 0
   },
   {
@@ -813,21 +813,21 @@
    "t": "clause",
    "number": "(d)",
    "heading": null,
-   "text": "a claim or request for relief that applicable law does not allow to be arbitrated or waived, including a request for public injunctive relief where state law does not allow it to be waived [VERIFY: public injunctive relief]; or",
+   "text": "a claim or request for relief that applicable law does not allow to be arbitrated or waived, including a request for public injunctive relief where state law does not allow it to be waived; or",
    "level": 1
   },
   {
    "t": "clause",
    "number": "(e)",
    "heading": null,
-   "text": "[OPTION FOR COUNSEL. A claim for personal injury or death.]",
+   "text": "a claim for personal injury or death.",
    "level": 1
   },
   {
    "t": "clause",
    "number": "19.4",
    "heading": "How the arbitration works.",
-   "text": "The arbitration may be held by phone, by video, on written documents, or in person at a place reasonably convenient to you, as the AAA Consumer Arbitration Rules provide. If your claim is for [US $10,000] or less, WellPeps will pay all AAA filing, administrative and arbitrator fees. For a larger claim, the AAA Consumer Arbitration Rules decide who pays, but you will not have to pay more than you would pay to file the claim in court. Each of us pays our own lawyers and experts unless the law or the AAA rules give a right to recover them.",
+   "text": "The arbitration may be held by phone, by video, on written documents, or in person at a place reasonably convenient to you, as the AAA Consumer Arbitration Rules provide. If your claim is for US $10,000 or less, WellPeps will pay all AAA filing, administrative and arbitrator fees. For a larger claim, the AAA Consumer Arbitration Rules decide who pays, but you will not have to pay more than you would pay to file the claim in court. Each of us pays our own lawyers and experts unless the law or the AAA rules give a right to recover them.",
    "level": 0
   },
   {
@@ -887,7 +887,7 @@
    "t": "clause",
    "number": "20.2",
    "heading": "Court cases.",
-   "text": "If a dispute goes to court (for example, because you opted out of arbitration or the claim is not covered), it will be heard only in a state or federal court located in [COUNSEL: VENUE], and you and WellPeps consent to that court’s jurisdiction. A small claims case may be brought in the small claims court for your county. If the law of your state requires that a consumer be sued where the consumer lives, we will follow that law.",
+   "text": "If a dispute goes to court (for example, because you opted out of arbitration or the claim is not covered), it will be heard only in a state or federal court that has jurisdiction over it, and you and WellPeps consent to that court’s jurisdiction. A small claims case may be brought in the small claims court for your county. If the law of your state requires that a consumer be sued where the consumer lives, we will follow that law.",
    "level": 0
   },
   {
@@ -905,14 +905,14 @@
    "t": "clause",
    "number": "21.2",
    "heading": "Material changes need your acceptance.",
-   "text": "If we make a material change, we will (a) tell you by email and in the Portal at least [30] days before it takes effect, with a plain description of what changes, and (b) ask you to review and accept the updated Agreement the next time you sign in to the Portal, by a click or a typed name. Continuing to use the Portal, or leaving your plan active, is not enough on its own to accept a material change. We need your acceptance. Until you accept, the version you already accepted continues to apply to you and to orders you have already placed.",
+   "text": "If we make a material change, we will (a) tell you by email and in the Portal at least 30 days before it takes effect, with a plain description of what changes, and (b) ask you to review and accept the updated Agreement the next time you sign in to the Portal, by a click or a typed name. Continuing to use the Portal, or leaving your plan active, is not enough on its own to accept a material change. We need your acceptance. Until you accept, the version you already accepted continues to apply to you and to orders you have already placed.",
    "level": 0
   },
   {
    "t": "clause",
    "number": "21.3",
    "heading": "If you do not accept.",
-   "text": "If we can no longer provide your plan on the version you accepted, we will tell you and give you the choice to accept the update or cancel. If you cancel for this reason, we will not charge you for any period we do not provide, and we will refund any unused prepaid amount [VERIFY: Refund Policy alignment].",
+   "text": "If we can no longer provide your plan on the version you accepted, we will tell you and give you the choice to accept the update or cancel. If you cancel for this reason, we will not charge you for any period we do not provide, and we will refund any unused prepaid amount.",
    "level": 0
   },
   {
@@ -1077,7 +1077,7 @@
    "t": "clause",
    "number": "24.8",
    "heading": "State-specific terms.",
-   "text": "Some states give consumers rights that cannot be taken away by contract. If a state-specific rider applies to you, it is available in the Portal and is part of this Agreement for residents of that state [VERIFY: state consumer carve-outs].",
+   "text": "Some states give consumers rights that cannot be taken away by contract. If a state-specific rider applies to you, it is available in the Portal and is part of this Agreement for residents of that state.",
    "level": 0
   },
   {
@@ -1132,7 +1132,7 @@
   },
   {
    "t": "p",
-   "text": "Please read the Patient Terms of Service and Payment Agreement (version 1.0, dated [EFFECTIVE DATE]) before checking each box. Accepting does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
+   "text": "Please read the Patient Terms of Service and Payment Agreement (version 1.0, dated October 6, 2026) before checking each box. Accepting does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
    "italic": false,
    "align": null
   },
@@ -1158,7 +1158,7 @@
   },
   {
    "t": "check",
-   "text": "I authorize [MERCHANT OF RECORD] to charge the payment method I provide, when a clinician prescribes treatment, for the price shown at checkout and for other amounts I agree to. I understand that charges will appear as [BILLING DESCRIPTOR]. (Automatic renewal has its own separate box at checkout.)"
+   "text": "I authorize WellPeps to charge the payment method I provide, when a clinician prescribes treatment, for the price shown at checkout and for other amounts I agree to. I understand that charges will appear as WellPeps. (Automatic renewal has its own separate box at checkout.)"
   },
   {
    "t": "check",

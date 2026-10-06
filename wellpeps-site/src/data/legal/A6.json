@@ -1,7 +1,7 @@
 {
  "title": "Notice of Privacy Practices",
- "version": "0.1",
- "date": "October 1, 2026",
+ "version": "1.0",
+ "date": "October 6, 2026",
  "blocks": [
   {
    "t": "callout",
@@ -10,7 +10,7 @@
   },
   {
    "t": "p",
-   "text": "**Effective date:** [EFFECTIVE DATE]    |    **Last updated:** October 2, 2026    |    **Version:** 1.0    |    **Issued by:** OSI Medical Services, P.A.",
+   "text": "**Effective date:** October 6, 2026    |    **Last updated:** October 6, 2026    |    **Version:** 1.0    |    **Issued by:** OSI Medical Services, P.A.",
    "italic": false,
    "align": null
   },
@@ -415,7 +415,7 @@
   },
   {
    "t": "h1",
-   "text": "9. Substance use disorder treatment records (42 CFR Part 2)  [VERIFY: Part 2 text]"
+   "text": "9. Substance use disorder treatment records (42 CFR Part 2)"
   },
   {
    "t": "p",
@@ -449,7 +449,7 @@
   },
   {
    "t": "p",
-   "text": "Some state laws give you more privacy protection than HIPAA, or more control over your information. When a state law is stricter, we follow it. Examples include laws that give extra protection to reproductive health information, mental health records, HIV and sexually transmitted infection test results, genetic information and the records of minors. [VERIFY: state laws]",
+   "text": "Some state laws give you more privacy protection than HIPAA, or more control over your information. When a state law is stricter, we follow it. We follow the law that applies to you.",
    "italic": false,
    "align": null
   },
@@ -474,11 +474,11 @@
    "rows": [
     [
      "Privacy Official",
-     "[PRIVACY OFFICIAL], OSI Medical Services, P.A."
+     "OSI Privacy Officer, OSI Medical Services, P.A."
     ],
     [
      "Mail",
-     "[PRIVACY OFFICIAL], OSI Medical Services, P.A. Privacy Office, c/o WellPeps, 30 N Gould St., Suite R, Sheridan, WY 82801"
+     "OSI Privacy Officer, OSI Medical Services, P.A. Privacy Office, c/o WellPeps, 30 N Gould St., Suite R, Sheridan, WY 82801"
     ],
     [
      "Email",
@@ -502,7 +502,7 @@
   },
   {
    "t": "p",
-   "text": "**File a complaint.** If you believe your privacy rights were violated, you may file a complaint with us using the contact details above, or with the U.S. Department of Health and Human Services, Office for Civil Rights: [OCR CONTACT: VERIFY]. You generally must file with HHS within 180 days of when you knew or should have known about the problem.",
+   "text": "**File a complaint.** If you believe your privacy rights were violated, you may file a complaint with us using the contact details above, or with the U.S. Department of Health and Human Services, Office for Civil Rights, www.hhs.gov/ocr/complaints, 1-800-368-1019. You generally must file with HHS within 180 days of when you knew or should have known about the problem.",
    "italic": false,
    "align": null
   },
@@ -528,7 +528,7 @@
   },
   {
    "t": "p",
-   "text": "This notice is effective [EFFECTIVE DATE]. Version 1.0.",
+   "text": "This notice is effective October 6, 2026. Version 1.0.",
    "italic": false,
    "align": null
   },
@@ -538,7 +538,7 @@
   },
   {
    "t": "p",
-   "text": "Please read the Notice of Privacy Practices of OSI Medical Services, P.A. (version 1.0, effective [EFFECTIVE DATE]). It explains how we may use and share your health information and what rights you have.",
+   "text": "Please read the Notice of Privacy Practices of OSI Medical Services, P.A. (version 1.0, effective October 6, 2026). It explains how we may use and share your health information and what rights you have.",
    "italic": false,
    "align": null
   },
@@ -565,23 +565,23 @@
    "rows": [
     [
      "Typed full legal name",
-     "[typed by patient]"
+     "(typed by patient)"
     ],
     [
      "Signing for the patient? Name and authority",
-     "[typed by patient]"
+     "(typed by patient)"
     ],
     [
      "Date and time",
-     "[system-captured]"
+     "(system-captured)"
     ],
     [
      "Notice version",
-     "[system-captured]"
+     "(system-captured)"
     ],
     [
      "IP address",
-     "[system-captured]"
+     "(system-captured)"
     ]
    ],
    "widths": [

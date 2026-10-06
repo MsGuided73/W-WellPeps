@@ -1,7 +1,7 @@
 {
  "title": "Your Privacy Choices",
- "version": "0.1",
- "date": "October 1, 2026",
+ "version": "1.0",
+ "date": "October 6, 2026",
  "blocks": [
   {
    "t": "h1",
@@ -13,7 +13,7 @@
   },
   {
    "t": "p",
-   "text": "**Effective date:** [EFFECTIVE DATE]  |  **Version:** 1.0  |  **Last updated:** October 2, 2026",
+   "text": "**Effective date:** October 6, 2026  |  **Version:** 1.0  |  **Last updated:** October 6, 2026",
    "italic": false,
    "align": null
   },
@@ -25,7 +25,7 @@
   },
   {
    "t": "callout",
-   "text": "**Where things stand today**\nwellpeps.com does not sell your personal information and does not share it for targeted advertising. It does not use analytics or advertising tools, so there is nothing to switch off. [VERIFY: confirm for portal.wellpeps.com and checkout, Open item 6.] You can still use every other choice on this page. If we ever add a tool that is not essential, this page will get a working control before that tool turns on.",
+   "text": "**Where things stand today**\nwellpeps.com does not sell your personal information and does not share it for targeted advertising. It does not use analytics or advertising tools, so there is nothing to switch off. You can still use every other choice on this page. If we ever add a tool that is not essential, this page will get a working control before that tool turns on.",
    "kind": "info"
   },
   {
@@ -96,22 +96,12 @@
   },
   {
    "t": "li",
-   "text": "Email privacy@wellpeps.com.",
+   "text": "Email us at privacy@wellpeps.com.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "Use our web form: [PRIVACY REQUEST WEBFORM].",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "Write to WellPeps, Attn: Privacy, 30 N Gould St., Suite R, Sheridan, WY 82801.",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "By phone: (307) 881-8700, during normal business hours (delete this line unless a staffed line exists; no phone line is live today).",
+   "text": "Write to WellPeps, Attn: WellPeps Privacy Officer, 30 N Gould St., Suite R, Sheridan, WY 82801.",
    "level": 0
   },
   {
@@ -128,7 +118,7 @@
   },
   {
    "t": "p",
-   "text": "**How fast.** We confirm we received your request within [10 business days]. We act on opt-outs, limits, withdrawals and unsubscribes within [15 business days] (marketing email within [10 business days]). We answer access, correction, deletion and copy requests within [45 days], and we may extend once by up to [45 days] and tell you why [VERIFY: periods per state]. There is no charge.",
+   "text": "**How fast.** We confirm we received your request within 10 business days. We act on opt-outs, limits, withdrawals and unsubscribes within 15 business days (marketing email within 10 business days). We answer access, correction, deletion and copy requests within 45 days, and we may extend once by up to 45 days and tell you why. There is no charge.",
    "italic": false,
    "align": null
   },
@@ -170,7 +160,7 @@
   },
   {
    "t": "p",
-   "text": "Health information is sensitive personal information. We use it only to provide the services you asked for, keep our systems secure, prevent fraud and meet legal duties. We do not use it for advertising without your separate, explicit consent. If you want us to keep our use to that and nothing more, tell us in Section 2. We will record your choice and honor it within [15 business days]. Protected health information held by the Practice is covered by the Notice of Privacy Practices.",
+   "text": "Health information is sensitive personal information. We use it only to provide the services you asked for, keep our systems secure, prevent fraud and meet legal duties. We do not use it for advertising without your separate, explicit consent. If you want us to keep our use to that and nothing more, tell us in Section 2. We will record your choice and honor it within 15 business days. Protected health information held by the Practice is covered by the Notice of Privacy Practices.",
    "italic": false,
    "align": null
   },
@@ -180,7 +170,7 @@
   },
   {
    "t": "p",
-   "text": "Some health-related information is collected or shared with your consent, for example the topic of a free guide tied to your email address. You can take back that consent at any time. Use Section 2 and say which consent. We will stop the collection or sharing it covered within [15 business days]. Withdrawing does not undo what happened before. If we need the information to provide a service you asked for, we will tell you that withdrawing may end the service. To take back a permission you gave the Practice for protected health information, follow the Notice of Privacy Practices and the HIPAA Authorization Forms.",
+   "text": "Some health-related information is collected or shared with your consent, for example the topic of a free guide tied to your email address. You can take back that consent at any time. Use Section 2 and say which consent. We will stop the collection or sharing it covered within 15 business days. Withdrawing does not undo what happened before. If we need the information to provide a service you asked for, we will tell you that withdrawing may end the service. To take back a permission you gave the Practice for protected health information, follow the Notice of Privacy Practices and the HIPAA Authorization Forms.",
    "italic": false,
    "align": null
   },
@@ -196,7 +186,7 @@
   },
   {
    "t": "p",
-   "text": "If we say no in whole or in part, you can appeal within [60 days]. Email privacy@wellpeps.com with \"Appeal\" in the subject line. A person who did not decide the first request will review it, and we will answer in writing within [45 days]. If we deny your appeal, you can contact your state attorney general. The Consumer Health Data Privacy Policy lists the offices.",
+   "text": "If we say no in whole or in part, you can appeal within 60 days. Email privacy@wellpeps.com with \"Appeal\" in the subject line. A person who did not decide the first request will review it, and we will answer in writing within 45 days. If we deny your appeal, you can contact your state attorney general. The Consumer Health Data Privacy Policy lists the offices.",
    "italic": false,
    "align": null
   },
@@ -231,101 +221,6 @@
    "align": null
   },
   {
-   "t": "callout",
-   "kind": "info",
-   "text": "**Held wording.** The text that follows is not in effect yet. It applies only when the condition for \"Y-A1: WORKING CONTROL WORDING\" in the technical notes at the end of this document is met."
-  },
-  {
-   "t": "table",
-   "rows": [
-    [
-     "Element",
-     "Copy"
-    ],
-    [
-     "Banner title",
-     "Your privacy choices"
-    ],
-    [
-     "Banner text",
-     "We use a few tools that help us understand how our site is used and measure our ads. They stay off unless you say yes. Essential cookies always run. On pages about health topics, analytics and advertising run only if you separately allow them there."
-    ],
-    [
-     "Banner buttons (same size, same style)",
-     "Accept all  |  Reject all  |  Choose"
-    ],
-    [
-     "Preference center heading",
-     "Choose your settings"
-    ],
-    [
-     "Essential",
-     "Always on. These keep the site working and secure. (No switch.)"
-    ],
-    [
-     "Analytics",
-     "Off unless you turn it on. Helps us count visits and improve the site. Tools: (list from Cookie notice 9.1). (Switch: Analytics)"
-    ],
-    [
-     "Advertising and sharing",
-     "Off unless you turn it on. Lets advertising companies measure our ads and show ads. Under some state laws this counts as a sale or sharing of personal information. On pages about health topics it runs only if you separately allow that. Tools: (list from Cookie notice 9.2). (Switch: Advertising and sharing)"
-    ],
-    [
-     "Advertising on health-topic pages",
-     "Also allow advertising measurement on pages about health topics. Off unless you separately allow it; Accept all does not turn it on. If you allow it, advertising companies can learn that you visited pages about health topics. Our vendor removes the names of conditions and treatments before anything is shared. (Sub-switch under Advertising; usable only while Advertising is on.)"
-    ],
-    [
-     "Anonymous usage statistics",
-     "On by default. Counts page views, clicks and scrolling with no cookies and no identifier, so it cannot identify you. You can turn it off at any time. (Switch: Anonymous usage statistics; shown only when such a tool is live.)"
-    ],
-    [
-     "Save button",
-     "Save my choices"
-    ],
-    [
-     "Saved message",
-     "Saved. Your choices apply to this browser. To apply them to your email address as well, use the request form."
-    ],
-    [
-     "GPC detected",
-     "We detected your Global Privacy Control signal. We treat it as your choice to opt out of advertising, sale and sharing, so that setting is off."
-    ],
-    [
-     "GPC conflict",
-     "Your browser's Global Privacy Control signal says opt out, but you earlier chose to allow advertising on this site. We are following your browser's signal. Do you want to allow advertising anyway?  Buttons: Allow  |  Keep it off"
-    ],
-    [
-     "Storage blocked",
-     "We could not save your choice because your browser blocks storage. We will treat analytics and advertising as off."
-    ],
-    [
-     "Withdraw",
-     "Change your privacy choices (footer link). The center has a Withdraw all button: \"Turn everything off and delete my saved choices.\""
-    ],
-    [
-     "Request received",
-     "Thank you. We sent a message to your email address to confirm it is you. We will answer within [45 days]. Your request number is (request number)."
-    ]
-   ],
-   "widths": [
-    1.4,
-    5.2
-   ],
-   "header": true,
-   "shade": false
-  },
-  {
-   "t": "p",
-   "text": "**Global Privacy Control (replaces Section 4).** We honor Global Privacy Control. When your browser sends the signal, we treat it as a request to opt out of sale, sharing and targeted advertising for that browser, and for any account or email address we can connect to it. We apply it before any non-essential tool loads, and we show a message that we detected it. If the signal conflicts with a choice you made on our site, we follow the signal and may ask whether you want to opt in again.",
-   "italic": false,
-   "align": null
-  },
-  {
-   "t": "callout",
-   "kind": "info",
-   "text": "**End of held wording.**"
-  },
-  {
    "t": "h2",
    "text": "Contact"
   },
@@ -334,7 +229,7 @@
    "rows": [
     [
      "Privacy requests",
-     "WellPeps, a Wyoming corporation\nAttn: Privacy ([PRIVACY OFFICIAL])\n30 N Gould St., Suite R, Sheridan, WY 82801\nEmail: privacy@wellpeps.com\nWeb form: [PRIVACY REQUEST WEBFORM]"
+     "WellPeps, a Wyoming corporation\nAttn: WellPeps Privacy Officer\n30 N Gould St., Suite R, Sheridan, WY 82801\nEmail: privacy@wellpeps.com"
     ]
    ],
    "widths": [
@@ -352,20 +247,6 @@
    "t": "callout",
    "kind": "note",
    "text": "**For the team, not part of the document.** These are instructions for WellPeps, counsel and the people who build the forms and pages. They are collected here so the document above reads on its own."
-  },
-  {
-   "t": "h2",
-   "text": "Held wording and when it takes effect"
-  },
-  {
-   "t": "callout",
-   "text": "**[ACTIVATION BLOCK Y-A1: WORKING CONTROL WORDING]**\n**Do not publish this block until:** Part 2 below is built and passes its tests; the Cookie and Tracking Technologies Notice block N-A1 and the Privacy Policy blocks P-A1, P-A2 and P-A3 are active; and a non-essential tool is ready to go live. It replaces Sections 3 and 4 above and the first row of the table in Section 1: move it into their place.",
-   "kind": "warning"
-  },
-  {
-   "t": "callout",
-   "text": "**[END ACTIVATION BLOCK Y-A1]** When the trigger is met, delete this marker and the start marker and keep the text between them. Until then, delete the whole block before publishing.",
-   "kind": "warning"
   },
   {
    "t": "h2",

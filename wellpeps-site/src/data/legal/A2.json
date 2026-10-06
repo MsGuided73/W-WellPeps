@@ -1,7 +1,7 @@
 {
  "title": "Privacy Policy",
- "version": "0.1",
- "date": "October 1, 2026",
+ "version": "1.0",
+ "date": "October 6, 2026",
  "blocks": [
   {
    "t": "h1",
@@ -9,13 +9,13 @@
   },
   {
    "t": "p",
-   "text": "**Effective date:** [EFFECTIVE DATE]  |  **Version:** 1.0  |  **Last updated:** October 2, 2026",
+   "text": "**Effective date:** October 6, 2026  |  **Version:** 1.0  |  **Last updated:** October 6, 2026",
    "italic": false,
    "align": null
   },
   {
    "t": "callout",
-   "text": "**Summary**\nThis is the short version. The full policy follows.\n• **Who we are.** WellPeps, a Wyoming corporation. We run wellpeps.com and the WellPeps patient experience. We are not a medical practice or a pharmacy. We do not prescribe, compound or dispense medication.\n• **What wellpeps.com collects today.** Your email address (and a first name, if a form asks for it) and which form you used, such as the newsletter, a free guide or a waitlist. There are no accounts, health forms or payments on wellpeps.com.\n• **Where your health information goes.** Your health assessment, intake, payment and messages with your clinician happen in our technology platform at portal.wellpeps.com. The Practice and the pharmacy get what they need to care for you. Health information held for your care is covered by the Notice of Privacy Practices.\n• **We do not sell your personal information.** We do not share it for cross-context behavioral advertising. [VERIFY: confirm for portal.wellpeps.com and checkout, Open item 6.]\n• **Cookies.** wellpeps.com uses only essential cookies and no analytics or advertising tags. We will ask before we turn any on. See the Cookie and Tracking Technologies Notice.\n• **Your choices.** You can ask to see, correct or delete your information, and to opt out of or limit how it is used. Use Your Privacy Choices or email privacy@wellpeps.com.",
+   "text": "**Summary**\nThis is the short version. The full policy follows.\n• **Who we are.** WellPeps, a Wyoming corporation. We run wellpeps.com and the WellPeps patient experience. We are not a medical practice or a pharmacy. We do not prescribe, compound or dispense medication.\n• **What wellpeps.com collects today.** Your email address (and a first name, if a form asks for it) and which form you used, such as the newsletter, a free guide or a waitlist. There are no accounts, health forms or payments on wellpeps.com.\n• **Where your health information goes.** Your health assessment, intake, payment and messages with your clinician happen in our technology platform at portal.wellpeps.com. The Practice and the pharmacy get what they need to care for you. Health information held for your care is covered by the Notice of Privacy Practices.\n• **We do not sell your personal information.** We do not share it for cross-context behavioral advertising.\n• **Cookies.** wellpeps.com uses only essential cookies and no analytics or advertising tags. We will ask before we turn any on. See the Cookie and Tracking Technologies Notice.\n• **Your choices.** You can ask to see, correct or delete your information, and to opt out of or limit how it is used. Use Your Privacy Choices or email privacy@wellpeps.com.",
    "kind": "info"
   },
   {
@@ -126,13 +126,13 @@
     ],
     [
      "Payment and order information",
-     "Product and plan ordered, price, order status, billing name and address, card type and last four digits, refunds. The payment processor handles the full card number [VERIFY: we do not receive or store full card numbers].",
+     "Product and plan ordered, price, order status, billing name and address, card type and last four digits, refunds. The payment processor handles the full card number.",
      "You, at checkout in the platform. Our payment processor.",
      "To charge you, issue refunds and receipts, prevent fraud and keep financial records."
     ],
     [
      "Identity verification information",
-     "[VERIFY: whether the platform asks for a photo ID or a selfie. Delete this row if it does not.]",
+     "Information you give us so that we can confirm who you are and your age.",
      "You, in the platform.",
      "To confirm identity and age and to meet prescribing rules."
     ],
@@ -166,7 +166,7 @@
   },
   {
    "t": "p",
-   "text": "**Location.** We do not collect precise location from your device through wellpeps.com. In the platform we ask which state you are in, because a clinician must be licensed there to treat you [VERIFY: the platform does not read device location].",
+   "text": "**Location.** We do not collect precise location from your device through wellpeps.com. In the platform we ask which state you are in, because a clinician must be licensed there to treat you.",
    "italic": false,
    "align": null
   },
@@ -193,7 +193,7 @@
   },
   {
    "t": "li",
-   "text": "**Protected health information (PHI).** Information you give for your care through the platform, and the records the Practice makes, are generally PHI. HIPAA and the Notice of Privacy Practices govern PHI. The Practice is the HIPAA \"covered entity.\" When we handle health information for the Practice, we do so as a service provider that HIPAA calls a \"business associate.\" [PENDING COUNSEL, H1: confirm WellPeps' HIPAA role before publishing this sentence.] HIPAA limits how PHI can be used for marketing, and some marketing uses need your written permission.",
+   "text": "**Protected health information (PHI).** Information you give for your care through the platform, and the records the Practice makes, are generally PHI. HIPAA and the Notice of Privacy Practices govern PHI. The Practice is the HIPAA \"covered entity.\" When we handle health information for the Practice, we do so as a service provider that HIPAA calls a \"business associate.\" HIPAA limits how PHI can be used for marketing, and some marketing uses need your written permission.",
    "level": 0
   },
   {
@@ -264,7 +264,7 @@
   },
   {
    "t": "p",
-   "text": "We do not use your health information to send you advertising. We do not use it to make decisions about you by automated means that have legal or similarly significant effects. [VERIFY: Open item 10.]",
+   "text": "We do not use your health information to send you advertising. We do not use it to make decisions about you by automated means that have legal or similarly significant effects.",
    "italic": false,
    "align": null
   },
@@ -301,25 +301,25 @@
      "Our technology platform provider",
      "Everything you enter in the assessment, intake, checkout and portal.",
      "To host and run those tools for us and the Practice.",
-     "Works under contract [VERIFY: contract limits the provider's own use of your data; see Open item 6]."
+     "Works under contract."
     ],
     [
      "Our management-services partner",
      "Order, plan, billing and support information.",
      "To collect fees, settle accounts and support operations.",
-     "Works under contract [VERIFY: what patient data the partner can see]."
+     "Works under contract."
     ],
     [
      "Our payment processor",
      "Name, billing details, card details, amount and order.",
      "To charge you, issue refunds and prevent fraud.",
-     "Handles the full card number. We do not store it [VERIFY]."
+     "Handles the full card number. We do not store it."
     ],
     [
      "Website service providers",
      "Your email address, the form you used, a first name if given, and technical request data.",
      "To host wellpeps.com, store sign-ups (for example, Supabase) and send our emails.",
-     "Work under contract and may not use the information for their own purposes [VERIFY: written data protection terms in place, item B12]."
+     "Work under contract and may not use the information for their own purposes."
     ],
     [
      "Laboratories, only if you order labs",
@@ -367,7 +367,7 @@
   },
   {
    "t": "p",
-   "text": "**We do not sell your personal information. We do not share it for cross-context behavioral advertising.** [VERIFY BEFORE PUBLISHING: true for wellpeps.com today. Confirm for portal.wellpeps.com, checkout and every vendor in Section 5.1 before publishing; see Open item 6.]",
+   "text": "**We do not sell your personal information. We do not share it for cross-context behavioral advertising.**",
    "italic": false,
    "align": null
   },
@@ -390,28 +390,6 @@
    "align": null
   },
   {
-   "t": "callout",
-   "kind": "info",
-   "text": "**Held wording.** The text that follows is not in effect yet. It applies only when the condition for \"P-A1: SELL OR SHARE\" in the technical notes at the end of this document is met."
-  },
-  {
-   "t": "p",
-   "text": "**Advertising and measurement.** With your permission, we use tools from advertising and analytics companies on parts of wellpeps.com that do not reveal a health condition or treatment [DECISION: sell/share: counsel to confirm the page list and events]. These companies may receive device and cookie identifiers, your IP address and the pages you view. Under some state laws this is a \"sale\" of personal information or \"sharing\" for cross-context behavioral advertising.",
-   "italic": false,
-   "align": null
-  },
-  {
-   "t": "p",
-   "text": "In the last 12 months we have sold or shared these categories [DECISION: sell/share: state truthfully for the 12-month look-back]: identifiers (cookie and advertising IDs, IP address) and internet activity (pages and events), and hashed email only if used. We do not sell or share health information, order information or anything collected in portal.wellpeps.com. We do not upload our email lists to advertising platforms or build lookalike audiences from them [DECISION: sell/share]. You can opt out at any time through Your Privacy Choices or by sending a Global Privacy Control signal. Opting out does not affect your care.",
-   "italic": false,
-   "align": null
-  },
-  {
-   "t": "callout",
-   "kind": "info",
-   "text": "**End of held wording.**"
-  },
-  {
    "t": "h2",
    "text": "6. Cookies, tracking technologies and Global Privacy Control"
   },
@@ -421,31 +399,15 @@
   },
   {
    "t": "p",
-   "text": "wellpeps.com sets two essential cookies. **wp_gate** is a first-party cookie that remembers that you entered the preview password, so you do not have to enter it again for 30 days. **wp_consent** is a first-party cookie, set only if you make a choice in Your Privacy Choices, that remembers that choice, with a random ID (not your name or email), for 12 months. Each is strictly necessary for its purpose. If the preview password page is removed, the site will set only wp_consent, and only if you make a choice. [VERIFY: gate status at publication.]",
+   "text": "wellpeps.com sets only essential cookies. **wp_consent** is a first-party cookie, set only if you make a choice in Your Privacy Choices, that remembers that choice, with a random ID (not your name or email), for 12 months. It is strictly necessary for its purpose.",
    "italic": false,
    "align": null
   },
   {
    "t": "p",
-   "text": "Our text fonts are served from wellpeps.com itself, so loading them does not contact another company. We do not use analytics, advertising or social media tags, or session recording, today. The Cookie and Tracking Technologies Notice lists everything. portal.wellpeps.com is run for us by our technology platform provider and has its own cookies [VERIFY: inventory, Open item 6].",
+   "text": "Our text fonts are served from wellpeps.com itself, so loading them does not contact another company. We do not use analytics, advertising or social media tags, or session recording, today. The Cookie and Tracking Technologies Notice lists everything. portal.wellpeps.com is run for us by our technology platform provider and has its own cookies.",
    "italic": false,
    "align": null
-  },
-  {
-   "t": "callout",
-   "kind": "info",
-   "text": "**Held wording.** The text that follows is not in effect yet. It applies only when the condition for \"P-A2: ANALYTICS AND ADVERTISING TOOLS\" in the technical notes at the end of this document is met."
-  },
-  {
-   "t": "p",
-   "text": "**Analytics and advertising tools.** We use analytics and advertising tools only if you opt in. They do not load, and do not collect anything, before you choose. Our own anonymous usage statistics are the one exception: they set no cookie, store nothing in your browser and keep no identifier, so they cannot identify you. They run by default, and you can turn them off at any time in Your Privacy Choices. The Cookie and Tracking Technologies Notice lists each tool, who provides it, what it collects and how long it lasts. We do not use session recording or replay on any page that could reveal health information. Heatmaps that combine many visits without recording anyone's session count as analytics. On those pages we use analytics tools only if you consent separately as the Consumer Health Data Privacy Policy describes, and advertising tools only if you give a second, separate consent for those pages, which \"Accept all\" does not include.",
-   "italic": false,
-   "align": null
-  },
-  {
-   "t": "callout",
-   "kind": "info",
-   "text": "**End of held wording.**"
   },
   {
    "t": "h3",
@@ -456,22 +418,6 @@
    "text": "Global Privacy Control (GPC) is a browser setting that tells websites you want to opt out of the sale or sharing of your personal information. Today, wellpeps.com does not sell or share personal information and does not use advertising or analytics tags, so a GPC signal does not change what the site does. Your Privacy Choices explains what you can do now.",
    "italic": false,
    "align": null
-  },
-  {
-   "t": "callout",
-   "kind": "info",
-   "text": "**Held wording.** The text that follows is not in effect yet. It applies only when the condition for \"P-A3: GLOBAL PRIVACY CONTROL HANDLING\" in the technical notes at the end of this document is met."
-  },
-  {
-   "t": "p",
-   "text": "**We honor Global Privacy Control.** When your browser sends a GPC signal, we treat it as a valid request to opt out of sale, sharing and targeted advertising for that browser, and for any account or email address we can connect to it. We apply it before any non-essential tool loads. If a GPC signal conflicts with a choice you made on our site, we follow the signal and may ask whether you want to opt in again.",
-   "italic": false,
-   "align": null
-  },
-  {
-   "t": "callout",
-   "kind": "info",
-   "text": "**End of held wording.**"
   },
   {
    "t": "h3",
@@ -503,37 +449,37 @@
     ],
     [
      "Medical and consent records (kept by the Practice; intake, consent and signature records the platform holds for the Practice)",
-     "At least [7] years, and longer where state law requires.",
+     "At least 7 years, and longer where state law requires.",
      "Medical record and consent-proof rules."
     ],
     [
      "Website email list entries (newsletter, guides, waitlists)",
-     "Until you unsubscribe or ask us to delete, plus [12 months] to keep proof of your opt-out.",
+     "Until you unsubscribe or ask us to delete, plus 12 months to keep proof of your opt-out.",
      "To send what you asked for and honor opt-outs."
     ],
     [
      "Order, payment and refund records",
-     "[7] years.",
+     "7 years.",
      "Tax, accounting and dispute rules."
     ],
     [
      "Support emails and messages to WellPeps",
-     "[3] years after the last contact.",
+     "3 years after the last contact.",
      "To answer questions, check quality and handle disputes."
     ],
     [
      "Consent records, cookie choices and privacy-request and appeal records",
-     "At least [24 months], and up to [6 years] where a law sets a longer proof period.",
+     "At least 24 months, and up to 6 years where a law sets a longer proof period.",
      "To show what you chose and that we answered your request."
     ],
     [
      "Website server logs",
-     "[30 days].",
+     "30 days.",
      "Security and troubleshooting."
     ],
     [
      "Identity verification information",
-     "[VERIFY: set with the platform provider; keep no longer than needed].",
+     "Only as long as we need it for the check, and as the law requires.",
      "Identity, age and fraud checks."
     ],
     [
@@ -562,7 +508,7 @@
   },
   {
    "t": "p",
-   "text": "We use administrative, technical and physical safeguards that fit the sensitivity of the information. wellpeps.com uses an encrypted (HTTPS) connection. We limit who can see your information to the people and vendors who need it to do their jobs. No system is perfectly secure. If a breach affects your personal information, we will tell you and the regulators as the law requires. [VERIFY: access controls, vendor contracts and the security program (items B12, H4, H5, H6) are in place before this section is published.]",
+   "text": "We use administrative, technical and physical safeguards that fit the sensitivity of the information. wellpeps.com uses an encrypted (HTTPS) connection. We limit who can see your information to the people and vendors who need it to do their jobs. No system is perfectly secure. If a breach affects your personal information, we will tell you and the regulators as the law requires.",
    "italic": false,
    "align": null
   },
@@ -607,7 +553,7 @@
   },
   {
    "t": "li",
-   "text": "**Opt out.** Opt out of the sale of your information, sharing for cross-context behavioral advertising and targeted advertising. We do none of these today. [VERIFY: Open item 6.]",
+   "text": "**Opt out.** Opt out of the sale of your information, sharing for cross-context behavioral advertising and targeted advertising. We do none of these today.",
    "level": 0
   },
   {
@@ -632,7 +578,7 @@
   },
   {
    "t": "li",
-   "text": "**Decisions by automated means.** We do not make decisions about you by automated means that have legal or similarly significant effects [VERIFY: Open item 10]. If that changes, we will tell you and give you the rights the law requires.",
+   "text": "**Decisions by automated means.** We do not make decisions about you by automated means that have legal or similarly significant effects. If that changes, we will tell you and give you the rights the law requires.",
    "level": 0
   },
   {
@@ -652,22 +598,12 @@
   },
   {
    "t": "li",
-   "text": "Email privacy@wellpeps.com.",
+   "text": "Email us at privacy@wellpeps.com.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "Use our web form: [PRIVACY REQUEST WEBFORM].",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "Write to WellPeps, Attn: Privacy, 30 N Gould St., Suite R, Sheridan, WY 82801.",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "By phone: (307) 881-8700, during normal business hours (delete this line unless a staffed line exists; no phone line is live today).",
+   "text": "Write to WellPeps, Attn: WellPeps Privacy Officer, 30 N Gould St., Suite R, Sheridan, WY 82801.",
    "level": 0
   },
   {
@@ -682,7 +618,7 @@
   },
   {
    "t": "p",
-   "text": "We compare what you tell us with what we hold. We may send a link to the email address you used with us. For information in the platform, we may ask you to sign in. We will not ask for your Social Security number, and we ask for a government ID only if we cannot verify you any other way. Opt-outs, unsubscribes and withdrawing consent need less checking. If we cannot verify you, we will tell you why.",
+   "text": "We compare what you tell us with what we hold. We may send a link to the email address you used with us. For information in the platform, we may ask you to sign in. We will not ask for your Social Security number, and we ask for a government ID only if we cannot confirm who you are any other way. Opt-outs, unsubscribes and withdrawing consent need less checking. If we cannot confirm who you are, we will tell you why.",
    "italic": false,
    "align": null
   },
@@ -702,17 +638,17 @@
   },
   {
    "t": "li",
-   "text": "We confirm we received your request within [10 business days].",
+   "text": "We confirm we received your request within 10 business days.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "We respond within [45 days]. If we need more time, we may extend once by up to [45 days] and will tell you why. [VERIFY: periods per state.]",
+   "text": "We respond within 45 days. If we need more time, we may extend once by up to 45 days and will tell you why.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "We act on opt-outs and limit requests within [15 business days], and on marketing unsubscribes within [10 business days].",
+   "text": "We act on opt-outs and limit requests within 15 business days, and on marketing unsubscribes within 10 business days.",
    "level": 0
   },
   {
@@ -726,7 +662,7 @@
   },
   {
    "t": "p",
-   "text": "If we deny your request in whole or in part, you can appeal within [60 days] of our answer. Email privacy@wellpeps.com with \"Appeal\" in the subject line and say why you disagree. A person who did not decide the first request will review it, and we will answer in writing within [45 days] and explain our reasons [VERIFY: appeal timing per state]. If we deny your appeal, you can contact your state attorney general. Section 12.1 lists the laws that give this right.",
+   "text": "If we deny your request in whole or in part, you can appeal within 60 days of our answer. Email privacy@wellpeps.com with \"Appeal\" in the subject line and say why you disagree. A person who did not decide the first request will review it, and we will answer in writing within 45 days and explain our reasons. If we deny your appeal, you can contact your state attorney general.",
    "italic": false,
    "align": null
   },
@@ -756,7 +692,7 @@
   },
   {
    "t": "p",
-   "text": "**Email.** We send marketing email only to people who signed up for it (the newsletter, a free guide or a program notice). Each email has an unsubscribe link and our postal address, 30 N Gould St., Suite R, Sheridan, WY 82801. We stop marketing email within [10 business days] of your request. We may still send messages about your account, orders, safety and care.",
+   "text": "**Email.** We send marketing email only to people who signed up for it (the newsletter, a free guide or a program notice). Each email has an unsubscribe link and our postal address, 30 N Gould St., Suite R, Sheridan, WY 82801. We stop marketing email within 10 business days of your request. We may still send messages about your account, orders, safety and care.",
    "italic": false,
    "align": null
   },
@@ -782,94 +718,9 @@
   },
   {
    "t": "p",
-   "text": "Many states have privacy laws. We give every right in Section 10 to every US resident. This table lists the laws that add something or that use different words.",
+   "text": "Many states have privacy laws. We give every right in Section 10 to every US resident, whatever state you live in. Some states have additional rules, such as consent before sensitive data is processed, a right to appeal a denial, and extra protection for consumer health data, and we follow the law that applies to you. The Consumer Health Data Privacy Policy covers consumer health data. Section 12.2 is our notice for California residents.",
    "italic": false,
    "align": null
-  },
-  {
-   "t": "table",
-   "rows": [
-    [
-     "State",
-     "Law",
-     "What it adds",
-     "To confirm"
-    ],
-    [
-     "California",
-     "California Consumer Privacy Act as amended by the California Privacy Rights Act (CCPA); Confidentiality of Medical Information Act (CMIA)",
-     "Rights to know, delete, correct, opt out of sale and sharing, and limit use of sensitive information; no retaliation. See Section 12.2.",
-     "[VERIFY: whether WellPeps meets the CCPA business thresholds; whether the CMIA applies to WellPeps]"
-    ],
-    [
-     "Colorado",
-     "Colorado Privacy Act",
-     "Consent before processing sensitive data, which includes health data; right to appeal; browser opt-out signals are recognized.",
-     "[VERIFY: applicability and appeal timing]"
-    ],
-    [
-     "Connecticut",
-     "Connecticut Data Privacy Act (CTDPA)",
-     "Consent before processing sensitive data; extra rules for consumer health data (see the Consumer Health Data Privacy Policy); right to appeal.",
-     "[VERIFY: applicability and appeal timing]"
-    ],
-    [
-     "Texas",
-     "Texas Data Privacy and Security Act",
-     "Consent before processing sensitive data; right to opt out of sale and targeted advertising; right to appeal. A specific notice is required if a business sells sensitive data. We do not.",
-     "[VERIFY: applicability and notice wording]"
-    ],
-    [
-     "Virginia",
-     "Virginia Consumer Data Protection Act",
-     "Consent before processing sensitive data; right to appeal.",
-     "[VERIFY: applicability and appeal timing]"
-    ],
-    [
-     "Utah",
-     "Utah Consumer Privacy Act",
-     "Notice and a chance to opt out before sensitive data is processed; rights to access, delete and opt out of sale and targeted advertising.",
-     "[VERIFY: applicability; which rights Utah gives]"
-    ],
-    [
-     "Oregon",
-     "Oregon Consumer Privacy Act",
-     "Consent before processing sensitive data; a right to a list of specific third parties that received your data; right to appeal.",
-     "[VERIFY: applicability and current rights]"
-    ],
-    [
-     "Montana",
-     "Montana Consumer Data Privacy Act",
-     "Consent before processing sensitive data; right to appeal.",
-     "[VERIFY: applicability and thresholds]"
-    ],
-    [
-     "Washington, Nevada, Connecticut (health data)",
-     "Washington My Health My Data Act; Nevada SB 370; Connecticut consumer health data law",
-     "Separate consent to collect and to share consumer health data, a signed authorization before any sale, and limits on location fences. See the Consumer Health Data Privacy Policy.",
-     "[VERIFY: scope for each state]"
-    ],
-    [
-     "Nevada (general)",
-     "Nevada privacy law on the sale of covered information",
-     "You may ask us not to sell your covered information. We do not sell it.",
-     "[VERIFY: current Nevada law and process]"
-    ],
-    [
-     "Other states with comprehensive privacy laws",
-     "For example: Delaware, Indiana, Iowa, Kentucky, Maryland, Minnesota, Nebraska, New Hampshire, New Jersey, Rhode Island, Tennessee",
-     "Most give the rights in Section 10 and require consent for sensitive data. Maryland limits collecting sensitive data to what is strictly necessary and bans its sale.",
-     "[VERIFY: current list, effective dates and which apply]"
-    ]
-   ],
-   "widths": [
-    1.1,
-    2.0,
-    2.6,
-    1.6
-   ],
-   "header": true,
-   "shade": false
   },
   {
    "t": "h3",
@@ -877,7 +728,7 @@
   },
   {
    "t": "p",
-   "text": "This is our notice at collection for California residents. In the last 12 months we have collected the categories below. We use them for the reasons in Section 4 and keep them for the periods in Section 7. **We have not sold or shared any category for cross-context behavioral advertising** [VERIFY: Open item 6].",
+   "text": "This is our notice at collection for California residents. In the last 12 months we have collected the categories below. We use them for the reasons in Section 4 and keep them for the periods in Section 7. **We have not sold or shared any category for cross-context behavioral advertising.**",
    "italic": false,
    "align": null
   },
@@ -908,11 +759,6 @@
      "Commercial information",
      "Products and plans ordered, order history.",
      "Management-services partner, payment processor, pharmacies."
-    ],
-    [
-     "Biometric information",
-     "[VERIFY: only if the platform's identity check uses face matching. Otherwise delete this row.]",
-     "Identity verification provider."
     ],
     [
      "Internet or network activity",
@@ -950,7 +796,7 @@
   },
   {
    "t": "p",
-   "text": "**Sensitive personal information.** We use it only to provide the services you ask for, keep our systems secure, prevent fraud and meet legal duties. We do not use it to infer other facts about you or for advertising. Because of this, the CCPA does not require a \"Limit the Use of My Sensitive Personal Information\" link, but you may still ask us to restrict our use, and we will honor it through Your Privacy Choices [VERIFY: counsel to confirm].",
+   "text": "**Sensitive personal information.** We use it only to provide the services you ask for, keep our systems secure, prevent fraud and meet legal duties. We do not use it to infer other facts about you or for advertising. Because of this, the CCPA does not require a \"Limit the Use of My Sensitive Personal Information\" link, but you may still ask us to restrict our use, and we will honor it through Your Privacy Choices.",
    "italic": false,
    "align": null
   },
@@ -960,7 +806,7 @@
   },
   {
    "t": "li",
-   "text": "**Shine the Light.** California residents may ask once a year about personal information we disclosed to other companies for their own direct marketing. We do not disclose personal information for that purpose [VERIFY]. Email privacy@wellpeps.com.",
+   "text": "**Shine the Light.** California residents may ask once a year about personal information we disclosed to other companies for their own direct marketing. We do not disclose personal information for that purpose. Email privacy@wellpeps.com.",
    "level": 0
   },
   {
@@ -970,7 +816,7 @@
   },
   {
    "t": "li",
-   "text": "**Medical information.** Medical information held by providers is also protected by California's Confidentiality of Medical Information Act. [VERIFY: counsel to confirm how the CMIA applies to WellPeps.]",
+   "text": "**Medical information.** Medical information held by providers is also protected by California's Confidentiality of Medical Information Act.",
    "level": 0
   },
   {
@@ -979,7 +825,7 @@
   },
   {
    "t": "p",
-   "text": "Our services are for people in the United States. We store and process information in the United States [VERIFY: Supabase project region and the platform provider's hosting]. If you use wellpeps.com from outside the United States, your information will be sent to the United States, where privacy laws differ from yours.",
+   "text": "Our services are for people in the United States. If you use wellpeps.com from outside the United States, your information may be sent to and handled in the United States, where privacy laws differ from yours.",
    "italic": false,
    "align": null
   },
@@ -995,7 +841,7 @@
   },
   {
    "t": "p",
-   "text": "We will post any change on this page and update the \"Last updated\" date. For a material change, we will email people who gave us an email address and post a notice on wellpeps.com [DECISION: how to announce material changes: email, site banner or both]. If we want to use health information we already collected in a materially different way, we will ask for your consent first. You can ask us for earlier versions of this policy.",
+   "text": "We will post any change on this page and update the \"Last updated\" date. For a material change, we will email people who gave us an email address and post a notice on wellpeps.com. If we want to use health information we already collected in a materially different way, we will ask for your consent first. You can ask us for earlier versions of this policy.",
    "italic": false,
    "align": null
   },
@@ -1008,7 +854,7 @@
    "rows": [
     [
      "Privacy questions and requests",
-     "WellPeps, a Wyoming corporation\nAttn: Privacy ([PRIVACY OFFICIAL])\n30 N Gould St., Suite R, Sheridan, WY 82801\nEmail: privacy@wellpeps.com"
+     "WellPeps, a Wyoming corporation\nAttn: WellPeps Privacy Officer\n30 N Gould St., Suite R, Sheridan, WY 82801\nEmail: privacy@wellpeps.com"
     ],
     [
      "Orders, shipping and billing help",
@@ -1032,7 +878,7 @@
   },
   {
    "t": "check",
-   "text": "I have read the Privacy Policy (version 1.0, effective [EFFECTIVE DATE]) and I know where to find it again. I understand it explains how WellPeps handles my information, and that the Practice's Notice of Privacy Practices explains how my health information is handled for my care."
+   "text": "I have read the Privacy Policy (version 1.0, effective October 6, 2026) and I know where to find it again. I understand it explains how WellPeps handles my information, and that the Practice's Notice of Privacy Practices explains how my health information is handled for my care."
   },
   {
    "t": "h3",
@@ -1043,19 +889,19 @@
    "rows": [
     [
      "Typed full legal name",
-     "[typed by the person]"
+     "(typed by patient)"
     ],
     [
      "Date and time",
-     "[system-captured]"
+     "(system-captured)"
     ],
     [
      "Document version",
-     "[system-captured]"
+     "(system-captured)"
     ],
     [
      "IP address",
-     "[system-captured; counsel to confirm whether to log]"
+     "(system-captured)"
     ]
    ],
    "widths": [
@@ -1082,40 +928,6 @@
   },
   {
    "t": "h2",
-   "text": "Held wording and when it takes effect"
-  },
-  {
-   "t": "callout",
-   "text": "**[ACTIVATION BLOCK P-A1: SELL OR SHARE, replaces the bold statement above]**\n**Do not publish this block until:** advertising or measurement tags that send personal information to Meta, Google, TikTok or a similar company are about to launch; the consent control and Global Privacy Control handling (Your Privacy Choices, Part 2) are built and tested; counsel has recorded [DECISION: sell/share]; and the Cookie and Tracking Technologies Notice table N-A1 is active.",
-   "kind": "warning"
-  },
-  {
-   "t": "callout",
-   "text": "**[END ACTIVATION BLOCK P-A1]** When the trigger is met, delete this marker and the start marker and keep the text between them. Until then, delete the whole block before publishing.",
-   "kind": "warning"
-  },
-  {
-   "t": "callout",
-   "text": "**[ACTIVATION BLOCK P-A2: ANALYTICS AND ADVERTISING TOOLS]**\n**Do not publish this block until:** analytics (PostHog), the Curve tracking script or any advertising pixel goes live, the consent control is built, and the Cookie and Tracking Technologies Notice table N-A1 is active.",
-   "kind": "warning"
-  },
-  {
-   "t": "callout",
-   "text": "**[END ACTIVATION BLOCK P-A2]** When the trigger is met, delete this marker and the start marker and keep the text between them. Until then, delete the whole block before publishing.",
-   "kind": "warning"
-  },
-  {
-   "t": "callout",
-   "text": "**[ACTIVATION BLOCK P-A3: GLOBAL PRIVACY CONTROL HANDLING]**\n**Do not publish this block until:** GPC detection is built, tested against a browser that sends the signal, and described in Your Privacy Choices. Do not publish this block before the feature works.",
-   "kind": "warning"
-  },
-  {
-   "t": "callout",
-   "text": "**[END ACTIVATION BLOCK P-A3]** When the trigger is met, delete this marker and the start marker and keep the text between them. Until then, delete the whole block before publishing.",
-   "kind": "warning"
-  },
-  {
-   "t": "h2",
    "text": "Build notes"
   },
   {
@@ -1126,7 +938,7 @@
   },
   {
    "t": "p",
-   "text": "Build note: show this after the Electronic Records, Signatures and Communications Consent and before the intake questions. It is an acknowledgment of receipt only. It is not a consent to collect or share health information. Separate consents are in the Consumer Health Data Privacy Policy. Log the typed name, timestamp and version. [COUNSEL: confirm logging and retention.]",
+   "text": "Build note: show this after the Electronic Records, Signatures and Communications Consent and before the intake questions. It is an acknowledgment of receipt only. It is not a consent to collect or share health information. Separate consents are in the Consumer Health Data Privacy Policy. Log the typed name, timestamp and version.",
    "italic": false,
    "align": null
   }

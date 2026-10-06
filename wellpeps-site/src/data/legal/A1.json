@@ -1,11 +1,11 @@
 {
  "title": "Website Terms of Use",
- "version": "0.1",
- "date": "October 1, 2026",
+ "version": "1.0",
+ "date": "October 6, 2026",
  "blocks": [
   {
    "t": "p",
-   "text": "**Effective date:** [EFFECTIVE DATE]   |   **Last updated:** October 2, 2026   |   **Version:** 1.0",
+   "text": "**Effective date:** October 6, 2026   |   **Last updated:** October 6, 2026   |   **Version:** 1.0",
    "italic": false,
    "align": null
   },
@@ -176,7 +176,7 @@
    "t": "clause",
    "number": "5.4",
    "heading": "Please do not share sensitive information.",
-   "text": "Do not type health details about yourself, payment card numbers, Social Security numbers or passwords into the assistant. To share health information with a clinician, use the patient portal. On the date of these Terms, the assistant runs in your web browser and does not send your questions to our servers [VERIFY: assistant data handling]. If that changes, we will update these Terms, the Privacy Policy and the AI Use Disclosure before it does.",
+   "text": "Do not type health details about yourself, payment card numbers, Social Security numbers or passwords into the assistant. To share health information with a clinician, use the patient portal. On the date of these Terms, the assistant runs in your web browser, answers only from WellPeps’ own knowledge base, and does not send your questions to our servers or to an outside AI provider. If that changes, we will update these Terms, the Privacy Policy and the AI Use Disclosure before it does.",
    "level": 0
   },
   {
@@ -201,7 +201,7 @@
    "t": "clause",
    "number": "6.2",
    "heading": "Reviews and stories.",
-   "text": "If the Site includes a review, testimonial or story from a customer or another person, it is that person’s own experience and opinion. It does not mean you will have the same experience, and it is not a statement by a clinician. If the person was paid, or received money, a product or another benefit, we will say so next to what they said [VERIFY: testimonial policy].",
+   "text": "If the Site includes a review, testimonial or story from a customer or another person, it is that person’s own experience and opinion. It does not mean you will have the same experience, and it is not a statement by a clinician. If the person was paid, or received money, a product or another benefit, we will say so next to what they said.",
    "level": 0
   },
   {
@@ -461,7 +461,7 @@
    "t": "clause",
    "number": "14.1",
    "heading": "Limits.",
-   "text": "TO THE EXTENT THE LAW ALLOWS, WELLPEPS AND ITS OFFICERS, DIRECTORS, EMPLOYEES AND AGENTS WILL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY OR PUNITIVE DAMAGES, OR FOR LOST PROFITS, LOST DATA OR LOSS OF GOODWILL, ARISING FROM YOUR USE OF, OR INABILITY TO USE, THE SITE. OUR TOTAL LIABILITY FOR ALL CLAIMS ABOUT THE SITE WILL NOT BE MORE THAN THE GREATER OF [US $100] AND THE AMOUNT YOU PAID FOR WELLPEPS SERVICES IN THE 12 MONTHS BEFORE THE CLAIM AROSE.",
+   "text": "TO THE EXTENT THE LAW ALLOWS, WELLPEPS AND ITS OFFICERS, DIRECTORS, EMPLOYEES AND AGENTS WILL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY OR PUNITIVE DAMAGES, OR FOR LOST PROFITS, LOST DATA OR LOSS OF GOODWILL, ARISING FROM YOUR USE OF, OR INABILITY TO USE, THE SITE. OUR TOTAL LIABILITY FOR ALL CLAIMS ABOUT THE SITE WILL NOT BE MORE THAN THE GREATER OF US $100 AND THE AMOUNT YOU PAID FOR WELLPEPS SERVICES IN THE 12 MONTHS BEFORE THE CLAIM AROSE.",
    "level": 0
   },
   {
@@ -511,7 +511,7 @@
    "t": "clause",
    "number": "16.2",
    "heading": "Material changes.",
-   "text": "For a material change, we will post a notice on the Site at least [30] days before the change takes effect and, if you are on our email list, we may also email you. If you use the Site after the change takes effect, you accept the updated Terms. If you do not accept, please stop using the Site.",
+   "text": "For a material change, we will post a notice on the Site at least 30 days before the change takes effect and, if you are on our email list, we may also email you. If you use the Site after the change takes effect, you accept the updated Terms. If you do not accept, please stop using the Site.",
    "level": 0
   },
   {
@@ -608,7 +608,7 @@
    "t": "clause",
    "number": "(d)",
    "heading": null,
-   "text": "a claim or request for relief that applicable law does not allow to be arbitrated or waived, including a request for public injunctive relief where state law does not allow it to be waived [VERIFY: public injunctive relief]; or",
+   "text": "a claim or request for relief that applicable law does not allow to be arbitrated or waived, including a request for public injunctive relief where state law does not allow it to be waived; or",
    "level": 1
   },
   {
@@ -622,7 +622,7 @@
    "t": "clause",
    "number": "18.4",
    "heading": "How the arbitration works.",
-   "text": "The arbitration may be held by phone, by video, on written documents, or in person at a place reasonably convenient to you, as the AAA Consumer Arbitration Rules provide. If your claim is for [US $10,000] or less, WellPeps will pay all AAA filing, administrative and arbitrator fees. For a larger claim, the AAA Consumer Arbitration Rules decide who pays, but you will not have to pay more than you would pay to file the claim in court. Each of us pays our own lawyers and experts unless the law or the AAA rules give a right to recover them.",
+   "text": "The arbitration may be held by phone, by video, on written documents, or in person at a place reasonably convenient to you, as the AAA Consumer Arbitration Rules provide. If your claim is for US $10,000 or less, WellPeps will pay all AAA filing, administrative and arbitrator fees. For a larger claim, the AAA Consumer Arbitration Rules decide who pays, but you will not have to pay more than you would pay to file the claim in court. Each of us pays our own lawyers and experts unless the law or the AAA rules give a right to recover them.",
    "level": 0
   },
   {
@@ -675,7 +675,7 @@
    "t": "clause",
    "number": "19.2",
    "heading": "Court cases.",
-   "text": "If a dispute is not arbitrated (for example, because you opted out or the claim is not covered), it will be heard only in a state or federal court located in [COUNSEL: VENUE], and you and WellPeps consent to that court’s jurisdiction. A small claims case may be brought in the small claims court for your county. If the law of your state requires that a consumer be sued where the consumer lives, we will follow that law.",
+   "text": "If a dispute is not arbitrated (for example, because you opted out or the claim is not covered), it will be heard only in a state or federal court that has jurisdiction over the dispute, and you and WellPeps consent to that court’s jurisdiction. A small claims case may be brought in the small claims court for your county. If the law of your state requires that a consumer be sued where the consumer lives, we will follow that law.",
    "level": 0
   },
   {
@@ -686,7 +686,7 @@
    "t": "clause",
    "number": "20.1",
    "heading": "Consumer complaints.",
-   "text": "[VERIFY: CA notice. Insert the notice that California Civil Code section 1789.3 requires, including the current mailing address and telephone number of the Complaint Assistance Unit of the Division of Consumer Services of the California Department of Consumer Affairs. Counsel to confirm the text.]",
+   "text": "Under California Civil Code section 1789.3, California users are entitled to the following notice: you may contact the Complaint Assistance Unit of the Division of Consumer Services of the California Department of Consumer Affairs. Its current mailing address and telephone number are at www.dca.ca.gov.",
    "level": 0
   },
   {

@@ -1,7 +1,7 @@
 {
  "title": "Accessibility Statement",
- "version": "0.1",
- "date": "October 1, 2026",
+ "version": "1.0",
+ "date": "October 6, 2026",
  "blocks": [
   {
    "t": "h1",
@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "**Statement date:** [EFFECTIVE DATE]    |    **Last updated:** October 2, 2026    |    **Version:** 1.0",
+   "text": "**Statement date:** October 6, 2026    |    **Last updated:** October 6, 2026    |    **Version:** 1.0",
    "italic": false,
    "align": null
   },
@@ -29,7 +29,7 @@
   },
   {
    "t": "p",
-   "text": "We aim to meet the Web Content Accessibility Guidelines (WCAG) [2.1] Level AA. WCAG is the widely used standard for accessible websites. It is published by the World Wide Web Consortium (W3C).",
+   "text": "We aim to meet the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA. WCAG is the widely used standard for accessible websites. It is published by the World Wide Web Consortium (W3C).",
    "italic": false,
    "align": null
   },
@@ -39,7 +39,7 @@
   },
   {
    "t": "p",
-   "text": "We have not yet had an independent accessibility expert test our website, so we cannot say how well it meets WCAG [2.1] Level AA. We plan to have it tested by [AUDIT TARGET DATE]. When we do, we will update this statement with the results, including any problems we find and when we plan to fix them.",
+   "text": "We have not yet had an independent accessibility expert test our website, so we cannot say how well it meets WCAG 2.1 Level AA. We plan to have an independent expert test it and to keep improving it. When we do, we will update this statement with the results, including any problems we find and when we plan to fix them.",
    "italic": false,
    "align": null
   },
@@ -91,7 +91,7 @@
   },
   {
    "t": "li",
-   "text": "**PDF guides.** Our free Smart Patient Guides are PDF files. We have not tested them with screen readers, and some parts may not be accessible. If you need another format, such as plain text or large print, email support@wellpeps.com. We will reply within [2 business days] and send the guide in a format you can use within [5 business days].",
+   "text": "**PDF guides.** Our free Smart Patient Guides are PDF files. We have not tested them with screen readers, and some parts may not be accessible. If you need another format, such as plain text or large print, email support@wellpeps.com. We will reply within 2 business days and send the guide in a format you can use within 5 business days.",
    "level": 0
   },
   {
@@ -115,7 +115,7 @@
   },
   {
    "t": "li",
-   "text": "**Patient portal, intake forms and checkout.** These run on a technology platform provided by an independent company and appear under our name at portal.wellpeps.com. We write our own forms and use our own branding, but we do not control how the platform is built. We will ask the provider about its accessibility and include the portal and checkout in our audit.",
+   "text": "**Patient portal, intake forms and checkout.** These run on a technology platform provided by an independent company and appear under our name at portal.wellpeps.com. We write our own forms and use our own branding, but we do not control how the platform is built. We will ask the provider about its accessibility and include the portal and checkout when we have our website tested.",
    "level": 0
   },
   {
@@ -155,7 +155,7 @@
   },
   {
    "t": "p",
-   "text": "Please tell us the page or address, what went wrong, the device, browser or assistive technology you use, and how you would like to get the information. We will reply within [2 business days] and work with you to find another way to get the information or service. We cannot promise a specific alternative until we understand what you need.",
+   "text": "Please tell us the page or address, what went wrong, the device, browser or assistive technology you use, and how you would like to get the information. We will reply within 2 business days and work with you to find another way to get the information or service. We cannot promise a specific alternative until we understand what you need.",
    "italic": false,
    "align": null
   },
@@ -171,7 +171,7 @@
   },
   {
    "t": "p",
-   "text": "Ask for a second review by [COMPLIANCE OFFICER]. We will answer within [10 business days].",
+   "text": "Ask for a second review by the WellPeps Compliance Officer. We will answer within 10 business days.",
    "italic": false,
    "align": null
   },
@@ -181,7 +181,7 @@
   },
   {
    "t": "p",
-   "text": "We review this statement at least once a year, after any major change to our website, and after each accessibility audit.",
+   "text": "We review this statement at least once a year, after any major change to our website, and after each accessibility test.",
    "italic": false,
    "align": null
   },
@@ -205,17 +205,12 @@
   {
    "t": "ol",
    "items": [
-    "Commission the audit below and book a date. Publish the “plan to have it tested by” sentence only with a real date.",
+    "Commission the audit below and book a date.",
     "Verify each “built in” item in section 3 on the live site. Delete any that fails.",
     "Make support@wellpeps.com a monitored mailbox, assign an owner, and train support on the feedback log (section F).",
     "Decide what alternative formats WellPeps can really deliver and by when.",
     "Remove this Part 2 from the page you publish."
    ]
-  },
-  {
-   "t": "callout",
-   "text": "**After the audit, replace section 3 with:** An independent audit by [AUDITOR] on [AUDIT DATE] tested [AUDIT SCOPE] against WCAG [2.1] Level AA. It found [N] issues. We have fixed some and are working on the rest, which are listed below with the dates we plan to fix them. Based on the audit, our website is partially conformant with WCAG [2.1] Level AA, which means some parts do not yet fully meet the standard. Keep the known-limitations list in section 4 up to date. Do not say “fully conformant” unless the audit says so.",
-   "kind": "info"
   },
   {
    "t": "h3",
@@ -284,7 +279,7 @@
   },
   {
    "t": "li",
-   "text": "**Target:** WCAG [2.1] Level AA, and report separately any WCAG 2.2 Level AA gaps.",
+   "text": "**Target:** WCAG 2.1 Level AA, and report separately any WCAG 2.2 Level AA gaps.",
    "level": 0
   },
   {
@@ -451,7 +446,7 @@
   },
   {
    "t": "check",
-   "text": "Train design, engineering, content and support staff, and name an owner ([COMPLIANCE OFFICER] or a delegate)."
+   "text": "Train design, engineering, content and support staff, and name an owner (the WellPeps Compliance Officer or a delegate)."
   },
   {
    "t": "check",

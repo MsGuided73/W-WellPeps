@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: October 2, 2026  |  Version 1.0",
+   "text": "Effective date: October 6, 2026  |  Last updated: October 6, 2026  |  Version 1.0",
    "italic": true,
    "align": null
   },
@@ -29,7 +29,7 @@
   },
   {
    "t": "li",
-   "text": "You can ask for a paper copy of any document. [VERIFY: paper copy fee and timing]",
+   "text": "You can ask for a paper copy of any document.",
    "level": 0
   },
   {
@@ -122,7 +122,7 @@
   },
   {
    "t": "p",
-   "text": "You have the right to get any of these records on paper. To ask, send a portal message or email support@wellpeps.com. Tell us which document you want and the mailing address to use. We will mail it within [10 business days] at no charge. [VERIFY: paper copy fee and timing] You can also save or print any record from the portal at any time. If you ask for a copy of your medical record, the Practice follows the Notice of Privacy Practices, which explains any cost-based fee the law allows.",
+   "text": "You have the right to get any of these records on paper. To ask, send a portal message or email support@wellpeps.com. Tell us which document you want and the mailing address to use. We will mail it within 10 business days at no charge. You can also save or print any record from the portal at any time. If you ask for a copy of your medical record, the Practice follows the Notice of Privacy Practices, which explains any cost-based fee the law allows.",
    "italic": false,
    "align": null
   },
@@ -149,7 +149,7 @@
   },
   {
    "t": "li",
-   "text": "Our service is online only. Intake, consents, ordering, payment and messages with your clinician all happen online. If you withdraw, we cannot start new orders or keep providing the service, and your clinician may not be able to continue your treatment. [VERIFY: paper or phone alternative]",
+   "text": "Our service is online only. Intake, consents, ordering, payment and messages with your clinician all happen online. If you withdraw, we cannot start new orders or keep providing the service, and your clinician may not be able to continue your treatment.",
    "level": 0
   },
   {
@@ -189,7 +189,7 @@
   },
   {
    "t": "li",
-   "text": "a current version of a major web browser, such as Chrome, Safari, Edge or Firefox, with JavaScript and cookies turned on [VERIFY: supported browsers and devices];",
+   "text": "a current version of a major web browser, such as Chrome, Safari, Edge or Firefox, with JavaScript and cookies turned on;",
    "level": 0
   },
   {
@@ -219,7 +219,7 @@
   },
   {
    "t": "p",
-   "text": "Before you agree, please open the sample document at [SAMPLE DOCUMENT LINK]. If you can open and read it on the device you are using, check box 2 below. If you cannot, do not check the box. Email support@wellpeps.com for help. [VERIFY: E-SIGN consent mechanics]",
+   "text": "Before you agree, please open the sample document at https://wellpeps.com/privacy-policy. If you can open and read it on the device you are using, check box 2 below. If you cannot, do not check the box. Email support@wellpeps.com for help.",
    "italic": false,
    "align": null
   },
@@ -269,7 +269,7 @@
   },
   {
    "t": "p",
-   "text": "The law requires some notices to be given in other ways. Urgent safety notices, such as a medication recall, may also be sent by phone or by mail. This consent does not limit our right to use those other ways. [VERIFY: E-SIGN exceptions and state e-signature rules]",
+   "text": "The law requires some notices to be given in other ways. Urgent safety notices, such as a medication recall, may also be sent by phone or by mail. This consent does not limit our right to use those other ways.",
    "italic": false,
    "align": null
   },
@@ -289,7 +289,7 @@
   },
   {
    "t": "p",
-   "text": "We keep a record of your consent: your name, the date and time, your IP address, the version you saw and how you agreed. We keep these records for at least [7] years, or longer if the law requires. You can ask for a copy of your consent record by emailing support@wellpeps.com. Your medical records are kept by the Practice.",
+   "text": "We keep a record of your consent: your name, the date and time, your IP address, the version you saw and how you agreed. We keep these records for at least 7 years, or longer if the law requires. You can ask for a copy of your consent record by emailing support@wellpeps.com. Your medical records are kept by the Practice.",
    "italic": false,
    "align": null
   },
@@ -374,7 +374,7 @@
   },
   {
    "t": "li",
-   "text": "**Calls.** If you agree in box 4, a clinician of the Practice or a WellPeps team member may call you about your care, a visit or an urgent result. Calls may come from a number you do not know, so please answer or check your voicemail and portal. [VERIFY: automated or prerecorded calls]",
+   "text": "**Calls.** If you agree in box 4, a clinician of the Practice or a WellPeps team member may call you about your care, a visit or an urgent result. Calls may come from a number you do not know, so please answer or check your voicemail and portal.",
    "level": 0
   },
   {
@@ -389,7 +389,7 @@
   },
   {
    "t": "li",
-   "text": "**Your choice.** Consent is optional. You do not have to agree to texts to buy anything from us or to get care. If you say no, we will use the portal and email. [COUNSEL: text consent optional and care not conditioned on it]",
+   "text": "**Your choice.** Consent is optional. You do not have to agree to texts to buy anything from us or to get care. If you say no, we will use the portal and email.",
    "level": 0
   },
   {
@@ -404,17 +404,17 @@
   },
   {
    "t": "li",
-   "text": "**Who texts you.** Texts come from [SMS SENDER NUMBER].",
+   "text": "**Who texts you.** Texts are sent through our patient portal.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "**Your number.** We do not share your mobile number or your text consent with third parties for their marketing. [VERIFY: mobile data sharing statement]",
+   "text": "**Your number.** We do not share your mobile number or your text consent with third parties for their marketing.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "**Not marketing.** We do not send marketing text messages. If we ever do, we will ask you separately and the Text Messaging Terms will apply. Agreeing to care and service texts does not sign you up for marketing texts, and you never have to agree to marketing messages to buy anything or get care. [VERIFY: TCPA consent language and revocation rules]",
+   "text": "**Not marketing.** We do not send marketing text messages. If we ever do, we will ask you separately and the Text Messaging Terms will apply. Agreeing to care and service texts does not sign you up for marketing texts, and you never have to agree to marketing messages to buy anything or get care.",
    "level": 0
   },
   {
@@ -445,7 +445,7 @@
   },
   {
    "t": "p",
-   "text": "To protect your privacy we keep email and text content short. They usually say only that you have a new message, an order update or a reminder, and ask you to sign in to the portal for details. We do not put a diagnosis, a medicine name or a lab value in a text. [VERIFY: content of text and email messages]",
+   "text": "To protect your privacy we keep email and text content short. They usually say only that you have a new message, an order update or a reminder, and ask you to sign in to the portal for details. We do not put a diagnosis, a medicine name or a lab value in a text.",
    "italic": false,
    "align": null
   },
@@ -482,7 +482,7 @@
   },
   {
    "t": "p",
-   "text": "Watch for scams. We will never ask you to pay by gift card, cryptocurrency or wire. Our real messages come from the addresses and numbers we list at portal.wellpeps.com. [VERIFY: official sender addresses and numbers]",
+   "text": "Watch for scams. We will never ask you to pay by gift card, cryptocurrency or wire. If you are not sure a message is from us, sign in at portal.wellpeps.com or email support@wellpeps.com to check.",
    "italic": false,
    "align": null
   },
@@ -492,13 +492,13 @@
   },
   {
    "t": "p",
-   "text": "For anything about your health, use secure messaging in the portal at portal.wellpeps.com. It is built for private messages with your clinician. The portal uses security safeguards designed to protect your information. [VERIFY: portal message security statement] Messages you send to your clinician become part of your medical record.",
+   "text": "For anything about your health, use secure messaging in the portal at portal.wellpeps.com. It is built for private messages with your clinician. The portal uses security safeguards designed to protect your information. Messages you send to your clinician become part of your medical record.",
    "italic": false,
    "align": null
   },
   {
    "t": "p",
-   "text": "Portal messages are for non-urgent questions. Your clinician may take [1 to 2 business days] to answer, and a reply cannot be guaranteed. [MEDICAL DIRECTOR: confirm portal response time] In an emergency, call 911. Messages to WellPeps support are for orders, billing and your account. Our support team cannot give medical advice, so send clinical questions to your clinician.",
+   "text": "Portal messages are for non-urgent questions. Your clinician may take 1 to 2 business days to answer, and a reply cannot be guaranteed. In an emergency, call 911. Messages to WellPeps support are for orders, billing and your account. Our support team cannot give medical advice, so send clinical questions to your clinician.",
    "italic": false,
    "align": null
   },
@@ -514,7 +514,7 @@
   },
   {
    "t": "li",
-   "text": "**Support.** WellPeps support is by email. If we add phone support and record calls, we will tell you at the start of the call and let you continue or end it. [VERIFY: call, video and chat recording practices]",
+   "text": "**Support.** WellPeps support is by email. If we add phone support and record calls, we will tell you at the start of the call and let you continue or end it.",
    "level": 0
   },
   {
@@ -597,7 +597,7 @@
   },
   {
    "t": "p",
-   "text": "Please read this consent (version 1.0, dated [EFFECTIVE DATE]) before checking each box. This is not a consent to treatment. You will be asked to read and sign other forms next.",
+   "text": "Please read this consent (version 1.0, dated October 6, 2026) before checking each box. This is not a consent to treatment. You will be asked to read and sign other forms next.",
    "italic": false,
    "align": null
   },

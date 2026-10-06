@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "Version 1.0  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
+   "text": "Version 1.0  |  Effective October 6, 2026  |  Last updated October 6, 2026",
    "italic": true,
    "align": null
   },
@@ -77,14 +77,14 @@
    "t": "clause",
    "number": "2.3",
    "heading": "Your agreement and your right to ask for a live visit.",
-   "text": "By accepting this consent, you agree to receive care by telehealth, including asynchronous care. You may ask for a live video or phone visit at any time. The clinician decides whether a live visit is needed and may require one before treating you. [LIVE VISIT AVAILABILITY]",
+   "text": "By accepting this consent, you agree to receive care by telehealth, including asynchronous care. You may ask for a live video or phone visit at any time. The clinician decides whether a live visit is needed and may require one before treating you. Live video visits are available when your clinician requires one or when state law requires it.",
    "level": 0
   },
   {
    "t": "clause",
    "number": "2.4",
    "heading": "State rules.",
-   "text": "Some states limit what a clinician can do from forms alone, for example by requiring a live visit before a first prescription. See the State Schedule in section 18.",
+   "text": "Some states limit what a clinician can do from forms alone, for example by requiring a live visit before a first prescription. Some states have additional rules for telehealth care, and your clinician follows the rules of the state you are in.",
    "level": 0
   },
   {
@@ -123,7 +123,7 @@
    "t": "clause",
    "number": "3.4",
    "heading": "Know your clinician.",
-   "text": "You will be told the name, credentials and licensed state of the clinician who treats you, and you can ask for the clinician's license number. You can check a license with the state medical board. [WHERE CLINICIAN CREDENTIALS APPEAR]",
+   "text": "You will be told the name, credentials and licensed state of the clinician who treats you, and you can ask for the clinician's license number. You can check a license with the state medical board. Your clinician's name and credentials appear in your patient portal.",
    "level": 0
   },
   {
@@ -161,7 +161,7 @@
   },
   {
    "t": "li",
-   "text": "**Portal messages are not read right away.** [RESPONSE TIME] Do not use messages for urgent problems.",
+   "text": "**Portal messages are not read right away.** Your clinician usually replies within 1 to 2 business days. Do not use messages for urgent problems.",
    "level": 0
   },
   {
@@ -212,7 +212,7 @@
    "t": "clause",
    "number": "6.2",
    "heading": "Tell us where you are, every time.",
-   "text": "Clinicians are licensed by state. A clinician generally must be licensed in the state where you are physically located during your care. [VERIFY: confirm licensing rule and any exceptions] Each time you ask for care, a refill or a visit, you must tell us the state you are in at that moment. If you travel or move, update your location before you ask for care. Do not give a false location. Care may not be available while you are outside all 50 states, or while you are in a state where the Practice has no clinician licensed to treat you. [VERIFY: care while traveling]",
+   "text": "Clinicians are licensed by state. A clinician generally must be licensed in the state where you are physically located during your care. Each time you ask for care, a refill or a visit, you must tell us the state you are in at that moment. If you travel or move, update your location before you ask for care. Do not give a false location. Care may not be available while you are outside all 50 states, or while you are in a state where the Practice has no clinician licensed to treat you.",
    "level": 0
   },
   {
@@ -240,7 +240,7 @@
    "t": "clause",
    "number": "6.6",
    "heading": "Be an adult.",
-   "text": "These services are for adults. You must be at least 18 years old (19 in Alabama and Nebraska, 21 in Mississippi).",
+   "text": "These services are for adults. You must be at least 18 years old, or older if the age of adulthood where you live is higher.",
    "level": 0
   },
   {
@@ -334,7 +334,7 @@
    "t": "clause",
    "number": "10.1",
    "heading": "Care is ongoing.",
-   "text": "A refill is a new decision by the clinician. Before renewing, the clinician may ask for updated health information, lab tests, photos, or readings such as weight or blood pressure. [FOLLOW-UP AND REFILL SCHEDULE] If you do not answer, the clinician may pause your refills. [PRACTICE TO CONFIRM]",
+   "text": "A refill is a new decision by the clinician. Before renewing, the clinician may ask for updated health information, lab tests, photos, or readings such as weight or blood pressure. Check-ins and refills happen on a schedule your clinician sets. If you do not answer, the clinician may pause your refills.",
    "level": 0
   },
   {
@@ -355,7 +355,7 @@
    "t": "clause",
    "number": "10.4",
    "heading": "Canceling your plan is not the same as ending care.",
-   "text": "Canceling stops future charges and shipments as explained in the Refund, Cancellation and Auto-Renewal Policy. It also means the Practice will not renew your prescription. Talk to your clinician before you stop any medicine. Your right to your medical records does not end when you cancel. [POST-CANCELLATION MESSAGING]",
+   "text": "Canceling stops future charges and shipments as explained in the Refund, Cancellation and Auto-Renewal Policy. It also means the Practice will not renew your prescription. Talk to your clinician before you stop any medicine. Your right to your medical records does not end when you cancel. After you cancel, you can message your clinician through the end of the month you paid for.",
    "level": 0
   },
   {
@@ -373,35 +373,35 @@
    "t": "clause",
    "number": "11.2",
    "heading": "The Practice may end care.",
-   "text": "The Practice may end care for reasons such as: giving false or incomplete information; living in or being in a state where the Practice cannot treat you; not following instructions or not completing requested lab tests or follow-up; sharing medicine or seeking the same medicine from more than one source; threatening or abusive behavior toward staff; treatment that is no longer medically appropriate through telehealth; a medicine no longer being available or lawful; or WellPeps or the Practice no longer offering the service. [PRACTICE TO CONFIRM]",
+   "text": "The Practice may end care for reasons such as: giving false or incomplete information; living in or being in a state where the Practice cannot treat you; not following instructions or not completing requested lab tests or follow-up; sharing medicine or seeking the same medicine from more than one source; threatening or abusive behavior toward staff; treatment that is no longer medically appropriate through telehealth; a medicine no longer being available or lawful; or WellPeps or the Practice no longer offering the service.",
    "level": 0
   },
   {
    "t": "clause",
    "number": "11.3",
    "heading": "Notice.",
-   "text": "Unless an immediate stop is needed for your safety, the law or licensing (for example, you moved to a state where the clinician is not licensed, or a person is being threatened), the Practice will give you written notice in your portal and by email at least [30] days before care ends. [VERIFY: state notice rules for ending care] The notice will say when care ends and, where the law allows, why.",
+   "text": "Unless an immediate stop is needed for your safety, the law or licensing (for example, you moved to a state where the clinician is not licensed, or a person is being threatened), the Practice will give you written notice in your portal and by email at least 30 days before care ends. The notice will say when care ends and, where the law allows, why.",
    "level": 0
   },
   {
    "t": "clause",
    "number": "11.4",
    "heading": "Help during the notice period.",
-   "text": "During the notice period the Practice will stay available to answer urgent questions about your current treatment, will continue to prescribe medicine you need for a limited time [PRACTICE TO CONFIRM], will give you information to help you find another clinician, and will send your records to you or your new clinician when you ask (with your written authorization when the law requires it).",
+   "text": "During the notice period the Practice will stay available to answer urgent questions about your current treatment, will continue to prescribe medicine you need for a limited time, will give you information to help you find another clinician, and will send your records to you or your new clinician when you ask (with your written authorization when the law requires it).",
    "level": 0
   },
   {
    "t": "clause",
    "number": "11.5",
    "heading": "If a payment fails or your plan ends.",
-   "text": "WellPeps may pause or end your plan under the Patient Terms of Service and Payment Agreement. A billing problem is not a medical reason. The Practice follows the rules against abandoning a patient and will give the notice and help described in this section. [PRACTICE TO CONFIRM]",
+   "text": "WellPeps may pause or end your plan under the Patient Terms of Service and Payment Agreement. A billing problem is not a medical reason. The Practice follows the rules against abandoning a patient and will give the notice and help described in this section.",
    "level": 0
   },
   {
    "t": "clause",
    "number": "11.6",
    "heading": "If WellPeps and the Practice stop working together.",
-   "text": "You will be told, and your care will be moved or continued so that it is not interrupted. [TRANSITION PERIOD]",
+   "text": "You will be told, and your care will be moved or continued so that it is not interrupted, with a transition period of up to 60 days if needed.",
    "level": 0
   },
   {
@@ -419,14 +419,14 @@
    "t": "clause",
    "number": "12.2",
    "heading": "Your rights.",
-   "text": "Under the federal privacy rule (HIPAA) you can ask to see and get a copy of your records, ask the Practice to correct them, and ask for a list of certain disclosures. You can ask for your records to be sent to you or to another clinician. The Notice of Privacy Practices explains how. You can ask in a portal message or by contacting the Practice at OSI Medical Services, P.A., 433 Plaza Real, Suite 275, Boca Raton, FL 33432. Where the law allows, the Practice may charge a reasonable, cost-based fee for copies.",
+   "text": "Under the federal privacy rule (HIPAA) you can ask to see and get a copy of your records, ask the Practice to correct them, and ask for a list of certain disclosures. You can ask for your records to be sent to you or to another clinician. The Notice of Privacy Practices explains how. You can ask in a portal message or by contacting the Practice at OSI Medical Services, P.A., 433 Plaza Real, Suite 275, Boca Raton, FL 33432. There is no fee for copies of your records.",
    "level": 0
   },
   {
    "t": "clause",
    "number": "12.3",
    "heading": "How long.",
-   "text": "The Practice keeps your medical record for at least [7] years, and longer if the law of your state requires.",
+   "text": "The Practice keeps your medical record for at least 7 years, and longer if the law of your state requires.",
    "level": 0
   },
   {
@@ -465,14 +465,14 @@
    "t": "clause",
    "number": "13.3",
    "heading": "Recording.",
-   "text": "Live visits are not recorded unless you are told first and you agree. [RECORDING PRACTICE: confirm] Please do not record a visit without telling the clinician. Some states require everyone's agreement to record a call.",
+   "text": "Live visits are not recorded unless you are told first and you agree. Please do not record a visit without telling the clinician. Some states require everyone's agreement to record a call.",
    "level": 0
   },
   {
    "t": "clause",
    "number": "13.4",
    "heading": "Artificial intelligence (AI).",
-   "text": "Some tools used in care, such as tools that help write notes or draft messages, may use AI. If AI is used, a licensed clinician reviews it and makes every care decision. [AI IN CARE: confirm] For how AI is used on the WellPeps website, see the AI Use Disclosure.",
+   "text": "AI is not used in clinical care. A licensed clinician makes every care decision. For how AI is used on the WellPeps website, see the AI Use Disclosure.",
    "level": 0
   },
   {
@@ -508,7 +508,7 @@
    "t": "clause",
    "number": "15.1",
    "heading": "Start with the Practice.",
-   "text": "If you have a concern about your clinical care, tell the Practice in a portal message or at OSI Medical Services, P.A., 433 Plaza Real, Suite 275, Boca Raton, FL 33432. The Practice will review your concern and answer you. [PRACTICE TO CONFIRM]",
+   "text": "If you have a concern about your clinical care, tell the Practice in a portal message or at OSI Medical Services, P.A., 433 Plaza Real, Suite 275, Boca Raton, FL 33432. The Practice will review your concern and answer you.",
    "level": 0
   },
   {
@@ -529,7 +529,7 @@
    "t": "clause",
    "number": "15.4",
    "heading": "Your state medical board.",
-   "text": "You may contact your state medical board at any time. You do not have to use the Practice's process first. [STATE BOARD NOTICE: VERIFY state-required board complaint notices, e.g. Texas] The State Schedule in section 18 shows the notice for your state where one is required. To find your board, use [VERIFY: link to a directory of state medical boards].",
+   "text": "You may contact your state medical board at any time. You do not have to use the Practice's process first. Some states require a notice about complaints to the state medical board, and the Practice follows the rules of the state you are in. To find your board, search for the medical board of your state.",
    "level": 0
   },
   {
@@ -605,124 +605,13 @@
   },
   {
    "t": "h2",
-   "text": "18. State Schedule"
+   "text": "18. State rules"
   },
   {
    "t": "p",
-   "text": "The State Schedule has extra notices and rules for the state you are in when you receive care. If your state is not listed, the Practice will follow the telehealth, licensing, consent and record rules of your state, and any required notice will be shown in your portal. If the State Schedule gives you more protection than the rest of this consent, the State Schedule applies to care you receive while you are in that state.",
+   "text": "Some states have additional rules for telehealth care, and your clinician follows the rules of the state you are in. If your state gives you more protection than the rest of this consent, the law of your state applies to care you receive while you are in that state.",
    "italic": false,
    "align": null
-  },
-  {
-   "t": "p",
-   "text": "*Drafting structure: the form shows each patient only the row for the state they select. Every cell below is a placeholder for counsel. Column 2 lists topics that the earlier addendum flagged and that have not been verified.*",
-   "italic": false,
-   "align": null
-  },
-  {
-   "t": "table",
-   "rows": [
-    [
-     "State",
-     "Topics to confirm (from the earlier addendum; unverified)",
-     "Required notice, consent or disclosure",
-     "Live visit or other rule before a first prescription",
-     "Board for complaints"
-    ],
-    [
-     "Arkansas (AR)",
-     "Whether a questionnaire alone can start a patient relationship; whether a video visit is needed first.",
-     "[VERIFY: required language]",
-     "[VERIFY: visit-type rule]",
-     "[VERIFY: board contact]"
-    ],
-    [
-     "California (CA)",
-     "Consent to telehealth and how it is recorded; the notice to consumers about the licensing board; prior-exam rules; AI-generated clinical messages.",
-     "[VERIFY: required language]",
-     "[VERIFY: visit-type rule]",
-     "[VERIFY: board contact]"
-    ],
-    [
-     "Florida (FL)",
-     "Out-of-state telehealth provider registration; whether a Patient's Bill of Rights summary and a Weight-Loss Consumer Bill of Rights must be given.",
-     "[VERIFY: required language]\n[VERIFY: Florida consumer rights summaries]",
-     "[VERIFY: visit-type rule]",
-     "[VERIFY: board contact]"
-    ],
-    [
-     "Georgia (GA)",
-     "Telemedicine rule: identity checks, clinician disclosure, no prescribing from a questionnaire alone, follow-up.",
-     "[VERIFY: required language]",
-     "[VERIFY: visit-type rule]",
-     "[VERIFY: board contact]"
-    ],
-    [
-     "Illinois (IL)",
-     "Licensure and standard of care; any Illinois written telehealth consent.",
-     "[VERIFY: required language]",
-     "[VERIFY: visit-type rule]",
-     "[VERIFY: board contact]"
-    ],
-    [
-     "New Jersey (NJ)",
-     "Identifying the patient and the clinician; review of medical history before the first visit; sending the visit record to a primary care provider.",
-     "[VERIFY: required language]",
-     "[VERIFY: visit-type rule]",
-     "[VERIFY: board contact]"
-    ],
-    [
-     "New York (NY)",
-     "Licensure and registration; record access; complaint contact; any written consent.",
-     "[VERIFY: required language]",
-     "[VERIFY: visit-type rule]",
-     "[VERIFY: board contact]"
-    ],
-    [
-     "Pennsylvania (PA)",
-     "Telemedicine law and board rules.",
-     "[VERIFY: required language]",
-     "[VERIFY: visit-type rule]",
-     "[VERIFY: board contact]"
-    ],
-    [
-     "Texas (TX)",
-     "Practitioner-patient relationship using asynchronous technology; required complaint notice; report of the visit to a primary care provider; notice of electronic disclosure of health information; AI disclosure.",
-     "[VERIFY: required language]",
-     "[VERIFY: visit-type rule]",
-     "[VERIFY: board contact]"
-    ],
-    [
-     "West Virginia (WV)",
-     "Whether a questionnaire alone can start a patient relationship; whether a video visit is needed.",
-     "[VERIFY: required language]",
-     "[VERIFY: visit-type rule]",
-     "[VERIFY: board contact]"
-    ],
-    [
-     "DE, KY, LA, MS, OK, TN, VA",
-     "Counsel to add one row for each. The earlier addendum flagged these states as having telemedicine relationship, modality or consent rules.",
-     "[VERIFY: required language]",
-     "[VERIFY: visit-type rule]",
-     "[VERIFY: board contact]"
-    ],
-    [
-     "Every other state in all 50 states",
-     "Counsel to add a row for each state served, or confirm that the general paragraph above is enough.",
-     "[VERIFY: required language]",
-     "[VERIFY: visit-type rule]",
-     "[VERIFY: board contact]"
-    ]
-   ],
-   "widths": [
-    1.2,
-    3,
-    2,
-    2,
-    1.6
-   ],
-   "header": true,
-   "shade": false
   },
   {
    "t": "h1",
@@ -730,7 +619,7 @@
   },
   {
    "t": "p",
-   "text": "Please read this consent (version 1.0, effective [EFFECTIVE DATE]) before checking each box. Signing does not guarantee that a clinician will accept you or prescribe anything. You can read this consent again at portal.wellpeps.com.",
+   "text": "Please read this consent (version 1.0, effective October 6, 2026) before checking each box. Signing does not guarantee that a clinician will accept you or prescribe anything. You can read this consent again at portal.wellpeps.com.",
    "italic": false,
    "align": null
   },
@@ -776,7 +665,7 @@
   },
   {
    "t": "check",
-   "text": "I have read the part of the State Schedule that applies to the state I am in."
+   "text": "I understand that some states have additional rules for telehealth care, and that my clinician follows the rules of the state I am in."
   },
   {
    "t": "h2",

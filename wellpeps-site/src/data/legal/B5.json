@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "Version 1.0  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
+   "text": "Version 1.0  |  Effective October 6, 2026  |  Last updated October 6, 2026",
    "italic": true,
    "align": null
   },
@@ -33,7 +33,7 @@
    "t": "clause",
    "number": "1.2",
    "heading": "A pharmacy prepares it.",
-   "text": "A state-licensed pharmacy named on your prescription label prepares your compounded medicine and ships it to you. The pharmacies WellPeps works with are listed at OSI / Scriptful Rx, 433 Plaza Real, Suite 275, Boca Raton, FL 33432. [PHARMACY STANDARDS]",
+   "text": "A state-licensed pharmacy named on your prescription label prepares your compounded medicine and ships it to you. The pharmacies WellPeps works with are listed at OSI / Scriptful Rx, 433 Plaza Real, Suite 275, Boca Raton, FL 33432. Prescriptions are filled by state-licensed 503A pharmacies.",
    "level": 0
   },
   {
@@ -112,14 +112,14 @@
    "t": "clause",
    "number": "4.2",
    "heading": null,
-   "text": "[FDA POSITION: include only if the Practice documents clinical need. FDA advises that a compounded medicine be considered only when a patient's medical needs cannot be met by an FDA-approved medicine. Your clinician decides whether a compounded medicine is appropriate for you based on your individual needs.]",
+   "text": "FDA advises that a compounded medicine be considered only when a patient's medical needs cannot be met by an FDA-approved medicine. Your clinician decides whether a compounded medicine is appropriate for you based on your individual needs.",
    "level": 0
   },
   {
    "t": "clause",
    "number": "4.3",
    "heading": null,
-   "text": "You can ask your clinician at any time whether an FDA-approved medicine is right for you, and whether you could get one through your own doctor and pharmacy. WellPeps does not offer FDA-approved semaglutide or tirzepatide. You can get them through another provider and pharmacy. [FDA-APPROVED OPTIONS THROUGH WELLPEPS: other programs]",
+   "text": "You can ask your clinician at any time whether an FDA-approved medicine is right for you, and whether you could get one through your own doctor and pharmacy. WellPeps offers only compounded medications, not brand-name FDA-approved products. FDA-approved medicines may be available through another provider and pharmacy.",
    "level": 0
   },
   {
@@ -137,7 +137,7 @@
    "t": "clause",
    "number": "5.2",
    "heading": null,
-   "text": "[CLINICAL NEED SENTENCE: Your clinician records in your medical record why a compounded medicine is right for you. A compounded medicine is not prescribed because it costs less, or because an approved medicine is in short supply.]",
+   "text": "Your clinician records in your medical record why a compounded medicine is right for you. A compounded medicine is not prescribed because it costs less, or because an approved medicine is in short supply.",
    "level": 0
   },
   {
@@ -220,7 +220,7 @@
   },
   {
    "t": "p",
-   "text": "Labels differ by pharmacy and by state, and some of this may be on an insert instead of the label. [LABEL ELEMENTS] If anything is missing, unclear or does not match what your clinician told you, do not use the medicine until your pharmacy or clinician confirms it. If your label and a WellPeps document disagree, follow your label and ask your clinician or pharmacy.",
+   "text": "Labels differ by pharmacy and by state, and some of this may be on an insert instead of the label. Your pharmacy label and insert list the key details about your medicine. If anything is missing, unclear or does not match what your clinician told you, do not use the medicine until your pharmacy or clinician confirms it. If your label and a WellPeps document disagree, follow your label and ask your clinician or pharmacy.",
    "italic": false,
    "align": null
   },
@@ -301,7 +301,7 @@
   },
   {
    "t": "p",
-   "text": "**Recalls.** [RECALL NOTICE PROCESS]",
+   "text": "**Recalls.** If a product is recalled, the pharmacy or WellPeps will contact you.",
    "italic": false,
    "align": null
   },
@@ -357,12 +357,12 @@
   },
   {
    "t": "li",
-   "text": "oral or sublingual (under the tongue) forms of semaglutide or tirzepatide, which are not FDA-approved in the form or dose you would receive [MEDICAL DIRECTOR TO CONFIRM];",
+   "text": "a form or dose of a medicine that is not in its FDA-approved labeling, such as a compounded sublingual (under the tongue) form;",
    "level": 0
   },
   {
    "t": "li",
-   "text": "any other use your clinician tells you is off-label. [OFF-LABEL USES LIST]",
+   "text": "any other use your clinician tells you is off-label.",
    "level": 0
   },
   {
@@ -398,7 +398,7 @@
   },
   {
    "t": "p",
-   "text": "Please read this document (version 1.0, effective [EFFECTIVE DATE]) before checking each box. Signing does not guarantee a prescription. A licensed clinician decides whether treatment is right for you. You can read this document again at portal.wellpeps.com.",
+   "text": "Please read this document (version 1.0, effective October 6, 2026) before checking each box. Signing does not guarantee a prescription. A licensed clinician decides whether treatment is right for you. You can read this document again at portal.wellpeps.com.",
    "italic": false,
    "align": null
   },

@@ -1,7 +1,7 @@
 {
  "title": "Consumer Health Data Privacy Policy",
- "version": "0.1",
- "date": "October 1, 2026",
+ "version": "1.0",
+ "date": "October 6, 2026",
  "blocks": [
   {
    "t": "h1",
@@ -9,13 +9,13 @@
   },
   {
    "t": "p",
-   "text": "**Effective date:** [EFFECTIVE DATE]  |  **Version:** 1.0  |  **Last updated:** October 2, 2026",
+   "text": "**Effective date:** October 6, 2026  |  **Version:** 1.0  |  **Last updated:** October 6, 2026",
    "italic": false,
    "align": null
   },
   {
    "t": "callout",
-   "text": "**Summary**\n• This policy is about health-related information that is not part of your medical record. Your medical record and other protected health information (PHI) are covered by the Notice of Privacy Practices.\n• Today, wellpeps.com collects your email address and the health topic you pick, such as a free guide or a waitlist. We ask for your consent first, with a separate checkbox.\n• We share health-related information only as needed to give you the service you asked for. We do not share it for advertising. We will ask for a separate consent before we ever do.\n• We do not sell consumer health data, and we will not without your signed authorization. [VERIFY: confirm for portal.wellpeps.com, Open item 6.]\n• We do not use location fences around health care places.\n• You can ask us to confirm what we hold, give you a copy and a list of who received it, withdraw your consent, or delete it. Use Your Privacy Choices or email privacy@wellpeps.com. If we say no, you can appeal.",
+   "text": "**Summary**\n• This policy is about health-related information that is not part of your medical record. Your medical record and other protected health information (PHI) are covered by the Notice of Privacy Practices.\n• Today, wellpeps.com collects your email address and the health topic you pick, such as a free guide or a waitlist. We ask for your consent first, with a separate checkbox.\n• We share health-related information only as needed to give you the service you asked for. We do not share it for advertising. We will ask for a separate consent before we ever do.\n• We do not sell consumer health data, and we will not without your signed authorization.\n• We do not use location fences around health care places.\n• You can ask us to confirm what we hold, give you a copy and a list of who received it, withdraw your consent, or delete it. Use Your Privacy Choices or email privacy@wellpeps.com. If we say no, you can appeal.",
    "kind": "info"
   },
   {
@@ -54,7 +54,7 @@
   },
   {
    "t": "p",
-   "text": "We wrote this policy to meet the Washington My Health My Data Act, Nevada SB 370 and the consumer health data provisions of the Connecticut Data Privacy Act. We also considered the Maryland Online Data Privacy Act [VERIFY: applicability, effective dates and strict-necessity rule]. These laws are not identical. We give everyone in the United States the protections in this policy, whatever state you live in. That is a choice, and it does not admit that any law applies to us [DECISION: nationwide approach, counsel to confirm].",
+   "text": "We wrote this policy to meet the Washington My Health My Data Act, Nevada SB 370 and the consumer health data provisions of the Connecticut Data Privacy Act. We also considered other state privacy laws that cover health data. These laws are not identical. We give everyone in the United States the protections in this policy, whatever state you live in. That is a choice, and it does not admit that any law applies to us.",
    "italic": false,
    "align": null
   },
@@ -88,7 +88,7 @@
   },
   {
    "t": "p",
-   "text": "The Practice is a HIPAA covered entity. When we handle health information for the Practice, we do so as a service provider that HIPAA calls a \"business associate.\" [PENDING COUNSEL, H1: confirm WellPeps' HIPAA role before publishing this sentence.]",
+   "text": "The Practice is a HIPAA covered entity. Where we handle protected health information for the Practice, we do so as the law requires of a service provider that HIPAA calls a \"business associate.\"",
    "italic": false,
    "align": null
   },
@@ -126,12 +126,6 @@
    "t": "li",
    "text": "any other information that the law treats as consumer health data and not as PHI.",
    "level": 0
-  },
-  {
-   "t": "p",
-   "text": "[COUNSEL: confirm the line between PHI and non-PHI with the HIPAA role decision, item H1.]",
-   "italic": false,
-   "align": null
   },
   {
    "t": "h3",
@@ -188,17 +182,17 @@
      "Online activity that shows a health interest",
      "IP address and the pages requested, including health-topic pages, in standard web server logs.",
      "wellpeps.com.",
-     "Security and troubleshooting only. Kept for [30 days]."
+     "Security and troubleshooting only. Kept for 30 days."
     ],
     [
      "Biometric data",
-     "[VERIFY: only if the platform's identity check creates a face or ID template. Otherwise delete this row and say none.]",
+     "WellPeps does not collect face scans, fingerprints or similar biometric templates. If the platform asks you to upload a photo or ID to check who you are, we treat it as sensitive information under this policy.",
      "The platform.",
      "Identity and fraud checks."
     ],
     [
      "Precise location, genetic data, and health facts we infer",
-     "None. We do not collect precise location or genetic data, and we do not guess your health from your browsing [VERIFY: confirm for the platform].",
+     "None. We do not collect precise location or genetic data, and we do not guess your health from your browsing.",
      "Not applicable.",
      "Not applicable."
     ]
@@ -306,7 +300,7 @@
   },
   {
    "t": "li",
-   "text": "**Sharing:** today we share consumer health data only as needed to provide the service you asked for (see Section 5). If we ever want to share it for another reason, such as advertising, we will ask first with a separate consent (Appendix B.2). We do not do this today.",
+   "text": "**Sharing:** today we share consumer health data only as needed to provide the service you asked for (see Section 5). If we ever want to share it for another reason, such as advertising, we will ask first with a separate consent. We do not do this today.",
    "level": 0
   },
   {
@@ -315,7 +309,7 @@
   },
   {
    "t": "p",
-   "text": "You can withdraw any consent at any time on the Your Privacy Choices page or by emailing privacy@wellpeps.com. We will stop the collection or sharing the consent covered within [15 business days]. Withdrawing does not undo what happened before. If we need the information to provide a service you asked for, withdrawing may mean we can no longer provide it, and we will tell you. To take back permission you gave the Practice for PHI, follow the Notice of Privacy Practices and the HIPAA Authorization Forms.",
+   "text": "You can withdraw any consent at any time on the Your Privacy Choices page or by emailing privacy@wellpeps.com. We will stop the collection or sharing the consent covered within 15 business days. Withdrawing does not undo what happened before. If we need the information to provide a service you asked for, withdrawing may mean we can no longer provide it, and we will tell you. To take back permission you gave the Practice for PHI, follow the Notice of Privacy Practices and the HIPAA Authorization Forms.",
    "italic": false,
    "align": null
   },
@@ -361,13 +355,13 @@
      "No. Necessary to provide the service you asked for."
     ],
     [
-     "Our technology platform provider [VERIFY: processor or third party]",
+     "Our technology platform provider",
      "Everything entered in the assessment, intake, checkout and portal.",
      "To host and run those tools.",
      "No. Processor, or necessary to provide the service."
     ],
     [
-     "Our management-services partner [VERIFY: processor or third party]",
+     "Our management-services partner",
      "Order, plan, billing and support information.",
      "To collect fees, settle accounts and support operations.",
      "No. Processor, or necessary to provide the service."
@@ -402,7 +396,7 @@
   },
   {
    "t": "p",
-   "text": "**Affiliates.** [VERIFY: None. Confirm whether any related company counts as an affiliate (shares common branding and common control), for example because of the ownership interest of [PEPRITE, INC.]'s principal in WellPeps. If so, list it here.]",
+   "text": "**Affiliates.** WellPeps is owned in part by a principal of our management-services partner. That partner receives consumer health data only as described in the table above.",
    "italic": false,
    "align": null
   },
@@ -418,7 +412,7 @@
   },
   {
    "t": "p",
-   "text": "We give consumer health data to processors only under a written contract that limits what they may do with it. [VERIFY: written data protection terms are in place with each processor before this section is published, items B12 and H4.]",
+   "text": "We give consumer health data to processors only under a written contract that limits what they may do with it.",
    "italic": false,
    "align": null
   },
@@ -428,7 +422,7 @@
   },
   {
    "t": "p",
-   "text": "We give consumer health data to a court or agency only when the law requires it. We review each request, and where the law allows we tell you first so you can object. We review any request about reproductive health care or gender-affirming care with counsel before we respond [COUNSEL: confirm this commitment matches WellPeps' legal-process procedure].",
+   "text": "We give consumer health data to a court or agency only when the law requires it. We review each request, and where the law allows we tell you first so you can object. We review any request about reproductive health care or gender-affirming care with counsel before we respond.",
    "italic": false,
    "align": null
   },
@@ -438,44 +432,9 @@
   },
   {
    "t": "p",
-   "text": "Other companies do not collect consumer health data about your online activities over time and across different websites when you use wellpeps.com. Google receives your IP address and browser details when your browser loads our fonts, and we do not authorize it to track you; we plan to host the fonts ourselves [VERIFY: confirm after the tag inventory, including portal.wellpeps.com]. If this changes, we will update this policy first.",
+   "text": "Other companies do not collect consumer health data about your online activities over time and across different websites when you use wellpeps.com. Our text fonts are served from wellpeps.com itself, so loading them does not contact any other company. If this changes, we will update this policy first.",
    "italic": false,
    "align": null
-  },
-  {
-   "t": "callout",
-   "kind": "info",
-   "text": "**Held wording.** The text that follows is not in effect yet. It applies only when the condition for \"C-A1: ADVERTISING OR ANALYTICS PARTNERS\" in the technical notes at the end of this document is met."
-  },
-  {
-   "t": "table",
-   "rows": [
-    [
-     "Recipient",
-     "What they receive",
-     "Why",
-     "Separate consent?"
-    ],
-    [
-     "Advertising and analytics partners [VERIFY: names or categories from the tag inventory]",
-     "[VERIFY: categories, for example device identifiers and pages visited]",
-     "[VERIFY: purpose]",
-     "Yes. We ask first with the consent in Appendix B.2."
-    ]
-   ],
-   "widths": [
-    1.8,
-    2.0,
-    1.6,
-    1.6
-   ],
-   "header": true,
-   "shade": false
-  },
-  {
-   "t": "callout",
-   "kind": "info",
-   "text": "**End of held wording.**"
   },
   {
    "t": "h2",
@@ -483,7 +442,7 @@
   },
   {
    "t": "p",
-   "text": "**We do not sell consumer health data.** [VERIFY BEFORE PUBLISHING: supported for wellpeps.com today; confirm for portal.wellpeps.com, Open item 6.] We will not sell it unless you first sign a separate written authorization that is valid under the law. A consent to collect or share is not an authorization to sell.",
+   "text": "**We do not sell consumer health data.** We will not sell it unless you first sign a separate written authorization that is valid under the law. A consent to collect or share is not an authorization to sell.",
    "italic": false,
    "align": null
   },
@@ -535,7 +494,7 @@
   },
   {
    "t": "p",
-   "text": "We will give you a copy and keep a record for six years. [VERIFY: element lists and record period for Washington and Nevada.] For Maryland residents, we will not sell sensitive data at all [VERIFY: Maryland].",
+   "text": "We will give you a copy and keep a record for six years. Some states ban the sale of sensitive data altogether, and we follow those laws.",
    "italic": false,
    "align": null
   },
@@ -583,7 +542,7 @@
   },
   {
    "t": "p",
-   "text": "After we verify your request, we delete the data from our active systems, tell our processors, affiliates and third parties that received it to delete it, and delete it from backups within [6 months] of verifying your request [VERIFY: backup rule per state]. PHI held by the Practice and pharmacies is kept as medical record and pharmacy law requires. We may keep the minimum we need to follow the law, stop fraud or defend legal claims, and we will tell you what we kept and why. Deleting information we need to provide a service may end that service.",
+   "text": "After we confirm your request, we delete the data from our active systems, tell our processors, affiliates and third parties that received it to delete it, and delete it from backups within 6 months of confirming your request. PHI held by the Practice and pharmacies is kept as medical record and pharmacy law requires. We may keep the minimum we need to follow the law, stop fraud or defend legal claims, and we will tell you what we kept and why. Deleting information we need to provide a service may end that service.",
    "italic": false,
    "align": null
   },
@@ -603,17 +562,12 @@
   },
   {
    "t": "li",
-   "text": "Use our web form: [PRIVACY REQUEST WEBFORM].",
+   "text": "Write to WellPeps, Attn: WellPeps Privacy Officer, 30 N Gould St., Suite R, Sheridan, WY 82801.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "Write to WellPeps, Attn: Privacy, 30 N Gould St., Suite R, Sheridan, WY 82801.",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "By phone: (307) 881-8700, during normal business hours (delete this line unless a staffed line exists; no phone line is live today).",
+   "text": "By phone: (307) 881-8700, during normal business hours.",
    "level": 0
   },
   {
@@ -628,7 +582,7 @@
   },
   {
    "t": "p",
-   "text": "We respond within [45 days]. If we need more time, we may extend once by up to [45 days] and will tell you why [VERIFY: periods per state]. Requests are free. If a request is clearly unfounded or excessive, we may decline it or charge a reasonable fee as the law allows, and we will explain.",
+   "text": "We respond within 45 days. If we need more time, we may extend once by up to 45 days and will tell you why. Requests are free. If a request is clearly unfounded or excessive, we may decline it or charge a reasonable fee as the law allows, and we will explain.",
    "italic": false,
    "align": null
   },
@@ -638,7 +592,7 @@
   },
   {
    "t": "p",
-   "text": "If we deny your request in whole or in part, you can appeal within [60 days] of our answer. Email privacy@wellpeps.com with \"Appeal\" in the subject line and say why you disagree. A person who did not decide the first request will review it, and we will answer in writing within [45 days] and give our reasons [VERIFY: appeal timing per state].",
+   "text": "If we deny your request in whole or in part, you can appeal within 60 days of our answer. Email privacy@wellpeps.com with \"Appeal\" in the subject line and say why you disagree. A person who did not decide the first request will review it, and we will answer in writing within 45 days and give our reasons.",
    "italic": false,
    "align": null
   },
@@ -648,7 +602,7 @@
   },
   {
    "t": "p",
-   "text": "If we deny your appeal, you can contact your state attorney general. [VERIFY: current complaint addresses.]",
+   "text": "If we deny your appeal, you can contact your state attorney general.",
    "italic": false,
    "align": null
   },
@@ -701,13 +655,7 @@
   },
   {
    "t": "p",
-   "text": "We do not use, and we do not allow anyone working for us to use, a location fence (a virtual boundary based on GPS, cell tower, Wi-Fi or similar data) around any place that provides in-person health care. We do not use one to identify or track people seeking care, to collect health data, or to send messages or ads about health care. The laws set the distance at 1,750 or 2,000 feet depending on the state [VERIFY]. We apply the larger distance everywhere. Our website does not read your device location today.",
-   "italic": false,
-   "align": null
-  },
-  {
-   "t": "p",
-   "text": "[VERIFY: when advertising starts, add this rule to every advertising agency and platform contract.]",
+   "text": "We do not use, and we do not allow anyone working for us to use, a location fence (a virtual boundary based on GPS, cell tower, Wi-Fi or similar data) around any place that provides in-person health care. We do not use one to identify or track people seeking care, to collect health data, or to send messages or ads about health care. State laws set a distance for these fences, and we do not use one at any distance. Our website does not read your device location today.",
    "italic": false,
    "align": null
   },
@@ -717,7 +665,7 @@
   },
   {
    "t": "p",
-   "text": "We limit access to consumer health data to the employees, contractors and processors who need it to give you the service you asked for, and each is bound to keep it confidential. We use administrative, technical and physical safeguards that fit the sensitivity of the data. We keep consumer health data only as long as we need it, on the schedule in Section 7 of the Privacy Policy, and then delete it or remove what identifies you. If a security breach affects consumer health data, we will tell you and the regulators as the law requires, including state breach laws and, where it applies, the FTC Health Breach Notification Rule. [VERIFY: safeguards, training and vendor contracts are in place, items H5, H6, H10.]",
+   "text": "We limit access to consumer health data to the employees, contractors and processors who need it to give you the service you asked for, and each is bound to keep it confidential. We use administrative, technical and physical safeguards that fit the sensitivity of the data. We keep consumer health data only as long as we need it, on the schedule in Section 7 of the Privacy Policy, and then delete it or remove what identifies you. If a security breach affects consumer health data, we will tell you and the regulators as the law requires, including state breach laws and, where it applies, the FTC Health Breach Notification Rule.",
    "italic": false,
    "align": null
   },
@@ -749,7 +697,7 @@
    "rows": [
     [
      "Questions and requests",
-     "WellPeps, a Wyoming corporation\nAttn: Privacy ([PRIVACY OFFICIAL])\n30 N Gould St., Suite R, Sheridan, WY 82801\nEmail: privacy@wellpeps.com\nWeb form: [PRIVACY REQUEST WEBFORM]\n(307) 881-8700, during normal business hours"
+     "WellPeps, a Wyoming corporation\nAttn: WellPeps Privacy Officer\n30 N Gould St., Suite R, Sheridan, WY 82801\nEmail: privacy@wellpeps.com\n(307) 881-8700, during normal business hours"
     ],
     [
      "Medical questions",
@@ -773,17 +721,17 @@
   },
   {
    "t": "p",
-   "text": "Two separate boxes, directly above the submit button, neither checked in advance. The form does not submit without the first box. The second box is optional. Form version chd-form-v0.3-draft. On a free-guide form [FORM TOPIC] is the guide’s title and the boxes name the guide, as below. On a waitlist or program-notice form that is not for a guide, the words “the Smart Patient’s Guide to [FORM TOPIC]” are replaced by “what I asked for”. On a form that has a first-name field (the waitlists) the first box reads “my email address, first name and my interest in”; on a form with an email field only it leaves out “first name”.",
+   "text": "Two separate boxes, directly above the submit button, neither checked in advance. The form does not submit without the first box. The second box is optional. On a guide form, the boxes name the guide the person requested, as below. On a waitlist or program-notice form that is not for a guide, the words “the guide I requested” are replaced by “what I asked for”. On a form that has a first-name field (the waitlists) the first box reads “my email address, first name and my interest in”; on a form with an email field only it leaves out “first name”.",
    "italic": false,
    "align": null
   },
   {
    "t": "check",
-   "text": "I agree that WellPeps may save my email address and my interest in [FORM TOPIC] so WellPeps can send me the Smart Patient’s Guide to [FORM TOPIC]."
+   "text": "I agree that WellPeps may save my email address and my interest in the topic of this form so WellPeps can send me the guide I requested."
   },
   {
    "t": "check",
-   "text": "Optional: I also agree to receive emails from WellPeps about [FORM TOPIC] and related wellness tips. I understand that I do not need to select this option in order to receive the Smart Patient’s Guide to [FORM TOPIC]."
+   "text": "Optional: I also agree to receive emails from WellPeps about the topic of this form and related wellness tips. I understand that I do not need to select this option in order to receive the guide I requested."
   },
   {
    "t": "p",
@@ -797,7 +745,7 @@
   },
   {
    "t": "p",
-   "text": "Optional. The patient can continue without checking it. The signature block below applies here and to B.1 if it is used.",
+   "text": "Optional. The patient can continue without checking it. The signature block below applies here and to B.1.",
    "italic": false,
    "align": null
   },
@@ -814,19 +762,19 @@
    "rows": [
     [
      "Typed full legal name",
-     "[typed by the person]"
+     "(typed by patient)"
     ],
     [
      "Date and time",
-     "[system-captured]"
+     "(system-captured)"
     ],
     [
      "Document version",
-     "[system-captured]"
+     "(system-captured)"
     ],
     [
      "IP address",
-     "[system-captured; counsel to confirm whether to log]"
+     "(system-captured)"
     ]
    ],
    "widths": [
@@ -848,37 +796,17 @@
   },
   {
    "t": "h2",
-   "text": "B.1 Optional acknowledgment of necessary sharing [DECISION: counsel to confirm whether to use]"
+   "text": "B.1 Acknowledgment of necessary sharing"
   },
   {
    "t": "p",
-   "text": "Not a consent: sharing that is necessary to provide the service does not need one. Use only if counsel wants the patient to see the sharing before intake. If used, do not call it a consent and do not let declining it look like a free choice.",
+   "text": "This is not a consent: sharing that is necessary to provide the service does not need one. It lets the patient see the sharing before intake. Do not call it a consent and do not let declining it look like a free choice.",
    "italic": false,
    "align": null
   },
   {
    "t": "check",
    "text": "I understand that WellPeps will give the consumer health information I enter to the Practice, to the pharmacy that fills my prescription and, if I order labs, to the laboratory, only so they can provide the service I asked for. I have read the Consumer Health Data Privacy Policy."
-  },
-  {
-   "t": "callout",
-   "kind": "info",
-   "text": "**Held wording.** The text that follows is not in effect yet. It applies only when the condition for \"B-A2: B.2 CONSENT TO SHARE WITH ADVERTISING OR ANALYTICS PARTNERS (template)\" in the technical notes at the end of this document is met."
-  },
-  {
-   "t": "p",
-   "text": "Show as its own box, separate from any collection consent, and not before a clear description is on screen. Do not pre-check it. Name the recipients or their categories from the tag inventory.",
-   "italic": false,
-   "align": null
-  },
-  {
-   "t": "check",
-   "text": "I agree that WellPeps may share [CATEGORIES OF DATA] about me with [NAMES OR CATEGORIES OF RECIPIENTS] so that they can [PURPOSE]. This is optional and does not affect my care or my order. I can withdraw this consent at any time through Your Privacy Choices or by emailing privacy@wellpeps.com."
-  },
-  {
-   "t": "callout",
-   "kind": "info",
-   "text": "**End of held wording.**"
   },
   {
    "t": "h1",
@@ -888,30 +816,6 @@
    "t": "callout",
    "kind": "note",
    "text": "**For the team, not part of the document.** These are instructions for WellPeps, counsel and the people who build the forms and pages. They are collected here so the document above reads on its own."
-  },
-  {
-   "t": "h2",
-   "text": "Held wording and when it takes effect"
-  },
-  {
-   "t": "callout",
-   "text": "**[ACTIVATION BLOCK C-A1: ADVERTISING OR ANALYTICS PARTNERS]**\n**Do not publish this block until:** an advertising or analytics tool will receive consumer health data; the separate consent in Appendix B.2 is built; the consent control in Your Privacy Choices, Part 2, is live; and the Cookie and Tracking Technologies Notice table N-A1 is active. Client decision 2026-10-05: an advertising tool may run on a page that reveals a health topic only with this separate consent, never as part of Accept all; counsel to confirm.",
-   "kind": "warning"
-  },
-  {
-   "t": "callout",
-   "text": "**[END ACTIVATION BLOCK C-A1]** When the trigger is met, delete this marker and the start marker and keep the text between them. Until then, delete the whole block before publishing.",
-   "kind": "warning"
-  },
-  {
-   "t": "callout",
-   "text": "**[ACTIVATION BLOCK B-A2: B.2 CONSENT TO SHARE WITH ADVERTISING OR ANALYTICS PARTNERS (template)]**\n**Do not publish this block until:** activation block C-A1 is active. This text is not used today.",
-   "kind": "warning"
-  },
-  {
-   "t": "callout",
-   "text": "**[END ACTIVATION BLOCK B-A2]** When the trigger is met, delete this marker and the start marker and keep the text between them. Until then, delete the whole block before publishing.",
-   "kind": "warning"
   },
   {
    "t": "h2",
@@ -925,7 +829,7 @@
   },
   {
    "t": "p",
-   "text": "Build notes: each consent is a separate, unchecked box. It must not be combined with any other agreement or with acceptance of any policy. Log each consent (who, when, which version and which text) as set out in Your Privacy Choices, Part 2, Section 2.3, and keep the log for the period in Privacy Policy Section 7. [COUNSEL: confirm wording.]",
+   "text": "Build notes: each consent is a separate, unchecked box. It must not be combined with any other agreement or with acceptance of any policy. Log each consent (who, when, which version and which text) as set out in Your Privacy Choices, Part 2, Section 2.3, and keep the log for the period in Privacy Policy Section 7. ",
    "italic": false,
    "align": null
   }

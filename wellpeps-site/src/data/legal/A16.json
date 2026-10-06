@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "Last updated: October 2, 2026  |  Version 1.0",
+   "text": "Last updated: October 6, 2026  |  Version 1.0",
    "italic": true,
    "align": null
   },
@@ -66,7 +66,7 @@
   },
   {
    "t": "p",
-   "text": "Which products you can be offered depends on your clinician’s decision, your sex and your age. WellPeps serves adults only. Finasteride and dutasteride are not FDA-approved for use in women. These medicines, and the foams that contain them, are not for use by anyone who is pregnant or may become pregnant. [MEDICAL DIRECTOR TO CONFIRM: eligibility by sex and age]",
+   "text": "Which products you can be offered depends on your clinician’s decision, your sex and your age. WellPeps serves adults only. Finasteride and dutasteride are not FDA-approved for use in women. These medicines, and the foams that contain them, are not for use by anyone who is pregnant or may become pregnant.",
    "italic": false,
    "align": null
   },
@@ -85,17 +85,17 @@
     [
      "Oral finasteride",
      "Finasteride",
-     "Finasteride 1 mg tablets are FDA-approved for male-pattern hair loss in men only. Your pharmacy may supply an FDA-approved tablet or a compounded capsule. [MEDICAL DIRECTOR TO CONFIRM: forms offered]"
+     "Finasteride 1 mg tablets are FDA-approved for male-pattern hair loss in men only. WellPeps does not offer the FDA-approved tablet. Your medicine is compounded, so it is not FDA-approved."
     ],
     [
      "Oral minoxidil",
      "Minoxidil",
-     "FDA-approved only for severe high blood pressure. Using it for hair loss is off-label. It may be a tablet or a compounded capsule."
+     "FDA-approved only for severe high blood pressure. Using it for hair loss is off-label. Your medicine is compounded."
     ],
     [
      "Topical minoxidil solution",
      "Minoxidil",
-     "Minoxidil for the scalp is sold over the counter in some strengths. A prescription or compounded strength may be different."
+     "Minoxidil for the scalp is sold over the counter in some strengths. Your compounded strength may be different. Compounded. Not FDA-approved."
     ],
     [
      "Minoxidil plus finasteride foam",
@@ -110,7 +110,7 @@
     [
      "Dutasteride",
      "Dutasteride",
-     "FDA-approved only for an enlarged prostate (BPH) in men. Using it for hair loss is off-label. It may be a compounded capsule at a strength that is not sold commercially."
+     "FDA-approved only for an enlarged prostate (BPH) in men. Using it for hair loss is off-label. Your medicine is compounded, so its strength and form may be different from commercial products."
     ]
    ],
    "widths": [
@@ -145,7 +145,7 @@
   },
   {
    "t": "p",
-   "text": "FDA-approved options exist, such as finasteride tablets for men and over-the-counter minoxidil. Ask your clinician about them at any time. See also the Compounded Medication Disclosure and Consent.",
+   "text": "WellPeps offers only compounded medications. It does not offer brand-name FDA-approved products. FDA-approved options exist, such as finasteride tablets for men and over-the-counter minoxidil, and they may be available through another provider and pharmacy. Ask your clinician about your options at any time. See also the Compounded Medication Disclosure and Consent.",
    "italic": false,
    "align": null
   },
@@ -221,7 +221,7 @@
   },
   {
    "t": "li",
-   "text": "Do not donate blood while you take these medicines or for a set time after your last dose, so that someone who is pregnant does not receive the medicine in a transfusion. [MEDICAL DIRECTOR TO CONFIRM: blood donation period]",
+   "text": "Do not donate blood while you take these medicines or for a set time after your last dose, so that someone who is pregnant does not receive the medicine in a transfusion. Ask your clinician how long to wait.",
    "level": 0
   },
   {
@@ -230,7 +230,7 @@
   },
   {
    "t": "li",
-   "text": "**Sexual side effects.** Lower sex drive, trouble getting or keeping an erection, less semen, and ejaculation or orgasm problems. Some people report that these continued after they stopped the medicine, and no one can predict who will be affected. Tell your clinician about any sexual side effect, during or after treatment. [MEDICAL DIRECTOR TO CONFIRM: finasteride label wording]",
+   "text": "**Sexual side effects.** Lower sex drive, trouble getting or keeping an erection, less semen, and ejaculation or orgasm problems. Some people report that these continued after they stopped the medicine, and no one can predict who will be affected. Tell your clinician about any sexual side effect, during or after treatment.",
    "level": 0
   },
   {
@@ -254,7 +254,7 @@
   },
   {
    "t": "li",
-   "text": "Dutasteride stays in the body much longer than finasteride, so its side effects, its effect on PSA and the blood-donation period can last for months after your last dose. [MEDICAL DIRECTOR TO CONFIRM: dutasteride duration]",
+   "text": "Dutasteride stays in the body much longer than finasteride, so its side effects, its effect on PSA and the blood-donation period can last a long time after your last dose. Ask your clinician how long.",
    "level": 0
   },
   {
@@ -264,7 +264,7 @@
   },
   {
    "t": "li",
-   "text": "No topical finasteride product is FDA-approved. A foam with finasteride has the same active ingredient as the tablets, so assume every warning in this section may apply to you. [VERIFY: 2025 FDA topical finasteride communication]",
+   "text": "A foam with finasteride is compounded and is not FDA-approved. It has the same active ingredient as the tablets, so assume every warning in this section may apply to you.",
    "level": 0
   },
   {
@@ -295,7 +295,7 @@
   },
   {
    "t": "li",
-   "text": "Before prescribing and while you take it, your clinician may ask for blood-pressure and heart-rate readings, a heart assessment, tests or an in-person exam, and may decline to prescribe it or stop it. They may also ask you to track your weight or pulse. [MEDICAL DIRECTOR TO CONFIRM: oral minoxidil baseline checks] [MEDICAL DIRECTOR TO CONFIRM: self-monitoring]",
+   "text": "Before prescribing and while you take it, your clinician may ask for blood-pressure and heart-rate readings, a heart assessment, tests or an in-person exam, and may decline to prescribe it or stop it. They may also ask you to track your weight or pulse.",
    "level": 0
   },
   {
@@ -319,7 +319,7 @@
   },
   {
    "t": "li",
-   "text": "Some solutions and foams contain alcohol or a propellant and can catch fire. Keep away from flame and heat, and do not smoke until the product is completely dry. [MEDICAL DIRECTOR TO CONFIRM: foam flammability]",
+   "text": "Some solutions and foams contain alcohol or a propellant and can catch fire. Keep away from flame and heat, and do not smoke until the product is completely dry. Follow your pharmacy label.",
    "level": 0
   },
   {
@@ -359,7 +359,7 @@
   },
   {
    "t": "li",
-   "text": "**Pregnancy and trying to conceive.** Do not use this foam if you are pregnant, may become pregnant or are trying to conceive. Tell your clinician right away if you become pregnant. [MEDICAL DIRECTOR TO CONFIRM: tretinoin pregnancy wording]",
+   "text": "**Pregnancy and trying to conceive.** Do not use this foam if you are pregnant, may become pregnant or are trying to conceive. Tell your clinician right away if you become pregnant.",
    "level": 0
   },
   {
@@ -369,7 +369,7 @@
   },
   {
    "t": "li",
-   "text": "**Other skin products.** Tretinoin can make skin absorb other medicines more easily. [MEDICAL DIRECTOR TO CONFIRM: tretinoin and minoxidil absorption] Do not use other retinoid, acne or exfoliating products on your scalp unless your clinician says it is fine.",
+   "text": "**Other skin products.** Do not use other retinoid, acne or exfoliating products on your scalp unless your clinician says it is fine.",
    "level": 0
   },
   {
@@ -521,7 +521,7 @@
   },
   {
    "t": "p",
-   "text": "Please read the Hair Loss Medication Safety Information (version 1.0, dated [EFFECTIVE DATE]) before checking each box. You can read it again at any time in the patient portal at portal.wellpeps.com. Signing this acknowledgment does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
+   "text": "Please read the Hair Loss Medication Safety Information (version 1.0, dated October 6, 2026) before checking each box. You can read it again at any time in the patient portal at portal.wellpeps.com. Signing this acknowledgment does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
    "italic": false,
    "align": null
   },
@@ -535,7 +535,7 @@
   },
   {
    "t": "check",
-   "text": "3.  I understand that some of my medicines may be compounded, that compounded medicines are not FDA-approved, and that FDA does not review them for safety, effectiveness or quality. I know I may ask my clinician about FDA-approved options at any time."
+   "text": "3.  I understand that my medicines are compounded, that compounded medicines are not FDA-approved, and that FDA does not review them for safety, effectiveness or quality. I understand that WellPeps does not offer FDA-approved products, which may be available through another provider and pharmacy."
   },
   {
    "t": "check",

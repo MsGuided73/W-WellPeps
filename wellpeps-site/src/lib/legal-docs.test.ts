@@ -32,10 +32,10 @@ describe('draft page switch', () => {
     expect(draftPagesEnabled({ flag: false })).toBe(false);
   });
 
-  test('with no variable set, the drafts follow the pre-launch state: shown while the checkout lock is on, gone at launch', () => {
-    expect(draftPagesEnabled({ preLaunch: true })).toBe(true);
-    expect(draftPagesEnabled({ preLaunch: true, flag: '' })).toBe(true);
-    expect(draftPagesEnabled({ preLaunch: true, flag: undefined })).toBe(true);
+  test('with no variable set, no deployment shows drafts, even while the checkout lock is on (launch audit 2026-10-06)', () => {
+    expect(draftPagesEnabled({ preLaunch: true })).toBe(false);
+    expect(draftPagesEnabled({ preLaunch: true, flag: '' })).toBe(false);
+    expect(draftPagesEnabled({ preLaunch: true, flag: undefined })).toBe(false);
     expect(draftPagesEnabled({ preLaunch: false })).toBe(false);
     expect(draftPagesEnabled({ preLaunch: false, flag: '' })).toBe(false);
   });
@@ -52,7 +52,8 @@ describe('draft page switch', () => {
   test('a build without the switch makes no draft page and hides every link to one', () => {
     const none = pagesToBuild(false);
     expect(none.docs.map((d) => d.id)).toEqual(LEGAL_DOCS.filter((d) => d.approved).map((d) => d.id));
-    expect(none.custom).toEqual([]);
+    expect(none.custom.map((c) => c.kind)).toEqual(CUSTOM_PAGES.filter((c) => c.released).map((c) => c.kind));
+    expect(none.custom.some((c) => c.kind === 'review')).toBe(false);
     for (const p of gatedPaths()) expect(linkVisible(p, false)).toBe(false);
   });
 
@@ -71,15 +72,19 @@ describe('draft page switch', () => {
 
   test('an approved document is built and linked in every deployment; the others stay held back', () => {
     const [first, second] = LEGAL_DOCS;
-    const docs: LegalDoc[] = [{ ...first, approved: true }, second];
+    const docs: LegalDoc[] = [{ ...first, approved: true }, { ...second, approved: false }];
     expect(pagesToBuild(false, docs).docs.map((d) => d.id)).toEqual([first.id]);
     expect(linkVisible(`/${first.path}`, false, docs)).toBe(true);
     expect(linkVisible(`/${second.path}`, false, docs)).toBe(false);
   });
 
   test('only documents the owner has released are approved', () => {
-    // A14 (GLP-1 safety) released by the owner on 2026-10-06; every other document stays a draft.
-    expect(LEGAL_DOCS.filter((d) => d.approved).map((d) => d.id)).toEqual(['A14']);
+    // Released by the owner for the 2026-10-06 launch audit. A1, A2, A6 and A7 replace the old template pages at
+    // the same addresses. Held back: A5 (the live interactive page stays), A11 (texts go through the patient portal)
+    // and the portal-only forms B1, B3, B6, B7, B8.
+    expect(LEGAL_DOCS.filter((d) => d.approved).map((d) => d.id)).toEqual(
+      ['A1', 'A2', 'A3', 'A4', 'A6', 'A7', 'A8', 'A9', 'A10', 'A12', 'A13', 'A14', 'A15', 'A16', 'A17', 'B2', 'B4', 'B5']);
+    for (const d of LEGAL_DOCS.filter((x) => x.approved)) expect(d.effective).toMatch(/^October [56], 2026$/);
   });
 });
 
@@ -145,12 +150,13 @@ describe('reading order of the converted documents', () => {
     }
   });
 
-  test('where wording is held for later, a short marker stays in place and the conditions are in the notes', () => {
-    const blocks = loadDoc('A4').blocks as any[];
-    const at = blocks.findIndex((b) => b.t === 'h1' && b.text === END);
-    expect(at).toBeGreaterThan(0);
-    expect(blocks.slice(0, at).some((b) => /Held wording\./.test(b.text ?? ''))).toBe(true);
-    expect(blocks.slice(at).some((b) => /\[ACTIVATION BLOCK/.test(b.text ?? ''))).toBe(true);
+  test('a released document carries no held wording: anything not in effect was removed for the 2026-10-06 launch', () => {
+    for (const d of LEGAL_DOCS.filter((x) => x.approved && x.id !== 'A14')) {
+      const blocks = loadDoc(d.id).blocks as any[];
+      const at = blocks.findIndex((b) => b.t === 'h1' && b.text === END);
+      const shown = at >= 0 ? blocks.slice(0, at) : blocks;
+      expect(shown.some((b) => /Held wording\.|\[ACTIVATION BLOCK/.test(JSON.stringify(b))), d.id).toBe(false);
+    }
   });
 
   test('a document with no technical material has no notes section', () => {
@@ -161,8 +167,9 @@ describe('reading order of the converted documents', () => {
 describe('what the converted documents may contain', () => {
   // Restricted partner identities, contract titles and internal paths must never reach the site or the public repo.
   // Scriptful, Inc., Scriptful Rx and OSI Medical Services, P.A. may be named (client, 2026-10-02: the CEO holds
-  // OSI's written authorization to identify it on the website).
-  const DENY = [/\bNAA\b/, /Network Access Agreement/, /PepRite/, /docs\//, /Side Letter/, /Service Agreement/];
+  // OSI's written authorization to identify it on the website). PepRite, Inc. may be named as the management
+  // partner (owner, 2026-10-06).
+  const DENY = [/\bNAA\b/, /Network Access Agreement/, /docs\//, /Side Letter/, /Service Agreement/];
 
   test('no restricted partner name, contract title or internal path', () => {
     for (const d of LEGAL_DOCS) {

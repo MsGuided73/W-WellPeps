@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "Last updated: October 2, 2026  |  Version 1.0",
+   "text": "Last updated: October 6, 2026  |  Version 1.0",
    "italic": true,
    "align": null
   },
@@ -72,11 +72,11 @@
   },
   {
    "t": "h2",
-   "text": "3. About your medicine: FDA-approved or compounded"
+   "text": "3. About your medicine: compounded"
   },
   {
    "t": "p",
-   "text": "Depending on the pharmacy that fills your prescription, your medicine may be an FDA-approved product made by a drug manufacturer (brand or generic), or it may be a compounded medicine. A compounded medicine is made by a pharmacy for you, based on your prescriber’s order. Your label and pharmacy paperwork say which one you have. If you cannot tell, ask the pharmacy before your first dose.",
+   "text": "WellPeps offers only compounded medications. It does not offer brand-name FDA-approved products. A compounded medicine is made by a state-licensed pharmacy for you, based on your prescriber’s order. Your label and pharmacy paperwork tell you what you have. If you have a question, ask the pharmacy before your first dose.",
    "italic": false,
    "align": null
   },
@@ -87,17 +87,17 @@
   },
   {
    "t": "li",
-   "text": "A compounded medicine is not the same as, equivalent to or interchangeable with an FDA-approved product, even when the active ingredient has the same name. The strength, form and how fast it is absorbed can be different. [MEDICAL DIRECTOR TO CONFIRM: forms offered]",
+   "text": "A compounded medicine is not the same as, equivalent to or interchangeable with an FDA-approved product, even when the active ingredient has the same name. The strength, form and how fast it is absorbed can be different.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "FDA-approved sildenafil and tadalafil products are available. You can ask your clinician at any time whether one is right for you.",
+   "text": "FDA-approved sildenafil and tadalafil products are not offered by WellPeps. They may be available through another provider and pharmacy. You can ask your clinician about your options at any time.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "Every warning on this page applies to both kinds. See also the Compounded Medication Disclosure and Consent.",
+   "text": "Every warning on this page applies to your medicine. See also the Compounded Medication Disclosure and Consent.",
    "level": 0
   },
   {
@@ -196,7 +196,7 @@
   },
   {
    "t": "p",
-   "text": "If you have chest pain after a dose, do not take a nitrate unless hospital or emergency staff, who know your dose and when you took it, tell you to. Under current labeling, in a life-threatening situation where a nitrate is considered medically necessary, a set amount of time should pass after your last dose first: at least 24 hours for sildenafil and at least 48 hours for tadalafil, and only with close medical supervision. [MEDICAL DIRECTOR TO CONFIRM: nitrate intervals]",
+   "text": "If you have chest pain after a dose, do not take a nitrate unless hospital or emergency staff, who know your dose and when you took it, tell you to. In a life-threatening situation where a nitrate is considered medically necessary, enough time must pass after your last dose first, and a nitrate should be given only with close medical supervision. Tell emergency staff which medicine you took and when you took it. They will decide what is safe.",
    "italic": false,
    "align": null
   },
@@ -212,7 +212,7 @@
   },
   {
    "t": "li",
-   "text": "Your clinician may ask for more information, a blood-pressure reading, test results, a visit with your own doctor or a heart specialist, or an in-person exam before deciding. [MEDICAL DIRECTOR TO CONFIRM: cardiac screening steps]",
+   "text": "Your clinician may ask for more information, a blood-pressure reading, test results, a visit with your own doctor or a heart specialist, or an in-person exam before deciding.",
    "level": 0
   },
   {
@@ -304,7 +304,7 @@
   },
   {
    "t": "li",
-   "text": "**Alpha-blockers and other blood-pressure medicines.** Alpha-blockers (such as doxazosin, terazosin, tamsulosin, alfuzosin and silodosin) and other blood-pressure medicines can lower your blood pressure too much when combined with a PDE5 inhibitor, especially when either is new. Your clinician may decide this combination is not right for you. [MEDICAL DIRECTOR TO CONFIRM: alpha-blocker guidance]",
+   "text": "**Alpha-blockers and other blood-pressure medicines.** Alpha-blockers (such as doxazosin, terazosin, tamsulosin, alfuzosin and silodosin) and other blood-pressure medicines can lower your blood pressure too much when combined with a PDE5 inhibitor, especially when either is new. Your clinician may decide this combination is not right for you. Follow your clinician’s instructions and your pharmacy label.",
    "level": 0
   },
   {
@@ -314,7 +314,7 @@
   },
   {
    "t": "li",
-   "text": "**Alcohol.** Drinking a lot of alcohol while you take these medicines can cause dizziness, a fast heartbeat, headache and low blood pressure. [MEDICAL DIRECTOR TO CONFIRM: alcohol amount]",
+   "text": "**Alcohol.** Drinking a lot of alcohol while you take these medicines can cause dizziness, a fast heartbeat, headache and low blood pressure. Ask your clinician what is safe for you.",
    "level": 0
   },
   {
@@ -333,12 +333,12 @@
   },
   {
    "t": "li",
-   "text": "**Sildenafil (as needed)** is taken only when you plan sexual activity, as your label says. Do not take it more often than your label allows. [MEDICAL DIRECTOR TO CONFIRM: once-a-day limit]",
+   "text": "**Sildenafil (as needed)** is taken only when you plan sexual activity, as your label says. Do not take it more often than your label allows.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "**Tadalafil (as needed)** stays in your body longer than sildenafil. Its effects, including lower blood pressure and the danger with nitrates, can last a day or more. [MEDICAL DIRECTOR TO CONFIRM: tadalafil duration] Do not take it more often than your label allows.",
+   "text": "**Tadalafil (as needed)** stays in your body longer than sildenafil. Its effects, including lower blood pressure and the danger with nitrates, can last much longer than those of sildenafil. Follow your clinician’s instructions and your pharmacy label. Do not take it more often than your label allows.",
    "level": 0
   },
   {
@@ -475,7 +475,7 @@
   },
   {
    "t": "p",
-   "text": "Please read the Sexual Health Medication Safety Information (version 1.0, dated [EFFECTIVE DATE]) before checking each box. You can read it again at any time in the patient portal at portal.wellpeps.com. Signing this acknowledgment does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
+   "text": "Please read the Sexual Health Medication Safety Information (version 1.0, dated October 6, 2026) before checking each box. You can read it again at any time in the patient portal at portal.wellpeps.com. Signing this acknowledgment does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
    "italic": false,
    "align": null
   },
@@ -489,7 +489,7 @@
   },
   {
    "t": "check",
-   "text": "3.  I understand that my medicine may be an FDA-approved product or a compounded medicine, that compounded medicines are not FDA-approved, and that FDA does not review them for safety, effectiveness or quality. I know I may ask my clinician about FDA-approved options at any time."
+   "text": "3.  I understand that my medicine is a compounded medicine, that compounded medicines are not FDA-approved, and that FDA does not review them for safety, effectiveness or quality. I understand that WellPeps does not offer FDA-approved products, which may be available through another provider and pharmacy."
   },
   {
    "t": "check",

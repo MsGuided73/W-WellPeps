@@ -20,8 +20,10 @@ interface Props {
   description: string;
   subtitle?: string;
   clientNeeds?: string[];
+  /** A released page: no draft banner and no to-do box. */
+  final?: boolean;
 }
-const { title, description, subtitle, clientNeeds = [] } = Astro.props;
+const { title, description, subtitle, clientNeeds = [], final = false } = Astro.props;
 ---
 <BaseLayout title={`${title} — WellPeps`} description={description}>
   <article class="legal">
@@ -33,7 +35,7 @@ const { title, description, subtitle, clientNeeds = [] } = Astro.props;
     </header>
 
     <div class="container legal__body">
-      <div class="callout" role="note">
+      {!final && <div class="callout" role="note">
         <strong>Draft for review — not a live legal notice yet.</strong>
         <p>
           This page is a working template. The highlighted items below still
@@ -45,9 +47,9 @@ const { title, description, subtitle, clientNeeds = [] } = Astro.props;
           <li><span class="ph ph--web">Web team</span> — a technical item the WellPeps web team completes. Nothing for you to do.</li>
           <li><span class="ph ph--legal">Lawyer</span> — a wording or legal decision for your attorney.</li>
         </ul>
-      </div>
+      </div>}
 
-      {clientNeeds.length > 0 && (
+      {!final && clientNeeds.length > 0 && (
         <div class="needbox" role="note">
           <strong>What we need from you on this page</strong>
           <p>Just these items — everything else is handled by the web team or your lawyer:</p>

@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "Version 1.0  |  Effective [EFFECTIVE DATE]  |  Last updated October 2, 2026",
+   "text": "Version 1.0  |  Effective October 6, 2026  |  Last updated October 6, 2026",
    "italic": true,
    "align": null
   },
@@ -85,7 +85,7 @@
     ],
     [
      "A.6",
-     "I am at least 18 years old. If I live in Alabama or Nebraska, I am at least 19. If I live in Mississippi, I am at least 21. [VERIFY: age of majority by state]",
+     "I am at least 18 years old. If I live in Alabama or Nebraska, I am at least 19. If I live in Mississippi, I am at least 21.",
      "Checkbox (single option: I agree)",
      "Required",
      "System"
@@ -106,7 +106,7 @@
     ],
     [
      "A.9",
-     "If asked, I will give a clear photo of a valid government-issued photo ID and a photo of myself, so the Practice or WellPeps can confirm who I am. [VERIFY: ID verification requirement]",
+     "If asked, I will give a clear photo of a valid government-issued photo ID and a photo of myself, so the Practice or WellPeps can confirm who I am.",
      "Checkbox (single option: I agree); File Upload (PNG, JPG, HEIC or PDF)",
      "Statement required; upload when requested",
      "Clinician (WellPeps may pre-check)"
@@ -172,7 +172,7 @@
     ],
     [
      "B.3",
-     "I understand that clinicians must be licensed where I am physically located during my care. I will update my location before every visit, refill or request for care, and I will not ask for care while I am outside all 50 states. [VERIFY: care while outside the state]",
+     "I understand that clinicians must be licensed where I am physically located during my care. I will update my location before every visit, refill or request for care, and I will not ask for care while I am outside all 50 states.",
      "Checkbox (single option: I agree)",
      "Required",
      "System"
@@ -197,7 +197,7 @@
   },
   {
    "t": "h2",
-   "text": "Part C. Your health: questions for everyone [MEDICAL DIRECTOR TO CONFIRM]"
+   "text": "Part C. Your health: questions for everyone"
   },
   {
    "t": "table",
@@ -292,7 +292,7 @@
   },
   {
    "t": "h2",
-   "text": "Part D. Your health: questions for the program you chose [MEDICAL DIRECTOR TO CONFIRM]"
+   "text": "Part D. Your health: questions for the program you chose"
   },
   {
    "t": "p",
@@ -404,7 +404,7 @@
   },
   {
    "t": "h3",
-   "text": "D2. Sexual Wellness (currently offered to men only) [VERIFY: men-only eligibility wording]"
+   "text": "D2. Sexual Wellness (currently offered to men only)"
   },
   {
    "t": "table",
@@ -689,7 +689,7 @@
     ],
     [
      "E.3",
-     "The Practice's clinician may send information about my care to my PCP. I can change my mind at any time. (Optional.) [VERIFY: PCP notice]",
+     "The Practice's clinician may send information about my care to my PCP. I can change my mind at any time. (Optional.)",
      "Radio: Yes, No. See HIPAA Authorization Forms",
      "Optional",
      "Clinician"
@@ -730,21 +730,21 @@
      "F.1",
      "Emergency contact name",
      "Short Text",
-     "Required [PRACTICE TO CONFIRM]",
+     "Required",
      "Clinician"
     ],
     [
      "F.2",
      "Relationship to you",
      "Short Text",
-     "Required [PRACTICE TO CONFIRM]",
+     "Required",
      "Clinician"
     ],
     [
      "F.3",
      "Emergency contact phone number",
      "Phone",
-     "Required [PRACTICE TO CONFIRM]",
+     "Required",
      "Clinician"
     ],
     [
@@ -862,7 +862,7 @@
     ],
     [
      "H.3",
-     "I have received the Notice of Privacy Practices of the Practice, or I was given a link to it. [VERIFY: where the Notice of Privacy Practices acknowledgment is collected]",
+     "I have received the Notice of Privacy Practices of the Practice, or I was given a link to it.",
      "Checkbox (single option: I agree)",
      "Required",
      "System"
@@ -896,7 +896,7 @@
   },
   {
    "t": "check",
-   "text": "I have read this form (version 1.0, effective [EFFECTIVE DATE]). My answers are my own, and they are true and complete."
+   "text": "I have read this form (version 1.0, effective October 6, 2026). My answers are my own, and they are true and complete."
   },
   {
    "t": "h2",

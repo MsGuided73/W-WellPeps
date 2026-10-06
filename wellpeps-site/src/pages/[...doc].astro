@@ -28,23 +28,26 @@ const files = import.meta.glob<{ default: LegalDocData }>('../data/legal/*.json'
 const load = (docId: string): LegalDocData => files[`../data/legal/${docId}.json`].default;
 
 const doc = kind === 'doc' ? findDoc(Astro.params.doc ?? '') : undefined;
+const drafts = draftPagesEnabledNow();
+const a8doc = findDoc('medical-disclaimer');
+const released = LEGAL_DOCS.filter((d) => drafts || d.approved);
 const data = doc ? load(doc.id) : undefined;
 const a8 = kind === 'contact' || kind === 'states' ? load('A8') : undefined;
 const contactBlocks = a8 ? sectionCopy(a8.blocks, /^Block 7\./) : [];
 const statesBlocks = a8 ? sectionCopy(a8.blocks, /^Block 8\./) : [];
 ---
 {doc && data && (
-  <LegalDocPage title={doc.title} blurb={doc.blurb} docId={doc.id} version={data.version} date={data.date} blocks={data.blocks} existing={doc.existing} approved={doc.approved} />
+  <LegalDocPage title={doc.title} blurb={doc.blurb} docId={doc.id} version={doc.approved ? '1.0' : data.version} date={doc.approved ? (doc.effective ?? data.date) : data.date} blocks={data.blocks} existing={doc.existing} approved={doc.approved} />
 )}
 {kind === 'contact' && a8 && (
-  <LegalDocPage title="Contact WellPeps" blurb="How to reach us, and what each address is for." docId="A8" version={a8.version} date={a8.date} blocks={contactBlocks} />
+  <LegalDocPage title="Contact WellPeps" blurb="How to reach us, and what each address is for." docId="A8" version={a8doc?.approved ? '1.0' : a8.version} date={a8doc?.approved ? a8doc.effective : a8.date} blocks={contactBlocks} approved={a8doc?.approved} />
 )}
 {kind === 'states' && a8 && (
-  <LegalDocPage title="States We Serve" blurb="Where care and each kind of medication are available today." docId="A8" version={a8.version} date={a8.date} blocks={statesBlocks} />
+  <LegalDocPage title="States We Serve" blurb="Where care and each kind of medication are available today." docId="A8" version={a8doc?.approved ? '1.0' : a8.version} date={a8doc?.approved ? a8doc.effective : a8.date} blocks={statesBlocks} approved={a8doc?.approved} />
 )}
 {kind === 'hub' && (
-  <LegalDocPage plain title="Patient Information" blurb="What to read before and during treatment: how it works, safety information, consents, policies and your rights.">
-    <DocList docs={docsByGroup('patient')} />
+  <LegalDocPage plain approved={!drafts} title="Patient Information" blurb="What to read before and during treatment: how it works, safety information, consents, policies and your rights.">
+    <DocList docs={released} hideIds={!drafts} />
     <p>
       <a href="/states-we-serve">States We Serve</a> &middot; <a href="/contact">Contact WellPeps</a>
     </p>

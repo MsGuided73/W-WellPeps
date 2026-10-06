@@ -216,8 +216,7 @@ export const knowledgeBase: KnowledgeDoc[] = [
     answer:
       'Yes. Every treatment recommendation is made by a licensed healthcare provider practicing in the state where they are authorized to provide care.',
     body: `All treatment recommendations come from licensed healthcare providers. WellPeps was founded by a
-      physician and experienced pharmacy professionals, and its founders bring decades of clinical
-      experience to every patient journey.`,
+      physician, who brings decades of clinical experience to every patient journey.`,
   },
   {
     id: 'faq-candidate',

@@ -26,10 +26,13 @@ interface Props {
   approved?: boolean;
 }
 const { title, blurb, docId, version = '0.1', date, blocks, existing, plain = false, approved = false } = Astro.props;
-const html = blocks ? renderBlocks(blocks) : '';
-const toc = blocks ? outline(blocks) : [];
+// A released document never shows its internal "Technical and drafting notes" section.
+const techAt = approved && blocks ? blocks.findIndex((b) => b.t === 'h1' && /technical and drafting notes/i.test(String((b as { text?: string }).text ?? ''))) : -1;
+const shown = blocks && techAt >= 0 ? blocks.slice(0, techAt) : blocks;
+const html = shown ? renderBlocks(shown) : '';
+const toc = shown ? outline(shown) : [];
 const tag = approved
-  ? `Version ${version}${date ? ` · ${date}` : ''}`
+  ? (docId ? `Version ${version}${date ? ` · Effective ${date}` : ''}` : 'Patient information')
   : plain ? 'For attorney review' : `Draft v${version}${docId ? ` · Document ${docId}` : ''}`;
 ---
 <BaseLayout title={approved ? `${title} — WellPeps` : `${title} (draft) — WellPeps`} description={blurb ?? `${title}. Draft for review.`} noindex={!approved}>

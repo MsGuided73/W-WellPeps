@@ -1,7 +1,7 @@
 {
  "title": "Medical Disclaimer and Site-Wide Disclosure Set",
- "version": "0.1",
- "date": "October 1, 2026",
+ "version": "1.0",
+ "date": "October 6, 2026",
  "blocks": [
   {
    "t": "h1",
@@ -31,7 +31,7 @@
   },
   {
    "t": "li",
-   "text": "“WellPeps does not bill insurance, Medicare or Medicaid.” [VERIFY: HSA and FSA statement, requirement E3]",
+   "text": "“WellPeps does not bill insurance, Medicare or Medicaid.”",
    "level": 0
   },
   {
@@ -51,7 +51,7 @@
   },
   {
    "t": "p",
-   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: October 2, 2026  |  Version 1.0",
+   "text": "Effective date: October 6, 2026  |  Last updated: October 6, 2026  |  Version 1.0",
    "italic": true,
    "align": null
   },
@@ -101,7 +101,7 @@
    "t": "clause",
    "number": "7.",
    "heading": "Compounded medications.",
-   "text": "Some prescriptions are compounded. A compounded medication is made by a state-licensed pharmacy for one patient, based on a clinician’s prescription. Compounded medications are not FDA-approved. FDA does not review them for safety, effectiveness or quality before they are sold. A compounded medication is not a generic version of an FDA-approved medicine, and you should not assume it is the same as, or can be swapped for, an FDA-approved medicine. Your clinician decides whether a compounded medication is right for you. You can ask about FDA-approved options at any time. Read the Compounded Medication Disclosure and Consent for more.",
+   "text": "Some prescriptions are compounded. A compounded medication is made by a state-licensed pharmacy for one patient, based on a clinician’s prescription. Compounded medications are not FDA-approved. FDA does not review them for safety, effectiveness or quality before they are sold. A compounded medication is not a generic version of an FDA-approved medicine, and you should not assume it is the same as, or can be swapped for, an FDA-approved medicine. Your clinician decides whether a compounded medication is right for you. WellPeps offers only compounded medications, not brand-name FDA-approved products. FDA-approved medicines may be available through another provider and pharmacy. Read the Compounded Medication Disclosure and Consent for more.",
    "level": 0
   },
   {
@@ -176,7 +176,7 @@
   },
   {
    "t": "callout",
-   "text": "This article is for general education only. It is not medical advice and does not create a clinician-patient relationship. Talk to a licensed clinician about your own health before you start, change or stop any treatment. WellPeps offers some of the treatments discussed here. A prescription is required and is not guaranteed. Individual results vary. See the Medical Disclaimer.\n[REVIEWER LINE]",
+   "text": "This article is for general education only. It is not medical advice and does not create a clinician-patient relationship. Talk to a licensed clinician about your own health before you start, change or stop any treatment. WellPeps offers some of the treatments discussed here. A prescription is required and is not guaranteed. Individual results vary. See the Medical Disclaimer.",
    "kind": "info"
   },
   {
@@ -207,7 +207,7 @@
   },
   {
    "t": "callout",
-   "text": "Some medications we offer are FDA-approved products made by manufacturers. Others are compounded. Your clinician and your pharmacy label tell you which one you receive. A compounded medication is made by a state-licensed pharmacy for one patient, based on a clinician’s prescription. Compounded medications are not FDA-approved. FDA does not review them for safety, effectiveness or quality before they are sold. A compounded medication is not a generic version of an FDA-approved medicine. Do not assume it is the same as, or can be swapped for, an FDA-approved medicine. Your clinician decides whether a compounded medication is right for you, and you can ask about FDA-approved options at any time. Prescription required; a prescription is not guaranteed.",
+   "text": "The medications WellPeps offers are compounded. Your pharmacy label tells you what you receive. A compounded medication is made by a state-licensed pharmacy for one patient, based on a clinician’s prescription. Compounded medications are not FDA-approved. FDA does not review them for safety, effectiveness or quality before they are sold. A compounded medication is not a generic version of an FDA-approved medicine. Do not assume it is the same as, or can be swapped for, an FDA-approved medicine. Your clinician decides whether a compounded medication is right for you. WellPeps offers only compounded medications, not brand-name FDA-approved products. FDA-approved medicines may be available through another provider and pharmacy. Prescription required; a prescription is not guaranteed.",
    "kind": "info"
   },
   {
@@ -257,7 +257,7 @@
   },
   {
    "t": "callout",
-   "text": "Prescription required; a prescription is not guaranteed. A licensed clinician decides whether a weight-loss medication is medically appropriate for you, based on your health history. These medications are for adults. Compounded medications are not FDA-approved, and FDA-approved medicines are available; you can ask your clinician about them at any time. Results vary. WellPeps does not guarantee any result.",
+   "text": "Prescription required; a prescription is not guaranteed. A licensed clinician decides whether a weight-loss medication is medically appropriate for you, based on your health history. These medications are for adults. Compounded medications are not FDA-approved. FDA-approved medicines may be available through another provider and pharmacy. Results vary. WellPeps does not guarantee any result.",
    "kind": "info"
   },
   {
@@ -275,7 +275,7 @@
   },
   {
    "t": "callout",
-   "text": "Prescription required; a prescription is not guaranteed. A licensed clinician decides whether treatment is appropriate for you. Some hair-loss medications are prescribed off-label, which means for a use FDA has not approved, and some are compounded. Your clinician will explain which applies to you. Results vary.",
+   "text": "Prescription required; a prescription is not guaranteed. A licensed clinician decides whether treatment is appropriate for you. The hair-loss medications WellPeps offers are compounded, and some are prescribed off-label, which means for a use FDA has not approved. Your clinician will explain what applies to you. Results vary.",
    "kind": "info"
   },
   {
@@ -324,7 +324,7 @@
   },
   {
    "t": "p",
-   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: October 2, 2026  |  Version 1.0",
+   "text": "Effective date: October 6, 2026  |  Last updated: October 6, 2026  |  Version 1.0",
    "italic": true,
    "align": null
   },
@@ -408,7 +408,7 @@
   },
   {
    "t": "callout",
-   "text": "**WellPeps, a Wyoming corporation**\n30 N Gould St., Suite R, Sheridan, WY 82801\nEmail: support@wellpeps.com\nHours: Monday to Friday, 9 am to 6 pm Eastern Time\nPhone: (307) 881-8700, during normal business hours\nPrivacy requests: privacy@wellpeps.com\nRegistered office (for legal notices only): [REGISTERED OFFICE]\nCustomer support can help with orders, shipping, billing, your account and cancellations. Support cannot give medical advice. For medical questions, message your clinician in the patient portal. In an emergency, call 911.\nWellPeps is not a medical practice or a pharmacy. Medical care is provided by independent licensed clinicians. Medications are prepared and shipped by state-licensed pharmacies. WellPeps does not bill insurance, Medicare or Medicaid.\nWellPeps is owned in part by a principal of our management-services partner. Read How WellPeps Works for how the companies involved in your care are related.",
+   "text": "**WellPeps, a Wyoming corporation**\n30 N Gould St., Suite R, Sheridan, WY 82801\nEmail: support@wellpeps.com\nHours: Monday to Friday, 9 am to 6 pm Eastern Time\nPhone: (307) 881-8700, during normal business hours\nPrivacy requests: privacy@wellpeps.com\nRegistered office (for legal notices only): 30 N Gould St., Suite R, Sheridan, WY 82801\nCustomer support can help with orders, shipping, billing, your account and cancellations. Support cannot give medical advice. For medical questions, message your clinician in the patient portal. In an emergency, call 911.\nWellPeps is not a medical practice or a pharmacy. Medical care is provided by independent licensed clinicians. Medications are prepared and shipped by state-licensed pharmacies. WellPeps does not bill insurance, Medicare or Medicaid.\nWellPeps is owned in part by a principal of our management-services partner. Read How WellPeps Works for how the companies involved in your care are related.",
    "kind": "info"
   },
   {
@@ -421,7 +421,7 @@
   },
   {
    "t": "callout",
-   "text": "**States We Serve**\nWellPeps serves patients located in all 50 states. A licensed clinician can review your health assessment wherever you are in the United States. Some medications are not available in every state: if a medication cannot be shipped to your state, we will tell you before you check out. Being in a state we serve does not guarantee that you will be prescribed treatment.\nLast updated: October 2, 2026  |  Last verified: October 2, 2026",
+   "text": "**States We Serve**\nWellPeps serves patients located in all 50 states. A licensed clinician can review your health assessment wherever you are in the United States. Some medications are not available in every state: if a medication cannot be shipped to your state, we will tell you before you check out. Being in a state we serve does not guarantee that you will be prescribed treatment.\nLast updated: October 6, 2026  |  Last verified: October 2, 2026",
    "kind": "info"
   },
   {
@@ -537,89 +537,6 @@
   },
   {
    "t": "h1",
-   "text": "Block 11. Replacing the “HIPAA Compliant” badge and the “Licensed Providers in All 50 States” claims"
-  },
-  {
-   "t": "p",
-   "text": "Requirement D21. Each existing claim below must be removed or substantiated before the site goes live. Locations come from a read-only search of wellpeps-site/src on 2026-10-01; run a full site search before publishing, because the same phrases recur.",
-   "italic": false,
-   "align": null
-  },
-  {
-   "t": "table",
-   "rows": [
-    [
-     "Existing claim and where it appears",
-     "Why it must go or be substantiated",
-     "Replacement wording",
-     "Use the replacement only when"
-    ],
-    [
-     "**“HIPAA Compliant”** badge in the footer (Footer.astro). “HIPAA-compliant technology and systems” in FAQs and the assistant knowledge base (weight.ts, why-wellpeps.astro, knowledge.ts).",
-     "No HIPAA certification exists, so a badge reads as a seal it is not. “Compliant” is a legal conclusion. It depends on WellPeps’ HIPAA role (item H1, undecided), signed business associate agreements (none in hand), a risk analysis and a security program (item H5, not done). The marketing site holds no PHI. An unsupported privacy claim is a deception risk under FTC Act section 5 and a LegitScript Standard 6 problem.",
-     "Badge: replace the shield with a lock icon and the text “We protect your information,” linking to the Privacy Policy.\nFAQ now: “We take your privacy seriously. Read the Privacy Policy and the Notice of Privacy Practices to see how your information is handled.”\nFAQ later: “Health information you share with your clinician is protected by federal privacy law (HIPAA). Read the Notice of Privacy Practices.”",
-     "Now: counsel approves the first two. Later wording: after the H1 decision, signed business associate agreements and a published Notice of Privacy Practices."
-    ],
-    [
-     "**“Licensed Providers in All 50 States,” “50 States · Nationwide Care,” “50-State Licensed Provider Network”** (Footer.astro; config.ts coverage string; content.ts; knowledge.ts; weight.ts; why-wellpeps.astro). The Terms page already flags it.",
-     "The licensure record (Schedule B) is not in hand, and the the agreement with the Practice warrants licensure only in “applicable states” (section 9(b)). Pharmacies must also be licensed per state, and some states restrict compounded GLP-1 (OH and CT positions; the California oral-form exclusion). LegitScript Standards 1 and 5 compare the claim to the licensure record (items LS1-PROVIDER-LICENSURE-SUBSTANTIATED and LS5-STATES-MATCH-LICENSURE). Publishing a shorter list on the States We Serve page while the footer says all 50 is the worst outcome.",
-     "Footer: “Licensed clinicians in the states we serve. See States We Serve.”\nUntil the table is verified: “Care is available in select states. See where we serve.”\nFAQ “What states do you serve?”: “We serve all 50 states. See the States We Serve page for the current list. Availability of each medication varies by state.”",
-     "The States We Serve table matches the licensure record and the pharmacy dispensing matrix, and all 50 states is filled."
-    ],
-    [
-     "**“Compounded in FDA-registered U.S. facilities” / “prepared by FDA-registered U.S. compounding pharmacies”** (weight.ts lead and body; knowledge.ts; hair.ts FAQ).",
-     "Patient-specific (503A) pharmacies are regulated mainly by state boards of pharmacy. “FDA-registered” describes outsourcing facilities and manufacturers, so the phrase misdescribes the pharmacies and can imply FDA oversight or approval of the product. FDA’s GLP-1 warning letters cite “FDA-approved pharmacy” and sameness claims.",
-     "“Prepared by state-licensed pharmacies.”",
-     "The pharmacy roster is confirmed and each pharmacy’s license is verified in the states it ships to."
-    ],
-    [
-     "**“Licensed U.S. pharmacy partners that meet applicable quality and regulatory standards”** (knowledge.ts).",
-     "“Meet applicable quality standards” is an unsupported quality claim.",
-     "“State-licensed pharmacies.”",
-     "License evidence is on file."
-    ],
-    [
-     "**“Physician-guided care”** (why-wellpeps.astro).",
-     "The clinicians’ credentials are unconfirmed (physicians, nurse practitioners or physician assistants).",
-     "“Licensed clinicians.”",
-     "The Practice confirms credentials; then “physician” may be used only where true."
-    ],
-    [
-     "**“Trusted. Certified. Committed to You.”** (home trust bar, removed 2026-07-07; an internal document asks whether to restore it).",
-     "“Certified” implies a certification WellPeps does not hold until LegitScript issues one. The LegitScript badge is correctly hidden in the footer.",
-     "“Independent licensed clinicians. State-licensed pharmacies.”",
-     "Do not restore “Certified” until the certificate is issued and the use is licensed."
-    ],
-    [
-     "**“FSA/HSA”** payment tile (Footer.astro).",
-     "Accepting an HSA or FSA card does not mean treatment is an eligible expense. Eligibility is set by the account administrator.",
-     "Remove the tile, or: “HSA and FSA cards can be used where your plan allows. Your plan administrator decides what is eligible.”",
-     "Requirement E3 (cash-pay acknowledgment) is settled."
-    ],
-    [
-     "**“Quest Diagnostics and Labcorp” named as lab partners** (knowledge.ts).",
-     "Naming third-party brands implies a relationship. No lab partner terms are in hand (requirement B11).",
-     "“Low-cost lab testing through national lab partners when your clinician recommends it. Lab fees are billed separately.”",
-     "A lab agreement allows the names."
-    ],
-    [
-     "**A file named “Ozempic is Semaglutide.png”** sits untracked in the repository root.",
-     "If it is meant for publication, it states or implies that a compounded product is the same as a brand drug. FDA’s letters target that message.",
-     "Do not publish. If a comparison is needed, counsel and the compliance review decide the wording (requirement J1).",
-     "Counsel and the compliance review approve it."
-    ]
-   ],
-   "widths": [
-    2.1,
-    2.7,
-    2.5,
-    1.6
-   ],
-   "header": true,
-   "shade": false
-  },
-  {
-   "t": "h1",
    "text": "Block 12. How the care team works (one paragraph)"
   },
   {
@@ -687,7 +604,7 @@
   },
   {
    "t": "li",
-   "text": "[REVIEWER LINE] is optional. Use it (for example “Reviewed by (name and credentials) on (date)”) only if a licensed clinician actually reviewed the piece. “Medically reviewed” that is not true is a claim problem.",
+   "text": "A reviewer line is optional. Add one (for example “Reviewed by (name and credentials) on (date)”) only if a licensed clinician actually reviewed the piece. “Medically reviewed” that is not true is a claim problem.",
    "level": 0
   },
   {
@@ -1013,6 +930,89 @@
     2,
     4,
     1.4
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h2",
+   "text": "Block 11. Replacing the “HIPAA Compliant” badge and the “Licensed Providers in All 50 States” claims (internal; do not publish)"
+  },
+  {
+   "t": "p",
+   "text": "Requirement D21. Each existing claim below must be removed or substantiated before the site goes live. Locations come from a read-only search of wellpeps-site/src on 2026-10-01; run a full site search before publishing, because the same phrases recur.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Existing claim and where it appears",
+     "Why it must go or be substantiated",
+     "Replacement wording",
+     "Use the replacement only when"
+    ],
+    [
+     "**“HIPAA Compliant”** badge in the footer (Footer.astro). “HIPAA-compliant technology and systems” in FAQs and the assistant knowledge base (weight.ts, why-wellpeps.astro, knowledge.ts).",
+     "No HIPAA certification exists, so a badge reads as a seal it is not. “Compliant” is a legal conclusion. It depends on WellPeps’ HIPAA role (item H1, undecided), signed business associate agreements (none in hand), a risk analysis and a security program (item H5, not done). The marketing site holds no PHI. An unsupported privacy claim is a deception risk under FTC Act section 5 and a LegitScript Standard 6 problem.",
+     "Badge: replace the shield with a lock icon and the text “We protect your information,” linking to the Privacy Policy.\nFAQ now: “We take your privacy seriously. Read the Privacy Policy and the Notice of Privacy Practices to see how your information is handled.”\nFAQ later: “Health information you share with your clinician is protected by federal privacy law (HIPAA). Read the Notice of Privacy Practices.”",
+     "Now: counsel approves the first two. Later wording: after the H1 decision, signed business associate agreements and a published Notice of Privacy Practices."
+    ],
+    [
+     "**“Licensed Providers in All 50 States,” “50 States · Nationwide Care,” “50-State Licensed Provider Network”** (Footer.astro; config.ts coverage string; content.ts; knowledge.ts; weight.ts; why-wellpeps.astro). The Terms page already flags it.",
+     "The licensure record (Schedule B) is not in hand, and the the agreement with the Practice warrants licensure only in “applicable states” (section 9(b)). Pharmacies must also be licensed per state, and some states restrict compounded GLP-1 (OH and CT positions; the California oral-form exclusion). LegitScript Standards 1 and 5 compare the claim to the licensure record (items LS1-PROVIDER-LICENSURE-SUBSTANTIATED and LS5-STATES-MATCH-LICENSURE). Publishing a shorter list on the States We Serve page while the footer says all 50 is the worst outcome.",
+     "Footer: “Licensed clinicians in the states we serve. See States We Serve.”\nUntil the table is verified: “Care is available in select states. See where we serve.”\nFAQ “What states do you serve?”: “We serve all 50 states. See the States We Serve page for the current list. Availability of each medication varies by state.”",
+     "The States We Serve table matches the licensure record and the pharmacy dispensing matrix, and all 50 states is filled."
+    ],
+    [
+     "**“Compounded in FDA-registered U.S. facilities” / “prepared by FDA-registered U.S. compounding pharmacies”** (weight.ts lead and body; knowledge.ts; hair.ts FAQ).",
+     "Patient-specific (503A) pharmacies are regulated mainly by state boards of pharmacy. “FDA-registered” describes outsourcing facilities and manufacturers, so the phrase misdescribes the pharmacies and can imply FDA oversight or approval of the product. FDA’s GLP-1 warning letters cite “FDA-approved pharmacy” and sameness claims.",
+     "“Prepared by state-licensed pharmacies.”",
+     "The pharmacy roster is confirmed and each pharmacy’s license is verified in the states it ships to."
+    ],
+    [
+     "**“Licensed U.S. pharmacy partners that meet applicable quality and regulatory standards”** (knowledge.ts).",
+     "“Meet applicable quality standards” is an unsupported quality claim.",
+     "“State-licensed pharmacies.”",
+     "License evidence is on file."
+    ],
+    [
+     "**“Physician-guided care”** (why-wellpeps.astro).",
+     "The clinicians’ credentials are unconfirmed (physicians, nurse practitioners or physician assistants).",
+     "“Licensed clinicians.”",
+     "The Practice confirms credentials; then “physician” may be used only where true."
+    ],
+    [
+     "**“Trusted. Certified. Committed to You.”** (home trust bar, removed 2026-07-07; an internal document asks whether to restore it).",
+     "“Certified” implies a certification WellPeps does not hold until LegitScript issues one. The LegitScript badge is correctly hidden in the footer.",
+     "“Independent licensed clinicians. State-licensed pharmacies.”",
+     "Do not restore “Certified” until the certificate is issued and the use is licensed."
+    ],
+    [
+     "**“FSA/HSA”** payment tile (Footer.astro).",
+     "Accepting an HSA or FSA card does not mean treatment is an eligible expense. Eligibility is set by the account administrator.",
+     "Remove the tile, or: “HSA and FSA cards can be used where your plan allows. Your plan administrator decides what is eligible.”",
+     "Requirement E3 (cash-pay acknowledgment) is settled."
+    ],
+    [
+     "**“Quest Diagnostics and Labcorp” named as lab partners** (knowledge.ts).",
+     "Naming third-party brands implies a relationship. No lab partner terms are in hand (requirement B11).",
+     "“Low-cost lab testing through national lab partners when your clinician recommends it. Lab fees are billed separately.”",
+     "A lab agreement allows the names."
+    ],
+    [
+     "**A file named “Ozempic is Semaglutide.png”** sits untracked in the repository root.",
+     "If it is meant for publication, it states or implies that a compounded product is the same as a brand drug. FDA’s letters target that message.",
+     "Do not publish. If a comparison is needed, counsel and the compliance review decide the wording (requirement J1).",
+     "Counsel and the compliance review approve it."
+    ]
+   ],
+   "widths": [
+    2.1,
+    2.7,
+    2.5,
+    1.6
    ],
    "header": true,
    "shade": false

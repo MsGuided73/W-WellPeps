@@ -1,7 +1,7 @@
 {
  "title": "AI Use Disclosure",
- "version": "0.1",
- "date": "October 1, 2026",
+ "version": "1.0",
+ "date": "October 6, 2026",
  "blocks": [
   {
    "t": "h1",
@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "**Last updated:** October 2, 2026    |    **Version:** 1.0",
+   "text": "**Effective date:** October 6, 2026    |    **Last updated:** October 6, 2026    |    **Version:** 1.0",
    "italic": false,
    "align": null
   },
@@ -49,7 +49,7 @@
   },
   {
    "t": "li",
-   "text": "AI features in the technology platform that supports your care are described in section 6.",
+   "text": "AI is not used in clinical care (section 6).",
    "level": 0
   },
   {
@@ -64,7 +64,7 @@
   },
   {
    "t": "p",
-   "text": "By “AI” we mean software that interprets your words or your information and produces an answer, a draft or a prediction.",
+   "text": "By “AI” we mean software that interprets your words or your information and produces an answer, a piece of writing or a prediction.",
    "italic": false,
    "align": null
   },
@@ -185,7 +185,7 @@
   },
   {
    "t": "li",
-   "text": "**Email** support@wellpeps.com. Support hours are Monday to Friday, 9 a.m. to 6 p.m. Eastern time. We aim to reply within [1 business day].",
+   "text": "**Email** support@wellpeps.com. Support hours are Monday to Friday, 9 a.m. to 6 p.m. Eastern time. We aim to reply within 1 business day.",
    "level": 0
   },
   {
@@ -215,82 +215,13 @@
   },
   {
    "t": "p",
-   "text": "No AI tool at WellPeps makes decisions about your care. Your clinicians decide whether you receive treatment and what you receive. The technology platform that supports your care (the patient portal, the intake forms and your clinician’s workspace) includes optional AI features that the Practice, and in one case WellPeps, can switch on or off:",
+   "text": "AI is not used in clinical care. No AI tool at WellPeps makes decisions about your care. Your clinicians decide whether you receive treatment and what you receive. Your clinician does not use AI to write notes about your visits, to answer questions about your chart, or to write messages to you. If that changes, we will update this page before the change takes effect.",
    "italic": false,
    "align": null
   },
   {
-   "t": "li",
-   "text": "a tool that drafts visit notes from information in your chart;",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "a chart assistant that a clinician can ask questions about one patient’s chart; and",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "a tool that drafts a reply to a message for staff to edit.",
-   "level": 0
-  },
-  {
-   "t": "callout",
-   "text": "**Choose ONE version of the rest of this section after the Practice answers open item 2. Delete the other version and this note.**",
-   "kind": "note"
-  },
-  {
-   "t": "h2",
-   "text": "Version A. Use only if the Practice confirms in writing that these features are off and not used"
-  },
-  {
    "t": "p",
-   "text": "These features are switched off. OSI Medical Services, P.A. has told us that it does not use AI to write notes about your visits, to answer questions about your chart, or to draft messages to you. If that changes, we will update this page before the change takes effect.",
-   "italic": false,
-   "align": null
-  },
-  {
-   "t": "h2",
-   "text": "Version B. Use if the Practice uses any of them"
-  },
-  {
-   "t": "li",
-   "text": "**Visit notes and chart review.** A clinician may use an AI tool to draft notes about your visit or to ask questions about your chart. The tool may use your intake answers, forms, orders, earlier visit notes, lab results and, for a video visit, a transcript. The clinician edits the draft, reviews it and is responsible for your record.",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "**Messages.** Staff may use an AI tool to draft a reply to your message. A person reads and edits every draft before it is sent.",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "**Who receives your information.** These tools send the information they use to an AI service provider ([AI VENDOR]) that runs the model for our platform. [VERIFY: AI vendor terms] The provider must protect your information under a written agreement and may not use it to train its own models.",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "**No AI decisions.** AI does not decide whether you are treated or which medicine you get. Your clinician makes those decisions and signs them.",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "**Messages written by generative AI.** If the Practice sends you a message about your health that was written by generative AI and was not read and approved by a licensed clinician, the message will say so at the start and tell you how to reach a person.",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "**Recording and transcripts.** If a video visit is recorded or transcribed, the clinician will tell you first and, where the law requires, ask for your permission. [VERIFY: recording laws]",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "**Your choice.** You can ask the Practice not to use AI tools in your care. Send a message in the patient portal. The Practice will answer your request.",
-   "level": 0
-  },
-  {
-   "t": "p",
-   "text": "Some states, including California, Texas, Utah and Colorado, have laws about AI in health care or in consumer chat tools. We follow the law that applies where you are. [VERIFY: state AI laws]",
+   "text": "Some states have additional rules about AI, and we follow the law that applies to you.",
    "italic": false,
    "align": null
   },
@@ -329,7 +260,7 @@
   },
   {
    "t": "li",
-   "text": "Before WellPeps starts using a new AI tool, [COMPLIANCE OFFICER] reviews what information it uses, who receives it, how it can fail and whether the law requires a notice.",
+   "text": "Before WellPeps starts using a new AI tool, the WellPeps Compliance Officer reviews what information it uses, who receives it, how it can fail and whether the law requires a notice.",
    "level": 0
   },
   {

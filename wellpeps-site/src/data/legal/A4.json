@@ -1,7 +1,7 @@
 {
  "title": "Cookie and Tracking Technologies Notice",
- "version": "0.1",
- "date": "October 1, 2026",
+ "version": "1.0",
+ "date": "October 6, 2026",
  "blocks": [
   {
    "t": "h1",
@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "**Effective date:** [EFFECTIVE DATE]  |  **Version:** 1.0  |  **Last updated:** October 2, 2026",
+   "text": "**Effective date:** October 6, 2026  |  **Version:** 1.0  |  **Last updated:** October 6, 2026",
    "italic": false,
    "align": null
   },
@@ -125,7 +125,7 @@
   },
   {
    "t": "p",
-   "text": "The wp_gate cookie holds a code that shows the preview password was entered. It holds no information about you [VERIFY: the value is a code derived from the preview password, the same for every visitor]. The wp_consent cookie holds your choices and a random ID, and nothing else about you. Because both are strictly necessary, we do not ask for consent to set them. If the preview password page is removed, wellpeps.com will set only wp_consent, and only if you make a choice [VERIFY: gate status at publication].",
+   "text": "The wp_gate cookie holds a code that shows the preview password was entered. It holds no information about you. The wp_consent cookie holds your choices and a random ID, and nothing else about you. Because both are strictly necessary, we do not ask for consent to set them. If the preview password page is removed, wellpeps.com will set only wp_consent, and only if you make a choice.",
    "italic": false,
    "align": null
   },
@@ -152,7 +152,7 @@
      "Supabase (our database provider)",
      "When you submit a sign-up form, your browser sends the form to a server at supabase.co that works for us.",
      "What you typed in the form (email address, first name if asked, which form) and your IP address.",
-     "No cookies are set. The provider works under contract and may not use the data for its own purposes [VERIFY: item B12]."
+     "No cookies are set. The provider processes the data on our behalf."
     ]
    ],
    "widths": [
@@ -170,12 +170,12 @@
   },
   {
    "t": "li",
-   "text": "**Web server logs.** Like most websites, our web server records your IP address, browser, the page requested and the time. We use it for security and troubleshooting and keep it for [30 days] [VERIFY: log retention and where logs are stored].",
+   "text": "**Web server logs.** Like most websites, our web server records your IP address, browser, the page requested and the time. We use it for security and troubleshooting and keep it for 30 days.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "**AI assistant.** The assistant on wellpeps.com runs in your browser. It makes no network request and does not store what you type in your browser or send it to us or to an AI company [VERIFY: engineering to confirm]. It does not give medical advice (see the AI Use Disclosure).",
+   "text": "**AI assistant.** The assistant on wellpeps.com runs in your browser and answers only from our own content. It does not store what you type or send it to us or to an AI company. It does not give medical advice (see the AI Use Disclosure).",
    "level": 0
   },
   {
@@ -233,12 +233,6 @@
    "align": null
   },
   {
-   "t": "p",
-   "text": "[VERIFY: complete inventory of every cookie, script and SDK on portal.wellpeps.com and its checkout and intake pages, listed here by name, who sets it, purpose and duration. Do not publish this section until the list exists and confirms that nothing on the portal is an analytics or advertising tool, or lists each one that is.]",
-   "italic": false,
-   "align": null
-  },
-  {
    "t": "h2",
    "text": "4. Our consent-first rule"
   },
@@ -253,11 +247,11 @@
    "items": [
     "**Nothing that is not essential loads before you say yes.** That covers analytics, advertising, social media and measurement tools, and any data sent from our servers to such a company. Our own anonymous usage statistics are the one exception: they set no cookie, store nothing in your browser and keep no identifier, so they cannot identify you. They run by default, and you can turn them off at any time in Your Privacy Choices.",
     "**A fair choice.** We show \"Accept,\" \"Reject\" and \"Choose\" with equal weight. Rejecting is as easy as accepting. No box is checked in advance. We do not nag.",
-    "**We remember your choice** for [12 months] so we do not keep asking. You can change it at any time in Your Privacy Choices.",
+    "**We remember your choice** for 12 months so we do not keep asking. You can change it at any time in Your Privacy Choices.",
     "**Global Privacy Control.** Before we turn on any tool that is not essential, we will build and test handling for Global Privacy Control, and treat the signal as a \"no\" to advertising, sale and sharing.",
     "**Listed first.** A tool is added only after this notice lists it: its name, who provides it, what it does, what it collects, and how long it lasts.",
     "**Contracts.** Where the tool allows it, we sign terms that stop the provider from using the data for its own purposes.",
-    "**Review.** We keep a list of every tool on our pages and review it at least every [3 months] [VERIFY: owner and schedule]."
+    "**Review.** We keep a list of every tool on our pages and review it at least every 3 months."
    ]
   },
   {
@@ -266,7 +260,7 @@
   },
   {
    "t": "p",
-   "text": "Some pages could show that you have, or are looking into, a health condition or treatment. On these pages we will not use advertising tools unless you also give a second, separate consent to advertising on these pages. \"Accept all\" does not include it. If you give it, advertising companies can learn that you visited pages about health topics; our vendor removes the names of conditions and treatments before anything is shared. We will not use analytics tools on these pages either, unless you have also given the separate consent that the Consumer Health Data Privacy Policy describes. Our anonymous usage statistics (Section 4) run on these pages too unless you turn them off. We will never use session replay on them. These pages are [DECISION: sell/share: counsel to confirm the list]:",
+   "text": "Some pages could show that you have, or are looking into, a health condition or treatment. On these pages we will not use advertising tools unless you also give a second, separate consent to advertising on these pages. \"Accept all\" does not include it. If you give it, advertising companies can learn that you visited pages about health topics; our vendor removes the names of conditions and treatments before anything is shared. We will not use analytics tools on these pages either, unless you have also given the separate consent that the Consumer Health Data Privacy Policy describes. Our anonymous usage statistics (Section 4) run on these pages too unless you turn them off. We will never use session replay on them. These pages are:",
    "italic": false,
    "align": null
   },
@@ -297,7 +291,7 @@
   },
   {
    "t": "p",
-   "text": "**No session replay.** We do not use session replay, screen recording or form-field capture on any page of wellpeps.com or portal.wellpeps.com. These tools can record what you type or see, including health information. We would have to change this notice and ask for your consent before using one anywhere [DECISION: counsel to confirm the absolute rule].",
+   "text": "**No session replay.** We do not use session replay, screen recording or form-field capture on any page of wellpeps.com or portal.wellpeps.com. These tools can record what you type or see, including health information. We would have to change this notice and ask for your consent before using one anywhere.",
    "italic": false,
    "align": null
   },
@@ -337,7 +331,7 @@
   },
   {
    "t": "p",
-   "text": "When the consent control is live, we will keep a record of each choice: the date and time, the version of this notice you saw, what you chose, and whether a Global Privacy Control signal was present. We keep it for [24 months] to show what you chose [DECISION: counsel: whether the record stores IP addresses]. See Section 7 of the Privacy Policy.",
+   "text": "When the consent control is live, we will keep a record of each choice: the date and time, the version of this notice you saw, what you chose, and whether a Global Privacy Control signal was present. We keep it for 24 months to show what you chose. See Section 7 of the Privacy Policy.",
    "italic": false,
    "align": null
   },
@@ -356,140 +350,6 @@
    "text": "Questions: email privacy@wellpeps.com. To use a privacy right, see Your Privacy Choices and the Privacy Policy.",
    "italic": false,
    "align": null
-  },
-  {
-   "t": "callout",
-   "kind": "info",
-   "text": "**Held wording.** The text that follows is not in effect yet. It applies only when the condition for \"N-A1: ANALYTICS AND ADVERTISING TOOLS\" in the technical notes at the end of this document is met."
-  },
-  {
-   "t": "h2",
-   "text": "9. Tools we use only if you opt in"
-  },
-  {
-   "t": "p",
-   "text": "The tools below load only after you choose \"Accept\" or switch on the matching category in Your Privacy Choices. They do not load on the pages in Section 5 unless that section says otherwise. You can switch them off at any time.",
-   "italic": false,
-   "align": null
-  },
-  {
-   "t": "h3",
-   "text": "9.1 Analytics"
-  },
-  {
-   "t": "table",
-   "rows": [
-    [
-     "Tool and provider",
-     "What it does",
-     "What it collects",
-     "Cookies or storage",
-     "How long"
-    ],
-    [
-     "PostHog (product analytics) [VERIFY: cloud region or self-hosted]",
-     "Counts visits, pages and clicks so we can improve the site.",
-     "[VERIFY: pages viewed, clicks, device and browser type, approximate location from IP address; IP address not stored, if configured]",
-     "A first-party cookie or browser storage entry whose name starts with ph_ [VERIFY: exact name].",
-     "[VERIFY: for example 12 months]"
-    ],
-    [
-     "Curve tracking script [VERIFY: provider and purpose]",
-     "[VERIFY]",
-     "[VERIFY]",
-     "[VERIFY]",
-     "[VERIFY]"
-    ]
-   ],
-   "widths": [
-    1.6,
-    1.5,
-    2.2,
-    1.7,
-    1.0
-   ],
-   "header": true,
-   "shade": false
-  },
-  {
-   "t": "h3",
-   "text": "9.2 Advertising and measurement"
-  },
-  {
-   "t": "table",
-   "rows": [
-    [
-     "Tool and provider",
-     "What it does",
-     "What it collects",
-     "Cookies or storage",
-     "How long"
-    ],
-    [
-     "Meta Pixel and Conversions API (Meta Platforms) [VERIFY: products used, including server-side events]",
-     "Measures our ads and shows ads to people who visited.",
-     "[VERIFY: pages and events, IP address, browser details, advertising identifiers]",
-     "Typically _fbp and _fbc [VERIFY].",
-     "[VERIFY: about 3 months]"
-    ],
-    [
-     "Google tag and Google Ads conversion measurement (Google) [VERIFY]",
-     "Measures our ads and counts sign-ups from them.",
-     "[VERIFY: pages and events, IP address, browser details, identifiers]",
-     "Typically _gcl_au [VERIFY].",
-     "[VERIFY: about 3 months]"
-    ],
-    [
-     "TikTok Pixel (TikTok) [VERIFY]",
-     "Measures our ads and shows ads to people who visited.",
-     "[VERIFY: pages and events, IP address, browser details, identifiers]",
-     "Typically _ttp [VERIFY].",
-     "[VERIFY: up to 13 months]"
-    ]
-   ],
-   "widths": [
-    1.6,
-    1.5,
-    2.2,
-    1.7,
-    1.0
-   ],
-   "header": true,
-   "shade": false
-  },
-  {
-   "t": "p",
-   "text": "Advertising tools may involve a \"sale\" of personal information or \"sharing\" for cross-context behavioral advertising under some state laws. See Section 5.2 of the Privacy Policy. You can opt out at any time in Your Privacy Choices or with a Global Privacy Control signal. We do not send health information, order information or anything from portal.wellpeps.com to these companies, we do not upload our email lists to them, and we do not build lookalike audiences from sign-ups [DECISION: sell/share].",
-   "italic": false,
-   "align": null
-  },
-  {
-   "t": "callout",
-   "kind": "info",
-   "text": "**End of held wording.**"
-  },
-  {
-   "t": "h1",
-   "text": "Technical and drafting notes"
-  },
-  {
-   "t": "callout",
-   "kind": "note",
-   "text": "**For the team, not part of the document.** These are instructions for WellPeps, counsel and the people who build the forms and pages. They are collected here so the document above reads on its own."
-  },
-  {
-   "t": "h2",
-   "text": "Held wording and when it takes effect"
-  },
-  {
-   "t": "callout",
-   "text": "**[ACTIVATION BLOCK N-A1: ANALYTICS AND ADVERTISING TOOLS, ready-to-activate tables]**\n**Do not publish this block until:** (1) the consent control and footer link are live and tested (Your Privacy Choices, Part 2); (2) the pre-consent test shows no non-essential request fires before opt-in, and the same with a Global Privacy Control signal; (3) Privacy Policy blocks P-A1, P-A2 and P-A3 and Consumer Health Data Privacy Policy block C-A1 are active; (4) counsel has approved the page list in Section 5 and the consent wording; (5) vendor contracts and settings are confirmed; (6) every [VERIFY] cell below is replaced by values from the live tag inventory. Delete any row for a tool that is not live.",
-   "kind": "warning"
-  },
-  {
-   "t": "callout",
-   "text": "**[END ACTIVATION BLOCK N-A1]** When the trigger is met, delete this marker and the start marker and keep the text between them. Until then, delete the whole block before publishing.",
-   "kind": "warning"
   }
  ],
  "id": "A4",

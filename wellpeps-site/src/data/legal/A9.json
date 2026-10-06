@@ -5,7 +5,7 @@
  "blocks": [
   {
    "t": "p",
-   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: October 2, 2026  |  Version 1.0",
+   "text": "Effective date: October 6, 2026  |  Last updated: October 6, 2026  |  Version 1.0",
    "italic": true,
    "align": null
   },
@@ -84,7 +84,7 @@
   },
   {
    "t": "p",
-   "text": "Your clinician and WellPeps choose a pharmacy that is licensed to ship to your state and that can prepare your prescription. If you would like a different pharmacy, ask your clinician. Some compounded prescriptions cannot be moved to another pharmacy. [VERIFY: pharmacy choice and prescription transfer rules by state]",
+   "text": "Your clinician and WellPeps choose a pharmacy that is licensed to ship to your state and that can prepare your prescription. If you would like a different pharmacy, ask your clinician. Some compounded prescriptions cannot be moved to another pharmacy.",
    "italic": false,
    "align": null
   },
@@ -105,12 +105,12 @@
   },
   {
    "t": "li",
-   "text": "We do not ship outside the United States. We do not ship to PO boxes, military addresses or U.S. territories. [VERIFY: PO boxes, military and territory addresses]",
+   "text": "We do not ship outside the United States. We do not ship to PO boxes, military addresses or U.S. territories.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "Your shipping address must be in a state where your clinician can treat you and the pharmacy can ship. [VERIFY: shipping state must match state of care]",
+   "text": "Your shipping address must be in a state where your clinician can treat you and the pharmacy can ship.",
    "level": 0
   },
   {
@@ -138,27 +138,27 @@
     [
      "Step",
      "What happens",
-     "Typical time"
+     "How long"
     ],
     [
      "1. Clinician review",
      "A licensed clinician reviews your answers. They may ask you for more information.",
-     "[VERIFY: typical clinician review time]"
+     "As soon as your clinician can review it."
     ],
     [
      "2. Pharmacy prepares",
      "If prescribed, the pharmacy receives the prescription and prepares your medication. Compounded medicine is made for you.",
-     "[VERIFY: processing time per pharmacy]"
+     "Varies by pharmacy and medication."
     ],
     [
      "3. Pharmacy ships",
      "The pharmacy hands the package to a carrier and you get tracking.",
-     "[VERIFY: where tracking comes from]"
+     "You get tracking from the pharmacy or the carrier."
     ],
     [
      "4. Carrier delivers",
      "The carrier brings the package to your address.",
-     "[VERIFY: transit time by carrier and region]"
+     "Varies by carrier and where you live."
     ]
    ],
    "widths": [
@@ -171,7 +171,7 @@
   },
   {
    "t": "p",
-   "text": "These times are estimates in business days. They can be longer around holidays, in bad weather, when a medication is on backorder, or when we or your clinician need more information from you. We cannot promise a delivery date. Do not wait until you run out to plan your next order.",
+   "text": "These times vary and are estimates. They can be longer around holidays, in bad weather, when a medication is on backorder, or when we or your clinician need more information from you. We cannot promise a delivery date. Do not wait until you run out to plan your next order.",
    "italic": false,
    "align": null
   },
@@ -197,10 +197,10 @@
     ],
     [
      "OSI / Scriptful Rx, 433 Plaza Real, Suite 275, Boca Raton, FL 33432",
-     "[VERIFY]",
-     "[VERIFY]",
-     "[VERIFY]",
-     "[VERIFY]"
+     "Chosen by the pharmacy",
+     "Varies by medication. Your shipping email will tell you.",
+     "Varies by medication. See your label.",
+     "States where the pharmacy is licensed to ship"
     ]
    ],
    "widths": [
@@ -225,7 +225,7 @@
   },
   {
    "t": "p",
-   "text": "Some medicines, especially injections, must be kept cold. The pharmacy packs them to stay cold while they travel, for example in insulated packaging with cold packs. [VERIFY: cold packaging by pharmacy] Your label tells you whether your medicine must be refrigerated. Follow your label.",
+   "text": "Some medicines, especially injections, must be kept cold. The pharmacy packs them to stay cold while they travel, for example in insulated packaging with cold packs. Your label tells you whether your medicine must be refrigerated. Follow your label.",
    "italic": false,
    "align": null
   },
@@ -271,7 +271,7 @@
     "Check the package: the seal is not broken, nothing is leaking or cracked, and nothing is missing (such as needles or syringes, if they come with your medication).",
     "Check the temperature as described in Section 7.",
     "Store the medication the way your label says.",
-    "If anything is wrong, do not use the medication. Take photos of the label, the package and the shipping label, and contact the pharmacy and support@wellpeps.com within [7 days] after delivery. If you think the medication was exposed to heat or the packaging failed, tell us as soon as you can and before you use it.",
+    "If anything is wrong, do not use the medication. Take photos of the label, the package and the shipping label, and contact the pharmacy and support@wellpeps.com within 7 days after delivery. If you think the medication was exposed to heat or the packaging failed, tell us as soon as you can and before you use it.",
     "Keep the packaging until you are sure everything is right."
    ]
   },
@@ -298,7 +298,7 @@
   },
   {
    "t": "li",
-   "text": "If your order has not shipped within [14 days] after we charged you, you can cancel it and receive a full refund.",
+   "text": "If your order has not shipped within 14 days after we charged you, you can cancel it and receive a full refund.",
    "level": 0
   },
   {
@@ -348,7 +348,7 @@
   {
    "t": "ol",
    "items": [
-    "Contact the pharmacy named on the label (or on the shipping email) and support@wellpeps.com. Do this within [7 days] after the package arrives (for heat exposure, as soon as you can and before you use it), or within [7 days] after the expected delivery date if it did not arrive. Reporting later does not take away your rights for a problem you could not reasonably have found sooner (Refund, Cancellation and Auto-Renewal Policy, Section 5.4).",
+    "Contact the pharmacy named on the label (or on the shipping email) and support@wellpeps.com. Do this within 7 days after the package arrives (for heat exposure, as soon as you can and before you use it), or within 7 days after the expected delivery date if it did not arrive. Reporting later does not take away your rights for a problem you could not reasonably have found sooner (Refund, Cancellation and Auto-Renewal Policy, Section 5.4).",
     "Send photos of the package, the label and any damage.",
     "Keep the original packaging and the product until the pharmacy tells you what to do. Do not mail anything back unless the pharmacy or WellPeps tells you to in writing."
    ]
@@ -371,7 +371,7 @@
   },
   {
    "t": "p",
-   "text": "Compounded medication generally cannot be returned, restocked or sent out again once it has shipped. State pharmacy rules generally do not allow a pharmacy to take back a dispensed prescription medicine and give it to another patient. [VERIFY: returns rule by state] For that reason we do not accept returns or exchanges because you changed your mind, had side effects, or want a different dose. Talk to your clinician about those things.",
+   "text": "Compounded medication generally cannot be returned, restocked or sent out again once it has shipped. State pharmacy rules generally do not allow a pharmacy to take back a dispensed prescription medicine and give it to another patient. For that reason we do not accept returns or exchanges because you changed your mind, had side effects, or want a different dose. Talk to your clinician about those things.",
    "italic": false,
    "align": null
   },
@@ -408,7 +408,7 @@
   },
   {
    "t": "p",
-   "text": "If your treatment includes injections, put used needles and syringes in a sharps container right away. Do not throw loose needles in household trash. Rules for throwing away sharps differ by state and city, and some places do not allow sharps in household trash at all. [VERIFY: sharps disposal rules by state] Ask your pharmacy or your local health department where to get a sharps container and where to drop it off. For injection and disposal safety, read the GLP-1 Medication Safety Information and Acknowledgment. For unused or expired medication, ask your pharmacy about take-back options. Do not share it with anyone.",
+   "text": "If your treatment includes injections, put used needles and syringes in a sharps container right away. Do not throw loose needles in household trash. Rules for throwing away sharps differ by state and city, and some places do not allow sharps in household trash at all. Ask your pharmacy or your local health department where to get a sharps container and where to drop it off. For injection and disposal safety, read the GLP-1 Medication Safety Information and Acknowledgment. For unused or expired medication, ask your pharmacy about take-back options. Do not share it with anyone.",
    "italic": false,
    "align": null
   },

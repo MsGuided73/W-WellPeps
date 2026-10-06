@@ -23,7 +23,8 @@ const routes = readdirSync(pagesDir, { withFileTypes: true })
 
 describe('every page of the site is known to the analytics tool', () => {
   test('the walk found the pages (a sanity check on the test itself)', () => {
-    expect(routes).toEqual(expect.arrayContaining(['weight-loss', 'privacy-policy', 'your-privacy-choices', 'wellness-learning-center']));
+    // /privacy-policy and the other released legal documents are served by the [...doc] route, not their own page files.
+    expect(routes).toEqual(expect.arrayContaining(['weight-loss', 'your-privacy-choices', 'wellness-learning-center']));
   });
 
   test.each(routes)('/%s is reported by its own path with a real template, not as unmatched', (name) => {

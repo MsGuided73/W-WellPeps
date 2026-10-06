@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "Last updated: October 2, 2026  |  Effective: [EFFECTIVE DATE]  |  Version 1.0",
+   "text": "Last updated: October 6, 2026  |  Effective: October 6, 2026  |  Version 1.0",
    "italic": true,
    "align": null
   },
@@ -155,7 +155,7 @@
   },
   {
    "t": "p",
-   "text": "The Compounded Medication Disclosure and Consent explains compounded medicines in more detail. You can ask your clinician at any time about other options, including FDA-approved medicines or no medicine at all.",
+   "text": "The Compounded Medication Disclosure and Consent explains compounded medicines in more detail. You can ask your clinician at any time about other options, including no medicine at all. WellPeps does not offer brand-name FDA-approved products. FDA-approved medicines may be available through another provider and pharmacy.",
    "italic": false,
    "align": null
   },
@@ -177,7 +177,7 @@
   },
   {
    "t": "p",
-   "text": "**What is not established.** For these products, as a pharmacy compounds them, it has not been established that they give a benefit to healthy adults for wellness, vitality or aging. Much of the research on some ingredients comes from lab studies, animal studies, small or short studies, or use in people with a specific illness. Those results do not show the same result in healthy adults. Long-term safety is unknown for several of these products. [MEDICAL DIRECTOR TO CONFIRM]",
+   "text": "**What is not established.** For these products, as a pharmacy compounds them, it has not been established that they give a benefit to healthy adults for wellness, vitality or aging. Much of the research on some ingredients comes from lab studies, animal studies, small or short studies, or use in people with a specific illness. Those results do not show the same result in healthy adults. Long-term safety is unknown for several of these products.",
    "italic": false,
    "align": null
   },
@@ -323,7 +323,7 @@
   },
   {
    "t": "p",
-   "text": "Tell any clinician who treats you, including in an emergency room or before a procedure, that you use these products, and show your label. [MEDICAL DIRECTOR TO CONFIRM]",
+   "text": "Tell any clinician who treats you, including in an emergency room or before a procedure, that you use these products, and show your label.",
    "italic": false,
    "align": null
   },
@@ -389,7 +389,7 @@
   },
   {
    "t": "li",
-   "text": "**These products are not for IV use at home.** Do not inject any of them into a vein. If your label says IV or “for office use,” do not use it yourself and contact your clinician. [MEDICAL DIRECTOR TO CONFIRM]",
+   "text": "**These products are not for IV use at home.** Do not inject any of them into a vein. If your label says IV or “for office use,” do not use it yourself and contact your clinician.",
    "level": 0
   },
   {
@@ -451,7 +451,7 @@
   },
   {
    "t": "p",
-   "text": "These products have not been well studied in pregnancy or breastfeeding, and some can harm an unborn baby. Tell your clinician before you start if you are pregnant, may be pregnant, plan to become pregnant or are breastfeeding, and tell your clinician right away if this changes. If you become pregnant while using one of these products, stop it and contact your clinician. [MEDICAL DIRECTOR TO CONFIRM]",
+   "text": "These products have not been well studied in pregnancy or breastfeeding, and some can harm an unborn baby. Tell your clinician before you start if you are pregnant, may be pregnant, plan to become pregnant or are breastfeeding, and tell your clinician right away if this changes. If you become pregnant while using one of these products, stop it and contact your clinician.",
    "italic": false,
    "align": null
   },
@@ -481,7 +481,7 @@
   },
   {
    "t": "li",
-   "text": "Some of these products may be banned under anti-doping or workplace drug-testing rules. If you are tested, you are responsible for checking the rules that apply to you. [MEDICAL DIRECTOR TO CONFIRM]",
+   "text": "Some of these products may be banned under anti-doping or workplace drug-testing rules. If you are tested, you are responsible for checking the rules that apply to you.",
    "level": 0
   },
   {
@@ -490,7 +490,7 @@
   },
   {
    "t": "li",
-   "text": "Your clinician may ask for blood tests or other checks before or during treatment. Labs are billed separately. See the Laboratory Testing Consent.",
+   "text": "Your clinician tells you if labs are needed. Labs are billed separately. See the Laboratory Testing Consent.",
    "level": 0
   },
   {
@@ -529,7 +529,7 @@
   },
   {
    "t": "li",
-   "text": "To report a side effect or product-quality problem to FDA: FDA MedWatch at www.fda.gov/medwatch or 1-800-FDA-1088 [VERIFY: FDA web addresses]. Please also tell your clinician and the pharmacy.",
+   "text": "To report a side effect or product-quality problem to FDA: FDA MedWatch at www.fda.gov/medwatch or 1-800-FDA-1088. Please also tell your clinician and the pharmacy.",
    "level": 0
   },
   {
@@ -557,12 +557,6 @@
    "text": "Article A. Sermorelin injection"
   },
   {
-   "t": "p",
-   "text": "[MEDICAL DIRECTOR TO CONFIRM] Every statement in this article, before publication.",
-   "italic": true,
-   "align": null
-  },
-  {
    "t": "h3",
    "text": "What it is"
   },
@@ -584,13 +578,7 @@
   },
   {
    "t": "p",
-   "text": "A different sermorelin product was approved by FDA years ago and is no longer sold in the United States. That earlier product was approved for specific medical uses, not for general wellness or to affect aging. [MEDICAL DIRECTOR TO CONFIRM]",
-   "italic": false,
-   "align": null
-  },
-  {
-   "t": "p",
-   "text": "[COUNSEL TO CONFIRM] Sermorelin is not on FDA’s lists of ingredients that are under review for compounding. Pharmacies that prepare it rely on that earlier FDA approval instead. The pharmacy named on your label is responsible for confirming that it may lawfully prepare your medication. [VERIFY: sermorelin basis]",
+   "text": "Sermorelin is not FDA-approved for general wellness or to affect aging. The pharmacy named on your label is responsible for confirming that it may lawfully prepare your medication.",
    "italic": false,
    "align": null
   },
@@ -689,12 +677,6 @@
    "text": "Article B. NAD+ injection"
   },
   {
-   "t": "p",
-   "text": "[MEDICAL DIRECTOR TO CONFIRM] Every statement in this article, before publication.",
-   "italic": true,
-   "align": null
-  },
-  {
    "t": "h3",
    "text": "What it is"
   },
@@ -710,7 +692,7 @@
   },
   {
    "t": "p",
-   "text": "A compounded NAD+ injection is **not FDA-approved**. FDA has not reviewed it for safety, effectiveness or quality. FDA lists NAD+ among substances it is still evaluating for use in compounding. That is not an approval, and the list can change. [VERIFY: NAD+ category] [COUNSEL TO CONFIRM]",
+   "text": "A compounded NAD+ injection is **not FDA-approved**. FDA has not reviewed it for safety, effectiveness or quality. The rules for compounding NAD+ can change.",
    "italic": false,
    "align": null
   },
@@ -765,7 +747,7 @@
   },
   {
    "t": "p",
-   "text": "Reported with NAD+: pain, redness or swelling at the injection site; flushing or a feeling of warmth; nausea; stomach cramps; headache; lightheadedness; tiredness; and chest tightness or pressure. These effects are more likely if the product goes in too fast. Inject only the way your label and pharmacy instructions say.",
+   "text": "Reported with NAD+: pain, redness or swelling at the injection site; flushing or a feeling of warmth; nausea; stomach cramps; headache; lightheadedness; tiredness; and chest tightness or pressure. These effects may be more likely if the product goes in too fast. Inject only the way your label and pharmacy instructions say.",
    "italic": false,
    "align": null
   },
@@ -794,7 +776,7 @@
   },
   {
    "t": "p",
-   "text": "How NAD+ interacts with other medicines has not been well studied. Tell your clinician about every prescription medicine, over-the-counter medicine, vitamin and supplement you use, including any other product with “NAD” or a related ingredient. [MEDICAL DIRECTOR TO CONFIRM]",
+   "text": "How NAD+ interacts with other medicines has not been well studied. Tell your clinician about every prescription medicine, over-the-counter medicine, vitamin and supplement you use, including any other product with “NAD” or a related ingredient.",
    "italic": false,
    "align": null
   },
@@ -803,18 +785,12 @@
    "text": "Article C. Glutathione injection"
   },
   {
-   "t": "p",
-   "text": "[MEDICAL DIRECTOR TO CONFIRM] Every statement in this article, before publication.",
-   "italic": true,
-   "align": null
-  },
-  {
    "t": "h3",
    "text": "What it is"
   },
   {
    "t": "p",
-   "text": "Glutathione is a small molecule made of three amino acids. Your body makes it. It is described as an antioxidant, a substance that takes part in chemical reactions in cells. On WellPeps, glutathione is a compounded injection, given under the skin or into a muscle as your label directs. [MEDICAL DIRECTOR TO CONFIRM]",
+   "text": "Glutathione is a small molecule made of three amino acids. Your body makes it. It is described as an antioxidant, a substance that takes part in chemical reactions in cells. On WellPeps, glutathione is a compounded injection, given as your label directs.",
    "italic": false,
    "align": null
   },
@@ -824,7 +800,7 @@
   },
   {
    "t": "p",
-   "text": "A compounded glutathione injection is **not FDA-approved**. FDA has not reviewed it for safety, effectiveness or quality. FDA lists glutathione among substances it is still evaluating for use in compounding. That is not an approval, and the list can change. [VERIFY: glutathione category] [COUNSEL TO CONFIRM]",
+   "text": "A compounded glutathione injection is **not FDA-approved**. FDA has not reviewed it for safety, effectiveness or quality. The rules for compounding glutathione can change.",
    "italic": false,
    "align": null
   },
@@ -855,12 +831,12 @@
   },
   {
    "t": "li",
-   "text": "have asthma or other breathing problems. Glutathione breathed in as a mist has been linked to asthma attacks. It is not known whether an injection has the same effect.",
+   "text": "have asthma or other breathing problems. Your clinician will decide whether glutathione is right for you.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "have cancer or are being treated for it. Some antioxidant products can interfere with some cancer treatments.",
+   "text": "have cancer or are being treated for it. Your clinician needs to know about any cancer treatment.",
    "level": 0
   },
   {
@@ -908,7 +884,7 @@
   },
   {
    "t": "p",
-   "text": "Little is known about how glutathione interacts with other medicines. Tell your clinician about every prescription medicine, over-the-counter medicine, vitamin and supplement you use, and about any cancer treatment. [MEDICAL DIRECTOR TO CONFIRM]",
+   "text": "Little is known about how glutathione interacts with other medicines. Tell your clinician about every prescription medicine, over-the-counter medicine, vitamin and supplement you use, and about any cancer treatment.",
    "italic": false,
    "align": null
   },
@@ -917,18 +893,12 @@
    "text": "Article D. MIC + B12 injection"
   },
   {
-   "t": "p",
-   "text": "[MEDICAL DIRECTOR TO CONFIRM] Every statement in this article, before publication.",
-   "italic": true,
-   "align": null
-  },
-  {
    "t": "h3",
    "text": "What it is"
   },
   {
    "t": "p",
-   "text": "MIC + B12 is a compounded injection that combines several ingredients in one vial. Products sold under this name commonly contain methionine (an amino acid), inositol and choline (substances found in food and in the body) and vitamin B12. The ingredients, their amounts and the form of vitamin B12 differ between pharmacies. **Your label lists every ingredient.** [PHARMACY TO CONFIRM] It is given under the skin or into a muscle as your label directs.",
+   "text": "MIC + B12 is a compounded injection that combines several ingredients in one vial. Products sold under this name commonly contain methionine (an amino acid), inositol and choline (substances found in food and in the body) and vitamin B12. The ingredients, their amounts and the form of vitamin B12 differ between pharmacies. **Your label lists every ingredient.** It is given under the skin or into a muscle as your label directs.",
    "italic": false,
    "align": null
   },
@@ -938,7 +908,7 @@
   },
   {
    "t": "p",
-   "text": "The combination is **not FDA-approved**. FDA has not reviewed it for safety, effectiveness or quality. Some single-ingredient vitamin B12 injections are FDA-approved. That does not make this combination approved. The pharmacy that prepares it is responsible for confirming that each ingredient may lawfully be used in a compounded injection. [COUNSEL TO CONFIRM] [PHARMACY TO CONFIRM]",
+   "text": "The combination is **not FDA-approved**. FDA has not reviewed it for safety, effectiveness or quality. Some single-ingredient vitamin B12 injections are FDA-approved. That does not make this combination approved. The pharmacy that prepares it is responsible for confirming that each ingredient may lawfully be used in a compounded injection.",
    "italic": false,
    "align": null
   },
@@ -1026,18 +996,12 @@
    "text": "Article E. Lipo-C injection"
   },
   {
-   "t": "p",
-   "text": "[MEDICAL DIRECTOR TO CONFIRM] Every statement in this article, before publication.",
-   "italic": true,
-   "align": null
-  },
-  {
    "t": "h3",
    "text": "What it is"
   },
   {
    "t": "p",
-   "text": "Lipo-C is a compounded injection. Our site describes it as L-carnitine combined with other nutrient ingredients. Products sold under this name commonly contain L-carnitine together with methionine, inositol, choline and vitamin B12, so they can overlap with MIC + B12. The ingredients, their amounts and the forms of L-carnitine and vitamin B12 differ between pharmacies. **Your label lists every ingredient.** [PHARMACY TO CONFIRM] It is given under the skin or into a muscle as your label directs.",
+   "text": "Lipo-C is a compounded injection. Our site describes it as L-carnitine combined with other nutrient ingredients. Products sold under this name commonly contain L-carnitine together with methionine, inositol, choline and vitamin B12, so they can overlap with MIC + B12. The ingredients, their amounts and the forms of L-carnitine and vitamin B12 differ between pharmacies. **Your label lists every ingredient.** It is given under the skin or into a muscle as your label directs.",
    "italic": false,
    "align": null
   },
@@ -1047,7 +1011,7 @@
   },
   {
    "t": "p",
-   "text": "The combination is **not FDA-approved**. FDA has not reviewed it for safety, effectiveness or quality. An L-carnitine injection is FDA-approved as a single-ingredient medicine for specific medical conditions. That does not make this combination approved. The pharmacy that prepares it is responsible for confirming that each ingredient may lawfully be used in a compounded injection. [COUNSEL TO CONFIRM] [PHARMACY TO CONFIRM]",
+   "text": "The combination is **not FDA-approved**. FDA has not reviewed it for safety, effectiveness or quality. An L-carnitine injection is FDA-approved as a single-ingredient medicine for specific medical conditions. That does not make this combination approved. The pharmacy that prepares it is responsible for confirming that each ingredient may lawfully be used in a compounded injection.",
    "italic": false,
    "align": null
   },
@@ -1140,12 +1104,6 @@
    "text": "Article F. Methylene blue capsule"
   },
   {
-   "t": "p",
-   "text": "[MEDICAL DIRECTOR TO CONFIRM] Every statement in this article, before publication.",
-   "italic": true,
-   "align": null
-  },
-  {
    "t": "callout",
    "text": "**Important.** Methylene blue can cause a serious, life-threatening reaction called serotonin syndrome when it is taken with many common medicines, including many antidepressants. It can also harm people who have an inherited enzyme condition called G6PD deficiency. Tell your clinician about every medicine and supplement you use. **Do not start, stop or change any other medicine on your own.**",
    "kind": "warning"
@@ -1156,7 +1114,7 @@
   },
   {
    "t": "p",
-   "text": "Methylene blue is a blue dye and medicine that has been used in medicine for many years. A methylene blue injection is FDA-approved to treat a blood condition called methemoglobinemia and is given by a health care professional. [MEDICAL DIRECTOR TO CONFIRM]",
+   "text": "Methylene blue is a blue dye and medicine that has been used in medicine for many years. A methylene blue injection is FDA-approved to treat a blood condition called methemoglobinemia and is given by a health care professional.",
    "italic": false,
    "align": null
   },
@@ -1188,7 +1146,7 @@
   },
   {
    "t": "p",
-   "text": "Methylene blue can block an enzyme called monoamine oxidase (MAO) and can raise serotonin to dangerous levels when combined with other medicines that act on serotonin. **Do not take methylene blue if you take, or have recently taken, any of these unless your clinician has told you in writing that it is acceptable.** This list is not complete. [MEDICAL DIRECTOR TO CONFIRM]",
+   "text": "Methylene blue can block an enzyme called monoamine oxidase (MAO) and can raise serotonin to dangerous levels when combined with other medicines that act on serotonin. **Do not take methylene blue if you take, or have recently taken, any of these unless your clinician has told you in writing that it is acceptable.** This list is not complete.",
    "italic": false,
    "align": null
   },
@@ -1224,7 +1182,7 @@
   },
   {
    "t": "p",
-   "text": "**Signs of serotonin syndrome** include agitation or restlessness, confusion, a fast heartbeat, sweating, fever, shivering, muscle twitching or stiffness, tremor, diarrhea, nausea or vomiting. Call 911 for seizures, high fever, severe confusion or loss of consciousness. It can start within hours of a dose.",
+   "text": "**Signs of serotonin syndrome** include agitation or restlessness, confusion, a fast heartbeat, sweating, fever, shivering, muscle twitching or stiffness, tremor, diarrhea, nausea or vomiting. Call 911 for seizures, high fever, severe confusion or loss of consciousness. It can start soon after a dose.",
    "italic": false,
    "align": null
   },
@@ -1240,7 +1198,7 @@
   },
   {
    "t": "p",
-   "text": "G6PD deficiency is an inherited enzyme condition. In people who have it, methylene blue can make red blood cells break apart (hemolysis). Tell your clinician if you have been told you have G6PD deficiency, if family members do, or if you have anemia or any blood disorder. Your clinician may ask for a G6PD test before prescribing. [MEDICAL DIRECTOR TO CONFIRM]",
+   "text": "G6PD deficiency is an inherited enzyme condition. In people who have it, methylene blue can make red blood cells break apart (hemolysis). Tell your clinician if you have been told you have G6PD deficiency, if family members do, or if you have anemia or any blood disorder. Your clinician may ask for a G6PD test before prescribing.",
    "italic": false,
    "align": null
   },
@@ -1255,7 +1213,7 @@
   },
   {
    "t": "li",
-   "text": "have kidney disease. Your kidneys clear methylene blue from the body.",
+   "text": "have kidney disease. Your clinician will decide whether methylene blue is right for you.",
    "level": 0
   },
   {
@@ -1274,7 +1232,7 @@
   },
   {
    "t": "p",
-   "text": "**Methylene blue turns urine blue or green.** It can also color the stool, the tongue or gums, and the skin, and it can stain clothes. This color change is expected, but it can hide other changes in urine color. Reported side effects include nausea, vomiting, stomach pain, diarrhea, headache, dizziness, sweating, burning when you urinate, anxiety and confusion. Methylene blue can make a pulse oximeter read wrong and may affect some lab tests, so tell any clinician or lab that you take it. [MEDICAL DIRECTOR TO CONFIRM]",
+   "text": "**Methylene blue turns urine blue or green.** It can also color the stool, the tongue or gums, and the skin, and it can stain clothes. This color change is expected, but it can hide other changes in urine color. Reported side effects include nausea, vomiting, stomach pain, diarrhea, headache, dizziness, sweating, burning when you urinate, anxiety and confusion. Methylene blue may affect some medical tests, so tell any clinician or lab that you take it.",
    "italic": false,
    "align": null
   },
@@ -1313,7 +1271,7 @@
   },
   {
    "t": "p",
-   "text": "Please read the Healthy Aging and Vitality Medication Safety Information (version 1.0, effective [EFFECTIVE DATE]) before checking each box. Signing this acknowledgment does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
+   "text": "Please read the Healthy Aging and Vitality Medication Safety Information (version 1.0, effective October 6, 2026) before checking each box. Signing this acknowledgment does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
    "italic": false,
    "align": null
   },
@@ -1399,11 +1357,11 @@
   },
   {
    "t": "check",
-   "text": "I understand that NAD+ is not a peptide, that NAD+ made by a pharmacy is not FDA-approved, that FDA is still evaluating it for compounding and that this is not an approval, and that it has not been established that it gives any benefit to healthy adults or affects aging or any disease."
+   "text": "I understand that NAD+ is not a peptide, that NAD+ made by a pharmacy is not FDA-approved, that the rules for compounding it can change, and that it has not been established that it gives any benefit to healthy adults or affects aging or any disease."
   },
   {
    "t": "check",
-   "text": "I understand that NAD+ can cause flushing, nausea, stomach cramps and chest tightness, especially if it goes in too fast. I will inject only as my label says, and I know to stop and call 911 for chest pain, chest tightness that does not pass quickly, or trouble breathing."
+   "text": "I understand that NAD+ can cause flushing, nausea, stomach cramps and chest tightness, which may be more likely if it goes in too fast. I will inject only as my label says, and I know to stop and call 911 for chest pain, chest tightness that does not pass quickly, or trouble breathing."
   },
   {
    "t": "check",
@@ -1415,11 +1373,11 @@
   },
   {
    "t": "check",
-   "text": "I understand that glutathione made by a pharmacy is not FDA-approved, that FDA is still evaluating it for compounding and that this is not an approval, and that it has not been established that it gives any benefit to healthy adults. I understand that WellPeps does not claim it changes skin color or look, removes toxins or affects aging or any disease."
+   "text": "I understand that glutathione made by a pharmacy is not FDA-approved, that the rules for compounding it can change, and that it has not been established that it gives any benefit to healthy adults. I understand that WellPeps does not claim it changes skin color or look, removes toxins or affects aging or any disease."
   },
   {
    "t": "check",
-   "text": "I understand that glutathione can cause allergic reactions and rarely serious skin reactions. I have told my clinician about any allergy, asthma or breathing problem, and any cancer treatment."
+   "text": "I understand that glutathione can cause allergic reactions and skin reactions. I have told my clinician about any allergy, asthma or breathing problem, and any cancer treatment."
   },
   {
    "t": "check",
@@ -1487,7 +1445,7 @@
   },
   {
    "t": "check",
-   "text": "I understand that methylene blue turns urine blue or green, can affect pulse oximeter readings and some lab tests, and that I will tell any clinician or lab that I take it."
+   "text": "I understand that methylene blue turns urine blue or green, that it may affect some medical tests, and that I will tell any clinician or lab that I take it."
   },
   {
    "t": "check",

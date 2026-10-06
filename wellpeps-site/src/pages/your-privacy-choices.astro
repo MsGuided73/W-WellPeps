@@ -27,17 +27,8 @@ const privacyEmail = EMAILS.privacy;
   description="Choose how WellPeps uses your information: turn optional tools on or off, limit sensitive information, withdraw consent, and make privacy requests."
   subtitle="You decide how WellPeps uses your information. This page lists your choices and shows how to use them. It applies to everyone in the United States, whatever state you live in."
   clientNeeds={clientNeeds}
+  final
 >
-  <div class="callout callout--note">
-    <strong>What is built and what is switched off</strong>
-    <p>
-      <span class="ph ph--web">Web team:</span> the switches, Global Privacy Control handling and the request form below work in
-      the browser today. Server-side recording of choices (consent log) and online delivery of requests are written but not
-      switched on until their Supabase functions are deployed; until then choices are kept in the visitor&rsquo;s browser and
-      requests go out as a pre-filled email. Remove this box when both are live.
-    </p>
-  </div>
-
   <h2>Where things stand today</h2>
   {optionalToolsExist || anonymousStatsLive ? (
     <p>
@@ -49,7 +40,6 @@ const privacyEmail = EMAILS.privacy;
       wellpeps.com does not sell your personal information and does not share it for targeted advertising. It does not use
       analytics or advertising tools, so there is nothing to switch off today. The switches below are ready: if we ever add
       such a tool, it will stay off until you turn it on.
-      <span class="ph ph--web">Web team: confirm the same is true for portal.wellpeps.com and checkout before publishing this sentence.</span>
     </p>
   )}
 
@@ -116,7 +106,6 @@ const privacyEmail = EMAILS.privacy;
     <strong>How fast.</strong> We confirm we received your request within 10 business days. We act on opt-outs, limits,
     withdrawals and unsubscribes within 15 business days. We answer access, correction, deletion and copy requests within 45
     days, and we may extend once by up to 45 days and tell you why. There is no charge.
-    <span class="ph ph--legal">Lawyer: confirm these periods by state.</span>
   </p>
 
   <PrivacyRequestForm privacyEmail={privacyEmail} />

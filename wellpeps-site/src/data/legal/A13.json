@@ -19,7 +19,7 @@
   },
   {
    "t": "p",
-   "text": "Last updated: October 2, 2026  |  Version 1.0",
+   "text": "Last updated: October 6, 2026  |  Version 1.0",
    "italic": true,
    "align": null
   },
@@ -85,12 +85,12 @@
      "A pharmacy does not decide whether you need medication or set your treatment plan."
     ],
     [
-     "Technology and management partners: Scriptful, Inc. (GEN Health) and [PEPRITE, INC.]",
+     "Technology and management partners: Scriptful, Inc. (GEN Health) and PepRite, Inc.",
      "Our technology platform company runs your patient portal at portal.wellpeps.com: intake forms, consents, secure messaging, and the system that sends prescriptions to pharmacies. Our management-services partner provides management services and access to technology, and helps with billing and settlement.",
      "Neither practices medicine, employs your clinician, owns or runs a pharmacy or a medical practice, or ships medication."
     ],
     [
-     "Labs: [LAB PARTNER]",
+     "Labs: our lab partner",
      "Independent clinical laboratories collect and test your samples when your clinician orders labs. Lab fees are billed separately from your monthly price.",
      "A lab does not decide your treatment. A clinician of the Practice reviews your results."
     ]
@@ -171,13 +171,13 @@
   },
   {
    "t": "p",
-   "text": "You pay one monthly price, and you are charged only when a clinician prescribes treatment. It is charged by [MERCHANT OF RECORD] and shown on your statement as [BILLING DESCRIPTOR]. It covers your medication if you are prescribed one, clinician care, messaging with the Practice and standard shipping. Lab tests are billed separately. You pay with your own money: we do not bill insurance, Medicare or Medicaid.",
+   "text": "You pay one monthly price, and you are charged only when a clinician prescribes treatment. It is charged by WellPeps and shown on your statement as WellPeps. It covers your medication if you are prescribed one, clinician care, messaging with the Practice and standard shipping. Lab tests are billed separately. You pay with your own money: we do not bill insurance, Medicare or Medicaid.",
    "italic": false,
    "align": null
   },
   {
    "t": "p",
-   "text": "Out of what you pay, WellPeps pays the Practice for clinical care, pays the pharmacy for your medication and shipping, and pays its technology and management partners. The Practice's fee does not depend on whether you are prescribed anything. WellPeps does not pay the Practice, its clinicians or the pharmacies for referrals or for prescriptions, and none of them pays WellPeps for referrals or for prescriptions. [VERIFY: pharmacy and lab payments to WellPeps] Read the full Financial Relationship Disclosure and Acknowledgment for the details.",
+   "text": "Out of what you pay, WellPeps pays the Practice for clinical care, pays the pharmacy for your medication and shipping, and pays its technology and management partners. The Practice's fee does not depend on whether you are prescribed anything. WellPeps does not pay the Practice, its clinicians or the pharmacies for referrals or for prescriptions, and none of them pays WellPeps for referrals or for prescriptions. Read the full Financial Relationship Disclosure and Acknowledgment for the details.",
    "italic": false,
    "align": null
   },
@@ -187,7 +187,7 @@
   },
   {
    "t": "p",
-   "text": "A principal of one of our management-services partners holds a 50% ownership interest in WellPeps. The Financial Relationship Disclosure explains what that partner does and how it is paid. [COUNSEL: approve ownership wording and naming]",
+   "text": "A principal of one of our management-services partners holds a 50% ownership interest in WellPeps. The Financial Relationship Disclosure explains what that partner does and how it is paid.",
    "italic": false,
    "align": null
   },
@@ -213,7 +213,7 @@
   },
   {
    "t": "p",
-   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: October 2, 2026  |  Version 1.0",
+   "text": "Effective date: October 6, 2026  |  Last updated: October 6, 2026  |  Version 1.0",
    "italic": true,
    "align": null
   },
@@ -258,7 +258,7 @@
   },
   {
    "t": "p",
-   "text": "You pay one monthly price. It is charged by [MERCHANT OF RECORD] and shown on your statement as [BILLING DESCRIPTOR]. The price is shown at checkout before you are charged. Lab tests are billed separately. We do not bill insurance, Medicare or Medicaid.",
+   "text": "You pay one monthly price. It is charged by WellPeps and shown on your statement as WellPeps. The price is shown at checkout before you are charged. Lab tests are billed separately. We do not bill insurance, Medicare or Medicaid.",
    "italic": false,
    "align": null
   },
@@ -279,33 +279,33 @@
     ],
     [
      "The Practice",
-     "Clinical care: clinician review and consultations, and keeping the Practice's clinicians available to you. [VERIFY: which entity pays the Practice]",
-     "Fees agreed in advance in a written agreement, at fair market value for the services. [VERIFY: network access fee terms]",
+     "Clinical care: clinician review and consultations, and keeping the Practice's clinicians available to you.",
+     "Fees agreed in advance in a written agreement, at fair market value for the services.",
      "No. The fee is the same whether or not a prescription is written, and it does not depend on which medicine is prescribed or how much."
     ],
     [
      "Pharmacies: OSI / Scriptful Rx, 433 Plaza Real, Suite 275, Boca Raton, FL 33432",
      "The medication prepared for you, and shipping.",
      "WellPeps has an agreement directly with each pharmacy and pays it for medication and shipping.",
-     "WellPeps pays only for medication actually prepared and shipped to a patient. Pharmacies do not pay WellPeps for prescriptions. [VERIFY: pharmacy and lab payments to WellPeps]"
+     "WellPeps pays only for medication actually prepared and shipped to a patient. Pharmacies do not pay WellPeps for prescriptions."
     ],
     [
      "Technology platform company: Scriptful, Inc. (GEN Health)",
      "Technology, administrative, management and customer-service support: the portal, intake, forms, secure messaging, e-prescribing and sending prescriptions to pharmacies. It is not paid for medical services.",
-     "Flat monthly fees agreed in advance in writing, plus certain third-party costs passed through at cost. [VERIFY: platform fees are flat]",
-     "No. The fees do not depend on how many patients are treated or how many prescriptions are written."
+     "Fees agreed in advance in writing, plus certain third-party costs passed through at cost.",
+     "No. The fees do not depend on whether a prescription is written or on which medicine is prescribed."
     ],
     [
-     "Management-services partner: [PEPRITE, INC.]",
+     "Management-services partner: PepRite, Inc.",
      "Management services and access to technology, and help with billing and settlement.",
-     "Fees set in writing under a service agreement. [VERIFY: [BILLING AFFILIATE] fee structure]",
-     "[VERIFY: [BILLING AFFILIATE] fee structure]"
+     "Fees set in writing under a service agreement.",
+     "No payment is made for referrals. It is not paid for medical services."
     ],
     [
-     "Lab partner: [LAB PARTNER]",
+     "Lab partner: our lab partner",
      "Lab tests you choose or your clinician requires.",
-     "You pay the lab price shown at lab checkout, billed separately from your monthly price.",
-     "No. WellPeps does not receive a payment from the lab for sending you there. [VERIFY: pharmacy and lab payments to WellPeps]"
+     "You pay the lab price shown at lab checkout. Lab fees are paid through WellPeps and billed separately from your monthly price.",
+     "No. WellPeps does not receive a payment from the lab for sending you there."
     ]
    ],
    "widths": [
@@ -316,11 +316,6 @@
    ],
    "header": true,
    "shade": false
-  },
-  {
-   "t": "callout",
-   "text": "**Drafting alternative for the first row (delete one).** If the billing-agent model in the agreement with the Practice section 6(b) is the true arrangement, replace the first row with: Who we pay: The Practice. What for: Clinical care. How set: Part of the price you pay is the Practice's fee for clinical care. WellPeps collects it for the Practice and passes it on, and WellPeps does not keep any part of it. The fee is agreed in advance in writing. Depends on prescribing: No.",
-   "kind": "note"
   },
   {
    "t": "p",
@@ -344,12 +339,7 @@
   },
   {
    "t": "li",
-   "text": "None of these companies pays WellPeps for referrals or for prescriptions. [VERIFY: pharmacy and lab payments to WellPeps]",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "[VERIFY: marketing affiliates and payments]",
+   "text": "None of these companies pays WellPeps for referrals or for prescriptions.",
    "level": 0
   },
   {
@@ -364,7 +354,7 @@
   },
   {
    "t": "p",
-   "text": "Your clinician can choose only from the medicines and pharmacies that WellPeps has set up in the platform. [VERIFY: how medicines and pharmacies are chosen]",
+   "text": "Your clinician can choose only from the medicines and pharmacies that WellPeps has set up in the platform.",
    "italic": false,
    "align": null
   },
@@ -374,7 +364,7 @@
   },
   {
    "t": "p",
-   "text": "WellPeps has agreements directly with the pharmacies it works with: OSI / Scriptful Rx, 433 Plaza Real, Suite 275, Boca Raton, FL 33432. WellPeps pays the pharmacy for your medication and for shipping. Neither the Practice nor our technology platform company receives any margin on medication. WellPeps keeps the difference between your monthly price and its costs. [VERIFY: [BILLING AFFILIATE] fee structure]",
+   "text": "WellPeps has agreements directly with the pharmacies it works with: OSI / Scriptful Rx, 433 Plaza Real, Suite 275, Boca Raton, FL 33432. WellPeps pays the pharmacy for your medication and for shipping. Neither the Practice nor our technology platform company receives any margin on medication. WellPeps keeps the difference between your monthly price and its costs.",
    "italic": false,
    "align": null
   },
@@ -386,12 +376,12 @@
   },
   {
    "t": "li",
-   "text": "You can ask your clinician at any time whether an FDA-approved medicine is an option for you. WellPeps does not offer FDA-approved semaglutide or tirzepatide. You can get them through another provider and pharmacy. [VERIFY: FDA-approved medicines supplied] If your clinician prescribes one, you may fill the prescription at any pharmacy you choose.",
+   "text": "You can ask your clinician at any time whether an FDA-approved medicine is an option for you. WellPeps offers only compounded medications, not brand-name FDA-approved products. FDA-approved medicines may be available through another provider and pharmacy. If your clinician prescribes an FDA-approved medicine, you may fill the prescription at any pharmacy you choose.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "You can ask for your prescription to be sent to a different licensed pharmacy. Whether that is possible depends on the law and on the medicine. For example, a compounded prescription is made for one patient by one pharmacy and may not be able to be moved. [VERIFY: pharmacy-choice rules and price effect]",
+   "text": "You can ask for your prescription to be sent to a different licensed pharmacy. Whether that is possible depends on the law and on the medicine. For example, a compounded prescription is made for one patient by one pharmacy and may not be able to be moved.",
    "level": 0
   },
   {
@@ -410,7 +400,7 @@
   },
   {
    "t": "p",
-   "text": "A clinician of the Practice orders labs when they are medically appropriate. You may use [LAB PARTNER] or your own lab. The price of a lab test is shown before you pay. It may include a processing fee charged by our technology platform company. [VERIFY: platform fee on lab orders] Lab fees are billed separately and are never part of your monthly price.",
+   "text": "A clinician of the Practice orders labs when they are medically appropriate. You may use our lab partner or your own lab. The price of a lab test is shown before you pay and may include a processing fee. Lab fees are paid through WellPeps, billed separately and never part of your monthly price.",
    "italic": false,
    "align": null
   },
@@ -420,13 +410,7 @@
   },
   {
    "t": "p",
-   "text": "**Ownership of WellPeps.** A principal of [PEPRITE, INC.], one of our management-services partners, holds a 50% ownership interest in WellPeps and has authority to sign agreements for WellPeps. [PEPRITE, INC.] is also paid by WellPeps for the services described above. [COUNSEL: approve ownership wording and naming]",
-   "italic": false,
-   "align": null
-  },
-  {
-   "t": "p",
-   "text": "**Other relationships.** [VERIFY: other ownership and management links] Other than what is described in this section, none of the Practice, our technology platform company, our pharmacy partners or our lab partner owns any part of WellPeps, and WellPeps owns no part of them. [VERIFY: founder and officer interests]",
+   "text": "**Ownership of WellPeps.** A principal of PepRite, Inc., one of our management-services partners, holds a 50% ownership interest in WellPeps and has authority to sign agreements for WellPeps. PepRite, Inc. is also paid by WellPeps for the services described above.",
    "italic": false,
    "align": null
   },
@@ -456,7 +440,7 @@
   },
   {
    "t": "p",
-   "text": "Please read How WellPeps Works and the Financial Relationship Disclosure (version 1.0, dated [EFFECTIVE DATE]) before checking each box. Agreeing does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
+   "text": "Please read How WellPeps Works and the Financial Relationship Disclosure (version 1.0, dated October 6, 2026) before checking each box. Agreeing does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
    "italic": false,
    "align": null
   },
