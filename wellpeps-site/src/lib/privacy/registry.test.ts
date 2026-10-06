@@ -52,8 +52,8 @@ describe('validateRegistry', () => {
     expect(() => validateRegistry([tracker({ hosts: [] })])).toThrow(/hosts/i);
   });
 
-  test.each(BANNED_TRACKER_IDS)('rejects session-replay / heatmap tool %s', (id) => {
-    expect(() => validateRegistry([tracker({ id })])).toThrow(/replay|heatmap|banned/i);
+  test.each(BANNED_TRACKER_IDS)('rejects session-replay tool %s', (id) => {
+    expect(() => validateRegistry([tracker({ id })])).toThrow(/session-replay tool/i);
   });
 
   test('the banned list covers the common session-replay vendors', () => {
@@ -66,6 +66,12 @@ describe('validateRegistry', () => {
 describe('hasNonEssential / inventory', () => {
   test('is true once any optional tool exists', () => {
     expect(hasNonEssential([tracker()])).toBe(true);
+  });
+
+  test('does not count an anonymous tool: an anonymous-only setup needs no consent banner', () => {
+    const anon = tracker({ anonymous: true, cookies: [] });
+    expect(hasNonEssential([anon])).toBe(false);
+    expect(hasNonEssential([anon, tracker({ id: 'ads', category: 'advertising' })])).toBe(true);
   });
 
   test('groups tools by category for the on-screen list', () => {
@@ -115,5 +121,36 @@ describe('validateRegistry: stricter rules', () => {
 
   test('an anonymous tool with no cookies and no storage is accepted', () => {
     expect(() => validateRegistry([tracker({ anonymous: true, cookies: [], storageKeys: [] })])).not.toThrow();
+  });
+});
+
+describe('validateRegistry: aggregate heatmaps and session replay', () => {
+  test('accepts an analytics tool that makes aggregate heatmaps', () => {
+    expect(() => validateRegistry([tracker({ heatmaps: 'aggregate' })])).not.toThrow();
+  });
+
+  test('accepts an anonymous analytics tool that makes aggregate heatmaps', () => {
+    expect(() => validateRegistry([tracker({ heatmaps: 'aggregate', anonymous: true, cookies: [] })])).not.toThrow();
+  });
+
+  test('rejects heatmaps on an advertising tool', () => {
+    expect(() => validateRegistry([tracker({ id: 'ads', category: 'advertising', heatmaps: 'aggregate' })])).toThrow(/heatmaps/i);
+  });
+
+  test('rejects any heatmap mode other than aggregate', () => {
+    expect(() => validateRegistry([tracker({ heatmaps: 'per-visitor' as never })])).toThrow(/aggregate/i);
+  });
+
+  test('accepts a tool that says it records no sessions', () => {
+    expect(() => validateRegistry([tracker({ sessionReplay: false })])).not.toThrow();
+  });
+
+  test('rejects a tool that says it records sessions', () => {
+    expect(() => validateRegistry([tracker({ sessionReplay: true as never })])).toThrow(/session/i);
+  });
+
+  test('a heatmap tool from a banned session-replay vendor is still rejected', () => {
+    expect(() => validateRegistry([tracker({ id: 'hotjar', heatmaps: 'aggregate' })])).toThrow(/session-replay/i);
+    expect(() => validateRegistry([tracker({ heatmaps: 'aggregate', hosts: ['script.crazyegg.com'] })])).toThrow(/session-replay/i);
   });
 });

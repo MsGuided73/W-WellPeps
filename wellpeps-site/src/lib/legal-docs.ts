@@ -70,7 +70,7 @@ export const LEGAL_DOCS: readonly LegalDoc[] = [
   { id: 'A13', path: 'how-wellpeps-works', title: 'How WellPeps Works and Our Financial Relationships', label: 'How WellPeps Works', group: 'patient',
     blurb: 'Who does what (WellPeps, the medical practice, the pharmacy) and who is paid for what.' },
   { id: 'A14', path: 'safety/glp-1', title: 'GLP-1 Medication Safety Information', label: 'GLP-1 Safety Information', group: 'patient',
-    blurb: 'Important safety information for GLP-1 weight-management medications.' },
+    blurb: 'Important safety information for GLP-1 weight-management medications.', approved: true },
   { id: 'A15', path: 'safety/sexual-health', title: 'Sexual Health Medication Safety Information', label: 'Sexual Health Safety Information', group: 'patient',
     blurb: 'Important safety information for sexual-health medications.' },
   { id: 'A16', path: 'safety/hair-loss', title: 'Hair Loss Medication Safety Information', label: 'Hair Loss Safety Information', group: 'patient',

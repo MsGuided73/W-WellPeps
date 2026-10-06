@@ -88,15 +88,15 @@ const EMERGENCY_REPLY =
 
 const CLINICAL_REPLY =
   'That’s a clinical question, and only a licensed healthcare provider who knows your history can answer ' +
-  'it safely — I’m not able to give medical advice or recommend a dose. The good news is that a provider ' +
-  'review is included: start the free health assessment and a licensed provider will evaluate your ' +
-  'situation and recommend what’s appropriate for you.';
+  'it safely — I’m not able to give medical advice or recommend a dose. If you would like care, you can ' +
+  'see if you qualify: a licensed provider reviews your answers and decides what is appropriate for you, ' +
+  'and that review is part of your monthly plan. A prescription is not guaranteed.';
 
 const NO_MATCH_REPLY =
   'I don’t have information on that yet. I can answer questions about our programs (weight management, ' +
   'hair restoration, sexual wellness, and peptide therapies), pricing, the assessment process, shipping, ' +
-  'privacy, and how our pharmacy and lab partners work. You can also start a free assessment and a ' +
-  'licensed provider will follow up with you directly.';
+  'privacy, and how our pharmacy and lab partners work. You can also see if you qualify for care: a ' +
+  'licensed provider reviews your answers, and that review is part of your monthly plan.';
 
 /** Score a document against the query. Term overlap, weighted by field. */
 function scoreDoc(doc: KnowledgeDoc, queryTerms: string[]): number {

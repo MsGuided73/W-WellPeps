@@ -158,16 +158,17 @@ export const knowledgeBase: KnowledgeDoc[] = [
   },
   {
     id: 'program-assessment',
-    title: 'The Free Health Assessment',
+    title: 'Getting Started: Online Health Questions',
     source: 'program',
     tags: ['assessment', 'get started', 'sign up', 'consultation', 'begin', 'start', 'onboarding'],
     answer:
-      'Every treatment begins with a free online health assessment that takes most patients less than 10 minutes. A licensed provider reviews your health history, symptoms and goals, then recommends a personalized plan — if clinically appropriate.',
-    body: `The WellPeps wellness journey: 1) Complete your free health assessment — a few quick questions
-      about your health and goals. 2) A licensed medical provider reviews your information. 3) If
-      approved, you receive a custom treatment plan. 4) Discreet home delivery if medication is
-      prescribed. 5) Ongoing provider support as your needs evolve. Most patients complete the
-      assessment in under 10 minutes. There is no charge for the assessment.`,
+      'Every treatment begins with a few online health questions that take most patients less than 10 minutes. A licensed provider reviews your health history, symptoms and goals, then recommends a personalized plan — if clinically appropriate. The provider’s review and your treatment are included in your one monthly price.',
+    body: `The WellPeps wellness journey: 1) Answer a few online health questions about your health and
+      goals. 2) A licensed medical provider reviews your information. 3) If approved, you receive a
+      custom treatment plan. 4) Discreet home delivery if medication is prescribed. 5) Ongoing
+      provider support as your needs evolve. Most patients finish the questions in under 10 minutes.
+      The clinician's review, follow-up care and your medication, if prescribed, are all part of your
+      one monthly price. Lab tests are the only thing billed separately.`,
   },
   {
     id: 'program-cost',
@@ -175,11 +176,12 @@ export const knowledgeBase: KnowledgeDoc[] = [
     source: 'program',
     tags: ['price', 'pricing', 'cost', 'how much', 'fees', 'payment', 'insurance', 'expensive'],
     answer:
-      'Pricing is transparent and upfront — you know your full program cost before you begin, with no hidden fees. Sexual Wellness starts at $79/month, Hair Restoration at $49/month, and Weight Management at $179/month. Each is one monthly price covering medication, if prescribed, provider care, messaging with your care team and standard shipping. Lab testing is available when your provider recommends it; lab fees are billed separately. No insurance is required; WellPeps is self-pay. We accept Visa, Mastercard, FSA/HSA, Apple Pay and Google Pay.',
+      'Pricing is transparent — you know your full program cost before you begin, with no hidden fees. You check out and pay only after a licensed clinician prescribes treatment; if your clinician does not prescribe, you never pay. After your first payment your plan renews monthly on the same day of the month until you cancel. Sexual Wellness starts at $79/month, Hair Restoration at $49/month, and Weight Management at $179/month. Each is one monthly price covering the online health questions, your licensed clinician’s review, follow-up care, your medication if prescribed, messaging with your care team, education and standard shipping. There is no setup fee and no cancellation fee. Lab tests are the only thing not included; they are billed separately, and tax is added where the law requires it. No insurance is required; WellPeps is self-pay. We accept Visa, Mastercard, FSA/HSA, Apple Pay and Google Pay.',
     body: `Every program includes transparent pricing, a licensed healthcare provider review, ongoing
       provider support, and the ability to cancel anytime. No insurance required — affordable self-pay
       programs make personalized wellness accessible. Accepted payment methods: Visa, Mastercard,
-      American Express, Discover, FSA/HSA cards, Apple Pay, Google Pay. Provider follow-ups are included in your monthly price.`,
+      American Express, Discover, FSA/HSA cards, Apple Pay, Google Pay. Provider follow-ups are included in your monthly price.
+      You pay nothing unless a clinician prescribes treatment.`,
   },
   {
     id: 'program-cancel',
@@ -187,10 +189,12 @@ export const knowledgeBase: KnowledgeDoc[] = [
     source: 'program',
     tags: ['cancel', 'cancellation', 'refund', 'subscription', 'commitment', 'quit', 'stop'],
     answer:
-      'You can cancel anytime — there is no long-term commitment. Patients may cancel and request a refund, except for medication that has already been ordered or processed for that month’s shipment.',
-    body: `Cancel anytime. You are never locked into a long-term commitment. Patients may cancel anytime and
-      request a refund, except for medications that have already been ordered or processed for that
-      month's shipment.`,
+      'You can cancel anytime — there is no long-term commitment and no cancellation fee. You are charged only when a licensed clinician prescribes treatment, so if your clinician does not prescribe, you are never charged. Medication that has already been ordered or processed for that month’s shipment cannot be refunded.',
+    body: `Cancel anytime. You are never locked into a long-term commitment, and there is no cancellation fee.
+      You check out and pay only after a licensed clinician prescribes treatment; if the clinician does not
+      prescribe, you never pay. Your plan then renews monthly on the same day of the month as that first
+      payment until you cancel. Medications that have already been ordered or
+      processed for that month's shipment cannot be refunded.`,
   },
   {
     id: 'program-states',
@@ -221,9 +225,10 @@ export const knowledgeBase: KnowledgeDoc[] = [
     source: 'faq',
     tags: ['candidate', 'eligible', 'qualify', 'right for me', 'suitable'],
     answer:
-      'Most adults may be candidates. During your free online health assessment a licensed provider reviews your medical history, symptoms and goals to determine whether treatment is appropriate and which options fit your situation.',
+      'Most adults may be candidates. After you answer the online health questions, a licensed provider reviews your medical history, symptoms and goals to determine whether treatment is appropriate and which options fit your situation. That review is included in your monthly price.',
     body: `Eligibility is determined by a licensed provider based on your assessment. Treatment is only
-      recommended when clinically appropriate. The assessment is free and takes about 10 minutes.`,
+      recommended when clinically appropriate. The online questions take about 10 minutes, and the
+      provider's review is included in your monthly price.`,
   },
   {
     id: 'faq-results',

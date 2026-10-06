@@ -46,8 +46,9 @@ const SCRIPTFUL_PORTAL_URL = 'https://portal.wellpeps.com';
 
 /** GEN Health checkout links, one per program. In GEN Health: /products →
  *  link icon on the product row ("Checkout links for …") → copy the
- *  **Intake-first** link. Intake-first is the flow that keeps "Free Assessment"
- *  true (decided 2026-09-19, see DECISION-LOG.md); use it for every program.
+ *  **Intake-first** link. Intake-first is the flow that starts with the online health
+ *  questions (decided 2026-09-19, see DECISION-LOG.md); use it for every program. The card is
+ *  entered at checkout but charged only when a clinician prescribes (decided 2026-10-06).
  *  Links only work once the product is Active. UTM params may be appended and
  *  travel with the order. */
 const SCRIPTFUL_WEIGHT_PRODUCT_URL = '#scriptful-stub-weight-loss';
@@ -60,7 +61,9 @@ const SCRIPTFUL_HEALTHY_AGING_PRODUCT_URL = '#scriptful-stub-healthy-aging';
  *  The key is the card's name, slugged (toProductKey): "Oral Semaglutide" →
  *  'oral-semaglutide'. Intake-first is the single checkout (decided
  *  2026-09-30, replacing the $29 assessment-first deposit): the patient
- *  completes the health questions, then checks out once. Links and prices
+ *  completes the health questions, then enters a card once at checkout. The
+ *  card is not charged then: the first charge happens only when a clinician
+ *  prescribes (decided 2026-10-06). Links and prices
  *  were read from the GEN Health API on 2026-09-30. Every card is linked. */
 export const PRODUCT_LINKS = {
   // weight-loss
@@ -201,7 +204,7 @@ export const GUIDE_LANDING_FLOW = GUIDE_FLOW === 'landing';
  *  separate fees (decided 2026-09-25); standard shipping is included and labs
  *  are billed separately. See src/data/plan.ts. */
 export const PRICE_NOTE =
-  'One monthly price covers your medication, if prescribed, provider care, messaging with your care team, and standard shipping.';
+  'One monthly price covers your licensed clinician’s review, follow-up care, your medication if prescribed, messaging with your care team, and standard shipping. Lab tests are billed separately. You pay nothing unless a clinician prescribes treatment.';
 
 /** Existing-patient login on GEN Health. Opens in the same tab: the portal is on
  *  our own domain and branding, so it is the next screen of one product, not an
@@ -222,7 +225,7 @@ export const CONTACT = {
  * agent's; LegitScript compares it with the contracts). Empty until confirmed: the footer
  * and Contact page then show no address on the live site.
  */
-export const CONTACT_ADDRESS = '30 N Gould St., Suite R, Sheridan, WY 82801';
+export const CONTACT_ADDRESS: string = '30 N Gould St., Suite R, Sheridan, WY 82801';
 
 /**
  * WellPeps email addresses, in one place. PROPOSED: the owner has not yet confirmed

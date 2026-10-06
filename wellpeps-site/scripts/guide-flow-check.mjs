@@ -331,7 +331,7 @@ async function articleLinks(ctx, base) {
   check('with the required box it sends email (no name), the guide’s source and consent', sent.length === before + 1 && last.first_name == null && last.email === 'sam@example.com' && last.source === 'ebook_hair_restoration' && last.consent_collect === true && last.consent_marketing === false, JSON.stringify(last));
   check('it then opens that guide’s thank-you page', new URL(page.url()).pathname === '/smart-patient-guides/hair-restoration/thank-you');
   check('the thank-you page is kept out of search results', (await page.locator('meta[name="robots"]').getAttribute('content')) === 'noindex,nofollow');
-  check('the thank-you page offers the assessment', (await page.locator('.gthanks__next').innerText()).includes('Ready to Explore Hair Restoration Treatment?') && /Start Free Health Assessment|Opening Soon/.test(await page.locator('.gthanks__next').innerText()));
+  check('the thank-you page offers the assessment', (await page.locator('.gthanks__next').innerText()).includes('Ready to Explore Hair Restoration Treatment?') && /See If You Qualify|Opening Soon/.test(await page.locator('.gthanks__next').innerText()));
   check('until the PDF is approved the page says it will be emailed, with no download button and no "copy sent" claim', (await page.locator('[data-guide-download]').count()) === 0 && /finishing touches/.test(await page.locator('.gthanks__card').innerText()) && !/already sent|we.ve sent|sent a copy/i.test(await page.locator('.gthanks__card').innerText()));
   await ctx.close();
 

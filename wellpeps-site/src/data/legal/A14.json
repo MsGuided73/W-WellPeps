@@ -1,7 +1,7 @@
 {
  "title": "GLP-1 Medication Safety Information and Acknowledgment",
- "version": "0.1",
- "date": "October 1, 2026",
+ "version": "1.0",
+ "date": "October 5, 2026",
  "blocks": [
   {
    "t": "h1",
@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "*Last updated: October 2, 2026  |  Version 1.0*",
+   "text": "*Last updated: October 5, 2026  |  Version 1.0*",
    "italic": false,
    "align": null
   },
@@ -81,17 +81,12 @@
   },
   {
    "t": "li",
-   "text": "**FDA-approved medicines containing semaglutide or tirzepatide are available.** [Include only if the practice confirms: FDA advises that a compounded medicine be considered only when a patient’s medical needs cannot be met by an FDA-approved medicine. Your clinician decides whether a compounded medicine is appropriate for you based on your individual needs.]",
+   "text": "**FDA-approved medicines containing semaglutide or tirzepatide are available by prescription. WellPeps does not offer them.** You can get them through another provider and pharmacy, such as your own doctor. Your clinician decides whether a compounded medicine is appropriate for you based on your individual needs, and you can ask your clinician at any time whether an FDA-approved medicine may be a better fit for you.",
    "level": 0
   },
   {
    "t": "li",
    "text": "Because compounded products have not been through FDA review, their full risks, side effects, absorption, effectiveness and quality may not be known. Some information below comes from FDA-approved labeling for brand products and from FDA safety reports. That does not mean a compounded product is the same as a brand product.",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "You can ask your clinician at any time whether an FDA-approved option is right for you.",
    "level": 0
   },
   {
@@ -233,7 +228,7 @@
     ],
     [
      "Vision changes",
-     "New or worsening changes in vision, especially if you have diabetes or diabetic eye disease [medical director to confirm whether to add sudden vision loss]",
+     "New or worsening changes in vision, especially if you have diabetes or diabetic eye disease",
      "Contact your clinician promptly."
     ],
     [
@@ -248,7 +243,7 @@
   },
   {
    "t": "p",
-   "text": "**Surgery and anesthesia.** These medicines slow how fast your stomach empties. This can raise the risk of food or liquid entering your lungs during anesthesia or deep sedation. Tell your surgeon, anesthesiologist, dentist or other clinician that you use one of these medicines before any procedure. [Medical director: add instruction on whether and when to pause before procedures, or direct patients to ask their procedure team.]",
+   "text": "**Surgery and anesthesia.** These medicines slow how fast your stomach empties. This can raise the risk of food or liquid entering your lungs during anesthesia or deep sedation. Tell your surgeon, anesthesiologist, dentist or other clinician that you use one of these medicines before any procedure. Ask your clinician and your procedure team whether you should pause your medication before a procedure.",
    "italic": false,
    "align": null
   },
@@ -258,7 +253,7 @@
   },
   {
    "t": "p",
-   "text": "FDA-approved products containing semaglutide or tirzepatide commonly list nausea, diarrhea, vomiting, constipation, belly pain, indigestion, decreased appetite, bloating, belching and heartburn. Other reported effects include tiredness, headache, dizziness, hair loss and injection-site reactions. [Medical director: add faster heart rate and loss of lean body mass if confirmed.]",
+   "text": "FDA-approved products containing semaglutide or tirzepatide commonly list nausea, diarrhea, vomiting, constipation, belly pain, indigestion, decreased appetite, bloating, belching and heartburn. Other reported effects include tiredness, headache, dizziness, hair loss and injection-site reactions.",
    "italic": false,
    "align": null
   },
@@ -295,7 +290,7 @@
   },
   {
    "t": "li",
-   "text": "Never use a dosing chart you found online, and never copy the number of “units” you used from a different vial. A refill, or a different pharmacy, may have a different concentration. [If WellPeps, the practice and the pharmacies adopt the rule: When your pharmacy or concentration changes, you will receive new written dosing instructions before you use the new vial.]",
+   "text": "Never use a dosing chart you found online, and never copy the number of “units” you used from a different vial. A refill, or a different pharmacy, may have a different concentration.",
    "level": 0
   },
   {
@@ -330,7 +325,7 @@
   },
   {
    "t": "li",
-   "text": "**FDA has not approved an oral tirzepatide product** [verify on the publication date]. A compounded oral or sublingual semaglutide should not be assumed to be equivalent to an FDA-approved oral or injectable semaglutide. Absorption, exposure, effectiveness and risks can be different.",
+   "text": "**FDA has not approved an oral tirzepatide product**. A compounded oral or sublingual semaglutide should not be assumed to be equivalent to an FDA-approved oral or injectable semaglutide. Absorption, exposure, effectiveness and risks can be different.",
    "level": 0
   },
   {
@@ -359,7 +354,7 @@
   },
   {
    "t": "li",
-   "text": "If your package arrives late, warm or was left in heat, contact the dispensing pharmacy before you use it. [Cross-reference the Shipping Policy once published.]",
+   "text": "If your package arrives late, warm or was left in heat, contact the dispensing pharmacy before you use it. See the Shipping and Delivery Policy for what to check when your package arrives.",
    "level": 0
   },
   {
@@ -387,12 +382,6 @@
    "text": "13. Other things to know"
   },
   {
-   "t": "p",
-   "text": "[Medical director to confirm each item before publication.]",
-   "italic": false,
-   "align": null
-  },
-  {
    "t": "li",
    "text": "These medicines are meant to be used together with a reduced-calorie diet and more physical activity.",
    "level": 0
@@ -413,7 +402,7 @@
   },
   {
    "t": "li",
-   "text": "**Non-emergency medical questions:** message your prescribing clinician in the patient portal at [PORTAL ADDRESS].",
+   "text": "**Non-emergency medical questions:** message your prescribing clinician in the patient portal at https://portal.wellpeps.com.",
    "level": 0
   },
   {
@@ -453,13 +442,13 @@
   },
   {
    "t": "p",
-   "text": "Please read the GLP-1 Medication Safety Information (version 1.0, dated [DATE]) before checking each box. Signing this acknowledgment does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
+   "text": "Please read the GLP-1 Medication Safety Information (version 1.0, dated October 5, 2026) before checking each box. Signing this acknowledgment does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
    "italic": false,
    "align": null
   },
   {
    "t": "p",
-   "text": "☐  I have read the GLP-1 Medication Safety Information. I know I can read it again at [URL] and that I can ask my clinician or the pharmacy questions.",
+   "text": "☐  I have read the GLP-1 Medication Safety Information. I know I can read it again at https://wellpeps.com/safety/glp-1 and that I can ask my clinician or the pharmacy questions.",
    "italic": false,
    "align": null
   },
@@ -471,7 +460,7 @@
   },
   {
    "t": "p",
-   "text": "☐  I understand that my prescription may be for a compounded medicine, that compounded medicines are not FDA-approved, and that FDA does not review them for safety, effectiveness or quality. I understand that FDA-approved medicines containing semaglutide and tirzepatide are available and that I may ask my clinician about them at any time.",
+   "text": "☐  I understand that my prescription may be for a compounded medicine, that compounded medicines are not FDA-approved, and that FDA does not review them for safety, effectiveness or quality. I understand that FDA-approved medicines containing semaglutide and tirzepatide are available by prescription, that WellPeps does not offer them, and that I can get them through another provider.",
    "italic": false,
    "align": null
   },
@@ -514,19 +503,19 @@
    "rows": [
     [
      "Typed full legal name",
-     "[typed by patient]"
+     "(typed by patient)"
     ],
     [
      "Date and time",
-     "[system-captured]"
+     "(system-captured)"
     ],
     [
      "Document version",
-     "[system-captured]"
+     "(system-captured)"
     ],
     [
      "IP address",
-     "[system-captured; counsel to confirm]"
+     "(system-captured)"
     ]
    ],
    "widths": null,
@@ -538,35 +527,10 @@
    "text": "By typing my name, I agree that my electronic signature is the legal equivalent of my handwritten signature, and that I have already agreed to receive and sign documents electronically. This acknowledgment does not replace the Informed Consent to Telehealth Services and does not by itself create a clinician-patient relationship.",
    "italic": false,
    "align": null
-  },
-  {
-   "t": "h1",
-   "text": "Technical and drafting notes"
-  },
-  {
-   "t": "callout",
-   "kind": "note",
-   "text": "**For the team, not part of the document.** These are instructions for WellPeps, counsel and the people who build the forms and pages. They are collected here so the document above reads on its own."
-  },
-  {
-   "t": "h2",
-   "text": "Build notes"
-  },
-  {
-   "t": "p",
-   "text": "From: PART 2. GLP-1 SAFETY ACKNOWLEDGMENT (required form)",
-   "italic": true,
-   "align": null
-  },
-  {
-   "t": "p",
-   "text": "**Build note:** configure as a required form in GEN Health (Forms), shown before provider review and checkout, after the E-SIGN consent form. Every box must be checked to continue. Capture and store the typed name, timestamp, document version and IP address against the order. [Counsel to confirm logging and retention.]",
-   "italic": false,
-   "align": null
   }
  ],
  "id": "A14",
  "docTitle": "GLP-1 Medication Safety Information and Acknowledgment",
  "source": "glp1_safety_legacy.py (read back from the .docx)",
- "reviewerNotesOmittedBlocks": 16
+ "reviewerNotesOmittedBlocks": 0
 }

@@ -10,9 +10,25 @@
  * All text is written with textContent (never innerHTML) so tool names from the
  * registry cannot inject markup.
  */
-import { CONSENT_MAX_AGE_DAYS, advertisingLockedByGpc, allowed, isSensitivePath, type ConsentAction } from './consent';
+import {
+  CONSENT_MAX_AGE_DAYS,
+  advertisingLockedByGpc,
+  allowed,
+  isSensitivePath,
+  type ConsentAction,
+  type ConsentChanges,
+} from './consent';
 import type { GateSnapshot, PrivacyGate } from './gate';
 import type { Tracker } from './registry';
+
+/** The switches in PrivacyCenter.astro (data-pc-toggle). `anonymous` is "anonymous usage statistics on". */
+const TOGGLE_KEYS: readonly (keyof ConsentChanges)[] = [
+  'anonymous',
+  'analytics',
+  'analyticsSensitive',
+  'advertising',
+  'advertisingSensitive',
+];
 
 const $$ = <T extends Element = HTMLElement>(sel: string, root: ParentNode = document) =>
   Array.from(root.querySelectorAll<T>(sel));
@@ -29,47 +45,61 @@ const COPY = {
   noTools: (label: string) => `No ${label} tool runs on this site today. If we add one, it stays off until you turn it on.`,
 };
 
+const ANON_SENTENCE =
+  'Our own anonymous usage statistics set no cookie and keep no identifier, so they cannot identify you. They are on by default on every page, and you can turn them off in Your Privacy Choices.';
+
 /** The note shown on a health-topic page, written from what the tool list can actually do there. */
-function sensitiveNote(trackers: readonly Tracker[]): string {
-  const parts = ['This is a page about a health topic. Advertising tools never run here.'];
-  if (showsHealthSwitch(trackers)) parts.push('Other analytics runs here only if you also allow it on health-topic pages.');
-  if (trackers.some((t) => t.category === 'analytics' && t.anonymous)) {
-    parts.push('Anonymous counting that sets no cookie and keeps no identifier can run here when analytics is on.');
+export function sensitiveNote(trackers: readonly Tracker[]): string {
+  const parts = ['This is a page about a health topic.'];
+  if (showsAdsHealthSwitch(trackers)) {
+    parts.push('Advertising tools run here only if you also allow advertising on health-topic pages.');
   }
+  if (showsHealthSwitch(trackers)) parts.push('Other analytics runs here only if you also allow it on health-topic pages.');
+  if (showsAnonymousRow(trackers)) {
+    parts.push('Anonymous usage statistics, which set no cookie and keep no identifier, run here unless you turned them off.');
+  }
+  if (parts.length === 1) parts.push('No optional tool runs here unless you separately allow it.');
   return parts.join(' ');
 }
 
-/** The separate health-page switch only means something when an analytics tool is subject to it. */
+/** The separate health-page analytics switch only means something when an analytics tool is subject to it. */
 export function showsHealthSwitch(trackers: readonly Tracker[]): boolean {
   return trackers.some((t) => t.category === 'analytics' && !t.anonymous);
+}
+
+/** The separate health-page advertising switch only means something when an advertising tool exists. */
+export function showsAdsHealthSwitch(trackers: readonly Tracker[]): boolean {
+  return trackers.some((t) => t.category === 'advertising');
+}
+
+/** The "Anonymous usage statistics" row is shown only when such a tool exists. */
+export function showsAnonymousRow(trackers: readonly Tracker[]): boolean {
+  return trackers.some((t) => t.category === 'analytics' && t.anonymous === true);
 }
 
 /** The banner text, built from the tool list so it cannot promise what the code does not do. */
 export function bannerCopy(trackers: readonly Tracker[]): string {
   if (trackers.length === 0) return '';
-  const analytics = trackers.filter((t) => t.category === 'analytics');
-  const advertising = trackers.filter((t) => t.category === 'advertising');
+  const hasAnonymous = showsAnonymousRow(trackers);
+  // Anonymous tools run by default with notice and an opt-out; the question is about the others.
+  const asked = trackers.filter((t) => t.anonymous !== true);
+  if (asked.length === 0) return hasAnonymous ? ANON_SENTENCE : '';
+  const analytics = asked.filter((t) => t.category === 'analytics');
+  const advertising = asked.filter((t) => t.category === 'advertising');
   const purposes = [
     analytics.length ? 'understand how our site is used' : '',
     advertising.length ? 'measure our ads' : '',
   ].filter(Boolean);
-  const names = say(trackers.map((t) => t.name));
+  const names = say(asked.map((t) => t.name));
   const parts = [
     `We would like to use ${names} to ${purposes.join(' and to ')}.`,
     'They stay off unless you say yes. Essential cookies always run.',
   ];
-  if (advertising.length) parts.push('Advertising tools never run on pages about health topics.');
-  const anonymous = analytics.filter((t) => t.anonymous);
-  const ordinary = analytics.filter((t) => !t.anonymous);
-  if (anonymous.length) {
-    parts.push(
-      ordinary.length
-        ? 'On pages about health topics, only anonymous counting that sets no cookie and keeps no identifier runs, and other analytics runs there only if you separately allow it.'
-        : 'On pages about health topics we run only anonymous counting that sets no cookie and keeps no identifier.',
-    );
-  } else if (ordinary.length) {
-    parts.push('Analytics runs on pages about health topics only if you separately allow it.');
+  if (analytics.length) parts.push('Analytics runs on pages about health topics only if you separately allow it.');
+  if (advertising.length) {
+    parts.push('Advertising runs on pages about health topics only if you separately allow that too; "Accept all" does not include it.');
   }
+  if (hasAnonymous) parts.push(ANON_SENTENCE);
   return parts.join(' ');
 }
 
@@ -108,13 +138,16 @@ export function statusAfter(action: ConsentAction, snap: GateSnapshot): string {
     case 'acceptAll':
       return s.gpc && !s.gpcOverride
         ? 'Saved in this browser. Analytics is on. Advertising stays off because your browser sent a Global Privacy Control signal.'
-        : 'Saved in this browser. Analytics and advertising are on.';
+        : 'Saved in this browser. Analytics and advertising are on. Pages about health topics are included only if you separately allow them.';
     case 'rejectAll':
       return 'Saved in this browser. Analytics and advertising are off.';
     case 'withdrawAll':
       return 'All optional tools are off and your saved choice was deleted from this browser.';
-    case 'set':
-      return `Saved in this browser. ${state('Analytics', s.analytics)}${s.analytics ? `, health-topic pages ${s.analyticsSensitive ? 'included' : 'not included'}` : ''}. ${state('Advertising', s.advertising)}.`;
+    case 'set': {
+      const health = (on: boolean, included: boolean) => (on ? `, health-topic pages ${included ? 'included' : 'not included'}` : '');
+      const anon = 'anonymous' in action.changes ? ` Anonymous usage statistics are ${s.anonOptOut ? 'off' : 'on'}.` : '';
+      return `Saved in this browser. ${state('Analytics', s.analytics)}${health(s.analytics, s.analyticsSensitive)}. ${state('Advertising', s.advertising)}${health(s.advertising, s.advertisingSensitive)}.${anon}`;
+    }
     case 'gpcAllowAnyway':
       return 'Saved in this browser. Advertising is on, as you asked.';
     case 'gpcKeepOff':
@@ -137,10 +170,16 @@ export function initPrivacyUI({ gate, trackers }: UiOptions): void {
 
   // ----------------------------------------------------------------- render
   function renderTools(center: HTMLElement, snap: GateSnapshot): void {
-    for (const category of ['analytics', 'advertising'] as const) {
+    // Anonymous tools are listed under their own row, the others under their category.
+    const groups = {
+      anonymous: trackers.filter((t) => t.category === 'analytics' && t.anonymous === true),
+      analytics: trackers.filter((t) => t.category === 'analytics' && t.anonymous !== true),
+      advertising: trackers.filter((t) => t.category === 'advertising'),
+    };
+    for (const category of ['anonymous', 'analytics', 'advertising'] as const) {
       const box = center.querySelector<HTMLElement>(`[data-pc-tools="${category}"]`);
       if (!box) continue;
-      const list = trackers.filter((t) => t.category === category);
+      const list = groups[category];
       const rows = list.map((t) => {
         const running = snap.loaded.includes(t.id);
         const mayHere = allowed(snap.state, t.category, snap.path, t.anonymous === true);
@@ -153,7 +192,7 @@ export function initPrivacyUI({ gate, trackers }: UiOptions): void {
       box.replaceChildren();
       if (list.length === 0) {
         const p = document.createElement('p');
-        p.textContent = COPY.noTools(category);
+        p.textContent = COPY.noTools(category === 'analytics' && groups.anonymous.length ? 'other analytics' : category);
         box.append(p);
         continue;
       }
@@ -192,6 +231,11 @@ export function initPrivacyUI({ gate, trackers }: UiOptions): void {
         el.checked = s.advertising && !locked;
         el.disabled = locked;
       });
+      set('[data-pc-toggle="advertisingSensitive"]', (el) => {
+        el.checked = s.advertisingSensitive;
+        el.disabled = !s.advertising || locked;
+      });
+      set('[data-pc-toggle="anonymous"]', (el) => (el.checked = !s.anonOptOut));
 
       // Write only what changed: rewriting a live region with the same text makes screen readers repeat it.
       const text = (sel: string, value: string, alwaysShown = false) => {
@@ -209,8 +253,14 @@ export function initPrivacyUI({ gate, trackers }: UiOptions): void {
       text('[data-pc-sensitive-note]', sensitive ? sensitiveNote(trackers) : '');
       text('[data-pc-storage-blocked]', snap.storageBlocked ? COPY.storageBlocked : '');
 
-      const sub = center.querySelector<HTMLElement>('[data-pc-health-switch]');
-      if (sub && sub.hidden === showsHealthSwitch(trackers)) sub.hidden = !showsHealthSwitch(trackers);
+      // Show a part only when a tool is subject to it; write only when it changes.
+      const show = (sel: string, shown: boolean) => {
+        const el = center.querySelector<HTMLElement>(sel);
+        if (el && el.hidden === shown) el.hidden = !shown;
+      };
+      show('[data-pc-health-switch]', showsHealthSwitch(trackers));
+      show('[data-pc-ads-health-switch]', showsAdsHealthSwitch(trackers));
+      show('[data-pc-row="anonymous"]', showsAnonymousRow(trackers));
 
       // Global Privacy Control message and its two buttons.
       const gpcBox = center.querySelector<HTMLElement>('[data-pc-gpc]');
@@ -267,8 +317,8 @@ export function initPrivacyUI({ gate, trackers }: UiOptions): void {
   document.addEventListener('change', (e) => {
     const el = e.target as HTMLElement | null;
     if (!(el instanceof HTMLInputElement)) return;
-    const key = el.dataset.pcToggle as 'analytics' | 'analyticsSensitive' | 'advertising' | undefined;
-    if (!key) return;
+    const key = el.dataset.pcToggle as keyof ConsentChanges | undefined;
+    if (!key || !TOGGLE_KEYS.includes(key)) return;
     dispatch({ type: 'set', changes: { [key]: el.checked }, via: 'center' });
   });
 

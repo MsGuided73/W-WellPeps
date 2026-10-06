@@ -94,7 +94,7 @@
    "t": "clause",
    "number": "6.",
    "heading": "A prescription is required and is not guaranteed.",
-   "text": "A licensed clinician decides whether a prescription is medically appropriate for you. Paying for a plan does not guarantee a prescription. If your clinician does not prescribe, you get a full refund, as the Refund, Cancellation and Auto-Renewal Policy explains.",
+   "text": "A licensed clinician decides whether a prescription is medically appropriate for you. Starting a plan does not guarantee a prescription. You are charged only when a clinician prescribes treatment. If your clinician does not prescribe, you are not charged.",
    "level": 0
   },
   {
@@ -244,11 +244,11 @@
   },
   {
    "t": "h3",
-   "text": "Copy: wherever “free” appears"
+   "text": "Copy: wherever “free” appears (only for the online health questions)"
   },
   {
    "t": "callout",
-   "text": "Your health assessment is free. If your clinician does not prescribe treatment, you get a full refund of everything you paid. A prescription is not guaranteed.",
+   "text": "The online health questions are free: they are an automated questionnaire, and you do not need a card to answer them. Your clinician’s review and your treatment are not free. They are included in your monthly price. You are charged only if a clinician prescribes treatment, and if your clinician does not prescribe, you are not charged. A prescription is not guaranteed.",
    "kind": "info"
   },
   {
@@ -916,7 +916,7 @@
     "Say “state-licensed pharmacy.” Never say “FDA-registered,” “FDA-approved pharmacy” or “FDA-inspected.”",
     "Never say “HIPAA compliant,” “guaranteed,” “safe,” “natural” or “risk-free.” Do not publish weight-loss numbers or any outcome number.",
     "Write “Prescription required; a prescription is not guaranteed” wherever a treatment is mentioned.",
-    "“Free” is allowed only for the health assessment, with the full-refund rule next to it.",
+    "Prefer not to use “free” at all. It may describe only the automated online health questions, and the Block 5 “free” sentence must sit in the same sentence or the one next to it. The clinician’s review is never free: it is included in the monthly price, and the patient is charged only if a clinician prescribes.",
     "Do not name the Practice, the management-services partner or the technology vendor in patient-facing copy unless the contract allows and written consent is in hand.",
     "Never write “all 50 states.” Use the States We Serve page.",
     "A disclaimer cannot fix content that contradicts it. Dosing instructions do not belong in educational content."

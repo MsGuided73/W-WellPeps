@@ -22,13 +22,17 @@ interface Props {
   existing?: string;
   /** Hide the draft box on pages that are not documents (the index of drafts). */
   plain?: boolean;
+  /** A released document: no draft box, no "(draft)" in the title, indexable. */
+  approved?: boolean;
 }
-const { title, blurb, docId, version = '0.1', date, blocks, existing, plain = false } = Astro.props;
+const { title, blurb, docId, version = '0.1', date, blocks, existing, plain = false, approved = false } = Astro.props;
 const html = blocks ? renderBlocks(blocks) : '';
 const toc = blocks ? outline(blocks) : [];
-const tag = plain ? 'For attorney review' : `Draft v${version}${docId ? ` · Document ${docId}` : ''}`;
+const tag = approved
+  ? `Version ${version}${date ? ` · ${date}` : ''}`
+  : plain ? 'For attorney review' : `Draft v${version}${docId ? ` · Document ${docId}` : ''}`;
 ---
-<BaseLayout title={`${title} (draft) — WellPeps`} description={blurb ?? `${title}. Draft for review.`} noindex>
+<BaseLayout title={approved ? `${title} — WellPeps` : `${title} (draft) — WellPeps`} description={blurb ?? `${title}. Draft for review.`} noindex={!approved}>
   <article class="ld">
     <header class="ld__head">
       <div class="container">
@@ -39,7 +43,7 @@ const tag = plain ? 'For attorney review' : `Draft v${version}${docId ? ` · Doc
     </header>
 
     <div class="container ld__body">
-      {!plain && (
+      {!plain && !approved && (
         <div class="ld-banner" role="note">
           <strong>Draft for attorney review. Not in effect.</strong>
           <p>
@@ -71,7 +75,7 @@ const tag = plain ? 'For attorney review' : `Draft v${version}${docId ? ` · Doc
       {html && <div class="ld-doc" set:html={html} />}
       <div class="ld-doc"><slot /></div>
 
-      <p class="ld__back"><a href="/legal-review">&larr; All draft documents</a></p>
+      {!approved && <p class="ld__back"><a href="/legal-review">&larr; All draft documents</a></p>}
     </div>
   </article>
 </BaseLayout>

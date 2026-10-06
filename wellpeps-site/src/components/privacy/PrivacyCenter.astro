@@ -56,6 +56,23 @@ const requestShortcuts = [
       </div>
     </li>
 
+    <li class="pc__row" data-pc-row="anonymous" hidden>
+      <div class="pc__rowhead">
+        <div>
+          <h3 id={id('anonymous')}>Anonymous usage statistics</h3>
+          <p id={id('anonymous-desc')}>
+            On by default. Counts page views, clicks and scrolling with no cookies and no identifier, so it cannot identify
+            you. You can turn it off at any time.
+          </p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" role="switch" data-pc-toggle="anonymous" aria-labelledby={id('anonymous')} aria-describedby={id('anonymous-desc')} />
+          <span class="switch__track" aria-hidden="true"></span>
+        </label>
+      </div>
+      <div class="pc__tools" data-pc-tools="anonymous"></div>
+    </li>
+
     <li class="pc__row" data-pc-row="analytics">
       <div class="pc__rowhead">
         <div>
@@ -71,7 +88,7 @@ const requestShortcuts = [
         <div class="pc__rowhead pc__rowhead--sub">
           <div>
             <h4 id={id('analytics-health')}>Also allow analytics on pages about health topics</h4>
-            <p id={id('analytics-health-desc')}>Off unless you separately allow it. Applies to {healthPages}. Advertising never runs there.</p>
+            <p id={id('analytics-health-desc')}>Off unless you separately allow it. Applies to {healthPages}.</p>
           </div>
           <label class="switch">
             <input type="checkbox" role="switch" data-pc-toggle="analyticsSensitive" aria-labelledby={id('analytics-health')} aria-describedby={id('analytics-health-desc')} disabled />
@@ -88,14 +105,30 @@ const requestShortcuts = [
           <h3 id={id('advertising')}>Advertising and sharing</h3>
           <p id={id('advertising-desc')}>
             Off unless you turn it on. Lets advertising companies measure our ads and show ads. Under some
-            state laws this counts as a sale or sharing of personal information. It never runs on pages about
-            health topics.
+            state laws this counts as a sale or sharing of personal information. On pages about health topics it
+            runs only if you separately allow that.
           </p>
         </div>
         <label class="switch">
           <input type="checkbox" role="switch" data-pc-toggle="advertising" aria-labelledby={id('advertising')} aria-describedby={id('advertising-desc')} />
           <span class="switch__track" aria-hidden="true"></span>
         </label>
+      </div>
+      <div class="pc__sub" data-pc-ads-health-switch hidden>
+        <div class="pc__rowhead pc__rowhead--sub">
+          <div>
+            <h4 id={id('advertising-health')}>Also allow advertising measurement on pages about health topics</h4>
+            <p id={id('advertising-health-desc')}>
+              Off unless you separately allow it. "Accept all" does not turn it on. Applies to {healthPages}. If you allow
+              it, advertising companies can learn that you visited pages about health topics. Our vendor removes the names
+              of conditions and treatments before anything is shared.
+            </p>
+          </div>
+          <label class="switch">
+            <input type="checkbox" role="switch" data-pc-toggle="advertisingSensitive" aria-labelledby={id('advertising-health')} aria-describedby={id('advertising-health-desc')} disabled />
+            <span class="switch__track" aria-hidden="true"></span>
+          </label>
+        </div>
       </div>
       <p class="pc__lock" data-pc-lock="advertising" hidden></p>
       <div class="pc__tools" data-pc-tools="advertising"></div>

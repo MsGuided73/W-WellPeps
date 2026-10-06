@@ -1330,7 +1330,7 @@
   },
   {
    "t": "p",
-   "text": "**How long we keep records.** The Practice keeps your medical record for at least [7] years, or longer if your state requires. Closing your membership or portal account does not delete your medical record.",
+   "text": "**How long we keep records.** The Practice keeps your medical record for at least [7] years, or longer if your state requires. Canceling your plan or closing your portal account does not delete your medical record.",
    "italic": false,
    "align": null
   },
@@ -1788,7 +1788,7 @@
   },
   {
    "t": "li",
-   "text": "Closing a membership or a portal account does not delete the medical record. Tell patients this plainly.",
+   "text": "Canceling a plan or closing a portal account does not delete the medical record. Tell patients this plainly.",
    "level": 0
   },
   {

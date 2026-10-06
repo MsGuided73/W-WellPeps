@@ -147,7 +147,7 @@ p, li, figcaption, blockquote { text-wrap: pretty; }
   box-shadow: 0 12px 26px rgba(21, 118, 196, 0.32);
 }
 /* NOTE: .btn--cta (a dark navy fill for bottom-of-page CTA bands) was removed.
-   Every "Start Your Free Assessment" button on the site — hero, in-page and
+   Every "See If You Qualify" button on the site — hero, in-page and
    bottom-of-page — is now the one brand blue .btn--primary above. */
 .btn--secondary {
   background: #fff; color: var(--blue);

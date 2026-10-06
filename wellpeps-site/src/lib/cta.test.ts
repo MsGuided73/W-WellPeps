@@ -76,7 +76,7 @@ describe('assertTrustedLinks', () => {
 
 describe('createCtaResolver', () => {
   test('uses one label for every CTA', () => {
-    expect(ASSESSMENT_CTA_LABEL).toBe('Start Free Health Assessment');
+    expect(ASSESSMENT_CTA_LABEL).toBe('See If You Qualify');
   });
 
   test('marks a program coming soon while its link is still a stub', () => {

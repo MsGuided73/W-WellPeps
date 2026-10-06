@@ -34,7 +34,7 @@ const contactBlocks = a8 ? sectionCopy(a8.blocks, /^Block 7\./) : [];
 const statesBlocks = a8 ? sectionCopy(a8.blocks, /^Block 8\./) : [];
 ---
 {doc && data && (
-  <LegalDocPage title={doc.title} blurb={doc.blurb} docId={doc.id} version={data.version} date={data.date} blocks={data.blocks} existing={doc.existing} />
+  <LegalDocPage title={doc.title} blurb={doc.blurb} docId={doc.id} version={data.version} date={data.date} blocks={data.blocks} existing={doc.existing} approved={doc.approved} />
 )}
 {kind === 'contact' && a8 && (
   <LegalDocPage title="Contact WellPeps" blurb="How to reach us, and what each address is for." docId="A8" version={a8.version} date={a8.date} blocks={contactBlocks} />

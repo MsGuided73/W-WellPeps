@@ -5,7 +5,7 @@
  "blocks": [
   {
    "t": "p",
-   "text": "Effective date: [EFFECTIVE DATE]  |  Last updated: October 2, 2026  |  Version 1.0",
+   "text": "Effective date: October 5, 2026  |  Last updated: October 5, 2026  |  Version 1.0",
    "italic": true,
    "align": null
   },
@@ -34,11 +34,15 @@
     ],
     [
      "What do I pay?",
-     "One monthly price for the treatment plan you choose. You see it at checkout before you enter your card. It covers your medication (if prescribed), your clinician’s review and follow-up care, messaging with your care team, education and standard shipping. There is no membership fee, no setup fee and no cancellation fee. Lab tests, if your clinician recommends them, are billed separately. Tax is added where the law requires it."
+     "One monthly price for the treatment plan you choose. You see it before you pay, on our site and again at checkout. It covers the online health questions, your clinician’s review, follow-up care, your medication (if prescribed), messaging with your care team, education and standard shipping. There is no setup fee and no cancellation fee. Lab tests, if your clinician recommends them, are billed separately. Tax is added where the law requires it."
     ],
     [
-     "Is the health assessment free?",
-     "Yes. You do not pay a separate fee for the assessment or the clinician’s review. If your clinician does not prescribe treatment, we refund everything you paid. A prescription is not guaranteed."
+     "Do I pay to answer the online health questions?",
+     "No. The online health questions are an automated questionnaire, and you do not need a card to answer them. Your clinician’s review is included in your monthly price, with your follow-up care and your medication if prescribed. A prescription is not guaranteed."
+    ],
+    [
+     "When am I first charged?",
+     "Only after your clinician prescribes treatment. You answer the health questions first and a clinician reviews them. If the clinician prescribes, you check out and pay for your first month. If your clinician does not prescribe, you never pay."
     ],
     [
      "How often am I charged?",
@@ -46,7 +50,7 @@
     ],
     [
      "When does it renew?",
-     "Automatically, on the [same calendar day each month] as your first charge, until you cancel. We charge the card you used at checkout."
+     "Automatically, on the same calendar day of the month as your first charge (the day you check out after your clinician prescribes), until you cancel. We charge the card you used at checkout."
     ],
     [
      "Is there a minimum commitment?",
@@ -58,11 +62,15 @@
     ],
     [
      "What is the deadline?",
-     "Cancel at least [72 hours] before your next charge date to be sure you are not charged. If you cancel later, we still stop all future charges, and we refund the charge if the pharmacy has not started preparing your medication (Section 4.3)."
+     "Cancel at least 72 hours before your next charge date to be sure you are not charged. If you cancel later, we still stop all future charges. If we have not made the charge yet when we receive your request, we will not make it. If we already made it, we refund it if the pharmacy has not started preparing your medication (Section 4.3)."
+    ],
+    [
+     "What does “the pharmacy has started preparing your medication” mean?",
+     "The pharmacy that fills your prescription has recorded that it began preparing, compounding, filling or dispensing your own prescription. The pharmacy only receiving, routing or accepting your prescription electronically does not count. This is the point after which a charge generally cannot be refunded (Section 5.8)."
     ],
     [
      "What is the refund rule?",
-     "Full refund if your clinician does not prescribe (Section 5.1). Refunds also apply to pharmacy errors, lost, damaged or heat-exposed shipments, and long delays (Sections 5.2 to 5.5). Medication that was prepared and shipped correctly cannot be returned or refunded (Section 5.6)."
+     "If your clinician does not prescribe, you are not charged (Section 2.4). Refunds apply to a month your clinician does not renew, pharmacy errors, lost, damaged or heat-exposed shipments, long delays, charges made after you cancel and billing errors (Sections 5.1 to 5.7). Medication that was prepared and shipped correctly cannot be returned or refunded (Section 5.8)."
     ],
     [
      "Who charges my card?",
@@ -78,15 +86,15 @@
   },
   {
    "t": "h1",
-   "text": "2. The free health assessment"
+   "text": "2. The health assessment"
   },
   {
    "t": "h2",
-   "text": "2.1 What “free” means"
+   "text": "2.1 What you pay"
   },
   {
    "t": "p",
-   "text": "Starting your health assessment is free. You do not pay a separate fee for the assessment or for your clinician’s review. You pay one monthly price for the treatment plan you choose. If your clinician decides not to prescribe, we refund everything you paid (Section 5.1).",
+   "text": "The online health questions are an automated questionnaire. You do not need a card to answer them. Your clinician’s review is included in your monthly price, along with your follow-up care, your medication if prescribed, messaging with your care team, education and standard shipping. There is no separate fee for the review. You are charged only if your clinician prescribes treatment (Section 2.4).",
    "italic": false,
    "align": null
   },
@@ -97,11 +105,10 @@
   {
    "t": "ol",
    "items": [
-    "Choose a treatment and answer health questions in the patient portal.",
-    "Check out. Before you enter your card, you see the monthly price and the renewal terms.",
+    "Choose a treatment and answer health questions in the patient portal. You do not pay anything at this step.",
     "An independent licensed clinician reviews your answers. This is usually done online. The clinician may ask you for more information.",
-    "If the clinician prescribes, the prescription goes to a state-licensed pharmacy that prepares and ships your medication.",
-    "If the clinician does not prescribe, you get a full refund."
+    "If the clinician prescribes, you check out. Before you enter your card, you see the monthly price and the renewal terms. You pay for your first month, and the prescription goes to a state-licensed pharmacy that prepares and ships your medication.",
+    "If the clinician does not prescribe, you never pay."
    ]
   },
   {
@@ -110,7 +117,7 @@
   },
   {
    "t": "p",
-   "text": "Paying does not guarantee a prescription. A licensed clinician decides whether treatment is medically appropriate for you. WellPeps does not make that decision and cannot change it.",
+   "text": "Answering the health questions does not guarantee a prescription. A licensed clinician decides whether treatment is medically appropriate for you. WellPeps does not make that decision and cannot change it.",
    "italic": false,
    "align": null
   },
@@ -120,7 +127,7 @@
   },
   {
    "t": "p",
-   "text": "Your card is charged at checkout, before your clinician reviews your answers. That is why we refund you in full if you are not prescribed treatment. [ALTERNATIVE A: charge only after approval]",
+   "text": "You pay for the first time when you check out, and checkout is offered only after your clinician prescribes treatment. If your clinician does not prescribe, or cannot finish the review, you never pay. Each later monthly charge falls on the same calendar day of the month as your first payment (Section 3.1).",
    "italic": false,
    "align": null
   },
@@ -132,7 +139,7 @@
    "t": "clause",
    "number": "3.1",
    "heading": "Your plan renews every month.",
-   "text": "When you check out, your plan starts. It then renews automatically every month until you cancel. Each month we charge the card you used at checkout the monthly price you saw at checkout, or the new price if we told you about a change under Section 6. We charge on the [same calendar day each month] as your first charge. If a month has no such day, we charge on the last day of that month.",
+   "text": "You check out after your clinician prescribes treatment. At checkout you agree to the renewal terms and pay for your first month, and your plan starts that day. It then renews automatically every month until you cancel. Each month we charge the card you used at checkout the monthly price you saw at checkout, or a new price only if you agreed to it under Section 6. We charge on the same calendar day of the month as your first charge. If a month has no such day, we charge on the last day of that month.",
    "level": 0
   },
   {
@@ -146,7 +153,7 @@
    "t": "clause",
    "number": "3.3",
    "heading": "Your consent.",
-   "text": "Before we charge your card, we show you the renewal terms in plain words and ask you to check a box that says you agree. The box is not checked for you. It is separate from the other boxes you check, such as your agreement to the Patient Terms of Service and Payment Agreement and your consents to telehealth care. If you do not check it, we do not charge you and your plan does not start.",
+   "text": "Before you enter your card, we show you the renewal terms in plain words and ask you to check a box that says you agree. The box is not checked for you. It is separate from the other boxes you check, such as your agreement to the Patient Terms of Service and Payment Agreement and your consents to telehealth care. If you do not check it, we do not take your card or start your plan.",
    "level": 0
   },
   {
@@ -158,17 +165,17 @@
   },
   {
    "t": "li",
-   "text": "Right after checkout: an email with the renewal terms, the price, the date of your next charge and how to cancel.",
+   "text": "Right after checkout: a receipt and an email with the renewal terms, the price, the date of your next charge and how to cancel.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "After each charge: a receipt.",
+   "text": "After each later charge: a receipt.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "At least [7 days] before each renewal: a reminder with the date, the amount, the cancellation deadline and how to cancel.",
+   "text": "At least 7 days before each renewal: a reminder with the date, the amount, the cancellation deadline and how to cancel.",
    "level": 0
   },
   {
@@ -178,14 +185,14 @@
   },
   {
    "t": "li",
-   "text": "Before any price change takes effect: a notice (Section 6.2).",
+   "text": "At least 30 days before any higher price could start: a notice that asks for your agreement (Section 6.2).",
    "level": 0
   },
   {
    "t": "clause",
    "number": "3.5",
    "heading": "Your consent record.",
-   "text": "We keep a record of what you agreed to: the words we showed you and the date and time you agreed. We keep it for at least [3 years], or for 1 year after your plan ends if that is longer. You can ask us for a copy.",
+   "text": "We keep a record of what you agreed to: the words we showed you and the date and time you agreed. We keep it for at least 3 years, or for 1 year after your plan ends if that is longer. You can ask us for a copy.",
    "level": 0
   },
   {
@@ -240,24 +247,29 @@
   },
   {
    "t": "p",
-   "text": "To be sure you are not charged for your next month, cancel at least [72 hours] before your next charge date. Your reminder email shows that date.",
+   "text": "To be sure you are not charged for your next month, cancel at least 72 hours before your next charge date. Your reminder email shows that date.",
    "italic": false,
    "align": null
   },
   {
    "t": "p",
-   "text": "You can still cancel after the deadline, and we will still stop all future charges. If you cancel less than [72 hours] before your next charge date:",
+   "text": "You can still cancel after the deadline, and we will still stop all future charges. If you cancel less than 72 hours before your next charge date:",
    "italic": false,
    "align": null
   },
   {
    "t": "li",
-   "text": "If the pharmacy has not started preparing your medication, we cancel that order and refund the charge in full. If we have not made the charge yet, we will not make it.",
+   "text": "If we have not made the charge yet when we receive your request, we will not make it. If we make it anyway, we refund it in full (Section 5.6).",
    "level": 0
   },
   {
    "t": "li",
-   "text": "If the pharmacy has already started preparing your medication, the charge is not refundable and your order will ship. We will not charge you again.",
+   "text": "If we already made the charge and the pharmacy has not started preparing your medication, we cancel that order and refund the charge in full.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "If we already made the charge and the pharmacy has already started preparing your medication, the charge is not refundable and your order will ship. We will not charge you again.",
    "level": 0
   },
   {
@@ -266,7 +278,12 @@
   },
   {
    "t": "li",
-   "text": "You will not be charged again after we confirm your cancellation, except as stated in Section 4.3.",
+   "text": "If you cancel before you check out, we close your order. You have not paid anything.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "You will not be charged again after we receive your cancellation request, except a charge we already made before then (Section 4.3). If we charge you after we receive your request, we refund that charge in full (Section 5.6).",
    "level": 0
   },
   {
@@ -300,7 +317,7 @@
   },
   {
    "t": "p",
-   "text": "We may end your plan if your clinician stops treatment, you move to a state we do not serve, a payment fails (Section 7), you give false information, or you misuse the service or the medication. We will tell you in writing. If we end your plan for a reason that is not your fault, for example we stop offering a treatment or your state is no longer served, we refund any charge for a month in which you did not receive what you paid for. If we end it because you gave false information or misused the service, Section 5.6 applies.",
+   "text": "We may end your plan if your clinician stops treatment, you move to a state we do not serve, a payment fails (Section 7), you give false information, or you misuse the service or the medication. We will tell you in writing. If we end your plan for a reason that is not your fault, for example we stop offering a treatment or your state is no longer served, we refund any charge for a month in which you did not receive what you paid for. If we end it because you gave false information or misused the service, Section 5.8 applies.",
    "italic": false,
    "align": null
   },
@@ -311,15 +328,15 @@
   {
    "t": "clause",
    "number": "5.1",
-   "heading": "Full refund if your clinician does not prescribe.",
-   "text": "If your clinician decides not to prescribe treatment, we refund everything you paid for that order, including any tax. You do not need to ask. This also applies if your clinician cannot finish the review because you did not send information they asked for within [14 days], and if your clinician does not renew your prescription for a month we have charged. We start the refund within [2 business days] after the decision. [ALTERNATIVE A: charge only after approval] [ALTERNATIVE B: non-refundable consult fee, amount to be set]",
+   "heading": "If your clinician does not prescribe or renew.",
+   "text": "If your clinician decides not to prescribe treatment, you are not charged. The same applies if your clinician cannot finish the review because you did not send information they asked for within 14 days (we send you a reminder before we close the review). If your clinician does not renew your prescription for a month we have already charged, we refund that charge in full, including any tax. You do not need to ask. A routing, system or pharmacy error does not take away this refund. We start the refund within 2 business days after the decision.",
    "level": 0
   },
   {
    "t": "clause",
    "number": "5.2",
    "heading": "You change your mind before the pharmacy starts.",
-   "text": "If the pharmacy has not started preparing your medication, you can cancel the order and we refund the charge in full. Ask as soon as you can (Section 5.8).",
+   "text": "If the pharmacy has not started preparing your medication, you can cancel the order and we refund the charge in full. Ask as soon as you can (Section 5.10).",
    "level": 0
   },
   {
@@ -333,26 +350,40 @@
    "t": "clause",
    "number": "5.4",
    "heading": "Lost, damaged or heat-exposed shipment.",
-   "text": "If a package is damaged, was exposed to heat, or arrives with a broken seal or leak, do not use the medication. Contact the pharmacy and support@wellpeps.com within [48 hours] after it arrives. If a package does not arrive, contact us within [7 days] after the expected delivery date. Send photos of the package and the label if you can. The pharmacy decides whether the product is safe to use, and your clinician confirms that a replacement is appropriate. We send a replacement at no charge or, if a replacement cannot be sent, refund that month’s charge. See the Shipping and Delivery Policy for what to check when your package arrives.",
+   "text": "Check your package as soon as it arrives. If anything is missing, damaged, leaking, incorrect or otherwise unusable, or a seal is broken, do not use the medication. Contact the pharmacy and support@wellpeps.com within 7 days after delivery. If you think the medication was exposed to heat or the packaging failed, tell us as soon as you can and before you use it. If a package does not arrive, contact us within 7 days after the expected delivery date. Send photos of the product, the label, the packaging and the shipping box if you can. Reporting after 7 days does not take away your rights for a problem you could not reasonably have found sooner, or any right the law does not let you give up. The pharmacy decides whether the product is safe to use, and your clinician confirms that a replacement is appropriate. We send a replacement at no charge or, if a replacement cannot be sent, refund that month’s charge. See the Shipping and Delivery Policy for what to check when your package arrives.",
    "level": 0
   },
   {
    "t": "clause",
    "number": "5.5",
    "heading": "Backorders and shortages.",
-   "text": "If a medication is on backorder or the pharmacy cannot fill your order, we tell you. You can wait, ask your clinician whether another option is right for you (your clinician decides), or cancel and receive a full refund of the order that was not filled. If your order has not shipped within [14 days] after we charged you, you can cancel it and receive a full refund.",
+   "text": "If a medication is on backorder or the pharmacy cannot fill your order, we tell you. You can wait, ask your clinician whether another option is right for you (your clinician decides), or cancel and receive a full refund of the order that was not filled. If your order has not shipped within 14 days after we charged you, you can cancel it and receive a full refund.",
    "level": 0
   },
   {
    "t": "clause",
    "number": "5.6",
+   "heading": "Charge made after you cancel.",
+   "text": "Your cancellation counts from the time we receive it. If we charge you after that, we refund that charge in full. You do not need to ask.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "5.7",
+   "heading": "Duplicate or incorrect charge.",
+   "text": "If we charge you twice, charge the wrong amount or make any other billing error, we correct the error and refund any amount you did not owe.",
+   "level": 0
+  },
+  {
+   "t": "clause",
+   "number": "5.8",
    "heading": "When we cannot refund.",
    "text": "We cannot refund a charge in these cases, unless the law says otherwise:",
    "level": 0
   },
   {
    "t": "li",
-   "text": "The pharmacy has already started preparing your medication, the medication was prepared and shipped as ordered, and nothing in Sections 5.3 to 5.5 applies. This includes a change of mind, side effects, a dose change or not getting the result you hoped for.",
+   "text": "The pharmacy has already started preparing your medication, the medication was prepared and shipped as ordered, and nothing in Sections 5.3 to 5.7 applies. This includes a change of mind, side effects, a dose change or not getting the result you hoped for.",
    "level": 0
   },
   {
@@ -388,14 +419,14 @@
   },
   {
    "t": "clause",
-   "number": "5.7",
+   "number": "5.9",
    "heading": "How and when we pay refunds.",
-   "text": "We refund to the card you used at checkout. We start the refund within [2 business days] after we approve it. It usually appears on your statement within [5 to 10 business days], depending on your bank or card issuer. [VERIFY: processor refund timing] We email you when the refund is issued. If your card has been closed, contact us and we will find another way to pay you.",
+   "text": "We refund to the card you used at checkout. We start the refund within 2 business days after we approve it. It usually appears on your statement within 5 to 10 business days, depending on your bank or card issuer. [VERIFY: processor refund timing] We email you when the refund is issued. If your card has been closed, contact us and we will find another way to pay you.",
    "level": 0
   },
   {
    "t": "clause",
-   "number": "5.8",
+   "number": "5.10",
    "heading": "How to ask for a refund.",
    "text": "Email support@wellpeps.com or send a message in your patient portal. Tell us your name, the email on your account, the charge date and what happened. We reply within 1 business day. You do not need to use special words.",
    "level": 0
@@ -415,14 +446,14 @@
    "t": "clause",
    "number": "6.2",
    "heading": "If the price goes up.",
-   "text": "We will tell you in writing at least [30 days] before a higher price takes effect. The notice is sent by email and shown in your patient portal. It states your current price, the new price, the date it starts and how to cancel. The new price applies only to renewals on or after that date. If you cancel before that date, you will not pay the new price. Where a state’s law requires your fresh agreement to a higher price, we will ask for it and will not charge the higher price until you agree.",
+   "text": "We will not charge you a higher monthly price, or change how often we charge you, unless you agree to it first. We tell you in writing at least 30 days before the date a higher price would start. The notice is sent by email and shown in your patient portal. It states your current price, the new price, the date it would start, how to agree and how to cancel. If you agree, the new price applies only to renewals on or after that date. If you do not agree before that date, we will not charge the higher price. Your plan then ends at the end of the month you have already paid for, and we tell you in writing. You can restart at any time (Section 4.5).",
    "level": 0
   },
   {
    "t": "clause",
    "number": "6.3",
    "heading": "Promotional prices.",
-   "text": "We do not offer introductory prices or free trials today. If we ever do, checkout will show the promotional price, how long it lasts, the regular price that follows and the date it starts. We will email you [3 to 21 days] before a promotional price ends. “Free” is used only for the health assessment, with the refund rule shown next to it.",
+   "text": "We do not offer introductory prices or free trials today. If we ever do, checkout will show the promotional price, how long it lasts, the regular price that follows and the date it starts. If you agreed at checkout to both the promotional price and the regular price that follows, the change to the regular price does not need your agreement again. We will email you between 3 and 21 days before a promotional price ends. The word “free” is not used for the clinician’s review. It may describe only the automated online health questions, and only with a statement beside it that the review and treatment are part of the monthly price.",
    "level": 0
   },
   {
@@ -443,7 +474,7 @@
   },
   {
    "t": "li",
-   "text": "We may try the charge again up to [3 attempts] over [10 days]. We do not charge a late fee. [VERIFY: processor retry rules and late-fee position]",
+   "text": "We may try the charge again up to 3 attempts over 10 days. We do not charge a late fee. [VERIFY: processor retry rules and late-fee position]",
    "level": 0
   },
   {
@@ -453,7 +484,7 @@
   },
   {
    "t": "li",
-   "text": "If the payment is still unpaid after [10 days], we cancel your plan and tell you in writing. You can restart at any time (Section 4.5).",
+   "text": "If the payment is still unpaid after 10 days, we cancel your plan and tell you in writing. You can restart at any time (Section 4.5).",
    "level": 0
   },
   {
@@ -605,7 +636,7 @@
   },
   {
    "t": "p",
-   "text": "**Changes.** We will post changes here with a new date. A change to the price or renewal terms of your own plan takes effect only as Section 6.2 says.",
+   "text": "**Changes.** We will post changes here with a new date. A change to the price or renewal terms of your own plan takes effect only as Section 6.2 says. You can ask us for a written copy of this policy at any time.",
    "italic": false,
    "align": null
   },
@@ -623,7 +654,7 @@
   },
   {
    "t": "check",
-   "text": "I understand that if my clinician does not prescribe treatment I get a full refund, and that a prescription is not guaranteed."
+   "text": "I understand that I pay only after my clinician prescribes treatment, and that a prescription is not guaranteed."
   },
   {
    "t": "check",
@@ -730,7 +761,7 @@
     "Repeat it directly above the consent checkbox and the pay button.",
     "Use type at least as large as the surrounding text, in a contrasting color. Do not hide it in a link, tooltip, accordion or scroll box. It must be readable on a phone without zooming.",
     "The checkbox is unchecked by default and the pay button stays disabled until it is checked. It relates only to automatic renewal and is separate from the Terms, privacy, telehealth consents and any text-message consent.",
-    "The pay button names the transaction. Do not use “Start free assessment” on the pay button.",
+    "The pay button names the transaction. Do not use “See If You Qualify” on it.",
     "No pre-checked boxes, no countdown timers, no guilt wording on cancel or decline, no extra clicks to see the terms."
    ]
   },
@@ -740,7 +771,7 @@
   },
   {
    "t": "callout",
-   "text": "**AUTOMATIC RENEWAL: PLEASE READ BEFORE YOU PAY**\nYour {{plan_name}} renews automatically every month until you cancel.\nYou will pay {{price_today}} today. Then your card will be charged {{price}} every month, starting {{first_renewal_date}}, plus any tax, by [MERCHANT OF RECORD]. It will appear on your statement as [BILLING DESCRIPTOR]. There is no minimum commitment, no membership fee and no cancellation fee.\nYour price covers your medication if prescribed, your clinician’s review and care, messaging with your care team and standard shipping. Lab tests, if your clinician recommends them, are billed separately.\n**HOW TO CANCEL:** Cancel any time in your patient portal at portal.wellpeps.com or by email to support@wellpeps.com. To avoid your next charge, cancel at least [72 hours] before {{next_charge_date}}. We confirm every cancellation in writing within 1 business day.\n**REFUNDS:** A prescription is not guaranteed. If your clinician does not prescribe treatment, you get a full refund of everything you paid. Once the pharmacy has started preparing your medication, that charge cannot be refunded except as described in our Refund, Cancellation and Auto-Renewal Policy {{policy_link}}.",
+   "text": "**AUTOMATIC RENEWAL: PLEASE READ BEFORE YOU PAY**\nYour {{plan_name}} renews automatically every month until you cancel.\nYou will pay {{price}} today, plus any tax, for your first month. Then your card will be charged {{price}} every month on the same day, starting {{next_charge_date}}, by [MERCHANT OF RECORD]. It will appear on your statement as [BILLING DESCRIPTOR]. There is no minimum commitment, no setup fee and no cancellation fee.\nYour price covers your medication if prescribed, your clinician’s review and care, messaging with your care team and standard shipping. Lab tests, if your clinician recommends them, are billed separately.\n**HOW TO CANCEL:** Cancel any time in your patient portal at portal.wellpeps.com or by email to support@wellpeps.com. To avoid your next charge, cancel at least 72 hours before {{next_charge_date}}. We confirm every cancellation in writing within 1 business day.\n**REFUNDS:** Once the pharmacy has started preparing your medication, that charge cannot be refunded except as described in our Refund, Cancellation and Auto-Renewal Policy {{policy_link}}.",
    "kind": "info"
   },
   {
@@ -749,7 +780,7 @@
   },
   {
    "t": "callout",
-   "text": "**PROMOTIONAL PRICE:** Your first {{promo_length}} cost {{promo_price}} each month. Starting {{promo_end_date}}, your card will be charged the regular price of {{price}} every month until you cancel. We will email you before the promotional price ends. To avoid the regular price, cancel at least [72 hours] before {{promo_end_date}}.",
+   "text": "**PROMOTIONAL PRICE:** Your first {{promo_length}} cost {{promo_price}} each month. Starting {{promo_end_date}}, your card will be charged the regular price of {{price}} every month until you cancel. We will email you before the promotional price ends. To avoid the regular price, cancel at least 72 hours before {{promo_end_date}}.",
    "kind": "info"
   },
   {
@@ -758,11 +789,11 @@
   },
   {
    "t": "check",
-   "text": "I agree that my card will be charged {{price_today}} today and {{price}} every month, starting {{first_renewal_date}}, until I cancel. I have read the automatic renewal, cancellation and refund terms above."
+   "text": "I agree that my card will be charged {{price}} today and {{price}} every month after that on the same day, starting {{next_charge_date}}, until I cancel. I have read the automatic renewal, cancellation and refund terms above."
   },
   {
    "t": "p",
-   "text": "Pay button: **Pay {{price_today}} and start my plan**",
+   "text": "Pay button: **Pay {{price}} and start my plan**",
    "italic": false,
    "align": null
   },
@@ -843,7 +874,7 @@
      "Generic plan name (default “WellPeps monthly plan”)"
     ],
     [
-     "{{price_today}}, {{price}}, {{old_price}}, {{new_price}}",
+     "{{price}}, {{old_price}}, {{new_price}}",
      "Amounts exactly as charged, with tax shown separately where it applies"
     ],
     [
@@ -851,12 +882,12 @@
      "When the patient checked the renewal consent box"
     ],
     [
-     "{{first_renewal_date}}, {{renewal_date}}, {{next_charge_date}}",
+     "{{renewal_date}}, {{next_charge_date}}",
      "Next scheduled charge date"
     ],
     [
      "{{cancel_by_date}}",
-     "Next charge date minus [72 hours]"
+     "Next charge date minus 72 hours"
     ],
     [
      "{{card_brand}}, {{card_last4}}",
@@ -881,6 +912,10 @@
     [
      "{{final_attempt_date}}",
      "Date of the last payment retry"
+    ],
+    [
+     "{{agree_link}}",
+     "Link where the patient agrees to a higher price (Section 6.2)"
     ]
    ],
    "widths": [
@@ -896,7 +931,7 @@
   },
   {
    "t": "callout",
-   "text": "**Subject:** Your WellPeps monthly plan: renewal and cancellation details\nHi {{first_name}},\nThank you for starting your {{plan_name}}. This email confirms what you agreed to on {{consent_date}} at {{consent_time}} {{time_zone}}.\n**Your plan renews every month until you cancel.**\nCharged today: {{price_today}}\nNext charge: {{price}} on {{first_renewal_date}}, then every month on the same day, plus any tax\nCard: {{card_brand}} ending in {{card_last4}}\nBilled by: [MERCHANT OF RECORD]. Your statement shows [BILLING DESCRIPTOR].\nMinimum commitment: none. Cancellation fee: none.\nYour price covers your medication if prescribed, your clinician’s review and care, messaging with your care team and standard shipping. Lab tests are billed separately.\nA prescription is not guaranteed. Your clinician decides whether treatment is right for you. If your clinician does not prescribe, we refund everything you paid.\n**How to cancel:** Any time, in your patient portal at portal.wellpeps.com ({{cancel_link}}), by replying to this email, or by writing to support@wellpeps.com. To avoid your next charge, cancel at least [72 hours] before {{next_charge_date}}. We confirm every cancellation in writing within 1 business day.\nRead the full policy: {{policy_link}}\nQuestions about orders, billing or shipping? support@wellpeps.com, Monday to Friday, 9 am to 6 pm ET. For medical questions, message your clinician in the patient portal. In an emergency, call 911.\nWellPeps, a Wyoming corporation, 30 N Gould St., Suite R, Sheridan, WY 82801",
+   "text": "**Subject:** Your WellPeps monthly plan: renewal and cancellation details\nHi {{first_name}},\nThank you for starting your {{plan_name}}. This email confirms what you agreed to on {{consent_date}} at {{consent_time}} {{time_zone}}.\n**Your plan renews every month until you cancel.**\nCharged today: {{price}}, plus any tax\nNext charge: {{price}} on {{next_charge_date}}, then every month on the same day\nCard: {{card_brand}} ending in {{card_last4}}\nBilled by: [MERCHANT OF RECORD]. Your statement shows [BILLING DESCRIPTOR].\nMinimum commitment: none. Cancellation fee: none.\nYour price covers your medication if prescribed, your clinician’s review and care, messaging with your care team and standard shipping. Lab tests are billed separately.\nYour clinician decides whether to renew your prescription each month. If your clinician does not renew it for a month we have charged, we refund that charge.\n**How to cancel:** Any time, in your patient portal at portal.wellpeps.com ({{cancel_link}}), by replying to this email, or by writing to support@wellpeps.com. To avoid your next charge, cancel at least 72 hours before {{next_charge_date}}. We confirm every cancellation in writing within 1 business day.\nRead the full policy: {{policy_link}}\nQuestions about orders, billing or shipping? support@wellpeps.com, Monday to Friday, 9 am to 6 pm ET. For medical questions, message your clinician in the patient portal. In an emergency, call 911.\nWellPeps, a Wyoming corporation, 30 N Gould St., Suite R, Sheridan, WY 82801",
    "kind": "info"
   },
   {
@@ -905,25 +940,25 @@
   },
   {
    "t": "callout",
-   "text": "**Subject:** Your WellPeps receipt: {{price}} on {{charge_date}}\nHi {{first_name}},\nWe charged {{price}} to your {{card_brand}} ending in {{card_last4}} for your {{plan_name}}. Your next charge is {{next_charge_date}}.\nTo avoid the next charge, cancel at least [72 hours] before that date: {{cancel_link}}, or write to support@wellpeps.com. Full policy: {{policy_link}}",
+   "text": "**Subject:** Your WellPeps receipt: {{price}} on {{charge_date}}\nHi {{first_name}},\nWe charged {{price}} to your {{card_brand}} ending in {{card_last4}} for your {{plan_name}}. Your next charge is {{next_charge_date}}.\nTo avoid the next charge, cancel at least 72 hours before that date: {{cancel_link}}, or write to support@wellpeps.com. Full policy: {{policy_link}}",
    "kind": "info"
   },
   {
    "t": "h3",
-   "text": "B2. Renewal reminder (send at least [7 days] before each renewal charge; also meets the annual reminder)"
+   "text": "B2. Renewal reminder (send at least 7 days before each renewal charge; also meets the annual reminder)"
   },
   {
    "t": "callout",
-   "text": "**Subject:** Your WellPeps plan renews on {{renewal_date}}\nHi {{first_name}},\nThis is a reminder that your {{plan_name}} renews automatically on {{renewal_date}}. We will charge {{price}} to your {{card_brand}} ending in {{card_last4}}.\nTo avoid this charge, cancel by {{cancel_by_date}}: {{cancel_link}}. You can also reply to this email or write to support@wellpeps.com. Cancelling stops all future charges. If you cancel after {{cancel_by_date}} we still stop future charges, and we refund this charge if the pharmacy has not started preparing your medication.\nIf you take a prescribed medicine, talk to your clinician in the patient portal before you stop it.\nQuestions? support@wellpeps.com. Full policy: {{policy_link}}",
+   "text": "**Subject:** Your WellPeps plan renews on {{renewal_date}}\nHi {{first_name}},\nThis is a reminder that your {{plan_name}} renews automatically on {{renewal_date}}. We will charge {{price}} to your {{card_brand}} ending in {{card_last4}}.\nTo avoid this charge, cancel by {{cancel_by_date}}: {{cancel_link}}. You can also reply to this email or write to support@wellpeps.com. Cancelling stops all future charges. If you cancel after {{cancel_by_date}} but before we make this charge, we will not make it. If we already made it, we refund it if the pharmacy has not started preparing your medication.\nIf you take a prescribed medicine, talk to your clinician in the patient portal before you stop it.\nQuestions? support@wellpeps.com. Full policy: {{policy_link}}",
    "kind": "info"
   },
   {
    "t": "h3",
-   "text": "B3. Price-change notice (send at least [30 days] before a higher price takes effect)"
+   "text": "B3. Price-change notice (send at least 30 days before a higher price would start; the patient must agree before it is charged)"
   },
   {
    "t": "callout",
-   "text": "**Subject:** Important: your WellPeps monthly price is changing\nHi {{first_name}},\nStarting {{renewal_date}}, the price of your {{plan_name}} will change from {{old_price}} to {{new_price}} per month. {{other_change_text}} Your first charge at the new price will be on {{renewal_date}}.\nYou do not have to accept this change. You can cancel at any time: {{cancel_link}}. If you cancel before {{renewal_date}}, you will not pay the new price. If you do nothing, your plan continues at the new price.\nQuestions? support@wellpeps.com. Full policy: {{policy_link}}",
+   "text": "**Subject:** Important: your WellPeps monthly price is changing\nHi {{first_name}},\nStarting {{renewal_date}}, the price of your {{plan_name}} will change from {{old_price}} to {{new_price}} per month. {{other_change_text}} Your first charge at the new price will be on {{renewal_date}}.\n**We will not charge the new price unless you agree to it.** To keep your plan at the new price, agree here before {{renewal_date}}: {{agree_link}}.\nIf you do not agree by then, we will not charge the new price. Your plan will end on {{service_end_date}} and no further charges will be made. You can cancel at any time: {{cancel_link}}.\nQuestions? support@wellpeps.com. Full policy: {{policy_link}}",
    "kind": "info"
   },
   {
@@ -932,7 +967,7 @@
   },
   {
    "t": "callout",
-   "text": "**Subject:** We could not process your WellPeps payment\nHi {{first_name}},\nWe tried to charge {{price}} to your {{card_brand}} ending in {{card_last4}} for your {{plan_name}}, but the payment did not go through.\nTo fix it, update your card in your patient portal at portal.wellpeps.com. We may try again up to [3 attempts] before {{final_attempt_date}}. We do not charge a late fee. We cannot send a new order to the pharmacy until payment goes through. If it is still unpaid on {{final_attempt_date}}, we will cancel your plan. You can restart at any time.\nYou can also cancel now: {{cancel_link}}. Questions? support@wellpeps.com.",
+   "text": "**Subject:** We could not process your WellPeps payment\nHi {{first_name}},\nWe tried to charge {{price}} to your {{card_brand}} ending in {{card_last4}} for your {{plan_name}}, but the payment did not go through.\nTo fix it, update your card in your patient portal at portal.wellpeps.com. We may try again up to 3 attempts before {{final_attempt_date}}. We do not charge a late fee. We cannot send a new order to the pharmacy until payment goes through. If it is still unpaid on {{final_attempt_date}}, we will cancel your plan. You can restart at any time.\nYou can also cancel now: {{cancel_link}}. Questions? support@wellpeps.com.",
    "kind": "info"
   },
   {
@@ -941,7 +976,7 @@
   },
   {
    "t": "callout",
-   "text": "**Subject:** Your WellPeps plan has been canceled\nHi {{first_name}},\nWe canceled your {{plan_name}}. We received your request on {{request_date}} at {{request_time}}. Reference number: {{reference_number}}.\nWhat happens next. Choose one:\n(a) No further charges will be made to your card.\n(b) We received your request after the cancellation deadline for your {{charge_date}} charge. The pharmacy had not started preparing your medication, so we canceled the order and are refunding {{refund_amount}}.\n(c) We received your request after the cancellation deadline for your {{charge_date}} charge. The pharmacy had already started preparing your medication, so that charge of {{price}} is not refundable and your order will ship. No further charges will be made.\nYour plan stays active through {{service_end_date}}. You can message your clinician in the patient portal until then.\nTalk to your clinician before you stop a prescribed medicine. If you did not ask to cancel, or you think you were charged in error, write to support@wellpeps.com now. In an emergency, call 911.",
+   "text": "**Subject:** Your WellPeps plan has been canceled\nHi {{first_name}},\nWe canceled your {{plan_name}}. We received your request on {{request_date}} at {{request_time}}. Reference number: {{reference_number}}.\nWhat happens next. Choose one:\n(a) No further charges will be made to your card.\n(b) We received your request after the cancellation deadline for your {{charge_date}} charge. The pharmacy had not started preparing your medication, so we canceled the order and are refunding {{refund_amount}}.\n(c) We received your request after your {{charge_date}} charge was made. The pharmacy had already started preparing your medication, so that charge of {{price}} is not refundable and your order will ship. No further charges will be made.\nYour plan stays active through {{service_end_date}}. You can message your clinician in the patient portal until then.\nTalk to your clinician before you stop a prescribed medicine. If you did not ask to cancel, or you think you were charged in error, write to support@wellpeps.com now. In an emergency, call 911.",
    "kind": "info"
   },
   {
@@ -950,7 +985,7 @@
   },
   {
    "t": "callout",
-   "text": "**Subject:** Your WellPeps refund of {{refund_amount}}\nHi {{first_name}},\nWe issued a refund of {{refund_amount}} on {{refund_date}} to your {{card_brand}} ending in {{card_last4}}. Reason: {{refund_reason}}. Reference number: {{reference_number}}.\nRefunds usually appear within [5 to 10 business days], depending on your bank or card issuer. You do not need to do anything. If you do not see it after that time, write to support@wellpeps.com and give us the reference number.\nFull policy: {{policy_link}}",
+   "text": "**Subject:** Your WellPeps refund of {{refund_amount}}\nHi {{first_name}},\nWe issued a refund of {{refund_amount}} on {{refund_date}} to your {{card_brand}} ending in {{card_last4}}. Reason: {{refund_reason}}. Reference number: {{reference_number}}.\nRefunds usually appear within 5 to 10 business days, depending on your bank or card issuer. You do not need to do anything. If you do not see it after that time, write to support@wellpeps.com and give us the reference number.\nFull policy: {{policy_link}}",
    "kind": "info"
   },
   {
@@ -984,7 +1019,7 @@
      "2",
      "Products (Overview tab)",
      "Assessment price",
-     "$0. GEN does not refund an Assessment price when a patient is denied, so any amount here breaks the “free” claim and the full-refund rule.",
+     "$0. Any amount here would charge patients before a clinician prescribes, which breaks the policy and the “no separate fee” statement.",
      "☐"
     ],
     [
@@ -998,7 +1033,7 @@
      "4",
      "Products (Overview tab)",
      "Subscription product",
-     "On, monthly cadence. Confirm the cadence options and how renewal charges are triggered and shown to the patient. [VERIFY WITH GEN]",
+     "On, monthly cadence. Checkout and the first payment come after the clinician prescribes (GEN Health confirmed 2026-10-06); renewals fall on the same day each month after that. Confirm how renewal charges are triggered and shown to the patient. [VERIFY WITH GEN]",
      "☐"
     ],
     [
@@ -1012,7 +1047,7 @@
      "6",
      "Portal experience, Checkout",
      "Products checkout order",
-     "Intake first. Check each product for its own override.",
+     "Checkout after the clinician prescribes (GEN Health confirmed 2026-10-06). Check each product for its own override.",
      "☐"
     ],
     [
@@ -1082,14 +1117,14 @@
      "16",
      "Orders",
      "Refund workflow",
-     "GEN never refunds automatically: a Denied order and a Cancelled visit or order are not refunded. A Client Admin must open /orders, click the status pill, choose Issue Refund, enter the amount and a reason (required, up to 2,000 characters). Refund is not available for Whop, custom-instruction or API-collected payments. Name the owner and a deadline of [2 business days] after Denied. Send email B6. Reconcile daily.",
+     "A Denied order must never be charged; check every Denied order for a charge and refund any found. GEN never refunds automatically: a Cancelled visit or order is not refunded. A Client Admin must open /orders, click the status pill, choose Issue Refund, enter the amount and a reason (required, up to 2,000 characters). Refund is not available for Whop, custom-instruction or API-collected payments. Name the owner and a deadline of 2 business days. Send email B6. Reconcile daily.",
      "☐"
     ],
     [
      "17",
      "Webhooks",
      "Denied-order alert",
-     "Use the existing order.status_updated webhook (integration plan, Phase 4) to alert the refund owner when an order is Denied. Send only order ID and status, no patient fields.",
+     "Use the existing order.status_updated webhook (integration plan, Phase 4) to alert the billing owner when an order is Denied, so they can confirm no charge was made. Send only order ID and status, no patient fields.",
      "☐"
     ],
     [
@@ -1103,7 +1138,7 @@
      "19",
      "Records",
      "Consent and notice logs",
-     "For each enrollment keep: patient ID, timestamp, IP or device, plan, prices, the exact disclosure and checkbox text version shown, and checkbox state. Keep sent-notice logs. Keep for at least [3 years] or 1 year after the plan ends, whichever is longer. Version-control all text; no change without counsel approval.",
+     "For each enrollment keep: patient ID, timestamp, IP or device, plan, prices, the exact disclosure and checkbox text version shown, and checkbox state. Keep sent-notice logs. Keep for at least 3 years or 1 year after the plan ends, whichever is longer. Version-control all text; no change without counsel approval.",
      "☐"
     ],
     [
@@ -1133,10 +1168,10 @@
    "items": [
     "Run a full order in test mode on desktop Chrome, iPhone Safari and Android Chrome. Screenshot every step.",
     "Confirm the disclosure shows before the card fields and directly above the checkbox, that the box starts unchecked, and that the pay button stays disabled until it is checked.",
-    "Confirm the amounts in the disclosure, the button, the receipt and the charge are identical.",
+    "Confirm checkout is offered only after the clinician prescribes, and that the amounts in the disclosure, the checkbox, the receipt and the charge are identical.",
     "Confirm the acknowledgment email (B1) arrives immediately with the correct merge fields and a working cancel link.",
     "Cancel by portal message and by email. Confirm B5 arrives within 1 business day, no later charge is made, and the cancellation is time-stamped.",
-    "Deny a test order and confirm the refund workflow runs, B6 is sent and the money returns.",
+    "Deny a test order and confirm the card is never charged.",
     "Fail a test card and confirm the failed-payment notice and retry behavior match section 7.",
     "File the screenshots and logs in the compliance record."
    ]

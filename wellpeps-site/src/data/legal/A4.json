@@ -15,7 +15,7 @@
   },
   {
    "t": "callout",
-   "text": "**Summary**\n• Today, wellpeps.com uses only essential cookies: one if you enter the preview password, and one that remembers your privacy choices if you make any. Neither tracks you.\n• We do not use analytics, advertising or social media tools, or session recording.\n• Our text fonts are served from wellpeps.com itself, so loading them does not contact any other company.\n• Before we turn on any tool that is not essential, we will ask for your permission. Nothing loads before you say yes.\n• The health assessment, checkout and patient portal at portal.wellpeps.com have their own cookies (Section 3.5).\n• To make or change a choice, use Your Privacy Choices in the footer.",
+   "text": "**Summary**\n• Today, wellpeps.com uses only essential cookies: one if you enter the preview password, and one that remembers your privacy choices if you make any. Neither tracks you.\n• We do not use analytics, advertising or social media tools, or session recording.\n• Our text fonts are served from wellpeps.com itself, so loading them does not contact any other company.\n• Before we turn on any tool that is not essential, we will ask for your permission. Nothing loads before you say yes, except our own anonymous usage statistics, which set no cookie and keep no identifier and which you can turn off (Section 4).\n• The health assessment, checkout and patient portal at portal.wellpeps.com have their own cookies (Section 3.5).\n• To make or change a choice, use Your Privacy Choices in the footer.",
    "kind": "info"
   },
   {
@@ -61,7 +61,12 @@
   },
   {
    "t": "li",
-   "text": "**Session replay and heatmaps:** tools that record or recreate what you do on a page, such as clicks, scrolling and typing.",
+   "text": "**Session replay:** tools that record or recreate what you do on a page, such as clicks, scrolling and typing.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Heatmaps:** maps of where visitors click and how far they scroll. An aggregate heatmap combines many visits and records no one's session.",
    "level": 0
   },
   {
@@ -246,7 +251,7 @@
   {
    "t": "ol",
    "items": [
-    "**Nothing that is not essential loads before you say yes.** That covers analytics, advertising, social media and measurement tools, and any data sent from our servers to such a company.",
+    "**Nothing that is not essential loads before you say yes.** That covers analytics, advertising, social media and measurement tools, and any data sent from our servers to such a company. Our own anonymous usage statistics are the one exception: they set no cookie, store nothing in your browser and keep no identifier, so they cannot identify you. They run by default, and you can turn them off at any time in Your Privacy Choices.",
     "**A fair choice.** We show \"Accept,\" \"Reject\" and \"Choose\" with equal weight. Rejecting is as easy as accepting. No box is checked in advance. We do not nag.",
     "**We remember your choice** for [12 months] so we do not keep asking. You can change it at any time in Your Privacy Choices.",
     "**Global Privacy Control.** Before we turn on any tool that is not essential, we will build and test handling for Global Privacy Control, and treat the signal as a \"no\" to advertising, sale and sharing.",
@@ -261,7 +266,7 @@
   },
   {
    "t": "p",
-   "text": "Some pages could show that you have, or are looking into, a health condition or treatment. On these pages we will not use advertising tools. We will not use analytics tools either, unless you have also given the separate consent that the Consumer Health Data Privacy Policy describes. We will never use session replay on them. These pages are [DECISION: sell/share: counsel to confirm the list]:",
+   "text": "Some pages could show that you have, or are looking into, a health condition or treatment. On these pages we will not use advertising tools unless you also give a second, separate consent to advertising on these pages. \"Accept all\" does not include it. If you give it, advertising companies can learn that you visited pages about health topics; our vendor removes the names of conditions and treatments before anything is shared. We will not use analytics tools on these pages either, unless you have also given the separate consent that the Consumer Health Data Privacy Policy describes. Our anonymous usage statistics (Section 4) run on these pages too unless you turn them off. We will never use session replay on them. These pages are [DECISION: sell/share: counsel to confirm the list]:",
    "italic": false,
    "align": null
   },
@@ -292,7 +297,13 @@
   },
   {
    "t": "p",
-   "text": "**No session replay.** We do not use session replay, screen recording, click or scroll heatmaps that capture text, or form-field capture, on any page of wellpeps.com or portal.wellpeps.com. These tools can record what you type or see, including health information. We would have to change this notice and ask for your consent before using one anywhere [DECISION: counsel to confirm the absolute rule].",
+   "text": "**No session replay.** We do not use session replay, screen recording or form-field capture on any page of wellpeps.com or portal.wellpeps.com. These tools can record what you type or see, including health information. We would have to change this notice and ask for your consent before using one anywhere [DECISION: counsel to confirm the absolute rule].",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**Aggregate heatmaps.** We may use heatmaps that combine where many visitors click and scroll. They record no one's session, take no picture of your screen, do not link positions to you, and mask form fields and the AI assistant. They count as analytics: they run only if you allow analytics and, on the pages above, only with the separate consent, unless they are part of our anonymous usage statistics.",
    "italic": false,
    "align": null
   },

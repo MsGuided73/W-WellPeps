@@ -16,7 +16,7 @@ Built, tests/typecheck/build passing, NOT committed or deployed:
 
 Open questions for the client:
 - Is the tretinoin topical foam only, or foam and solution? (decides card image/wording)
-- Refund if the provider does not prescribe? (Terms §8; "Free Health Assessment" depends on it)
+- Decided 2026-10-06: the card is entered at checkout but charged only when a clinician prescribes, so there is nothing to refund if they do not (Terms §8 updated). To confirm: GEN Health is set to charge on prescription, not at checkout.
 - Storefront key allowed origins set in GEN? (then re-test; next step: live price refresh)
 - Add "15 tablets per month" to As Needed cards?
 
@@ -24,7 +24,7 @@ Open questions for the client:
 
 | Task | Notes |
 | :--- | :--- |
-| **Install PostHog analytics** | Privacy-first setup for a healthcare site: no cookies/stored IDs, IP capture off, US cloud, session recording off (or fully masked), no autocapture of typed input. Named events only: page views, "Start Free Health Assessment" clicks (with product), eBook requests (with guide, never the email), UTM source. Update Privacy Policy (lawyer review). Needs: PostHog account + project API key (public key, OK to share); decide on BAA plan. Avoid Google Analytics. Cannot see inside the GEN Health checkout/portal. |
+| **Install PostHog analytics** | Privacy-first setup for a healthcare site: no cookies/stored IDs, IP capture off, US cloud, session recording off (or fully masked), no autocapture of typed input. Named events only: page views, "See If You Qualify" clicks (with product), eBook requests (with guide, never the email), UTM source. Update Privacy Policy (lawyer review). Needs: PostHog account + project API key (public key, OK to share); decide on BAA plan. Avoid Google Analytics. Cannot see inside the GEN Health checkout/portal. |
 | **Derek's notes on the eBook sections** | Pending. The larger-books / "Free" badge-behind-eyebrow changes are built but uncommitted; fold Derek's edits into the same commit. |
 
 ## Ready (approve to start)
@@ -41,7 +41,7 @@ Open questions for the client:
 
 | Task | Notes |
 | :--- | :--- |
-| One checkout (intake-first) | All 18 cards use GEN intake-first links (short-ID form, each verified to land on the right product). $29 deposit copy removed; Terms §8 now has a "Payment" placeholder: client to state what happens to payment if the provider does not prescribe (needed for "Free Health Assessment"). |
+| One checkout (intake-first) | All 18 cards use GEN intake-first links (short-ID form, each verified to land on the right product). $29 deposit copy removed; Terms §8 "Payment" now says the card is entered at checkout but charged only when a clinician prescribes (decided 2026-10-06). |
 
 ## Blocked — waiting on client
 
@@ -62,7 +62,7 @@ Open questions for the client:
 
 ## Deploy checklist (when ready)
 
-1. Answer the Terms §8 payment question (refund if not prescribed?).
+1. Confirm in GEN Health that the first charge fires only when a clinician prescribes (Terms §8 says so as of 2026-10-06).
 2. Checkout lock (built 2026-10-01, uncommitted): pages are public, assessment buttons ask for the access password (`CHECKOUT_LOCKED` in src/config.ts; password in local `.env` only). `SITE_GATE_HASH` is no longer needed. Before go-live: decide whether to make the GitHub repo private (the links are plaintext in config.ts there). At launch: set `CHECKOUT_LOCKED = false` and deploy.
 3. `GENHEALTH_API_KEY` as a Coolify Build Variable: only once the build-time GEN price pull (Ready list) is built; today no site code reads it.
 4. Deploy, then run the password-gate curl checklist in `wellpeps-site/README.md`.

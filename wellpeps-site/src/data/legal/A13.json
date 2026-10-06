@@ -157,9 +157,9 @@
   {
    "t": "ol",
    "items": [
-    "You start a health assessment in our secure portal at portal.wellpeps.com. You create an account, read and agree to the consents and notices, answer health questions and check out.",
+    "You start a health assessment in our secure portal at portal.wellpeps.com. You create an account, read and agree to the consents and notices, and answer health questions. You do not pay anything at this step.",
     "A clinician of the Practice reviews your information, usually without a live visit. The clinician may ask you questions, ask for labs or ask for a video visit.",
-    "If the clinician decides treatment is medically appropriate, the clinician writes a prescription. A prescription is not guaranteed. If the clinician does not prescribe, [R1 DEFAULT: you receive a full refund of everything you were charged].",
+    "If the clinician decides treatment is medically appropriate, the clinician writes a prescription. A prescription is not guaranteed. If the clinician prescribes, you check out and pay for your first month. If the clinician does not prescribe, you never pay.",
     "The prescription goes to a state-licensed pharmacy. The pharmacy prepares your medicine, labels it and ships it to you. Standard shipping is included.",
     "You can message your clinician in the portal with questions about your treatment. Questions about orders and billing go to WellPeps support.",
     "Your plan renews monthly until you cancel. You can cancel at any time. See the Refund, Cancellation and Auto-Renewal Policy."
@@ -171,7 +171,7 @@
   },
   {
    "t": "p",
-   "text": "You pay one monthly price. It is charged by [MERCHANT OF RECORD] and shown on your statement as [BILLING DESCRIPTOR]. It covers your medication if you are prescribed one, clinician care, messaging with the Practice and standard shipping. Lab tests are billed separately. You pay with your own money: we do not bill insurance, Medicare or Medicaid.",
+   "text": "You pay one monthly price, and you are charged only when a clinician prescribes treatment. It is charged by [MERCHANT OF RECORD] and shown on your statement as [BILLING DESCRIPTOR]. It covers your medication if you are prescribed one, clinician care, messaging with the Practice and standard shipping. Lab tests are billed separately. You pay with your own money: we do not bill insurance, Medicare or Medicaid.",
    "italic": false,
    "align": null
   },
@@ -258,13 +258,13 @@
   },
   {
    "t": "p",
-   "text": "You pay one monthly price. It is charged by [MERCHANT OF RECORD] and shown on your statement as [BILLING DESCRIPTOR]. The price is shown at checkout before you pay. Lab tests are billed separately. We do not bill insurance, Medicare or Medicaid.",
+   "text": "You pay one monthly price. It is charged by [MERCHANT OF RECORD] and shown on your statement as [BILLING DESCRIPTOR]. The price is shown at checkout before you are charged. Lab tests are billed separately. We do not bill insurance, Medicare or Medicaid.",
    "italic": false,
    "align": null
   },
   {
    "t": "p",
-   "text": "WellPeps uses the money you pay to cover the costs in the table and its other business costs, such as payment processing, customer support and marketing. What remains is WellPeps' revenue. This page describes the kinds of payments, not the amounts. Your price is always shown before you pay.",
+   "text": "WellPeps uses the money you pay to cover the costs in the table and its other business costs, such as payment processing, customer support and marketing. What remains is WellPeps' revenue. This page describes the kinds of payments, not the amounts. Your price is always shown before you are charged.",
    "italic": false,
    "align": null
   },
@@ -386,7 +386,7 @@
   },
   {
    "t": "li",
-   "text": "You can ask your clinician at any time whether an FDA-approved medicine is an option for you. [VERIFY: FDA-approved medicines supplied] If your clinician prescribes one, you may fill the prescription at any pharmacy you choose.",
+   "text": "You can ask your clinician at any time whether an FDA-approved medicine is an option for you. WellPeps does not offer FDA-approved semaglutide or tirzepatide. You can get them through another provider and pharmacy. [VERIFY: FDA-approved medicines supplied] If your clinician prescribes one, you may fill the prescription at any pharmacy you choose.",
    "level": 0
   },
   {

@@ -62,7 +62,7 @@ const showWeightTreatments = article.category.slug === 'weight-management';
 const showHairTreatments = article.category.slug === 'hair-restoration';
 /* The "Everything Included." bar accompanies every treatment insert, but in
    the rail (client direction) rather than below the insert's product cards.
-   Hidden 2026-09-19 to 2026-09-30 while a membership fee was charged. */
+   Hidden 2026-09-19 to 2026-09-30 while pricing was being settled. */
 const showIncludedBar =
   showTherapies || showSexualTreatments || showWeightTreatments || showHairTreatments;
 
@@ -187,8 +187,8 @@ const updated = article.published_at
       <div class="endcta__text">
         <h2>Ready to Start Your Wellness Journey?</h2>
         <p>
-          Complete your free assessment and a licensed provider will review your
-          information to create a plan that's right for you.
+          See if you qualify. A licensed provider reviews your answers to decide whether
+          treatment is right for you, and that review is included in your monthly price.
         </p>
       </div>
       <AssessmentCta program={assessmentProgram} class="btn btn--primary btn--lg" arrow />

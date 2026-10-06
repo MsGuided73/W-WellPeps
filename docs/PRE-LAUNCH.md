@@ -36,8 +36,9 @@ count as linked.
 
 Checkout links come from GEN Health: **/products → link icon on the row
 ("Checkout links for …")**. Each product offers three flows. **Use Intake-first
-for every program** (decided 2026-09-19 — it is the flow that keeps "Free
-Assessment" true; see `DECISION-LOG.md`):
+for every program** (decided 2026-09-19 — it is the flow that starts with the
+online health questions, which need no card; see `DECISION-LOG.md`). The card is
+entered at checkout but charged only when a clinician prescribes (decided 2026-10-06):
 
 | Flow | Patient experience |
 | --- | --- |

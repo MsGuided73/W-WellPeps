@@ -41,7 +41,7 @@ export interface GuidePage {
 }
 
 const SMART_PATIENT_LINE = 'What Every Smart Patient Needs to Know';
-const ASSESSMENT_BODY = 'Take our free health assessment to see whether treatment may be appropriate for you.';
+const ASSESSMENT_BODY = 'Answer a few online health questions to see if you qualify. A licensed clinician reviews your answers, and that review is included in your monthly price.';
 const LAST_POINT = 'The questions every Smart Patient should know to ask';
 
 export const GUIDE_PAGES: Readonly<Record<string, GuidePage>> = {

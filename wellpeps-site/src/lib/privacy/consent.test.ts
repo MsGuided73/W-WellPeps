@@ -3,6 +3,7 @@ import {
   CONSENT_MAX_AGE_DAYS,
   NOTICE_VERSION,
   allowed,
+  carryOver,
   defaultState,
   isSensitivePath,
   parse,
@@ -17,11 +18,13 @@ const DAY = 24 * 60 * 60 * 1000;
 const fresh = (): ConsentState => defaultState(NOW, 'cid-123');
 
 describe('defaultState', () => {
-  test('starts with every optional category off', () => {
+  test('starts with every optional category off, and the anonymous statistics not opted out of', () => {
     const s = fresh();
     expect(s.analytics).toBe(false);
     expect(s.analyticsSensitive).toBe(false);
     expect(s.advertising).toBe(false);
+    expect(s.advertisingSensitive).toBe(false);
+    expect(s.anonOptOut).toBe(false);
     expect(s.gpc).toBe(false);
     expect(s.gpcConflict).toBe(false);
     expect(s.gpcOverride).toBe(false);
@@ -48,6 +51,8 @@ describe('serialize / parse', () => {
       analytics: true,
       analyticsSensitive: true,
       advertising: true,
+      advertisingSensitive: true,
+      anonOptOut: true,
       gpc: true,
       gpcConflict: true,
       gpcOverride: true,
@@ -110,10 +115,11 @@ describe('reduce', () => {
     expect(s.advertising).toBe(false);
   });
 
-  test('rejectAll turns everything off', () => {
+  test('rejectAll turns everything off, the anonymous statistics included', () => {
     const on = reduce(fresh(), { type: 'acceptAll' }, NOW);
     const s = reduce(on, { type: 'rejectAll', via: 'banner' }, NOW);
-    expect([s.analytics, s.analyticsSensitive, s.advertising]).toEqual([false, false, false]);
+    expect([s.analytics, s.analyticsSensitive, s.advertising, s.advertisingSensitive]).toEqual([false, false, false, false]);
+    expect(s.anonOptOut).toBe(true);
     expect(s.source).toBe('banner');
   });
 
@@ -146,7 +152,8 @@ describe('reduce', () => {
   test('withdrawAll returns to the all-off default and keeps the same consent id', () => {
     const on = reduce(fresh(), { type: 'acceptAll' }, NOW);
     const s = reduce(on, { type: 'withdrawAll' }, NOW + 5);
-    expect([s.analytics, s.analyticsSensitive, s.advertising]).toEqual([false, false, false]);
+    expect([s.analytics, s.analyticsSensitive, s.advertising, s.advertisingSensitive]).toEqual([false, false, false, false]);
+    expect(s.anonOptOut).toBe(true);
     expect(s.cid).toBe('cid-123');
     expect(s.source).toBe('withdraw');
   });
@@ -263,9 +270,15 @@ describe('allowed', () => {
     expect(allowed(adsOn, 'advertising', '/')).toBe(true);
   });
 
-  test('advertising is NEVER allowed on a health-topic page, even with consent', () => {
+  test('advertising is NOT allowed on a health-topic page with only the ordinary advertising consent', () => {
     expect(allowed(adsOn, 'advertising', '/hair-restoration')).toBe(false);
     expect(allowed(adsOn, 'advertising', '/wellness-learning-center/x')).toBe(false);
+  });
+
+  test('advertising IS allowed on a health-topic page with both consents', () => {
+    const s = reduce(adsOn, { type: 'set', changes: { advertisingSensitive: true } }, NOW);
+    expect(allowed(s, 'advertising', '/hair-restoration')).toBe(true);
+    expect(allowed(s, 'advertising', '/wellness-learning-center/x')).toBe(true);
   });
 });
 
@@ -355,12 +368,165 @@ describe('allowed: anonymous analytics', () => {
     expect(allowed(analyticsOn, 'analytics', '/weight-loss', false)).toBe(false);
   });
 
-  test('an anonymous tool still needs the analytics choice to be on', () => {
-    expect(allowed(fresh(), 'analytics', '/weight-loss', true)).toBe(false);
+  test('an anonymous tool runs by default, with no analytics choice at all', () => {
+    expect(allowed(fresh(), 'analytics', '/weight-loss', true)).toBe(true);
+    expect(allowed(fresh(), 'analytics', '/', true)).toBe(true);
   });
 
   test('the anonymous exception never applies to advertising', () => {
     const adsOn = reduce(fresh(), { type: 'set', changes: { advertising: true } }, NOW);
     expect(allowed(adsOn, 'advertising', '/weight-loss', true)).toBe(false);
+  });
+});
+
+describe('advertising on health-topic pages: a second, separate consent', () => {
+  const adsOn = reduce(fresh(), { type: 'set', changes: { advertising: true } }, NOW);
+
+  test('"Accept all" never gives it', () => {
+    const s = reduce(fresh(), { type: 'acceptAll', via: 'banner' }, NOW);
+    expect(s.advertising).toBe(true);
+    expect(s.advertisingSensitive).toBe(false);
+    expect(allowed(s, 'advertising', '/weight-loss')).toBe(false);
+    expect(allowed(s, 'advertising', '/')).toBe(true);
+  });
+
+  test('"Accept all" keeps it if the visitor had already given it separately', () => {
+    const given = reduce(adsOn, { type: 'set', changes: { advertisingSensitive: true } }, NOW);
+    expect(reduce(given, { type: 'acceptAll' }, NOW).advertisingSensitive).toBe(true);
+  });
+
+  test('it is ignored while advertising is off', () => {
+    expect(reduce(fresh(), { type: 'set', changes: { advertisingSensitive: true } }, NOW).advertisingSensitive).toBe(false);
+  });
+
+  test('turning advertising off also turns it off', () => {
+    const given = reduce(adsOn, { type: 'set', changes: { advertisingSensitive: true } }, NOW);
+    expect(reduce(given, { type: 'set', changes: { advertising: false } }, NOW).advertisingSensitive).toBe(false);
+  });
+
+  test('rejectAll and withdrawAll clear it', () => {
+    const given = reduce(adsOn, { type: 'set', changes: { advertisingSensitive: true } }, NOW);
+    expect(reduce(given, { type: 'rejectAll' }, NOW).advertisingSensitive).toBe(false);
+    expect(reduce(given, { type: 'withdrawAll' }, NOW).advertisingSensitive).toBe(false);
+  });
+
+  test('a Global Privacy Control signal clears it together with advertising', () => {
+    const given = reduce(adsOn, { type: 'set', changes: { advertisingSensitive: true } }, NOW);
+    const s = reduce(given, { type: 'gpcDetected' }, NOW);
+    expect(s.advertising).toBe(false);
+    expect(s.advertisingSensitive).toBe(false);
+    expect(allowed(s, 'advertising', '/weight-loss')).toBe(false);
+  });
+
+  test('"Allow anyway" does not bring it back on its own, and "Keep it off" clears it', () => {
+    const given = reduce(adsOn, { type: 'set', changes: { advertisingSensitive: true } }, NOW);
+    const conflict = reduce(given, { type: 'gpcDetected' }, NOW);
+    const allowedAnyway = reduce(conflict, { type: 'gpcAllowAnyway' }, NOW);
+    expect(allowedAnyway.advertising).toBe(true);
+    expect(allowedAnyway.advertisingSensitive).toBe(false);
+    const regiven = reduce(allowedAnyway, { type: 'set', changes: { advertisingSensitive: true } }, NOW);
+    expect(allowed(regiven, 'advertising', '/weight-loss')).toBe(true);
+    expect(reduce(regiven, { type: 'gpcKeepOff' }, NOW).advertisingSensitive).toBe(false);
+  });
+
+  test('cannot be switched on while a GPC signal locks advertising', () => {
+    const withGpc = reduce(fresh(), { type: 'gpcDetected' }, NOW);
+    const s = reduce(withGpc, { type: 'set', changes: { advertising: true, advertisingSensitive: true } }, NOW);
+    expect(s.advertisingSensitive).toBe(false);
+  });
+
+  test('a tampered cookie cannot claim it without advertising, or under an unanswered GPC signal', () => {
+    expect(parse(serialize({ ...fresh(), advertising: false, advertisingSensitive: true }))?.advertisingSensitive).toBe(false);
+    const locked = serialize({ ...fresh(), advertising: true, advertisingSensitive: true, gpc: true, gpcOverride: false });
+    expect(parse(locked)?.advertisingSensitive).toBe(false);
+  });
+});
+
+describe('anonymous usage statistics: on by default, with an opt-out', () => {
+  test('run on every page by default, ordinary and health-topic alike', () => {
+    for (const path of ['/', '/why-wellpeps', '/weight-loss', '/wellness-learning-center/x']) {
+      expect(allowed(fresh(), 'analytics', path, true), path).toBe(true);
+    }
+  });
+
+  test('are independent of the analytics switches', () => {
+    const off = reduce(fresh(), { type: 'set', changes: { analytics: false, analyticsSensitive: false } }, NOW);
+    expect(allowed(off, 'analytics', '/weight-loss', true)).toBe(true);
+    const optedOut = reduce(fresh(), { type: 'set', changes: { anonymous: false } }, NOW);
+    const analyticsOn = reduce(optedOut, { type: 'set', changes: { analytics: true, analyticsSensitive: true } }, NOW);
+    expect(allowed(analyticsOn, 'analytics', '/', true)).toBe(false);
+    expect(allowed(analyticsOn, 'analytics', '/', false)).toBe(true);
+  });
+
+  test('are not affected by Global Privacy Control', () => {
+    const withGpc = reduce(fresh(), { type: 'gpcDetected' }, NOW);
+    expect(allowed(withGpc, 'analytics', '/', true)).toBe(true);
+    expect(allowed(withGpc, 'analytics', '/weight-loss', true)).toBe(true);
+    expect(reduce(withGpc, { type: 'gpcKeepOff' }, NOW).anonOptOut).toBe(false);
+  });
+
+  test('stop after rejectAll, withdrawAll or set anonymous: false', () => {
+    const actions = [{ type: 'rejectAll' }, { type: 'withdrawAll' }, { type: 'set', changes: { anonymous: false } }] as const;
+    for (const action of actions) {
+      const s = reduce(fresh(), action, NOW);
+      expect(s.anonOptOut, action.type).toBe(true);
+      expect(allowed(s, 'analytics', '/', true), action.type).toBe(false);
+      expect(allowed(s, 'analytics', '/weight-loss', true), action.type).toBe(false);
+    }
+  });
+
+  test('come back with acceptAll or set anonymous: true', () => {
+    const optedOut = reduce(fresh(), { type: 'rejectAll' }, NOW);
+    expect(reduce(optedOut, { type: 'acceptAll' }, NOW).anonOptOut).toBe(false);
+    expect(reduce(optedOut, { type: 'set', changes: { anonymous: true } }, NOW).anonOptOut).toBe(false);
+  });
+
+  test('a set that does not mention them leaves the opt-out alone', () => {
+    const optedOut = reduce(fresh(), { type: 'set', changes: { anonymous: false } }, NOW);
+    expect(reduce(optedOut, { type: 'set', changes: { analytics: true } }, NOW).anonOptOut).toBe(true);
+  });
+
+  test('an opt-out is carried over when a choice lapses; consents are not', () => {
+    const chosen = reduce(reduce(fresh(), { type: 'acceptAll' }, NOW), { type: 'set', changes: { anonymous: false } }, NOW);
+    const next = carryOver(chosen, NOW + DAY, 'cid-new');
+    expect(next.anonOptOut).toBe(true);
+    expect([next.analytics, next.advertising, next.advertisingSensitive]).toEqual([false, false, false]);
+    expect(next.cid).toBe('cid-new');
+    expect(next.v).toBe(NOTICE_VERSION);
+    expect(carryOver(null, NOW, 'x').anonOptOut).toBe(false);
+  });
+});
+
+describe('parse: cookies saved before 2026-10-05', () => {
+  const legacy = (s: ConsentState) => {
+    const p = new URLSearchParams(serialize(s));
+    p.delete('ads');
+    p.delete('ao');
+    return p.toString();
+  };
+
+  test('a cookie without the new keys is still read, with both new flags off', () => {
+    const old = reduce(fresh(), { type: 'acceptAll', via: 'banner' }, NOW);
+    const raw = legacy(old);
+    expect(raw).not.toMatch(/(^|&)ads=|(^|&)ao=/);
+    const parsed = parse(raw);
+    expect(parsed).not.toBeNull();
+    expect(parsed?.analytics).toBe(true);
+    expect(parsed?.advertising).toBe(true);
+    expect(parsed?.advertisingSensitive).toBe(false);
+    expect(parsed?.anonOptOut).toBe(false);
+  });
+
+  test('a new key that is present must still be 0 or 1', () => {
+    const good = serialize(fresh());
+    expect(parse(good.replace('ads=0', 'ads=2'))).toBeNull();
+    expect(parse(good.replace('ao=0', 'ao=yes'))).toBeNull();
+    expect(parse(good.replace('ao=0', 'ao='))).toBeNull();
+  });
+
+  test('a cookie missing one of the original keys is still refused', () => {
+    const p = new URLSearchParams(serialize(fresh()));
+    p.delete('ad');
+    expect(parse(p.toString())).toBeNull();
   });
 });

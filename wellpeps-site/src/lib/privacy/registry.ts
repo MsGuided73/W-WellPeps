@@ -9,8 +9,16 @@
  *
  * To add a tool: add an entry to productionTrackers(), list it in the Cookie
  * notice tables, bump NOTICE_VERSION in consent.ts, and run `npm test`. The
- * inventory test fails if the notice and this list disagree. Session-replay
- * and heatmap tools are banned outright.
+ * inventory test fails if the notice and this list disagree.
+ *
+ * Rules the registry enforces (validateRegistry):
+ *  - Session-replay tools (they record a visitor's session) are banned outright,
+ *    by vendor name and by host, and no tool may declare `sessionReplay: true`.
+ *  - Aggregate heatmaps (`heatmaps: 'aggregate'`) are allowed, on an analytics
+ *    tool only. They run under the ordinary analytics consent and, on a
+ *    health-topic page, only with the separate health-page analytics consent
+ *    (unless the tool is anonymous).
+ *  - `anonymous` is allowed only on an analytics tool without cookies or storage.
  */
 import { anonymousAnalyticsTracker } from '../analytics/tracker';
 import { ANALYTICS_ENABLED, ANALYTICS_ENDPOINT, ANALYTICS_PATH_DETAIL } from './config';
@@ -41,8 +49,18 @@ export interface Tracker {
    * registry rejects the flag on a tool that lists cookies or storage keys.
    */
   anonymous?: boolean;
+  /**
+   * 'aggregate' for a tool that makes heatmaps: click and scroll positions combined
+   * across visitors. No recording, no screenshots of a visitor's screen, no linking
+   * of positions to one visitor, and form fields and the chat assistant masked.
+   * Allowed on analytics tools only.
+   */
+  heatmaps?: 'aggregate';
+  /** Session recording is banned. A tool may say `false`; `true` is refused. */
+  sessionReplay?: false;
 }
 
+/** Session-replay vendors. Every one of them records visitors' sessions, so all are banned. */
 export const BANNED_TRACKER_IDS = [
   'hotjar',
   'fullstory',
@@ -56,7 +74,10 @@ export const BANNED_TRACKER_IDS = [
   'heap',
 ] as const;
 
-/** Domains of the banned session-replay and heatmap tools. A tool may not contact any of them. */
+/**
+ * Domains of the banned session-replay tools. A tool may not contact any of them.
+ * (Some of these vendors also make heatmaps, but all of them record sessions.)
+ */
 export const BANNED_TRACKER_HOSTS = [
   'hotjar.com',
   'hotjar.io',
@@ -101,7 +122,17 @@ export function validateRegistry(list: readonly Tracker[]): void {
       throw new Error(`Tracker "${t.id}" lists no hosts. The Cookie notice must name where data goes.`);
     }
     if ([t.id, t.name, t.vendor].some(namesBannedTool) || t.hosts.some(isBannedHost)) {
-      throw new Error(`Tracker "${t.id}" is a session-replay or heatmap tool, which is banned on this site.`);
+      throw new Error(`Tracker "${t.id}" is a session-replay tool, which is banned on this site.`);
+    }
+    // Checked at run time too: a plain-JavaScript or cast entry could still say true.
+    if ((t as { sessionReplay?: unknown }).sessionReplay === true) {
+      throw new Error(`Tracker "${t.id}" records sessions (sessionReplay: true). Session-replay tools are banned on this site.`);
+    }
+    if (t.heatmaps !== undefined && t.heatmaps !== 'aggregate') {
+      throw new Error(`Tracker "${t.id}" has heatmaps "${String(t.heatmaps)}". Only 'aggregate' heatmaps are allowed.`);
+    }
+    if (t.heatmaps === 'aggregate' && t.category !== 'analytics') {
+      throw new Error(`Tracker "${t.id}" makes heatmaps but is not an analytics tool. Heatmaps are allowed only as analytics.`);
     }
     if (t.anonymous && (t.category !== 'analytics' || t.cookies.length > 0 || t.storageKeys.length > 0)) {
       throw new Error(
@@ -111,8 +142,13 @@ export function validateRegistry(list: readonly Tracker[]): void {
   }
 }
 
+/**
+ * Does the site load a tool that needs the visitor's choice (and so the consent
+ * banner)? Anonymous tools do not count: they run by default with notice and an
+ * opt-out, so an anonymous-only setup shows no banner.
+ */
 export function hasNonEssential(list: readonly Tracker[]): boolean {
-  return list.length > 0;
+  return list.some((t) => t.anonymous !== true);
 }
 
 export function inventory(list: readonly Tracker[]): Record<ConsentCategory, Tracker[]> {

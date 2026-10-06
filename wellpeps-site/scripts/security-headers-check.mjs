@@ -278,7 +278,7 @@ async function interactions(browser) {
     await page.locator('[data-wa-chip]').first().click();
     await page.waitForFunction((n) => document.querySelectorAll('[data-wa-log] .wa__msg').length > n, start);
     const afterChip = await messages();
-    await page.locator('[data-wa-input]').fill('How does the free health assessment work?');
+    await page.locator('[data-wa-input]').fill('How does the health assessment work?');
     await page.locator('[data-wa-form] button[type="submit"]').click();
     await page.waitForFunction((n) => document.querySelectorAll('[data-wa-log] .wa__msg').length > n, afterChip);
     await page.locator('[data-wa-close]').click();

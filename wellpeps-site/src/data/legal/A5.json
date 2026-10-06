@@ -144,7 +144,7 @@
   },
   {
    "t": "p",
-   "text": "Before we turn on any tool that is not essential, we will ask for your permission, build the control for it on this page, and list the tool in the Cookie and Tracking Technologies Notice. Nothing will load before you say yes.",
+   "text": "Before we turn on any tool that is not essential, we will ask for your permission, build the control for it on this page, and list the tool in the Cookie and Tracking Technologies Notice. Nothing will load before you say yes. Our own anonymous usage statistics are the one exception: they set no cookie, store nothing in your browser and keep no identifier, so they cannot identify you. They run by default, and you can turn them off at any time in Your Privacy Choices.",
    "italic": false,
    "align": null
   },
@@ -170,7 +170,7 @@
   },
   {
    "t": "p",
-   "text": "Health information is sensitive personal information. We use it only to provide the services you asked for, keep our systems secure, prevent fraud and meet legal duties. We do not use it for advertising. If you want us to keep our use to that and nothing more, tell us in Section 2. We will record your choice and honor it within [15 business days]. Protected health information held by the Practice is covered by the Notice of Privacy Practices.",
+   "text": "Health information is sensitive personal information. We use it only to provide the services you asked for, keep our systems secure, prevent fraud and meet legal duties. We do not use it for advertising without your separate, explicit consent. If you want us to keep our use to that and nothing more, tell us in Section 2. We will record your choice and honor it within [15 business days]. Protected health information held by the Practice is covered by the Notice of Privacy Practices.",
    "italic": false,
    "align": null
   },
@@ -248,7 +248,7 @@
     ],
     [
      "Banner text",
-     "We use a few tools that help us understand how our site is used and measure our ads. They stay off unless you say yes. Essential cookies always run. We do not use these tools on pages about specific health topics."
+     "We use a few tools that help us understand how our site is used and measure our ads. They stay off unless you say yes. Essential cookies always run. On pages about health topics, analytics and advertising run only if you separately allow them there."
     ],
     [
      "Banner buttons (same size, same style)",
@@ -268,7 +268,15 @@
     ],
     [
      "Advertising and sharing",
-     "Off unless you turn it on. Lets advertising companies measure our ads and show ads. Under some state laws this counts as a sale or sharing of personal information. Tools: (list from Cookie notice 9.2). (Switch: Advertising and sharing)"
+     "Off unless you turn it on. Lets advertising companies measure our ads and show ads. Under some state laws this counts as a sale or sharing of personal information. On pages about health topics it runs only if you separately allow that. Tools: (list from Cookie notice 9.2). (Switch: Advertising and sharing)"
+    ],
+    [
+     "Advertising on health-topic pages",
+     "Also allow advertising measurement on pages about health topics. Off unless you separately allow it; Accept all does not turn it on. If you allow it, advertising companies can learn that you visited pages about health topics. Our vendor removes the names of conditions and treatments before anything is shared. (Sub-switch under Advertising; usable only while Advertising is on.)"
+    ],
+    [
+     "Anonymous usage statistics",
+     "On by default. Counts page views, clicks and scrolling with no cookies and no identifier, so it cannot identify you. You can turn it off at any time. (Switch: Anonymous usage statistics; shown only when such a tool is live.)"
     ],
     [
      "Save button",
@@ -394,7 +402,7 @@
    "t": "clause",
    "number": "2.",
    "heading": "Default off.",
-   "text": "For a visitor with no stored choice, a visitor whose browser blocks storage, and a visitor who sends Global Privacy Control, no non-essential script, pixel, SDK, iframe, font, image or beacon from another company may request anything, and no resource hint (preconnect, dns-prefetch, prefetch) may point to such a host. The site serves its own fonts, so there is no exception.",
+   "text": "For a visitor with no stored choice, a visitor whose browser blocks storage, and a visitor who sends Global Privacy Control, no non-essential script, pixel, SDK, iframe, font, image or beacon from another company may request anything, and no resource hint (preconnect, dns-prefetch, prefetch) may point to such a host. The site serves its own fonts. The one exception is WellPeps' own anonymous usage statistics (no cookie, no storage, no identifier): they run by default, GPC does not affect them, and they stop when the visitor turns them off, chooses Reject all or withdraws. A visitor whose browser blocks storage gets none, because an opt-out could not be kept.",
    "level": 0
   },
   {
@@ -422,7 +430,7 @@
    "t": "clause",
    "number": "6.",
    "heading": "Sensitive pages.",
-   "text": "Keep a configured list of path patterns for the pages in Cookie notice Section 5. On them, advertising tools never load, and analytics loads only after the separate consent described in the Consumer Health Data Privacy Policy. Session replay, heatmaps with text capture and form-field capture are disabled everywhere, including portal.wellpeps.com if we control the setting. The build must fail if such an SDK is present or such a setting is on. Enforce the rule on client-side route changes too.",
+   "text": "Keep a configured list of path patterns for the pages in Cookie notice Section 5. On them, advertising tools load only after a second, separate consent to advertising on those pages (never part of Accept all; cleared with advertising by GPC, Reject all and withdrawal), and analytics loads only after the separate consent described in the Consumer Health Data Privacy Policy. The anonymous usage statistics run there too unless turned off. Session replay and form-field capture are disabled everywhere, including portal.wellpeps.com if we control the setting. Aggregate heatmaps (combined across visitors; no recording, no screenshots, no linking to one visitor; form fields and the AI assistant masked) are allowed as analytics only. The build must fail if a session-replay SDK is present or such a setting is on. Enforce the rule on client-side route changes too.",
    "level": 0
   },
   {
@@ -436,7 +444,7 @@
    "t": "clause",
    "number": "8.",
    "heading": "Saving the choice.",
-   "text": "Store it in a first-party cookie (suggested name wp_consent; Secure; SameSite=Lax; [12 months]; host-only, with no Domain attribute, so it is never sent to portal.wellpeps.com) holding the notice version, a timestamp, Analytics 0 or 1, Advertising 0 or 1, GPC 0 or 1 and a random consent ID. It is strictly necessary and must be added to the Cookie notice table when it ships. If cookies are blocked, treat every page view as no consent and show the \"Storage blocked\" message.",
+   "text": "Store it in a first-party cookie (suggested name wp_consent; Secure; SameSite=Lax; [12 months]; host-only, with no Domain attribute, so it is never sent to portal.wellpeps.com) holding the notice version, a timestamp, Analytics 0 or 1, Advertising 0 or 1, health-page Advertising 0 or 1, anonymous-statistics opt-out 0 or 1, GPC 0 or 1 and a random consent ID. It is strictly necessary and must be added to the Cookie notice table when it ships. If cookies are blocked, treat every page view as no consent and show the \"Storage blocked\" message.",
    "level": 0
   },
   {
@@ -644,7 +652,7 @@
    "items": [
     "With no stored choice, an automated browser loads every public page. Zero requests go to any host that is not on the essential or listed allow-list.",
     "The same test with the Sec-GPC: 1 header and with navigator.globalPrivacyControl set to true gives the same result, and the Advertising setting reads off.",
-    "After Accept all, only the tools in the Cookie notice load, and only on allowed pages. On every sensitive page no advertising request fires and no analytics request fires without the separate consent.",
+    "After Accept all, only the tools in the Cookie notice load, and only on allowed pages. On every sensitive page no advertising request fires without the separate health-page advertising consent, and no analytics request other than the anonymous usage statistics fires without the separate analytics consent.",
     "After Reject all and a reload, zero non-essential requests fire.",
     "After Accept all and then withdrawal, the tools stop in the same session, their cookies and storage entries are cleared where possible, and the vendor opt-outs were called.",
     "With cookies and storage blocked, nothing non-essential loads and the Storage blocked message shows.",
@@ -652,7 +660,7 @@
     "The request form creates a ticket, sends the acknowledgment and the verification link, computes every due date, writes the request log, and writes to the suppression list for opt-outs.",
     "A keyboard-only run and a screen reader run can finish every task on the banner, the center and the form.",
     "The tools shown in the control equal the tools in the Cookie notice (an automated diff of the tag inventory against the notice).",
-    "The build fails if a replay, heatmap or form-capture SDK is added or enabled."
+    "The build fails if a session-replay or form-capture SDK is added or enabled, or a heatmap tool is not aggregate analytics."
    ]
   }
  ],

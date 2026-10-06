@@ -396,7 +396,7 @@
    "t": "clause",
    "number": "10.4",
    "heading": "Payments and refunds.",
-   "text": "If you start a health assessment, the Patient Terms of Service and Payment Agreement and the Refund, Cancellation and Auto-Renewal Policy explain what you pay, when you are charged and when you get a refund, including if a clinician decides not to prescribe.",
+   "text": "If you start a health assessment, the Patient Terms of Service and Payment Agreement and the Refund, Cancellation and Auto-Renewal Policy explain what you pay, when you are charged (only when a clinician prescribes treatment) and when you get a refund.",
    "level": 0
   },
   {

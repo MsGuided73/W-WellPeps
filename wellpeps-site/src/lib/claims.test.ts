@@ -24,6 +24,15 @@ const BANNED: { pattern: RegExp; why: string }[] = [
   { pattern: /will never be shared/i, why: 'An absolute privacy promise the company cannot show it keeps' },
   { pattern: /encrypted/i, why: '"Encrypted" is a technical claim that needs proof of what is encrypted and how' },
   { pattern: /LegitScript certified/i, why: 'Certification is pending; the seal and claim wait until it is granted' },
+  // Decided 2026-10-05: the clinician review is included in the one monthly price, so it is never "free". Only the
+  // automated online questions could be called free, and the site prefers not to use the word for them at all.
+  { pattern: /free\s+(online\s+)?(health\s+|personalized\s+)?(assessment|consult|evaluation|clinician|provider|doctor|review)|no charge for the assessment|(assessment|consultation) (is|are) free/i, why: 'The clinician review is part of the monthly price; never call the assessment, consultation or review free (FTC Guide, 16 CFR 251.1)' },
+  // Decided 2026-10-06: there is no membership fee (not even as "no membership fee"), and the patient checks out and pays only
+  // after a clinician prescribes (GEN confirmed). Nothing may say the patient pays before the clinician review, pays today,
+  // or is refunded when not prescribed (they never pay in that case).
+  { pattern: /member(ship)?\s+fee|membership (of|for) \$|\$\d+\s*(\/|a|per)?\s*month(ly)? membership/i, why: 'There is no membership fee; do not mention one, even to deny it' },
+  { pattern: /pay today|pay now|(charged|pay|payment) before (your|a|the) (clinician|provider)|(full )?refund(ed)?[^.]{0,40}(not|isn.t|aren.t)[^.]{0,20}(prescribed|approved)/i, why: 'Checkout and payment come only after a clinician prescribes, so nothing is paid before the review and there is nothing to refund if they do not prescribe' },
+  { pattern: /(start|take)( your| our)? free (health |online )?assessment/i, why: 'Only the automated online questions may be called free, and the button says "See If You Qualify"' },
 ];
 
 const root = resolve(__dirname, '..');

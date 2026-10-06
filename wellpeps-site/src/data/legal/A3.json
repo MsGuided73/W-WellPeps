@@ -895,7 +895,7 @@
   },
   {
    "t": "callout",
-   "text": "**[ACTIVATION BLOCK C-A1: ADVERTISING OR ANALYTICS PARTNERS]**\n**Do not publish this block until:** an advertising or analytics tool will receive consumer health data; the separate consent in Appendix B.2 is built; the consent control in Your Privacy Choices, Part 2, is live; and the Cookie and Tracking Technologies Notice table N-A1 is active. Counsel must first decide whether any advertising tool may run on a page that reveals a health topic.",
+   "text": "**[ACTIVATION BLOCK C-A1: ADVERTISING OR ANALYTICS PARTNERS]**\n**Do not publish this block until:** an advertising or analytics tool will receive consumer health data; the separate consent in Appendix B.2 is built; the consent control in Your Privacy Choices, Part 2, is live; and the Cookie and Tracking Technologies Notice table N-A1 is active. Client decision 2026-10-05: an advertising tool may run on a page that reveals a health topic only with this separate consent, never as part of Accept all; counsel to confirm.",
    "kind": "warning"
   },
   {

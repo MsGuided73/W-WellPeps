@@ -121,7 +121,7 @@ async function main() {
     // ------------------------------------------------ health-topic page rules
     await page.goto(`${BASE}/weight-loss`, { waitUntil: 'networkidle' });
     s = await read(page);
-    check('health-topic page: advertising never runs, even with consent', s.demo['demo-advertising'] !== true);
+    check('health-topic page: advertising does not run without the separate health-page advertising consent', s.demo['demo-advertising'] !== true);
     check('health-topic page: analytics runs because the separate consent was given', s.demo['demo-analytics'] === true);
     await openPanel(page);
     check('health-topic page: the panel explains the rule', /health topic/i.test(await dlg(page).locator('[data-pc-sensitive-note]').innerText()));

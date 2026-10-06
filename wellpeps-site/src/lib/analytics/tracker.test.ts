@@ -1,8 +1,8 @@
 import { afterEach, describe, expect, test, vi } from 'vitest';
 import { bannerCopy, showsHealthSwitch } from '../privacy/ui';
-import { allowed, defaultState, reduce } from '../privacy/consent';
+import { allowed, defaultState, reduce, serialize } from '../privacy/consent';
 import { createGate, type GateDeps, type PrivacyGate } from '../privacy/gate';
-import { inventoryDiff, validateRegistry, type Tracker } from '../privacy/registry';
+import { hasNonEssential, inventoryDiff, validateRegistry, type Tracker } from '../privacy/registry';
 import { ANALYTICS_TRACKER_ID, anonymousAnalyticsTracker } from './tracker';
 import { fakeElement, fakePage, type FakePage, type FakePageState } from './test-support';
 
@@ -11,7 +11,7 @@ const NOW = Date.UTC(2026, 9, 1, 12, 0, 0);
 const cta = fakeElement({ tag: 'a', attrs: { href: '/x', 'data-track': 'cta-assessment' } });
 
 /** A TEST registry: the analytics tool plus an ordinary advertising tool and an ordinary analytics tool. */
-function rig(opts: { endpoint?: string; path?: string; gpc?: boolean; page?: Partial<FakePageState> } = {}) {
+function rig(opts: { endpoint?: string; path?: string; gpc?: boolean; stored?: string | null; page?: Partial<FakePageState> } = {}) {
   const page: FakePage = fakePage({ pathname: opts.path ?? '/', ...opts.page });
   const sent: string[] = [];
   const beaconCalls: unknown[] = [];
@@ -57,7 +57,7 @@ function rig(opts: { endpoint?: string; path?: string; gpc?: boolean; page?: Par
     unload: () => {},
   };
 
-  const jar = { value: null as string | null };
+  const jar = { value: opts.stored ?? null };
   const removedCookies: string[] = [];
   const removedStorage: string[] = [];
   let counter = 0;
@@ -142,39 +142,56 @@ describe('the tracker as a registry entry', () => {
     expect(inventoryDiff({ analytics: [ANALYTICS_TRACKER_ID], advertising: [] }, [t])).toEqual({ missingFromNotice: [], missingFromRegistry: [] });
   });
 
-  test('the visitor-facing banner and panel text describe it as anonymous counting, and need no separate health-page switch', () => {
-    expect(bannerCopy([t])).toMatch(/anonymous counting that sets no cookie and keeps no identifier/);
+  test('the visitor-facing banner and panel text describe it as anonymous, on by default, and need no separate health-page switch', () => {
+    const text = bannerCopy([t]);
+    expect(text).toMatch(/no cookie/i);
+    expect(text).toMatch(/no identifier/i);
+    expect(text).toMatch(/on by default/i);
+    expect(text).toMatch(/turn them off/i);
     expect(showsHealthSwitch([t])).toBe(false);
+  });
+
+  test('on its own it does not make the consent banner appear', () => {
+    expect(hasNonEssential([t])).toBe(false);
   });
 });
 
-describe('consent: nothing runs until the visitor turns analytics on', () => {
-  test('a first-time visitor loads nothing: no listener, no timer, no request', () => {
-    const r = rig();
-    expect(r.gate.loaded()).toEqual([]);
-    expect(r.page.listenerCount()).toBe(0);
-    expect(r.timers).toHaveLength(0);
-    expect(r.sent).toHaveLength(0);
-  });
-
-  test('turning analytics on starts it and a page view is sent', async () => {
+describe('consent: on by default, with an opt-out', () => {
+  test('a first-time visitor gets it by default, and only it: the ordinary tools stay off', async () => {
     const r = rig({ path: '/why-wellpeps' });
-    r.gate.dispatch({ type: 'set', changes: { analytics: true } });
-    expect(r.gate.loaded()).toContain(ANALYTICS_TRACKER_ID);
+    expect(r.gate.loaded()).toEqual([ANALYTICS_TRACKER_ID]);
+    expect(r.counts.ordinaryLoads).toBe(0);
+    expect(r.counts.adsLoads).toBe(0);
     r.runTimers();
     await r.settle();
     expect(r.sent).toHaveLength(1);
     expect(JSON.parse(r.sent[0])).toMatchObject({ v: 1, events: [{ event_type: 'page_view', page_path: '/why-wellpeps', page_template: 'about' }] });
   });
 
-  test('advertising alone does not start it', () => {
+  test('the analytics and advertising switches do not control it', () => {
     const r = rig();
+    r.gate.dispatch({ type: 'set', changes: { analytics: true } });
+    r.gate.dispatch({ type: 'set', changes: { analytics: false } });
     r.gate.dispatch({ type: 'set', changes: { advertising: true } });
-    expect(r.gate.loaded()).not.toContain(ANALYTICS_TRACKER_ID);
-    expect(r.page.listenerCount()).toBe(0);
+    expect(r.gate.loaded()).toContain(ANALYTICS_TRACKER_ID);
   });
 
-  test('withdrawing consent stops it in the same visit and sends NOTHING more, not even what was queued', async () => {
+  test('turning "Anonymous usage statistics" off stops it in the same visit and sends NOTHING more, not even what was queued', async () => {
+    const r = rig();
+    r.page.click(cta); // queued, not yet sent
+    r.gate.dispatch({ type: 'set', changes: { anonymous: false } });
+    expect(r.gate.loaded()).not.toContain(ANALYTICS_TRACKER_ID);
+    expect(r.page.listenerCount()).toBe(0);
+    r.runTimers();
+    r.page.click(cta);
+    r.page.hide();
+    r.page.fire('window', 'pagehide');
+    await r.settle();
+    expect(r.sent).toHaveLength(0);
+    expect(r.beaconCalls).toHaveLength(0);
+  });
+
+  test('withdrawing stops it in the same visit and sends NOTHING more, not even what was queued', async () => {
     const r = rig();
     r.gate.dispatch({ type: 'acceptAll', via: 'banner' });
     r.page.click(cta); // queued, not yet sent
@@ -191,17 +208,6 @@ describe('consent: nothing runs until the visitor turns analytics on', () => {
     expect(r.beaconCalls).toHaveLength(0);
   });
 
-  test('turning analytics off with a switch does the same', async () => {
-    const r = rig();
-    r.gate.dispatch({ type: 'set', changes: { analytics: true } });
-    r.gate.dispatch({ type: 'set', changes: { analytics: false } });
-    r.page.hide();
-    r.runTimers();
-    await r.settle();
-    expect(r.sent).toHaveLength(0);
-    expect(r.page.listenerCount()).toBe(0);
-  });
-
   test('"Reject all" after "Accept all" stops it', () => {
     const r = rig();
     r.gate.dispatch({ type: 'acceptAll' });
@@ -209,22 +215,43 @@ describe('consent: nothing runs until the visitor turns analytics on', () => {
     expect(r.gate.loaded()).toEqual([]);
   });
 
-  test('a visitor who withdrew and then agrees again gets it back', () => {
+  test('the opt-out is remembered on the next page, after a switch, a withdrawal or "Reject all"', () => {
+    const actions = [
+      { type: 'set', changes: { anonymous: false } },
+      { type: 'withdrawAll' },
+      { type: 'rejectAll' },
+    ] as const;
+    for (const action of actions) {
+      const first = rig();
+      first.gate.dispatch(action);
+      const next = rig({ stored: first.jar.value });
+      expect(next.gate.loaded(), action.type).toEqual([]);
+    }
+  });
+
+  test('the opt-out survives a notice-version change', () => {
+    const optedOut = serialize({ ...defaultState(NOW, 'c'), anonOptOut: true, source: 'center', v: '2000-01-01.0' });
+    const r = rig({ stored: optedOut });
+    expect(r.gate.promptReason()).toBe('version');
+    expect(r.gate.loaded()).toEqual([]);
+  });
+
+  test('a visitor who turned it off and then turns it back on gets it back', () => {
     const r = rig();
-    r.gate.dispatch({ type: 'set', changes: { analytics: true } });
     r.gate.dispatch({ type: 'withdrawAll' });
-    r.gate.dispatch({ type: 'set', changes: { analytics: true } });
+    r.gate.dispatch({ type: 'set', changes: { anonymous: true } });
     expect(r.gate.loaded()).toContain(ANALYTICS_TRACKER_ID);
     expect(r.page.listenerCount()).toBeGreaterThan(0);
   });
 
-  test('a withdrawal made in ANOTHER tab stops it as soon as this tab resyncs, and nothing more is sent', async () => {
+  test('an opt-out made in ANOTHER tab stops it as soon as this tab resyncs, and nothing more is sent', async () => {
     const r = rig();
-    r.gate.dispatch({ type: 'set', changes: { analytics: true } });
     expect(r.gate.loaded()).toContain(ANALYTICS_TRACKER_ID);
     r.page.click(cta); // queued, not yet sent
-    // Another tab withdrew: it deleted the shared consent cookie. This tab's gate is not told.
-    r.jar.value = null;
+    // Another tab withdrew: what it leaves in the shared cookie is the opt-out alone.
+    const other = rig();
+    other.gate.dispatch({ type: 'withdrawAll' });
+    r.jar.value = other.jar.value;
     expect(r.gate.loaded()).toContain(ANALYTICS_TRACKER_ID);
     // This is what browser.ts does first when the page is hidden or closed.
     r.gate.resync();
@@ -238,7 +265,7 @@ describe('consent: nothing runs until the visitor turns analytics on', () => {
     expect(r.beaconCalls).toHaveLength(0);
   });
 
-  test('storage that cannot be saved means everything is off, so analytics never starts', () => {
+  test('storage that cannot be saved means nothing runs, not even this tool (an opt-out could not be kept)', () => {
     const page = fakePage();
     const analytics = anonymousAnalyticsTracker({ endpoint: ENDPOINT, env: page.env, fetchImpl: async () => ({}) });
     const gate = createGate({
@@ -258,7 +285,7 @@ describe('consent: nothing runs until the visitor turns analytics on', () => {
 });
 
 describe('Global Privacy Control and health-topic pages', () => {
-  test('GPC does not block anonymous analytics the visitor turned on, and advertising stays off even after "Accept all"', () => {
+  test('GPC does not block it, and advertising stays off even after "Accept all"', () => {
     const r = rig({ gpc: true });
     r.gate.dispatch({ type: 'acceptAll', via: 'center' });
     expect(r.gate.loaded()).toContain(ANALYTICS_TRACKER_ID);
@@ -266,30 +293,31 @@ describe('Global Privacy Control and health-topic pages', () => {
     expect(r.gate.getState().advertising).toBe(false);
   });
 
-  test('GPC alone does not turn analytics on: the visitor still has to say yes', () => {
+  test('GPC alone neither stops it nor turns any other tool on', () => {
     const r = rig({ gpc: true });
-    expect(r.gate.loaded()).toEqual([]);
+    expect(r.gate.loaded()).toEqual([ANALYTICS_TRACKER_ID]);
   });
 
-  test('on a health-topic page it runs with the ordinary analytics choice, while an ordinary analytics tool and advertising do not', () => {
+  test('on a health-topic page it runs by default, while an ordinary analytics tool and advertising need their separate consents', () => {
     const r = rig({ path: '/weight-loss' });
     r.gate.dispatch({ type: 'set', changes: { analytics: true, advertising: true } });
     expect(r.gate.loaded()).toEqual([ANALYTICS_TRACKER_ID]);
     expect(r.counts.ordinaryLoads).toBe(0);
     expect(r.counts.adsLoads).toBe(0);
+    r.gate.dispatch({ type: 'set', changes: { analyticsSensitive: true, advertisingSensitive: true } });
+    expect(r.counts.ordinaryLoads).toBe(1);
+    expect(r.counts.adsLoads).toBe(1);
   });
 
   test('the same holds on every health-topic section, and on an article under the learning center', () => {
     for (const path of ['/hair-restoration', '/sexual-wellness', '/healthy-aging', '/wellness-learning-center/what-is-a-glp-1']) {
       const r = rig({ path });
-      r.gate.dispatch({ type: 'set', changes: { analytics: true } });
-      expect(r.gate.loaded(), path).toContain(ANALYTICS_TRACKER_ID);
+      expect(r.gate.loaded(), path).toEqual([ANALYTICS_TRACKER_ID]);
     }
   });
 
   test('it reports the health-topic page by path and template, and nothing else about the page', async () => {
     const r = rig({ path: '/weight-loss', page: { referrer: 'https://www.google.com/search?q=semaglutide+cost' } });
-    r.gate.dispatch({ type: 'set', changes: { analytics: true } });
     r.runTimers();
     await r.settle();
     expect(JSON.parse(r.sent[0]).events[0]).toEqual({
@@ -302,16 +330,16 @@ describe('Global Privacy Control and health-topic pages', () => {
     expect(r.sent.join()).not.toMatch(/semaglutide|google/);
   });
 
-  test('the consent rule itself: anonymous analytics needs only the ordinary choice on a health page; advertising never runs there', () => {
-    const on = reduce(defaultState(NOW, 'c'), { type: 'set', changes: { analytics: true, advertising: true } }, NOW);
-    expect(allowed(on, 'analytics', '/weight-loss', true)).toBe(true);
+  test('the consent rule itself: anonymous analytics runs by default on a health page; advertising there needs the separate consent', () => {
+    const fresh = defaultState(NOW, 'c');
+    expect(allowed(fresh, 'analytics', '/weight-loss', true)).toBe(true);
+    const on = reduce(fresh, { type: 'set', changes: { analytics: true, advertising: true } }, NOW);
     expect(allowed(on, 'analytics', '/weight-loss', false)).toBe(false);
     expect(allowed(on, 'advertising', '/weight-loss', true)).toBe(false);
   });
 
   test('moving between a health page and an ordinary page does not start it twice', () => {
     const r = rig({ path: '/' });
-    r.gate.dispatch({ type: 'set', changes: { analytics: true } });
     const listeners = r.page.listenerCount();
     r.gate.navigate('/weight-loss');
     r.gate.navigate('/your-plan');

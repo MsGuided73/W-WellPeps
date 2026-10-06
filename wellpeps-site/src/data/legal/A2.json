@@ -438,7 +438,7 @@
   },
   {
    "t": "p",
-   "text": "**Analytics and advertising tools.** We use analytics and advertising tools only if you opt in. They do not load, and do not collect anything, before you choose. The Cookie and Tracking Technologies Notice lists each tool, who provides it, what it collects and how long it lasts. We do not use session recording or replay on any page that could reveal health information, and we do not use analytics or advertising tools on those pages unless you consent separately as the Consumer Health Data Privacy Policy describes.",
+   "text": "**Analytics and advertising tools.** We use analytics and advertising tools only if you opt in. They do not load, and do not collect anything, before you choose. Our own anonymous usage statistics are the one exception: they set no cookie, store nothing in your browser and keep no identifier, so they cannot identify you. They run by default, and you can turn them off at any time in Your Privacy Choices. The Cookie and Tracking Technologies Notice lists each tool, who provides it, what it collects and how long it lasts. We do not use session recording or replay on any page that could reveal health information. Heatmaps that combine many visits without recording anyone's session count as analytics. On those pages we use analytics tools only if you consent separately as the Consumer Health Data Privacy Policy describes, and advertising tools only if you give a second, separate consent for those pages, which \"Accept all\" does not include.",
    "italic": false,
    "align": null
   },

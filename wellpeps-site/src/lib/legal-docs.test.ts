@@ -51,7 +51,7 @@ describe('draft page switch', () => {
 
   test('a build without the switch makes no draft page and hides every link to one', () => {
     const none = pagesToBuild(false);
-    expect(none.docs).toEqual([]);
+    expect(none.docs.map((d) => d.id)).toEqual(LEGAL_DOCS.filter((d) => d.approved).map((d) => d.id));
     expect(none.custom).toEqual([]);
     for (const p of gatedPaths()) expect(linkVisible(p, false)).toBe(false);
   });
@@ -77,8 +77,9 @@ describe('draft page switch', () => {
     expect(linkVisible(`/${second.path}`, false, docs)).toBe(false);
   });
 
-  test('nothing in the registry is approved until counsel says so', () => {
-    expect(LEGAL_DOCS.filter((d) => d.approved)).toEqual([]);
+  test('only documents the owner has released are approved', () => {
+    // A14 (GLP-1 safety) released by the owner on 2026-10-06; every other document stays a draft.
+    expect(LEGAL_DOCS.filter((d) => d.approved).map((d) => d.id)).toEqual(['A14']);
   });
 });
 

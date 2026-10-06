@@ -2,12 +2,9 @@
 import LegalLayout from '../components/LegalLayout.astro';
 
 const clientNeeds = [
-  'Your company\'s exact legal name.',
-  'Your registered business address.',
-  'A privacy contact email (we recommend privacy@wellpeps.com) and the name or title of your privacy officer.',
+  'The name or title of your privacy officer.',
   'How long you keep three kinds of data: account data, health intake data, and marketing data.',
-  'How you\'ll tell people about major changes to this policy — by email, a banner on the site, or both.',
-  'The date this goes live.',
+  'How you’ll tell people about major changes to this policy: by email, a banner on the site, or both.',
 ];
 ---
 <LegalLayout
@@ -16,13 +13,13 @@ const clientNeeds = [
   clientNeeds={clientNeeds}
 >
   <p class="legal__meta">
-    Effective Date: <span class="ph ph--you">You provide: the date this goes live</span><br />
-    Last Updated: October 2, 2026
+    Effective Date: October 5, 2026<br />
+    Last Updated: October 5, 2026
   </p>
 
   <p>
     This Privacy Policy describes how
-    <span class="ph ph--you">You provide: your company's exact legal name</span> (&ldquo;WellPeps,&rdquo;
+    WellPeps (&ldquo;WellPeps,&rdquo;
     &ldquo;we,&rdquo; &ldquo;us&rdquo;) collects, uses, discloses, and protects personal
     information when you visit our website, create an account, or use our services.
   </p>
@@ -145,7 +142,7 @@ const clientNeeds = [
 
   <h2>10. Contact Us</h2>
   <p>
-    <span class="ph ph--you">You provide: your company's legal name</span><br />
+    WellPeps<br />
     Attn: Privacy — <span class="ph ph--you">You provide: privacy officer name or title</span><br />
     30 N Gould St., Suite R, Sheridan, WY 82801<br />
     Email: <a href="mailto:privacy@wellpeps.com">privacy@wellpeps.com</a> &nbsp;|&nbsp; Phone: <a href="tel:+13078818700">(307) 881-8700</a> (normal business hours)

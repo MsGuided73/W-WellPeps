@@ -38,8 +38,9 @@ export const PRIVACY_REQUEST_ENDPOINT = '';
 export const ANALYTICS_ENDPOINT = '';
 
 /**
- * Adds the anonymous analytics tool (src/lib/analytics) to the tracker registry, which is
- * what makes the first-visit bar appear and the tool run for visitors who turn analytics on.
+ * Adds the anonymous analytics tool (src/lib/analytics) to the tracker registry. Once added it
+ * runs by default on every page (no banner: it is anonymous, so notice and an opt-out suffice)
+ * until the visitor turns off "Anonymous usage statistics" in Your Privacy Choices.
  * Keep false until ALL of these are done (exact steps in src/lib/analytics/README.md):
  *   1. the `analytics-event` function is deployed and ANALYTICS_ENDPOINT is set,
  *   2. counsel has approved the tool for use on health-topic pages,

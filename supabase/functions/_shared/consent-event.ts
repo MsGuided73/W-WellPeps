@@ -65,6 +65,10 @@ export interface ConsentEvent {
   analytics: boolean;
   analytics_sensitive: boolean;
   advertising: boolean;
+  /** Separate consent for advertising on health-topic pages (added 2026-10-05). */
+  advertising_sensitive: boolean;
+  /** The visitor turned off the anonymous usage statistics (added 2026-10-05). */
+  anonymous_opt_out: boolean;
   gpc_detected: boolean;
   notice_version: string;
   banner_version: string;
@@ -81,6 +85,8 @@ const KEYS = [
   'analytics',
   'analytics_sensitive',
   'advertising',
+  'advertising_sensitive',
+  'anonymous_opt_out',
   'gpc_detected',
   'notice_version',
   'banner_version',
@@ -88,10 +94,19 @@ const KEYS = [
   'user_agent',
 ] as const;
 
+interface Switches {
+  analytics: boolean;
+  sensitive: boolean;
+  advertising: boolean;
+  adsSensitive: boolean;
+  anonOptOut: boolean;
+}
+
 /** Combinations the consent rules can never produce are refused as corrupt. Returns the reason, or null. */
-function impossibleCombination(action: ConsentLogAction, analytics: boolean, sensitive: boolean, advertising: boolean): string | null {
-  if (sensitive && !analytics) return 'health-page analytics without analytics';
-  const allOff = !analytics && !sensitive && !advertising;
+function impossibleCombination(action: ConsentLogAction, s: Switches): string | null {
+  if (s.sensitive && !s.analytics) return 'health-page analytics without analytics';
+  if (s.adsSensitive && !s.advertising) return 'health-page advertising without advertising';
+  const allOff = !s.analytics && !s.sensitive && !s.advertising && !s.adsSensitive && s.anonOptOut;
   if ((action === 'reject_all' || action === 'withdraw') && !allOff) return 'reject/withdraw with a switch on';
   return null;
 }
@@ -116,6 +131,10 @@ export function validateConsentEvent(raw: unknown): Check<ConsentEvent> {
   if (!analyticsSensitive.ok) return analyticsSensitive;
   const advertising = readBoolean(raw, 'advertising');
   if (!advertising.ok) return advertising;
+  const adsSensitive = readBoolean(raw, 'advertising_sensitive');
+  if (!adsSensitive.ok) return adsSensitive;
+  const anonOptOut = readBoolean(raw, 'anonymous_opt_out');
+  if (!anonOptOut.ok) return anonOptOut;
   const gpc = readBoolean(raw, 'gpc_detected');
   if (!gpc.ok) return gpc;
   const noticeVersion = readString(raw, 'notice_version', { min: 1, max: 40, pattern: VERSION_PATTERN });
@@ -127,7 +146,13 @@ export function validateConsentEvent(raw: unknown): Check<ConsentEvent> {
   const browser = readEnum(raw, 'user_agent', BROWSER_FAMILIES);
   if (!browser.ok) return browser;
 
-  const impossible = impossibleCombination(action.value, analytics.value, analyticsSensitive.value, advertising.value);
+  const impossible = impossibleCombination(action.value, {
+    analytics: analytics.value,
+    sensitive: analyticsSensitive.value,
+    advertising: advertising.value,
+    adsSensitive: adsSensitive.value,
+    anonOptOut: anonOptOut.value,
+  });
   if (impossible) return fail(impossible);
 
   return pass({
@@ -138,6 +163,8 @@ export function validateConsentEvent(raw: unknown): Check<ConsentEvent> {
     analytics: analytics.value,
     analytics_sensitive: analyticsSensitive.value,
     advertising: advertising.value,
+    advertising_sensitive: adsSensitive.value,
+    anonymous_opt_out: anonOptOut.value,
     gpc_detected: gpc.value,
     notice_version: noticeVersion.value,
     banner_version: bannerVersion.value,

@@ -8,12 +8,11 @@
  *
  * The entry is marked `anonymous`: no cookies, no storage keys, no identifier. The
  * registry rejects that flag on a tool that lists any, and the consent rules
- * (consent.ts `allowed`) then let it run on a health-topic page with the ordinary
- * analytics choice. It is an analytics tool, so Global Privacy Control does not
- * switch it off (GPC turns off sale, sharing and advertising), but a visitor who has
- * not turned analytics on, or who withdraws it, gets nothing: load() is only ever
- * called by the gate after consent, unload() stops it in the same visit and throws
- * away anything not yet sent.
+ * (consent.ts `allowed`) then let it run by default on every page, health-topic
+ * pages included, until the visitor turns off "Anonymous usage statistics" (or
+ * chooses Reject all or withdraws). Global Privacy Control does not switch it off
+ * (GPC turns off sale, sharing and advertising). load() is only ever called by the
+ * gate; unload() stops it in the same visit and throws away anything not yet sent.
  */
 import type { Tracker } from '../privacy/registry';
 import { browserEnv } from './browser-env';

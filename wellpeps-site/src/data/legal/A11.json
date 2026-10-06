@@ -386,7 +386,7 @@
   },
   {
    "t": "li",
-   "text": "All email marketing copy goes through the compliance review before sending: no outcome claims, no “free” except the assessment with its refund rule, “prescription required; a prescription is not guaranteed” wherever a treatment appears.",
+   "text": "All email marketing copy goes through the compliance review before sending: no outcome claims, no “free” except for the automated online health questions (with the Block 5 sentence beside it; the clinician’s review is part of the monthly price), “prescription required; a prescription is not guaranteed” wherever a treatment appears.",
    "level": 0
   },
   {
@@ -614,7 +614,7 @@
   },
   {
    "t": "li",
-   "text": "“Free” only for the health assessment, with the refund rule shown next to it.",
+   "text": "“Free” only for the automated online health questions, with the sentence from Block 5 beside it (the clinician’s review is part of the monthly price). Prefer not to use it.",
    "level": 0
   },
   {

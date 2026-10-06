@@ -19,7 +19,7 @@ Function base URL: `https://kwgwbupqzpusydzflyvi.supabase.co/functions/v1`.
 | `functions/analytics-event/` | Receives anonymous page-view, click and page-leave events (see `wellpeps-site/src/lib/analytics/README.md`). |
 | `functions/notify-signup/` | The sign-up forms' function (guides, waitlists, hair notify, footer newsletter), updated to record the consent boxes (W9). Replaces live version 2; apply `migrations/20261001000000_notify_signups_consent.sql` first. Needs `ALLOWED_ORIGINS` for any non-production site (the client preview). |
 | `functions/_shared/` | The pure logic all three share: validation, due dates, CORS, size cap, rate limit. No Deno-only imports, so `npm test` in `wellpeps-site` runs it. |
-| `migrations/` | One migration per table: `consent_events`, `privacy_requests`, `analytics_events`. |
+| `migrations/` | One migration per table: `consent_events`, `privacy_requests`, `analytics_events`, plus `20261005000000_consent_events_health_ads_anon_optout.sql` (two consent columns added 2026-10-05; apply after the `consent_events` migration). |
 | `analytics/example-views.sql` | Example reporting views over `analytics_events` (not a migration). |
 | `config.toml` | Minimal CLI config: JWT checks off for the three public functions. |
 
@@ -128,7 +128,7 @@ row below is yours to delete afterwards (SQL given).
 2. **consent-log.** Use the current time in `occurred_at`:
    ```bash
    curl -i -X POST $FN/consent-log -H "Origin: https://wellpeps.com" -H "Content-Type: text/plain;charset=UTF-8" \
-     --data '{"event_id":"11111111-1111-4111-8111-111111111111","consent_id":"22222222-2222-4222-8222-222222222222","occurred_at":"2026-10-01T12:00:00.000Z","action":"reject_all","analytics":false,"analytics_sensitive":false,"advertising":false,"gpc_detected":false,"notice_version":"2026-10-01.1","banner_version":"1","page_class":"other","user_agent":"Chrome"}'
+     --data '{"event_id":"11111111-1111-4111-8111-111111111111","consent_id":"22222222-2222-4222-8222-222222222222","occurred_at":"2026-10-01T12:00:00.000Z","action":"reject_all","analytics":false,"analytics_sensitive":false,"advertising":false,"advertising_sensitive":false,"anonymous_opt_out":true,"gpc_detected":false,"notice_version":"2026-10-05.1","banner_version":"1","page_class":"other","user_agent":"Chrome"}'
    ```
    Expect `200 {"ok":true}`. Send it twice: still 200 and still **one** row.
    Add `,"ip_address":"1.2.3.4"` to the JSON: expect 400. Clean up:

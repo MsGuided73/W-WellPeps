@@ -1,5 +1,5 @@
 /**
- * Where a "Start Free Assessment" button goes, and whether it may be shown.
+ * Where a "See If You Qualify" button goes, and whether it may be shown.
  *
  * One rule: a program is open when its GEN Health link is real, and coming
  * soon while it is still a stub. Pasting a link into src/config.ts is the whole
@@ -14,7 +14,7 @@ export const PROGRAM_SLUGS = ['weight-loss', 'hair-restoration', 'sexual-wellnes
 export type ProgramSlug = (typeof PROGRAM_SLUGS)[number];
 
 /** The only wording used on an assessment button, site-wide. */
-export const ASSESSMENT_CTA_LABEL = 'Start Free Health Assessment';
+export const ASSESSMENT_CTA_LABEL = 'See If You Qualify';
 
 /** Generic CTAs land on the home page's program cards until the GEN Health
  *  storefront link exists, so they are never a dead button. */

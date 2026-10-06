@@ -509,3 +509,119 @@ describe('an anonymous tool', () => {
     expect(h.ads.loads).toBe(0);
   });
 });
+
+describe('anonymous usage statistics (on by default)', () => {
+  function anonHarness(opts: Parameters<typeof harness>[0] = {}) {
+    const h = harness(opts);
+    (h.analytics as Tracker & { anonymous?: boolean }).anonymous = true;
+    h.analytics.cookies = [];
+    h.analytics.storageKeys = [];
+    return h;
+  }
+
+  test('run on a first visit without any choice, on a health-topic page too, while advertising stays off', () => {
+    const h = anonHarness({ path: '/weight-loss' });
+    const gate = createGate(h.deps);
+    gate.init();
+    expect(gate.loaded()).toEqual(['test-analytics']);
+    expect(h.ads.loads).toBe(0);
+  });
+
+  test('run with a Global Privacy Control signal', () => {
+    const h = anonHarness({ gpc: true });
+    const gate = createGate(h.deps);
+    gate.init();
+    expect(gate.loaded()).toEqual(['test-analytics']);
+  });
+
+  test('an anonymous-only site shows no banner', () => {
+    const h = anonHarness();
+    const gate = createGate({ ...h.deps, trackers: [h.analytics] });
+    gate.init();
+    expect(gate.hasNonEssential()).toBe(false);
+    expect(gate.promptReason()).toBeNull();
+    expect(gate.loaded()).toEqual(['test-analytics']);
+  });
+
+  test('switching them off stops them and is saved', () => {
+    const h = anonHarness();
+    const gate = createGate(h.deps);
+    gate.init();
+    gate.dispatch({ type: 'set', changes: { anonymous: false } });
+    expect(gate.loaded()).toEqual([]);
+    expect(h.analytics.unloads).toBe(1);
+    expect(parse(h.jar.value)?.anonOptOut).toBe(true);
+  });
+
+  test('Withdraw all stops them, and keeps only the opt-out so the next page honours it', () => {
+    const h = anonHarness();
+    const gate = createGate(h.deps);
+    gate.init();
+    gate.dispatch({ type: 'acceptAll' });
+    const cidBefore = gate.getState().cid;
+    gate.dispatch({ type: 'withdrawAll' });
+    expect(gate.loaded()).toEqual([]);
+    const saved = parse(h.jar.value);
+    expect(saved).not.toBeNull();
+    expect(saved).toMatchObject({ analytics: false, advertising: false, advertisingSensitive: false, anonOptOut: true, source: 'withdraw' });
+    expect(saved?.cid).not.toBe(cidBefore);
+    expect(h.logs.at(-1)?.action).toBe('withdraw');
+    expect(h.logs.at(-1)?.anonymous_opt_out).toBe(true);
+
+    const next = createGate({ ...anonHarness({ stored: h.jar.value }).deps });
+    next.init();
+    expect(next.loaded()).toEqual([]);
+    // What is kept is not a choice to honour silently: the visitor is asked again.
+    expect(next.promptReason()).toBe('first');
+  });
+
+  test('an opt-out survives a notice-version change, though the consents do not', () => {
+    const old = { ...defaultState(NOW, 'cid-x'), analytics: true, anonOptOut: true, source: 'center' as const, v: '1999-01-01.0' };
+    const h = anonHarness({ stored: serialize(old) });
+    const gate = createGate(h.deps);
+    gate.init();
+    expect(gate.promptReason()).toBe('version');
+    expect(gate.getState().analytics).toBe(false);
+    expect(gate.getState().anonOptOut).toBe(true);
+    expect(gate.loaded()).toEqual([]);
+  });
+
+  test('do not run if reading the saved choice throws (fail safe)', () => {
+    const h = anonHarness();
+    h.deps.cookies.read = () => {
+      throw new Error('boom');
+    };
+    const gate = createGate(h.deps);
+    gate.init();
+    expect(gate.loaded()).toEqual([]);
+  });
+});
+
+describe('advertising on a health-topic page', () => {
+  test('needs the separate consent on top of advertising, and stops when it is taken back', () => {
+    const h = harness({ path: '/weight-loss' });
+    const gate = createGate(h.deps);
+    gate.init();
+    gate.dispatch({ type: 'acceptAll' });
+    expect(h.ads.loads).toBe(0);
+    gate.dispatch({ type: 'set', changes: { advertisingSensitive: true } });
+    expect(h.ads.loads).toBe(1);
+    expect(h.logs.at(-1)?.advertising_sensitive).toBe(true);
+    gate.dispatch({ type: 'set', changes: { advertisingSensitive: false } });
+    expect(h.ads.unloads).toBe(1);
+    expect(gate.loaded()).not.toContain('test-ads');
+  });
+
+  test('a GPC signal on the next visit stops it and clears the consent', () => {
+    const h = harness({ path: '/weight-loss' });
+    const gate = createGate(h.deps);
+    gate.init();
+    gate.dispatch({ type: 'set', changes: { advertising: true, advertisingSensitive: true } });
+    expect(gate.loaded()).toContain('test-ads');
+    h.setGpc(true);
+    const next = createGate(h.deps);
+    next.init();
+    expect(next.loaded()).not.toContain('test-ads');
+    expect(next.getState().advertisingSensitive).toBe(false);
+  });
+});

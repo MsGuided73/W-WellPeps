@@ -271,7 +271,7 @@
     "Check the package: the seal is not broken, nothing is leaking or cracked, and nothing is missing (such as needles or syringes, if they come with your medication).",
     "Check the temperature as described in Section 7.",
     "Store the medication the way your label says.",
-    "If anything is wrong, do not use the medication. Take photos of the label, the package and the shipping label, and contact the pharmacy and support@wellpeps.com within [48 hours].",
+    "If anything is wrong, do not use the medication. Take photos of the label, the package and the shipping label, and contact the pharmacy and support@wellpeps.com within [7 days] after delivery. If you think the medication was exposed to heat or the packaging failed, tell us as soon as you can and before you use it.",
     "Keep the packaging until you are sure everything is right."
    ]
   },
@@ -348,7 +348,7 @@
   {
    "t": "ol",
    "items": [
-    "Contact the pharmacy named on the label (or on the shipping email) and support@wellpeps.com. Do this within [48 hours] after the package arrives, or within [7 days] after the expected delivery date if it did not arrive.",
+    "Contact the pharmacy named on the label (or on the shipping email) and support@wellpeps.com. Do this within [7 days] after the package arrives (for heat exposure, as soon as you can and before you use it), or within [7 days] after the expected delivery date if it did not arrive. Reporting later does not take away your rights for a problem you could not reasonably have found sooner (Refund, Cancellation and Auto-Renewal Policy, Section 5.4).",
     "Send photos of the package, the label and any damage.",
     "Keep the original packaging and the product until the pharmacy tells you what to do. Do not mail anything back unless the pharmacy or WellPeps tells you to in writing."
    ]

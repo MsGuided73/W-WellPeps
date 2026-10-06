@@ -6,6 +6,29 @@ confirmed the plan, and what is carried forward.
 
 ---
 
+## 2026-10-06 — when the patient is charged (owner decision)
+
+### Decisions
+- **The card is entered at checkout but not charged there.** The patient agrees to the
+  renewal terms at checkout. The first charge happens only when a licensed clinician
+  prescribes treatment. If the clinician does not prescribe, the patient is never
+  charged, so there is nothing to refund. The plan then renews monthly on the same
+  calendar day as that first charge until the patient cancels.
+- **One monthly all-in price, no membership fee.** It includes the online health
+  questions, the clinician's review, follow-up care, the medication if prescribed,
+  care-team messaging, education and standard shipping. Lab tests are billed
+  separately (plus tax where the law requires). No setup fee, no cancellation fee.
+- **"Free" describes only the automated online health questions** (and the free
+  eBooks, guides and newsletter). The button reads "See If You Qualify".
+- **Supersedes:** the 2026-09-19 note below that Intake-first "keeps 'Free Assessment'
+  literally true", the 2026-09-18 membership entry, and the 2026-10-05 draft rule
+  that a charge at checkout is refunded if the clinician does not prescribe.
+- **Still to do outside the repo:** set GEN Health to charge on prescription, not at
+  checkout, and make the checkout text say so. Sweep report:
+  `docs/charge-timing-and-membership-report.md`.
+
+---
+
 ## 2026-09-19 — wellpeps.com ↔ GEN Health integration architecture
 
 Full plan: `docs/genhealth/INTEGRATION-PLAN.md`. It supersedes the plan drafted

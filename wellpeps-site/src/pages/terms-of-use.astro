@@ -2,17 +2,11 @@
 import LegalLayout from '../components/LegalLayout.astro';
 
 const clientNeeds = [
-  'Your company\'s exact legal name and the U.S. state it\'s incorporated in.',
-  'Your website\'s live domain (e.g. wellpeps.com).',
-  'The names of the medical entities that provide care through WellPeps (the same names used on the Notice of Privacy Practices).',
-  'Which U.S. states you are actually licensed to operate in, so the States We Serve page can be accurate.',
-  'Confirmation that a Telehealth Informed Consent appears in the signup flow before a consultation.',
-  'For each plan: the real recurring price and how often it charges, any minimum commitment, what happens at renewal, exactly how a customer cancels, your refund policy, and any early-termination fee.',
-  'Who owns the WellPeps name, logo, and website content (for the trademark / intellectual-property lines), and whether any trademarks are registered.',
-  'Whether you send marketing text messages — a simple yes or no.',
-  'How, and how far in advance, you\'ll notify people when these terms change.',
-  'The date this goes live.',
+  'How, and how far in advance, you’ll notify people when these terms change (section 18).',
 ];
+import { draftPagesEnabledNow, linkVisible } from '../lib/legal-docs';
+// The refund policy is linked only once it is published (it is held back with the other drafts until approved).
+const refundLive = linkVisible('/refund-and-cancellation', draftPagesEnabledNow());
 import { CONTACT } from '../config';
 ---
 <LegalLayout
@@ -21,14 +15,14 @@ import { CONTACT } from '../config';
   clientNeeds={clientNeeds}
 >
   <p class="legal__meta">
-    Effective Date: <span class="ph ph--you">You provide: the date this goes live</span><br />
-    Last Updated: October 2, 2026
+    Effective Date: October 5, 2026<br />
+    Last Updated: October 5, 2026
   </p>
 
   <h2>1. Acceptance of These Terms</h2>
   <p>
     These Terms of Use (&ldquo;Terms&rdquo;) are a binding agreement between you and
-    <span class="ph ph--you">You provide: your exact legal name, e.g. WellPeps, Inc., a Delaware corporation</span>,
+    WellPeps,
     together with its affiliates (&ldquo;WellPeps,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or
     &ldquo;our&rdquo;), governing your access to and use of the website located at
     wellpeps.com, our patient portal, and related services
@@ -73,7 +67,7 @@ import { CONTACT } from '../config';
   <p>
     Before receiving any telehealth consultation, you will be asked to review and accept a separate
     Telehealth Informed Consent describing the nature, benefits, and limitations of telehealth care.
-    <span class="ph ph--you">You confirm: a standalone Telehealth Informed Consent exists in the signup flow. Several states require specific consent language.</span>
+    You cannot complete checkout until you have accepted it.
     A consultation does not guarantee that a provider will issue a prescription; treatment decisions
     are made solely by the provider based on their clinical judgment.
   </p>
@@ -97,36 +91,30 @@ import { CONTACT } from '../config';
   </p>
 
   <h2>8. Plans, Pricing, Billing, Renewal, and Cancellation</h2>
-  <div class="callout">
-    <strong>The highest-risk section — the terms here must match what you actually charge</strong>
-    <p>
-      Federal rules and about 25 state auto-renewal laws require the real billing terms to be shown
-      here and at checkout, just as prominently as the advertised price. Getting this wrong is a
-      common source of legal trouble, so the details below have to be exact.
-      <span class="ph ph--you">You provide, for each plan: the true recurring charge and how often it bills; any minimum commitment and total price; what happens at renewal and the renewal price; exactly how and by when a customer cancels; your refund policy; and any early-termination fee.</span>
-    </p>
-  </div>
   <h3>Monthly Treatment Plans</h3>
   <p>
     Each WellPeps treatment is offered as a monthly plan with <strong>one monthly price</strong>.
-    The monthly price covers your medication, if prescribed, licensed provider
-    care, messaging with your care team, and standard shipping. Lab testing is available when your provider
-    recommends it; lab fees are billed separately. Your plan is billed monthly and <strong>renews automatically
+    The monthly price covers the online health questions, your licensed clinician&rsquo;s review, follow-up
+    care, your medication if prescribed, messaging with your care team, patient education, and standard
+    shipping. There is no setup fee and no cancellation fee. Lab tests are the only thing not
+    included; they are billed separately. Tax is added where the law requires it. Your plan is billed monthly and <strong>renews automatically
     each month at the price shown at checkout until you cancel</strong>. There is no minimum commitment.
     <span class="ph ph--legal">Lawyer: confirm this disclosure meets federal (ROSCA) and state auto-renewal requirements, and that the same terms appear at checkout.</span>
-    <span class="ph ph--you">You provide: the billing date rule (same day each month from signup?), and whether a month is refundable once it has started.</span>
+    Your plan renews on the same day of the month as your first charge. If your first charge was on the 29th, 30th or 31st
+    and a month has no such day, your plan renews on the last day of that month.
   </p>
   <h3>Payment</h3>
   <p>
-    You pay for your first month at checkout, after you complete your health questionnaire and
-    before a licensed provider reviews it.
-    If the provider does not approve you for medication, you will receive a full refund of that payment.
+    You answer your health questions first, and a licensed clinician reviews them. You check out, agree to the
+    renewal terms and pay for your first month <strong>only after the clinician prescribes treatment</strong>.
+    If your clinician does not prescribe treatment, you never pay.
+    Your plan then renews monthly on the same day of the month as that first payment until you cancel.
     <span class="ph ph--legal">Lawyer: confirm this matches the checkout disclosures.</span>
   </p>
   <p>
     Plan pricing, billing frequency, commitment terms, renewal terms, and cancellation instructions
-    are stated at checkout and summarized here:
-    <span class="ph ph--you">You provide: the finalized plan table (your lawyer approves the wording once you supply the numbers)</span>.
+    are stated at checkout. Current prices are shown on each treatment page{refundLive && <Fragment>, and how refunds and
+    cancellations work is explained in our <a href="/refund-and-cancellation">Refund, Cancellation and Auto-Renewal Policy</a></Fragment>}.
     You may cancel anytime, online, by sending a message from your patient portal or by emailing
     {CONTACT.email}; we confirm cancellations in writing within one business day. The steps are on the
     <a href="/your-plan">Manage or Cancel Your Plan</a> page. Your plan stays active through the month
@@ -152,18 +140,18 @@ import { CONTACT } from '../config';
   <h2>10. Intellectual Property</h2>
   <p>
     The Platform and its content (excluding your personal information) are owned by
-    <span class="ph ph--you">You provide: the company that owns the website and content</span> or its licensors and are protected by
+    WellPeps or its licensors and are protected by
     intellectual-property laws. We grant you a limited, revocable, non-exclusive, non-transferable
     license to use the Platform for personal, non-commercial purposes. &ldquo;WellPeps&rdquo; and
     associated logos are trademarks of
-    <span class="ph ph--you">You provide: the trademark owner, and whether any registrations are filed</span>.
+    WellPeps (not registered).
   </p>
 
   <h2>11. Communications and Text Messages</h2>
   <p>
     By providing your phone number, you consent to receive service-related calls and text messages
     from us and our providers and pharmacy partners.
-    <span class="ph ph--you">You confirm: whether you send marketing texts. If yes, a separate text-marketing opt-in with STOP/HELP wording, message frequency, and rate disclosures is legally required — tell us and the web team will add it.</span>
+    We do not send marketing text messages unless you ask us to.
     Message and data rates may apply. Reply STOP to opt out of texts.
   </p>
 
@@ -248,7 +236,7 @@ import { CONTACT } from '../config';
 
   <h2>21. Contact</h2>
   <p>
-    <span class="ph ph--you">You provide: your company's legal name</span><br />
+    WellPeps<br />
     30 N Gould St., Suite R, Sheridan, WY 82801<br />
     Email: <a href="mailto:support@wellpeps.com">support@wellpeps.com</a> &nbsp;|&nbsp; Phone: <a href="tel:+13078818700">(307) 881-8700</a> (normal business hours)
   </p>

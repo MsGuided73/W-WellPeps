@@ -1,7 +1,7 @@
 /**
  * Anonymous analytics: the event model.
  *
- * WHAT THIS TOOL IS. A first-party, opt-in counter. It shows which pages visitors
+ * WHAT THIS TOOL IS. A first-party, anonymous counter (on by default, with an opt-out). It shows which pages visitors
  * view, which labelled buttons and links they click, and how far down a page they
  * get before they leave. It sets no cookie, uses no localStorage, sessionStorage
  * or IndexedDB, creates no identifier (not even a random one), and never records

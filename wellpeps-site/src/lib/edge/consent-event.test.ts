@@ -25,6 +25,8 @@ const goodEvent = (over: Record<string, unknown> = {}): Record<string, unknown> 
   analytics: true,
   analytics_sensitive: false,
   advertising: true,
+  advertising_sensitive: false,
+  anonymous_opt_out: false,
   gpc_detected: false,
   notice_version: NOTICE_VERSION,
   banner_version: '1',
@@ -78,6 +80,8 @@ describe('the browser and the consent-log function agree on the contract', () =>
       load() {},
       unload() {},
     };
+    const anonymousTool: Tracker = { ...tool, id: 'anon-tool', anonymous: true };
+    const adsTool: Tracker = { ...tool, id: 'ads-tool', category: 'advertising' };
     function makeGate(opts: { stored?: string | null; gpc: boolean; path: string }) {
       const jar = { value: opts.stored ?? null };
       const deps: GateDeps = {
@@ -96,7 +100,7 @@ describe('the browser and the consent-log function agree on the contract', () =>
         },
         readGpc: () => opts.gpc,
         path: () => opts.path,
-        trackers: [tool],
+        trackers: [tool, anonymousTool, adsTool],
         log: (e) => events.push(e),
       };
       return createGate(deps);
@@ -109,6 +113,8 @@ describe('the browser and the consent-log function agree on the contract', () =>
     gate.dispatch({ type: 'gpcAllowAnyway' });
     gate.dispatch({ type: 'gpcKeepOff' });
     gate.dispatch({ type: 'set', changes: { analytics: true, analyticsSensitive: true } });
+    gate.dispatch({ type: 'gpcAllowAnyway' });
+    gate.dispatch({ type: 'set', changes: { advertisingSensitive: true, anonymous: false } });
     gate.dispatch({ type: 'rejectAll' });
     gate.dispatch({ type: 'acceptAll', via: 'center' });
     gate.dispatch({ type: 'withdrawAll' });
@@ -242,6 +248,9 @@ describe('validateConsentEvent', () => {
     ['action', 'delete_everything'],
     ['analytics', 'true'],
     ['advertising', 1],
+    ['advertising_sensitive', 'yes'],
+    ['anonymous_opt_out', 0],
+    ['anonymous_opt_out', undefined],
     ['gpc_detected', null],
     ['notice_version', ''],
     ['notice_version', 'x'.repeat(41)],
@@ -257,7 +266,13 @@ describe('validateConsentEvent', () => {
     expect(validateConsentEvent(goodEvent({ analytics: false, analytics_sensitive: true })).ok).toBe(false);
     expect(validateConsentEvent(goodEvent({ action: 'reject_all' })).ok).toBe(false);
     expect(validateConsentEvent(goodEvent({ action: 'withdraw', analytics: false, advertising: true })).ok).toBe(false);
-    expect(validateConsentEvent(goodEvent({ action: 'withdraw', analytics: false, analytics_sensitive: false, advertising: false })).ok).toBe(true);
+    expect(validateConsentEvent(goodEvent({ advertising: false, advertising_sensitive: true })).ok).toBe(false);
+    expect(validateConsentEvent(goodEvent({ action: 'withdraw', analytics: false, advertising: false })).ok).toBe(false);
+    expect(validateConsentEvent(goodEvent({ action: 'reject_all', analytics: false, advertising: false, anonymous_opt_out: false })).ok).toBe(false);
+    expect(
+      validateConsentEvent(goodEvent({ action: 'withdraw', analytics: false, analytics_sensitive: false, advertising: false, anonymous_opt_out: true })).ok,
+    ).toBe(true);
+    expect(validateConsentEvent(goodEvent({ advertising_sensitive: true })).ok).toBe(true);
   });
 
   test('parseConsentBody rejects what fails and accepts what passes, never marks anything silent', () => {

@@ -7,10 +7,15 @@
  * tested without a browser. See browser.ts for the real wiring.
  *
  * Guarantees (each has a test in gate.test.ts):
- *  - Nothing optional runs before a stored, current choice says so.
+ *  - Nothing optional runs before a stored, current choice says so, except an
+ *    anonymous tool (no cookie, no storage, no identifier), which runs by
+ *    default until the visitor turns it off (consent.ts `allowed`).
  *  - GPC is applied BEFORE any tool loads.
- *  - If anything throws, no optional tool runs (fail safe).
- *  - If the browser blocks storage, every choice is treated as "off".
+ *  - If anything throws, no optional tool runs, anonymous ones included (fail safe).
+ *  - If the browser blocks storage, every choice is treated as "off", and the
+ *    anonymous tool does not run either (an opt-out could not be saved).
+ *  - An opt-out of the anonymous statistics survives a withdrawal, a notice
+ *    version change and an expired choice.
  *  - Turning a tool off stops it in the same session and removes its cookies.
  *  - A choice made or withdrawn in another tab is picked up before the next
  *    change and whenever the tab is shown again (resync), so a stale tab can
@@ -20,6 +25,7 @@
  */
 import {
   allowed,
+  carryOver,
   defaultState,
   parse,
   promptReason,
@@ -186,8 +192,8 @@ export function createGate(deps: GateDeps): PrivacyGate {
 
   function currentPrompt(): PromptReason | null {
     if (!hasNonEssential(trackers)) return null;
-    // A state made only by a GPC signal is not a choice the visitor made.
-    if (prompt === null && state.source === 'gpc') return 'first';
+    // A state made only by a GPC signal, or the opt-out kept after a withdrawal, is not a choice to honour silently.
+    if (prompt === null && (state.source === 'gpc' || state.source === 'withdraw')) return 'first';
     return prompt;
   }
 
@@ -210,14 +216,15 @@ export function createGate(deps: GateDeps): PrivacyGate {
 
   /**
    * Read the saved choice. Returns the state and the prompt that go with it:
-   * nothing saved, expired or from an older notice means no consent.
+   * nothing saved, expired or from an older notice means no consent (an
+   * anonymous-statistics opt-out is kept, see carryOver).
    */
   function readSaved(): { state: ConsentState; prompt: PromptReason | null } {
     const stored = parse(deps.cookies.read(), deps.now());
     const reason = promptReason(stored, deps.now());
     if (stored && reason === null) return { state: stored, prompt: null };
     // Keep the same random id if there was one.
-    return { state: defaultState(deps.now(), stored?.cid ?? state.cid), prompt: reason ?? 'first' };
+    return { state: carryOver(stored, deps.now(), stored?.cid ?? state.cid), prompt: reason ?? 'first' };
   }
 
   /** Pick up a change made in another tab. Never writes and never logs. */
@@ -230,7 +237,8 @@ export function createGate(deps: GateDeps): PrivacyGate {
   }
 
   function failSafe(): void {
-    state = defaultState(deps.now(), state.cid);
+    // Nothing optional runs, not even the anonymous statistics.
+    state = { ...defaultState(deps.now(), state.cid), anonOptOut: true };
     prompt = 'first';
     for (const t of trackers) {
       if (running.has(t.id)) {
@@ -289,6 +297,10 @@ export function createGate(deps: GateDeps): PrivacyGate {
           // A new random id, so the withdrawal cannot be linked to what the visitor chooses next.
           state = { ...next, cid: deps.uuid() };
           prompt = 'first';
+          // Withdrawing also turns the anonymous statistics off. They run by default, so that
+          // opt-out is the one thing saved (all else off, new id); otherwise the next page
+          // would start them again.
+          if (trackers.some((t) => t.anonymous === true)) blocked = !persist(state);
         } else {
           const ok = persist(next);
           if (!ok) {

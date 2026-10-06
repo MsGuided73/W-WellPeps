@@ -67,7 +67,7 @@ export interface SexProduct {
 export const sexProductsIntro = {
   title: 'Sexual Wellness Treatments',
   lead: 'Sexual wellness treatments begin with a personalized evaluation by a licensed healthcare provider who reviews your health history, symptoms, and goals. Based on your assessment, your provider may recommend evidence-based treatment options designed to improve sexual wellness, confidence, and overall quality of life.',
-  footnote: 'All treatments require a consultation with a licensed provider. Treatment plans are personalized to your needs.',
+  footnote: 'All treatments require a consultation with a licensed provider, which is included in your monthly price. Treatment plans are personalized to your needs.',
 };
 
 export const sexProducts: SexProduct[] = [
@@ -108,7 +108,7 @@ export const sexProducts: SexProduct[] = [
 
 export const sexRecommendation = {
   title: 'You Don’t Have to Figure It Out Alone.',
-  body: 'Choosing the right treatment doesn’t have to be complicated. Every WellPeps journey begins with a free Personalized Assessment reviewed by a licensed healthcare provider, who will recommend treatment options based on your symptoms, health history, and individual wellness goals.',
+  body: 'Choosing the right treatment doesn’t have to be complicated. Every WellPeps journey begins with a few online health questions. A licensed healthcare provider reviews your answers and decides whether treatment is appropriate and, if so, which options fit your symptoms, health history, and individual wellness goals. That review is included in your monthly price.',
   image: '/images/sexual/not-alone.webp',
   alt: 'A woman smiling confidently at home',
 };
@@ -121,7 +121,7 @@ export interface SexFaq {
 export const sexFaqs: SexFaq[] = [
   {
     q: 'How do I know if I’m a candidate for treatment?',
-    a: 'Most adults experiencing concerns with sexual performance or function may be candidates for treatment. After you complete your confidential online health assessment, a licensed healthcare provider will review your medical history, symptoms, and current medications to determine whether treatment is appropriate for you.',
+    a: 'Most adults experiencing concerns with sexual performance or function may be candidates for treatment. After you complete your confidential online health questions, a licensed healthcare provider will review your medical history, symptoms, and current medications to determine whether treatment is appropriate for you. That review is included in your monthly price.',
   },
   {
     q: 'Which medication is right for me?',

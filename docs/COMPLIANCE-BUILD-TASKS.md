@@ -15,7 +15,7 @@ Status: **Done** | **Ready** | **Blocked** (waiting on a decision or an outside 
 | Tests | 258 unit tests, a 54-check browser script, an 11-check production-build script and a banner-placement check at six window sizes. |
 | Checkout lock (pre-launch) | Assessment buttons ask for an access password before showing an encrypted checkout link. Turn off at launch. |
 | Footer mockup | Seven required legal links, built as a development-only mockup (not yet the live footer). |
-| Terms of Use payment section | Updated after the deposit was removed; refund rule still a placeholder. |
+| Terms of Use payment section | Updated 2026-10-06: the card is entered at checkout but charged only when a clinician prescribes; nothing to refund if they do not. |
 
 ## 2. Ready: the web team can start now
 
@@ -59,7 +59,7 @@ Before or right after the deploy: run `nginx -t` in the built image if Docker is
 
 | # | Task | Waiting on |
 |---|---|---|
-| X1 | Refund rule when the provider does not prescribe, and the matching checkout and Terms wording | Company decision (fact sheet item I1); decides whether "Free Health Assessment" stays |
+| X1 | ~~Refund rule when the provider does not prescribe~~ **Decided 2026-10-06:** the card is not charged at checkout, only when a clinician prescribes. Remaining: set GEN Health to charge on prescription and match the checkout wording | Platform configuration (X4) |
 | X2 | Notice of Privacy Practices and the privacy-role decision | Counsel on the HIPAA role; the practice's own notice |
 | X3 | Naming the medical practice anywhere on the site | The practice's signed written consent (contract section 20) |
 | X4 | GEN Health checkout: form order, conditional acknowledgments by product, custom text and a required checkbox at the pay button, edited emails | Platform answers to the capability questions (partner request list, Scriptful sheet) |

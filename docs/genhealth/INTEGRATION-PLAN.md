@@ -17,7 +17,7 @@ without needing the live API docs.
 | Which GEN flow | **Intake-first**, on every CTA |
 | Where server-side code lives | **Supabase Edge Functions**; the site stays static |
 | Custom intake UI on wellpeps.com | **No** — it would put PHI on the marketing site |
-| "Purchase" buttons | **No** — CTA stays "Start Free Assessment" |
+| "Purchase" buttons | **No** — CTA stays "See If You Qualify" |
 
 ### Why no iframe
 
@@ -57,7 +57,7 @@ The only identifier the site handles is a `clientProductId`.
 
 Three places, none of which is an iframe.
 
-**1. The handoff (wellpeps.com).** Every "Start Free Assessment" button opens a
+**1. The handoff (wellpeps.com).** Every "See If You Qualify" button opens a
 full-viewport sheet — bottom sheet on mobile, centred panel on desktop — with
 the program name, the three steps ahead (answer a few questions · a licensed
 provider reviews · pay only if prescribed — wording subject to compliance
@@ -111,7 +111,7 @@ unset.
       checkout does not support it)
 - [ ] Sandbox mode on, via the provider network
 - [ ] Launch products **Active**, priced, imaged, formulary-paired
-- [ ] Assessment price confirmed per product (must make "Free" true)
+- [ ] Assessment price and deposit confirmed $0 per product, and the card set to charge only when a clinician prescribes (decided 2026-10-06; the card is entered at checkout, not charged then)
 - [ ] Portal continuity items above
 - [ ] `X-API-Key` created → Coolify build arg + Supabase secret. Never committed,
       never pasted into chat
@@ -158,5 +158,5 @@ Launch needs only the first six. The API key unlocks Phase 3.
    host? If shared, test swapping the hostname (`DASHBOARD-DATA-REQUEST.md` §4c).
 2. Does the catalog carry enough medication detail for a compliant quick-view,
    or is a second source needed? Check one real product record.
-3. Membership ($49 → $79) is unresolved on the GEN side
-   (`DASHBOARD-DATA-REQUEST.md` §6) and out of scope here until it is.
+3. The 2026-09 monthly-fee idea in `DASHBOARD-DATA-REQUEST.md` §6 is superseded by the
+   one-monthly-price decision (2026-09-25). Nothing to set up on the GEN side for it.

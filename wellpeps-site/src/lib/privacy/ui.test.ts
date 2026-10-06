@@ -1,5 +1,14 @@
 import { describe, expect, test } from 'vitest';
-import { bannerCopy, savedLine, showsHealthSwitch, statusAfter, summarize } from './ui';
+import {
+  bannerCopy,
+  savedLine,
+  sensitiveNote,
+  showsAdsHealthSwitch,
+  showsAnonymousRow,
+  showsHealthSwitch,
+  statusAfter,
+  summarize,
+} from './ui';
 import { defaultState, reduce } from './consent';
 import type { GateSnapshot } from './gate';
 import type { Tracker } from './registry';
@@ -70,17 +79,26 @@ describe('bannerCopy: written from the tool list, so it cannot promise what the 
     expect(text).toContain('Ad pixel');
   });
 
-  test('says advertising never runs on health-topic pages, because that is enforced', () => {
-    expect(bannerCopy([tool({ id: 'ads', name: 'Ad pixel', category: 'advertising' })])).toMatch(
-      /advertising.*never.*health/i,
-    );
+  test('says advertising runs on health-topic pages only with a separate yes that "Accept all" does not give', () => {
+    const text = bannerCopy([tool({ id: 'ads', name: 'Ad pixel', category: 'advertising' })]);
+    expect(text).toMatch(/advertising.*health.*separately/i);
+    expect(text).toMatch(/accept all.*does not include/i);
+    expect(text).not.toMatch(/never/i);
   });
 
-  test('with an anonymous analytics tool it does not claim analytics is off on health-topic pages', () => {
+  test('with only an anonymous analytics tool it says it is on by default with an opt-out, and asks nothing', () => {
     const text = bannerCopy([tool({ anonymous: true })]);
-    expect(text).not.toMatch(/do not use these tools on pages about specific health topics/i);
-    expect(text).toMatch(/health/i);
+    expect(text).toMatch(/on by default/i);
     expect(text).toMatch(/no cookie/i);
+    expect(text).toMatch(/turn them off/i);
+    expect(text).not.toMatch(/say yes|would like/i);
+  });
+
+  test('an anonymous tool is not named among the tools that stay off until the visitor says yes', () => {
+    const text = bannerCopy([tool({ anonymous: true, name: 'Anon stats' }), tool({ id: 'o', name: 'Other stats', cookies: ['_x'] })]);
+    expect(text).toMatch(/would like to use Other stats/);
+    expect(text).not.toMatch(/use Anon stats/);
+    expect(text).toMatch(/on by default/i);
   });
 
   test('with an ordinary analytics tool it says health-topic pages need a separate yes', () => {
@@ -100,5 +118,36 @@ describe('showsHealthSwitch', () => {
 
   test('an advertising tool alone does not need it', () => {
     expect(showsHealthSwitch([tool({ id: 'ads', category: 'advertising' })])).toBe(false);
+  });
+});
+
+describe('the separate health-page advertising switch and the anonymous row', () => {
+  test('the advertising sub-switch is shown only when an advertising tool exists', () => {
+    expect(showsAdsHealthSwitch([])).toBe(false);
+    expect(showsAdsHealthSwitch([tool()])).toBe(false);
+    expect(showsAdsHealthSwitch([tool({ id: 'ads', category: 'advertising' })])).toBe(true);
+  });
+
+  test('the anonymous row is shown only when an anonymous tool exists', () => {
+    expect(showsAnonymousRow([])).toBe(false);
+    expect(showsAnonymousRow([tool({ cookies: ['_x'] })])).toBe(false);
+    expect(showsAnonymousRow([tool({ anonymous: true })])).toBe(true);
+  });
+
+  test('the health-page note no longer says advertising never runs there, and states the real rule', () => {
+    const ads = tool({ id: 'ads', category: 'advertising' });
+    expect(sensitiveNote([])).not.toMatch(/never/i);
+    expect(sensitiveNote([ads])).toMatch(/advertising.*only if you also allow/i);
+    expect(sensitiveNote([tool({ anonymous: true })])).toMatch(/unless you turned them off/i);
+  });
+
+  test('a custom change reports the health-page advertising choice and, when changed, the anonymous statistics', () => {
+    let s = reduce(defaultState(NOW, 'c'), { type: 'set', changes: { advertising: true, advertisingSensitive: true } }, NOW);
+    expect(statusAfter({ type: 'set', changes: { advertisingSensitive: true } }, snap({ state: s }))).toMatch(
+      /Advertising is on, health-topic pages included/,
+    );
+    s = reduce(s, { type: 'set', changes: { anonymous: false } }, NOW);
+    expect(statusAfter({ type: 'set', changes: { anonymous: false } }, snap({ state: s }))).toMatch(/Anonymous usage statistics are off/);
+    expect(statusAfter({ type: 'set', changes: { analytics: true } }, snap({ state: s }))).not.toMatch(/Anonymous/);
   });
 });

@@ -10,8 +10,9 @@
 
 ## What it is
 
-A first-party, opt-in counter for people who turn on **analytics** in "Your
-Privacy Choices". It answers: which pages are viewed, which labelled buttons and
+A first-party, anonymous counter. It runs by default and visitors can turn it off
+with the **Anonymous usage statistics** switch in "Your Privacy Choices" (consent
+rules changed 2026-10-05: truly de-identified data needs notice, not consent). It answers: which pages are viewed, which labelled buttons and
 links are clicked, and how far down a page visitors get before they leave.
 
 It sets **no cookie**, uses **no localStorage, sessionStorage or IndexedDB**,
@@ -35,13 +36,15 @@ Two honest limits on "anonymous":
   anonymous in its data model, in what the browser sends and in the reports, not
   against someone with direct database access who studies row internals.
 
-Because it is anonymous in that sense, the consent rules let it run on a
-health-topic page with the ordinary analytics choice (`anonymous: true` in the
-registry, `allowed()` in `consent.ts`). Advertising never runs there, and Global
-Privacy Control does not turn this tool off (GPC governs sale, sharing and
-advertising), but a visitor who has not said yes, or who withdraws, gets nothing:
-the tool is stopped in the same visit, anything not yet sent is thrown away, and a
-withdrawal made in another tab is picked up before the page's last event can go.
+Because it is anonymous in that sense, the consent rules let it run by default on
+every page, health-topic pages included, independent of the analytics switches
+(`anonymous: true` in the registry, `allowed()` in `consent.ts`), and it does not
+by itself make the consent banner appear. Global Privacy Control does not turn this
+tool off (GPC governs sale, sharing and advertising). A visitor who turns it off,
+chooses Reject all or withdraws gets nothing more: the tool is stopped in the same
+visit, anything not yet sent is thrown away, the opt-out is remembered (also across
+a notice-version change), and a change made in another tab is picked up before the
+page's last event can go.
 
 ## What one event contains
 
@@ -117,7 +120,7 @@ list (a typo or an unreviewed label can never leak).
 
 ```html
 <!-- the assessment button (rendered by AssessmentCta.astro) -->
-<a href="..." class="btn btn--primary" data-track="cta-assessment">Start Free Health Assessment</a>
+<a href="..." class="btn btn--primary" data-track="cta-assessment">See If You Qualify</a>
 
 <!-- a whole product card that is one link -->
 <a href="..." class="pcard" data-track="product-card"> ... </a>
@@ -208,18 +211,19 @@ Nothing below has been done.
 7. **Update the tests that describe today's state.** `npm test` will fail on
    purpose until step 4 is done (`notice-inventory.test.ts` and
    `analytics/production-off.test.ts`), and `registry.test.ts` ("currently lists
-   no non-essential tool") and `scripts/privacy-prod-check.mjs` (which expects no
-   banner and "No analytics tool runs today") must be edited to expect the tool
-   and the banner. Then run `npm test`, `npm run build`,
+   no non-essential tool") and `scripts/privacy-prod-check.mjs` (which expects
+   "No analytics tool runs today") must be edited to expect the tool under the
+   "Anonymous usage statistics" row. The banner still does not appear for this
+   tool alone. Then run `npm test`, `npm run build`,
    `node scripts/privacy-prod-check.mjs` and `node scripts/privacy-e2e.mjs`, and
    look at the banner at the six window sizes with
    `node scripts/banner-overlap-check.mjs`.
-8. **Verify in a browser.** Open the deployed site, turn analytics on, and in
+8. **Verify in a browser.** Open the deployed site (the tool is on by default), and in
    DevTools check: requests to `analytics-event` appear after a few seconds and
    on leaving a page, sent with no cookie header; `document.cookie` holds only
    `wp_consent`; Application storage holds nothing from the analytics tool; no
-   cookie appears for the Supabase host; turning analytics off sends nothing more,
-   and neither does withdrawing in a second tab. Then check rows in
+   cookie appears for the Supabase host; turning "Anonymous usage statistics" off
+   sends nothing more, and neither does withdrawing in a second tab. Then check rows in
    `analytics_events`.
 9. **Tag the buttons** (the section above) and, when you want reports, run
    `supabase/analytics/example-views.sql` in the SQL editor.

@@ -41,6 +41,10 @@ export interface ConsentLogEvent {
   analytics: boolean;
   analytics_sensitive: boolean;
   advertising: boolean;
+  /** Separate consent for advertising on health-topic pages. */
+  advertising_sensitive: boolean;
+  /** The visitor turned off the anonymous usage statistics. */
+  anonymous_opt_out: boolean;
   gpc_detected: boolean;
   notice_version: string;
   banner_version: string;
@@ -78,6 +82,8 @@ export function buildLogEvent(state: ConsentState, action: ConsentLogAction, ctx
     analytics: state.analytics,
     analytics_sensitive: state.analyticsSensitive,
     advertising: state.advertising,
+    advertising_sensitive: state.advertisingSensitive,
+    anonymous_opt_out: state.anonOptOut,
     gpc_detected: state.gpc,
     notice_version: state.v,
     banner_version: BANNER_VERSION,

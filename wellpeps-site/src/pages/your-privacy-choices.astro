@@ -8,7 +8,10 @@ import { hasNonEssential, productionTrackers } from '../lib/privacy/registry';
 /* The statement under "Where things stand today" is generated from the tool
    registry (src/lib/privacy/registry.ts), so it cannot say "nothing optional
    runs" once a tool is added. */
-const optionalToolsExist = hasNonEssential(productionTrackers());
+const tools = productionTrackers();
+// Tools that wait for a yes; WellPeps' own anonymous statistics run by default with an opt-out.
+const optionalToolsExist = hasNonEssential(tools);
+const anonymousStatsLive = tools.some((t) => t.anonymous === true);
 
 const clientNeeds = [
   'A privacy-request email address (we recommend privacy@wellpeps.com). Until you choose one, requests go to the general address below.',
@@ -36,10 +39,10 @@ const privacyEmail = EMAILS.privacy;
   </div>
 
   <h2>Where things stand today</h2>
-  {optionalToolsExist ? (
+  {optionalToolsExist || anonymousStatsLive ? (
     <p>
-      wellpeps.com uses a small number of optional tools. They stay off until you say yes, and you can turn them off again
-      below. The tools are listed under each switch.
+      {optionalToolsExist && 'wellpeps.com uses a small number of optional tools. They stay off until you say yes, and you can turn them off again below. The tools are listed under each switch. '}
+      {anonymousStatsLive && 'Our own anonymous usage statistics set no cookie and keep no identifier, so they cannot identify you. They are on by default, and you can turn them off below.'}
     </p>
   ) : (
     <p>
@@ -53,7 +56,8 @@ const privacyEmail = EMAILS.privacy;
   <h2>Your choices</h2>
   <p>
     Each switch applies the moment you change it, and the page shows what is running right now. Your choice is saved in this
-    browser for twelve months, or until we change this notice. We do not use these tools on pages about specific health topics.
+    browser for twelve months, or until we change this notice. On pages about health topics, analytics and advertising run only if
+    you separately allow them there; "Accept all" does not include advertising on those pages.
   </p>
 
   <PrivacyCenter variant="page" idPrefix="pg" />
@@ -69,7 +73,8 @@ const privacyEmail = EMAILS.privacy;
   <h2>Limit the use of your sensitive information</h2>
   <p>
     Health information is sensitive personal information. We use it only to provide the services you asked for, keep our
-    systems secure, prevent fraud and meet legal duties. We do not use it for advertising. If you want us to keep our use to that
+    systems secure, prevent fraud and meet legal duties. We do not use it for advertising without your separate, explicit
+    consent. If you want us to keep our use to that
     and nothing more, ask using the form below and we will record your choice and honor it. Protected health information held by
     the medical practice is covered by the <a href="/notice-of-privacy-practices">Notice of Privacy Practices</a>.
   </p>

@@ -7,16 +7,24 @@
  *
  * Rules, from docs/Legal Docs "Your Privacy Choices" (Part 2) and the Cookie
  * and Tracking Technologies Notice:
- *  - Every optional category starts OFF.
+ *  - Every optional category starts OFF, except WellPeps' own anonymous usage
+ *    statistics (a tool marked `anonymous`: no cookie, no storage, no
+ *    identifier). Truly de-identified data needs notice, not consent, so they run
+ *    by default on every page and the visitor can turn them off (`anonOptOut`).
+ *    GPC does not affect them (GPC concerns sale and sharing).
  *  - Global Privacy Control (GPC) turns advertising off and cannot be undone by
  *    "Accept all"; only an explicit "Allow anyway" can re-enable it.
- *  - Advertising never runs on a health-topic page. Analytics runs there only
- *    after a separate consent.
+ *  - Other analytics runs on a health-topic page only after a separate consent
+ *    (`analyticsSensitive`).
+ *  - Advertising runs on a health-topic page only after a second, separate,
+ *    explicit consent (`advertisingSensitive`, the Washington My Health My Data
+ *    Act model). "Accept all" never gives it; GPC clears it with advertising.
  *  - A choice expires after twelve months or when the notice version changes.
+ *    An opt-out of the anonymous statistics is carried over (see carryOver()).
  */
 
 /** Bump when the notice text, the tool list or a category changes in meaning. */
-export const NOTICE_VERSION = '2026-10-01.1';
+export const NOTICE_VERSION = '2026-10-05.1';
 export const BANNER_VERSION = '1';
 export const CONSENT_COOKIE = 'wp_consent';
 export const CONSENT_MAX_AGE_DAYS = 365;
@@ -40,6 +48,13 @@ export interface ConsentState {
   /** Separate consent for analytics on health-topic pages. */
   analyticsSensitive: boolean;
   advertising: boolean;
+  /**
+   * Separate, explicit consent for advertising on health-topic pages. Never set
+   * by "Accept all"; true only while advertising is on and not locked by GPC.
+   */
+  advertisingSensitive: boolean;
+  /** The visitor turned off WellPeps' anonymous usage statistics (on by default). */
+  anonOptOut: boolean;
   /** A Global Privacy Control signal was present on the last visit. */
   gpc: boolean;
   /** GPC arrived after an earlier advertising opt-in; the visitor has not answered yet. */
@@ -51,13 +66,21 @@ export interface ConsentState {
 
 export type ConsentVia = 'banner' | 'center';
 
+/**
+ * Switches a visitor can flip one at a time. `anonymous` means "anonymous usage
+ * statistics on" (anonOptOut = !anonymous).
+ */
+export type ConsentChanges = Partial<
+  Pick<ConsentState, 'analytics' | 'analyticsSensitive' | 'advertising' | 'advertisingSensitive'> & { anonymous: boolean }
+>;
+
 export type ConsentAction =
   | { type: 'acceptAll'; via?: ConsentVia }
   | { type: 'rejectAll'; via?: ConsentVia }
   | { type: 'withdrawAll' }
   | {
       type: 'set';
-      changes: Partial<Pick<ConsentState, 'analytics' | 'analyticsSensitive' | 'advertising'>>;
+      changes: ConsentChanges;
       via?: ConsentVia;
     }
   | { type: 'gpcDetected' }
@@ -73,6 +96,8 @@ export function defaultState(now: number, cid: string): ConsentState {
     analytics: false,
     analyticsSensitive: false,
     advertising: false,
+    advertisingSensitive: false,
+    anonOptOut: false,
     gpc: false,
     gpcConflict: false,
     gpcOverride: false,
@@ -82,10 +107,12 @@ export function defaultState(now: number, cid: string): ConsentState {
 
 /** Enforce the invariants no stored or computed state may break. */
 function normalize(s: ConsentState): ConsentState {
+  const advertising = s.gpc && !s.gpcOverride ? false : s.advertising;
   return {
     ...s,
     analyticsSensitive: s.analytics ? s.analyticsSensitive : false,
-    advertising: s.gpc && !s.gpcOverride ? false : s.advertising,
+    advertising,
+    advertisingSensitive: advertising ? s.advertisingSensitive : false,
   };
 }
 
@@ -102,6 +129,8 @@ export function reduce(state: ConsentState, action: ConsentAction, now: number):
         ...base,
         analytics: true,
         advertising: true,
+        // The two health-page consents are separate and are never bundled into "Accept all".
+        anonOptOut: false,
         source: action.via ?? 'center',
       });
     case 'rejectAll':
@@ -110,6 +139,8 @@ export function reduce(state: ConsentState, action: ConsentAction, now: number):
         analytics: false,
         analyticsSensitive: false,
         advertising: false,
+        advertisingSensitive: false,
+        anonOptOut: true,
         gpcOverride: false,
         gpcConflict: false,
         source: action.via ?? 'center',
@@ -120,6 +151,8 @@ export function reduce(state: ConsentState, action: ConsentAction, now: number):
         analytics: false,
         analyticsSensitive: false,
         advertising: false,
+        advertisingSensitive: false,
+        anonOptOut: true,
         gpcOverride: false,
         gpcConflict: false,
         source: 'withdraw',
@@ -130,6 +163,8 @@ export function reduce(state: ConsentState, action: ConsentAction, now: number):
       if (typeof c.analytics === 'boolean') next.analytics = c.analytics;
       if (typeof c.advertising === 'boolean') next.advertising = c.advertising;
       if (typeof c.analyticsSensitive === 'boolean') next.analyticsSensitive = c.analyticsSensitive;
+      if (typeof c.advertisingSensitive === 'boolean') next.advertisingSensitive = c.advertisingSensitive;
+      if (typeof c.anonymous === 'boolean') next.anonOptOut = !c.anonymous;
       return normalize(next);
     }
     case 'gpcDetected': {
@@ -163,6 +198,7 @@ export function reduce(state: ConsentState, action: ConsentAction, now: number):
       return normalize({
         ...base,
         advertising: false,
+        advertisingSensitive: false,
         gpcOverride: false,
         gpcConflict: false,
         source: 'center',
@@ -183,6 +219,8 @@ export function serialize(s: ConsentState): string {
     a: flag(s.analytics),
     as: flag(s.analyticsSensitive),
     ad: flag(s.advertising),
+    ads: flag(s.advertisingSensitive),
+    ao: flag(s.anonOptOut),
     g: flag(s.gpc),
     gc: flag(s.gpcConflict),
     go: flag(s.gpcOverride),
@@ -212,13 +250,18 @@ export function parse(raw: string | null | undefined, now?: number): ConsentStat
   const cid = p.get('cid');
   const src = p.get('src');
   const flags = ['a', 'as', 'ad', 'g', 'gc', 'go'].map((k) => p.get(k));
+  // Added 2026-10-05. A cookie saved before then has neither key: read it as 0 so the
+  // choice is not thrown away for that reason. A key that is present must be 0 or 1.
+  const added = ['ads', 'ao'].map((k) => p.get(k) ?? '0');
   if (!v || v.length > 40) return null;
   if (!ts || !/^\d{1,15}$/.test(ts)) return null;
   if (!cid || cid.length > 64 || !/^[A-Za-z0-9-]+$/.test(cid)) return null;
   if (!src || !(CONSENT_SOURCES as readonly string[]).includes(src)) return null;
   if (flags.some((f) => f === null || !FLAG.test(f))) return null;
+  if (added.some((f) => !FLAG.test(f))) return null;
   if (now !== undefined && Number(ts) > now + MAX_CLOCK_SKEW_MS) return null;
   const [a, as, ad, g, gc, go] = flags.map((f) => f === '1');
+  const [ads, ao] = added.map((f) => f === '1');
   return normalize({
     v,
     ts: Number(ts),
@@ -226,6 +269,8 @@ export function parse(raw: string | null | undefined, now?: number): ConsentStat
     analytics: a,
     analyticsSensitive: as,
     advertising: ad,
+    advertisingSensitive: ads,
+    anonOptOut: ao,
     gpc: g,
     gpcConflict: gc,
     gpcOverride: go,
@@ -244,6 +289,15 @@ export function promptReason(
   if (state.v !== version) return 'version';
   if (now - state.ts > CONSENT_MAX_AGE_DAYS * DAY_MS) return 'expiry';
   return null;
+}
+
+/**
+ * The fresh state for a visitor whose saved choice has lapsed (older notice
+ * version or expired). Consents are not carried over, but an opt-out of the
+ * anonymous statistics is: an opt-out must not silently turn itself back on.
+ */
+export function carryOver(stored: ConsentState | null, now: number, cid: string): ConsentState {
+  return { ...defaultState(now, cid), anonOptOut: stored?.anonOptOut ?? false };
 }
 
 // ------------------------------------------------------------ health-topic pages
@@ -292,14 +346,21 @@ export function isSensitivePath(path: string): boolean {
 
 /**
  * May a tool in this category run on this page, given the visitor's choice?
- * `anonymous` marks a tool that sets no cookie, stores nothing and sends no
- * identifier (see registry.ts). It may run on a health-topic page with the
- * ordinary analytics choice; it never changes the rule for advertising.
+ *  - `anonymous` marks an analytics tool that sets no cookie, stores nothing and
+ *    sends no identifier (see registry.ts). It runs on every page unless the
+ *    visitor turned it off, whatever the analytics switches or GPC say. It never
+ *    changes the rule for advertising.
+ *  - Other analytics needs the analytics choice and, on a health-topic page, the
+ *    separate health-page analytics choice too.
+ *  - Advertising needs the advertising choice and no un-overridden GPC signal and,
+ *    on a health-topic page, the separate health-page advertising choice too.
  */
 export function allowed(state: ConsentState, category: ConsentCategory, path: string, anonymous = false): boolean {
   const sensitive = isSensitivePath(path);
   if (category === 'advertising') {
-    return state.advertising && !advertisingLockedByGpc(state) && !sensitive;
+    const on = state.advertising && !advertisingLockedByGpc(state);
+    return on && (!sensitive || state.advertisingSensitive);
   }
-  return state.analytics && (anonymous || !sensitive || state.analyticsSensitive);
+  if (anonymous) return !state.anonOptOut;
+  return state.analytics && (!sensitive || state.analyticsSensitive);
 }
