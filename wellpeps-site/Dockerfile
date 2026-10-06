@@ -15,9 +15,9 @@ ARG SUPABASE_PUBLISHABLE_KEY
 ENV SUPABASE_URL=$SUPABASE_URL \
     SUPABASE_PUBLISHABLE_KEY=$SUPABASE_PUBLISHABLE_KEY
 
-# Draft legal pages (src/lib/legal-docs.ts). Unset: they follow the site's pre-launch state, so they
-# show while the checkout lock is on (so counsel and the client can review them) and disappear on
-# their own at launch. "true" forces them on, "false" forces them off.
+# Draft legal pages (src/lib/legal-docs.ts). Unset or "false": no draft page is built; only released
+# documents appear (since the 2026-10-06 launch audit, regardless of the checkout lock). "true" builds
+# the drafts too, with their draft banners, for review deployments only.
 ARG SHOW_DRAFT_PAGES
 ENV SHOW_DRAFT_PAGES=$SHOW_DRAFT_PAGES
 

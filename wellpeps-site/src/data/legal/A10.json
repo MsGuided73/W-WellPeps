@@ -58,7 +58,7 @@
     ],
     [
      "How do I cancel?",
-     "Any time, in your patient portal at portal.wellpeps.com or by email to support@wellpeps.com. We confirm in writing within 1 business day. You do not need to call anyone or give a reason."
+     "Any time, in your patient portal at portal.wellpeps.com, by email to support@wellpeps.com or by phone at (307) 881-8700 during normal business hours. We confirm in writing within 1 business day. You do not need to give a reason."
     ],
     [
      "What is the deadline?",
@@ -593,7 +593,7 @@
   },
   {
    "t": "h1",
-   "text": "Acknowledgment (required form in GEN Health, shown before checkout)"
+   "text": "Acknowledgment"
   },
   {
    "t": "check",
@@ -663,7 +663,7 @@
   },
   {
    "t": "p",
-   "text": "From: Acknowledgment (required form in GEN Health, shown before checkout)",
+   "text": "From: Acknowledgment",
    "italic": true,
    "align": null
   },
