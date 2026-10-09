@@ -110,4 +110,10 @@ const items = [
     display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem 0;
   }
   .included--stacked .included__item { border-left: 0; }
+  /* In the article rail (a fixed 20.5rem column) the headline is sized to the box, not the window:
+     a no-wrap headline that grows with the viewport set the rail's minimum width and pushed every rail
+     card past the screen edge. Inline-size containment also keeps the box's width from following its content. */
+  .included--stacked { container-type: inline-size; }
+  .included--stacked .included__intro { padding-inline: 0; }
+  .included--stacked .included__headline { white-space: normal; font-size: clamp(1.4rem, 9cqi, 2.25rem); }
 </style>

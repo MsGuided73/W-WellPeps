@@ -305,7 +305,9 @@ const updated = article.published_at
   .related__list a { font-size: var(--text-body-size); line-height: 1.5; }
 
   /* ---- Sticky rail ---- */
-  .rail { display: grid; gap: 1.25rem; }
+  /* minmax(0, 1fr) + min-width: 0: rail cards fit the rail column instead of widening it with their content. */
+  .rail { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+  .rail > * { min-width: 0; }
   @media (min-width: 62rem) {
     .rail { position: sticky; top: 6rem; }
   }
