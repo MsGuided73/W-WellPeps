@@ -122,8 +122,8 @@ export const weightProducts: PillProduct[] = [
     name: 'Compounded Semaglutide',
     form: 'injection',
     medication: 'semaglutide',
-    image: '/images/weight/product-semaglutide.webp',
-    alt: 'An amber compounded semaglutide injection vial on a bathroom counter',
+    image: '/images/weight/product-semaglutide-compounded.webp',
+    alt: 'An amber vial labeled Semaglutide, Compounded, Rx Only, on a marble bathroom counter',
     benefits: [
       { label: 'Weight Loss', icon: 'trending-down' },
       { label: 'Appetite Control', icon: 'utensils' },
@@ -139,8 +139,8 @@ export const weightProducts: PillProduct[] = [
     name: 'Compounded Tirzepatide',
     form: 'injection',
     medication: 'tirzepatide',
-    image: '/images/weight/product-tirzepatide.webp',
-    alt: 'Compounded tirzepatide injection vial',
+    image: '/images/weight/product-tirzepatide-compounded.webp',
+    alt: 'An amber vial labeled Tirzepatide, Compounded, Rx Only, on a marble bathroom counter',
     benefits: [
       { label: 'Weight Loss', icon: 'trending-down' },
       { label: 'Appetite Control', icon: 'utensils' },
@@ -157,8 +157,8 @@ export const weightProducts: PillProduct[] = [
     availability: ORAL_GLP1_AVAILABILITY,
     form: 'oral',
     medication: 'semaglutide',
-    image: '/images/weight/product-oral.webp',
-    alt: 'Oral semaglutide tablets',
+    image: '/images/weight/product-oral-semaglutide-compounded.webp',
+    alt: 'A prescription bottle labeled Semaglutide Tablets, Compounded, with two white tablets beside it',
     benefits: [
       { label: 'Weight Loss', icon: 'trending-down' },
       { label: 'Appetite Control', icon: 'utensils' },
@@ -175,8 +175,8 @@ export const weightProducts: PillProduct[] = [
     availability: ORAL_GLP1_AVAILABILITY,
     form: 'oral',
     medication: 'tirzepatide',
-    image: '/images/weight/product-oral-tirzepatide.webp',
-    alt: 'Oral tirzepatide tablets',
+    image: '/images/weight/product-oral-tirzepatide-compounded.webp',
+    alt: 'A prescription bottle labeled Tirzepatide Tablets, Compounded, with two white tablets beside it',
     benefits: [
       { label: 'Weight Loss', icon: 'trending-down' },
       { label: 'Appetite Control', icon: 'utensils' },

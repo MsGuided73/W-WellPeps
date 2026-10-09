@@ -86,8 +86,8 @@ export interface Product {
 export const hairProducts: Product[] = [
   {
     name: 'Oral Finasteride',
-    image: '/images/hair/product-oral-finasteride.webp',
-    alt: 'A white prescription bottle labeled Finasteride beside tablets and a glass of water',
+    image: '/images/hair/product-oral-finasteride-capsules.webp',
+    alt: 'A white bottle labeled Finasteride Capsules, Compounded, beside capsules and a glass of water',
     icon: 'pill',
     description:
       'A prescription oral medication that lowers DHT, a hormone involved in male-pattern hair loss. Your provider decides whether it is appropriate for you.',
@@ -99,8 +99,8 @@ export const hairProducts: Product[] = [
   },
   {
     name: 'Oral Minoxidil',
-    image: '/images/hair/product-oral-minoxidil.webp',
-    alt: 'A white prescription bottle labeled Minoxidil beside two capsules',
+    image: '/images/hair/product-oral-minoxidil-capsules.webp',
+    alt: 'A white bottle labeled Minoxidil Capsules, Compounded, beside capsules and a glass of water',
     icon: 'pill',
     description:
       'A prescription oral medication that supports blood flow to hair follicles. Your provider decides whether it is appropriate and at what dose.',
@@ -112,8 +112,8 @@ export const hairProducts: Product[] = [
   },
   {
     name: 'Topical Minoxidil',
-    image: '/images/hair/product-topical-minoxidil.webp',
-    alt: 'An amber dropper bottle labeled Minoxidil on a bathroom counter',
+    image: '/images/hair/product-topical-minoxidil-cream.webp',
+    alt: 'A white tube labeled Minoxidil Topical Cream, Compounded, on a marble counter',
     icon: 'droplet',
     description:
       'A prescription medication applied directly to the scalp that supports blood flow to hair follicles. Your provider decides whether it is appropriate for you.',
@@ -125,8 +125,8 @@ export const hairProducts: Product[] = [
   },
   {
     name: 'Topical Minoxidil + Finasteride',
-    image: '/images/hair/product-minoxidil-finasteride-foam.webp',
-    alt: 'A white foam pump bottle labeled Minoxidil plus Finasteride',
+    image: '/images/hair/product-minoxidil-finasteride-foam-bottle.webp',
+    alt: 'A white foam pump bottle labeled Minoxidil plus Finasteride Topical Foam',
     icon: 'venn',
     description:
       'Two prescription medications in one topical foam applied to the scalp: minoxidil supports blood flow to hair follicles, and finasteride lowers DHT. Your provider decides whether it is appropriate for you.',
@@ -138,7 +138,7 @@ export const hairProducts: Product[] = [
   },
   {
     name: 'Topical Finasteride + Minoxidil + Tretinoin',
-    image: '/images/hair/product-finasteride-minoxidil-tretinoin.webp',
+    image: '/images/hair/product-finasteride-minoxidil-tretinoin-foam.webp',
     alt: 'A white foam pump bottle labeled Minoxidil plus Finasteride plus Tretinoin, Topical Foam',
     icon: 'venn',
     description:
