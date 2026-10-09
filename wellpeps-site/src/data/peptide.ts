@@ -109,7 +109,7 @@ export const peptideProducts: PeptideProduct[] = [
     photo: '/images/peptide/photo-nad.webp',
     photoAlt: 'A woman relaxing with a coffee by a bright window',
     vial: '/images/peptide/vial-nad-nasal-spray.webp',
-    methodOfUse: 'Injection',
+    methodOfUse: 'Nasal Spray',
     features: ['Cellular energy metabolism', 'Essential cellular processes', 'Naturally present in the body'],
     price: '169',
   },
