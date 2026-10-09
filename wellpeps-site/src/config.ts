@@ -169,8 +169,11 @@ export const CTA_LINKS: CtaLinks = {
  * wellpeps-site/.env as CHECKOUT_LOCK_PASSWORD and run `npm run lock:checkout`
  * (the build fails while src/data/checkout-lock.json is out of date).
  * At launch: set this to false and deploy.
+ *
+ * Turned off 2026-10-09 (owner): every assessment button links straight to its GEN Health
+ * checkout. Set back to true to re-lock (the encrypted links in checkout-lock.json are kept).
  */
-export const CHECKOUT_LOCKED = true;
+export const CHECKOUT_LOCKED = false;
 
 /* A pasted link on plain http or an untrusted host stops the build here, rather
    than shipping as a trusted button or silently showing "Opening Soon". */
