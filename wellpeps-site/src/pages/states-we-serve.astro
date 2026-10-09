@@ -1,0 +1,149 @@
+---
+/**
+ * States We Serve: where WellPeps care is available. Laid out like a state-availability
+ * page (intro, live-visit callout, headline count, legend, state grid, notes, last
+ * updated) with WellPeps' own facts from src/data/states.ts.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AssessmentCta from '../components/AssessmentCta.astro';
+import { CONTACT } from '../config';
+import { STATES, NOTE_LABEL, STATE_NOTES, STATES_LAST_UPDATED } from '../data/states';
+---
+<BaseLayout
+  title="States We Serve — WellPeps"
+  description="WellPeps telehealth care is available to patients located in all 50 U.S. states. See state-specific notes on medications, minimum age and privacy rights."
+>
+  <section class="section">
+    <div class="container spage">
+      <h1>States We Serve</h1>
+      <p class="spage__sub">Where WellPeps care is currently available</p>
+      <hr class="rule rule--left" />
+
+      <p class="spage__lead">
+        WellPeps offers clinician-guided care by telehealth to patients located in <strong>all 50 U.S. states</strong>.
+        Every health assessment is reviewed by a state-licensed clinician of OSI Medical Services, P.A., an independent
+        medical practice, and every prescription is filled by a state-licensed U.S. pharmacy. Treatment is provided only
+        where it is clinically appropriate and allowed by state and federal law.
+      </p>
+
+      <aside class="spage__callout" aria-labelledby="live-visit">
+        <h2 id="live-visit">When a live video visit is needed</h2>
+        <p>
+          Most assessments are completed through our secure online health questions. A licensed clinician schedules a live
+          video visit with you when your clinician requires one or when the law of your state requires one. If you need a
+          live visit, we arrange it as part of your review at no extra cost.
+        </p>
+      </aside>
+
+      <p class="spage__eyebrow">Available states</p>
+      <p class="spage__count">All 50 States</p>
+      <p class="spage__countsub">Care is available in every U.S. state. Some medications vary by state.</p>
+
+      <ul class="spage__legend" aria-label="Legend">
+        <li><span class="dot dot--ok" aria-hidden="true"></span> Available</li>
+        <li><span class="dot dot--note" aria-hidden="true"></span> Available, with a state note below</li>
+      </ul>
+
+      <ul class="spage__grid">
+        {STATES.map((s) => (
+          <li class={s.note ? 'chip chip--note' : 'chip'}>
+            <span class={s.note ? 'dot dot--note' : 'dot dot--ok'} aria-hidden="true"></span>
+            <span>{s.name} ({s.code}){s.note && <span class="chip__note"> — {NOTE_LABEL[s.note]}</span>}</span>
+          </li>
+        ))}
+      </ul>
+
+      <h2>State notes</h2>
+      <dl class="spage__notes">
+        {STATE_NOTES.map((n) => (
+          <div>
+            <dt>{n.states}</dt>
+            <dd>{n.note}{n.link && <Fragment> See our <a href={n.link.href}>{n.link.label}</a>.</Fragment>}</dd>
+          </div>
+        ))}
+      </dl>
+      <p class="spage__small">You must be at least 18 to use our services, or older where your state requires it (see above).</p>
+
+      <div class="spage__box" role="note">
+        <p>
+          <strong>Please note:</strong> Availability of specific medications can vary by state, based on state rules and
+          pharmacy licensing. If a medication cannot be shipped to your state, we tell you before you check out. Not
+          everyone qualifies for treatment: a licensed clinician decides after reviewing your health information, and a
+          prescription is not guaranteed. You must be located in the state you list when you complete your assessment and at
+          every visit. If you move or travel, tell us before your next visit or renewal.
+        </p>
+        <p>
+          Questions about care in your state? Email <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> or call
+          <a href={CONTACT.phoneHref}>{CONTACT.phone}</a> ({CONTACT.hours}) before you start.
+          See also our <a href="/shipping-and-delivery">Shipping and Delivery Policy</a>.
+        </p>
+      </div>
+
+      <div class="spage__cta">
+        <AssessmentCta class="btn btn--primary btn--lg" />
+      </div>
+
+      <p class="spage__updated">Last updated: {STATES_LAST_UPDATED}</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .spage { max-width: 880px; }
+  .spage h1 { font-size: var(--text-section-title); font-weight: 700; }
+  .spage__sub { margin-top: 0.4rem; color: var(--text-muted); font-size: var(--text-card-body); }
+  .spage__lead { margin-top: 1.25rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.65; }
+  .spage__lead strong { color: var(--navy); }
+  .spage h2 { margin-top: 2.5rem; font-size: var(--text-card-title); font-weight: 700; }
+  .spage p { line-height: 1.6; }
+  .spage a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+
+  .spage__callout {
+    margin-top: 2rem; padding: 1.25rem 1.5rem;
+    background: var(--bg-gray); border-left: 4px solid var(--blue); border-radius: var(--radius-sm);
+  }
+  .spage__callout h2 { margin-top: 0; font-size: var(--text-card-body); color: var(--navy); }
+  .spage__callout p { margin-top: 0.5rem; color: var(--text-body); font-size: var(--text-card-body); }
+
+  .spage__eyebrow {
+    margin-top: 2.75rem; font-size: var(--text-small); font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue);
+  }
+  .spage__count { margin-top: 0.25rem; font-size: clamp(2.5rem, 6vw, 3.75rem); font-weight: 700; line-height: 1.05; color: var(--blue); }
+  .spage__countsub { margin-top: 0.4rem; color: var(--text-muted); font-size: var(--text-card-body); }
+
+  .spage__legend { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0; color: var(--text-body); font-size: var(--text-small); }
+  .spage__legend li { display: flex; align-items: center; gap: 0.5rem; }
+
+  .spage__grid {
+    margin-top: 1rem; list-style: none; padding: 0;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.5rem;
+  }
+  .chip {
+    display: flex; align-items: flex-start; gap: 0.55rem; padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border); border-radius: var(--radius-sm); background: #fff;
+    color: var(--text-body); font-size: var(--text-small); line-height: 1.4;
+  }
+  .chip--note { border-color: var(--blue); }
+  .chip__note { color: var(--blue); font-weight: 600; }
+  .dot { flex: none; width: 0.6rem; height: 0.6rem; margin-top: 0.35em; border-radius: 50%; }
+  .dot--ok { background: var(--navy); }
+  .dot--note { background: var(--blue); box-shadow: 0 0 0 3px rgba(21, 118, 196, 0.18); }
+
+  .spage__notes { margin-top: 1rem; display: grid; gap: 0.75rem; }
+  .spage__notes div { display: grid; grid-template-columns: minmax(150px, 220px) 1fr; gap: 0.25rem 1rem; }
+  .spage__notes dt { font-weight: 700; color: var(--navy); font-size: var(--text-card-body); }
+  .spage__notes dd { margin: 0; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.6; }
+  @media (max-width: 560px) { .spage__notes div { grid-template-columns: 1fr; } }
+  .spage__small { margin-top: 1rem; color: var(--text-muted); font-size: var(--text-small); }
+
+  .spage__box {
+    margin-top: 2.5rem; padding: 1.25rem 1.5rem;
+    border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-gray);
+  }
+  .spage__box p { color: var(--text-body); font-size: var(--text-small); }
+  .spage__box p + p { margin-top: 0.75rem; }
+
+  .spage__cta { margin-top: 2rem; }
+  .spage__updated { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-small); }
+</style>

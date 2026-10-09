@@ -102,7 +102,6 @@ export interface CustomPage { kind: 'hub' | 'contact' | 'states' | 'review'; pat
 export const CUSTOM_PAGES: readonly CustomPage[] = [
   { kind: 'hub', path: 'patient-information', title: 'Patient Information', label: 'All Patient Information', released: true },
   { kind: 'contact', path: 'contact', title: 'Contact WellPeps', label: 'Contact Us', released: true },
-  { kind: 'states', path: 'states-we-serve', title: 'States We Serve', label: 'States We Serve', released: true },
   { kind: 'review', path: 'legal-review', title: 'Draft documents for review', label: 'Draft documents' },
 ];
 

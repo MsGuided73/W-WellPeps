@@ -32,7 +32,7 @@ const PROGRAM_PATHS = [
 ] as const;
 
 /** Legal pages that exist today. A new legal page is "other" until it is added here. */
-const LEGAL_PATHS = ['/privacy-policy', '/terms-of-use', '/notice-of-privacy-practices', '/accessibility'] as const;
+const LEGAL_PATHS = ['/privacy-policy', '/terms-of-use', '/notice-of-privacy-practices', '/accessibility', '/states-we-serve'] as const;
 
 const under = (path: string, base: string) => path === base || path.startsWith(`${base}/`);
 
