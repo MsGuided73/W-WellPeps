@@ -23,10 +23,10 @@ export interface ProductDisclosure {
   note?: string;
 }
 
-/** Block 5, "very short" form, for product cards. */
-export const RX_LINE = 'Prescription required; not guaranteed.';
+/** Product cards (owner wording, 2026-10-09; replaces Block 5's "Prescription required; not guaranteed"). */
+export const RX_LINE = 'For eligible patients only. Medical review and prescription required.';
 /** Block 4, "short form (product cards, ads, social)". */
-export const COMPOUNDED_SENTENCE = 'Compounded medications are not FDA-approved and are not evaluated by FDA for safety, effectiveness or quality.';
+export const COMPOUNDED_SENTENCE = 'Compounded medications are not FDA-approved and have not been evaluated by FDA for safety, effectiveness, or quality.';
 /** What "off-label" means, in the words of Block 5 (Hair): a use FDA has not approved. */
 export const OFF_LABEL_SENTENCE = 'Prescribed for a use FDA has not approved.';
 /** Beside every price (Refund, Cancellation and Auto-Renewal Policy, A10). */
@@ -45,8 +45,10 @@ export const SAFETY_PAGE: Record<ProgramSlug, string> = {
   'healthy-aging': '/safety/healthy-aging',
 };
 
-/** Where "What compounded means" goes (B5, which also explains off-label use). */
+/** Where "What off-label means" goes (B5, which also explains off-label use). */
 export const COMPOUNDED_PAGE = '/compounded-medications';
+/** Where "Understanding Compounded Medications" goes: the Learning Center article drawn from the GLP-1 Guide (scripts/data/articles.json). */
+export const COMPOUNDED_ARTICLE = '/wellness-learning-center/understanding-compounded-medications';
 export const REFUND_PAGE = '/refund-and-cancellation';
 
 const NITRATE_NOTE = 'Not for use with nitrate medicines.';

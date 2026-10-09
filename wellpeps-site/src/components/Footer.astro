@@ -428,6 +428,19 @@ const showAddress = CONTACT_ADDRESS !== '' || showDrafts;
   @media (max-width: 1280px) {
     .footer__grid { grid-template-columns: repeat(3, 1fr); }
   }
+  /* Phones: the 1280px rule above comes later than the 640px block, so it has to be undone here or
+     three columns run off the right edge. min-width: 0 lets grid items (and the email input, whose
+     built-in width otherwise sets a minimum) shrink to the screen instead of overflowing it. */
+  .footer__top > *, .footer__grid > * { min-width: 0; }
+  .newsletter__field input { width: 100%; }
+  @media (max-width: 640px) {
+    .footer__grid { grid-template-columns: 1fr 1fr; }
+    /* Contact details (email, phone, address) get the full width so they do not break mid-word. */
+    .footer__contact { grid-column: 1 / -1; }
+  }
+  @media (max-width: 340px) {
+    .footer__grid { grid-template-columns: 1fr; }
+  }
 </style>
 
 <script>

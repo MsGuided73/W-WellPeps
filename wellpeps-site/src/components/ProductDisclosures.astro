@@ -5,12 +5,13 @@
  *   <ProductDisclosures part="notes"   program="weight-loss" name="Compounded Semaglutide" />   above the price
  *   <ProductDisclosures part="renewal" />                                                       under the price
  *
- * The prescription line, the compounded or off-label tag and the renewal line always show. A link to a
- * page (safety information, what compounded means, refund policy) shows only when that page is built
+ * The eligibility line, the compounded or off-label sentence and the renewal line always show. A compounded
+ * product shows the sentence alone (no tag, owner 2026-10-09); an off-label product keeps its tag. A link to a
+ * page (safety information, understanding compounded medications, refund policy) shows only when that page is built
  * (src/lib/legal-docs.ts), so a card never links to a page that does not exist.
  */
 import {
-  COMPOUNDED_PAGE, COMPOUNDED_SENTENCE, OFF_LABEL_SENTENCE, REFUND_PAGE, RENEWAL_LINE, RX_LINE, SAFETY_PAGE, TAG_LABEL,
+  COMPOUNDED_ARTICLE, COMPOUNDED_PAGE, COMPOUNDED_SENTENCE, OFF_LABEL_SENTENCE, REFUND_PAGE, RENEWAL_LINE, RX_LINE, SAFETY_PAGE, TAG_LABEL,
   disclosureFor,
 } from '../data/product-disclosures';
 import { draftPagesEnabledNow, linkVisible } from '../lib/legal-docs';
@@ -27,21 +28,24 @@ const showDrafts = draftPagesEnabledNow();
 const live = (href: string) => linkVisible(href, showDrafts);
 const d = part === 'notes' && program && name ? disclosureFor(program, name) : undefined;
 const safety = program ? SAFETY_PAGE[program] : undefined;
+// A compounded product links to the Learning Center article; an off-label product to the B5 page.
+const learnHref = d?.regulatory === 'compounded' ? COMPOUNDED_ARTICLE : COMPOUNDED_PAGE;
+const learnLabel = d?.regulatory === 'compounded' ? 'Understanding Compounded Medications' : 'What off-label means';
 ---
 {part === 'notes' && d && (
   <div class="pdisc">
     <p class="pdisc__rx">{RX_LINE}</p>
     {d.regulatory && (
       <p class="pdisc__tag">
-        <span class={`pdisc__pill pdisc__pill--${d.regulatory}`}>{TAG_LABEL[d.regulatory]}</span>
+        {d.regulatory === 'off-label' && <span class="pdisc__pill pdisc__pill--off-label">{TAG_LABEL['off-label']}</span>}
         <span>{d.regulatory === 'compounded' ? COMPOUNDED_SENTENCE : OFF_LABEL_SENTENCE}</span>
       </p>
     )}
     {d.note && <p class="pdisc__note">{d.note}</p>}
-    {((safety && live(safety)) || (d.regulatory && live(COMPOUNDED_PAGE))) && (
+    {((safety && live(safety)) || (d.regulatory && live(learnHref))) && (
       <p class="pdisc__links">
         {safety && live(safety) && <a href={safety}>Important safety information</a>}
-        {d.regulatory && live(COMPOUNDED_PAGE) && <a href={COMPOUNDED_PAGE}>{d.regulatory === 'compounded' ? 'What compounded means' : 'What off-label means'}</a>}
+        {d.regulatory && live(learnHref) && <a href={learnHref}>{learnLabel}</a>}
       </p>
     )}
   </div>

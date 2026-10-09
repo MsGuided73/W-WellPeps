@@ -1,0 +1,3 @@
+/* Loaded only when JavaScript is off (BaseLayout <noscript>): the scroll-reveal script cannot
+   run, so show every block that would otherwise wait for it. */
+.reveal { opacity: 1 !important; transform: none !important; }

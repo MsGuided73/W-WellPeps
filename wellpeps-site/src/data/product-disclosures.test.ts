@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, test } from 'vitest';
 import {
-  COMPOUNDED_SENTENCE, PRODUCT_DISCLOSURES, RENEWAL_LINE, RX_LINE, SAFETY_PAGE, disclosureFor,
+  COMPOUNDED_ARTICLE, COMPOUNDED_SENTENCE, PRODUCT_DISCLOSURES, RENEWAL_LINE, RX_LINE, SAFETY_PAGE, disclosureFor,
 } from './product-disclosures';
 import { hairProducts } from './hair';
 import { peptideProducts } from './peptide';
@@ -57,14 +57,22 @@ describe('what the decisions say (placement guide, section 4)', () => {
 
 describe('the wording', () => {
   test('is the approved short form', () => {
-    expect(RX_LINE).toBe('Prescription required; not guaranteed.');
-    expect(COMPOUNDED_SENTENCE).toBe('Compounded medications are not FDA-approved and are not evaluated by FDA for safety, effectiveness or quality.');
+    expect(RX_LINE).toBe('For eligible patients only. Medical review and prescription required.');
+    expect(COMPOUNDED_SENTENCE).toBe('Compounded medications are not FDA-approved and have not been evaluated by FDA for safety, effectiveness, or quality.');
     expect(RENEWAL_LINE).toBe('Renews monthly, cancel anytime.');
   });
   test('every program links to its own safety page, and each is a registered draft page', () => {
     const paths = new Set(LEGAL_DOCS.map((d) => `/${d.path}`));
     for (const program of PROGRAM_SLUGS) expect(paths.has(SAFETY_PAGE[program]), program).toBe(true);
     expect(new Set(Object.values(SAFETY_PAGE)).size).toBe(4);
+  });
+});
+
+describe('the compounded link', () => {
+  test('goes to a Learning Center article that is in the article source', () => {
+    const articles: { url_path: string; title: string }[] = JSON.parse(readFileSync(resolve(__dirname, '../../scripts/data/articles.json'), 'utf8'));
+    const found = articles.find((a) => a.url_path === COMPOUNDED_ARTICLE);
+    expect(found?.title).toMatch(/^Understanding Compounded Medications/);
   });
 });
 

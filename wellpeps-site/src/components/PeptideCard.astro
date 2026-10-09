@@ -40,18 +40,18 @@ const group = `form-${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
         </div>
       </div>
       <p class="pepcard__desc">{description}</p>
-      {multi && (
-        <fieldset class="pepcard__forms">
-          <legend class="visually-hidden">Choose a form of {name}</legend>
-          {forms.map((f, i) => (
-            <label class="pepcard__form">
-              <input type="radio" name={group} value={String(i)} checked={i === 0} />
-              <span>{f.label} &middot; ${f.price}</span>
-            </label>
-          ))}
-        </fieldset>
-      )}
     </div>
+    {multi && (
+      <fieldset class="pepcard__forms">
+        <legend class="visually-hidden">Choose a form of {name}</legend>
+        {forms.map((f, i) => (
+          <label class="pepcard__form">
+            <input type="radio" name={group} value={String(i)} checked={i === 0} />
+            <span>{f.label} &middot; ${f.price}</span>
+          </label>
+        ))}
+      </fieldset>
+    )}
     <hr class="pepcard__divider" />
     {forms.map((f, i) => (
       <div class="pepcard__v" data-v={i}><p class="pepcard__method">{f.methodOfUse}</p></div>
@@ -180,6 +180,10 @@ const group = `form-${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
 
   @media (max-width: 460px) {
     .pepcard__vial { height: 148px; top: -58px; }
-    .pepcard__main { padding-right: 92px; }
+    /* On a phone only the name row sits beside the bottle; the description runs the full card
+       width below it. min-height keeps the description clear of the bottle (148px - 58px overlap
+       - the body's top padding). */
+    .pepcard__main { padding-right: 0; }
+    .pepcard__head { padding-right: 92px; min-height: 70px; }
   }
 </style>

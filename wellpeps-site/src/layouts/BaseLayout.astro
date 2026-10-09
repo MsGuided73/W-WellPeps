@@ -30,6 +30,7 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <noscript><link rel="stylesheet" href="/noscript.css" /></noscript>
     <link rel="icon" type="image/png" href="/images/w-mark-v2.png" />
     <title>{title}</title>
     {noindex && <meta name="robots" content="noindex,nofollow" />}
@@ -69,13 +70,20 @@ const {
 
     <!-- Progressive enhancement: scroll reveal + FAQ + mobile nav -->
     <script>
-      // Reveal on scroll
-      const io = new IntersectionObserver((entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
-        }
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+      // Reveal on scroll. Trigger as soon as any part of a block is on screen (threshold 0), not a
+      // share of it: a tall block, such as a product grid stacked on a phone, can be taller than
+      // several screens and would never reach a percentage threshold, staying invisible.
+      const reveals = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+          }
+        }, { threshold: 0, rootMargin: '0px 0px -6% 0px' });
+        reveals.forEach((el) => io.observe(el));
+      } else {
+        reveals.forEach((el) => el.classList.add('is-in'));
+      }
 
       // Sticky nav shadow on scroll
       const nav = document.querySelector('[data-nav]');
