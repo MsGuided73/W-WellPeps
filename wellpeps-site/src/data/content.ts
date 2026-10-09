@@ -3,9 +3,9 @@ import { planHomeFaqs } from './plan';
 
 /* ---- Section 5: Your Wellness Journey (5 steps) ---- */
 export const journeySteps = [
-  { n: 1, title: 'Answer a Few Online Health Questions', body: 'Tell us about your health and wellness goals in a few quick questions.', image: '/images/journey-1.webp', alt: 'Woman completing an online health assessment on a laptop' },
-  { n: 2, title: 'Licensed Medical Provider Review', body: 'A licensed medical provider reviews your information to determine the best next steps. The review is included in your monthly price.', image: '/images/journey-2.webp', alt: 'Provider reviewing patient information on a laptop' },
-  { n: 3, title: 'Receive Your Custom Treatment Plan', body: 'If approved, your provider creates a personalized treatment plan tailored to your goals.', image: '/images/journey-3.webp', alt: 'Woman reading her treatment plan on a tablet' },
+  { n: 1, title: 'Choose a Treatment and Answer a Few Questions', body: 'Pick the treatment you’re interested in, then tell us about your health and goals online. No payment is needed to start.', image: '/images/journey-1.webp', alt: 'Woman completing an online health assessment on a laptop' },
+  { n: 2, title: 'Licensed Clinician Review', body: 'A licensed clinician reviews your answers, by secure message or, when needed, a short video visit, and decides whether treatment is right for you. The review is included in your monthly price.', image: '/images/journey-2.webp', alt: 'Provider reviewing patient information on a laptop' },
+  { n: 3, title: 'Pay Only If You’re Approved', body: 'If your clinician prescribes treatment, you check out and pay for your first month. If not, you pay nothing.', image: '/images/journey-3.webp', alt: 'Woman reading her treatment plan on a tablet' },
   { n: 4, title: 'Discreet Home Delivery', body: 'If prescribed, medication is shipped directly to your home in discreet, secure packaging.', image: '/images/journey-4.webp', alt: 'Person opening a discreet WellPeps delivery box' },
   { n: 5, title: 'Ongoing Provider Support', body: 'Continue working with your provider as your needs evolve over time.', image: '/images/journey-5.webp', alt: 'Woman on a follow-up video visit at home' },
 ];

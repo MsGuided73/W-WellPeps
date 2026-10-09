@@ -309,7 +309,7 @@
    "t": "clause",
    "number": "5.3",
    "heading": "When you are charged.",
-   "text": "To keep things simple, you answer the health questions first and then check out once. At checkout you enter your payment method and agree to this Agreement and to the automatic renewal terms, but you are not charged then. We charge your payment method for your first month only when a clinician prescribes treatment. After that first charge, your plan renews each month on the same day of the month until you cancel (Section 8.3).",
+   "text": "You answer the health questions first, and you do not enter a payment method at that step. A clinician reviews your answers, and checkout is offered only if the clinician prescribes treatment. At checkout you agree to this Agreement and to the automatic renewal terms, enter your payment method and pay for your first month. After that first charge, your plan renews each month on the same day of the month until you cancel (Section 8.3).",
    "level": 0
   },
   {
@@ -456,14 +456,14 @@
    "t": "clause",
    "number": "8.2",
    "heading": "Your authorization.",
-   "text": "When you check out, you authorize WellPeps to charge your payment method, once a clinician prescribes treatment (Section 5.3), for the price shown at checkout, for each monthly renewal as described in Section 8.3, and for any other amount you agree to, such as labs. You also authorize us to keep your payment method on file for those charges. You can update your payment method in the Portal, but a plan cannot renew without one.",
+   "text": "When you check out, which happens only after a clinician prescribes treatment (Section 5.3), you authorize WellPeps to charge your payment method for the price shown at checkout, for each monthly renewal as described in Section 8.3, and for any other amount you agree to, such as labs. You also authorize us to keep your payment method on file for those charges. You can update your payment method in the Portal, but a plan cannot renew without one.",
    "level": 0
   },
   {
    "t": "clause",
    "number": "8.3",
    "heading": "Automatic renewal.",
-   "text": "Your plan renews every month at the price shown at checkout, and we charge your payment method once a month, on the same day of the month as your first charge (the day a clinician prescribed treatment), until you cancel. At checkout we will show you these automatic renewal terms again and ask for your separate agreement to them in a box that is not checked for you. The Refund Policy explains how to cancel and the deadline to avoid the next charge.",
+   "text": "Your plan renews every month at the price shown at checkout, and we charge your payment method once a month, on the same day of the month as your first charge (the day you checked out after a clinician prescribed treatment), until you cancel. At checkout we will show you these automatic renewal terms again and ask for your separate agreement to them in a box that is not checked for you. The Refund Policy explains how to cancel and the deadline to avoid the next charge.",
    "level": 0
   },
   {
@@ -1146,7 +1146,7 @@
   },
   {
    "t": "check",
-   "text": "I understand that the online health questions are an automated questionnaire, that the clinician’s review is not free but is part of my monthly price, and that I will not be charged at checkout: I will be charged only when a clinician prescribes treatment, and if the clinician decides not to prescribe, I will not be charged at all."
+   "text": "I understand that the online health questions are an automated questionnaire, that the clinician’s review is not free but is part of my monthly price, and that I will not be charged unless a clinician prescribes treatment: checkout is offered only after the clinician prescribes, and if the clinician decides not to prescribe, I will not be charged at all."
   },
   {
    "t": "check",
@@ -1158,7 +1158,7 @@
   },
   {
    "t": "check",
-   "text": "I authorize WellPeps to charge the payment method I provide, when a clinician prescribes treatment, for the price shown at checkout and for other amounts I agree to. I understand that charges will appear as WellPeps. (Automatic renewal has its own separate box at checkout.)"
+   "text": "I authorize WellPeps to charge the payment method I provide at checkout, which is offered only after a clinician prescribes treatment, for the price shown at checkout and for other amounts I agree to. I understand that charges will appear as WellPeps. (Automatic renewal has its own separate box at checkout.)"
   },
   {
    "t": "check",
