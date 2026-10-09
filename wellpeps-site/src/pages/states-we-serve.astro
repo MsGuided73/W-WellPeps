@@ -33,6 +33,10 @@ import { STATES, NOTE_LABEL, STATE_NOTES, STATES_LAST_UPDATED } from '../data/st
           video visit with you when your clinician requires one or when the law of your state requires one. If you need a
           live visit, we arrange it as part of your review at no extra cost.
         </p>
+        <p>
+          State rules currently require a live visit before a first prescription in <strong>Arkansas, Louisiana, Mississippi,
+          New Mexico, Rhode Island, South Dakota and West Virginia</strong>. These states are marked below.
+        </p>
       </aside>
 
       <p class="spage__eyebrow">Available states</p>
@@ -46,9 +50,9 @@ import { STATES, NOTE_LABEL, STATE_NOTES, STATES_LAST_UPDATED } from '../data/st
 
       <ul class="spage__grid">
         {STATES.map((s) => (
-          <li class={s.note ? 'chip chip--note' : 'chip'}>
-            <span class={s.note ? 'dot dot--note' : 'dot dot--ok'} aria-hidden="true"></span>
-            <span>{s.name} ({s.code}){s.note && <span class="chip__note"> — {NOTE_LABEL[s.note]}</span>}</span>
+          <li class={s.notes ? 'chip chip--note' : 'chip'}>
+            <span class={s.notes ? 'dot dot--note' : 'dot dot--ok'} aria-hidden="true"></span>
+            <span>{s.name} ({s.code}){s.notes && <span class="chip__note"> — {s.notes.map((n) => NOTE_LABEL[n]).join(' · ')}</span>}</span>
           </li>
         ))}
       </ul>
