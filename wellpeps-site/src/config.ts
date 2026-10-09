@@ -101,6 +101,8 @@ export const PRODUCT_LINKS = {
   sermorelin: { program: 'healthy-aging', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/utsDGMi7ITPVBmLMJifw?checkoutFlow=intake_first' },
   // GEN: "Peptides-NAD+ (Injectable)" ($169/mo)
   nad: { program: 'healthy-aging', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/SHJpGAACUFEeMONdpEbn?checkoutFlow=intake_first' },
+  // GEN: "NAD+ Nasal Spray" ($139/mo) — the Nasal Spray choice on the NAD+ card (owner, 2026-10-09)
+  'nad-nasal-spray': { program: 'healthy-aging', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/FVwkzvQqWIZRNAwbslGw?checkoutFlow=intake_first' },
   // GEN: "Wellness – Glutathione (Injectable)" ($99/mo)
   glutathione: { program: 'healthy-aging', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/17H4pVR8uYnwvcBIz8iY?checkoutFlow=intake_first' },
   // GEN: "Peptides - Methylene Blue Capsules" ($99/mo)
@@ -136,6 +138,7 @@ export const LIVE_PRODUCTS: readonly (keyof typeof PRODUCT_LINKS)[] = [
   'sildenafil-as-needed',
   'sermorelin',
   'nad',
+  'nad-nasal-spray',
   'glutathione',
   'methylene-blue',
   'mic-b12',

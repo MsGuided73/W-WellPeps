@@ -5,6 +5,10 @@
  * vial image bridging the seam on the right.
  * Bottom (aligned to the WellPeps Product Card Standard): method-of-use label ·
  * check-circle benefits · "Starting at $X /month" · filled "See If You Qualify".
+ *
+ * A product with `variants` (e.g. NAD+ injection or nasal spray) shows a two-way toggle. It is
+ * plain radio buttons and CSS (:has), no JavaScript: each form's bottle image, method line,
+ * price and checkout button are rendered, and only the chosen form's are displayed.
  */
 import Icon from './Icon.astro';
 import AssessmentCta from './AssessmentCta.astro';
@@ -13,13 +17,20 @@ import type { PeptideProduct } from '../data/peptide';
 
 interface Props { product: PeptideProduct; }
 const { product } = Astro.props;
-const { name, subtitle, description, icon, photo, photoAlt, vial, methodOfUse, features, price } = product;
+const { name, subtitle, description, icon, photo, photoAlt, vial, methodOfUse, features, price, variants } = product;
+const forms = variants && variants.length > 1 ? variants : [{ label: methodOfUse, methodOfUse, price, vial, product: name }];
+const multi = forms.length > 1;
+const group = `form-${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
 ---
-<article class="pepcard">
+<article class:list={['pepcard', multi && 'pepcard--forms']}>
   <div class="pepcard__photo"><img src={photo} alt={photoAlt} width="760" height="428" loading="lazy" /></div>
 
   <div class="pepcard__body">
-    <img class="pepcard__vial" src={vial} alt={`${name} product`} width="294" height="440" loading="lazy" />
+    {forms.map((f, i) => (
+      <div class="pepcard__v" data-v={i}>
+        <img class="pepcard__vial" src={f.vial} alt={multi ? `${name} ${f.label.toLowerCase()} product` : `${name} product`} width="294" height="440" loading="lazy" />
+      </div>
+    ))}
     <div class="pepcard__main">
       <div class="pepcard__head">
         <span class="pepcard__badge"><Icon name={icon} /></span>
@@ -29,11 +40,22 @@ const { name, subtitle, description, icon, photo, photoAlt, vial, methodOfUse, f
         </div>
       </div>
       <p class="pepcard__desc">{description}</p>
+      {multi && (
+        <fieldset class="pepcard__forms">
+          <legend class="visually-hidden">Choose a form of {name}</legend>
+          {forms.map((f, i) => (
+            <label class="pepcard__form">
+              <input type="radio" name={group} value={String(i)} checked={i === 0} />
+              <span>{f.label} &middot; ${f.price}</span>
+            </label>
+          ))}
+        </fieldset>
+      )}
     </div>
-
     <hr class="pepcard__divider" />
-
-    <p class="pepcard__method">{methodOfUse}</p>
+    {forms.map((f, i) => (
+      <div class="pepcard__v" data-v={i}><p class="pepcard__method">{f.methodOfUse}</p></div>
+    ))}
     <ul class="pepcard__features">
       {features.map((f) => (
         <li><span class="pepcard__check"><Icon name="check-circle" /></span>{f}</li>
@@ -45,13 +67,21 @@ const { name, subtitle, description, icon, photo, photoAlt, vial, methodOfUse, f
     <div class="pepcard__foot">
       <div class="pepcard__price">
         <span class="pepcard__price-label">Starting at</span>
-        <span class="pepcard__price-row">
-          <span class="pepcard__price-amount">${price}</span>
-          <span class="pepcard__price-unit">/month</span>
-        </span>
+        {forms.map((f, i) => (
+          <div class="pepcard__v" data-v={i}>
+            <span class="pepcard__price-row">
+              <span class="pepcard__price-amount">${f.price}</span>
+              <span class="pepcard__price-unit">/month</span>
+            </span>
+          </div>
+        ))}
         <ProductDisclosures part="renewal" />
       </div>
-      <AssessmentCta program="healthy-aging" product={name} class="pepcard__cta" arrow />
+      {forms.map((f, i) => (
+        <div class="pepcard__v" data-v={i}>
+          <AssessmentCta program="healthy-aging" product={f.product} class="pepcard__cta" arrow />
+        </div>
+      ))}
     </div>
   </div>
 </article>
@@ -94,6 +124,29 @@ const { name, subtitle, description, icon, photo, photoAlt, vial, methodOfUse, f
   .pepcard__desc { margin-top: 0.9rem; color: var(--text-body); font-size: calc(var(--text-card-body) - 1px); line-height: 1.55; }
 
   .pepcard__divider { height: 1px; border: 0; background: var(--border); margin: 1.2rem 0; }
+
+  /* Forms toggle (NAD+ injection / nasal spray). Each form's pieces sit in a .pepcard__v wrapper
+     that is display: contents when shown (so layout is unchanged) and display: none otherwise. */
+  .pepcard__v { display: contents; }
+  .pepcard__v:not([data-v="0"]) { display: none; }
+  .pepcard--forms:has(.pepcard__forms input[value="1"]:checked) .pepcard__v[data-v="0"],
+  .pepcard--forms:has(.pepcard__forms input[value="2"]:checked) .pepcard__v[data-v="0"] { display: none; }
+  .pepcard--forms:has(.pepcard__forms input[value="1"]:checked) .pepcard__v[data-v="1"],
+  .pepcard--forms:has(.pepcard__forms input[value="2"]:checked) .pepcard__v[data-v="2"] { display: contents; }
+  .pepcard__forms {
+    margin: 1rem 0 0; padding: 0.25rem; border: 1px solid var(--border); border-radius: var(--radius-sm);
+    display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 0.25rem; background: var(--bg-gray);
+  }
+  .pepcard__form { position: relative; cursor: pointer; display: flex; }
+  .pepcard__form input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+  .pepcard__form span {
+    display: flex; align-items: center; justify-content: center; width: 100%;
+    padding: 0.5rem 0.6rem; border-radius: calc(var(--radius-sm) - 2px); text-align: center;
+    color: var(--navy); font-weight: 700; font-size: var(--text-small); line-height: 1.25;
+    transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+  }
+  .pepcard__form input:checked + span { background: var(--blue); color: #fff; }
+  .pepcard__form input:focus-visible + span { outline: 3px solid var(--blue); outline-offset: 2px; }
 
   /* Method + benefits — matches the Weight Loss / Sexual Wellness cards. */
   .pepcard__method { font-weight: 800; color: var(--navy); font-size: var(--text-body-size); letter-spacing: -0.01em; }

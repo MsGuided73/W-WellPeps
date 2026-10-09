@@ -80,6 +80,20 @@ export interface PeptideProduct {
   /** Three key benefits, drawn from the description copy. */
   features: string[];
   price: string;
+  /**
+   * Forms of the same product sold as separate GEN Health products (each with its own price
+   * and checkout link). With two or more, the card shows a toggle; the first form is the default.
+   * `product` is the name the CTA link is looked up by (toProductKey in src/lib/cta.ts).
+   */
+  variants?: PeptideVariant[];
+}
+
+export interface PeptideVariant {
+  label: string;
+  methodOfUse: string;
+  price: string;
+  vial: string;
+  product: string;
 }
 
 export const peptideProductsIntro = {
@@ -108,10 +122,14 @@ export const peptideProducts: PeptideProduct[] = [
     icon: 'zap',
     photo: '/images/peptide/photo-nad.webp',
     photoAlt: 'A woman relaxing with a coffee by a bright window',
-    vial: '/images/peptide/vial-nad-nasal-spray.webp',
-    methodOfUse: 'Nasal Spray',
+    vial: '/images/peptide/vial-nad.webp',
+    methodOfUse: 'Injection',
     features: ['Cellular energy metabolism', 'Essential cellular processes', 'Naturally present in the body'],
     price: '169',
+    variants: [
+      { label: 'Injection', methodOfUse: 'Injection', price: '169', vial: '/images/peptide/vial-nad.webp', product: 'NAD+' },
+      { label: 'Nasal Spray', methodOfUse: 'Nasal Spray', price: '139', vial: '/images/peptide/vial-nad-nasal-spray.webp', product: 'NAD+ Nasal Spray' },
+    ],
   },
   {
     name: 'Glutathione',

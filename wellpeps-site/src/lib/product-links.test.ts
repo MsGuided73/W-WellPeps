@@ -6,9 +6,11 @@ import { sexProducts } from '../data/sexual';
 import { weightProducts } from '../data/weight';
 import { resolveCta, toProductKey } from './cta';
 
-const CARD_KEYS = [...weightProducts, ...hairProducts, ...sexProducts, ...peptideProducts].map((p) =>
-  toProductKey(p.name),
-);
+// A card's own name, plus the forms on a card with a toggle (NAD+ injection / nasal spray).
+const CARD_KEYS = [
+  ...[...weightProducts, ...hairProducts, ...sexProducts, ...peptideProducts].map((p) => toProductKey(p.name)),
+  ...peptideProducts.flatMap((p) => (p.variants ?? []).map((v) => toProductKey(v.product))),
+];
 
 describe('product links in src/config.ts', () => {
   test('every link is keyed to a product card that exists on the site', () => {

@@ -77,6 +77,7 @@ export const PRODUCT_DISCLOSURES: Record<ProgramSlug, Record<string, ProductDisc
     // Every product in this program is compounded. VERIFY the ingredients of MIC + B12 and Lipo-C
     // with the pharmacy before they are published; no product label may contain "Fat Burn".
     Sermorelin: { regulatory: 'compounded' },
+    // Covers both forms on the NAD+ card (injection and nasal spray); both are compounded.
     'NAD+': { regulatory: 'compounded' },
     Glutathione: { regulatory: 'compounded' },
     'MIC + B12': { regulatory: 'compounded' },
