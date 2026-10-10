@@ -11,6 +11,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { isAllowedImageUrl } from './image-hosts.mjs';
 
 const DATA_SCRIPT_TYPES = new Set(['application/json', 'application/ld+json']);
 const RESOURCE_LINK_RELS = new Set(['stylesheet', 'preload', 'modulepreload', 'prefetch', 'icon', 'shortcut', 'manifest', 'apple-touch-icon', 'preconnect', 'dns-prefetch']);
@@ -72,7 +73,9 @@ export function scanHtml(html) {
     }
     if (['img', 'source', 'video', 'audio', 'track', 'input'].includes(tag)) {
       for (const name of ['src', 'poster']) {
-        if (attrs[name] !== undefined && isExternal(attrs[name])) problems.push(`<${tag} ${name}> loads from another host: ${attrs[name]}`);
+        // An <img> from an allowed image host (the LegitScript seal) is the one exception.
+        const allowed = tag === 'img' && name === 'src' && isAllowedImageUrl(attrs[name] ?? '');
+        if (attrs[name] !== undefined && isExternal(attrs[name]) && !allowed) problems.push(`<${tag} ${name}> loads from another host: ${attrs[name]}`);
       }
       if (attrs.srcset !== undefined && attrs.srcset.split(',').some((c) => isExternal(c.trim().split(/\s+/)[0]))) {
         problems.push(`<${tag} srcset> loads from another host`);

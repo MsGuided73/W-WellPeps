@@ -23,7 +23,9 @@ const BANNED: { pattern: RegExp; why: string }[] = [
   { pattern: /low-cost/i, why: 'A price claim needs the actual prices and who bills' },
   { pattern: /will never be shared/i, why: 'An absolute privacy promise the company cannot show it keeps' },
   { pattern: /encrypted/i, why: '"Encrypted" is a technical claim that needs proof of what is encrypted and how' },
-  { pattern: /LegitScript certified/i, why: 'Certification is pending; the seal and claim wait until it is granted' },
+  // "LegitScript certified" is allowed since 2026-10-09 (certification granted). LegitScript's language guide still
+  // forbids implying endorsement or quality, or that uncertified competitors are improper.
+  { pattern: /(endorsed|recommended|backed|vetted) by LegitScript|LegitScript[- ](endorsed|approved (products|treatments|medications|quality))|LegitScript guarantees/i, why: 'LegitScript certification does not imply endorsement of products or services, or their quality (LegitScript language guide)' },
   // Decided 2026-10-05: the clinician review is included in the one monthly price, so it is never "free". Only the
   // automated online questions could be called free, and the site prefers not to use the word for them at all.
   { pattern: /free\s+(online\s+)?(health\s+|personalized\s+)?(assessment|consult|evaluation|clinician|provider|doctor|review)|no charge for the assessment|(assessment|consultation) (is|are) free/i, why: 'The clinician review is part of the monthly price; never call the assessment, consultation or review free (FTC Guide, 16 CFR 251.1)' },

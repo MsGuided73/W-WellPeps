@@ -36,10 +36,8 @@ export const safety = [
   { img: '/images/icons/saf-provider.png', title: 'Expert Provider Care', body: 'Every treatment plan is created by a licensed healthcare provider who reviews your health history and makes real clinical decisions.' },
   { img: '/images/icons/saf-lock.png', title: 'Privacy Protected', body: 'We take your privacy seriously. Our Privacy Policy explains what we collect, why, and the choices you have.' },
   { img: '/images/icons/saf-rx.png', title: 'Licensed Pharmacy Partners', body: 'Your medications are prepared by licensed U.S. pharmacies that follow strict quality and safety standards.' },
-  /* LegitScript badge removed until the certification application is approved.
-     Restore this item (and Safety.astro's 4-column grid) once it is:
-  { img: '/images/icons/saf-badge.png', title: 'LegitScript Certified', body: 'WellPeps is LegitScript certified, meeting rigorous standards for transparency, compliance, and patient protection.' },
-  */
+  // Certified 2026-10-09. Wording follows LegitScript's language guide: no endorsement or quality claim.
+  { img: '/images/icons/saf-badge.png', title: 'LegitScript Certified', body: 'LegitScript certification shows that WellPeps meets LegitScript’s standards, which help ensure transparency and compliance with applicable laws and regulations.' },
 ];
 
 /* ---- Section 8: Wellness Insights & Resources (blog) ---- */

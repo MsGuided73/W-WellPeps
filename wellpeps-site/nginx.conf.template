@@ -49,7 +49,10 @@
 #                               script). Attributes cannot run code, so this is
 #                               the low-risk exception; <style> elements stay
 #                               blocked.
-#   img-src 'self'              all images are served from this site.
+#   img-src 'self' https://static.legitscript.com
+#                               our own images, plus the LegitScript seal, which
+#                               must be LegitScript's live image (certified
+#                               2026-10-09). That exact host only.
 #   font-src 'self'             Inter and Lora are self-hosted (W3); no Google.
 #   connect-src 'self' https://kwgwbupqzpusydzflyvi.supabase.co
 #                               fetch/beacon targets: this site (gate unlock)
@@ -67,7 +70,7 @@
 #                               X-Frame-Options DENY for older browsers.
 #   upgrade-insecure-requests   any stray http:// subresource is fetched as https.
 map $uri $wp_csp {
-    default "default-src 'self'; script-src 'self'; style-src 'self'; style-src-attr 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'self' https://kwgwbupqzpusydzflyvi.supabase.co; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests";
+    default "default-src 'self'; script-src 'self'; style-src 'self'; style-src-attr 'unsafe-inline'; img-src 'self' https://static.legitscript.com; font-src 'self'; connect-src 'self' https://kwgwbupqzpusydzflyvi.supabase.co; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests";
 }
 
 # Permissions-Policy: nothing on the page may use these browser features, and

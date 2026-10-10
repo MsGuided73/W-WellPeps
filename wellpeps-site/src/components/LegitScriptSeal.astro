@@ -1,0 +1,29 @@
+---
+/* LegitScript's own seal code (certification email, 2026-10-09), unchanged apart from the owner's link
+   (2026-10-10). The image must be LegitScript's live file, not a copy, so it updates if the status changes,
+   and it is shown at its own 73x79 size (LegitScript advises against scaling it). no-referrer keeps the page
+   a visitor is on (which can name a treatment) from reaching LegitScript with the image request. */
+import { LEGITSCRIPT } from '../config';
+
+interface Props {
+  class?: string;
+  /** Above the fold (the home page hero) the seal loads at once; elsewhere it waits until it is near. */
+  loading?: 'eager' | 'lazy';
+}
+const { class: className, loading = 'lazy' } = Astro.props;
+---
+<a
+  href={LEGITSCRIPT.verifyUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  title="Verify LegitScript Approval for www.wellpeps.com"
+  class:list={['ls-seal', className]}
+>
+  <img src={LEGITSCRIPT.sealSrc} alt="Verify Approval for www.wellpeps.com" width="73" height="79" loading={loading} referrerpolicy="no-referrer" />
+</a>
+
+<style>
+  .ls-seal { display: inline-block; flex: none; line-height: 0; }
+  /* Fixed at the seal's own size: the global img rule (max-width: 100%) must not shrink it. */
+  .ls-seal img { width: 73px; height: 79px; max-width: none; }
+</style>

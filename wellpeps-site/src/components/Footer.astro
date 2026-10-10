@@ -18,6 +18,7 @@
 import { CONTACT, CONTACT_ADDRESS, GUIDE_LANDING_FLOW, PATIENT_PORTAL_URL } from '../config';
 import { GUIDES_INDEX_PATH } from '../lib/guide-flow';
 import { draftPagesEnabledNow, linkVisible } from '../lib/legal-docs';
+import LegitScriptSeal from './LegitScriptSeal.astro';
 
 const payments: { label: string; src?: string; caption?: string }[] = [
   { label: 'Visa', src: '/images/payment/logo-visa.png' },
@@ -243,7 +244,8 @@ const showAddress = CONTACT_ADDRESS !== '' || showDrafts;
         </p>
         <p class="footer__copy">&copy; {year} WellPeps, a Wyoming corporation. All rights reserved.</p>
       </div>
-      {/* The LegitScript seal goes here only after certification is approved. No "HIPAA Compliant" badge. */}
+      {/* LegitScript seal on every page (certified 2026-10-09). No "HIPAA Compliant" badge. */}
+      <LegitScriptSeal class="footer__seal" />
     </div>
   </div>
 </footer>

@@ -11,9 +11,8 @@ const trustCards = [
   { icon: 'flask-search', title: 'Lab Testing When Recommended', body: 'Lab testing is available when your provider recommends it. Lab fees are billed separately.' },
   { icon: 'pharmacy', title: 'Medications from USA Pharmacies', body: 'Medications are dispensed through licensed U.S. pharmacy partners that meet applicable quality and regulatory standards.' },
   { icon: 'price-shield', title: 'Transparent Pricing', body: 'Know your program cost before you begin, with clear pricing and no hidden fees or surprise charges. You pay nothing unless a clinician prescribes treatment.' },
-  /* LegitScript card hidden until the certification application is approved:
-  { icon: 'legit-badge', title: 'LegitScript Certified', body: 'LegitScript certification reflects our commitment to transparency, compliance, and patient protection.' },
-  */
+  // Certified 2026-10-09. Wording follows LegitScript's language guide: no endorsement or quality claim.
+  { icon: 'legit-badge', title: 'LegitScript Certified', body: 'LegitScript certification shows that WellPeps meets LegitScript’s standards, which help ensure transparency and compliance with applicable laws and regulations.' },
 ];
 
 const patientsFirstCards = [
@@ -174,6 +173,8 @@ const faqs = [
 
   /* Cards */
   .why-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; margin-top: clamp(2rem, 3vw, 2.75rem); }
+  /* Seven trust cards: the last one sits alone, so it takes the middle column instead of the left. */
+  .why-cards > :last-child:nth-child(3n + 1) { grid-column: 2; }
   .why-card { padding: 2.5rem 2rem; text-align: center; display: flex; flex-direction: column; align-items: center; }
   .why-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
   .why-card h3 { font-size: var(--text-card-title); font-weight: 600; color: var(--navy); line-height: 1.2; }

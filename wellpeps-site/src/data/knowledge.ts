@@ -135,13 +135,8 @@ export const knowledgeBase: KnowledgeDoc[] = [
     tags: ['privacy', 'hipaa', 'secure', 'data', 'confidential', 'information'],
     answer:
       'We take your privacy seriously and use secure technology to protect your information. Our Privacy Policy explains what we collect, why, and the choices you have.',
-    /* LegitScript-certified sentence removed until the certification application
-       is approved. Original body — restore once approved:
-    body: `Privacy is protected using secure technology and HIPAA-compliant safeguards. Personal health
-      information is encrypted in transit and at rest. WellPeps is LegitScript certified, reflecting a
-      commitment to transparency, compliance and patient protection.`,
-    */
-    body: `Privacy is protected using secure technology. The Privacy Policy explains what WellPeps collects, why, and the choices you have.`,
+    body: `Privacy is protected using secure technology. The Privacy Policy explains what WellPeps collects, why, and the choices you have.
+      WellPeps is LegitScript certified. LegitScript certification shows that WellPeps meets LegitScript’s standards, which help ensure transparency and compliance with applicable laws and regulations.`,
   },
 
   /* ---------------- Programs, pricing, eligibility ---------------- */

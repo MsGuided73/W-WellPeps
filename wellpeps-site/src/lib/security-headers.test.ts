@@ -393,6 +393,20 @@ describe('the build stays compatible with the policy', () => {
       expect(scanHtml(html)).toEqual([]);
     });
 
+    test('allows the LegitScript seal image, which must load from LegitScript itself', () => {
+      const html = '<html><body><a href="https://www.legitscript.com/websites/wellpeps.com/?"><img src="https://static.legitscript.com/seals/51837021.png" width="73" height="79"></a></body></html>';
+      expect(scanHtml(html)).toEqual([]);
+    });
+
+    test.each([
+      ['a script from the seal host', '<script src="https://static.legitscript.com/x.js"></script>', /another host/],
+      ['a seal image over a protocol-relative URL', '<img src="//static.legitscript.com/seals/1.png">', /another host/],
+      ['a lookalike host', '<img src="https://static.legitscript.com.evil.example/a.png">', /another host/],
+      ['an image srcset from the seal host', '<img src="/a.png" srcset="https://static.legitscript.com/a.png 2x">', /srcset/],
+    ])('the seal exception covers only <img src> from that exact host: flags %s', (_name, html, pattern) => {
+      expect(scanHtml(`<html><body>${html}</body></html>`).join('\n')).toMatch(pattern);
+    });
+
     test.each([
       ['an inline script', '<script>alert(1)</script>', /inline script/],
       ['an inline module script', '<script type="module">import("/x")</script>', /inline script/],

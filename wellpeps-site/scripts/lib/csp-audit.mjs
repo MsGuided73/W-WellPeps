@@ -4,6 +4,7 @@
  * These encode WHY the policy is safe, so loosening it later fails loudly.
  */
 import { parseCsp } from './nginx-conf.mjs';
+import { IMAGE_HOSTS } from './image-hosts.mjs';
 
 const KEYWORDS = new Set(["'self'", "'none'", "'unsafe-inline'", "'unsafe-eval'", "'unsafe-hashes'", "'strict-dynamic'", "'wasm-unsafe-eval'"]);
 
@@ -12,7 +13,8 @@ const EXACT = {
   'default-src': ["'self'"],
   'script-src': ["'self'"],
   'style-src': ["'self'"],
-  'img-src': ["'self'"],
+  // Our own images plus the LegitScript seal, which must be LegitScript's live file (image-hosts.mjs).
+  'img-src': ["'self'", ...IMAGE_HOSTS],
   'font-src': ["'self'"],
   'frame-src': ["'none'"],
   'object-src': ["'none'"],

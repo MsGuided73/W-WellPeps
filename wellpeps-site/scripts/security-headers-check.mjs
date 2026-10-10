@@ -23,6 +23,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
 import { auditCsp } from './lib/csp-audit.mjs';
+import { IMAGE_HOSTS } from './lib/image-hosts.mjs';
 import { scanDist, walkFiles } from './lib/html-scan.mjs';
 import { auditHeaders, auditRedirectRule, parseNginx, renderTemplate, REQUIRED_HEADERS } from './lib/nginx-conf.mjs';
 import { createNginxEmulator, listenEmulator } from './lib/nginx-emulator.mjs';
@@ -154,7 +155,8 @@ async function instrument(browser, base, { viewport = { width: 1280, height: 900
 
   const origin = new URL(base).origin;
   if (blockUnknown) {
-    await ctx.route((url) => url.origin !== origin && !/^(data|blob|about):/.test(url.protocol), (route) => {
+    // The LegitScript seal image is the one allowed request to another host (image-hosts.mjs).
+    await ctx.route((url) => url.origin !== origin && !IMAGE_HOSTS.includes(url.origin) && !/^(data|blob|about):/.test(url.protocol), (route) => {
       const req = route.request();
       // Following a link or a meta-refresh to another site is not a subresource
       // load; only subresources and fetches count as something leaving the page.

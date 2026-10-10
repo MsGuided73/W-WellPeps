@@ -234,6 +234,18 @@ export const CONTACT = {
  * agent's; LegitScript compares it with the contracts). Empty until confirmed: the footer
  * and Contact page then show no address on the live site.
  */
+/**
+ * LegitScript healthcare certification, granted 2026-10-09 to Well Peps Operations Corporation for wellpeps.com.
+ * LegitScript's rules for the seal: use its live image (a static copy is not allowed), unscaled at 73x79, only on
+ * wellpeps.com (never in print, email, social posts or ads), linked to the verification page, and taken down if
+ * the certification lapses. Wording may not suggest LegitScript endorses WellPeps' products or vouches for their
+ * quality. The link is the public listing the owner chose (2026-10-10).
+ */
+export const LEGITSCRIPT = {
+  sealSrc: 'https://static.legitscript.com/seals/51837021.png',
+  verifyUrl: 'https://www.legitscript.com/websites/wellpeps.com/?',
+} as const;
+
 export const CONTACT_ADDRESS: string = '30 N Gould St., Suite R, Sheridan, WY 82801';
 
 /**
