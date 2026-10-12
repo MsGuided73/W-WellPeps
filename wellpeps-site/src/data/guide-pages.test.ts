@@ -71,7 +71,9 @@ describe('the program-page band copy', () => {
 
 describe('series copy', () => {
   test('the home and index copy is Derek’s', () => {
-    expect(GUIDE_SERIES.homeTitle).toBe('What Every Smart Patient Should Know.');
+    expect(GUIDE_SERIES.homeTitle).toEqual(['Download Free Ebooks.', 'Become a More Informed Patient.']);
+    expect(GUIDE_SERIES.homeCta).toBe('Download Free Ebook');
+    expect(GUIDE_SERIES.homeExploreAll).toBe('Explore All Free Ebooks');
     expect(GUIDE_SERIES.indexTitle).toEqual(['Better Information.', 'Better Healthcare Decisions.']);
     expect(GUIDE_SERIES.exploreAll).toBe('Explore All Smart Patient Guides');
     expect(GUIDE_SERIES.indexMeta.length).toBeLessThanOrEqual(165);

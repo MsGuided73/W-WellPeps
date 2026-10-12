@@ -8,6 +8,13 @@
  * page that uses it picks up the new badge.
  */
 // One set of gradient ids per badge, so several badges on a page never share (or lose) a definition.
+interface Props {
+  /** A smaller second line under FREE, e.g. "eBOOKS" on the home page's guide strip. */
+  sub?: string;
+}
+const { sub } = Astro.props;
+// FREE sits in the middle on its own, or moves up to make room for the second line.
+const freeY = sub ? 41 : 48.6;
 const uid = Math.random().toString(36).slice(2, 8);
 const face = `free-face-${uid}`;
 const side = `free-side-${uid}`;
@@ -65,10 +72,18 @@ const rim = `free-rim-${uid}`;
   <circle cx="50" cy="48" r="39.4" fill="none" stroke="#fff" stroke-width="1.8" />
   <circle cx="50" cy="48" r="35.6" fill="none" stroke="#fff" stroke-width="1" stroke-opacity="0.9" />
   <!-- FREE, with a soft pressed-in shadow -->
-  <text x="50" y="50" text-anchor="middle" dominant-baseline="central" textLength="54" lengthAdjust="spacingAndGlyphs"
+  <text x="50" y={freeY + 1.4} text-anchor="middle" dominant-baseline="central" textLength="54" lengthAdjust="spacingAndGlyphs"
     fill="#062058" fill-opacity="0.45" font-family="var(--font-sans), system-ui, sans-serif" font-weight="800" font-size="24">FREE</text>
-  <text x="50" y="48.6" text-anchor="middle" dominant-baseline="central" textLength="54" lengthAdjust="spacingAndGlyphs"
+  <text x="50" y={freeY} text-anchor="middle" dominant-baseline="central" textLength="54" lengthAdjust="spacingAndGlyphs"
     fill="#fff" font-family="var(--font-sans), system-ui, sans-serif" font-weight="800" font-size="24">FREE</text>
+  {sub && (
+    <Fragment>
+      <text x="50" y="62.4" text-anchor="middle" dominant-baseline="central" textLength="50" lengthAdjust="spacingAndGlyphs"
+        fill="#062058" fill-opacity="0.45" font-family="var(--font-sans), system-ui, sans-serif" font-weight="800" font-size="15">{sub}</text>
+      <text x="50" y="61.4" text-anchor="middle" dominant-baseline="central" textLength="50" lengthAdjust="spacingAndGlyphs"
+        fill="#fff" font-family="var(--font-sans), system-ui, sans-serif" font-weight="800" font-size="15">{sub}</text>
+    </Fragment>
+  )}
 </svg>
 
 <style>

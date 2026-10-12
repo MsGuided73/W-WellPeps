@@ -80,7 +80,7 @@ async function articleLinks(ctx, base) {
   await page.waitForTimeout(500);
   check('home shows the ring, not the email dialog', (await ring.count()) === 1 && (await page.locator('[data-ebook-dialog]').count()) === 0);
   check('the ring has all five guides, each linking to its landing page', JSON.stringify(await page.locator('[data-ring-card]').evaluateAll((els) => els.map((e) => e.dataset.href))) === JSON.stringify(GUIDES.map((g) => `/smart-patient-guides/${g}`)));
-  check('the section carries Derek’s copy', (await page.locator('.gring-title').innerText()).trim() === 'What Every Smart Patient Should Know.');
+  check('the section carries Derek’s copy', (await page.locator('.gring-title').innerText()).replace(/\s+/g, ' ').trim() === 'Download Free Ebooks. Become a More Informed Patient.');
   check('there is one FREE coin, beside the ring, and none on the covers', (await page.locator('.gring__star').count()) === 1 && (await page.locator('[data-ring-card] .gbook__star, [data-ring-card] .book__star').count()) === 0);
   check('the first guide is at the front', (await page.locator('[data-ring-name]').innerText()) === 'GLP-1 Weight Loss' && (await page.locator('[data-ring-card]').first().getAttribute('data-pos')) === 'front');
   check('"Explore all" goes to the index', (await page.locator('.gring__all a').getAttribute('href')) === '/smart-patient-guides');
@@ -88,7 +88,7 @@ async function articleLinks(ctx, base) {
   await page.locator('[data-ring-next]').click();
   await page.waitForTimeout(300);
   check('next turns the ring to the next guide and updates the button', (await page.locator('[data-ring-name]').innerText()) === 'Sexual Wellness' && (await page.locator('[data-ring-cta]').getAttribute('href')) === '/smart-patient-guides/sexual-wellness');
-  check('the turn is real 3D (the track carries the new angle)', (await page.locator('[data-ring-track]').evaluate((el) => el.style.getPropertyValue('--angle'))) === '-72');
+  check('the strip slides one guide on (the track carries the new position)', (await page.locator('[data-ring-track]').evaluate((el) => el.style.getPropertyValue('--pos'))) === '1');
   await page.locator('[data-ring-prev]').click();
   await page.waitForTimeout(200);
   check('previous turns it back', (await page.locator('[data-ring-name]').innerText()) === 'GLP-1 Weight Loss');
@@ -125,7 +125,7 @@ async function articleLinks(ctx, base) {
   await page.waitForTimeout(1100);
   const side = page.locator('[data-ring-card][data-pos="near"] a').first();
   const sideTitle = await side.getAttribute('aria-label');
-  // Find a point where the side cover really is the top element (a skewed card's box is not its shape).
+  // Find a point where the side cover really is the top element (the centre cover overlaps its edge).
   const point = await side.evaluate((a) => {
     const card = a.closest('[data-ring-card]'), box = a.getBoundingClientRect();
     for (let fx = 0.5; fx <= 0.95; fx += 0.1) for (let fy = 0.3; fy <= 0.7; fy += 0.1) {
@@ -187,26 +187,26 @@ async function articleLinks(ctx, base) {
   check('every ring dot is at least 24px square (WCAG 2.2 target size)', (await page.locator('[data-ring-dot]').evaluateAll((els) => els.every((e) => { const b = e.getBoundingClientRect(); return b.width >= 24 && b.height >= 24; }))));
   check('the ring covers are not extra tab stops, and the pause button keeps one fixed label', (await page.locator('.gring__link').evaluateAll((els) => els.every((e) => e.getAttribute('tabindex') === '-1'))) && (await page.locator('[data-ring-pause]').getAttribute('aria-label')) === 'Pause automatic turning');
 
-  // Dragging turns the ring by the same amount whichever guide is in front.
-  async function degreesPer60px(dot) {
+  // Dragging moves the strip by the same amount whichever guide is in the centre.
+  async function guidesPer60px(dot) {
     await page.locator(`[data-ring-dot="${dot}"]`).click();
     await page.waitForTimeout(1100);
     const box = await page.locator('[data-ring-viewport]').boundingBox();
     const y = box.y + box.height * 0.5, x = box.x + box.width * 0.5;
-    const read = () => page.locator('[data-ring-track]').evaluate((el) => Number(el.style.getPropertyValue('--angle')));
+    const read = () => page.locator('[data-ring-track]').evaluate((el) => Number(el.style.getPropertyValue('--pos')));
     const start = await read();
     await page.mouse.move(x, y);
     await page.mouse.down();
     await page.mouse.move(x - 60, y, { steps: 12 });
     await page.waitForTimeout(250); // let the pointer rest, so it is a drag and not a flick
-    const turned = start - (await read());
+    const turned = (await read()) - start;
     await page.mouse.up();
     await page.waitForTimeout(300);
     return turned;
   }
   const turns = [];
-  for (const dot of [0, 1, 2, 3, 4]) turns.push(await degreesPer60px(dot));
-  check('a drag turns the ring the same amount whichever guide is in front', Math.max(...turns) - Math.min(...turns) < 1.5 && turns.every((d) => d > 10), turns.map((d) => d.toFixed(1)).join(', '));
+  for (const dot of [0, 1, 2, 3, 4]) turns.push(await guidesPer60px(dot));
+  check('a drag moves the strip the same amount whichever guide is in the centre', Math.max(...turns) - Math.min(...turns) < 0.02 && turns.every((d) => d > 0.1), turns.map((d) => d.toFixed(3)).join(', '));
 
   // A pointer that rests before letting go does not flick the ring on.
   await page.locator('[data-ring-dot="0"]').click();
@@ -244,7 +244,7 @@ async function articleLinks(ctx, base) {
   // Reviewer's point on the current flow: it must not carry any of the new flow's CSS or script.
   const dctx = await newContext();
   const d = await open(dctx, DIALOG, '/');
-  check('the dialog flow’s home page carries none of the ring’s styles or script', await d.page.evaluate(() => ![...document.querySelectorAll('style')].some((s) => /gring|gband|gcta/.test(s.textContent || '')) && ![...document.scripts].some((s) => /GuideRing|ring-math/.test(s.src || ''))));
+  check('the dialog flow’s home page carries none of the ring’s styles or script', await d.page.evaluate(() => ![...document.querySelectorAll('style')].some((s) => /gring|gband|gcta/.test(s.textContent || '')) && ![...document.scripts].some((s) => /GuideRing|strip-math/.test(s.src || ''))));
   await dctx.close();
 }
 

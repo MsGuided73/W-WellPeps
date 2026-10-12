@@ -250,9 +250,12 @@ export const PROGRAM_BAND_COPY: Readonly<Record<ProgramSlug, ProgramBandCopy>> =
 /** Series-level copy: the home section, the program bands, and the central page. */
 export const GUIDE_SERIES = {
   name: 'The Smart Patient’s Guide Series',
-  homeTitle: 'What Every Smart Patient Should Know.',
+  // Home section (client mock 2026-10-05): two-line headline, then the strip, one button and one link.
+  homeTitle: ['Download Free Ebooks.', 'Become a More Informed Patient.'] as [string, string],
   homeBody:
-    'Free eBooks that cut through the confusion around today’s treatments and wellness options—so you can understand the facts, know what questions to ask and make more informed healthcare decisions.',
+    'Cut through the confusion around today’s treatments and wellness options—so you can understand the facts and make more informed healthcare decisions.',
+  homeCta: 'Download Free Ebook',
+  homeExploreAll: 'Explore All Free Ebooks',
   viewGuide: 'View Free Guide',
   exploreAll: 'Explore All Smart Patient Guides',
   bandHeadline: 'Become a Smart Patient. Download Our Free eBook.',
