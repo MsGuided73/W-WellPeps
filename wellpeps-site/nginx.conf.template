@@ -140,6 +140,13 @@ server {
         return 301 https://$host$request_uri;
     }
 
+    # www -> apex. The canonical host is wellpeps.com; www.wellpeps.com reaches
+    # this container too and used to answer 200 with a duplicate copy of every
+    # page. Exact host match, so the Coolify preview host is not affected.
+    if ($host = "www.wellpeps.com") {
+        return 301 https://wellpeps.com$request_uri;
+    }
+
     # Server-level copy of the security headers: inherited by every location
     # below that has no add_header of its own (the /peptides redirects, the
     # 404 and 403 locations, the unlock rate-limit reply) and by the redirect
@@ -237,11 +244,11 @@ server {
     # (No add_header here on purpose: both inherit the server-level set.)
     location = /peptides {
         if ($gate_ok = 0) { return 401; }
-        return 301 /healthy-aging;
+        return 301 /healthy-aging/;
     }
     location = /peptides/ {
         if ($gate_ok = 0) { return 401; }
-        return 301 /healthy-aging;
+        return 301 /healthy-aging/;
     }
 
     # HTML routes: exact file, directory index, or <name>.html; else 404.

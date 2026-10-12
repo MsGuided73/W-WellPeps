@@ -2,6 +2,7 @@ import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
 import { loadEnv } from 'vite';
 import { sitemapIntegration } from './scripts/lib/sitemap.mjs';
+import { trailingSlashIntegration } from './scripts/lib/trailing-slash.mjs';
 
 // Which way the free Smart Patient Guides are offered (src/lib/guide-flow.ts, docs/GUIDE-FLOW.md).
 // Read here, from the shell or a .env file, because it decides which files the build includes.
@@ -18,16 +19,18 @@ const guideStub = fileURLToPath(new URL('./src/components/guides/GuideOff.astro'
 export default defineConfig({
   // Canonical is the apex domain; www 301-redirects to it at the edge/server.
   site: 'https://wellpeps.com',
-  // sitemap.xml is written from the built pages after each build (scripts/lib/sitemap.mjs).
-  integrations: [sitemapIntegration()],
+  // After each build: internal links get their trailing slash so no click goes through the /page -> /page/
+  // redirect (scripts/lib/trailing-slash.mjs), then sitemap.xml is written from the built pages
+  // (scripts/lib/sitemap.mjs).
+  integrations: [trailingSlashIntegration(), sitemapIntegration()],
   // /peptides was the route until 2026-09-19, when the program was renamed
   // "Healthy Aging & Vitality" to match the GEN Health product. Keep the old
   // URL working for anything already shared or indexed.
   redirects: {
-    '/peptides': '/healthy-aging',
+    '/peptides': '/healthy-aging/',
     // The membership fee was dropped 2026-09-30; its manage/cancel page became
     // /your-plan. Keep the old footer URL working.
-    '/membership': '/your-plan',
+    '/membership': '/your-plan/',
     // The Mental Wellness program was removed; its waitlist page still collected email addresses
     // tied to a mental-health topic, for a service that does not exist. Send the old URL home.
     '/mental-wellness': '/',

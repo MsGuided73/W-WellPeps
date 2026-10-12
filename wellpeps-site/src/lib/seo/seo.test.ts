@@ -7,7 +7,8 @@ import { PROGRAMS, programAt, startingPrice, toFaqs, toPrice } from './catalog';
 import { buildLlmsTxt } from './llms';
 import { breadcrumbs, faqPage, organization, postalAddress, programService, serializeGraph } from './schema';
 import { canonicalUrl } from './site';
-import { belongsInSitemap, pageUrlFor, renderSitemap } from '../../../scripts/lib/sitemap.mjs';
+import { belongsInSitemap, lastModifiedOf, pageUrlFor, renderSitemap } from '../../../scripts/lib/sitemap.mjs';
+import { addTrailingSlashes, slashlessPageLinks } from '../../../scripts/lib/trailing-slash.mjs';
 
 const SITE = resolve(__dirname, '../../..');
 
@@ -150,11 +151,42 @@ describe('sitemap and robots.txt', () => {
     expect(xml).toContain('<loc>https://wellpeps.com/a/?x=1&amp;y=2</loc>');
   });
 
+  test('a page with a dateModified gets <lastmod>; others get none', () => {
+    expect(lastModifiedOf('{"@type":"BlogPosting","dateModified":"2026-07-20T15:45:48.667+00:00"}')).toBe('2026-07-20');
+    expect(lastModifiedOf('{"@type":"WebPage"}')).toBeUndefined();
+    const xml = renderSitemap([{ loc: 'https://wellpeps.com/a/', lastmod: '2026-07-20' }, { loc: 'https://wellpeps.com/b/' }]);
+    expect(xml).toContain('<url><loc>https://wellpeps.com/a/</loc><lastmod>2026-07-20</lastmod></url>');
+    expect(xml).toContain('<url><loc>https://wellpeps.com/b/</loc></url>');
+  });
+
   test('robots.txt allows everything public and names the sitemap', () => {
     const robots = readFileSync(resolve(SITE, 'public/robots.txt'), 'utf8');
     expect(robots).toMatch(/^User-agent: \*$/m);
     expect(robots).toMatch(/^Allow: \/$/m);
     expect(robots).toMatch(/^Sitemap: https:\/\/wellpeps\.com\/sitemap\.xml$/m);
     expect(robots).not.toMatch(/^Disallow: \/$/m);
+  });
+});
+
+describe('internal links end in a slash', () => {
+  const pages = new Set(['/weight-loss', '/wellness-learning-center/nad-explained', '/healthy-aging']);
+  const isPageDir = (p: string) => pages.has(p);
+
+  test('a link to a built page gains its slash; query strings and fragments are kept', () => {
+    const html = '<a href="/weight-loss">a</a><a href="/healthy-aging#faq">b</a><a href="/wellness-learning-center/nad-explained?x=1">c</a>';
+    expect(addTrailingSlashes(html, isPageDir)).toBe(
+      '<a href="/weight-loss/">a</a><a href="/healthy-aging/#faq">b</a><a href="/wellness-learning-center/nad-explained/?x=1">c</a>',
+    );
+  });
+
+  test('home, slashed links, files, unknown paths and other hosts are left alone', () => {
+    const html = '<a href="/">h</a><a href="/weight-loss/">w</a><link href="/sitemap.xml"><a href="/nope">n</a>'
+      + '<a href="//cdn.example.com/weight-loss">c</a><a href="https://wellpeps.com/weight-loss">x</a><a href="#top">t</a>';
+    expect(addTrailingSlashes(html, isPageDir)).toBe(html);
+    expect(slashlessPageLinks(html, isPageDir)).toEqual([]);
+  });
+
+  test('finds the links that still need a slash', () => {
+    expect(slashlessPageLinks('<a href="/weight-loss">a</a><a href="/healthy-aging/">b</a>', isPageDir)).toEqual(['/weight-loss']);
   });
 });

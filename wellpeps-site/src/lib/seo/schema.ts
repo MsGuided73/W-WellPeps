@@ -167,7 +167,8 @@ export function article({ path, headline, description, section, published, readi
     author: { '@id': ORG_ID },
     publisher: { '@id': ORG_ID },
     ...(section ? { articleSection: section } : {}),
-    ...(published ? { datePublished: published } : {}),
+    // The page shows this date as "Updated"; dateModified matches it so search and AI tools read the same date.
+    ...(published ? { datePublished: published, dateModified: published } : {}),
     ...(readingMinutes ? { timeRequired: `PT${readingMinutes}M` } : {}),
   };
 }

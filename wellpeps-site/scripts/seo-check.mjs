@@ -5,13 +5,15 @@
  * For every page in sitemap.xml: one title (65 characters or fewer), a description of 50-170 characters,
  * a canonical equal to its own URL, one <h1>, a share image, structured data that parses, and alt text on
  * every image. Titles and descriptions must be unique across pages. Also: every sitemap URL is a built page,
- * no noindex page is listed, robots.txt names the sitemap, and llms.txt exists with current prices.
+ * no noindex page is listed, robots.txt names the sitemap, and llms.txt exists with current prices. Internal
+ * links must end in "/" so they do not go through the /page -> /page/ redirect.
  * Exits 1 on any failure.
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { canonicalOf, hasNoindex } from './lib/sitemap.mjs';
+import { pageDirChecker, slashlessPageLinks } from './lib/trailing-slash.mjs';
 
 const SITE = 'https://wellpeps.com';
 const dist = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'dist');
@@ -42,6 +44,7 @@ if (/membership/i.test(llms)) fail('llms.txt mentions a membership');
 // --- every listed page
 const titles = new Map();
 const descriptions = new Map();
+const isPageDir = pageDirChecker(dist);
 for (const url of urls) {
   const rel = path.join(new URL(url).pathname.replace(/^\//, ''), 'index.html');
   if (!fs.existsSync(path.join(dist, rel))) { fail(`${url}: in the sitemap but not built`); continue; }

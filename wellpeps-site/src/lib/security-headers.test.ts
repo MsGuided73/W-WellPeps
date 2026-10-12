@@ -277,6 +277,30 @@ describe('answers from the emulated server (built from the template)', () => {
     expect(peptides.status).toBe(401);
   });
 
+  describe('www to the apex domain', () => {
+    const get = (url: string, host: string) => emulator().handle({ url, headers: { host, 'x-forwarded-proto': 'https' } });
+
+    test('www.wellpeps.com gets one 301 to the same path on wellpeps.com, headers included', () => {
+      const res = get('/weight-loss/?utm_source=x', 'www.wellpeps.com');
+      expect(res.status).toBe(301);
+      expect(headerMap(res).get('location')).toBe('https://wellpeps.com/weight-loss/?utm_source=x');
+      expectAllSecurityHeaders(res, 'www redirect');
+    });
+
+    test('the apex and any other host (the Coolify preview) are served normally', () => {
+      expect(get('/', 'wellpeps.com').status).toBe(200);
+      expect(get('/', 'wellpeps-demo.example.com').status).toBe(200);
+    });
+
+    test('/peptides goes straight to the canonical /healthy-aging/ in one hop', () => {
+      for (const url of ['/peptides', '/peptides/']) {
+        const res = get(url, 'wellpeps.com');
+        expect(res.status, url).toBe(301);
+        expect(headerMap(res).get('location'), url).toBe('/healthy-aging/');
+      }
+    });
+  });
+
   describe('HTTP to HTTPS', () => {
     const get = (url: string, headers: Record<string, string>, hash = '') =>
       emulator(hash).handle({ url, headers: { host: 'wellpeps.com', ...headers } });

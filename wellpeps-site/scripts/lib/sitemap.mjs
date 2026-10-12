@@ -2,7 +2,9 @@
  * sitemap.xml, written after every build from the pages actually built (dist/). A page is listed only when
  * a search engine should index it: no `noindex`, not a redirect stub, and its canonical (if any) is its own
  * address. So a draft page, a gated page or a redirect can never leak into the sitemap, and a new page is
- * listed the moment it exists. Wired into astro.config.mjs; checked by scripts/seo-check.mjs.
+ * listed the moment it exists. A page whose structured data carries a dateModified (the Learning Center
+ * articles) gets it as <lastmod>; other pages carry none rather than a made-up date. Wired into
+ * astro.config.mjs; checked by scripts/seo-check.mjs.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -38,20 +40,36 @@ function walk(dir, out = []) {
   return out;
 }
 
+/** The page's dateModified from its JSON-LD, as YYYY-MM-DD, or undefined. */
+export function lastModifiedOf(html) {
+  const m = html.match(/"dateModified":"(\d{4}-\d{2}-\d{2})/);
+  return m ? m[1] : undefined;
+}
+
+/** Every entry the sitemap should list, sorted (home first): { loc, lastmod? }. */
+export function collectSitemapEntries(distDir, site) {
+  const entries = [];
+  for (const file of walk(distDir)) {
+    const loc = pageUrlFor(path.relative(distDir, file), site);
+    const html = fs.readFileSync(file, 'utf8');
+    if (belongsInSitemap(html, loc)) entries.push({ loc, lastmod: lastModifiedOf(html) });
+  }
+  return entries.sort((a, b) => (a.loc.length - b.loc.length) || a.loc.localeCompare(b.loc));
+}
+
 /** Every URL the sitemap should list, sorted (home first). */
 export function collectSitemapUrls(distDir, site) {
-  const urls = [];
-  for (const file of walk(distDir)) {
-    const url = pageUrlFor(path.relative(distDir, file), site);
-    if (belongsInSitemap(fs.readFileSync(file, 'utf8'), url)) urls.push(url);
-  }
-  return urls.sort((a, b) => (a.length - b.length) || a.localeCompare(b));
+  return collectSitemapEntries(distDir, site).map((e) => e.loc);
 }
 
 const xmlEscape = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
-export function renderSitemap(urls) {
-  const rows = urls.map((u) => `  <url><loc>${xmlEscape(u)}</loc></url>`).join('\n');
+/** Takes URLs or { loc, lastmod? } entries. */
+export function renderSitemap(entries) {
+  const rows = entries
+    .map((e) => (typeof e === 'string' ? { loc: e } : e))
+    .map(({ loc, lastmod }) => `  <url><loc>${xmlEscape(loc)}</loc>${lastmod ? `<lastmod>${lastmod}</lastmod>` : ''}</url>`)
+    .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${rows}\n</urlset>\n`;
 }
 
@@ -65,9 +83,9 @@ export function sitemapIntegration() {
       'astro:build:done': ({ dir, logger }) => {
         if (!site) throw new Error('sitemap: astro.config.mjs must set `site`');
         const distDir = fileURLToPath(dir);
-        const urls = collectSitemapUrls(distDir, site);
-        fs.writeFileSync(path.join(distDir, 'sitemap.xml'), renderSitemap(urls));
-        logger.info(`sitemap.xml: ${urls.length} pages`);
+        const entries = collectSitemapEntries(distDir, site);
+        fs.writeFileSync(path.join(distDir, 'sitemap.xml'), renderSitemap(entries));
+        logger.info(`sitemap.xml: ${entries.length} pages (${entries.filter((e) => e.lastmod).length} with lastmod)`);
       },
     },
   };
