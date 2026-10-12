@@ -12,6 +12,7 @@
     "images": "node scripts/convert-images.mjs",
     "test": "vitest run",
     "check:headers": "node scripts/security-headers-check.mjs",
+    "check:seo": "node scripts/seo-check.mjs",
     "typecheck": "astro check",
     "lock:checkout": "vite-node scripts/lock-checkout.ts",
     "release-check": "node scripts/release-check.mjs"

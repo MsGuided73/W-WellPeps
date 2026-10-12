@@ -9,6 +9,7 @@
  * them independently of the prose.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { article as schemaArticle, breadcrumbs } from '../../lib/seo/schema';
 import EverythingIncludedStrip from '../../components/EverythingIncludedStrip.astro';
 import EbookOffer from '../../components/EbookOffer.astro';
 import GuideArticleCta from '../../components/guides/GuideArticleCta.astro';
@@ -37,6 +38,13 @@ interface Props {
 }
 
 const { article } = Astro.props;
+// Search: breadcrumbs and a BlogPosting for this article (src/lib/seo/schema.ts).
+const articlePath = `/wellness-learning-center/${article.slug}/`;
+const articleDescription = article.meta_description ?? article.lede_html.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().slice(0, 160);
+const jsonLd = [
+  breadcrumbs([{ name: 'Wellness Learning Center', path: '/wellness-learning-center/' }, { name: article.title, path: articlePath }]),
+  schemaArticle({ path: articlePath, headline: article.title, description: articleDescription, section: article.category.name, published: article.published_at, readingMinutes: article.reading_minutes }),
+];
 const { html: bodyHtml, toc } = withToc(article.body_html);
 const related = await getRelatedArticles(article);
 
@@ -88,7 +96,9 @@ const updated = article.published_at
 
 <BaseLayout
   title={article.meta_title ?? article.seo_title ?? article.title}
-  description={article.meta_description ?? undefined}
+  description={articleDescription}
+  jsonLd={jsonLd}
+  ogType="article"
 >
   <div class="container article-shell">
     <nav class="crumbs" aria-label="Breadcrumb">

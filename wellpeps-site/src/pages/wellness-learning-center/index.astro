@@ -13,6 +13,7 @@
  * full library and the page works without JavaScript (details/summary).
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { breadcrumbs } from '../../lib/seo/schema';
 import Icon from '../../components/Icon.astro';
 import AssessmentCta from '../../components/AssessmentCta.astro';
 import { getCategoriesWithArticles, getFeaturedArticles, categoryIcon } from '../../lib/blog';
@@ -49,6 +50,8 @@ const searchIndexJson = JSON.stringify(searchIndex).replace(/</g, '\\u003c');
 <BaseLayout
   title="Wellness Learning Center | WellPeps"
   description="A growing library of physician-reviewed educational resources on weight management, sexual wellness, hair restoration, peptide therapies, and everyday wellness."
+  jsonLd={[breadcrumbs([{ name: 'Wellness Learning Center', path: '/wellness-learning-center/' }])]}
+  pageType="CollectionPage"
 >
   <section class="lc-hero">
     <div class="container lc-hero__inner">

@@ -10,10 +10,21 @@ import EbookOffer from '../components/EbookOffer.astro';
 import GuideBand from '../components/guides/GuideBand.astro';
 import { GUIDE_LANDING_FLOW } from '../config';
 import { ebooksFor } from '../data/ebooks';
+import { programAt, startingPrice } from '../lib/seo/catalog';
+import { breadcrumbs, faqPage, programService } from '../lib/seo/schema';
+const program = programAt('/sexual-wellness/');
+const from = startingPrice(program);
+const description = `Private ED treatment online with sildenafil or tadalafil, prescribed by a licensed provider if appropriate. From $${from}/month, medication included.`;
+const jsonLd = [
+  breadcrumbs([{ name: 'Sexual Wellness', path: '/sexual-wellness/' }]),
+  programService(program),
+  faqPage(program.faqs, program.path),
+];
 ---
 <BaseLayout
-  title="Sexual Wellness — WellPeps"
-  description="Personalized, provider-guided sexual wellness and ED treatment options to help improve erectile function, confidence, and intimacy—privately from home. See if you qualify."
+  title="ED Treatment Online: Sildenafil & Tadalafil | WellPeps"
+  description={description}
+  jsonLd={jsonLd}
 >
   <SexHero />
   <SexEducation />

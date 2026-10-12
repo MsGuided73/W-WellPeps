@@ -1,6 +1,7 @@
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
 import { loadEnv } from 'vite';
+import { sitemapIntegration } from './scripts/lib/sitemap.mjs';
 
 // Which way the free Smart Patient Guides are offered (src/lib/guide-flow.ts, docs/GUIDE-FLOW.md).
 // Read here, from the shell or a .env file, because it decides which files the build includes.
@@ -17,6 +18,8 @@ const guideStub = fileURLToPath(new URL('./src/components/guides/GuideOff.astro'
 export default defineConfig({
   // Canonical is the apex domain; www 301-redirects to it at the edge/server.
   site: 'https://wellpeps.com',
+  // sitemap.xml is written from the built pages after each build (scripts/lib/sitemap.mjs).
+  integrations: [sitemapIntegration()],
   // /peptides was the route until 2026-09-19, when the program was renamed
   // "Healthy Aging & Vitality" to match the GEN Health product. Keep the old
   // URL working for anything already shared or indexed.

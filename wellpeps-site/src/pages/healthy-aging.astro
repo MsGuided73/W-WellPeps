@@ -10,10 +10,21 @@ import EbookOffer from '../components/EbookOffer.astro';
 import GuideBand from '../components/guides/GuideBand.astro';
 import { GUIDE_LANDING_FLOW } from '../config';
 import { ebooksFor } from '../data/ebooks';
+import { programAt, startingPrice } from '../lib/seo/catalog';
+import { breadcrumbs, faqPage, programService } from '../lib/seo/schema';
+const program = programAt('/healthy-aging/');
+const from = startingPrice(program);
+const description = `Provider-guided healthy aging therapies, including sermorelin, NAD+ and glutathione, if a licensed clinician finds them appropriate. From $${from}/month.`;
+const jsonLd = [
+  breadcrumbs([{ name: 'Healthy Aging & Vitality', path: '/healthy-aging/' }]),
+  programService(program),
+  faqPage(program.faqs, program.path),
+];
 ---
 <BaseLayout
-  title="Healthy Aging & Vitality — WellPeps"
-  description="Personalized, provider-guided wellness therapies designed around your individual health, vitality, and wellness goals. See if you qualify."
+  title="Sermorelin, NAD+ & Wellness Therapies Online | WellPeps"
+  description={description}
+  jsonLd={jsonLd}
 >
   <PeptideHero />
   <PeptideScience />

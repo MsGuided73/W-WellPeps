@@ -8,6 +8,7 @@
  */
 import '../../styles/legal-doc.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { breadcrumbs } from '../../lib/seo/schema';
 import { outline, renderBlocks, type Block } from '../../lib/legal-render';
 
 interface Props {
@@ -34,8 +35,10 @@ const toc = shown ? outline(shown) : [];
 const tag = approved
   ? (docId ? `Version ${version}${date ? ` · Effective ${date}` : ''}` : 'Patient information')
   : plain ? 'For attorney review' : `Draft v${version}${docId ? ` · Document ${docId}` : ''}`;
+// Search results show about 65 characters of a title; a long document title drops the brand suffix instead of being cut off.
+const releasedTitle = `${title} — WellPeps`.length <= 65 ? `${title} — WellPeps` : title;
 ---
-<BaseLayout title={approved ? `${title} — WellPeps` : `${title} (draft) — WellPeps`} description={blurb ?? `${title}. Draft for review.`} noindex={!approved}>
+<BaseLayout title={approved ? releasedTitle : `${title} (draft) — WellPeps`} description={blurb ?? `${title}. Draft for review.`} noindex={!approved} jsonLd={[breadcrumbs([{ name: title, path: Astro.url.pathname }])]}>
   <article class="ld">
     <header class="ld__head">
       <div class="container">

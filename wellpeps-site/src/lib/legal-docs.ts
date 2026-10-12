@@ -86,7 +86,7 @@ export const LEGAL_DOCS: readonly LegalDoc[] = [
   { id: 'B3', path: 'legal-review/patient-intake-attestations', title: 'Patient Intake Attestations', label: 'Intake Attestations', group: 'checkout',
     blurb: 'Statements the patient confirms at intake, by program.' },
   { id: 'B4', path: 'telehealth-consent', title: 'Informed Consent to Telehealth Services and Treatment', label: 'Telehealth Consent', group: 'patient',
-    blurb: 'Informed consent to receive care by telehealth.', approved: true, effective: 'October 6, 2026' },
+    blurb: 'Informed consent to receive care by telehealth: how it works, its benefits and limits, and your rights.', approved: true, effective: 'October 6, 2026' },
   { id: 'B5', path: 'compounded-medications', title: 'What Compounded Medications Mean', label: 'Compounded Medications', group: 'patient',
     blurb: 'What compounded means, that it is not FDA-approved, and the patient’s consent.', approved: true, effective: 'October 6, 2026' },
   { id: 'B6', path: 'legal-review/laboratory-testing-consent', title: 'Laboratory Testing Consent', label: 'Laboratory Testing Consent', group: 'checkout',

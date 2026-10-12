@@ -15,8 +15,16 @@ import EbookOffer from '../components/EbookOffer.astro';
 import GuideRing from '../components/guides/GuideRing.astro';
 import { GUIDE_LANDING_FLOW } from '../config';
 import { EBOOKS } from '../data/ebooks';
+import { faqs } from '../data/content';
+import { toFaqs } from '../lib/seo/catalog';
+import { faqPage } from '../lib/seo/schema';
+const jsonLd = [faqPage(toFaqs(faqs), '/')];
 ---
-<BaseLayout>
+<BaseLayout
+  title="WellPeps | Online Weight Loss, Hair Loss, ED & Healthy Aging Care"
+  description="Provider-guided telehealth for weight loss, hair loss, ED and healthy aging. One monthly price with medication and shipping. Pay only if prescribed."
+  jsonLd={jsonLd}
+>
   <Hero />
   <WhyChoose />
   <HelpFind />

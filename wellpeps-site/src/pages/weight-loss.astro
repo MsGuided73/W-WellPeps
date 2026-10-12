@@ -11,10 +11,21 @@ import EbookOffer from '../components/EbookOffer.astro';
 import GuideBand from '../components/guides/GuideBand.astro';
 import { GUIDE_LANDING_FLOW } from '../config';
 import { ebooksFor } from '../data/ebooks';
+import { programAt, startingPrice } from '../lib/seo/catalog';
+import { breadcrumbs, faqPage, programService } from '../lib/seo/schema';
+const program = programAt('/weight-loss/');
+const from = startingPrice(program);
+const description = `Online GLP-1 weight loss with semaglutide or tirzepatide, prescribed by a licensed clinician if appropriate. From $${from}/month, medication included.`;
+const jsonLd = [
+  breadcrumbs([{ name: 'Weight Management', path: '/weight-loss/' }]),
+  programService(program),
+  faqPage(program.faqs, program.path),
+];
 ---
 <BaseLayout
-  title="GLP-1 Weight Management — WellPeps"
-  description="Physician-guided GLP-1 weight management with semaglutide or tirzepatide, plus personalized support for sustainable results. See if you qualify."
+  title="GLP-1 Weight Loss Online: Semaglutide & Tirzepatide | WellPeps"
+  description={description}
+  jsonLd={jsonLd}
 >
   <WeightHero />
   <WeightHowItWorks />

@@ -11,6 +11,7 @@
  * nothing links to them: the current flow is untouched. See src/lib/guide-flow.ts.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { breadcrumbs } from '../../lib/seo/schema';
 import GuideIndex from '../../components/guides/GuideIndex.astro';
 import GuideLanding from '../../components/guides/GuideLanding.astro';
 import GuideThanks from '../../components/guides/GuideThanks.astro';
@@ -38,12 +39,12 @@ const { kind, book } = Astro.props;
 const meta =
   kind === 'index'
     ? {
-        title: 'The Smart Patient’s Guide Series: Free Healthcare Guides | WellPeps',
+        title: 'Smart Patient Guides: Free Healthcare eBooks | WellPeps',
         description: GUIDE_SERIES.indexMeta,
       }
     : kind === 'guide' && book
       ? {
-          title: `The Smart Patient’s Guide to ${book.title}: Free eBook | WellPeps`,
+          title: `${book.title} Guide: Free Patient eBook | WellPeps`,
           description: guidePageFor(book.slug).metaDescription,
         }
       : {
@@ -51,7 +52,15 @@ const meta =
           description: 'Your free Smart Patient’s Guide.',
         };
 ---
-<BaseLayout title={meta.title} description={meta.description} noindex={kind === 'thanks'}>
+<BaseLayout
+  title={meta.title}
+  description={meta.description}
+  noindex={kind === 'thanks'}
+  jsonLd={[breadcrumbs(kind === 'index' || !book
+    ? [{ name: 'Smart Patient Guides', path: '/smart-patient-guides/' }]
+    : [{ name: 'Smart Patient Guides', path: '/smart-patient-guides/' }, { name: `${book.title} Guide`, path: `/smart-patient-guides/${book.slug}/` }])]}
+  pageType={kind === 'index' ? 'CollectionPage' : 'WebPage'}
+>
   {kind === 'index' && <GuideIndex />}
   {kind === 'guide' && book && <GuideLanding book={book} />}
   {kind === 'thanks' && book && <GuideThanks book={book} />}

@@ -8,10 +8,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import AssessmentCta from '../components/AssessmentCta.astro';
 import { CONTACT } from '../config';
 import { STATES, NOTE_LABEL, STATE_NOTES, STATES_LAST_UPDATED } from '../data/states';
+import { breadcrumbs } from '../lib/seo/schema';
+const jsonLd = [breadcrumbs([{ name: 'States We Serve', path: '/states-we-serve/' }])];
 ---
 <BaseLayout
   title="States We Serve — WellPeps"
   description="WellPeps telehealth care is available to patients located in all 50 U.S. states. See state-specific notes on medications, minimum age and privacy rights."
+  jsonLd={jsonLd}
 >
   <section class="section">
     <div class="container spage">

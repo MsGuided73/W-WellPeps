@@ -13,17 +13,37 @@ import PrivacyRoot from '../components/privacy/PrivacyRoot.astro';
 import PrivacyBanner from '../components/privacy/PrivacyBanner.astro';
 import TweakPanel from '../components/dev/TweakPanel.astro';
 
+import { SHARE_IMAGE, SITE_NAME, absoluteUrl, canonicalUrl } from '../lib/seo/site';
+import { organization, serializeGraph, webPage, website, type JsonLd, type PageMeta } from '../lib/seo/schema';
+
 interface Props {
   title?: string;
   description?: string;
-  /** Keeps a page out of search results (draft pages). */
+  /** Keeps a page out of search results (draft pages). It then gets no canonical and no structured data. */
   noindex?: boolean;
+  /** Extra structured data for this page (breadcrumbs, FAQs, the program's offers, an article). */
+  jsonLd?: readonly (JsonLd | undefined)[];
+  /** schema.org type of the page itself. */
+  pageType?: PageMeta['type'];
+  /** og:type: an article page is "article". */
+  ogType?: 'website' | 'article';
 }
 const {
   noindex = false,
   title = 'WellPeps — Personalized Wellness. Simplified.',
   description = 'Personalized treatment plans, licensed healthcare providers, and ongoing support—all from the comfort of home. See if you qualify.',
+  jsonLd = [],
+  pageType,
+  ogType = 'website',
 } = Astro.props;
+
+// Search and sharing (src/lib/seo). Every indexable page names its one canonical address, carries a share
+// card, and describes itself and WellPeps in structured data built from the same data files it renders.
+const canonical = canonicalUrl(Astro.url.pathname);
+const shareImage = absoluteUrl(SHARE_IMAGE.path);
+const graph = noindex
+  ? ''
+  : serializeGraph([organization(), website(), webPage({ path: Astro.url.pathname, title, description, type: pageType }), ...jsonLd]);
 ---
 <!doctype html>
 <html lang="en">
@@ -35,9 +55,25 @@ const {
     <title>{title}</title>
     {noindex && <meta name="robots" content="noindex,nofollow" />}
     <meta name="description" content={description} />
+    {!noindex && <link rel="canonical" href={canonical} />}
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <meta name="theme-color" content="#082b59" />
+    <link rel="apple-touch-icon" href="/images/w-mark-v2.png" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
+    {!noindex && <meta property="og:url" content={canonical} />}
+    <meta property="og:image" content={shareImage} />
+    <meta property="og:image:width" content={String(SHARE_IMAGE.width)} />
+    <meta property="og:image:height" content={String(SHARE_IMAGE.height)} />
+    <meta property="og:image:alt" content={SHARE_IMAGE.alt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={shareImage} />
+    {graph && <script type="application/ld+json" set:html={graph} />}
 
     <!-- Fonts: Lora (editorial serif headings, per MASTER Guide) + Inter (UI/body),
          served from this site (styles/fonts.css), so a visit sends nothing to Google. -->

@@ -33,10 +33,14 @@ const faqs = [
   { q: 'Can I cancel my plan at any time?', a: 'Yes. You may cancel anytime, with no cancellation fee. Medications that have already been ordered or processed for that month’s shipment cannot be refunded.' },
   { q: 'Do I need insurance?', a: 'No. WellPeps offers straightforward self-pay pricing, so insurance is not required to receive care.' },
 ];
+import { breadcrumbs, faqPage } from '../lib/seo/schema';
+import { toFaqs } from '../lib/seo/catalog';
+const jsonLd = [breadcrumbs([{ name: 'Why WellPeps', path: '/why-wellpeps/' }]), faqPage(toFaqs(faqs), '/why-wellpeps/')];
 ---
 <BaseLayout
   title="Why WellPeps — Personalized, Provider-Guided Wellness"
-  description="WellPeps was founded by a physician to make personalized wellness more accessible—combining licensed providers, trusted pharmacy partners, and evidence-based treatments in one seamless experience."
+  description="WellPeps makes personalized wellness more accessible, combining licensed providers, licensed U.S. pharmacy partners and one clear monthly price."
+  jsonLd={jsonLd} pageType="AboutPage"
 >
   <!-- Intro / founding story -->
   <section class="section why-intro">

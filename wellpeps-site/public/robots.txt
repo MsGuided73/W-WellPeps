@@ -1,0 +1,10 @@
+# WellPeps — https://wellpeps.com
+# Every page is open to search engines and AI search tools, so they describe WellPeps from the live site.
+# Draft and preview pages carry their own noindex tag; the two paths below are never public.
+
+User-agent: *
+Allow: /
+Disallow: /preview-access/
+Disallow: /dev-mockups/
+
+Sitemap: https://wellpeps.com/sitemap.xml

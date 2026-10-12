@@ -1,10 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import WaitlistSection from '../components/sections/WaitlistSection.astro';
+import { breadcrumbs } from '../lib/seo/schema';
+const jsonLd = [breadcrumbs([{ name: 'Hormone Optimization', path: '/hormone-optimization/' }])];
 ---
 <BaseLayout
   title="Hormone Optimization (Coming Soon) — WellPeps"
   description="Men’s & women’s hormone optimization is coming soon to WellPeps. Join the priority list to be notified as soon as enrollment opens."
+  jsonLd={jsonLd}
 >
   <WaitlistSection
     eyebrowIcon="calendar"

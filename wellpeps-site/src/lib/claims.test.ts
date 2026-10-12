@@ -16,6 +16,9 @@ const BANNED: { pattern: RegExp; why: string }[] = [
   { pattern: /50-state|50 states ·|nationwide (care|network|lab)|patients nationwide|available nationwide/i, why: 'Medication and lab availability are state by state; say which states, and that some medications vary' },
   { pattern: /FDA[- ]registered/i, why: '503A compounding pharmacies are state-licensed, not FDA-registered' },
   { pattern: /FDA[- ]approved treatments/i, why: 'Only some listed products are FDA-approved; compounded products are not' },
+  // Caught in a search description on 2026-10-11 ("Advanced, FDA-approved hair restoration treatments"): any "FDA-approved"
+  // label in front of a group of treatments, therapies or options.
+  { pattern: /FDA[- ]approved\s+(hair|weight|ed|erectile|sexual|peptide|wellness|healthy aging|anti-aging)[\w &-]{0,25}(treatments|therapies|options|programs)/i, why: 'Some treatments in every program are compounded, which FDA has not approved' },
   { pattern: /Physician (&|&amp;|and) Pharmacy Founded/i, why: 'Needs proof of the founders’ current licensure' },
   { pattern: /Natural Growth Hormone Support|Feel Like Yourself Again/, why: 'Drug-benefit claims for compounded peptides' },
   { pattern: /lipotropic/i, why: '"Lipotropic" implies fat loss for an injectable with no approved indication' },
@@ -70,6 +73,12 @@ describe('claims the site must not make', () => {
   test('the scan reads real files (it is not passing on nothing)', () => {
     expect(sources.length).toBeGreaterThan(60);
     expect(sources.some((s) => s.f.split('\\').join('/').endsWith('data/weight.ts'))).toBe(true);
+  });
+
+  test('released legal documents never mention a membership (dropped 2026-09-30; an AI audit still quoted it on 2026-10-11)', () => {
+    const legal = resolve(root, 'data/legal');
+    const hits = readdirSync(legal).filter((n) => n.endsWith('.json') && /membership/i.test(readFileSync(resolve(legal, n), 'utf8')));
+    expect(hits).toEqual([]);
   });
 
   test('removed claims are not hiding in the draft pages either: the legal drafts may quote them only to forbid them', () => {

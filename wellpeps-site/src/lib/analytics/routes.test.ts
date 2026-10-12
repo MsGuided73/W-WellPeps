@@ -15,7 +15,8 @@ import { pageTemplateOf, sanitizePage } from './sanitize';
 const pagesDir = resolve(__dirname, '../../pages');
 
 /** Pages that never load the privacy control (the pre-launch gate) or exist only for development. */
-const NOT_TRACKED = new Set(['preview-access', 'dev-mockups']);
+// llms.txt is a text file for AI tools, not a page anyone browses, so it runs no script and sends nothing.
+const NOT_TRACKED = new Set(['preview-access', 'dev-mockups', 'llms.txt.ts']);
 
 const routes = readdirSync(pagesDir, { withFileTypes: true })
   .map((e) => (e.isDirectory() ? e.name : e.name.replace(/\.astro$/, '')))

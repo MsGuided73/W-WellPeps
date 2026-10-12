@@ -10,10 +10,21 @@ import { GUIDE_LANDING_FLOW, HAIR_COMING_SOON } from '../config';
 import EbookOffer from '../components/EbookOffer.astro';
 import GuideBand from '../components/guides/GuideBand.astro';
 import { ebooksFor } from '../data/ebooks';
+import { programAt, startingPrice } from '../lib/seo/catalog';
+import { breadcrumbs, faqPage, programService } from '../lib/seo/schema';
+const program = programAt('/hair-restoration/');
+const from = startingPrice(program);
+const description = `Online hair loss treatment with finasteride or minoxidil, oral or topical, reviewed by a licensed provider. From $${from}/month, medication included.`;
+const jsonLd = [
+  breadcrumbs([{ name: 'Hair Restoration', path: '/hair-restoration/' }]),
+  programService(program),
+  faqPage(program.faqs, program.path),
+];
 ---
 <BaseLayout
-  title="Hair Restoration — WellPeps"
-  description="Advanced, FDA-approved hair restoration treatments and expert care to help you achieve visibly thicker, healthier hair. See if you qualify."
+  title="Hair Loss Treatment Online: Finasteride & Minoxidil | WellPeps"
+  description={description}
+  jsonLd={jsonLd}
 >
   <HairHero />
   {HAIR_COMING_SOON && <HairComingSoon />}

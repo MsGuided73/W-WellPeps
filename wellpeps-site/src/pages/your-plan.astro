@@ -7,10 +7,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { CONTACT, PATIENT_PORTAL_URL } from '../config';
 import { planIncludes, planFinePrint } from '../data/plan';
+import { breadcrumbs } from '../lib/seo/schema';
+const jsonLd = [breadcrumbs([{ name: 'Your Plan', path: '/your-plan/' }])];
 ---
 <BaseLayout
   title="Your Plan: What’s Included & How to Cancel — WellPeps"
-  description="What your one monthly WellPeps price includes, when you are charged, and how to cancel or restart your plan. No hidden fees, no minimum commitment, no cancellation fee."
+  description="What your one monthly WellPeps price includes, when you are charged, and how to cancel or restart. No hidden fees and no cancellation fee."
+  jsonLd={jsonLd}
 >
   <section class="section">
     <div class="container mpage">
