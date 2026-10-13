@@ -19,7 +19,7 @@
   },
   {
    "t": "p",
-   "text": "Last updated: October 6, 2026  |  Version 1.0",
+   "text": "Last updated: October 12, 2026  |  Version 1.1",
    "italic": true,
    "align": null
   },
@@ -157,9 +157,10 @@
   {
    "t": "ol",
    "items": [
-    "You start a health assessment in our secure portal at portal.wellpeps.com. You create an account, read and agree to the consents and notices, and answer health questions. You do not pay anything at this step.",
+    "You start a health assessment in our secure portal at portal.wellpeps.com. You create an account, read and agree to the consents and notices, and answer health questions. You do not need a card for this step.",
+    "You check out and pay for your first month. This charge happens at checkout, before a clinician reviews your answers.",
     "A clinician of the Practice reviews your information, usually without a live visit. The clinician may ask you questions, ask for labs or ask for a video visit.",
-    "If the clinician decides treatment is medically appropriate, the clinician writes a prescription. A prescription is not guaranteed. If the clinician prescribes, you check out and pay for your first month. If the clinician does not prescribe, you never pay.",
+    "If the clinician decides treatment is medically appropriate, the clinician writes a prescription. A prescription is not guaranteed. If the clinician does not prescribe, WellPeps refunds your checkout charge in full. You do not need to ask.",
     "The prescription goes to a state-licensed pharmacy. The pharmacy prepares your medicine, labels it and ships it to you. Standard shipping is included.",
     "You can message your clinician in the portal with questions about your treatment. Questions about orders and billing go to WellPeps support.",
     "Your plan renews monthly until you cancel. You can cancel at any time. See the Refund, Cancellation and Auto-Renewal Policy."
@@ -171,7 +172,7 @@
   },
   {
    "t": "p",
-   "text": "You pay one monthly price, and you are charged only when a clinician prescribes treatment. It is charged by WellPeps and shown on your statement as WellPeps. It covers your medication if you are prescribed one, clinician care, messaging with the Practice and standard shipping. Lab tests are billed separately. You pay with your own money: we do not bill insurance, Medicare or Medicaid.",
+   "text": "You pay one monthly price. Your first month is charged at checkout, before a clinician reviews your answers, and is refunded in full if the clinician does not prescribe. It is charged by WellPeps and shown on your statement as WellPeps. It covers your medication if you are prescribed one, clinician care, messaging with the Practice and standard shipping. Lab tests are billed separately. You pay with your own money: we do not bill insurance, Medicare or Medicaid.",
    "italic": false,
    "align": null
   },
@@ -213,7 +214,7 @@
   },
   {
    "t": "p",
-   "text": "Effective date: October 6, 2026  |  Last updated: October 6, 2026  |  Version 1.0",
+   "text": "Effective date: October 12, 2026  |  Last updated: October 12, 2026  |  Version 1.1",
    "italic": true,
    "align": null
   },
@@ -440,7 +441,7 @@
   },
   {
    "t": "p",
-   "text": "Please read How WellPeps Works and the Financial Relationship Disclosure (version 1.0, dated October 6, 2026) before checking each box. Agreeing does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
+   "text": "Please read How WellPeps Works and the Financial Relationship Disclosure (version 1.1, dated October 12, 2026) before checking each box. Agreeing does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
    "italic": false,
    "align": null
   },

@@ -1,102 +1,102 @@
 {
   "version": 1,
-  "salt": "L/E3WwMKQ9tjbz6pHho5iQ==",
+  "salt": "chzAalpD4/pq4DK/qHtGXg==",
   "iterations": 600000,
   "links": {
     "compounded-semaglutide": {
-      "iv": "Ewx4fIvUIvkpCiSy",
-      "data": "uh2moz1FAAh8RHSAuIOwtHQEyUrELT65Jqb7gNBVBDmRAgBhCspLOqxKG2zjQJmcyfMI9WQrcQzInPFdjR+GvdFGt+Swyo8CPZGmj4WXU3myZAzAXGQGpyZ0dToXzTduKKycdlKfKtW6Fy64jXudKtMSGfO1QQ==",
-      "fingerprint": "06259fdc4e87ea3ed2ffddd0f066fea335dcec7a1f6c30aa04b2bc96a5258afe"
+      "iv": "ZfbaS56GyYJ5CgIG",
+      "data": "1KB6sLZikWABL/GEwgK3+nxp+KHM2UdXDi4+bG5Z524OsHBs8qUcbNHDqz6txcD0MhvLdc+F3VhCeBf24GnFlPZgvS/nJeGhOpcU+rCrf6xddFhwDZn6/fBe9smCvL67E5eyJlPfHUI4CfxzMgjqrZrNtehJqso=",
+      "fingerprint": "ff06c5a3a53fd9d1fd35fdec976b9ca128c2f9446753765578c4b145919917ea"
     },
     "compounded-tirzepatide": {
-      "iv": "6+KH5QeAllA3FSUM",
-      "data": "BvenO8AUrrCsIgsFWIOoHtOlwJf7xbjZskvX7CxsijCdJ60XLleRtjMU1yXJVI6dMiOlC54cgt+jWKHWVVtSczozhkXA5XWkQ3/5TZSEqL/eU0kRYG838fDclr5G6zdSQOBwQZvFAaarkrEVf/klI46IstSu3w==",
-      "fingerprint": "896bfa3283ebf8f81887dcba81a6179a515866b98274853891dacab9f9923513"
+      "iv": "GSuiijifXflYCRSb",
+      "data": "fBgR9hLvx72puiZQdJg18xqTBQTNgU/rfwor1mJQLY0CzRj4SkuMw8Mmuep2WSVkLkd5iArONnW/1zxWD2t8n/qHZ1frbI5hQbWh9nHFZN8vfyLGCDaVmJmzHkNLQtjoAkuWEAPUhEQnIiFTOxe0Y98JubMLguk=",
+      "fingerprint": "340d1aafb21f37da6d467c0d782a42170760d41e41378097e0a2336c704b951c"
     },
     "oral-semaglutide": {
-      "iv": "i/VxK2JuOtjjmQds",
-      "data": "xi8DBqhsh/+LXJfJmhrhSuXNh41QDk3QdBcHGEg55hvnnIBR/e0IP8DLDGU74n1BuFzLNAZiPe5jsd9F70VGLhG/llaaM+6GpDG5aS2lz92J4HDt/x3Fs3imUgAW4ZlGYQz3DU9FanYINsimrAaZWXIOGlwypSa3",
-      "fingerprint": "02356d370c250a8cd8a5795e5960e314a93910031a39c85043728d4fe5f88726"
+      "iv": "QpQgljMBceGgqHi+",
+      "data": "GBSHmYTvnnnfB3MepeGBZGnFRtCHA8mp/YH0YgStwNes1rqfX0sl3lS3mt0hc2YYYUQIFsbQBP7j4fX/HqBBfY1/fOkD1l24zdhxm1+jw1zPgsIO7obbilTrd+B13dIHcta+d3q802XEHVJ/mHl+gYXK8WDr1+bYHw==",
+      "fingerprint": "e536bad70d362e098dffa49d1ee25974b077fd4862b33f390c862fb9dc32b4f6"
     },
     "oral-tirzepatide": {
-      "iv": "DP3g57bbNzeA/t1m",
-      "data": "arN8DdG2e59AwXXdUP9R5mUIjtOOdNkgUe097NsH8XgkiROrzrgnoVEifM0AmGRPbZew3Vx2LWD1q0yT+LY1zZ5M3AQb5x2GUqOtk0yyr1V3Yrs5xh7LE2UAaFmXtBb4K9zllpoWRY2hOCQvlrwKf8V/s1rVBg==",
-      "fingerprint": "aa35450a55e77426452014a7f68432835b40174c9e67121efdf2a6a863353fac"
+      "iv": "jDxBXDxl9Zo1Ql+u",
+      "data": "AtExkkHj8EN/p7F5YsaC4MVNvGYIpa9WM98dgU+Wn7btXn1raj7lFjOOd4KZXtTO84w6orZwon7ygVbIqeJNe/38ywqVgNngi3hlja6fOEiIUgpK+yl7R55wZwU2X/sem53Q7yYeZDMBUq6pGYiegbhMfjKdahE=",
+      "fingerprint": "4c8057967e4a7147fca9bf1aeda1c7799b6d9c7dce71232b8afcd414244af52b"
     },
     "oral-finasteride": {
-      "iv": "8vchXAJ7roYntjok",
-      "data": "DVBoBAFtpjRjE/3rnNKw/iQa2EDUjx/DA7GcYotfGT6yPofnrwRrp8qQ54dKJltRRiATpf77+FXKylQ4QjarqJ4yMF/UJGRvysQg8+NUdf9OqiKsn1Ie3zMXSf+SczXNS7uq1kBnB2tDzxh0nqzlHZnn7wVlfA==",
-      "fingerprint": "6f474ec08fbc97b3b71c858b89be1e1001259211b371b4f608df8e5399200b48"
+      "iv": "71tru7ujTiCDF1s8",
+      "data": "PDAhcdPrku1tW8qEdaR2xuuo6dAznGHrUe/+MIkFjXGPYSvEYIE5v1RozD1vYtPPRn9CL+u49fAP4R7Y51kdcMNIYYfh82GtT/s5eQIPLO/+xCA577oe2xVKmobh4CwM0+75iaWi6YWXe7Wa7z/8mnDVPkb6QZg=",
+      "fingerprint": "2a636089e460abeb63b53285e61ecf5d437fef98097281cc31369143c00f59f2"
     },
     "oral-minoxidil": {
-      "iv": "mrqWgTGY9ftQ9aqf",
-      "data": "zjFvhGP2Evbbo5Mc+8kZF7wH8QyKroIAeM80C2z28ILNKwQkTwIgQACbJNuqj8tF/628hljKhjNJ0Z7Ce7sIr8m9Gn2Ora5X6AOBLiHt7rYzGFTkmnVwDAQ3yz7uYXednhK/l7rouwxk0qYVeoXCQd/U7tR67g==",
-      "fingerprint": "c482af08095935bf8bb509a14864463c1c535b90b4f16ff8dbd6e03bf8b7ec3d"
+      "iv": "qqYKkvPFmqlGd349",
+      "data": "Y2qXuqJ4m2COE10yJCR9e/K9kWrKTQgB/9o5NLL/edvMw8NUf+0qgsjtg0szXSsV08Jwh3jXydKuGmItAZxp2nBC5EQe/3S7/1lwDZRi/cB8xTRaj0BK4sHNyJxDkfrN6QrcoAVix9WHuA3SQ35R8z87XeMiHlE=",
+      "fingerprint": "7c5ed8e7b868d0c5dd5c5db9fb6f103321b76a40ad95ca5504efdbce794a34ca"
     },
     "topical-minoxidil": {
-      "iv": "Txt0wSm8NPHO+FZ2",
-      "data": "geDhTJLKMi6DURWcCOwSH06nAS0fbtFCycFG93E5pM1ZHLRbsyiD3vBmZG7x/Yuy/FGcYhP2IastKG4eIs4vCvCtqrpeGFJ6VrA89+QWm5P9y5C8K8Ad5iYCjsxPPxd4LvCyu5PjC9V9+dOmiiX9dKWaaTcCHQ==",
-      "fingerprint": "8a0af75ee57ae4beee76b40887d56e5a2e014b4ae85d38a9ea975f6120c7a0d5"
+      "iv": "+ahmNuVsM9lBXPS/",
+      "data": "1VXEJ6I7kCTuPI7M/Bld6fbyABFw1uh91RozFWW+cNTzyfZUkBM9uVUUXeXsWRxgV12W/Mj0lxpn+8imeuDZJ2VSZ6Pkg6ZVL0AgtAHuJDbQ84H4WWaYx0WrjUnd16MYWOKol8qd1rLIZ3gQaLfb8HJP9iVAYXM=",
+      "fingerprint": "94fd0ee978abf09b82842f09e93dbacf1cf7473b62b2b1c238da21f85946bbce"
     },
     "topical-minoxidil-finasteride": {
-      "iv": "tn5xeyBobNJiOog5",
-      "data": "u8CBXweWEDYldkuflGX76cTfiY/net70isgmSS+KwvVXKljfVtop62vC7RuJZdoLo2G+1mDM42ret33VN8tqINqoLFBPMMG80gcpEacjrPgCU39qlAbfpoXNd6VOqzcXOxnJn4mGeiU+b8zDOviCJ7ocd9jxFyvm",
-      "fingerprint": "ceeff0e7bae5a6dd832d2ddb8370d320066e97760a3b47d5e609c2e3f21e195a"
+      "iv": "TB4tMez3EvX6Y5Zm",
+      "data": "3a5p8oQpzpiwe1d5fMDqpHlbz5CEW56vIT9nc/K4dUAtz6M9rLomCzkKdnXoHGJf4M2rZnbymV2QIXMsviyrCM2sw04lDh+pKeeldOfw7X8fjClPfvXnQ2DnIXpxftX2He2JoAwOZ3ITrBvAlyVlfUpvu5B4lDQLNQ==",
+      "fingerprint": "36c8162a60b8a5f2af00e64d48bc54bf9e5e835f798299c7d905c99ec193231a"
     },
     "topical-finasteride-minoxidil-tretinoin": {
-      "iv": "1YaIgf0lKlfzY3hI",
-      "data": "l+qXnwh6Vkuisp+zIZcfS75+JkhJn3WH3vjnin3uJ9QEuoY1l97s2x3j6AZ02hry8wNe/vheKu9/ee0JHhsMmy3hzIldDPo9gzLajTSC3z/GadPJawc0As/JFs5mY2UqptVOk2DFvt+PbB+TPyMyWIQzucajkg==",
-      "fingerprint": "d9a9cb52f2d80e6e772e1815aa6168b18b3c267d79cdec756b17eee89912478e"
+      "iv": "7jLwaCHAcK9WEqSd",
+      "data": "9tiJVDSSMJp1POaSKAWviEutoOLuCgcpzxKs9Qm3aTtYtd5Y33F4VGCzWSsJ3otGapkAtDl6r7XSDHgyVDjxjJLxBzkkK0fCvKCNmEeazCPQiGzlKFbFdX/B5FNS/SMrFnAB//smoh56IwwmUxrma3DIxO1KwVg=",
+      "fingerprint": "c841fab2599d9c52965585609426641e0112ce92f71a6638936a376007847779"
     },
     "tadalafil-daily": {
-      "iv": "aWpUiJ8LPsP+yLzh",
-      "data": "EVATGKDuGuuGbkhQrdoKZc0e7o/pZX5gJ7RnRXWzHOZbWpM/0W7B+C8Gxpc/U/E6MSNJ0f/J5BIhT71SYSaVNX4h25cggkmmnSh//QpgIXqP9dYbaPkQ6393/hAvxOzi1obyJy3almOXV/l/ujnOSbPqwdj8Tw==",
-      "fingerprint": "cb6bfac0e7e5eba30c1ff2e3f7a9f81293641210324c5b91dce69f7827000b94"
+      "iv": "aow5Dl0uH3QMZ38D",
+      "data": "eoYz4eiOwZZ3haO1eDJT06rxGKvFghsCmT3O/vgdx4Xd5HEp7II7aBzreBhm8KM+CU/yRRhA+zTa1OCkjwot37i7L3SdAz5BDR4uVMez3G3/kPCe6xxbTt0LsQYUqvD2AHGn1g3roQVTHwdIUzE8ajFbcRYbYTE=",
+      "fingerprint": "cd67a3f19dc5aed857f0c6b7832a5d956e512250daa1105fbcbe0ccce5439765"
     },
     "tadalafil-as-needed": {
-      "iv": "Zfh/Xit72J7XWr+u",
-      "data": "X9l8++r8Cp7WXdR+DFuSve3XaWNvFrK0EheRNZhX2dY/9TE1B4JttpeHHx4yletdnJDG+YoejGRq+51YozZ4D0T4aqWxjtZyModxRUUlSmt6YF2kgs7hGZoXTzHuvfnGJbJR4wvBjPFDmLTXj2SmOyM73kl0XBIY",
-      "fingerprint": "c6491d4f776250cf78c24f5e7416af46dece3867f3350dee4a1491745b263155"
+      "iv": "vvLzvhbvSLJ6Q6F6",
+      "data": "r2hyt9/4FZorKYVKbXjc7QWOpgVeUMOB/DytLKvWoT+pJdkcy3PmbwxzWcSk+cFJISPnsXIkNwUikuHLzjABDbH/ItN5RXMH1Jr/SvS4OgQbXLRDMb3AmqM+bLYWoo5Kp2CqCOBm5vS9OByqTah+9CEt/JM4j+p1Bw==",
+      "fingerprint": "83eb54e514be83baf3facc49b93c736f674316a4c7449585ff1237cf314cc373"
     },
     "sildenafil-as-needed": {
-      "iv": "HG3uXSgOqgKTVT/N",
-      "data": "pausVJMb253e3lF5ekGYztnxA2Cs4+ec4PuzUwBRZFhIWFdR0CSDIAxShSORMz9iAg9GC9IPJnmq5eHXRBAO6Je05akXfkG4zOATcS7z76gWm49xC0y6sNUVOxGwPLMXOd/i/S7IHPY3nzqyog1Gn5lerAXe6Y5J",
-      "fingerprint": "6076595c73b5eb6919744deea9fb9804b6168c2269710dbda39c8c8204432374"
+      "iv": "XEiERzUN8y/dFGTM",
+      "data": "IyMHfkPCrEvLql6RSz1s1VNevr2my1s+QSgTAnosJrxVR8NWvw+k+WBoj1jCcrxlQsm0bZ19vH7J8XbMQb/PnThX8ET7xK5Vs5mpccQCi1JT4uTxh4uOBZICsSvCrFYlHgRYnGtrQ+xIsXo6xfornJswj4k2uUrg4g==",
+      "fingerprint": "98f05c82747d30278df249ad0cb46ba5ff0230ff10686bd09ae3e10b8877cb09"
     },
     "sermorelin": {
-      "iv": "OVDl2F71jS8KzRIA",
-      "data": "GiK/UR8CTjQUCcehOUR2IOK4VMnhiIhDggqaxzjgxU7VvKWFuevcWfYMA+ueUQysAupHbJPGFNNqHkzrIYjjl7U2/J2OX1TSzvTuxPHzr54VyXwOZbuskurpEV1tAYAQrgKvY42IWYtLjYL71tM6r4chANWK1Q==",
-      "fingerprint": "93b685a002ebb37eba5c4bcbab4a894aa29b81b498735fc72435ee7749ba954f"
+      "iv": "H5nre+tQ9ScN82Y7",
+      "data": "SDWUFOR35gBVSL+A8OI2X1pISkuk8frc5fXSyzFDZKiTM9kI7RA2Sy/8I1/UyWe9Ml9FjbbbopUU54vhgh1MVfO644FeZtgeBoulXRq6B2RaCsl9RvB8r/6iBeUq4BkxO5WeTCFspGd9lD87w3oMNr/bCz4NPEA=",
+      "fingerprint": "839a6583d837bbde178a9c4b12b2a8f5be5acc78d87a125bd6ff1b505dbe78ea"
     },
     "nad": {
-      "iv": "Jv0ZIrp4Paabti94",
-      "data": "Mvq2TnTnZn6bA8w3m3KaOiL71g7ybJzwuAWloIYtPGGFvN8ciTmXmmcqR85+jzP6zD6qp1ZDPK66/n5jj879b5ehnQVSU5JBy41zpzXxYa8bzpi/4522BxxY4XK82MKBZqkRYSHZ2l4Qu6Anv7nkSmrTQ33p5A==",
-      "fingerprint": "fdce717e10e57f66b1cd3aa8b1f5caf305cc4a4aedf83dbabf35e337d0f5707f"
+      "iv": "hv/onHFB6nMfGN8P",
+      "data": "7+uPP73nZPkpzzwCIXtmYWnOo4G6KNaTuhGZWqFBCvxnPdodr7F2CoRoiniiS2V+nyKDryBDpyc8dVUlZxO3oCb094B7vG/piCXk/39L989NxC7JA2LWrWTegUDwxujJQIZ/hDBqJZcPczb0CHBh9ggcQBNBDks=",
+      "fingerprint": "b7a5dd665ea822cc8fe6b2a72e87c8af0b44a1349d21ca5458db6feb42ca481c"
     },
     "nad-nasal-spray": {
-      "iv": "bfBswj2CE9ZjgL3c",
-      "data": "vnyZPYHdBNd0LnIB56d4EMXcJ+dRWzD+kBdfa9u/7J1bqoHERz4kOtfPX88EyKGAuXwWsBbiVtk2ouBQKcvinMGOCikTLzi+/c/xUCvGgGGNcVtpJc1XFxqsJpSSKTxOSOeySzUPxLnyLgqewUExPuwPuUtaUQ==",
-      "fingerprint": "4b8db6b71f5841bdd6ef241cc7b0457e04c0afc278b252d0173b5b3cd768ac67"
+      "iv": "+kjjHaX3Qq5dChal",
+      "data": "b6LMGFJ5/zJ0XcV7i5ecgfwuqIShlrVtMfaywt2gmmXMFYKn7BEb7LS+xVtCRSH/U2JYgDYso1GUh/Sz7cfeWXaJL+HoufMqmTIbDW/Ufoi32deyZBRfPpG3GvN/aS7Fs4ZiWaYXL3RtGoCQUV+GASV0z15SlhU=",
+      "fingerprint": "6c205a02e1530066e1428348f9b2217c8254413ae9229b848f5aa4d02ac28dfb"
     },
     "glutathione": {
-      "iv": "3eOn7owJDz2arD4e",
-      "data": "0Jfawf2Lvl6aXfXIY1FePW2GN+Q0p1lG/75EkwStO0ffkq+dRfymS3GXNF+EymalwKUjiCT5aOCuUT/Es9rMMd3VEnnEdJLP3xmP8K0UoVwE+bruo+yMcht2Tqiw55qaPvn2h1PQrPB2YLpmwrdWSR2MqFQZqQ==",
-      "fingerprint": "30c810c632c49c11a6a18a3c484d512e5d87659636868c2614b83288c325205f"
+      "iv": "aVnTwV0K9EbzkXE5",
+      "data": "c+/Uz12GHU+JOcMpKjuRTwD7YkT5Dn+ZE3rBr+iAKuv4F8C5RviTZPDKPN5Uqgbxb6dRuzpETuPX+5isSpa7s311Bac+sdjckjVmnhGSA90aN9WGfAfjumoYKFYQAdl+A8IeT3DtKcfvKyT3/TZJ21dUhKA6604=",
+      "fingerprint": "047dc9c1072a31f8257af1220f044b144524a318ac42fd3ff679c9b46526aff1"
     },
     "methylene-blue": {
-      "iv": "cAnR+/vJb9rdc7zV",
-      "data": "lD4H1/tVsGv6pEc+f5++cMZQOT64r5LiXDdXxhqNIg3a2tL9bPA4t1IZvkHoO3O6PUl8Np6YvdACxeOrOC77n4XWFYSTjn+2D/zm08A0dgqU1+GbtFk2HxLv9QKUoEj9wVLMabWQKSkDOQHXGFiocuUWevf7BQ==",
-      "fingerprint": "989b5633f8e0c2407ee23b4376644863271071ace3859c127ce830b89696ed7a"
+      "iv": "6sjjTO+41JF/rnWe",
+      "data": "xvK5WQ/6+PwNonhJ58CX2HtE8qFm8oBcme+WLKur2KSpQqDYt8Xz+mwmF5K3EVf/thkYrPVeK5+hwwuek8t6ikJtJW6P5qzI2KmMdo3E0lR9BFrlt3ucWPpaST5PaGn5989dD8xS45OOVV8B4ul/Y4BUY+itGdY=",
+      "fingerprint": "c5416c6fc7bda996ee0137ddcbe3809dfe20b601930a270a6696dd278639ba68"
     },
     "mic-b12": {
-      "iv": "4KbDxjm67tZ0SSAV",
-      "data": "ciL11JOEmlhtMjq9sXl1HihUCVIUVguRo/3e/JuZdR8ouSIfIYU16qEw5sXe6ygxVpubbhP9z3+1ucsPdxXlM0bz/+KvudbDyrevKEig9923Cnf7JD0dsXanfZXcdqXj1VFaC17XqN0cXsNuRw1A5Ow+SJPJ8Q==",
-      "fingerprint": "0841dcfb568ab8b48d6062444ee032ac1af459008d258a2e5ca861168c24823e"
+      "iv": "wYw1L07Cnb7nGvdr",
+      "data": "7MUDyYkmCWU8I7trKk4tbQ2aFguCWM2GlWEzAaJh0XWg/BWQZIr4UF7IYXUPYqqpPwe9lxLAUoETZf5cuONWVjlRg9/xy344MnJ7oSUIhsZ8c30r8zcIMtFlNEeKt5ncPQlHn2gl9lOfZNNGoiRx/w8hMpmD0yM=",
+      "fingerprint": "9efd88764673f44716323ea2e257bf44bb58a3cd0022f232acb8ec03391065ec"
     },
     "lipo-c": {
-      "iv": "J+OJzEUZ9NEyOdAJ",
-      "data": "q5Ag3IcovLUFaQWRlpG/qZ8nFY34gqt1aD1kpYm67QMvv823Z/sO5uB9FuPRxfUU3Y7U6Kob7YTfzTWLtuy0J0MSsOKqQL2beVP4WvTuOQCqvVknNFjTa4QFZAEEEDY6BsLoZ85DVphhWn3ME9WJ72OcFr6urlo5",
-      "fingerprint": "f46cbe5287773539bb7b66220fe253f6abd2c2a28e54a1f1d7d4ea622ecaf952"
+      "iv": "cyZaLKwBzej8lRlG",
+      "data": "HnpK4Udfn1JN8Mte1g10zrEMA7YoKIdhqQaaFpm7nNJdMrI5vjgl2LrzxmOHuLh24+AyNTUiyf7vrM3tKZiw7a35t86bKR9zRhIPAtqtrdEHuqiQl79pW76G/zzVVLK3I4PtJx9H/keK8m1eSPkgQiY7n87o+J+RDg==",
+      "fingerprint": "548b1efd6b0d9ebdf274a9eb8d3bea9feecafb0fb8a29973a1006993fa5bc31a"
     }
   }
 }

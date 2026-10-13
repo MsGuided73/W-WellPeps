@@ -16,7 +16,7 @@ Built, tests/typecheck/build passing, NOT committed or deployed:
 
 Open questions for the client:
 - Is the tretinoin topical foam only, or foam and solution? (decides card image/wording)
-- Decided 2026-10-06: the card is entered at checkout but charged only when a clinician prescribes, so there is nothing to refund if they do not (Terms §8 updated). To confirm: GEN Health is set to charge on prescription, not at checkout.
+- Decided 2026-10-12: Intake-first on every card; the patient pays at checkout, before review, and is refunded in full if not prescribed (Terms §5 and Refund Policy §5.1 updated). To do: billing owner refunds Denied orders by hand (GEN never auto-refunds); ask GEN for a $0 assessment or an assessment credit so Assessment-first can return.
 - Storefront key allowed origins set in GEN? (then re-test; next step: live price refresh)
 - Add "15 tablets per month" to As Needed cards?
 

@@ -84,7 +84,7 @@ describe('draft page switch', () => {
     // and the portal-only forms B1, B3, B6, B7, B8.
     expect(LEGAL_DOCS.filter((d) => d.approved).map((d) => d.id)).toEqual(
       ['A1', 'A2', 'A3', 'A4', 'A6', 'A7', 'A8', 'A9', 'A10', 'A12', 'A13', 'A14', 'A15', 'A16', 'A17', 'B2', 'B4', 'B5']);
-    for (const d of LEGAL_DOCS.filter((x) => x.approved)) expect(d.effective).toMatch(/^October [56], 2026$/);
+    for (const d of LEGAL_DOCS.filter((x) => x.approved)) expect(d.effective).toMatch(/^October ([56]|12), 2026$/);
   });
 });
 

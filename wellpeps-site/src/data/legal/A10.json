@@ -5,7 +5,7 @@
  "blocks": [
   {
    "t": "p",
-   "text": "Effective date: October 6, 2026  |  Last updated: October 6, 2026  |  Version 1.0",
+   "text": "Effective date: October 12, 2026  |  Last updated: October 12, 2026  |  Version 1.1",
    "italic": true,
    "align": null
   },
@@ -42,7 +42,7 @@
     ],
     [
      "When am I first charged?",
-     "Only after your clinician prescribes treatment. You answer the health questions first and a clinician reviews them. If the clinician prescribes, you check out and pay for your first month. If your clinician does not prescribe, you never pay."
+     "At checkout. You answer the health questions first. Then you check out and pay for your first month. This charge happens at checkout, before a clinician reviews your answers. If your clinician does not prescribe, we refund that charge in full. You do not need to ask (Section 5.1)."
     ],
     [
      "How often am I charged?",
@@ -50,7 +50,7 @@
     ],
     [
      "When does it renew?",
-     "Automatically, on the same calendar day of the month as your first charge (the day you check out after your clinician prescribes), until you cancel. We charge the card you used at checkout."
+     "Automatically, on the same calendar day of the month as your first charge (the day you check out), until you cancel. We charge the card you used at checkout."
     ],
     [
      "Is there a minimum commitment?",
@@ -70,7 +70,7 @@
     ],
     [
      "What is the refund rule?",
-     "If your clinician does not prescribe, you are not charged (Section 2.4). Refunds apply to a month your clinician does not renew, pharmacy errors, lost, damaged or heat-exposed shipments, long delays, charges made after you cancel and billing errors (Sections 5.1 to 5.7). Medication that was prepared and shipped correctly cannot be returned or refunded (Section 5.8)."
+     "If your clinician does not prescribe, or cannot finish the review, we refund your checkout charge in full (Section 5.1). If you cancel before your clinician prescribes, we also refund it in full (Section 5.2). Refunds also apply to a month your clinician does not renew, pharmacy errors, lost, damaged or heat-exposed shipments, long delays, charges made after you cancel and billing errors (Sections 5.1 to 5.7). Medication that was prepared and shipped correctly cannot be returned or refunded (Section 5.8)."
     ],
     [
      "Who charges my card?",
@@ -94,7 +94,7 @@
   },
   {
    "t": "p",
-   "text": "The online health questions are an automated questionnaire. You do not need a card to answer them. Your clinician’s review is included in your monthly price, along with your follow-up care, your medication if prescribed, messaging with your care team, education and standard shipping. There is no separate fee for the review. You are charged only if your clinician prescribes treatment (Section 2.4).",
+   "text": "The online health questions are an automated questionnaire. You do not need a card to answer them. Your clinician’s review is included in your monthly price, along with your follow-up care, your medication if prescribed, messaging with your care team, education and standard shipping. There is no separate fee for the review. You pay for your first month at checkout, before a clinician reviews your answers (Section 2.4).",
    "italic": false,
    "align": null
   },
@@ -105,10 +105,11 @@
   {
    "t": "ol",
    "items": [
-    "Choose a treatment and answer health questions in the patient portal. You do not pay anything at this step.",
-    "An independent licensed clinician reviews your answers. This is usually done online. The clinician may ask you for more information.",
-    "If the clinician prescribes, you check out. Before you enter your card, you see the monthly price and the renewal terms. You pay for your first month, and the prescription goes to a state-licensed pharmacy that prepares and ships your medication.",
-    "If the clinician does not prescribe, you never pay."
+    "Choose a treatment and answer health questions in the patient portal. You do not need a card for this step.",
+    "Check out. Before you enter your card, you see the monthly price and the renewal terms. You pay for your first month at checkout. This charge happens before a clinician reviews your answers.",
+    "An independent licensed clinician reviews your answers. This is usually done by secure message. A live video visit is used when it is needed or when the law of your state requires it. The clinician may ask you for more information.",
+    "If the clinician prescribes, the prescription goes to a state-licensed pharmacy that prepares and ships your medication.",
+    "If the clinician does not prescribe, or cannot finish the review, we refund your checkout charge in full (Section 5.1)."
    ]
   },
   {
@@ -127,7 +128,7 @@
   },
   {
    "t": "p",
-   "text": "You pay for the first time when you check out, and checkout is offered only after your clinician prescribes treatment. If your clinician does not prescribe, or cannot finish the review, you never pay. Each later monthly charge falls on the same calendar day of the month as your first payment (Section 3.1).",
+   "text": "You pay for the first time when you check out. Checkout comes after you answer the health questions and before a clinician reviews them. If your clinician does not prescribe, the medical practice declines your request, or your clinician cannot finish the review, we refund that charge in full, including any tax, to the card you used at checkout. You do not need to ask (Section 5.1). If you cancel before your clinician prescribes, we also refund that charge in full (Section 5.2). Each later monthly charge falls on the same calendar day of the month as your first payment (Section 3.1).",
    "italic": false,
    "align": null
   },
@@ -139,7 +140,7 @@
    "t": "clause",
    "number": "3.1",
    "heading": "Your plan renews every month.",
-   "text": "You check out after your clinician prescribes treatment. At checkout you agree to the renewal terms and pay for your first month, and your plan starts that day. It then renews automatically every month until you cancel. Each month we charge the card you used at checkout the monthly price you saw at checkout, or a new price only if you agreed to it under Section 6. We charge on the same calendar day of the month as your first charge. If a month has no such day, we charge on the last day of that month.",
+   "text": "You check out after you answer the health questions. At checkout you agree to the renewal terms and pay for your first month, and your plan starts that day. This happens before a clinician reviews your answers. If your clinician does not prescribe, we refund that charge in full (Section 5.1). Otherwise your plan renews automatically every month until you cancel. Each month we charge the card you used at checkout the monthly price you saw at checkout, or a new price only if you agreed to it under Section 6. We charge on the same calendar day of the month as your first charge. If a month has no such day, we charge on the last day of that month.",
    "level": 0
   },
   {
@@ -283,6 +284,11 @@
   },
   {
    "t": "li",
+   "text": "If you cancel after you check out but before your clinician prescribes, we close your order and refund your checkout charge in full (Section 5.2).",
+   "level": 0
+  },
+  {
+   "t": "li",
    "text": "You will not be charged again after we receive your cancellation request, except a charge we already made before then (Section 4.3). If we charge you after we receive your request, we refund that charge in full (Section 5.6).",
    "level": 0
   },
@@ -329,14 +335,14 @@
    "t": "clause",
    "number": "5.1",
    "heading": "If your clinician does not prescribe or renew.",
-   "text": "If your clinician decides not to prescribe treatment, you are not charged. The same applies if your clinician cannot finish the review because you did not send information they asked for within 14 days (we send you a reminder before we close the review). If your clinician does not renew your prescription for a month we have already charged, we refund that charge in full, including any tax. You do not need to ask. A routing, system or pharmacy error does not take away this refund. We start the refund within 2 business days after the decision.",
+   "text": "If your clinician decides not to prescribe treatment, or the medical practice declines your request, we refund your checkout charge in full, including any tax, to the card you used at checkout. The same applies if your clinician cannot finish the review because you did not send information they asked for within 14 days (we send you a reminder before we close the review). If your clinician does not renew your prescription for a month we have already charged, we refund that charge in full, including any tax. You do not need to ask. A routing, system or pharmacy error does not take away this refund. We start the refund within 2 business days after the decision. It usually appears on your statement within several business days, depending on your bank or card issuer.",
    "level": 0
   },
   {
    "t": "clause",
    "number": "5.2",
    "heading": "You change your mind before the pharmacy starts.",
-   "text": "If the pharmacy has not started preparing your medication, you can cancel the order and we refund the charge in full. Ask as soon as you can (Section 5.10).",
+   "text": "If you cancel before your clinician prescribes, we refund your checkout charge in full. If your clinician has prescribed but the pharmacy has not started preparing your medication, you can cancel the order and we refund the charge in full. Ask as soon as you can (Section 5.10).",
    "level": 0
   },
   {
@@ -453,7 +459,7 @@
    "t": "clause",
    "number": "6.3",
    "heading": "Promotional prices.",
-   "text": "We do not offer introductory prices or free trials today. If we ever do, checkout will show the promotional price, how long it lasts, the regular price that follows and the date it starts. If you agreed at checkout to both the promotional price and the regular price that follows, the change to the regular price does not need your agreement again. We will email you between 3 and 21 days before a promotional price ends. The word “free” is not used for the clinician’s review. It may describe only the automated online health questions, and only with a statement beside it that the review and treatment are part of the monthly price.",
+   "text": "We do not offer introductory prices or free trials today. If we ever do, checkout will show the promotional price, how long it lasts, the regular price that follows and the date it starts. If you agreed at checkout to both the promotional price and the regular price that follows, the change to the regular price does not need your agreement again. We will email you between 3 and 21 days before a promotional price ends. The clinician’s review is never free. It is part of the monthly price you pay at checkout. The only thing we describe as not needing a card is the automated online health questions.",
    "level": 0
   },
   {
@@ -597,7 +603,7 @@
   },
   {
    "t": "check",
-   "text": "I have read the Refund, Cancellation and Auto-Renewal Policy (version 1.0)."
+   "text": "I have read the Refund, Cancellation and Auto-Renewal Policy (version 1.1)."
   },
   {
    "t": "check",
@@ -605,7 +611,7 @@
   },
   {
    "t": "check",
-   "text": "I understand that I pay only after my clinician prescribes treatment, and that a prescription is not guaranteed."
+   "text": "I understand that I pay for my first month at checkout, before a clinician reviews my answers, and that a prescription is not guaranteed. If the clinician does not prescribe, WellPeps refunds that charge in full."
   },
   {
    "t": "check",
@@ -722,7 +728,7 @@
   },
   {
    "t": "callout",
-   "text": "**AUTOMATIC RENEWAL: PLEASE READ BEFORE YOU PAY**\nYour {{plan_name}} renews automatically every month until you cancel.\nYou will pay {{price}} today, plus any tax, for your first month. Then your card will be charged {{price}} every month on the same day, starting {{next_charge_date}}, by WellPeps. It will appear on your statement as WellPeps. There is no minimum commitment, no setup fee and no cancellation fee.\nYour price covers your medication if prescribed, your clinician’s review and care, messaging with your care team and standard shipping. Lab tests, if your clinician recommends them, are billed separately.\n**HOW TO CANCEL:** Cancel any time in your patient portal at portal.wellpeps.com or by email to support@wellpeps.com. To avoid your next charge, cancel at least 72 hours before {{next_charge_date}}. We confirm every cancellation in writing within 1 business day.\n**REFUNDS:** Once the pharmacy has started preparing your medication, that charge cannot be refunded except as described in our Refund, Cancellation and Auto-Renewal Policy {{policy_link}}.",
+   "text": "**AUTOMATIC RENEWAL: PLEASE READ BEFORE YOU PAY**\nYour {{plan_name}} renews automatically every month until you cancel.\nYou will pay {{price}} today, plus any tax, for your first month. Then your card will be charged {{price}} every month on the same day, starting {{next_charge_date}}, by WellPeps. It will appear on your statement as WellPeps. There is no minimum commitment, no setup fee and no cancellation fee.\nYour price covers your medication if prescribed, your clinician’s review and care, messaging with your care team and standard shipping. Lab tests, if your clinician recommends them, are billed separately.\n**HOW TO CANCEL:** Cancel any time in your patient portal at portal.wellpeps.com or by email to support@wellpeps.com. To avoid your next charge, cancel at least 72 hours before {{next_charge_date}}. We confirm every cancellation in writing within 1 business day.\n**REFUNDS:** A licensed clinician reviews your answers after you pay. If your clinician does not prescribe, or you cancel before your clinician prescribes, we refund today’s charge in full. Once the pharmacy has started preparing your medication, that charge cannot be refunded except as described in our Refund, Cancellation and Auto-Renewal Policy {{policy_link}}.",
    "kind": "info"
   },
   {
@@ -882,7 +888,7 @@
   },
   {
    "t": "callout",
-   "text": "**Subject:** Your WellPeps monthly plan: renewal and cancellation details\nHi {{first_name}},\nThank you for starting your {{plan_name}}. This email confirms what you agreed to on {{consent_date}} at {{consent_time}} {{time_zone}}.\n**Your plan renews every month until you cancel.**\nCharged today: {{price}}, plus any tax\nNext charge: {{price}} on {{next_charge_date}}, then every month on the same day\nCard: {{card_brand}} ending in {{card_last4}}\nBilled by: WellPeps. Your statement shows WellPeps.\nMinimum commitment: none. Cancellation fee: none.\nYour price covers your medication if prescribed, your clinician’s review and care, messaging with your care team and standard shipping. Lab tests are billed separately.\nYour clinician decides whether to renew your prescription each month. If your clinician does not renew it for a month we have charged, we refund that charge.\n**How to cancel:** Any time, in your patient portal at portal.wellpeps.com ({{cancel_link}}), by replying to this email, or by writing to support@wellpeps.com. To avoid your next charge, cancel at least 72 hours before {{next_charge_date}}. We confirm every cancellation in writing within 1 business day.\nRead the full policy: {{policy_link}}\nQuestions about orders, billing or shipping? support@wellpeps.com, Monday to Friday, 9 am to 6 pm ET. For medical questions, message your clinician in the patient portal. In an emergency, call 911.\nWellPeps, a Wyoming corporation, 30 N Gould St., Suite R, Sheridan, WY 82801",
+   "text": "**Subject:** Your WellPeps monthly plan: renewal and cancellation details\nHi {{first_name}},\nThank you for starting your {{plan_name}}. This email confirms what you agreed to on {{consent_date}} at {{consent_time}} {{time_zone}}.\n**Your plan renews every month until you cancel.**\nCharged today: {{price}}, plus any tax\nNext charge: {{price}} on {{next_charge_date}}, then every month on the same day\nCard: {{card_brand}} ending in {{card_last4}}\nBilled by: WellPeps. Your statement shows WellPeps.\nMinimum commitment: none. Cancellation fee: none.\nYour price covers your medication if prescribed, your clinician’s review and care, messaging with your care team and standard shipping. Lab tests are billed separately.\nA licensed clinician will now review your answers. A prescription is not guaranteed. If your clinician does not prescribe, we refund today’s charge in full. You do not need to ask.\nYour clinician decides whether to renew your prescription each month. If your clinician does not renew it for a month we have charged, we refund that charge.\n**How to cancel:** Any time, in your patient portal at portal.wellpeps.com ({{cancel_link}}), by replying to this email, or by writing to support@wellpeps.com. To avoid your next charge, cancel at least 72 hours before {{next_charge_date}}. We confirm every cancellation in writing within 1 business day.\nRead the full policy: {{policy_link}}\nQuestions about orders, billing or shipping? support@wellpeps.com, Monday to Friday, 9 am to 6 pm ET. For medical questions, message your clinician in the patient portal. In an emergency, call 911.\nWellPeps, a Wyoming corporation, 30 N Gould St., Suite R, Sheridan, WY 82801",
    "kind": "info"
   },
   {
@@ -970,7 +976,7 @@
      "2",
      "Products (Overview tab)",
      "Assessment price",
-     "$0. Any amount here would charge patients before a clinician prescribes, which breaks the policy and the “no separate fee” statement.",
+     "$0. The product price charged at checkout is the only charge. An Assessment price would be a separate fee that breaks the “no separate fee” statement, and GEN does not refund it when a patient is denied.",
      "☐"
     ],
     [
@@ -984,7 +990,7 @@
      "4",
      "Products (Overview tab)",
      "Subscription product",
-     "On, monthly cadence. Checkout and the first payment come after the clinician prescribes (GEN Health confirmed 2026-10-06); renewals fall on the same day each month after that. Confirm how renewal charges are triggered and shown to the patient. [VERIFY WITH GEN]",
+     "On, monthly cadence. Since 2026-10-12 checkout is Intake-first: the first month is charged at checkout, before the clinician review; renewals fall on the same day each month after that. Confirm how renewal charges are triggered and shown to the patient. [VERIFY WITH GEN]",
      "☐"
     ],
     [
@@ -998,7 +1004,7 @@
      "6",
      "Portal experience, Checkout",
      "Products checkout order",
-     "Checkout after the clinician prescribes (GEN Health confirmed 2026-10-06). Check each product for its own override.",
+     "Intake-first (checkoutFlow=intake_first on all 19 product links since 2026-10-12): health questions, then checkout and payment for the first month, then clinician review. Assessment-first (checkoutFlow=visit_first, used from 2026-10-09) is paused because GEN cannot proceed with a $0.00 assessment fee or subtract the assessment price from the product price. Return to Assessment-first once GEN supports either, and update this policy first. Check each product for its own override.",
      "☐"
     ],
     [
@@ -1068,14 +1074,14 @@
      "16",
      "Orders",
      "Refund workflow",
-     "A Denied order must never be charged; check every Denied order for a charge and refund any found. GEN never refunds automatically: a Cancelled visit or order is not refunded. A Client Admin must open /orders, click the status pill, choose Issue Refund, enter the amount and a reason (required, up to 2,000 characters). Refund is not available for Whop, custom-instruction or API-collected payments. Name the owner and a deadline of 2 business days. Send email B6. Reconcile daily.",
+     "Under Intake-first every order is charged at checkout, so every Denied order (the clinician did not prescribe, the Practice declined, or the review could not be finished) and every order cancelled before a prescription must be refunded in full, including tax (Sections 5.1 and 5.2). GEN never refunds automatically: a Denied or Cancelled visit or order is not refunded by the platform. The billing owner (a Client Admin) must open /orders, click the status pill, choose Issue Refund, enter the full amount and a reason (required, up to 2,000 characters), and start the refund within 2 business days after the decision. Refund is not available for Whop, custom-instruction or API-collected payments. Name the owner and a backup. Send email B6. Reconcile daily that every Denied order has a refund.",
      "☐"
     ],
     [
      "17",
      "Webhooks",
      "Denied-order alert",
-     "Use the existing order.status_updated webhook (integration plan, Phase 4) to alert the billing owner when an order is Denied, so they can confirm no charge was made. Send only order ID and status, no patient fields.",
+     "Use the existing order.status_updated webhook (integration plan, Phase 4) to alert the billing owner when an order is Denied or Cancelled, so they can issue the manual refund (row 16) within 2 business days. Send only order ID and status, no patient fields.",
      "☐"
     ],
     [
@@ -1119,10 +1125,10 @@
    "items": [
     "Run a full order in test mode on desktop Chrome, iPhone Safari and Android Chrome. Screenshot every step.",
     "Confirm the disclosure shows before the card fields and directly above the checkbox, that the box starts unchecked, and that the pay button stays disabled until it is checked.",
-    "Confirm checkout is offered only after the clinician prescribes, and that the amounts in the disclosure, the checkbox, the receipt and the charge are identical.",
+    "Confirm the health questions need no card, that checkout comes after the questions and before the clinician review, and that the amounts in the disclosure, the checkbox, the receipt and the charge are identical.",
     "Confirm the acknowledgment email (B1) arrives immediately with the correct merge fields and a working cancel link.",
     "Cancel by portal message and by email. Confirm B5 arrives within 1 business day, no later charge is made, and the cancellation is time-stamped.",
-    "Deny a test order and confirm the card is never charged.",
+    "Deny a test order and confirm the webhook alert reaches the billing owner, the full refund (including tax) is started within 2 business days, and email B6 is sent. Repeat with an order cancelled before a prescription.",
     "Fail a test card and confirm the failed-payment notice and retry behavior match section 7.",
     "File the screenshots and logs in the compliance record."
    ]

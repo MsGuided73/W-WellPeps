@@ -60,7 +60,7 @@ Three places, none of which is an iframe.
 **1. The handoff (wellpeps.com).** Every "See If You Qualify" button opens a
 full-viewport sheet — bottom sheet on mobile, centred panel on desktop — with
 the program name, the three steps ahead (answer a few questions · a licensed
-provider reviews · pay only if prescribed — wording subject to compliance
+provider reviews · full refund if not prescribed — wording subject to compliance
 review and to what the flow really does), and one primary button that goes to
 the Intake-first link. The sheet frames the move to the portal as the next
 screen of one product rather than a jump to another site. The button's plain
@@ -111,7 +111,7 @@ unset.
       checkout does not support it)
 - [ ] Sandbox mode on, via the provider network
 - [ ] Launch products **Active**, priced, imaged, formulary-paired
-- [ ] Assessment price and deposit confirmed $0 per product, and the card set to charge only when a clinician prescribes (decided 2026-10-06; the card is entered at checkout, not charged then)
+- [ ] Intake-first on every product (2026-10-12): the product is charged at checkout, before review. Denied orders refunded by hand within 2 business days (GEN never auto-refunds); `order.status_updated` alert wired to the billing owner. Revisit Assessment-first once GEN supports a $0 assessment or crediting it against the product
 - [ ] Portal continuity items above
 - [ ] `X-API-Key` created → Coolify build arg + Supabase secret. Never committed,
       never pasted into chat

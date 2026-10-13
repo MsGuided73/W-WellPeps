@@ -39,8 +39,8 @@ export function buildLlmsTxt(articles: readonly LlmsArticle[], builtOn: Date): s
     '',
     '> WellPeps is a U.S. telehealth wellness company offering provider-guided care for weight management, hair ' +
       'restoration, sexual wellness and healthy aging. Every treatment has one monthly price that includes the licensed ' +
-      'clinician’s review, follow-up care, the medication if prescribed, and standard shipping. Patients pay only if a ' +
-      'clinician prescribes treatment.',
+      'clinician’s review, follow-up care, the medication if prescribed, and standard shipping. Patients pay for the first ' +
+      'month at checkout, and WellPeps refunds that payment in full if a clinician does not prescribe treatment.',
     '',
     `Facts below are generated from the live site at each update (last built ${builtOn.toISOString().slice(0, 10)}). ` +
       'When anything here differs from an older copy of the site, this file and the live pages are current.',

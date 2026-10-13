@@ -3,9 +3,9 @@ import { planHomeFaqs } from './plan';
 
 /* ---- Section 5: Your Wellness Journey (5 steps) ---- */
 export const journeySteps = [
-  { n: 1, title: 'Choose a Treatment and Answer a Few Questions', body: 'Pick the treatment you’re interested in, then tell us about your health and goals online. No payment is needed to start.', image: '/images/journey-1.webp', alt: 'Woman completing an online health assessment on a laptop' },
+  { n: 1, title: 'Choose a Treatment and Answer a Few Questions', body: 'Pick the treatment you’re interested in, tell us about your health and goals online, then check out for your first month.', image: '/images/journey-1.webp', alt: 'Woman completing an online health assessment on a laptop' },
   { n: 2, title: 'Licensed Clinician Review', body: 'A licensed clinician reviews your answers, by secure message or, when needed, a short video visit, and decides whether treatment is right for you. The review is included in your monthly price.', image: '/images/journey-2.webp', alt: 'Provider reviewing patient information on a laptop' },
-  { n: 3, title: 'Pay Only If You’re Approved', body: 'If your clinician prescribes treatment, you check out and pay for your first month. If not, you pay nothing.', image: '/images/journey-3.webp', alt: 'Woman reading her treatment plan on a tablet' },
+  { n: 3, title: 'Your Clinician’s Decision', body: 'If your clinician prescribes treatment, your plan begins. If not, we refund your payment in full. You don’t need to ask.', image: '/images/journey-3.webp', alt: 'Woman reading her treatment plan on a tablet' },
   { n: 4, title: 'Discreet Home Delivery', body: 'If prescribed, medication is shipped directly to your home in discreet, secure packaging.', image: '/images/journey-4.webp', alt: 'Person opening a discreet WellPeps delivery box' },
   { n: 5, title: 'Ongoing Provider Support', body: 'Continue working with your provider as your needs evolve over time.', image: '/images/journey-5.webp', alt: 'Woman on a follow-up video visit at home' },
 ];
@@ -28,7 +28,7 @@ export const includes = [
   { icon: 'price-shield', title: 'Transparent Pricing', body: 'Know your full program cost before you begin. No hidden fees. No surprises.' },
   { icon: 'clipboard-check', title: 'Licensed Healthcare Provider Review', body: 'Every treatment begins with a licensed healthcare provider evaluation and a personalized treatment plan.' },
   { icon: 'headset', title: 'Ongoing Provider Support', body: 'Continue working with your provider throughout your treatment journey as your needs evolve.' },
-  { icon: 'clock-x', title: 'Cancel Anytime', body: 'Cancel anytime, with no cancellation fee. You pay nothing unless a clinician prescribes treatment.' },
+  { icon: 'clock-x', title: 'Cancel Anytime', body: 'Cancel anytime, with no cancellation fee. If a clinician does not prescribe, we refund your first payment in full.' },
 ];
 
 /* ---- Section 7: Safety, Wellness & Privacy ---- */
@@ -67,7 +67,7 @@ export const faqs = [
     a: 'You start by answering health questions online. A licensed clinician licensed in your state reviews your health history and goals, may ask follow-up questions or request a video visit, and decides whether treatment is appropriate for you. '
       + 'That review, your follow-up care and your medication, if prescribed, are all part of your one monthly price. '
       + 'If you are prescribed treatment, a state-licensed pharmacy prepares your medication and ships it to your home. Your care team is available through secure messaging in your patient portal, and you can cancel your plan at any time. '
-      + 'You check out and pay only after your clinician prescribes treatment. If your clinician does not prescribe, you never pay.',
+      + 'You pay for your first month when you check out, after the health questions and before the clinician’s review. If your clinician does not prescribe, we refund that payment in full.',
   },
   ...planHomeFaqs,
   { q: 'How do I know if I’m a candidate for treatment?', a: 'Start by answering a few online health questions. A licensed healthcare provider reviews your health history, symptoms, and goals to determine whether a treatment is clinically appropriate for you. That review is included in your monthly price.' },
@@ -76,6 +76,6 @@ export const faqs = [
   { q: 'What states do you serve?', a: 'WellPeps serves patients located in all 50 states. Some medications are not available in every state; if one cannot be shipped to yours, we will tell you before you check out.' },
   { q: 'How are medications delivered?', a: 'If prescribed, medications are prepared by licensed U.S. pharmacies and shipped directly to your home in discreet, secure packaging.' },
   { q: 'Is my personal information secure?', a: 'We take your privacy seriously and use secure technology to protect your information. Our Privacy Policy explains what we collect, why, and the choices you have.' },
-  { q: 'What payment methods do you accept?', a: 'We accept Visa, Mastercard, American Express, Discover, FSA/HSA cards, Apple Pay and Google Pay. You’ll see clear pricing before you begin, and you are charged only if a clinician prescribes treatment.' },
+  { q: 'What payment methods do you accept?', a: 'We accept Visa, Mastercard, American Express, Discover, FSA/HSA cards, Apple Pay and Google Pay. You’ll see clear pricing before you begin. You pay at checkout, and if a clinician does not prescribe, we refund you in full.' },
   { q: 'What programs does WellPeps offer?', a: 'Weight Management, Hair Restoration, Sexual Wellness, and Healthy Aging & Vitality are available today, with Hormone Optimization coming soon.' },
 ];

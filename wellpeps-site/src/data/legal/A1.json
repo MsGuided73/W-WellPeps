@@ -5,7 +5,7 @@
  "blocks": [
   {
    "t": "p",
-   "text": "**Effective date:** October 6, 2026   |   **Last updated:** October 6, 2026   |   **Version:** 1.0",
+   "text": "**Effective date:** October 12, 2026   |   **Last updated:** October 12, 2026   |   **Version:** 1.1",
    "italic": false,
    "align": null
   },
@@ -396,7 +396,7 @@
    "t": "clause",
    "number": "10.4",
    "heading": "Payments and refunds.",
-   "text": "If you start a health assessment, the Patient Terms of Service and Payment Agreement and the Refund, Cancellation and Auto-Renewal Policy explain what you pay, when you are charged (only when a clinician prescribes treatment) and when you get a refund.",
+   "text": "If you start a health assessment, the Patient Terms of Service and Payment Agreement and the Refund, Cancellation and Auto-Renewal Policy explain what you pay, when you are charged (at checkout, before a clinician reviews your answers, with a full refund if the clinician does not prescribe) and when you get a refund.",
    "level": 0
   },
   {

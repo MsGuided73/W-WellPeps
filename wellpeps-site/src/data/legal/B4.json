@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "Version 1.0  |  Effective October 6, 2026  |  Last updated October 6, 2026",
+   "text": "Version 1.1  |  Effective October 12, 2026  |  Last updated October 12, 2026",
    "italic": true,
    "align": null
   },
@@ -116,7 +116,7 @@
    "t": "clause",
    "number": "3.3",
    "heading": "If you are not accepted.",
-   "text": "If you are not accepted, or no prescription is issued, you are not charged.",
+   "text": "If you are not accepted, or no prescription is issued, WellPeps refunds what you paid at checkout in full. You do not need to ask. The Refund, Cancellation and Auto-Renewal Policy explains how.",
    "level": 0
   },
   {
@@ -619,7 +619,7 @@
   },
   {
    "t": "p",
-   "text": "Please read this consent (version 1.0, effective October 6, 2026) before checking each box. Signing does not guarantee that a clinician will accept you or prescribe anything. You can read this consent again at portal.wellpeps.com.",
+   "text": "Please read this consent (version 1.1, last updated October 12, 2026) before checking each box. Signing does not guarantee that a clinician will accept you or prescribe anything. You can read this consent again at portal.wellpeps.com.",
    "italic": false,
    "align": null
   },

@@ -1,7 +1,7 @@
 {
  "title": "Medical Disclaimer and Site-Wide Disclosure Set",
- "version": "1.0",
- "date": "October 6, 2026",
+ "version": "1.1",
+ "date": "October 12, 2026",
  "blocks": [
   {
    "t": "h1",
@@ -51,7 +51,7 @@
   },
   {
    "t": "p",
-   "text": "Effective date: October 6, 2026  |  Last updated: October 6, 2026  |  Version 1.0",
+   "text": "Effective date: October 12, 2026  |  Last updated: October 12, 2026  |  Version 1.1",
    "italic": true,
    "align": null
   },
@@ -94,7 +94,7 @@
    "t": "clause",
    "number": "6.",
    "heading": "A prescription is required and is not guaranteed.",
-   "text": "A licensed clinician decides whether a prescription is medically appropriate for you. Starting a plan does not guarantee a prescription. You are charged only when a clinician prescribes treatment. If your clinician does not prescribe, you are not charged.",
+   "text": "A licensed clinician decides whether a prescription is medically appropriate for you. Starting a plan does not guarantee a prescription. You pay for your first month at checkout, before a clinician reviews your answers. If your clinician does not prescribe, we refund that charge in full.",
    "level": 0
   },
   {
@@ -244,11 +244,11 @@
   },
   {
    "t": "h3",
-   "text": "Copy: wherever “free” appears (only for the online health questions)"
+   "text": "Copy: wherever the online health questions or the price are mentioned (never use “free”)"
   },
   {
    "t": "callout",
-   "text": "The online health questions are free: they are an automated questionnaire, and you do not need a card to answer them. Your clinician’s review and your treatment are not free. They are included in your monthly price. You are charged only if a clinician prescribes treatment, and if your clinician does not prescribe, you are not charged. A prescription is not guaranteed.",
+   "text": "The online health questions are an automated questionnaire, and you do not need a card to answer them. Your clinician’s review and your treatment are not free. They are included in your monthly price, which you pay at checkout before a clinician reviews your answers. If your clinician does not prescribe, we refund that charge in full. A prescription is not guaranteed.",
    "kind": "info"
   },
   {
@@ -833,7 +833,7 @@
     "Say “state-licensed pharmacy.” Never say “FDA-registered,” “FDA-approved pharmacy” or “FDA-inspected.”",
     "Never say “HIPAA compliant,” “guaranteed,” “safe,” “natural” or “risk-free.” Do not publish weight-loss numbers or any outcome number.",
     "Write “Prescription required; a prescription is not guaranteed” wherever a treatment is mentioned.",
-    "Prefer not to use “free” at all. It may describe only the automated online health questions, and the Block 5 “free” sentence must sit in the same sentence or the one next to it. The clinician’s review is never free: it is included in the monthly price, and the patient is charged only if a clinician prescribes.",
+    "Do not use “free.” Since 2026-10-12 the first month is paid at checkout, before the clinician’s review, so the only thing copy may say about the automated online health questions is that they do not need a card, with the Block 5 sentence in the same sentence or the one next to it. The clinician’s review is never free: it is included in the monthly price.",
     "Do not name the Practice, the management-services partner or the technology vendor in patient-facing copy unless the contract allows and written consent is in hand.",
     "Never write “all 50 states.” Use the States We Serve page.",
     "A disclaimer cannot fix content that contradicts it. Dosing instructions do not belong in educational content."

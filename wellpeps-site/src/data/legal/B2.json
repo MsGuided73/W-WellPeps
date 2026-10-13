@@ -5,13 +5,13 @@
  "blocks": [
   {
    "t": "p",
-   "text": "**Effective date:** October 6, 2026   |   **Last updated:** October 6, 2026   |   **Version:** 1.0",
+   "text": "**Effective date:** October 12, 2026   |   **Last updated:** October 12, 2026   |   **Version:** 1.1",
    "italic": false,
    "align": null
   },
   {
    "t": "callout",
-   "text": "**The short version.** This summary is only a guide. The full agreement below is what counts.\n• **Who we are.** WellPeps is not a medical practice or a pharmacy. We run intake, education, support and billing.\n• **Who decides about your care.** A licensed clinician at an independent medical practice decides whether a prescription is right for you. A prescription is not guaranteed. A state-licensed pharmacy prepares and ships any medicine.\n• **What you pay.** One monthly price, shown at checkout. It covers the online health questions, your clinician’s review and follow-up care, your medication (if prescribed), messaging with the medical practice, education and standard shipping. There is no setup fee and no cancellation fee. Labs, if your clinician recommends them, are billed separately. Tax is added where the law requires it.\n• **The online health questions.** They are an automated questionnaire, and you do not need a card to answer them. Your clinician’s review is included in your monthly price. If the clinician decides not to prescribe, you never pay.\n• **When you are charged.** You answer the health questions first and a licensed clinician reviews them. Only if the clinician prescribes treatment do you check out, agree to the renewal terms and pay for your first month. If the clinician does not prescribe, you never pay. After that first payment your plan renews monthly on the same day of the month until you cancel.\n• **Cash pay.** We do not bill insurance, Medicare or Medicaid.\n• **Renewing and canceling.** Your plan renews each month until you cancel. You can cancel anytime. The Refund, Cancellation and Auto-Renewal Policy has the details.\n• **Disputes.** If we cannot work out a problem together, it goes to individual arbitration, not a class action, unless you opt out within 30 days (Section 19).",
+   "text": "**The short version.** This summary is only a guide. The full agreement below is what counts.\n• **Who we are.** WellPeps is not a medical practice or a pharmacy. We run intake, education, support and billing.\n• **Who decides about your care.** A licensed clinician at an independent medical practice decides whether a prescription is right for you. A prescription is not guaranteed. A state-licensed pharmacy prepares and ships any medicine.\n• **What you pay.** One monthly price, shown at checkout. It covers the online health questions, your clinician’s review and follow-up care, your medication (if prescribed), messaging with the medical practice, education and standard shipping. There is no setup fee and no cancellation fee. Labs, if your clinician recommends them, are billed separately. Tax is added where the law requires it.\n• **The online health questions.** They are an automated questionnaire, and you do not need a card to answer them. Your clinician’s review is included in your monthly price.\n• **When you are charged.** You answer the health questions first. Then you check out, agree to the renewal terms and pay for your first month. This charge happens at checkout, before a licensed clinician reviews your answers. If the clinician does not prescribe, we refund that charge in full. You do not need to ask. After that first payment your plan renews monthly on the same day of the month until you cancel.\n• **Cash pay.** We do not bill insurance, Medicare or Medicaid.\n• **Renewing and canceling.** Your plan renews each month until you cancel. You can cancel anytime. The Refund, Cancellation and Auto-Renewal Policy has the details.\n• **Disputes.** If we cannot work out a problem together, it goes to individual arbitration, not a class action, unless you opt out within 30 days (Section 19).",
    "kind": "info"
   },
   {
@@ -302,28 +302,28 @@
    "t": "clause",
    "number": "5.2",
    "heading": "What the questions and the review cost.",
-   "text": "The online health questions are an automated questionnaire, and you do not need a card to answer them. The clinician’s review is included in your monthly price (Section 6.2). If the clinician decides not to prescribe, you are not charged, as Section 5.4 explains.",
+   "text": "The online health questions are an automated questionnaire, and you do not need a card to answer them. The clinician’s review is included in your monthly price (Section 6.2). If the clinician decides not to prescribe, we refund your checkout charge in full, as Section 5.4 explains.",
    "level": 0
   },
   {
    "t": "clause",
    "number": "5.3",
    "heading": "When you are charged.",
-   "text": "You answer the health questions first, and you do not enter a payment method at that step. A clinician reviews your answers, and checkout is offered only if the clinician prescribes treatment. At checkout you agree to this Agreement and to the automatic renewal terms, enter your payment method and pay for your first month. After that first charge, your plan renews each month on the same day of the month until you cancel (Section 8.3).",
+   "text": "You answer the health questions first. You do not need a card for that step. Then you check out: you agree to this Agreement and, in a separate box that is not checked for you, to the automatic renewal terms, enter your payment method and pay for your first month. This charge happens at checkout, before a clinician reviews your answers. A clinician of the Practice then reviews your answers, usually by secure message, or by live video when it is needed or when the law of your state requires it. After that first charge, your plan renews each month on the same day of the month until you cancel (Section 8.3).",
    "level": 0
   },
   {
    "t": "clause",
    "number": "5.4",
    "heading": "If the clinician does not prescribe.",
-   "text": "If the clinician decides not to prescribe, or the Practice declines your request, you are not charged. You never pay for that order, so there is nothing to refund. Your payment method is not used, and nothing is charged to it for that order.",
+   "text": "If the clinician decides not to prescribe, the Practice declines your request, or the clinician cannot finish the review (for example, because you did not send information the clinician asked for within 14 days after a reminder), we refund your checkout charge in full, including any tax, to the card you used at checkout. You do not need to ask. We start the refund within 2 business days after the decision. It usually appears on your statement within several business days, depending on your bank or card issuer.",
    "level": 0
   },
   {
    "t": "clause",
    "number": "5.5",
    "heading": "Other cases.",
-   "text": "If you change your mind before a clinician prescribes, you have not been charged and you can simply cancel. Refunds after a charge, such as if a shipment is lost or damaged or if we charge you in error, are covered by the Refund Policy.",
+   "text": "If you cancel before a clinician prescribes, we refund your checkout charge in full, because the pharmacy has not started. Other refunds, such as if a shipment is lost or damaged or if we charge you in error, are covered by the Refund Policy.",
    "level": 0
   },
   {
@@ -456,14 +456,14 @@
    "t": "clause",
    "number": "8.2",
    "heading": "Your authorization.",
-   "text": "When you check out, which happens only after a clinician prescribes treatment (Section 5.3), you authorize WellPeps to charge your payment method for the price shown at checkout, for each monthly renewal as described in Section 8.3, and for any other amount you agree to, such as labs. You also authorize us to keep your payment method on file for those charges. You can update your payment method in the Portal, but a plan cannot renew without one.",
+   "text": "When you check out, which happens after you answer the health questions and before a clinician reviews them (Section 5.3), you authorize WellPeps to charge your payment method for the price shown at checkout, for each monthly renewal as described in Section 8.3, and for any other amount you agree to, such as labs. You also authorize us to keep your payment method on file for those charges. You can update your payment method in the Portal, but a plan cannot renew without one.",
    "level": 0
   },
   {
    "t": "clause",
    "number": "8.3",
    "heading": "Automatic renewal.",
-   "text": "Your plan renews every month at the price shown at checkout, and we charge your payment method once a month, on the same day of the month as your first charge (the day you checked out after a clinician prescribed treatment), until you cancel. At checkout we will show you these automatic renewal terms again and ask for your separate agreement to them in a box that is not checked for you. The Refund Policy explains how to cancel and the deadline to avoid the next charge.",
+   "text": "Your plan renews every month at the price shown at checkout, and we charge your payment method once a month, on the same day of the month as your first charge (the day you checked out), until you cancel. At checkout we will show you these automatic renewal terms again and ask for your separate agreement to them in a box that is not checked for you. The Refund Policy explains how to cancel and the deadline to avoid the next charge.",
    "level": 0
   },
   {
@@ -546,7 +546,7 @@
    "t": "clause",
    "number": "9.2",
    "heading": "In short.",
-   "text": "You can cancel your plan at any time, with no cancellation fee and no minimum commitment. If the clinician does not prescribe, you are not charged (Section 5.4).",
+   "text": "You can cancel your plan at any time, with no cancellation fee and no minimum commitment. If the clinician does not prescribe, we refund your checkout charge in full (Section 5.4).",
    "level": 0
   },
   {
@@ -1132,7 +1132,7 @@
   },
   {
    "t": "p",
-   "text": "Please read the Patient Terms of Service and Payment Agreement (version 1.0, dated October 6, 2026) before checking each box. Accepting does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
+   "text": "Please read the Patient Terms of Service and Payment Agreement (version 1.1, dated October 12, 2026) before checking each box. Accepting does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
    "italic": false,
    "align": null
   },
@@ -1146,7 +1146,7 @@
   },
   {
    "t": "check",
-   "text": "I understand that the online health questions are an automated questionnaire, that the clinician’s review is not free but is part of my monthly price, and that I will not be charged unless a clinician prescribes treatment: checkout is offered only after the clinician prescribes, and if the clinician decides not to prescribe, I will not be charged at all."
+   "text": "I understand that the online health questions are an automated questionnaire, that the clinician’s review is not free but is part of my monthly price, and that I pay for my first month at checkout, before a clinician reviews my answers. If the clinician decides not to prescribe, or cannot finish the review, WellPeps will refund that charge in full."
   },
   {
    "t": "check",
@@ -1158,7 +1158,7 @@
   },
   {
    "t": "check",
-   "text": "I authorize WellPeps to charge the payment method I provide at checkout, which is offered only after a clinician prescribes treatment, for the price shown at checkout and for other amounts I agree to. I understand that charges will appear as WellPeps. (Automatic renewal has its own separate box at checkout.)"
+   "text": "I authorize WellPeps to charge the payment method I provide at checkout for the price shown at checkout and for other amounts I agree to. I understand that this first charge is made at checkout, before a clinician reviews my answers, and that charges will appear as WellPeps. (Automatic renewal has its own separate box at checkout.)"
   },
   {
    "t": "check",
@@ -1234,7 +1234,7 @@
   },
   {
    "t": "callout",
-   "text": "**Build note (remove before publishing).** Configure as a required form in GEN Health, shown before provider review and checkout, after the Electronic Records, Signatures and Communications Consent form. Every box must be checked to continue. Automatic-renewal consent is a different, separate and unchecked box at checkout (item E5); do not combine it with this form. Capture and store the typed name, timestamp, document version and IP address against the order. [COUNSEL: logging and retention]",
+   "text": "**Build note (remove before publishing).** Configure as a required form in GEN Health, shown before checkout (and so before provider review), after the Electronic Records, Signatures and Communications Consent form. Every box must be checked to continue. Automatic-renewal consent is a different, separate and unchecked box at checkout (item E5); do not combine it with this form. Capture and store the typed name, timestamp, document version and IP address against the order. [COUNSEL: logging and retention]",
    "kind": "note"
   }
  ],

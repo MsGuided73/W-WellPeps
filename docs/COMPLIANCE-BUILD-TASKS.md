@@ -15,7 +15,7 @@ Status: **Done** | **Ready** | **Blocked** (waiting on a decision or an outside 
 | Tests | 258 unit tests, a 54-check browser script, an 11-check production-build script and a banner-placement check at six window sizes. |
 | Checkout lock (pre-launch) | Assessment buttons ask for an access password before showing an encrypted checkout link. Turn off at launch. |
 | Footer mockup | Seven required legal links, built as a development-only mockup (not yet the live footer). |
-| Terms of Use payment section | Updated 2026-10-06: the card is entered at checkout but charged only when a clinician prescribes; nothing to refund if they do not. |
+| Terms of Use payment section | Updated 2026-10-12 (Intake-first): the patient pays the first month at checkout, before the clinician review, and is refunded in full if a clinician does not prescribe. |
 
 ## 2. Ready: the web team can start now
 
@@ -59,7 +59,7 @@ Before or right after the deploy: run `nginx -t` in the built image if Docker is
 
 | # | Task | Waiting on |
 |---|---|---|
-| X1 | ~~Refund rule when the provider does not prescribe~~ **Decided 2026-10-06:** the card is not charged at checkout, only when a clinician prescribes. Remaining: set GEN Health to charge on prescription and match the checkout wording | Platform configuration (X4) |
+| X1 | ~~Refund rule when the provider does not prescribe~~ **Decided 2026-10-12:** Intake-first; the patient pays at checkout and is refunded in full, without asking, within 2 business days if a clinician does not prescribe. Remaining: billing owner refunds Denied orders by hand (GEN never auto-refunds); GEN checkout text must match | Platform configuration (X4) |
 | X2 | Notice of Privacy Practices and the privacy-role decision | Counsel on the HIPAA role; the practice's own notice |
 | X3 | Naming the medical practice anywhere on the site | The practice's signed written consent (contract section 20) |
 | X4 | GEN Health checkout: form order, conditional acknowledgments by product, custom text and a required checkbox at the pay button, edited emails | Platform answers to the capability questions (partner request list, Scriptful sheet) |

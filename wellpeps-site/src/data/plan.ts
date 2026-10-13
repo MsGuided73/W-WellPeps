@@ -9,11 +9,13 @@
  * are the only thing not included: they are billed separately, and tax is added where the law
  * requires it. The price itself is set per product in GEN Health.
  *
- * When the patient is charged (decided 2026-10-06; GEN confirmed): the patient answers the health
- * questions, a licensed clinician reviews them, and only if the clinician prescribes does the
- * patient check out, agree to the renewal terms and pay the first month. If the clinician does not
- * prescribe, the patient never pays. The plan then renews monthly on the same calendar day as that
- * first payment until the patient cancels.
+ * When the patient is charged (Intake-first, owner 2026-10-12): the patient answers the health
+ * questions, then checks out, agrees to the renewal terms and pays the first month, before a
+ * licensed clinician reviews. If the clinician does not prescribe, WellPeps refunds that payment in
+ * full, including tax, without being asked (Refund Policy 5.1). The plan renews monthly on the same
+ * calendar day as the checkout until the patient cancels. This replaces the pay-after-approval flow
+ * (2026-10-06 to 2026-10-12), parked until GEN Health's checkout supports a $0.00 assessment or
+ * credits the assessment price against the product.
  *
  * Wording rule: "free" may mean only the automated online health questions, and the clinician
  * review and treatment must be stated as part of the monthly price in the same sentence or the
@@ -28,7 +30,7 @@ export const planIntro = {
 export const planPrice = {
   headline: 'One monthly price',
   sub: 'Covers your clinician’s review, follow-up care, your medication if prescribed, and standard shipping',
-  note: 'You pay nothing unless a clinician prescribes treatment. No setup fee, no cancellation fee. Cancel anytime.',
+  note: 'You pay at checkout. If a clinician does not prescribe, we refund you in full. No setup fee, no cancellation fee. Cancel anytime.',
 };
 
 export const planIncludes = [
@@ -39,8 +41,9 @@ export const planIncludes = [
 ];
 
 export const planFinePrint =
-  'You check out and pay only after a licensed clinician prescribes treatment. ' +
-  'If your clinician does not prescribe, you never pay. After that first payment, your plan renews ' +
+  'You pay for your first month when you check out, after the online health questions and before ' +
+  'a licensed clinician reviews them. If your clinician does not prescribe, we refund that payment ' +
+  'in full, including any tax, and you do not need to ask. After that first payment, your plan renews ' +
   'monthly on the same day of the month at the price shown at checkout until you cancel. ' +
   'The monthly price also covers your online health questions and patient education. There is no ' +
   'setup fee and no cancellation fee. Lab tests are the only thing not included; they are ' +
@@ -54,7 +57,7 @@ export const planProgramFaqs = [
   },
   {
     q: 'When am I charged?',
-    a: 'Only after a licensed clinician prescribes treatment. You answer the health questions first and a clinician reviews them. If the clinician prescribes, you check out, agree to the renewal terms and pay for your first month. If your clinician does not prescribe, you never pay. After that first payment, your plan renews monthly on the same day of the month until you cancel.',
+    a: 'When you check out. You answer the health questions first, then check out, agree to the renewal terms and pay for your first month. A licensed clinician then reviews your answers. If the clinician does not prescribe, we refund that payment in full, including any tax, and you do not need to ask. If you are prescribed treatment, your plan renews monthly on the same day of the month as your checkout until you cancel.',
   },
   {
     q: 'Can I cancel my plan?',

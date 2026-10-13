@@ -6,6 +6,30 @@ confirmed the plan, and what is carried forward.
 
 ---
 
+## 2026-10-12 — back to Intake-first: the patient pays at checkout (owner decision)
+
+### Decisions
+- **All 19 product links use GEN Health's Intake-first flow** (`checkoutFlow=intake_first`).
+  The patient answers the health questions, checks out, agrees to the renewal terms and
+  pays the first month for the chosen treatment, **before** a clinician reviews.
+- **If the clinician does not prescribe** (or the Practice declines, or the review cannot
+  be finished), WellPeps refunds that payment in full, including tax, without being asked,
+  starting within 2 business days of the decision (Refund Policy 5.1). The patient may
+  also cancel for a full refund before a clinician prescribes.
+- **Why:** Assessment-first (`visit_first`, used 2026-10-09 to 2026-10-12) charged only
+  after approval, but GEN Health's checkout cannot yet finish that flow with a $0.00
+  assessment fee, and cannot subtract the assessment price from the product price.
+  Return to Assessment-first when GEN supports either one.
+- **Operational:** GEN Health never refunds automatically. The billing owner must refund
+  every Denied order by hand; use the `order.status_updated` webhook alert (order ID and
+  status only).
+- **Supersedes:** the 2026-10-06 "charged only when a clinician prescribes" rule below and
+  the 2026-10-09 Assessment-first switch. Site copy, the assistant, llms.txt, the legal
+  documents and the guard tests (`claims.test.ts`) now state pay-at-checkout with a full
+  refund if not prescribed; the old promise is banned until the flow changes back.
+
+---
+
 ## 2026-10-06 — when the patient is charged (owner decision)
 
 ### Decisions

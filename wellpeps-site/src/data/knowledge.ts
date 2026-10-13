@@ -171,12 +171,12 @@ export const knowledgeBase: KnowledgeDoc[] = [
     source: 'program',
     tags: ['price', 'pricing', 'cost', 'how much', 'fees', 'payment', 'insurance', 'expensive'],
     answer:
-      'Pricing is transparent — you know your full program cost before you begin, with no hidden fees. You check out and pay only after a licensed clinician prescribes treatment; if your clinician does not prescribe, you never pay. After your first payment your plan renews monthly on the same day of the month until you cancel. Sexual Wellness starts at $79/month, Hair Restoration at $49/month, and Weight Management at $179/month. Each is one monthly price covering the online health questions, your licensed clinician’s review, follow-up care, your medication if prescribed, messaging with your care team, education and standard shipping. There is no setup fee and no cancellation fee. Lab tests are the only thing not included; they are billed separately, and tax is added where the law requires it. No insurance is required; WellPeps is self-pay. We accept Visa, Mastercard, FSA/HSA, Apple Pay and Google Pay.',
+      'Pricing is transparent — you know your full program cost before you begin, with no hidden fees. You pay for your first month at checkout, after the online health questions and before a licensed clinician reviews them; if your clinician does not prescribe, we refund that payment in full. If you are prescribed treatment, your plan renews monthly on the same day of the month as your checkout until you cancel. Sexual Wellness starts at $79/month, Hair Restoration at $49/month, and Weight Management at $179/month. Each is one monthly price covering the online health questions, your licensed clinician’s review, follow-up care, your medication if prescribed, messaging with your care team, education and standard shipping. There is no setup fee and no cancellation fee. Lab tests are the only thing not included; they are billed separately, and tax is added where the law requires it. No insurance is required; WellPeps is self-pay. We accept Visa, Mastercard, FSA/HSA, Apple Pay and Google Pay.',
     body: `Every program includes transparent pricing, a licensed healthcare provider review, ongoing
       provider support, and the ability to cancel anytime. No insurance required — affordable self-pay
       programs make personalized wellness accessible. Accepted payment methods: Visa, Mastercard,
       American Express, Discover, FSA/HSA cards, Apple Pay, Google Pay. Provider follow-ups are included in your monthly price.
-      You pay nothing unless a clinician prescribes treatment.`,
+      You pay at checkout, and if a clinician does not prescribe, we refund you in full.`,
   },
   {
     id: 'program-cancel',
@@ -184,11 +184,11 @@ export const knowledgeBase: KnowledgeDoc[] = [
     source: 'program',
     tags: ['cancel', 'cancellation', 'refund', 'subscription', 'commitment', 'quit', 'stop'],
     answer:
-      'You can cancel anytime — there is no long-term commitment and no cancellation fee. You are charged only when a licensed clinician prescribes treatment, so if your clinician does not prescribe, you are never charged. Medication that has already been ordered or processed for that month’s shipment cannot be refunded.',
+      'You can cancel anytime — there is no long-term commitment and no cancellation fee. You pay for your first month at checkout, before a licensed clinician reviews your answers. If your clinician does not prescribe, we refund that payment in full, including any tax, and you do not need to ask. Medication that has already been ordered or processed for that month’s shipment cannot be refunded.',
     body: `Cancel anytime. You are never locked into a long-term commitment, and there is no cancellation fee.
-      You check out and pay only after a licensed clinician prescribes treatment; if the clinician does not
-      prescribe, you never pay. Your plan then renews monthly on the same day of the month as that first
-      payment until you cancel. Medications that have already been ordered or
+      You pay for your first month at checkout, before a licensed clinician reviews your answers; if the
+      clinician does not prescribe, we refund that payment in full. If you are prescribed treatment, your plan
+      renews monthly on the same day of the month as your checkout until you cancel. Medications that have already been ordered or
       processed for that month's shipment cannot be refunded.`,
   },
   {

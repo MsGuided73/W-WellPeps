@@ -32,11 +32,14 @@ const BANNED: { pattern: RegExp; why: string }[] = [
   // Decided 2026-10-05: the clinician review is included in the one monthly price, so it is never "free". Only the
   // automated online questions could be called free, and the site prefers not to use the word for them at all.
   { pattern: /free\s+(online\s+)?(health\s+|personalized\s+)?(assessment|consult|evaluation|clinician|provider|doctor|review)|no charge for the assessment|(assessment|consultation) (is|are) free/i, why: 'The clinician review is part of the monthly price; never call the assessment, consultation or review free (FTC Guide, 16 CFR 251.1)' },
-  // Decided 2026-10-06: there is no membership fee (not even as "no membership fee"), and the patient checks out and pays only
-  // after a clinician prescribes (GEN confirmed). Nothing may say the patient pays before the clinician review, pays today,
-  // or is refunded when not prescribed (they never pay in that case).
+  // Decided 2026-10-06: there is no membership fee (not even as "no membership fee").
+  // Decided 2026-10-12 (Intake-first): the patient pays the first month at checkout, before the clinician review, and
+  // is refunded in full if not prescribed. The 2026-10-06 to 2026-10-12 promise ("pay only if prescribed", "you never
+  // pay", "no payment is needed to start") is no longer true and must not come back until GEN Health's checkout supports
+  // a $0.00 assessment or credits the assessment price against the product.
   { pattern: /member(ship)?\s+fee|membership (of|for) \$|\$\d+\s*(\/|a|per)?\s*month(ly)? membership/i, why: 'There is no membership fee; do not mention one, even to deny it' },
-  { pattern: /pay today|pay now|(charged|pay|payment) before (your|a|the) (clinician|provider)|(full )?refund(ed)?[^.]{0,40}(not|isn.t|aren.t)[^.]{0,20}(prescribed|approved)/i, why: 'Checkout and payment come only after a clinician prescribes, so nothing is paid before the review and there is nothing to refund if they do not prescribe' },
+  { pattern: /pay today|pay now/i, why: 'No urgency language around payment' },
+  { pattern: /pay(s|ing)? only (if|after|when|once)[^.]{0,40}(prescri|approv)|pay nothing unless|never pay|(charged|billed) only (if|when|after|once)[^.]{0,40}(prescri|approv)|not (be )?charged (unless|until)|no payment is needed|checkout is offered only/i, why: 'Intake-first (2026-10-12): the patient pays at checkout, before the clinician review, and is refunded in full if not prescribed' },
   { pattern: /(start|take)( your| our)? free (health |online )?assessment/i, why: 'Only the automated online questions may be called free, and the button says "See If You Qualify"' },
 ];
 
@@ -78,6 +81,13 @@ describe('claims the site must not make', () => {
   test('released legal documents never mention a membership (dropped 2026-09-30; an AI audit still quoted it on 2026-10-11)', () => {
     const legal = resolve(root, 'data/legal');
     const hits = readdirSync(legal).filter((n) => n.endsWith('.json') && /membership/i.test(readFileSync(resolve(legal, n), 'utf8')));
+    expect(hits).toEqual([]);
+  });
+
+  test('released legal documents do not promise payment only after a prescription (Intake-first since 2026-10-12)', () => {
+    const legal = resolve(root, 'data/legal');
+    const stale = /you never pay|pay(s)? only after (my|your|a|the) clinician|charged only (if|when) (a|your) clinician prescribes|checkout is offered only|you are not charged at all|nothing to refund/i;
+    const hits = readdirSync(legal).filter((n) => n.endsWith('.json') && stale.test(readFileSync(resolve(legal, n), 'utf8')));
     expect(hits).toEqual([]);
   });
 

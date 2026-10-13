@@ -114,8 +114,9 @@ describe('llms.txt', () => {
     }
   });
 
-  test('states the pay-only-if-prescribed model and what WellPeps is not', () => {
-    expect(text).toMatch(/pay only if a clinician prescribes/i);
+  test('states the pay-at-checkout, full-refund-if-not-prescribed model and what WellPeps is not', () => {
+    expect(text).toMatch(/refunds that payment in full if a clinician does not prescribe/i);
+    expect(text).not.toMatch(/pay only if/i);
     expect(text).toMatch(/not a medical practice or a pharmacy/);
     expect(text).toMatch(/Compounded medications are not FDA-approved/);
   });
