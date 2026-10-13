@@ -7,10 +7,7 @@ import WeightProducts from '../components/sections/weight/WeightProducts.astro';
 import WhatsIncluded from '../components/sections/WhatsIncluded.astro';
 import WeightFaq from '../components/sections/weight/WeightFaq.astro';
 import WeightCta from '../components/sections/weight/WeightCta.astro';
-import EbookOffer from '../components/EbookOffer.astro';
 import GuideBand from '../components/guides/GuideBand.astro';
-import { GUIDE_LANDING_FLOW } from '../config';
-import { ebooksFor } from '../data/ebooks';
 import { programAt, startingPrice } from '../lib/seo/catalog';
 import { breadcrumbs, faqPage, programService } from '../lib/seo/schema';
 const program = programAt('/weight-loss/');
@@ -29,11 +26,10 @@ const jsonLd = [
 >
   <WeightHero />
   <WeightHowItWorks />
-  {GUIDE_LANDING_FLOW && <GuideBand program="weight-loss" />}
+  <GuideBand program="weight-loss" />
   <WeightWhyChoose />
   <WeightProducts />
   <WhatsIncluded />
-  {!GUIDE_LANDING_FLOW && <EbookOffer books={ebooksFor('weight-loss')} variant="band" />}
   <WeightFaq />
   <WeightCta />
 </BaseLayout>

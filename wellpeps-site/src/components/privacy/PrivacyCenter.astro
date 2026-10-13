@@ -11,12 +11,11 @@ interface Props {
   variant: 'dialog' | 'page';
   idPrefix: string;
 }
-import { GUIDE_LANDING_FLOW } from '../../config';
 import { FONTS_SELF_HOSTED } from '../../lib/privacy/config';
 const { variant, idPrefix } = Astro.props;
 const id = (s: string) => `${idPrefix}-${s}`;
 // The health-topic pages: the Smart Patient Guides pages exist only in the guide-funnel flow.
-const healthPages = GUIDE_LANDING_FLOW ? 'the program pages, the Learning Center and the Smart Patient Guides' : 'the program pages and Learning Center';
+const healthPages = 'the program pages, the Learning Center and the Smart Patient Guides';
 
 const requestShortcuts = [
   { id: 'limit_sensitive', label: 'Limit the use of my sensitive information' },

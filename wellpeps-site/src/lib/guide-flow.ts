@@ -1,25 +1,11 @@
 /**
- * How the free Smart Patient Guides are offered, and where each guide lives.
- *
- * Two flows share one codebase so the current one is never thrown away while the other is tried:
- *
- *   'dialog'   (default; what is live today) every "get the guide" button opens an email dialog on
- *              the page it is on (src/components/EbookOffer.astro).
- *   'landing'  Derek's guide-funnel strategy: the home page shows a 3D ring of covers, program pages
- *              and articles link to one landing page per guide, the form on that page leads to a
- *              thank-you page, and /smart-patient-guides lists every guide.
- *
- * The flow is chosen at build time with PUBLIC_GUIDE_FLOW (see GUIDE_FLOW in src/config.ts and
- * docs/GUIDE-FLOW.md). Unset means 'dialog', so nothing changes until it is set to 'landing'.
+ * Where each free Smart Patient Guide lives, and which guide a page offers (Derek's guide funnel,
+ * the site's only guide flow since 2026-10-12, when the old email dialog was removed): the home page
+ * shows a strip of covers, program pages and articles link to one landing page per guide, the form on
+ * that page leads to a thank-you page, and /smart-patient-guides lists every guide.
  */
 import type { ProgramSlug } from './cta';
 import { EBOOKS, ebooksFor, ebooksForCategory, type Ebook } from '../data/ebooks';
-
-export type GuideFlow = 'dialog' | 'landing';
-
-export function parseGuideFlow(raw: unknown): GuideFlow {
-  return typeof raw === 'string' && raw.trim().toLowerCase() === 'landing' ? 'landing' : 'dialog';
-}
 
 export const GUIDES_INDEX_PATH = '/smart-patient-guides';
 

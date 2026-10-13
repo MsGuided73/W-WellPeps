@@ -17,53 +17,32 @@ await ctx.route('**/functions/v1/notify-signup', async (route) => {
 });
 const hide = '.pbanner{display:none!important} astro-dev-toolbar{display:none!important} .wa{display:none!important}';
 
-// ---------------------------------------------------------------- guide dialog
-{
+// ---------------------------------------------------------------- guide landing forms
+// The guide funnel's form is the only guide sign-up since the email dialog was removed (2026-10-12).
+for (const [slug, title] of [['glp-1-weight-loss', 'GLP-1 Weight Loss'], ['hair-restoration', 'Hair Restoration']]) {
   const page = await ctx.newPage();
-  await page.goto(BASE + '/', { waitUntil: 'load' });
+  await page.goto(`${BASE}/smart-patient-guides/${slug}`, { waitUntil: 'load' });
   await page.addStyleTag({ content: hide });
-  const openers = page.locator('[data-ebook-open]');
-  const slugs = await openers.evaluateAll((els) => [...new Set(els.map((e) => e.dataset.ebookOpen))]);
-  check('the home page offers more than one guide', slugs.length > 1, slugs.join(','));
-
-  await page.locator(`[data-ebook-open="${slugs[0]}"]`).first().click();
-  const dialog = page.locator('[data-ebook-dialog][open]');
-  await dialog.waitFor();
-  const title = (await dialog.locator('[data-ebook-name]').innerText()).trim();
-  const collect = await dialog.locator('[data-fconsent-collect]').innerText();
-  const marketing = await dialog.locator('[data-fconsent-marketing]').innerText();
-  check('required consent names the guide topic and no first name', collect.includes(title) && !/first name/i.test(collect), collect.slice(0, 120));
-  check('required consent names the guide itself', collect.includes(`so WellPeps can send me the Smart Patient’s Guide to ${title}.`), collect);
-  check('optional consent names the guide and says it is not needed to receive it', marketing.includes(title) && marketing.includes(`I understand that I do not need to select this option in order to receive the Smart Patient’s Guide to ${title}.`), marketing);
-  check('both boxes start unchecked', !(await dialog.locator('input[name=consentCollect]').isChecked()) && !(await dialog.locator('input[name=consentMarketing]').isChecked()));
-  check('the old bundled "by continuing you agree" line is gone', !/By continuing you agree/i.test(await dialog.innerText()));
-  check('the dialog links the Privacy Policy and Your Privacy Choices', (await dialog.locator('a[href="/privacy-policy"]').count()) > 0 && (await dialog.locator('a[href="/your-privacy-choices"]').count()) > 0);
-
-  await dialog.locator('input[name=email]').fill('person@example.com');
-  await dialog.locator('button[type=submit]').click();
-  await page.waitForTimeout(400);
-  check('without the required box nothing is sent', sent.length === 0, String(sent.length));
-
-  await dialog.locator('input[name=consentCollect]').check();
-  await dialog.locator('button[type=submit]').click();
-  await page.waitForFunction(() => document.querySelector('[data-ebook-done]:not([hidden])'), null, { timeout: 8000 });
-  check('with only the required box, the optional consent is sent as false', sent.length === 1 && sent[0].consent_collect === true && sent[0].consent_marketing === false, JSON.stringify(sent[0]));
-  check('the wording version is sent', /draft/.test(sent[0]?.consent_text_version || ''), sent[0]?.consent_text_version);
-
-  await dialog.locator('[data-ebook-close]').click();
-  await page.locator(`[data-ebook-open="${slugs[1]}"]`).first().click();
-  const dialog2 = page.locator('[data-ebook-dialog][open]');
-  await dialog2.waitFor();
-  const title2 = (await dialog2.locator('[data-ebook-name]').innerText()).trim();
-  check('another guide changes the guide named in both consent boxes', title2 !== title && (await dialog2.locator('[data-fconsent-collect]').innerText()).includes(`Guide to ${title2}.`) && (await dialog2.locator('[data-fconsent-marketing]').innerText()).includes(`Guide to ${title2}.`), title2);
-  check('and the boxes start unchecked again', !(await dialog2.locator('input[name=consentCollect]').isChecked()));
-  await dialog2.locator('input[name=email]').fill('person2@example.com');
-  await dialog2.locator('input[name=consentCollect]').check();
-  await dialog2.locator('input[name=consentMarketing]').check();
-  await dialog2.locator('button[type=submit]').click();
-  await page.waitForFunction(() => sessionStorage && true);
+  const form = page.locator('form[data-guide-form]');
+  await form.scrollIntoViewIfNeeded();
+  const collect = await form.locator('[data-fconsent-collect]').innerText();
+  const marketing = await form.locator('[data-fconsent-marketing]').innerText();
+  check(`${slug}: required consent names the guide itself and no first name`, collect.includes(`so WellPeps can send me the Smart Patient’s Guide to ${title}.`) && !/first name/i.test(collect), collect);
+  check(`${slug}: optional consent names the guide and says it is not needed to receive it`, marketing.includes(title) && marketing.includes(`I understand that I do not need to select this option in order to receive the Smart Patient’s Guide to ${title}.`), marketing);
+  check(`${slug}: both boxes start unchecked`, !(await form.locator('input[name=consentCollect]').isChecked()) && !(await form.locator('input[name=consentMarketing]').isChecked()));
+  check(`${slug}: the form links the Privacy Policy and Your Privacy Choices`, (await form.locator('a[href^="/privacy-policy"]').count()) > 0 && (await form.locator('a[href^="/your-privacy-choices"]').count()) > 0);
+  const before = sent.length;
+  await form.locator('input[name=email]').fill(`${slug}@example.com`);
+  await form.locator('button[type=submit]').click();
   await page.waitForTimeout(500);
-  check('with both boxes, both are sent as true', sent.length === 2 && sent[1].consent_marketing === true && sent[1].consent_collect === true, JSON.stringify(sent[1]));
+  check(`${slug}: without the required box nothing is sent`, sent.length === before);
+  await form.locator('input[name=consentCollect]').check();
+  if (slug === 'hair-restoration') await form.locator('input[name=consentMarketing]').check();
+  await form.locator('button[type=submit]').click();
+  await page.waitForURL('**/thank-you**', { timeout: 8000 });
+  const last = sent[sent.length - 1];
+  const wantMarketing = slug === 'hair-restoration';
+  check(`${slug}: with consent it sends once, with the choices as given`, sent.length === before + 1 && last.consent_collect === true && last.consent_marketing === wantMarketing, JSON.stringify(last));
   await page.close();
 }
 

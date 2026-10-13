@@ -15,7 +15,7 @@
  * exist only in dev and in deployments built with SHOW_DRAFT_PAGES=true, so the footer never
  * shows a dead link, and a column with no links left disappears.
  */
-import { CONTACT, CONTACT_ADDRESS, GUIDE_LANDING_FLOW, PATIENT_PORTAL_URL } from '../config';
+import { CONTACT, CONTACT_ADDRESS, PATIENT_PORTAL_URL } from '../config';
 import { GUIDES_INDEX_PATH } from '../lib/guide-flow';
 import { draftPagesEnabledNow, linkVisible } from '../lib/legal-docs';
 import LegitScriptSeal from './LegitScriptSeal.astro';
@@ -61,7 +61,7 @@ const columns: { heading: string; links: FooterLink[] }[] = [
     heading: 'Resources',
     links: [
       { label: 'Learning Center', href: '/wellness-learning-center' },
-      ...(GUIDE_LANDING_FLOW ? [{ label: 'Smart Patient Guides', href: GUIDES_INDEX_PATH }] : []),
+      { label: 'Smart Patient Guides', href: GUIDES_INDEX_PATH },
       { label: 'FAQ', href: '/#faq' },
       { label: 'Treatment Process', href: '/#journey' },
       { label: 'Pricing', href: '/#whats-included' },

@@ -1,6 +1,6 @@
 ---
 /**
- * The Smart Patient's Guide Series pages (guide-funnel flow, GUIDE_FLOW = 'landing'):
+ * The Smart Patient's Guide Series pages (the guide funnel):
  *
  *   /smart-patient-guides                      the series index (never behind a form)
  *   /smart-patient-guides/<guide>              a guide's landing page, with the email form
@@ -16,14 +16,12 @@ import GuideIndex from '../../components/guides/GuideIndex.astro';
 import GuideLanding from '../../components/guides/GuideLanding.astro';
 import GuideFeatureLanding from '../../components/guides/GuideFeatureLanding.astro';
 import GuideThanks from '../../components/guides/GuideThanks.astro';
-import { GUIDE_LANDING_FLOW } from '../../config';
 import { EBOOKS, type Ebook } from '../../data/ebooks';
 import { GUIDE_SERIES, guidePageFor } from '../../data/guide-pages';
 
 type Kind = 'index' | 'guide' | 'thanks';
 
 export function getStaticPaths() {
-  if (!GUIDE_LANDING_FLOW) return [];
   return [
     { params: { path: undefined }, props: { kind: 'index' as Kind } },
     ...EBOOKS.map((book) => ({ params: { path: book.slug }, props: { kind: 'guide' as Kind, book } })),

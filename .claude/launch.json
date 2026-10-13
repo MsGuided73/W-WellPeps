@@ -11,21 +11,6 @@
       "cwd": "wellpeps-site",
       "port": 4321,
       "autoPort": true
-    },
-    {
-      "name": "wellpeps-guides",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": [
-        "astro",
-        "dev",
-        "--port",
-        "4325"
-      ],
-      "cwd": "wellpeps-site",
-      "port": 4325,
-      "env": {
-        "PUBLIC_GUIDE_FLOW": "landing"
-      }
     }
   ]
 }

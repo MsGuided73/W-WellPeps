@@ -1,5 +1,5 @@
 /**
- * Words for the guide-funnel flow (GUIDE_FLOW = 'landing', see src/lib/guide-flow.ts): one landing
+ * Words for the Smart Patient Guide funnel (see src/lib/guide-flow.ts): one landing
  * page and one thank-you page per Smart Patient Guide, the band on each program page, the call to
  * action inside articles, and the series pages.
  *

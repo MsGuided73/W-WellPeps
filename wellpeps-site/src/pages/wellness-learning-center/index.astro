@@ -17,9 +17,7 @@ import { breadcrumbs } from '../../lib/seo/schema';
 import Icon from '../../components/Icon.astro';
 import AssessmentCta from '../../components/AssessmentCta.astro';
 import { getCategoriesWithArticles, getFeaturedArticles, categoryIcon } from '../../lib/blog';
-import EbookOffer from '../../components/EbookOffer.astro';
 import GuideRing from '../../components/guides/GuideRing.astro';
-import { GUIDE_LANDING_FLOW } from '../../config';
 import { EBOOKS } from '../../data/ebooks';
 
 const categories = await getCategoriesWithArticles();
@@ -188,9 +186,7 @@ const searchIndexJson = JSON.stringify(searchIndex).replace(/</g, '\\u003c');
     </p>
   </div>
 
-  {GUIDE_LANDING_FLOW
-    ? <GuideRing books={EBOOKS} />
-    : <EbookOffer books={EBOOKS} variant="carousel" />}
+  <GuideRing books={EBOOKS} />
 </BaseLayout>
 
 <script>

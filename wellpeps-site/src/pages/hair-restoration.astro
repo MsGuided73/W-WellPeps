@@ -6,10 +6,8 @@ import HairHowItWorks from '../components/sections/hair/HairHowItWorks.astro';
 import HairProducts from '../components/sections/hair/HairProducts.astro';
 import HairFaq from '../components/sections/hair/HairFaq.astro';
 import HairCta from '../components/sections/hair/HairCta.astro';
-import { GUIDE_LANDING_FLOW, HAIR_COMING_SOON } from '../config';
-import EbookOffer from '../components/EbookOffer.astro';
+import { HAIR_COMING_SOON } from '../config';
 import GuideBand from '../components/guides/GuideBand.astro';
-import { ebooksFor } from '../data/ebooks';
 import { programAt, startingPrice } from '../lib/seo/catalog';
 import { breadcrumbs, faqPage, programService } from '../lib/seo/schema';
 const program = programAt('/hair-restoration/');
@@ -29,9 +27,8 @@ const jsonLd = [
   <HairHero />
   {HAIR_COMING_SOON && <HairComingSoon />}
   <HairHowItWorks />
-  {GUIDE_LANDING_FLOW && <GuideBand program="hair-restoration" />}
+  <GuideBand program="hair-restoration" />
   <HairProducts />
-  {!GUIDE_LANDING_FLOW && <EbookOffer books={ebooksFor('hair-restoration')} variant="band" />}
   <HairFaq />
   <HairCta />
 </BaseLayout>

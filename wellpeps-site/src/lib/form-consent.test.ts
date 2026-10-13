@@ -117,7 +117,7 @@ describe('submitSignup carries the consent', () => {
 describe('every health-topic form asks for it', () => {
   const root = resolve(__dirname, '../..');
   const read = (p: string) => readFileSync(resolve(root, p), 'utf8');
-  for (const f of ['src/components/EbookOffer.astro', 'src/components/guides/GuideLeadForm.astro', 'src/components/sections/WaitlistSection.astro', 'src/components/sections/hair/HairComingSoon.astro']) {
+  for (const f of ['src/components/guides/GuideLeadForm.astro', 'src/components/sections/WaitlistSection.astro', 'src/components/sections/hair/HairComingSoon.astro']) {
     test(`${f.split('/').pop()} uses the consent component and sends the choice`, () => {
       const src = read(f);
       expect(src).toContain('FormConsent');
@@ -131,11 +131,8 @@ describe('every health-topic form asks for it', () => {
     expect(src.match(/aria-describedby=\{`\$\{idPrefix\}-fine`\}/g)).toHaveLength(2);
   });
 
-  test('only the guide dialog names a guide, on first load and when it changes topic', () => {
-    const src = read('src/components/EbookOffer.astro');
-    expect(src).toMatch(/<FormConsent[^>]*forGuide/);
-    expect(src).toContain('{ forGuide: true }');
-    // The landing-page form is a guide form too, and has a first-name field.
+  test('only the guide form names a guide', () => {
+    // The guide landing-page form is the only guide form since the email dialog was removed (2026-10-12).
     expect(read('src/components/guides/GuideLeadForm.astro')).toMatch(/<FormConsent[^>]*forGuide/);
     expect(read('src/components/guides/GuideLeadForm.astro')).not.toContain('withFirstName');
     expect(read('src/components/sections/WaitlistSection.astro')).not.toContain('forGuide');
@@ -144,7 +141,7 @@ describe('every health-topic form asks for it', () => {
 
   test('only the form that has a first-name field says so in its consent', () => {
     expect(read('src/components/sections/WaitlistSection.astro')).toMatch(/<FormConsent[^>]*withFirstName/);
-    expect(read('src/components/EbookOffer.astro')).not.toContain('withFirstName');
+    expect(read('src/components/guides/GuideLeadForm.astro')).not.toContain('withFirstName');
     expect(read('src/components/sections/hair/HairComingSoon.astro')).not.toContain('withFirstName');
   });
 

@@ -20,7 +20,6 @@
  *  Verify with:  npm test && npm run build
  * ============================================================================
  */
-import { parseGuideFlow, type GuideFlow } from './lib/guide-flow';
 import type { CtaLinks } from './lib/cta';
 import { assertTrustedLinks, isLinked } from './lib/links';
 
@@ -197,17 +196,6 @@ assertTrustedLinks([
 export const HAIR_COMING_SOON =
   !isLinked(SCRIPTFUL_HAIR_PRODUCT_URL) &&
   !Object.values(PRODUCT_LINKS).some((p) => p.program === 'hair-restoration' && isLinked(p.url));
-
-/**
- * How the free Smart Patient Guides are offered (see src/lib/guide-flow.ts and docs/GUIDE-FLOW.md).
- * Chosen at build time with the PUBLIC_GUIDE_FLOW environment variable: unset or "dialog" keeps the
- * live flow (an email dialog on each page); "landing" turns on the guide-funnel flow (3D ring on the
- * home page, one landing page per guide, a thank-you page and a Smart Patient Guides index).
- */
-export const GUIDE_FLOW: GuideFlow = parseGuideFlow(
-  (import.meta.env?.PUBLIC_GUIDE_FLOW as string | undefined) ?? (typeof process !== 'undefined' ? process.env.PUBLIC_GUIDE_FLOW : undefined),
-);
-export const GUIDE_LANDING_FLOW = GUIDE_FLOW === 'landing';
 
 /** Shown under every program's product grid. One monthly price, no
  *  separate fees (decided 2026-09-25); standard shipping is included and labs

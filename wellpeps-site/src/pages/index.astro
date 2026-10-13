@@ -11,9 +11,7 @@ import Safety from '../components/sections/Safety.astro';
 import Insights from '../components/sections/Insights.astro';
 import Faq from '../components/sections/Faq.astro';
 import FinalCta from '../components/sections/FinalCta.astro';
-import EbookOffer from '../components/EbookOffer.astro';
 import GuideRing from '../components/guides/GuideRing.astro';
-import { GUIDE_LANDING_FLOW } from '../config';
 import { EBOOKS } from '../data/ebooks';
 import { faqs } from '../data/content';
 import { toFaqs } from '../lib/seo/catalog';
@@ -34,9 +32,7 @@ const jsonLd = [faqPage(toFaqs(faqs), '/')];
   <WhatsIncluded tinted />
   <Safety />
   <Insights />
-  {GUIDE_LANDING_FLOW
-    ? <GuideRing books={EBOOKS} />
-    : <EbookOffer books={EBOOKS} variant="carousel" />}
+  <GuideRing books={EBOOKS} />
   <Faq />
   <FinalCta />
 </BaseLayout>

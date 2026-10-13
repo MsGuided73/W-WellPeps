@@ -1,17 +1,6 @@
-import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
-import { loadEnv } from 'vite';
 import { sitemapIntegration } from './scripts/lib/sitemap.mjs';
 import { trailingSlashIntegration } from './scripts/lib/trailing-slash.mjs';
-
-// Which way the free Smart Patient Guides are offered (src/lib/guide-flow.ts, docs/GUIDE-FLOW.md).
-// Read here, from the shell or a .env file, because it decides which files the build includes.
-const guideFlow = loadEnv(process.env.NODE_ENV || 'development', process.cwd(), 'PUBLIC_').PUBLIC_GUIDE_FLOW;
-const guideFlowOn = String(guideFlow ?? '').trim().toLowerCase() === 'landing';
-// Astro bundles a component's CSS and script into every page that imports it, rendered or not. With the
-// guide-funnel flow off, each guides/Guide*.astro import resolves to an empty stub, so the default pages
-// carry none of it and stay as they were.
-const guideStub = fileURLToPath(new URL('./src/components/guides/GuideOff.astro', import.meta.url));
 
 // WellPeps marketing site — static output.
 // All PHI, accounts, and onboarding live on Scriptful's GEN Health platform;
@@ -50,9 +39,6 @@ export default defineConfig({
     inlineStylesheets: 'never',
   },
   vite: {
-    resolve: {
-      alias: guideFlowOn ? [] : [{ find: /^.*\/components\/guides\/Guide(?!Off)\w+\.astro$/, replacement: guideStub }],
-    },
     build: {
       // Vite/Astro paste any script or asset smaller than this (default 4 KB)
       // into the HTML or into CSS as a data: URI. 0 = always emit a file.

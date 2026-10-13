@@ -6,10 +6,7 @@ import SexProducts from '../components/sections/sexual/SexProducts.astro';
 import SexRecommendation from '../components/sections/sexual/SexRecommendation.astro';
 import SexFaq from '../components/sections/sexual/SexFaq.astro';
 import SexCta from '../components/sections/sexual/SexCta.astro';
-import EbookOffer from '../components/EbookOffer.astro';
 import GuideBand from '../components/guides/GuideBand.astro';
-import { GUIDE_LANDING_FLOW } from '../config';
-import { ebooksFor } from '../data/ebooks';
 import { programAt, startingPrice } from '../lib/seo/catalog';
 import { breadcrumbs, faqPage, programService } from '../lib/seo/schema';
 const program = programAt('/sexual-wellness/');
@@ -28,10 +25,9 @@ const jsonLd = [
 >
   <SexHero />
   <SexEducation />
-  {GUIDE_LANDING_FLOW && <GuideBand program="sexual-wellness" />}
+  <GuideBand program="sexual-wellness" />
   <SexProducts />
   <SexRecommendation />
-  {!GUIDE_LANDING_FLOW && <EbookOffer books={ebooksFor('sexual-wellness')} variant="band" />}
   <SexFaq />
   <SexCta />
 </BaseLayout>

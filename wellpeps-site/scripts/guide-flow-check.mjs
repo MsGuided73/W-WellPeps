@@ -1,18 +1,14 @@
 /**
- * The guide funnel works, and the current flow is untouched.
+ * The guide funnel works, and the old email-dialog flow (removed 2026-10-12) has not come back.
  *
- *   node scripts/guide-flow-check.mjs [landingBaseUrl] [dialogBaseUrl]
+ *   node scripts/guide-flow-check.mjs [baseUrl]        (default http://localhost:4321, `npm run dev`)
  *
- * Needs two dev servers (or two previews of a build) of the same code:
- *   landing  PUBLIC_GUIDE_FLOW=landing npx astro dev --port 4325      (default http://localhost:4325)
- *   dialog   npx astro dev                                           (default http://localhost:4321)
  * The sign-up endpoint is intercepted, so nothing is really sent.
  */
 import { chromium } from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
 
-const LANDING = process.argv.find((a, i) => i === 2 && a.startsWith('http')) || 'http://localhost:4325';
-const DIALOG = process.argv.find((a, i) => i === 3 && a.startsWith('http')) || 'http://localhost:4321';
+const LANDING = process.argv.find((a, i) => i === 2 && a.startsWith('http')) || 'http://localhost:4321';
 const GUIDES = ['glp-1-weight-loss', 'sexual-wellness', 'hair-restoration', 'healthy-aging-vitality', 'nad-therapy'];
 const PROGRAMS = [
   ['/weight-loss', 'glp-1-weight-loss', 'weight-loss'],
@@ -49,24 +45,18 @@ async function articleLinks(ctx, base) {
   return hrefs;
 }
 
-// ====================================================================== the current (dialog) flow is untouched
+// ====================================================================== the old dialog flow is gone
 {
-  console.log(`\n== dialog flow (${DIALOG})`);
+  console.log('\n== one flow: the guide funnel everywhere, no email dialog');
   const ctx = await newContext();
-  const home = await open(ctx, DIALOG, '/');
-  check('home still has the email-dialog carousel', (await home.page.locator('[data-ebook-offer].ebook--carousel').count()) === 1);
-  check('home has no ring', (await home.page.locator('[data-guide-ring]').count()) === 0);
-  check('footer has no Smart Patient Guides link', (await home.page.locator('footer a[href="/smart-patient-guides"]').count()) === 0);
-  for (const path of ['/smart-patient-guides', '/smart-patient-guides/glp-1-weight-loss', '/smart-patient-guides/glp-1-weight-loss/thank-you']) {
-    const r = await open(ctx, DIALOG, path);
-    check(`${path} does not exist`, r.status === 404, String(r.status));
-    await r.page.close();
-  }
-  const wl = await open(ctx, DIALOG, '/weight-loss');
-  check('Weight Loss keeps its dialog band and has no guide band', (await wl.page.locator('.ebook--band').count()) === 1 && (await wl.page.locator('[data-guide-band]').count()) === 0);
-  const hrefs = await articleLinks(ctx, DIALOG);
-  const art = await open(ctx, DIALOG, hrefs.find((h) => h.includes('semaglutide')) || hrefs[0]);
-  check('an article keeps its sidebar guide card and has no guide calls to action', (await art.page.locator('.ebook-rail').count()) === 1 && (await art.page.locator('[data-guide-cta]').count()) === 0);
+  const home = await open(ctx, LANDING, '/');
+  check('home shows the guide strip and no email-dialog carousel', (await home.page.locator('[data-guide-ring]').count()) === 1 && (await home.page.locator('[data-ebook-offer], [data-ebook-dialog]').count()) === 0);
+  check('footer links the Smart Patient Guides', (await home.page.locator('footer a[href^="/smart-patient-guides"]').count()) > 0);
+  const wl = await open(ctx, LANDING, '/weight-loss');
+  check('Weight Loss shows the guide band and no dialog band', (await wl.page.locator('[data-guide-band]').count()) === 1 && (await wl.page.locator('.ebook--band, [data-ebook-open]').count()) === 0);
+  const hrefs = await articleLinks(ctx, LANDING);
+  const art = await open(ctx, LANDING, hrefs.find((h) => h.includes('semaglutide')) || hrefs[0]);
+  check('an article carries the guide calls to action and no dialog sidebar card', (await art.page.locator('[data-guide-cta]').count()) > 0 && (await art.page.locator('.ebook-rail, [data-ebook-open]').count()) === 0);
   await ctx.close();
 }
 
@@ -241,11 +231,6 @@ async function articleLinks(ctx, base) {
   check('and the ring then turns on its own', (await page.locator('[data-ring-name]').innerText()) !== resumedFrom);
   await ctx.close();
 
-  // Reviewer's point on the current flow: it must not carry any of the new flow's CSS or script.
-  const dctx = await newContext();
-  const d = await open(dctx, DIALOG, '/');
-  check('the dialog flow’s home page carries none of the ring’s styles or script', await d.page.evaluate(() => ![...document.querySelectorAll('style')].some((s) => /gring|gband|gcta/.test(s.textContent || '')) && ![...document.scripts].some((s) => /GuideRing|strip-math/.test(s.src || ''))));
-  await dctx.close();
 }
 
 // ====================================================================== program pages

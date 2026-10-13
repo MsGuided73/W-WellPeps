@@ -1,23 +1,8 @@
 import { describe, expect, test } from 'vitest';
 import { EBOOKS } from '../data/ebooks';
 import { isSensitivePath } from './privacy/consent';
-import { GUIDES_INDEX_PATH, guideForArticle, guidePath, guideThanksPath, parseGuideFlow, keepGlpTogether, primaryGuideFor, splitAtMiddleSection } from './guide-flow';
+import { GUIDES_INDEX_PATH, guideForArticle, guidePath, guideThanksPath, keepGlpTogether, primaryGuideFor, splitAtMiddleSection } from './guide-flow';
 
-describe('which guide flow is on', () => {
-  test('the current dialog flow is the default for anything but "landing"', () => {
-    expect(parseGuideFlow(undefined)).toBe('dialog');
-    expect(parseGuideFlow('')).toBe('dialog');
-    expect(parseGuideFlow('dialog')).toBe('dialog');
-    expect(parseGuideFlow('true')).toBe('dialog');
-    expect(parseGuideFlow(42)).toBe('dialog');
-  });
-
-  test('"landing" turns the landing-page flow on, whatever the case or spacing', () => {
-    expect(parseGuideFlow('landing')).toBe('landing');
-    expect(parseGuideFlow(' Landing ')).toBe('landing');
-    expect(parseGuideFlow('LANDING')).toBe('landing');
-  });
-});
 
 describe('guide addresses', () => {
   test('the index, a guide and its thank-you page nest under one path', () => {

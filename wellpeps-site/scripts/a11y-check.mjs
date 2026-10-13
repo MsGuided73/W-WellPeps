@@ -4,7 +4,7 @@
  *   node scripts/a11y-check.mjs [baseUrl] [--json]
  *
  * Needs `npm run dev` (or BASE_URL). Runs axe-core on every page at desktop and phone width, and
- * again with each interactive piece open (privacy panel, assistant, guide dialog, checkout lock,
+ * again with each interactive piece open (privacy panel, assistant, checkout lock,
  * phone menu), then a few checks axe cannot make: the skip link, keyboard focus being visible, a
  * dialog holding focus and returning it, and reduced motion being respected. Exit code 1 if any
  * violation is found. Dev-only elements (Astro's toolbar, the Tweak panel) are left out.
@@ -22,7 +22,7 @@ const SITE = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 // Every built page (run `npm run build` first for the full list); a short fallback otherwise.
 function pagePaths() {
   const dist = join(SITE, 'dist');
-  if (!existsSync(dist)) return ['/', '/weight-loss', '/hair-restoration', '/sexual-wellness', '/healthy-aging', '/why-wellpeps', '/your-plan', '/your-privacy-choices', '/wellness-learning-center'];
+  if (!existsSync(dist)) return ['/', '/weight-loss', '/hair-restoration', '/sexual-wellness', '/healthy-aging', '/why-wellpeps', '/your-plan', '/your-privacy-choices', '/wellness-learning-center', '/smart-patient-guides', '/smart-patient-guides/glp-1-weight-loss'];
   const out = [];
   const walk = (d) => {
     for (const n of readdirSync(d)) {
@@ -93,11 +93,6 @@ for (const [label, vp] of [['desktop', { width: 1440, height: 900 }], ['phone', 
   await axe(page, 'assistant (open)');
   await page.locator('[data-wa-close]').click();
 
-  // guide dialog
-  await page.locator('[data-ebook-open]').first().click();
-  await page.locator('dialog[data-ebook-dialog][open]').waitFor();
-  await axe(page, 'guide dialog (open)');
-  await page.keyboard.press('Escape');
 
   // checkout lock dialog (the assessment button opens the password box while the lock is on)
   const lock = page.locator('a[data-checkout-lock]').first();
