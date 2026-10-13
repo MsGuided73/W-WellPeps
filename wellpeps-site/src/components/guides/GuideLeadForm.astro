@@ -16,13 +16,18 @@ import type { Ebook } from '../../data/ebooks';
 
 interface Props {
   book: Ebook;
+  /** A short line under the heading (the full landing layout's form card). */
+  tagline?: string;
 }
-const { book } = Astro.props;
+const { book, tagline } = Astro.props;
 const id = `gform-${book.slug}`;
 ---
 <form class="gform" id={id} method="post" novalidate data-guide-form data-source={book.source} data-next={guideThanksPath(book.slug)} aria-labelledby={`${id}-title`}>
   <div class="gform__head">
-    <h2 class="gform__title" id={`${id}-title`}>Get Your Free Guide</h2>
+    <div>
+      <h2 class="gform__title" id={`${id}-title`}>Get Your Free Guide</h2>
+      {tagline && <p class="gform__tagline">{tagline}</p>}
+    </div>
     <img class="gform__mark" src="/images/w-mark-v2.png" alt="" width="450" height="300" />
   </div>
   <div class="gform__fields">
@@ -90,6 +95,7 @@ const id = `gform-${book.slug}`;
   }
   .gform__head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
   .gform__mark { flex: none; width: 62px; height: auto; }
+  .gform__tagline { margin: 0.25rem 0 0; font-size: 0.9375rem; color: var(--text-body); }
   .gform__title { font-family: var(--font-serif); font-weight: 600; color: var(--navy); font-size: calc(var(--text-body-size) * 1.35); line-height: 1.2; margin: 0; }
   .gform__fields { display: grid; gap: 0.9rem; }
   .gform__field { display: grid; gap: 0.35rem; min-width: 0; }

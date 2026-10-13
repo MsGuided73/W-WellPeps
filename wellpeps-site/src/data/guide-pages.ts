@@ -38,6 +38,18 @@ export interface GuidePage {
   articleCta: { title: string; body: string; button: string };
   /** The prompt on the thank-you page, where someone has just raised their hand. */
   thanks: { assessmentHeading: string; assessmentBody: string };
+  /** The full landing layout (client mock 2026-10-12): photo hero, form card, Who We Help and a closing band.
+   *  Guides without it keep the compact layout. */
+  feature?: GuideFeature;
+}
+
+/** A guide's own pieces of the full landing layout; the shared words are in GUIDE_FEATURE_COPY. */
+export interface GuideFeature {
+  /** Hero photograph, shown to the right of the copy with the person whole in frame. */
+  heroImage: string;
+  heroAlt: string;
+  /** Where the subject sits in the photo (CSS object-position), so a narrow screen keeps them in view. */
+  heroFocus: string;
 }
 
 const SMART_PATIENT_LINE = 'What Every Smart Patient Needs to Know';
@@ -77,6 +89,11 @@ export const GUIDE_PAGES: Readonly<Record<string, GuidePage>> = {
       button: 'Get the Free GLP-1 Guide',
     },
     thanks: { assessmentHeading: 'Ready to Explore GLP-1 Treatment?', assessmentBody: ASSESSMENT_BODY },
+    feature: {
+      heroImage: '/images/guides/glp-1-hero.webp',
+      heroAlt: 'A smiling woman in a grey jacket walking a coastal trail at sunrise',
+      heroFocus: '30% 30%',
+    },
   },
 
   'sexual-wellness': {
@@ -269,4 +286,55 @@ export const GUIDE_SERIES = {
   becomeBody:
     'The Smart Patient’s Guide Series was created to help people better understand their options before making healthcare decisions. If you decide to explore treatment, a licensed healthcare provider reviews your health information and determines whether it may be appropriate.',
   educationLabel: 'Education Before Treatment',
+} as const;
+
+/**
+ * Shared words for the full landing layout (client mock 2026-10-12). Left out of the mock on purpose:
+ * the "As seen in WebMD, Healthline, Forbes, Verywell Health, Medscape" bar and the "100K+ patients
+ * educated", "4.8/5 patient satisfaction" and "100% unbiased" figures, none of which is true or
+ * substantiated (FTC endorsement and substantiation rules; LegitScript). "Created by healthcare experts"
+ * and "unbiased" are left out for the same reason, and the closing lines promise no outcome.
+ */
+export const GUIDE_FEATURE_COPY = {
+  eyebrow: 'Real information. Healthier tomorrows.',
+  badges: [
+    { icon: 'book-open', text: ['Evidence-informed', 'information'] },
+    { icon: 'shield', text: ['Plain-language,', 'practical guidance'] },
+    { icon: 'mail', text: ['Free, sent straight', 'to your inbox'] },
+  ] as { icon: string; text: [string, string] }[],
+  formRibbon: 'Free Guide',
+  formTagline: 'Practical. Plain-language. No hype.',
+  // True statements only, in place of the mock's media logos and figures.
+  trust: [
+    { icon: 'tag', title: 'Free to download', body: 'No cost and no obligation' },
+    { icon: 'clipboard-check', title: 'No obligation', body: 'Reading it never signs you up for treatment' },
+    { icon: 'lock', title: 'Your email stays yours', body: 'Used to send your guide unless you choose more' },
+  ],
+  insideEyebrow: 'Inside the guide',
+  insideTitle: 'Clear Answers for a Healthier You',
+  insideLead: 'Our free guide cuts through the confusion and gives you the essential information you need to make the right decision for your health.',
+  previewButton: 'Preview What’s Inside',
+  previewHeading: 'The chapters',
+  quote: 'Knowledge leads to better questions—and better choices.',
+  quoteLabel: ['Real information.', 'Informed choices.'] as [string, string],
+  helpEyebrow: 'Who we help',
+  helpTitle: 'Support for What Matters Most',
+  helpLead: 'WellPeps provides clear, easy-to-understand guides across key areas of health and wellness.',
+  // Each card opens that subject's free guide.
+  help: [
+    { title: 'Weight Loss', body: 'Clear guidance on GLP-1 medications and options.', image: '/images/program-weight.webp', icon: 'scale-check', guide: 'glp-1-weight-loss' },
+    { title: 'Hair Restoration', body: 'Understand your options and what to expect.', image: '/images/program-hair.webp', icon: 'sprout', guide: 'hair-restoration' },
+    { title: 'Sexual Wellness', body: 'Today’s treatment options, explained plainly.', image: '/images/program-sexual.webp', icon: 'heart', guide: 'sexual-wellness' },
+    { title: 'Healthy Aging', body: 'Wellness therapies explained, without the hype.', image: '/images/program-longevity.webp', icon: 'leaf', guide: 'healthy-aging-vitality' },
+  ],
+  helpMore: 'Learn More',
+  closeEyebrow: 'Take the next step',
+  closeTitle: ['Informed Patients', 'Make Healthier Choices'] as [string, string],
+  closeBody: 'Get trusted insights, practical guidance and the questions to ask, so you can take charge of your health with confidence.',
+  closeButton: 'Get Your Free Guide',
+  closePoints: [
+    { icon: 'check-circle', text: 'Clear, plain-language information' },
+    { icon: 'clipboard-check', text: 'Practical next steps' },
+    { icon: 'provider-chat', text: 'Better conversations with your provider' },
+  ],
 } as const;

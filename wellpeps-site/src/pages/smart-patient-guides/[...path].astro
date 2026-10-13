@@ -14,6 +14,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { breadcrumbs } from '../../lib/seo/schema';
 import GuideIndex from '../../components/guides/GuideIndex.astro';
 import GuideLanding from '../../components/guides/GuideLanding.astro';
+import GuideFeatureLanding from '../../components/guides/GuideFeatureLanding.astro';
 import GuideThanks from '../../components/guides/GuideThanks.astro';
 import { GUIDE_LANDING_FLOW } from '../../config';
 import { EBOOKS, type Ebook } from '../../data/ebooks';
@@ -62,6 +63,6 @@ const meta =
   pageType={kind === 'index' ? 'CollectionPage' : 'WebPage'}
 >
   {kind === 'index' && <GuideIndex />}
-  {kind === 'guide' && book && <GuideLanding book={book} />}
+  {kind === 'guide' && book && (guidePageFor(book.slug).feature ? <GuideFeatureLanding book={book} /> : <GuideLanding book={book} />)}
   {kind === 'thanks' && book && <GuideThanks book={book} />}
 </BaseLayout>

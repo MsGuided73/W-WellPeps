@@ -1,0 +1,308 @@
+---
+/**
+ * The full landing layout for a Smart Patient Guide (client mock 2026-10-12, first used for GLP-1):
+ * a photo hero with the copy on the left and the form card on the right, a strip of plain facts, the
+ * book with what is inside it, four "Who we help" cards that open the other guides, and a closing
+ * band. Guides whose data has no `feature` keep the compact GuideLanding.
+ *
+ * The words live in src/data/guide-pages.ts (GUIDE_FEATURE_COPY and the guide's own entry), which
+ * also notes what was left out of the mock and why. The form is the same GuideLeadForm, with the
+ * same consent boxes, as every other guide page.
+ */
+import Icon from '../Icon.astro';
+import GuideBook from './GuideBook.astro';
+import GuideLeadForm from './GuideLeadForm.astro';
+import LegitScriptSeal from '../LegitScriptSeal.astro';
+import { GUIDE_FEATURE_COPY as C, guidePageFor } from '../../data/guide-pages';
+import type { Ebook } from '../../data/ebooks';
+import { guidePath, keepGlpTogether } from '../../lib/guide-flow';
+
+interface Props {
+  book: Ebook;
+}
+const { book } = Astro.props;
+const page = guidePageFor(book.slug);
+const feature = page.feature!;
+const formId = `gf-form-${book.slug}`;
+---
+<section class="gf-hero">
+  <img class="gf-hero__photo" src={feature.heroImage} alt={feature.heroAlt} width="1150" height="887"
+       style={`object-position: ${feature.heroFocus}`} fetchpriority="high" decoding="async" />
+  <span class="gf-hero__shade" aria-hidden="true"></span>
+
+  <div class="container gf-hero__inner">
+    <div class="gf-hero__copy">
+      <p class="gf-eyebrow">{C.eyebrow}</p>
+      <!-- The series name is visually hidden: screen readers and search read the full title. -->
+      <h1 class="gf-title"><span class="visually-hidden">The Smart Patient’s </span>Guide to <span set:html={keepGlpTogether(book.title)} /></h1>
+      <p class="gf-sub">{page.headline[0]}<span set:html={keepGlpTogether(page.headline[1])} /></p>
+      <p class="gf-intro" set:html={keepGlpTogether(page.intro)} />
+      <ul class="gf-badges" role="list">
+        {C.badges.map((b) => (
+          <li><span class="gf-badges__icon"><Icon name={b.icon} /></span><span>{b.text[0]}<br />{b.text[1]}</span></li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="gf-hero__form" id={formId}>
+      <span class="gf-ribbon" aria-hidden="true">{C.formRibbon}</span>
+      <GuideLeadForm book={book} tagline={C.formTagline} />
+    </div>
+  </div>
+</section>
+
+<section class="gf-trust" aria-label="About this guide">
+  <div class="container gf-trust__inner">
+    <LegitScriptSeal class="gf-trust__seal" />
+    <ul class="gf-trust__list" role="list">
+      {C.trust.map((t) => (
+        <li><span class="gf-trust__icon"><Icon name={t.icon} /></span><span><strong>{t.title}</strong>{t.body}</span></li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<section class="gf-inside" aria-labelledby="gf-inside-title">
+  <div class="container gf-inside__inner">
+    <div class="gf-inside__book">
+      <span class="gf-inside__halo" aria-hidden="true"></span>
+      <GuideBook src={book.cover} alt={`Cover of The Smart Patient’s Guide to ${book.title}`} />
+    </div>
+
+    <div class="gf-inside__copy">
+      <p class="gf-label">{C.insideEyebrow}</p>
+      <h2 class="gf-h2" id="gf-inside-title">{C.insideTitle}</h2>
+      <p class="gf-lead">{C.insideLead}</p>
+      <ul class="glp-inside gf-checks" role="list">
+        {page.inside.map((item) => (
+          <li><span class="gf-checks__tick"><Icon name="check" /></span><span set:html={keepGlpTogether(item)} /></li>
+        ))}
+      </ul>
+      <details class="gf-preview">
+        <summary class="gf-preview__btn">{C.previewButton}<Icon name="arrow-right" /></summary>
+        <h3 class="gf-preview__head">{C.previewHeading}</h3>
+        <ol class="gf-preview__list" role="list">
+          {page.topics.map((topic) => (
+            <li class="glp-card"><span class="gf-preview__icon"><Icon name={topic.icon} /></span><span set:html={keepGlpTogether(topic.title)} /></li>
+          ))}
+        </ol>
+      </details>
+    </div>
+
+    <figure class="gf-quote">
+      <span class="gf-quote__mark" aria-hidden="true">&ldquo;</span>
+      <blockquote><p>{C.quote}</p></blockquote>
+      <span class="gf-quote__rule" aria-hidden="true"></span>
+      <figcaption>{C.quoteLabel[0]}<br />{C.quoteLabel[1]}</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="gf-help" aria-labelledby="gf-help-title">
+  <div class="container">
+    <p class="gf-label gf-label--center">{C.helpEyebrow}</p>
+    <h2 class="gf-h2 gf-h2--center" id="gf-help-title">{C.helpTitle}</h2>
+    <p class="gf-help__lead">{C.helpLead}</p>
+    <ul class="gf-help__grid" role="list">
+      {C.help.map((h) => (
+        <li class="gf-help__card">
+          <div class="gf-help__media">
+            <img src={h.image} alt="" width="780" height="520" loading="lazy" decoding="async" />
+            <span class="gf-help__icon"><Icon name={h.icon} /></span>
+          </div>
+          <div class="gf-help__body">
+            <h3>{h.title}</h3>
+            <p>{h.body}</p>
+            <a href={guidePath(h.guide)} class="gf-help__more">{C.helpMore}<span class="visually-hidden">: the free {h.title} guide</span><Icon name="arrow-right" /></a>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<section class="gf-close" aria-labelledby="gf-close-title">
+  <div class="container gf-close__inner">
+    <div class="gf-close__copy">
+      <p class="gf-eyebrow">{C.closeEyebrow}</p>
+      <h2 class="gf-close__title" id="gf-close-title">{C.closeTitle[0]}<br />{C.closeTitle[1]}</h2>
+      <p class="gf-close__body">{C.closeBody}</p>
+      <a href={`#${formId}`} class="gf-close__btn">{C.closeButton}<Icon name="arrow-right" /></a>
+    </div>
+    <ul class="gf-close__points" role="list">
+      {C.closePoints.map((p) => (
+        <li><span class="gf-close__icon"><Icon name={p.icon} /></span>{p.text}</li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  /* ---------- Hero ---------- */
+  .gf-hero {
+    position: relative; overflow: hidden; color: #fff; isolation: isolate;
+    background: linear-gradient(160deg, #0B3670 0%, var(--navy) 50%, var(--navy-deep) 100%);
+  }
+  .gf-hero__photo {
+    position: absolute; z-index: -2; top: 0; right: 0; bottom: 0; width: 70%; height: 100%; object-fit: cover;
+  }
+  /* Navy behind the copy, fading out over the photo; a light veil at the bottom right keeps the form card grounded. */
+  .gf-hero__shade {
+    position: absolute; z-index: -1; inset: 0;
+    background:
+      linear-gradient(90deg, var(--navy-deep) 0%, rgba(6, 32, 88, 0.97) 30%, rgba(6, 32, 88, 0.5) 44%, rgba(6, 32, 88, 0.05) 58%, rgba(6, 32, 88, 0.2) 100%),
+      linear-gradient(0deg, rgba(4, 20, 52, 0.45), transparent 40%);
+  }
+  .gf-hero__inner {
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 400px); gap: clamp(1.5rem, 4vw, 5rem); align-items: center;
+    padding-block: clamp(2.5rem, 5vw, 4.5rem);
+  }
+  .gf-hero__copy { max-width: 34rem; }
+  .gf-eyebrow { font-family: var(--font-sans); font-weight: 700; font-size: 0.9375rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-soft); }
+  .gf-title {
+    margin-top: 0.6rem; font-family: var(--font-serif); font-weight: 700; color: #fff; text-wrap: balance;
+    font-size: clamp(2.5rem, 1.4rem + 3.6vw, 4.6rem); line-height: 1.02; letter-spacing: -0.015em;
+  }
+  .gf-sub { margin-top: 1rem; font-family: var(--font-serif); font-weight: 600; font-size: clamp(1.2rem, 1rem + 0.8vw, 1.6rem); line-height: 1.25; }
+  .gf-sub span { display: block; color: var(--blue-soft); }
+  .gf-intro { margin-top: 1rem; max-width: 36rem; font-size: clamp(1rem, 0.95rem + 0.25vw, 1.1875rem); line-height: 1.55; color: rgba(255, 255, 255, 0.9); }
+  .gf-badges { list-style: none; margin: 1.6rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 1rem 1.75rem; }
+  .gf-badges li { display: flex; align-items: center; gap: 0.7rem; font-size: 0.9375rem; line-height: 1.3; color: rgba(255, 255, 255, 0.92); }
+  .gf-badges__icon {
+    flex: none; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1); border: 1.5px solid rgba(255, 255, 255, 0.35);
+  }
+  .gf-badges__icon :global(svg) { width: 22px; height: 22px; }
+
+  .gf-hero__form { position: relative; scroll-margin-top: 110px; }
+  .gf-ribbon {
+    position: absolute; z-index: 2; top: -0.85rem; right: -0.6rem; transform: rotate(6deg);
+    padding: 0.4rem 1rem; border-radius: 999px; font-family: var(--font-sans); font-weight: 800; font-size: 0.875rem;
+    letter-spacing: 0.08em; text-transform: uppercase; color: #fff; background: linear-gradient(180deg, #1E86D8, var(--blue));
+    box-shadow: 0 8px 18px rgba(3, 18, 40, 0.35);
+  }
+
+  /* ---------- Plain facts ---------- */
+  .gf-trust { background: #F3F7FC; border-bottom: 1px solid #E1E9F3; }
+  .gf-trust__inner { display: flex; align-items: center; gap: clamp(1.25rem, 3vw, 3rem); padding-block: 1.4rem; }
+  .gf-trust__list { list-style: none; margin: 0; padding: 0; flex: 1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+  .gf-trust__list li { display: flex; align-items: center; gap: 0.8rem; font-size: 0.9375rem; line-height: 1.35; color: var(--text-body); }
+  .gf-trust__list strong { display: block; font-family: var(--font-serif); font-weight: 600; font-size: 1.125rem; color: var(--navy); }
+  .gf-trust__icon { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: #fff; color: var(--blue); box-shadow: 0 4px 12px rgba(8, 43, 89, 0.08); }
+  .gf-trust__icon :global(svg) { width: 21px; height: 21px; }
+
+  /* ---------- Inside the guide ---------- */
+  .gf-inside { padding-block: clamp(3rem, 6vw, 5rem); background: #fff; }
+  .gf-inside__inner { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr) minmax(0, 0.75fr); gap: clamp(1.5rem, 3.5vw, 3.5rem); align-items: center; }
+  .gf-inside__book { position: relative; width: min(100%, 330px); justify-self: center; }
+  .gf-inside__halo { position: absolute; inset: 8% -10% -6%; border-radius: 50%; background: radial-gradient(closest-side, rgba(46, 168, 247, 0.22), transparent); z-index: 0; }
+  .gf-inside__book :global(.gbook) { position: relative; z-index: 1; }
+  .gf-label { font-family: var(--font-sans); font-weight: 700; font-size: 0.875rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); }
+  .gf-label--center { text-align: center; }
+  /* A shade darker on the cream background, so the small label keeps 4.5:1 contrast. */
+  .gf-help .gf-label { color: #0F5F9F; }
+  .gf-h2 { margin-top: 0.5rem; font-family: var(--font-serif); font-weight: 700; color: var(--navy); font-size: clamp(1.9rem, 1.3rem + 1.8vw, 2.75rem); line-height: 1.1; text-wrap: balance; }
+  .gf-h2--center { text-align: center; }
+  .gf-lead { margin-top: 0.9rem; max-width: 36rem; color: var(--text-body); font-size: 1.0625rem; line-height: 1.55; }
+  .gf-checks { list-style: none; margin: 1.1rem 0 0; padding: 0; display: grid; gap: 0.55rem; }
+  .gf-checks li { display: flex; align-items: flex-start; gap: 0.6rem; color: var(--text-body); font-size: 1.0625rem; line-height: 1.4; }
+  .gf-checks__tick { flex: none; display: grid; place-items: center; width: 22px; height: 22px; margin-top: 0.1rem; border-radius: 50%; background: var(--blue); color: #fff; }
+  .gf-checks__tick :global(svg) { width: 13px; height: 13px; stroke-width: 3; }
+
+  .gf-preview { margin-top: 1.4rem; }
+  .gf-preview__btn {
+    display: inline-flex; align-items: center; gap: 0.5rem; list-style: none; cursor: pointer;
+    padding: 0.8rem 1.5rem; border: 2px solid var(--blue); border-radius: 999px; font-weight: 700; color: var(--blue); background: #fff;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .gf-preview__btn::-webkit-details-marker { display: none; }
+  .gf-preview__btn :global(svg) { width: 18px; height: 18px; transition: transform 0.2s ease; }
+  .gf-preview__btn:hover { background: var(--blue); color: #fff; }
+  .gf-preview__btn:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 3px; }
+  .gf-preview[open] .gf-preview__btn :global(svg) { transform: rotate(90deg); }
+  .gf-preview__head { margin-top: 1.2rem; font-family: var(--font-sans); font-weight: 700; font-size: 0.875rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); }
+  .gf-preview__list { list-style: none; margin: 0.7rem 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; counter-reset: chapter; }
+  .gf-preview__list li { display: flex; align-items: center; gap: 0.6rem; padding: 0.7rem 0.8rem; border-radius: 12px; background: #F3F7FC; color: var(--navy); font-weight: 600; font-size: 0.9375rem; line-height: 1.3; }
+  .gf-preview__icon { flex: none; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: #fff; color: var(--blue); }
+  .gf-preview__icon :global(svg) { width: 18px; height: 18px; }
+
+  .gf-quote {
+    margin: 0; padding: clamp(1.75rem, 3vw, 2.5rem) clamp(1.25rem, 2.5vw, 2rem); border-radius: 28px; text-align: center;
+    background: linear-gradient(180deg, #EEF5FD, #F7FAFE); box-shadow: inset 0 0 0 1px #E1ECF8;
+  }
+  .gf-quote__mark { display: block; font-family: var(--font-serif); font-weight: 700; font-size: 4rem; line-height: 0.6; color: var(--blue); }
+  .gf-quote blockquote { margin: 0.9rem 0 0; }
+  .gf-quote p { font-family: var(--font-serif); font-style: italic; font-size: clamp(1.35rem, 1.1rem + 0.7vw, 1.75rem); line-height: 1.3; color: var(--navy); }
+  .gf-quote__rule { display: block; width: 44px; height: 3px; margin: 1.4rem auto 1.2rem; border-radius: 2px; background: var(--blue); }
+  .gf-quote figcaption { font-family: var(--font-sans); font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.16em; line-height: 1.9; text-transform: uppercase; color: var(--navy); }
+
+  /* ---------- Who we help ---------- */
+  .gf-help { padding-block: clamp(3rem, 6vw, 5rem); background: #F7F4EF; }
+  .gf-help__lead { margin: 0.7rem auto 0; max-width: 40rem; text-align: center; color: var(--text-body); font-size: 1.0625rem; line-height: 1.5; }
+  .gf-help__grid { list-style: none; margin: clamp(1.75rem, 3vw, 2.5rem) 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
+  .gf-help__card { display: flex; flex-direction: column; overflow: hidden; border-radius: 18px; background: #fff; box-shadow: 0 10px 28px rgba(8, 43, 89, 0.08); }
+  .gf-help__media { position: relative; }
+  /* The photos are 3:2, shown whole so no one is cut off. */
+  .gf-help__media img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+  .gf-help__icon {
+    position: absolute; left: 1.1rem; bottom: -24px; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%;
+    background: #fff; color: var(--blue); box-shadow: 0 6px 16px rgba(8, 43, 89, 0.18);
+  }
+  .gf-help__icon :global(svg) { width: 26px; height: 26px; }
+  .gf-help__body { display: flex; flex-direction: column; flex: 1; padding: 2.1rem 1.25rem 1.35rem; }
+  .gf-help__body h3 { font-family: var(--font-serif); font-weight: 600; font-size: 1.3rem; color: var(--navy); }
+  .gf-help__body p { margin-top: 0.4rem; color: var(--text-body); font-size: 1rem; line-height: 1.45; }
+  .gf-help__more { margin-top: auto; padding-top: 1rem; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 700; color: var(--blue); }
+  .gf-help__more :global(svg) { width: 17px; height: 17px; transition: transform 0.2s ease; }
+  .gf-help__more:hover :global(svg) { transform: translateX(3px); }
+
+  /* ---------- Closing band ---------- */
+  .gf-close {
+    color: #fff; padding-block: clamp(2.75rem, 5vw, 4rem);
+    background:
+      linear-gradient(90deg, rgba(6, 32, 88, 0.97) 0%, rgba(6, 32, 88, 0.85) 45%, rgba(6, 32, 88, 0.45) 100%),
+      url('/images/guides/coast-band.webp') center / cover no-repeat, var(--navy);
+  }
+  .gf-close__inner { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: center; }
+  .gf-close__title { margin-top: 0.5rem; font-family: var(--font-serif); font-weight: 700; color: #fff; font-size: clamp(1.9rem, 1.3rem + 1.8vw, 2.9rem); line-height: 1.08; }
+  .gf-close__body { margin-top: 0.9rem; max-width: 34rem; color: rgba(255, 255, 255, 0.9); font-size: 1.0625rem; line-height: 1.55; }
+  .gf-close__btn {
+    margin-top: 1.5rem; display: inline-flex; align-items: center; gap: 0.55rem; padding: 1rem 2rem; border-radius: 999px;
+    font-weight: 700; font-size: 1.125rem; color: #fff; background: linear-gradient(180deg, #1E86D8, var(--blue)); box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+  }
+  .gf-close__btn :global(svg) { width: 20px; height: 20px; }
+  .gf-close__btn:hover { transform: translateY(-2px); color: #fff; }
+  .gf-close__btn:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 3px; }
+  .gf-close__points { list-style: none; margin: 0; padding: 0 0 0 clamp(0rem, 3vw, 2.5rem); display: grid; gap: 0.8rem; border-left: 1px solid rgba(255, 255, 255, 0.25); }
+  .gf-close__points li {
+    display: flex; align-items: center; gap: 0.85rem; padding: 0.85rem 1.1rem; border-radius: 14px; font-size: 1.0625rem;
+    background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  .gf-close__icon { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: rgba(46, 168, 247, 0.2); color: #fff; }
+  .gf-close__icon :global(svg) { width: 21px; height: 21px; }
+
+  /* ---------- Narrower screens ---------- */
+  @media (max-width: 1100px) {
+    .gf-inside__inner { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); }
+    .gf-quote { grid-column: 1 / -1; }
+    .gf-help__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 900px) {
+    /* The photo becomes a band at the top, shown whole above the copy. */
+    .gf-hero__photo { position: relative; z-index: 0; display: block; width: 100%; height: auto; aspect-ratio: 1150 / 700; }
+    .gf-hero__shade { top: auto; height: 40px; background: none; }
+    .gf-hero__inner { grid-template-columns: 1fr; padding-top: 1.75rem; }
+    .gf-trust__inner { flex-direction: column; align-items: flex-start; }
+    .gf-trust__list { grid-template-columns: 1fr; }
+    .gf-inside__inner { grid-template-columns: 1fr; }
+    .gf-inside__book { width: min(70%, 280px); }
+    .gf-close__inner { grid-template-columns: 1fr; }
+    .gf-close__points { padding-left: 0; border-left: 0; }
+  }
+  @media (max-width: 560px) {
+    .gf-help__grid { grid-template-columns: 1fr; }
+    .gf-preview__list { grid-template-columns: 1fr; }
+    .gf-ribbon { right: 0.5rem; }
+  }
+</style>
