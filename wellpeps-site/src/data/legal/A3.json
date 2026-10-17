@@ -15,7 +15,7 @@
   },
   {
    "t": "callout",
-   "text": "**Summary**\n• This policy is about health-related information that is not part of your medical record. Your medical record and other protected health information (PHI) are covered by the Notice of Privacy Practices.\n• Today, wellpeps.com collects your email address and the health topic you pick, such as a free guide or a waitlist. We ask for your consent first, with a separate checkbox.\n• We share health-related information only as needed to give you the service you asked for. We do not share it for advertising. We will ask for a separate consent before we ever do.\n• We do not sell consumer health data, and we will not without your signed authorization.\n• We do not use location fences around health care places.\n• You can ask us to confirm what we hold, give you a copy and a list of who received it, withdraw your consent, or delete it. Use Your Privacy Choices or email privacy@wellpeps.com. If we say no, you can appeal.",
+   "text": "**Summary**\n• This policy is about health-related information that is not part of your medical record. Your medical record and other protected health information (PHI) are covered by the Notice of Privacy Practices.\n• Today, wellpeps.com collects your email address and the health topic you pick, such as a free guide or a waitlist. When you ask for a free guide, we use them to send it, and we email you more only if you tick the optional box. For a waitlist or program notice, we ask for your consent first, with a separate checkbox.\n• We share health-related information only as needed to give you the service you asked for. We do not share it for advertising. We will ask for a separate consent before we ever do.\n• We do not sell consumer health data, and we will not without your signed authorization.\n• We do not use location fences around health care places.\n• You can ask us to confirm what we hold, give you a copy and a list of who received it, withdraw your consent, or delete it. Use Your Privacy Choices or email privacy@wellpeps.com. If we say no, you can appeal.",
    "kind": "info"
   },
   {
@@ -290,7 +290,12 @@
   },
   {
    "t": "li",
-   "text": "**On wellpeps.com sign-ups** (guides, waitlists and program notices): your consent to collect your email address and the health topic you chose so we can send what you asked for, and a separate, optional consent for follow-up emails about that topic (Appendix A.1).",
+   "text": "**On wellpeps.com free-guide forms:** we use your email address and the guide you chose only to send you that guide, which is what you asked for, so no consent is needed. A separate, optional box asks whether you also want follow-up emails (Appendix A.1).",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**On wellpeps.com waitlists and program notices:** your consent to collect your email address and the health topic you chose so we can send what you asked for, and a separate, optional consent for follow-up emails about that topic (Appendix A.1).",
    "level": 0
   },
   {
@@ -721,21 +726,37 @@
   },
   {
    "t": "p",
-   "text": "Two separate boxes, directly above the submit button, neither checked in advance. The form does not submit without the first box. The second box is optional. On a guide form, the boxes name the guide the person requested, as below. On a waitlist or program-notice form that is not for a guide, the words “the guide I requested” are replaced by “what I asked for”. On a form that has a first-name field (the waitlists) the first box reads “my email address, first name and my interest in”; on a form with an email field only it leaves out “first name”.",
+   "text": "**Free-guide forms** (since October 16, 2026). Sending the guide the person asked for is collection necessary to provide a requested product, so the form has no required consent box. One optional box, directly above the submit button, not checked in advance:",
    "italic": false,
    "align": null
   },
   {
    "t": "check",
-   "text": "I agree that WellPeps may save my email address and my interest in the topic of this form so WellPeps can send me the guide I requested."
-  },
-  {
-   "t": "check",
-   "text": "Optional: I also agree to receive emails from WellPeps about the topic of this form and related wellness tips. I understand that I do not need to select this option in order to receive the guide I requested."
+   "text": "Optional: Email me health and wellness tips, educational resources, and updates from WellPeps, based on the guide I requested."
   },
   {
    "t": "p",
-   "text": "Small print shown once, directly under both boxes (smaller type than the boxes): You can withdraw either consent at any time in Your Privacy Choices or by emailing privacy@wellpeps.com. Then the links: Consumer Health Data Privacy Policy, Privacy Policy, Your Privacy Choices.",
+   "text": "Small print directly under the box (smaller type): We’ll use your email address to send the guide you requested. You can unsubscribe or withdraw consent at any time in Your Privacy Choices or by emailing privacy@wellpeps.com. Then the links: Consumer Health Data Privacy Policy, Privacy Policy, Your Privacy Choices. The notice is information, not an agreement: it never says “by submitting, you agree”.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**Waitlist and program-notice forms.** Two separate boxes, directly above the submit button, neither checked in advance. The form does not submit without the first box. The second box is optional. On a form that has a first-name field (the waitlists) the first box reads “my email address, first name and my interest in”; on a form with an email field only it leaves out “first name”.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "check",
+   "text": "I agree that WellPeps may save my email address and my interest in the topic of this form so WellPeps can send me what I asked for."
+  },
+  {
+   "t": "check",
+   "text": "Optional: I also agree to receive emails from WellPeps about the topic of this form and related wellness tips. I understand that I do not need to select this option in order to receive what I asked for."
+  },
+  {
+   "t": "p",
+   "text": "Small print shown once, directly under both boxes (smaller type than the boxes): You can unsubscribe from WellPeps emails or withdraw either consent at any time in Your Privacy Choices or by emailing privacy@wellpeps.com. Then the links: Consumer Health Data Privacy Policy, Privacy Policy, Your Privacy Choices.",
    "italic": false,
    "align": null
   },

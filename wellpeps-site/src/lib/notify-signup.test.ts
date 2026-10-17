@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { NO_TOPIC_SOURCES, SOURCES, parseSignup } from '../../../supabase/functions/notify-signup/validate';
+import { NO_TOPIC_SOURCES, REQUESTED_SOURCES, SOURCES, parseSignup } from '../../../supabase/functions/notify-signup/validate';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
@@ -22,8 +22,21 @@ describe('parseSignup (the updated notify-signup function)', () => {
     expect(wrong.ok && wrong.row.consent_marketing).toBeUndefined();
   });
 
-  test('a health-topic signup without the required consent is refused', () => {
-    for (const source of SOURCES.filter((s) => !NO_TOPIC_SOURCES.includes(s))) {
+  test('a free-guide request needs no collection consent and records only the optional choice (ATT-038)', () => {
+    expect(REQUESTED_SOURCES).toEqual(['ebook_glp1', 'ebook_sexual_wellness', 'ebook_hair_restoration', 'ebook_healthy_aging', 'ebook_nad']);
+    expect(parseSignup({ email: 'a@b.co', source: 'ebook_glp1', consent_marketing: true, consent_text_version: 'chd-guide-v1' }, strict)).toEqual({
+      ok: true,
+      row: { email: 'a@b.co', source: 'ebook_glp1', consent_marketing: true, consent_text_version: 'chd-guide-v1', consented_at: now.toISOString() },
+    });
+    const no = parseSignup({ email: 'a@b.co', source: 'ebook_nad', consent_marketing: false, consent_text_version: 'chd-guide-v1' }, strict);
+    expect(no.ok && no.row.consent_marketing).toBe(false);
+    expect(no.ok && 'consent_collect' in no.row).toBe(false);
+    // Nothing about consent at all (an old cached page): still sent the guide, nothing recorded.
+    expect(parseSignup({ email: 'a@b.co', source: 'ebook_glp1' }, strict)).toEqual({ ok: true, row: { email: 'a@b.co', source: 'ebook_glp1' } });
+  });
+
+  test('a waitlist or notice signup without the required consent is refused', () => {
+    for (const source of SOURCES.filter((s) => !NO_TOPIC_SOURCES.includes(s) && !REQUESTED_SOURCES.includes(s))) {
       expect(parseSignup({ email: 'a@b.co', source }, strict)).toEqual({ ok: false, error: 'consent_required' });
       expect(parseSignup({ email: 'a@b.co', source, consent_collect: false }, strict)).toEqual({ ok: false, error: 'consent_required' });
       expect(parseSignup({ email: 'a@b.co', source, consent_collect: 'yes' }, strict)).toEqual({ ok: false, error: 'consent_required' });

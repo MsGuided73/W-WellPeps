@@ -38,18 +38,22 @@ export interface GuidePage {
   articleCta: { title: string; body: string; button: string };
   /** The prompt on the thank-you page, where someone has just raised their hand. */
   thanks: { assessmentHeading: string; assessmentBody: string };
-  /** The full landing layout (client mock 2026-10-12): photo hero, form card, Who We Help and a closing band.
+  /** The full landing layout (client mock 2026-10-12, revised to Derek's notes 2026-10-16): eBook-cover hero
+   *  with the form, trust strip, inside the guide, more free guides and a closing call to action.
    *  Guides without it keep the compact layout. */
   feature?: GuideFeature;
 }
 
 /** A guide's own pieces of the full landing layout; the shared words are in GUIDE_FEATURE_COPY. */
 export interface GuideFeature {
-  /** Hero photograph, shown to the right of the copy with the person whole in frame. */
-  heroImage: string;
-  heroAlt: string;
-  /** Where the subject sits in the photo (CSS object-position), so a narrow screen keeps them in view. */
-  heroFocus: string;
+  /** Lifestyle photograph beside "Inside the guide", shown whole (no person cut off). 1150 × 887. */
+  photo: string;
+  photoAlt: string;
+  /** "What's Inside Your Free … Guide?" and the sentence under it. */
+  insideTitle: string;
+  insideLead: string;
+  /** The closing section's paragraph, above the download button. */
+  closeBody: string;
 }
 
 const SMART_PATIENT_LINE = 'What Every Smart Patient Needs to Know';
@@ -60,9 +64,8 @@ export const GUIDE_PAGES: Readonly<Record<string, GuidePage>> = {
   'glp-1-weight-loss': {
     headline: [SMART_PATIENT_LINE, 'Before Choosing a GLP-1 Program'],
     intro:
-      'GLP-1 medications have changed weight management—but not every medication, program or provider is the same. ' +
-      'Download our free Smart Patient’s Guide to understand the treatment, your options, what to realistically expect, ' +
-      'and what to look for when choosing care.',
+      'GLP-1 medications have changed weight management. But not every medication, provider, or program is the same. ' +
+      'Our free guide helps you understand your options, know what to look for, and ask the right questions before choosing care.',
     inside: [
       'How GLP-1 medications work',
       'Differences between common treatment options',
@@ -90,9 +93,15 @@ export const GUIDE_PAGES: Readonly<Record<string, GuidePage>> = {
     },
     thanks: { assessmentHeading: 'Ready to Explore GLP-1 Treatment?', assessmentBody: ASSESSMENT_BODY },
     feature: {
-      heroImage: '/images/guides/glp-1-hero.webp',
-      heroAlt: 'A smiling woman in a grey jacket walking a coastal trail at sunrise',
-      heroFocus: '30% 30%',
+      photo: '/images/guides/glp-1-hero.webp',
+      photoAlt: 'A smiling woman in a grey jacket walking a coastal trail at sunrise',
+      insideTitle: 'What’s Inside Your Free GLP-1 Guide?',
+      insideLead:
+        'Everything you should know before choosing a GLP-1 weight loss program—from understanding medications and treatment options ' +
+        'to evaluating providers, costs, and safety considerations.',
+      closeBody:
+        'Before choosing a GLP-1 weight loss program, take a few minutes to understand your options. ' +
+        'Our free Smart Patient’s Guide is a great place to start.',
     },
   },
 
@@ -289,52 +298,41 @@ export const GUIDE_SERIES = {
 } as const;
 
 /**
- * Shared words for the full landing layout (client mock 2026-10-12). Left out of the mock on purpose:
- * the "As seen in WebMD, Healthline, Forbes, Verywell Health, Medscape" bar and the "100K+ patients
- * educated", "4.8/5 patient satisfaction" and "100% unbiased" figures, none of which is true or
- * substantiated (FTC endorsement and substantiation rules; LegitScript). "Created by healthcare experts"
- * and "unbiased" are left out for the same reason, and the closing lines promise no outcome.
+ * Shared words for the full landing layout (client mock 2026-10-12, revised to Derek's landing-page
+ * notes 2026-10-16). Every guide page follows the same five sections: hero + sign-up, trust strip,
+ * inside the guide, more free guides, final call to action. Both buttons, the form's and the closing
+ * one, say "Send Me My Free Guide" (owner, 2026-10-16), because the guide is delivered by email.
+ *
+ * Left out of the original mock on purpose: the "As seen in WebMD, Healthline, Forbes, Verywell Health,
+ * Medscape" bar and the "100K+ patients educated", "4.8/5 patient satisfaction" and "100% unbiased"
+ * figures, none of which is true or substantiated (FTC endorsement and substantiation rules;
+ * LegitScript). "Created by healthcare experts" and "unbiased" are left out for the same reason, and the
+ * closing lines promise no outcome.
  */
 export const GUIDE_FEATURE_COPY = {
-  eyebrow: 'Real information. Healthier tomorrows.',
-  badges: [
-    { icon: 'book-open', text: ['Evidence-informed', 'information'] },
-    { icon: 'shield', text: ['Plain-language,', 'practical guidance'] },
-    { icon: 'mail', text: ['Free, sent straight', 'to your inbox'] },
-  ] as { icon: string; text: [string, string] }[],
-  formRibbon: 'Free Guide',
-  formTagline: 'Practical. Plain-language. No hype.',
+  eyebrow: 'The Smart Patient’s Guide Series',
+  titleLead: 'Download a Free Guide to',
+  formTagline: 'Get the facts before you decide.',
   // True statements only, in place of the mock's media logos and figures.
   trust: [
-    { icon: 'tag', title: 'Free to download', body: 'No cost and no obligation' },
-    { icon: 'clipboard-check', title: 'No obligation', body: 'Reading it never signs you up for treatment' },
-    { icon: 'lock', title: 'Your email stays yours', body: 'Used to send your guide unless you choose more' },
+    { icon: 'tag', title: 'Free to Download', body: 'No cost. No strings attached.' },
+    { icon: 'book-open', title: 'Education First', body: 'No treatment signup required.' },
+    { icon: 'lock', title: 'Your Email. Your Choice.', body: 'You choose whether to receive more.' },
   ],
   insideEyebrow: 'Inside the guide',
-  insideTitle: 'Clear Answers for a Healthier You',
-  insideLead: 'Our free guide cuts through the confusion and gives you the essential information you need to make the right decision for your health.',
   previewButton: 'Preview What’s Inside',
   previewHeading: 'The chapters',
-  quote: 'Knowledge leads to better questions—and better choices.',
-  quoteLabel: ['Real information.', 'Informed choices.'] as [string, string],
-  helpEyebrow: 'Who we help',
-  helpTitle: 'Support for What Matters Most',
-  helpLead: 'WellPeps provides clear, easy-to-understand guides across key areas of health and wellness.',
-  // Each card opens that subject's free guide.
-  help: [
-    { title: 'Weight Loss', body: 'Clear guidance on GLP-1 medications and options.', image: '/images/program-weight.webp', icon: 'scale-check', guide: 'glp-1-weight-loss' },
-    { title: 'Hair Restoration', body: 'Understand your options and what to expect.', image: '/images/program-hair.webp', icon: 'sprout', guide: 'hair-restoration' },
-    { title: 'Sexual Wellness', body: 'Today’s treatment options, explained plainly.', image: '/images/program-sexual.webp', icon: 'heart', guide: 'sexual-wellness' },
-    { title: 'Healthy Aging', body: 'Wellness therapies explained, without the hype.', image: '/images/program-longevity.webp', icon: 'leaf', guide: 'healthy-aging-vitality' },
-  ],
-  helpMore: 'Learn More',
-  closeEyebrow: 'Take the next step',
-  closeTitle: ['Informed Patients', 'Make Healthier Choices'] as [string, string],
-  closeBody: 'Get trusted insights, practical guidance and the questions to ask, so you can take charge of your health with confidence.',
-  closeButton: 'Get Your Free Guide',
-  closePoints: [
-    { icon: 'check-circle', text: 'Clear, plain-language information' },
-    { icon: 'clipboard-check', text: 'Practical next steps' },
-    { icon: 'provider-chat', text: 'Better conversations with your provider' },
-  ],
+  libraryEyebrow: 'Explore the Smart Patient’s Guide Series',
+  libraryTitle: 'More Questions? More Free Guides.',
+  libraryLead:
+    'Explore our collection of free guides covering today’s treatments, medications, and wellness options. ' +
+    'Get the information you need to make more informed healthcare decisions.',
+  /** How many other guides the library shows; the rest are one click away on the series page. */
+  librarySize: 4,
+  libraryLink: 'Download Free Guide',
+  libraryAll: 'View All Free Guides',
+  closeTitle: 'Be Informed. Choose Well.',
+  closeSub: 'Your Health. Your Choices. Get the Facts First.',
+  closeButton: 'Send Me My Free Guide',
+  closeNote: 'Free to download. No obligation.',
 } as const;

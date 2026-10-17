@@ -20,9 +20,9 @@ alter table public.notify_signups
   add column if not exists consented_at         timestamptz;
 
 comment on column public.notify_signups.consent_collect is
-  'The person ticked the required box: collect and keep email, first name and health topic to send what they asked for. NULL = collected before the box existed.';
+  'The person ticked the required box: collect and keep email, first name and health topic to send what they asked for. NULL = collected before the box existed, or a free-guide request (ebook_*), which needs no collection consent since 2026-10-16 (counsel, ATT-038).';
 comment on column public.notify_signups.consent_marketing is
-  'The person also ticked the optional box for follow-up emails about the topic. Only true when consent_collect is true.';
+  'The person ticked the optional box for follow-up emails. On waitlist/notify rows only true when consent_collect is true; on free-guide rows it stands alone.';
 comment on column public.notify_signups.consent_text_version is
   'Which consent wording was shown (FORM_CONSENT_VERSION on the site). A "draft" version means counsel had not yet approved the text.';
 comment on column public.notify_signups.consented_at is

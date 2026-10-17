@@ -155,7 +155,6 @@ async function articleLinks(ctx, base) {
   await nj.page.goto(LANDING + '/smart-patient-guides/hair-restoration', { waitUntil: 'load' });
   check('the landing form posts (never GETs) and tells a no-JavaScript visitor what to do', (await nj.page.locator('[data-guide-form]').getAttribute('method')) === 'post' && /needs JavaScript/.test(await nj.page.locator('[data-guide-form] noscript').evaluate((e) => e.textContent || e.innerHTML)));
   await nj.page.locator('[data-guide-form] input[name=email]').fill('sam@example.com');
-  await nj.page.locator('[data-guide-form] input[name=consentCollect]').check();
   await Promise.all([nj.page.waitForLoadState('load').catch(() => {}), nj.page.locator('[data-guide-form] button[type=submit]').click()]);
   await nj.page.waitForTimeout(500);
   check('a native submit leaves no email in the URL', !/[?&]email=/i.test(nj.page.url()) && !nj.page.url().includes('sam%40'), nj.page.url());
@@ -292,28 +291,28 @@ async function articleLinks(ctx, base) {
     const { page, status } = await open(ctx, LANDING, `/smart-patient-guides/${slug}`);
     // The series words are visually hidden (screen readers and search only), so they read as their own line.
     const title = (await page.locator('main h1').innerText()).replace(/\s+/g, ' ').trim();
-    check(`${slug}: landing page loads with its title`, status === 200 && /^The Smart Patient’s Guide to /.test(title), title.replace(/\n/g, ' '));
-    check(`${slug}: email is the only field (plus the hidden trap and the two consent boxes)`, JSON.stringify(await page.locator('[data-guide-form] input:not([type=hidden])').evaluateAll((els) => els.map((e) => e.name))) === JSON.stringify(['email', 'company', 'consentCollect', 'consentMarketing']));
+    check(`${slug}: landing page loads with its title`, status === 200 && /^(The Smart Patient’s Guide to|Download a Free Guide to) /.test(title), title.replace(/\n/g, ' '));
+    check(`${slug}: email is the only field (plus the hidden trap and the optional email box)`, JSON.stringify(await page.locator('[data-guide-form] input:not([type=hidden])').evaluateAll((els) => els.map((e) => e.name))) === JSON.stringify(['email', 'company', 'consentMarketing']));
     check(`${slug}: eight "inside" points and six topic cards`, (await page.locator('.glp-inside li').count()) === 8 && (await page.locator('.glp-card').count()) === 6);
     check(`${slug}: no link to the PDF anywhere on the page`, (await page.locator('a[href$=".pdf"]').count()) === 0);
-    check(`${slug}: both consent boxes name this guide and start unchecked`, await page.evaluate((t) => { const f = document.querySelector('[data-guide-form]'); return [...f.querySelectorAll('[data-fconsent-collect], [data-fconsent-marketing]')].every((s) => s.textContent.includes(`the Smart Patient’s Guide to ${t}`)) && ![...f.querySelectorAll('input[type=checkbox]')].some((c) => c.checked); }, (await page.locator('main h1').innerText()).replace(/\s+/g, ' ').trim().replace(/^The Smart Patient’s Guide to\s*/, '')));
+    // No required box since 2026-10-16 (counsel, ATT-038): one optional, unchecked box and a short notice.
+    check(`${slug}: no required consent box; the optional box starts unchecked and the notice says what the email is for`, await page.evaluate(() => { const f = document.querySelector('[data-guide-form]'); const box = f.querySelector('input[name=consentMarketing]'); return !f.querySelector('input[name=consentCollect]') && !box.required && !box.checked && f.querySelector('[data-fconsent-marketing]').textContent.startsWith('Optional:') && f.querySelector('[data-fconsent-notice]').textContent.includes('send the guide you requested'); }));
     await page.close();
   }
 
-  // the form: required consent blocks it; with consent it sends the signup and opens the thank-you page
+  // the form: an email alone sends the request (no consent box to tick) and opens the thank-you page
   const { page } = await open(ctx, LANDING, '/smart-patient-guides/hair-restoration');
   const form = page.locator('[data-guide-form]');
   await form.scrollIntoViewIfNeeded();
   const before = sent.length;
-  await form.locator('input[name=email]').fill('sam@example.com');
   await form.locator('button[type=submit]').click();
   await page.waitForTimeout(500);
-  check('without the required consent box nothing is sent', sent.length === before && new URL(page.url()).pathname.endsWith('/hair-restoration'));
-  await form.locator('input[name=consentCollect]').check();
+  check('without an email address nothing is sent', sent.length === before && new URL(page.url()).pathname.endsWith('/hair-restoration'));
+  await form.locator('input[name=email]').fill('sam@example.com');
   await form.locator('button[type=submit]').click();
   await page.waitForURL('**/thank-you', { timeout: 8000 });
   const last = sent[sent.length - 1];
-  check('with the required box it sends email (no name), the guide’s source and consent', sent.length === before + 1 && last.first_name == null && last.email === 'sam@example.com' && last.source === 'ebook_hair_restoration' && last.consent_collect === true && last.consent_marketing === false, JSON.stringify(last));
+  check('with just an email it sends email (no name), the guide’s source, no collection consent, follow-ups off', sent.length === before + 1 && last.first_name == null && last.email === 'sam@example.com' && last.source === 'ebook_hair_restoration' && !('consent_collect' in last) && last.consent_marketing === false && last.consent_text_version === 'chd-guide-v1', JSON.stringify(last));
   check('it then opens that guide’s thank-you page', new URL(page.url()).pathname === '/smart-patient-guides/hair-restoration/thank-you');
   check('the thank-you page is kept out of search results', (await page.locator('meta[name="robots"]').getAttribute('content')) === 'noindex,nofollow');
   check('the thank-you page offers the assessment', (await page.locator('.gthanks__next').innerText()).includes('Ready to Explore Hair Restoration Treatment?') && /See If You Qualify|Opening Soon/.test(await page.locator('.gthanks__next').innerText()));

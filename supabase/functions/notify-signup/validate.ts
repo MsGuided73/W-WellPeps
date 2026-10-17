@@ -2,10 +2,15 @@
  * Validation for the notify-signup endpoint, kept free of Deno APIs so the site's test suite can
  * run it (wellpeps-site/src/lib/notify-signup.test.ts).
  *
- * A health-topic form (every source except the footer newsletter) must carry the person's consent
- * to collect their email and topic: Washington and Nevada require it, separate and unchecked, for
- * an email address tied to a health topic. The function stores what they ticked, which wording
- * version they saw, and when, so WellPeps can show the consent later.
+ * A health-topic form (waitlist, hair notify) must carry the person's consent to collect their email
+ * and topic: Washington and Nevada require it, separate and unchecked, for an email address tied to a
+ * health topic. The function stores what they ticked, which wording version they saw, and when, so
+ * WellPeps can show the consent later.
+ *
+ * A free-guide request (ebook_*) needs no collection consent (counsel agreed 2026-10-16, ATT-038):
+ * sending the guide the person asked for is collection necessary to provide a requested product
+ * (RCW 19.373.030). Its form sends only the optional follow-up choice and the wording version, which
+ * the function stores; consent_collect stays empty on those rows.
  */
 
 // Must match the notify_signups source CHECK constraint and SignupSource in src/lib/notify.ts.
@@ -22,6 +27,9 @@ export const SOURCES = [
 
 /** The footer newsletter names no health topic, so it needs no consent box. */
 export const NO_TOPIC_SOURCES: readonly string[] = ['footer_newsletter'];
+
+/** Free-guide requests: delivering the requested guide needs no consent, only the optional follow-up choice is recorded. */
+export const REQUESTED_SOURCES: readonly string[] = SOURCES.filter((s) => s.startsWith('ebook_'));
 
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
@@ -56,13 +64,20 @@ export function parseSignup(payload: unknown, opts: ParseOptions): ParseResult {
   if (rawName !== '') row.first_name = rawName.slice(0, 100);
 
   const collect = p.consent_collect === true;
-  if (!collect && opts.requireConsent && !NO_TOPIC_SOURCES.includes(source)) return { ok: false, error: 'consent_required' };
+  const requested = REQUESTED_SOURCES.includes(source);
+  if (!collect && !requested && opts.requireConsent && !NO_TOPIC_SOURCES.includes(source)) return { ok: false, error: 'consent_required' };
+  const version = typeof p.consent_text_version === 'string' ? p.consent_text_version.slice(0, 60) : 'unknown';
 
   if (collect) {
     row.consent_collect = true;
     // The optional box counts only together with the required one.
     row.consent_marketing = p.consent_marketing === true;
-    row.consent_text_version = typeof p.consent_text_version === 'string' ? p.consent_text_version.slice(0, 60) : 'unknown';
+    row.consent_text_version = version;
+    row.consented_at = opts.now.toISOString();
+  } else if (requested && typeof p.consent_text_version === 'string') {
+    // A free-guide form: no required box, so the optional choice stands on its own.
+    row.consent_marketing = p.consent_marketing === true;
+    row.consent_text_version = version;
     row.consented_at = opts.now.toISOString();
   }
   return { ok: true, row };

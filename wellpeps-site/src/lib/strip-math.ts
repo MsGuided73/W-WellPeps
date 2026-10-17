@@ -70,8 +70,8 @@ export const NEAR_GAP = 0.86;
 /** ...and between covers further out, which are smaller and so sit closer together. */
 export const FAR_GAP = 0.66;
 /** Size of the neighbours, and the smallest any cover gets, relative to the centre cover. */
-export const NEAR_SCALE = 0.68;
-export const MIN_SCALE = 0.6;
+export const NEAR_SCALE = 0.6;
+export const MIN_SCALE = 0.52;
 
 export interface CardLook {
   /** Sideways shift from the centre, in front-cover widths. */

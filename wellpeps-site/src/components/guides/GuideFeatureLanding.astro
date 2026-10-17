@@ -1,21 +1,27 @@
 ---
 /**
- * The full landing layout for a Smart Patient Guide (client mock 2026-10-12, first used for GLP-1):
- * a photo hero with the copy on the left and the form card on the right, a strip of plain facts, the
- * book with what is inside it, four "Who we help" cards that open the other guides, and a closing
- * band. Guides whose data has no `feature` keep the compact GuideLanding.
+ * The full landing layout for a Smart Patient Guide (client mock 2026-10-12, revised to Derek's
+ * landing-page notes 2026-10-16; first used for GLP-1). Five sections, the set-up every guide page
+ * is meant to follow:
+ *
+ *   1. Hero + sign-up   the eBook cover is the star (large, leaning, soft shadow), copy and form beside it
+ *   2. Trust strip      free, education first, your email your choice
+ *   3. Inside the guide what is in it, with the lifestyle photo that used to be the hero
+ *   4. More free guides the other guides in the series, by cover, and a link to all of them
+ *   5. Final call       one headline, one button back to the form
  *
  * The words live in src/data/guide-pages.ts (GUIDE_FEATURE_COPY and the guide's own entry), which
  * also notes what was left out of the mock and why. The form is the same GuideLeadForm, with the
- * same consent boxes, as every other guide page.
+ * same consent boxes, as every other guide page. Guides whose data has no `feature` keep the
+ * compact GuideLanding.
  */
 import Icon from '../Icon.astro';
 import GuideBook from './GuideBook.astro';
 import GuideLeadForm from './GuideLeadForm.astro';
 import LegitScriptSeal from '../LegitScriptSeal.astro';
 import { GUIDE_FEATURE_COPY as C, guidePageFor } from '../../data/guide-pages';
-import type { Ebook } from '../../data/ebooks';
-import { guidePath, keepGlpTogether } from '../../lib/guide-flow';
+import { EBOOKS, type Ebook } from '../../data/ebooks';
+import { GUIDES_INDEX_PATH, guidePath, keepGlpTogether } from '../../lib/guide-flow';
 
 interface Props {
   book: Ebook;
@@ -24,28 +30,24 @@ const { book } = Astro.props;
 const page = guidePageFor(book.slug);
 const feature = page.feature!;
 const formId = `gf-form-${book.slug}`;
+const coverAlt = `Cover of The Smart Patient’s Guide to ${book.title}`;
+const library = EBOOKS.filter((b) => b.slug !== book.slug).slice(0, C.librarySize);
 ---
 <section class="gf-hero">
-  <img class="gf-hero__photo" src={feature.heroImage} alt={feature.heroAlt} width="1150" height="887"
-       style={`object-position: ${feature.heroFocus}`} fetchpriority="high" decoding="async" />
-  <span class="gf-hero__shade" aria-hidden="true"></span>
-
   <div class="container gf-hero__inner">
     <div class="gf-hero__copy">
       <p class="gf-eyebrow">{C.eyebrow}</p>
-      <!-- The series name is visually hidden: screen readers and search read the full title. -->
-      <h1 class="gf-title"><span class="visually-hidden">The Smart Patient’s </span>Guide to <span set:html={keepGlpTogether(book.title)} /></h1>
+      <h1 class="gf-title"><span class="gf-title__lead">{C.titleLead}</span> <span set:html={keepGlpTogether(book.title)} /></h1>
       <p class="gf-sub">{page.headline[0]}<span set:html={keepGlpTogether(page.headline[1])} /></p>
       <p class="gf-intro" set:html={keepGlpTogether(page.intro)} />
-      <ul class="gf-badges" role="list">
-        {C.badges.map((b) => (
-          <li><span class="gf-badges__icon"><Icon name={b.icon} /></span><span>{b.text[0]}<br />{b.text[1]}</span></li>
-        ))}
-      </ul>
+    </div>
+
+    <div class="gf-hero__book">
+      <span class="gf-hero__glow" aria-hidden="true"></span>
+      <GuideBook src={book.cover} alt={coverAlt} star loading="eager" />
     </div>
 
     <div class="gf-hero__form" id={formId}>
-      <span class="gf-ribbon" aria-hidden="true">{C.formRibbon}</span>
       <GuideLeadForm book={book} tagline={C.formTagline} />
     </div>
   </div>
@@ -64,15 +66,14 @@ const formId = `gf-form-${book.slug}`;
 
 <section class="gf-inside" aria-labelledby="gf-inside-title">
   <div class="container gf-inside__inner">
-    <div class="gf-inside__book">
-      <span class="gf-inside__halo" aria-hidden="true"></span>
-      <GuideBook src={book.cover} alt={`Cover of The Smart Patient’s Guide to ${book.title}`} />
-    </div>
+    <figure class="gf-inside__photo">
+      <img src={feature.photo} alt={feature.photoAlt} width="1150" height="887" loading="lazy" decoding="async" />
+    </figure>
 
     <div class="gf-inside__copy">
       <p class="gf-label">{C.insideEyebrow}</p>
-      <h2 class="gf-h2" id="gf-inside-title">{C.insideTitle}</h2>
-      <p class="gf-lead">{C.insideLead}</p>
+      <h2 class="gf-h2" id="gf-inside-title" set:html={keepGlpTogether(feature.insideTitle)} />
+      <p class="gf-lead" set:html={keepGlpTogether(feature.insideLead)} />
       <ul class="glp-inside gf-checks" role="list">
         {page.inside.map((item) => (
           <li><span class="gf-checks__tick"><Icon name="check" /></span><span set:html={keepGlpTogether(item)} /></li>
@@ -88,52 +89,39 @@ const formId = `gf-form-${book.slug}`;
         </ol>
       </details>
     </div>
-
-    <figure class="gf-quote">
-      <span class="gf-quote__mark" aria-hidden="true">&ldquo;</span>
-      <blockquote><p>{C.quote}</p></blockquote>
-      <span class="gf-quote__rule" aria-hidden="true"></span>
-      <figcaption>{C.quoteLabel[0]}<br />{C.quoteLabel[1]}</figcaption>
-    </figure>
   </div>
 </section>
 
-<section class="gf-help" aria-labelledby="gf-help-title">
+<section class="gf-library" aria-labelledby="gf-library-title">
   <div class="container">
-    <p class="gf-label gf-label--center">{C.helpEyebrow}</p>
-    <h2 class="gf-h2 gf-h2--center" id="gf-help-title">{C.helpTitle}</h2>
-    <p class="gf-help__lead">{C.helpLead}</p>
-    <ul class="gf-help__grid" role="list">
-      {C.help.map((h) => (
-        <li class="gf-help__card">
-          <div class="gf-help__media">
-            <img src={h.image} alt="" width="780" height="520" loading="lazy" decoding="async" />
-            <span class="gf-help__icon"><Icon name={h.icon} /></span>
-          </div>
-          <div class="gf-help__body">
-            <h3>{h.title}</h3>
-            <p>{h.body}</p>
-            <a href={guidePath(h.guide)} class="gf-help__more">{C.helpMore}<span class="visually-hidden">: the free {h.title} guide</span><Icon name="arrow-right" /></a>
-          </div>
+    <p class="gf-label gf-label--center">{C.libraryEyebrow}</p>
+    <h2 class="gf-h2 gf-h2--center" id="gf-library-title">{C.libraryTitle}</h2>
+    <p class="gf-library__lead">{C.libraryLead}</p>
+    <ul class="gf-library__grid" role="list">
+      {library.map((b) => (
+        <li class="gf-library__card">
+          <a href={guidePath(b.slug)} class="gf-library__link">
+            <span class="gf-library__cover"><GuideBook src={b.cover} alt="" /></span>
+            <span class="gf-library__body">
+              <span class="gf-library__series">The Smart Patient’s Guide to</span>
+              <span class="gf-library__title" set:html={keepGlpTogether(b.title)} />
+              <span class="gf-library__more">{C.libraryLink}<span class="visually-hidden">: {b.title}</span><Icon name="arrow-right" /></span>
+            </span>
+          </a>
         </li>
       ))}
     </ul>
+    <p class="gf-library__all"><a href={GUIDES_INDEX_PATH}>{C.libraryAll}<Icon name="arrow-right" /></a></p>
   </div>
 </section>
 
 <section class="gf-close" aria-labelledby="gf-close-title">
   <div class="container gf-close__inner">
-    <div class="gf-close__copy">
-      <p class="gf-eyebrow">{C.closeEyebrow}</p>
-      <h2 class="gf-close__title" id="gf-close-title">{C.closeTitle[0]}<br />{C.closeTitle[1]}</h2>
-      <p class="gf-close__body">{C.closeBody}</p>
-      <a href={`#${formId}`} class="gf-close__btn">{C.closeButton}<Icon name="arrow-right" /></a>
-    </div>
-    <ul class="gf-close__points" role="list">
-      {C.closePoints.map((p) => (
-        <li><span class="gf-close__icon"><Icon name={p.icon} /></span>{p.text}</li>
-      ))}
-    </ul>
+    <h2 class="gf-close__title" id="gf-close-title">{C.closeTitle}</h2>
+    <p class="gf-close__sub">{C.closeSub}</p>
+    <p class="gf-close__body" set:html={keepGlpTogether(feature.closeBody)} />
+    <a href={`#${formId}`} class="gf-close__btn">{C.closeButton}<Icon name="arrow-right" /></a>
+    <p class="gf-close__note">{C.closeNote}</p>
   </div>
 </section>
 
@@ -141,48 +129,36 @@ const formId = `gf-form-${book.slug}`;
   /* ---------- Hero ---------- */
   .gf-hero {
     position: relative; overflow: hidden; color: #fff; isolation: isolate;
-    background: linear-gradient(160deg, #0B3670 0%, var(--navy) 50%, var(--navy-deep) 100%);
-  }
-  .gf-hero__photo {
-    position: absolute; z-index: -2; top: 0; right: 0; bottom: 0; width: 70%; height: 100%; object-fit: cover;
-  }
-  /* Navy behind the copy, fading out over the photo; a light veil at the bottom right keeps the form card grounded. */
-  .gf-hero__shade {
-    position: absolute; z-index: -1; inset: 0;
     background:
-      linear-gradient(90deg, var(--navy-deep) 0%, rgba(6, 32, 88, 0.97) 30%, rgba(6, 32, 88, 0.5) 44%, rgba(6, 32, 88, 0.05) 58%, rgba(6, 32, 88, 0.2) 100%),
-      linear-gradient(0deg, rgba(4, 20, 52, 0.45), transparent 40%);
+      radial-gradient(48rem 34rem at 78% 40%, rgba(46, 168, 247, 0.26), transparent 62%),
+      linear-gradient(160deg, #0B3670 0%, var(--navy) 50%, var(--navy-deep) 100%);
   }
+  /* Copy and form on the left, the cover large on the right. */
   .gf-hero__inner {
-    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 400px); gap: clamp(1.5rem, 4vw, 5rem); align-items: center;
-    padding-block: clamp(2.5rem, 5vw, 4.5rem);
+    display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    grid-template-areas: 'copy book' 'form book';
+    column-gap: clamp(1.5rem, 5vw, 5rem); row-gap: 1.4rem; align-items: start;
+    padding-block: clamp(2rem, 4vw, 3.5rem) clamp(2.5rem, 5vw, 4.25rem);
   }
-  .gf-hero__copy { max-width: 34rem; }
+  .gf-hero__copy { grid-area: copy; max-width: 38rem; }
+  .gf-hero__book { grid-area: book; align-self: center; justify-self: center; position: relative; width: min(100%, 440px); margin-right: 6%; }
+  .gf-hero__form { grid-area: form; max-width: 38rem; scroll-margin-top: 110px; }
+
   .gf-eyebrow { font-family: var(--font-sans); font-weight: 700; font-size: 0.9375rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-soft); }
   .gf-title {
     margin-top: 0.6rem; font-family: var(--font-serif); font-weight: 700; color: #fff; text-wrap: balance;
-    font-size: clamp(2.5rem, 1.4rem + 3.6vw, 4.6rem); line-height: 1.02; letter-spacing: -0.015em;
+    font-size: clamp(2.4rem, 1.4rem + 3vw, 4rem); line-height: 1.04; letter-spacing: -0.015em;
   }
-  .gf-sub { margin-top: 1rem; font-family: var(--font-serif); font-weight: 600; font-size: clamp(1.2rem, 1rem + 0.8vw, 1.6rem); line-height: 1.25; }
+  .gf-title__lead { display: block; margin-bottom: 0.3rem; font-size: 0.5em; font-weight: 600; line-height: 1.15; letter-spacing: 0; color: rgba(255, 255, 255, 0.92); }
+  .gf-sub { margin-top: 0.85rem; font-family: var(--font-serif); font-weight: 600; font-size: clamp(1.15rem, 1rem + 0.7vw, 1.5rem); line-height: 1.25; }
   .gf-sub span { display: block; color: var(--blue-soft); }
-  .gf-intro { margin-top: 1rem; max-width: 36rem; font-size: clamp(1rem, 0.95rem + 0.25vw, 1.1875rem); line-height: 1.55; color: rgba(255, 255, 255, 0.9); }
-  .gf-badges { list-style: none; margin: 1.6rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 1rem 1.75rem; }
-  .gf-badges li { display: flex; align-items: center; gap: 0.7rem; font-size: 0.9375rem; line-height: 1.3; color: rgba(255, 255, 255, 0.92); }
-  .gf-badges__icon {
-    flex: none; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1); border: 1.5px solid rgba(255, 255, 255, 0.35);
-  }
-  .gf-badges__icon :global(svg) { width: 22px; height: 22px; }
+  .gf-intro { margin-top: 0.85rem; font-size: clamp(1rem, 0.95rem + 0.25vw, 1.1875rem); line-height: 1.55; color: rgba(255, 255, 255, 0.9); }
 
-  .gf-hero__form { position: relative; scroll-margin-top: 110px; }
-  .gf-ribbon {
-    position: absolute; z-index: 2; top: -0.85rem; right: -0.6rem; transform: rotate(6deg);
-    padding: 0.4rem 1rem; border-radius: 999px; font-family: var(--font-sans); font-weight: 800; font-size: 0.875rem;
-    letter-spacing: 0.08em; text-transform: uppercase; color: #fff; background: linear-gradient(180deg, #1E86D8, var(--blue));
-    box-shadow: 0 8px 18px rgba(3, 18, 40, 0.35);
-  }
+  /* A soft pool of light behind the cover, and a wide shadow under it. */
+  .gf-hero__glow { position: absolute; inset: -14% -18% -10% -12%; z-index: 0; border-radius: 50%; background: radial-gradient(closest-side, rgba(120, 196, 255, 0.32), transparent); }
+  .gf-hero__book :global(.gbook) { position: relative; z-index: 1; filter: drop-shadow(0 30px 40px rgba(2, 12, 32, 0.55)); }
 
-  /* ---------- Plain facts ---------- */
+  /* ---------- Trust strip ---------- */
   .gf-trust { background: #F3F7FC; border-bottom: 1px solid #E1E9F3; }
   .gf-trust__inner { display: flex; align-items: center; gap: clamp(1.25rem, 3vw, 3rem); padding-block: 1.4rem; }
   .gf-trust__list { list-style: none; margin: 0; padding: 0; flex: 1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
@@ -193,14 +169,12 @@ const formId = `gf-form-${book.slug}`;
 
   /* ---------- Inside the guide ---------- */
   .gf-inside { padding-block: clamp(3rem, 6vw, 5rem); background: #fff; }
-  .gf-inside__inner { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr) minmax(0, 0.75fr); gap: clamp(1.5rem, 3.5vw, 3.5rem); align-items: center; }
-  .gf-inside__book { position: relative; width: min(100%, 330px); justify-self: center; }
-  .gf-inside__halo { position: absolute; inset: 8% -10% -6%; border-radius: 50%; background: radial-gradient(closest-side, rgba(46, 168, 247, 0.22), transparent); z-index: 0; }
-  .gf-inside__book :global(.gbook) { position: relative; z-index: 1; }
+  .gf-inside__inner { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: clamp(1.75rem, 4vw, 4rem); align-items: center; }
+  /* The photo keeps its own shape, so she is never cut off at the side. */
+  .gf-inside__photo { margin: 0; overflow: hidden; border-radius: 26px; box-shadow: 0 22px 50px rgba(8, 43, 89, 0.16); }
+  .gf-inside__photo img { display: block; width: 100%; height: auto; aspect-ratio: 1150 / 887; }
   .gf-label { font-family: var(--font-sans); font-weight: 700; font-size: 0.875rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); }
   .gf-label--center { text-align: center; }
-  /* A shade darker on the cream background, so the small label keeps 4.5:1 contrast. */
-  .gf-help .gf-label { color: #0F5F9F; }
   .gf-h2 { margin-top: 0.5rem; font-family: var(--font-serif); font-weight: 700; color: var(--navy); font-size: clamp(1.9rem, 1.3rem + 1.8vw, 2.75rem); line-height: 1.1; text-wrap: balance; }
   .gf-h2--center { text-align: center; }
   .gf-lead { margin-top: 0.9rem; max-width: 36rem; color: var(--text-body); font-size: 1.0625rem; line-height: 1.55; }
@@ -221,88 +195,86 @@ const formId = `gf-form-${book.slug}`;
   .gf-preview__btn:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 3px; }
   .gf-preview[open] .gf-preview__btn :global(svg) { transform: rotate(90deg); }
   .gf-preview__head { margin-top: 1.2rem; font-family: var(--font-sans); font-weight: 700; font-size: 0.875rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); }
-  .gf-preview__list { list-style: none; margin: 0.7rem 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; counter-reset: chapter; }
+  .gf-preview__list { list-style: none; margin: 0.7rem 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
   .gf-preview__list li { display: flex; align-items: center; gap: 0.6rem; padding: 0.7rem 0.8rem; border-radius: 12px; background: #F3F7FC; color: var(--navy); font-weight: 600; font-size: 0.9375rem; line-height: 1.3; }
   .gf-preview__icon { flex: none; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: #fff; color: var(--blue); }
   .gf-preview__icon :global(svg) { width: 18px; height: 18px; }
 
-  .gf-quote {
-    margin: 0; padding: clamp(1.75rem, 3vw, 2.5rem) clamp(1.25rem, 2.5vw, 2rem); border-radius: 28px; text-align: center;
-    background: linear-gradient(180deg, #EEF5FD, #F7FAFE); box-shadow: inset 0 0 0 1px #E1ECF8;
+  /* ---------- More free guides ---------- */
+  .gf-library { padding-block: clamp(3rem, 6vw, 5rem); background: #F7F4EF; }
+  /* A shade darker on the cream background, so the small label keeps 4.5:1 contrast. */
+  .gf-library .gf-label { color: #0F5F9F; }
+  .gf-library__lead { margin: 0.7rem auto 0; max-width: 42rem; text-align: center; color: var(--text-body); font-size: 1.0625rem; line-height: 1.5; }
+  .gf-library__grid { list-style: none; margin: clamp(1.75rem, 3vw, 2.5rem) 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
+  .gf-library__card { display: flex; }
+  .gf-library__link {
+    display: flex; flex-direction: column; width: 100%; overflow: hidden; border-radius: 18px; background: #fff; color: inherit; text-decoration: none;
+    box-shadow: 0 10px 28px rgba(8, 43, 89, 0.08); transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
-  .gf-quote__mark { display: block; font-family: var(--font-serif); font-weight: 700; font-size: 4rem; line-height: 0.6; color: var(--blue); }
-  .gf-quote blockquote { margin: 0.9rem 0 0; }
-  .gf-quote p { font-family: var(--font-serif); font-style: italic; font-size: clamp(1.35rem, 1.1rem + 0.7vw, 1.75rem); line-height: 1.3; color: var(--navy); }
-  .gf-quote__rule { display: block; width: 44px; height: 3px; margin: 1.4rem auto 1.2rem; border-radius: 2px; background: var(--blue); }
-  .gf-quote figcaption { font-family: var(--font-sans); font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.16em; line-height: 1.9; text-transform: uppercase; color: var(--navy); }
-
-  /* ---------- Who we help ---------- */
-  .gf-help { padding-block: clamp(3rem, 6vw, 5rem); background: #F7F4EF; }
-  .gf-help__lead { margin: 0.7rem auto 0; max-width: 40rem; text-align: center; color: var(--text-body); font-size: 1.0625rem; line-height: 1.5; }
-  .gf-help__grid { list-style: none; margin: clamp(1.75rem, 3vw, 2.5rem) 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
-  .gf-help__card { display: flex; flex-direction: column; overflow: hidden; border-radius: 18px; background: #fff; box-shadow: 0 10px 28px rgba(8, 43, 89, 0.08); }
-  .gf-help__media { position: relative; }
-  /* The photos are 3:2, shown whole so no one is cut off. */
-  .gf-help__media img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
-  .gf-help__icon {
-    position: absolute; left: 1.1rem; bottom: -24px; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%;
-    background: #fff; color: var(--blue); box-shadow: 0 6px 16px rgba(8, 43, 89, 0.18);
+  .gf-library__link:hover { transform: translateY(-3px); box-shadow: 0 16px 36px rgba(8, 43, 89, 0.14); }
+  .gf-library__link:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+  .gf-library__cover { display: grid; place-items: center; padding: 1.75rem 1.5rem 2rem; background: radial-gradient(closest-side, rgba(46, 168, 247, 0.18), transparent), linear-gradient(180deg, #EAF3FC, #F6FAFE); }
+  .gf-library__cover :global(.gbook) { width: min(62%, 170px); }
+  .gf-library__link:hover .gf-library__cover :global(.gbook) { transform: perspective(1400px) rotateY(-12deg) rotateX(2deg); }
+  .gf-library__body { display: flex; flex-direction: column; flex: 1; padding: 1.1rem 1.25rem 1.3rem; }
+  .gf-library__series { font-size: 0.875rem; color: var(--text-body); }
+  .gf-library__title { margin-top: 0.15rem; font-family: var(--font-serif); font-weight: 600; font-size: 1.3rem; line-height: 1.2; color: var(--navy); }
+  .gf-library__more { margin-top: auto; padding-top: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 700; color: var(--blue); }
+  .gf-library__more :global(svg), .gf-library__all :global(svg) { width: 17px; height: 17px; transition: transform 0.2s ease; }
+  .gf-library__link:hover .gf-library__more :global(svg), .gf-library__all a:hover :global(svg) { transform: translateX(3px); }
+  .gf-library__all { margin: clamp(1.5rem, 3vw, 2.25rem) 0 0; text-align: center; }
+  .gf-library__all a {
+    display: inline-flex; align-items: center; gap: 0.45rem; font-family: var(--font-sans); font-weight: 700; font-size: 0.9375rem;
+    letter-spacing: 0.08em; text-transform: uppercase; color: #0F5F9F; text-decoration: underline; text-underline-offset: 4px;
   }
-  .gf-help__icon :global(svg) { width: 26px; height: 26px; }
-  .gf-help__body { display: flex; flex-direction: column; flex: 1; padding: 2.1rem 1.25rem 1.35rem; }
-  .gf-help__body h3 { font-family: var(--font-serif); font-weight: 600; font-size: 1.3rem; color: var(--navy); }
-  .gf-help__body p { margin-top: 0.4rem; color: var(--text-body); font-size: 1rem; line-height: 1.45; }
-  .gf-help__more { margin-top: auto; padding-top: 1rem; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 700; color: var(--blue); }
-  .gf-help__more :global(svg) { width: 17px; height: 17px; transition: transform 0.2s ease; }
-  .gf-help__more:hover :global(svg) { transform: translateX(3px); }
 
-  /* ---------- Closing band ---------- */
+  /* ---------- Final call to action ---------- */
   .gf-close {
-    color: #fff; padding-block: clamp(2.75rem, 5vw, 4rem);
+    color: #fff; padding-block: clamp(3rem, 6vw, 4.75rem); text-align: center;
     background:
-      linear-gradient(90deg, rgba(6, 32, 88, 0.97) 0%, rgba(6, 32, 88, 0.85) 45%, rgba(6, 32, 88, 0.45) 100%),
+      linear-gradient(0deg, rgba(6, 32, 88, 0.9), rgba(6, 32, 88, 0.9)),
       url('/images/guides/coast-band.webp') center / cover no-repeat, var(--navy);
   }
-  .gf-close__inner { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: center; }
-  .gf-close__title { margin-top: 0.5rem; font-family: var(--font-serif); font-weight: 700; color: #fff; font-size: clamp(1.9rem, 1.3rem + 1.8vw, 2.9rem); line-height: 1.08; }
-  .gf-close__body { margin-top: 0.9rem; max-width: 34rem; color: rgba(255, 255, 255, 0.9); font-size: 1.0625rem; line-height: 1.55; }
+  .gf-close__inner { display: grid; justify-items: center; }
+  .gf-close__title { font-family: var(--font-serif); font-weight: 700; color: #fff; font-size: clamp(2.1rem, 1.4rem + 2.2vw, 3.25rem); line-height: 1.08; text-wrap: balance; }
+  .gf-close__sub { margin-top: 0.7rem; font-family: var(--font-serif); font-weight: 600; font-size: clamp(1.15rem, 1rem + 0.6vw, 1.45rem); line-height: 1.3; color: var(--blue-soft); }
+  .gf-close__body { margin-top: 1rem; max-width: 38rem; color: rgba(255, 255, 255, 0.9); font-size: 1.0625rem; line-height: 1.55; }
   .gf-close__btn {
-    margin-top: 1.5rem; display: inline-flex; align-items: center; gap: 0.55rem; padding: 1rem 2rem; border-radius: 999px;
-    font-weight: 700; font-size: 1.125rem; color: #fff; background: linear-gradient(180deg, #1E86D8, var(--blue)); box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+    margin-top: 1.6rem; display: inline-flex; align-items: center; gap: 0.55rem; padding: 1.05rem 2.1rem; border-radius: 999px;
+    font-family: var(--font-sans); font-weight: 700; font-size: 1.0625rem; letter-spacing: 0.06em; text-transform: uppercase;
+    color: #fff; background: linear-gradient(180deg, #1E86D8, var(--blue)); box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s ease;
   }
   .gf-close__btn :global(svg) { width: 20px; height: 20px; }
   .gf-close__btn:hover { transform: translateY(-2px); color: #fff; }
   .gf-close__btn:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 3px; }
-  .gf-close__points { list-style: none; margin: 0; padding: 0 0 0 clamp(0rem, 3vw, 2.5rem); display: grid; gap: 0.8rem; border-left: 1px solid rgba(255, 255, 255, 0.25); }
-  .gf-close__points li {
-    display: flex; align-items: center; gap: 0.85rem; padding: 0.85rem 1.1rem; border-radius: 14px; font-size: 1.0625rem;
-    background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.18);
-  }
-  .gf-close__icon { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: rgba(46, 168, 247, 0.2); color: #fff; }
-  .gf-close__icon :global(svg) { width: 21px; height: 21px; }
+  .gf-close__note { margin-top: 0.85rem; font-size: 0.9375rem; color: rgba(255, 255, 255, 0.82); }
 
   /* ---------- Narrower screens ---------- */
   @media (max-width: 1100px) {
-    .gf-inside__inner { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); }
-    .gf-quote { grid-column: 1 / -1; }
-    .gf-help__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .gf-library__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   @media (max-width: 900px) {
-    /* The photo becomes a band at the top, shown whole above the copy. */
-    .gf-hero__photo { position: relative; z-index: 0; display: block; width: 100%; height: auto; aspect-ratio: 1150 / 700; }
-    .gf-hero__shade { top: auto; height: 40px; background: none; }
-    .gf-hero__inner { grid-template-columns: 1fr; padding-top: 1.75rem; }
+    /* One column: the copy, then the cover, then the form. */
+    .gf-hero__inner { grid-template-columns: 1fr; grid-template-areas: 'copy' 'book' 'form'; }
+    .gf-hero__book { width: min(62%, 300px); margin: 0.5rem auto 1rem; }
+    .gf-hero__form { max-width: none; }
     .gf-trust__inner { flex-direction: column; align-items: flex-start; }
     .gf-trust__list { grid-template-columns: 1fr; }
     .gf-inside__inner { grid-template-columns: 1fr; }
-    .gf-inside__book { width: min(70%, 280px); }
-    .gf-close__inner { grid-template-columns: 1fr; }
-    .gf-close__points { padding-left: 0; border-left: 0; }
   }
   @media (max-width: 560px) {
-    .gf-help__grid { grid-template-columns: 1fr; }
+    /* Two small cards a row, so the four covers fit in about one screen. */
+    .gf-library__grid { gap: 0.75rem; }
+    .gf-library__cover { padding: 1.1rem 0.75rem 1.4rem; }
+    .gf-library__cover :global(.gbook) { width: 68%; }
+    .gf-library__body { padding: 0.8rem 0.85rem 1rem; }
+    .gf-library__series { font-size: 0.8125rem; }
+    .gf-library__title { font-size: 1.1rem; }
+    .gf-library__more { font-size: 0.875rem; }
     .gf-preview__list { grid-template-columns: 1fr; }
-    .gf-ribbon { right: 0.5rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gf-library__link, .gf-close__btn { transition: none; }
   }
 </style>

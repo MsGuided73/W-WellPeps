@@ -347,12 +347,14 @@ const restPos = (i: number) => {
     display: flex; flex-direction: column; align-items: center; gap: clamp(0.6rem, 1.6vh, 1.25rem);
   }
   /* The strip area flexes to the height left over, and the covers are sized from it (cqh/cqw): the
-     centre cover's height fills the area less room for its shadow, up to 470px, and its width is
-     never more than 30% of the area's width (60% on a phone). */
+     centre cover's height fills the area less room for its shadow, up to 600px, and its width is
+     never more than 36% of the area's width (72% on a phone). The area is at least 56% of the screen's
+     height (client 2026-10-13 and 2026-10-16: a bigger, more prominent centre guide), so the section may
+     run past one screen. */
   .gring__viewport {
     container-type: size;
-    /* Grows from a fixed 190px base: a min-height here would size the covers from the (empty) content. */
-    position: relative; width: 100%; flex: 1 0 190px;
+    /* Grows from its base: a min-height here would size the covers from the (empty) content. */
+    position: relative; width: 100%; flex: 1 0 clamp(320px, 56vh, 620px);
     touch-action: pan-y; cursor: grab; user-select: none; -webkit-user-select: none;
     /* The strip runs off both edges of the section, fading as it goes. */
     -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
@@ -360,11 +362,11 @@ const restPos = (i: number) => {
   }
   .gring__viewport:active { cursor: grabbing; }
   .gring__viewport::after { /* the soft shadow the centre cover stands over */
-    content: ''; position: absolute; left: 50%; bottom: 0; width: min(420px, 60%); height: 1.6rem; transform: translateX(-50%);
+    content: ''; position: absolute; left: 50%; bottom: 0; width: min(520px, 70%); height: 1.6rem; transform: translateX(-50%);
     background: radial-gradient(closest-side, rgba(0, 10, 30, 0.5), transparent); filter: blur(8px); pointer-events: none;
   }
   .gring__track, .gring__star {
-    --h: min(calc(100cqh - 2rem), 470px, calc(30cqw * 776 / 600));
+    --h: min(calc(100cqh - 2rem), 600px, calc(36cqw * 776 / 600));
     --w: calc(var(--h) * 600 / 776);
   }
   .gring__track {
@@ -393,6 +395,17 @@ const restPos = (i: number) => {
     /* Side covers dim with their distance from the centre. */
     filter: brightness(var(--b, 1));
   }
+  /* A soft pool of light behind the centre cover, so it reads as the one on offer. */
+  .gring__card::before {
+    content: ''; position: absolute; inset: -16% -30%; z-index: -1; border-radius: 50%; pointer-events: none;
+    background: radial-gradient(closest-side, rgba(120, 196, 255, 0.38), transparent);
+    opacity: 0; transition: opacity 0.4s ease;
+  }
+  .gring__card[data-pos='front']::before { opacity: 1; }
+  .gring__card[data-pos='front'] .gring__face {
+    box-shadow: 0 26px 56px rgba(0, 8, 28, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.18), 3px 0 0 #E9EDF3, 5px 0 0 #B9C3D0;
+  }
+  @media (prefers-reduced-motion: reduce) { .gring__card::before { transition: none; } }
 
   /* ---------- Controls and caption ---------- */
   .gring__controls { display: flex; align-items: center; justify-content: center; gap: 1rem; visibility: hidden; }
@@ -441,7 +454,9 @@ const restPos = (i: number) => {
   .gring__all a:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 2px; border-radius: 4px; }
 
   @media (max-width: 760px) {
-    .gring__track, .gring__star { --h: min(calc(100cqh - 2rem), 470px, calc(60cqw * 776 / 600)); }
+    /* On a phone the width is the limit, so the cover takes most of it and the area is only as tall as it needs. */
+    .gring__viewport { flex-basis: clamp(300px, 50vh, 480px); }
+    .gring__track, .gring__star { --h: min(calc(100cqh - 2rem), 600px, calc(72cqw * 776 / 600)); }
     .gring__star { --sw: calc(var(--w) * 0.4); }
     .gring__all a { font-size: 0.95rem; letter-spacing: 0.02em; }
   }

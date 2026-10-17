@@ -4,9 +4,13 @@
  * client dropped first name on 2026-10-02): no name, no phone, no date of birth, no health questions, no "what are you interested in" menu,
  * because which guide it is already says what they are interested in.
  *
- * It uses the same sign-up function and the same two separate consent boxes as the email dialog
- * (src/components/legal/FormConsent.astro, src/lib/form-consent.ts), with the guide named in both.
- * On success it opens the guide's thank-you page, which carries the download.
+ * It uses the same sign-up function as the other forms. Since 2026-10-16 (counsel agreed, ATT-038) it has
+ * no required consent box: sending a requested guide needs none. A short notice says what the email
+ * address is for, and one optional, unchecked box asks for follow-up emails
+ * (src/components/legal/FormConsent.astro with `forGuide`, src/lib/form-consent.ts).
+ * On success it opens the guide's thank-you page, which carries the download. The heading says
+ * "Download Your Free Guide"; the button, like the page's closing button, says "Send Me My Free Guide",
+ * because the guide is delivered by email (Derek's notes and owner, 2026-10-16).
  */
 import Icon from '../Icon.astro';
 import FormConsent from '../legal/FormConsent.astro';
@@ -25,7 +29,7 @@ const id = `gform-${book.slug}`;
 <form class="gform" id={id} method="post" novalidate data-guide-form data-source={book.source} data-next={guideThanksPath(book.slug)} aria-labelledby={`${id}-title`}>
   <div class="gform__head">
     <div>
-      <h2 class="gform__title" id={`${id}-title`}>Get Your Free Guide</h2>
+      <h2 class="gform__title" id={`${id}-title`}>Download Your Free Guide</h2>
       {tagline && <p class="gform__tagline">{tagline}</p>}
     </div>
     <img class="gform__mark" src="/images/w-mark-v2.png" alt="" width="450" height="300" />
@@ -41,8 +45,8 @@ const id = `gform-${book.slug}`;
   </div>
   <FormConsent topic={book.title} idPrefix={`${id}-consent`} forGuide />
   <p class="gform__error" role="alert" hidden data-guide-error></p>
-  <button type="submit" class="gform__submit">Send Me the Free Guide<Icon name="arrow-right" /></button>
-  <p class="gform__note">We’ll use your email address to send your guide.</p>
+  <button type="submit" class="gform__submit">Send Me My Free Guide<Icon name="arrow-right" /></button>
+  <p class="gform__note">Free to download. No obligation.</p>
   <noscript><p class="gform__error">This form needs JavaScript. Please turn it on, or email {CONTACT.email} and ask for the guide.</p></noscript>
 </form>
 
@@ -72,7 +76,7 @@ const id = `gform-${book.slug}`;
         email: String(data.get('email') ?? '').trim(),
         source: form.dataset.source as SignupSource,
         company: String(data.get('company') ?? ''),
-        consent: { collect: data.get('consentCollect') === 'on', marketing: data.get('consentMarketing') === 'on' },
+        guideMarketing: data.get('consentMarketing') === 'on',
       });
 
       if (!result.ok) {

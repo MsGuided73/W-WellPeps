@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, test } from 'vitest';
-import { FORM_CONSENT_VERSION, consentFields, formConsentText, topicLabel } from './form-consent';
+import { FORM_CONSENT_VERSION, GUIDE_FORM_VERSION, consentFields, formConsentText, guideConsentFields, guideConsentText, topicLabel } from './form-consent';
 import { submitSignup } from './notify';
 import { EBOOKS } from '../data/ebooks';
 
@@ -14,13 +14,24 @@ describe('consent wording', () => {
     expect(text.collect).toContain('so WellPeps can send me what I asked for');
   });
 
-  test('a guide form names its own guide in both boxes', () => {
-    for (const book of EBOOKS) {
-      const g = formConsentText(book.title, 'privacy@wellpeps.com', { forGuide: true });
-      const guide = `the Smart Patient’s Guide to ${book.title}`;
-      expect(g.collect, book.slug).toBe(`I agree that WellPeps may save my email address and my interest in ${book.title} so WellPeps can send me ${guide}.`);
-      expect(g.marketing, book.slug).toContain(`I understand that I do not need to select this option in order to receive ${guide}.`);
-    }
+  test('a guide form has no required box: a notice says what the email is for, and how to opt out', () => {
+    const g = guideConsentText('privacy@wellpeps.com');
+    expect(g.notice).toContain('We’ll use your email address to send the guide you requested.');
+    expect(g.notice).toContain('unsubscribe');
+    expect(g.notice).toContain('privacy@wellpeps.com');
+    // A notice, not an agreement: MHMDA consent cannot come from accepting general terms.
+    expect(g.notice).not.toMatch(/agree/i);
+  });
+
+  test('the guide form optional box names the purpose and that it uses the guide chosen', () => {
+    const g = guideConsentText('privacy@wellpeps.com');
+    expect(g.marketing).toBe('Email me health and wellness tips, educational resources, and updates from WellPeps, based on the guide I requested.');
+  });
+
+  test('a guide signup sends only the optional choice and the guide wording version', () => {
+    expect(guideConsentFields(true)).toEqual({ consent_marketing: true, consent_text_version: GUIDE_FORM_VERSION });
+    expect(guideConsentFields(false)).toEqual({ consent_marketing: false, consent_text_version: GUIDE_FORM_VERSION });
+    expect(guideConsentFields(true)).not.toHaveProperty('consent_collect');
   });
 
   test('a form that is not for a guide keeps the general words', () => {
@@ -47,7 +58,8 @@ describe('consent wording', () => {
     expect(text.marketing).toContain('I do not need to select this option in order to receive');
   });
 
-  test('the withdrawal sentence covers both consents and gives the email', () => {
+  test('the withdrawal sentence says how to unsubscribe, covers both consents and gives the email', () => {
+    expect(text.withdraw).toContain('unsubscribe');
     expect(text.withdraw).toContain('withdraw either consent at any time in Your Privacy Choices or by emailing privacy@wellpeps.com');
   });
 
@@ -61,11 +73,9 @@ describe('consent wording', () => {
   test('each box stays a reasonable length for every real topic, in every form variant', () => {
     for (const topic of [...EBOOKS.map((b) => b.title), 'Hormone Optimization', 'hair restoration']) {
       for (const withFirstName of [false, true]) {
-        for (const forGuide of [false, true]) {
-          const t = formConsentText(topic, 'privacy@wellpeps.com', { withFirstName, forGuide });
-          expect(t.collect.length, `${topic} collect`).toBeLessThan(200);
-          expect(t.marketing.length, `${topic} marketing`).toBeLessThan(270);
-        }
+        const t = formConsentText(topic, 'privacy@wellpeps.com', { withFirstName });
+        expect(t.collect.length, `${topic} collect`).toBeLessThan(200);
+        expect(t.marketing.length, `${topic} marketing`).toBeLessThan(270);
       }
     }
   });
@@ -117,7 +127,7 @@ describe('submitSignup carries the consent', () => {
 describe('every health-topic form asks for it', () => {
   const root = resolve(__dirname, '../..');
   const read = (p: string) => readFileSync(resolve(root, p), 'utf8');
-  for (const f of ['src/components/guides/GuideLeadForm.astro', 'src/components/sections/WaitlistSection.astro', 'src/components/sections/hair/HairComingSoon.astro']) {
+  for (const f of ['src/components/sections/WaitlistSection.astro', 'src/components/sections/hair/HairComingSoon.astro']) {
     test(`${f.split('/').pop()} uses the consent component and sends the choice`, () => {
       const src = read(f);
       expect(src).toContain('FormConsent');
@@ -125,10 +135,18 @@ describe('every health-topic form asks for it', () => {
     });
   }
 
+  test('the guide form uses the guide layout and sends only the optional choice', () => {
+    const src = read('src/components/guides/GuideLeadForm.astro');
+    expect(src).toMatch(/<FormConsent[^>]*forGuide/);
+    expect(src).toMatch(/guideMarketing:/);
+    expect(src).not.toMatch(/consent:\s*\{/);
+  });
+
   test('the withdrawal sentence is shown and tied to both boxes', () => {
     const src = read('src/components/legal/FormConsent.astro');
     expect(src).toContain('{text.withdraw}');
-    expect(src.match(/aria-describedby=\{`\$\{idPrefix\}-fine`\}/g)).toHaveLength(2);
+    // Two in the waitlist/notify layout, one on the guide form's optional box.
+    expect(src.match(/aria-describedby=\{`\$\{idPrefix\}-fine`\}/g)).toHaveLength(3);
   });
 
   test('only the guide form names a guide', () => {

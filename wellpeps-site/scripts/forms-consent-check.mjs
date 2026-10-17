@@ -25,24 +25,21 @@ for (const [slug, title] of [['glp-1-weight-loss', 'GLP-1 Weight Loss'], ['hair-
   await page.addStyleTag({ content: hide });
   const form = page.locator('form[data-guide-form]');
   await form.scrollIntoViewIfNeeded();
-  const collect = await form.locator('[data-fconsent-collect]').innerText();
+  // No required box since 2026-10-16 (counsel, ATT-038): one optional box and a short notice.
   const marketing = await form.locator('[data-fconsent-marketing]').innerText();
-  check(`${slug}: required consent names the guide itself and no first name`, collect.includes(`so WellPeps can send me the Smart Patient’s Guide to ${title}.`) && !/first name/i.test(collect), collect);
-  check(`${slug}: optional consent names the guide and says it is not needed to receive it`, marketing.includes(title) && marketing.includes(`I understand that I do not need to select this option in order to receive the Smart Patient’s Guide to ${title}.`), marketing);
-  check(`${slug}: both boxes start unchecked`, !(await form.locator('input[name=consentCollect]').isChecked()) && !(await form.locator('input[name=consentMarketing]').isChecked()));
+  const notice = await form.locator('[data-fconsent-notice]').innerText();
+  check(`${slug}: no required consent box`, (await form.locator('input[name=consentCollect]').count()) === 0);
+  check(`${slug}: the optional box is marked optional, says what it is for, and starts unchecked`, marketing.startsWith('Optional:') && marketing.includes('based on the guide I requested') && !(await form.locator('input[name=consentMarketing]').isChecked()), marketing);
+  check(`${slug}: the notice says what the email is for and how to unsubscribe, without asking for agreement`, notice.includes('send the guide you requested') && /unsubscribe/.test(notice) && !/agree/i.test(notice), notice);
   check(`${slug}: the form links the Privacy Policy and Your Privacy Choices`, (await form.locator('a[href^="/privacy-policy"]').count()) > 0 && (await form.locator('a[href^="/your-privacy-choices"]').count()) > 0);
   const before = sent.length;
   await form.locator('input[name=email]').fill(`${slug}@example.com`);
-  await form.locator('button[type=submit]').click();
-  await page.waitForTimeout(500);
-  check(`${slug}: without the required box nothing is sent`, sent.length === before);
-  await form.locator('input[name=consentCollect]').check();
-  if (slug === 'hair-restoration') await form.locator('input[name=consentMarketing]').check();
+  const wantMarketing = slug === 'hair-restoration';
+  if (wantMarketing) await form.locator('input[name=consentMarketing]').check();
   await form.locator('button[type=submit]').click();
   await page.waitForURL('**/thank-you**', { timeout: 8000 });
   const last = sent[sent.length - 1];
-  const wantMarketing = slug === 'hair-restoration';
-  check(`${slug}: with consent it sends once, with the choices as given`, sent.length === before + 1 && last.consent_collect === true && last.consent_marketing === wantMarketing, JSON.stringify(last));
+  check(`${slug}: it sends once with the optional choice as given and no collection consent`, sent.length === before + 1 && !('consent_collect' in last) && last.consent_marketing === wantMarketing, JSON.stringify(last));
   await page.close();
 }
 

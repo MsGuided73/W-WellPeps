@@ -22,7 +22,7 @@ export type SignupSource =
   | 'ebook_healthy_aging'
   | 'ebook_nad';
 
-import { consentFields, type ConsentChoice } from './form-consent';
+import { consentFields, guideConsentFields, type ConsentChoice } from './form-consent';
 
 export const NOTIFY_ENDPOINT =
   'https://kwgwbupqzpusydzflyvi.supabase.co/functions/v1/notify-signup';
@@ -35,6 +35,8 @@ export interface SignupPayload {
   company?: string;
   /** What the person ticked on a health-topic form (see form-consent.ts). Omitted for forms with no health topic. */
   consent?: ConsentChoice;
+  /** A free-guide form's optional follow-up box. Sending the requested guide needs no consent (form-consent.ts). */
+  guideMarketing?: boolean;
 }
 
 export interface SignupResult {
@@ -62,6 +64,7 @@ export async function submitSignup(payload: SignupPayload): Promise<SignupResult
         first_name: payload.firstName ?? null,
         company: payload.company ?? '',
         ...(payload.consent ? consentFields(payload.consent) : {}),
+        ...(payload.guideMarketing !== undefined ? guideConsentFields(payload.guideMarketing) : {}),
       }),
     });
 
