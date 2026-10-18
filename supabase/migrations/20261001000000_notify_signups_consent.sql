@@ -1,8 +1,9 @@
 -- notify_signups: record the consent given on a health-topic signup form.
 --
--- NOT APPLIED. Run by the owner before deploying the updated notify-signup function
--- (supabase/functions/notify-signup). Safe to run on the live table: every column is nullable
--- and has no default, so existing rows read as "consent not recorded" (they were collected
+-- APPLIED 2026-10-18 to project kwgwbupqzpusydzflyvi (recorded remotely as "notify_signups_consent",
+-- with that day's timestamp as its version, not 20261001000000). Applied before deploying the updated
+-- notify-signup function (supabase/functions/notify-signup). Safe on the live table: every column is
+-- nullable and has no default, so existing rows read as "consent not recorded" (they were collected
 -- before the consent boxes existed) and the live function keeps working unchanged.
 --
 -- Why: Washington (RCW 19.373) and Nevada (NRS 603A) treat an email address tied to a health

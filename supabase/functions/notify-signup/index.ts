@@ -1,10 +1,9 @@
 /**
  * notify-signup — public endpoint for the marketing site's signup forms.
  *
- * NOT DEPLOYED. This is the next version of the function that is live (version 2): the same
- * guards, plus recording the consent a person gave on a health-topic form. Deploying it is the
- * owner's step (see supabase/README.md and the migration 20261001000000_notify_signups_consent.sql,
- * which must be applied first).
+ * DEPLOYED 2026-10-18 (replaced version 2): the same guards, plus recording the consent a person
+ * gave on a sign-up form. Its migration (20261001000000_notify_signups_consent.sql) was applied the
+ * same day. Deploy with verify_jwt off (supabase/config.toml), uploading index.ts and validate.ts.
  *
  * The site is a static build served by nginx with no Node runtime, so it has no server of its own
  * to post to. This function is that server. It holds the service-role key, which is why

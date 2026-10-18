@@ -38,17 +38,19 @@ export interface GuidePage {
   articleCta: { title: string; body: string; button: string };
   /** The prompt on the thank-you page, where someone has just raised their hand. */
   thanks: { assessmentHeading: string; assessmentBody: string };
-  /** The full landing layout (client mock 2026-10-12, revised to Derek's notes 2026-10-16): eBook-cover hero
-   *  with the form, trust strip, inside the guide, more free guides and a closing call to action.
-   *  Guides without it keep the compact layout. */
-  feature?: GuideFeature;
+  /** The landing layout's own pieces (client mock 2026-10-12, revised to Derek's notes 2026-10-16): eBook-cover
+   *  hero with the form, trust strip, inside the guide, more free guides and a closing call to action. Every
+   *  guide uses it since 2026-10-18. */
+  feature: GuideFeature;
 }
 
 /** A guide's own pieces of the full landing layout; the shared words are in GUIDE_FEATURE_COPY. */
 export interface GuideFeature {
-  /** Lifestyle photograph beside "Inside the guide", shown whole (no person cut off). 1150 × 887. */
+  /** Lifestyle photograph beside "Inside the guide", shown whole in its own shape (no person cut off). */
   photo: string;
   photoAlt: string;
+  /** The photo's pixel size, so the frame keeps its shape. */
+  photoSize: [number, number];
   /** "What's Inside Your Free … Guide?" and the sentence under it. */
   insideTitle: string;
   insideLead: string;
@@ -95,6 +97,7 @@ export const GUIDE_PAGES: Readonly<Record<string, GuidePage>> = {
     feature: {
       photo: '/images/guides/glp-1-hero.webp',
       photoAlt: 'A smiling woman in a grey jacket walking a coastal trail at sunrise',
+      photoSize: [1150, 887],
       insideTitle: 'What’s Inside Your Free GLP-1 Guide?',
       insideLead:
         'Everything you should know before choosing a GLP-1 weight loss program—from understanding medications and treatment options ' +
@@ -108,9 +111,8 @@ export const GUIDE_PAGES: Readonly<Record<string, GuidePage>> = {
   'sexual-wellness': {
     headline: [SMART_PATIENT_LINE, 'Before Choosing a Sexual Wellness Program'],
     intro:
-      'Sexual health is an important part of overall health, but treatment options can sometimes be confusing—or difficult to talk about. ' +
-      'Download our free Smart Patient’s Guide for straightforward information about today’s treatments, what to realistically expect, ' +
-      'and the questions worth asking before choosing care.',
+      'Sexual health is an important part of overall health. But treatment options can be confusing, and difficult to talk about. ' +
+      'Our free guide helps you understand today’s treatments, know what to realistically expect, and ask the right questions before choosing care.',
     inside: [
       'Common sexual wellness concerns',
       'How erectile dysfunction medications work',
@@ -137,14 +139,25 @@ export const GUIDE_PAGES: Readonly<Record<string, GuidePage>> = {
       button: 'Get the Free Sexual Wellness Guide',
     },
     thanks: { assessmentHeading: 'Ready to Explore Sexual Wellness Treatment?', assessmentBody: ASSESSMENT_BODY },
+    feature: {
+      photo: '/images/program-sexual.webp',
+      photoAlt: 'A smiling couple sharing a relaxed evening together',
+      photoSize: [780, 520],
+      insideTitle: 'What’s Inside Your Free Sexual Wellness Guide?',
+      insideLead:
+        'Everything you should know before choosing a sexual wellness program—from how today’s treatments work and what to ' +
+        'realistically expect to medication interactions, safety, and provider care.',
+      closeBody:
+        'Before choosing a sexual wellness program, take a few minutes to understand your options. ' +
+        'Our free Smart Patient’s Guide is a great place to start.',
+    },
   },
 
   'hair-restoration': {
     headline: [SMART_PATIENT_LINE, 'Before Choosing a Hair Restoration Program'],
     intro:
-      'Hair loss is common—but not all hair loss is the same, and choosing a treatment starts with understanding what may be causing it ' +
-      'and which options may be appropriate. Download our free Smart Patient’s Guide to understand your options, what to realistically expect, ' +
-      'and the questions worth asking before choosing a treatment program.',
+      'Hair loss is common. But not all hair loss is the same, and neither are the treatments for it. ' +
+      'Our free guide helps you understand what may be causing it, know your options, and ask the right questions before choosing a treatment program.',
     inside: [
       'Why hair loss happens',
       'Common patterns and types of hair loss',
@@ -171,14 +184,25 @@ export const GUIDE_PAGES: Readonly<Record<string, GuidePage>> = {
       button: 'Get the Free Hair Restoration Guide',
     },
     thanks: { assessmentHeading: 'Ready to Explore Hair Restoration Treatment?', assessmentBody: ASSESSMENT_BODY },
+    feature: {
+      photo: '/images/program-hair.webp',
+      photoAlt: 'A smiling man in a white T-shirt outdoors on a sunny day',
+      photoSize: [780, 520],
+      insideTitle: 'What’s Inside Your Free Hair Restoration Guide?',
+      insideLead:
+        'Everything you should know before choosing a hair restoration program—from why hair loss happens and how treatments work ' +
+        'to what to realistically expect and why results take time.',
+      closeBody:
+        'Before choosing a hair restoration program, take a few minutes to understand your options. ' +
+        'Our free Smart Patient’s Guide is a great place to start.',
+    },
   },
 
   'healthy-aging-vitality': {
     headline: [SMART_PATIENT_LINE, 'Before Choosing a Healthy Aging & Vitality Program'],
     intro:
-      'Interest in longevity and wellness therapies has grown rapidly—and so has the amount of information, marketing and hype surrounding them. ' +
-      'Download our free Smart Patient’s Guide to understand today’s wellness therapies, what we know about them, ' +
-      'and how to evaluate your options more thoughtfully.',
+      'Interest in longevity and wellness therapies has grown quickly. So has the marketing and hype around them. ' +
+      'Our free guide helps you understand today’s wellness therapies, what we know about them, and the questions to ask before choosing a program.',
     inside: [
       'The changing approach to healthy aging and vitality',
       'Different types of wellness therapies and why they are used',
@@ -205,14 +229,25 @@ export const GUIDE_PAGES: Readonly<Record<string, GuidePage>> = {
       button: 'Get the Free Healthy Aging Guide',
     },
     thanks: { assessmentHeading: 'Ready to Explore Healthy Aging & Vitality Programs?', assessmentBody: ASSESSMENT_BODY },
+    feature: {
+      photo: '/images/program-longevity.webp',
+      photoAlt: 'A woman in a hiking vest smiling beside a mountain lake',
+      photoSize: [780, 520],
+      insideTitle: 'What’s Inside Your Free Healthy Aging Guide?',
+      insideLead:
+        'Everything you should know before choosing a healthy aging and vitality program—from the different wellness therapies and ' +
+        'why they are used to what the research shows and why provider-guided care matters.',
+      closeBody:
+        'Before choosing a healthy aging and vitality program, take a few minutes to understand your options. ' +
+        'Our free Smart Patient’s Guide is a great place to start.',
+    },
   },
 
   'nad-therapy': {
     headline: [SMART_PATIENT_LINE, 'Before Considering NAD+ Therapy'],
     intro:
-      'NAD+ has attracted significant attention in the worlds of healthy aging, energy and cellular health—but understanding the science behind NAD+ ' +
-      'is different from understanding the claims sometimes made about it. Download our free Smart Patient’s Guide for a balanced look at what NAD+ is, ' +
-      'what we know, and what to ask before considering treatment.',
+      'NAD+ has drawn a lot of attention for healthy aging, energy and cellular health. But the science behind NAD+ is not the same as the claims made about it. ' +
+      'Our free guide gives you a balanced look at what NAD+ is, what we know, and what to ask before considering treatment.',
     inside: [
       'What NAD+ is and the role it plays in the body',
       'Why NAD+ levels and aging are being studied',
@@ -239,6 +274,18 @@ export const GUIDE_PAGES: Readonly<Record<string, GuidePage>> = {
       button: 'Get the Free NAD+ Guide',
     },
     thanks: { assessmentHeading: 'Ready to Explore NAD+ Therapy?', assessmentBody: ASSESSMENT_BODY },
+    feature: {
+      photo: '/images/program-hormone.webp',
+      photoAlt: 'A smiling man in a green T-shirt in a bright kitchen',
+      photoSize: [780, 520],
+      insideTitle: 'What’s Inside Your Free NAD+ Guide?',
+      insideLead:
+        'Everything you should know before considering NAD+ therapy—from what NAD+ does in the body and what the research can ' +
+        'and cannot tell us to treatment approaches, side effects, and provider-guided care.',
+      closeBody:
+        'Before considering NAD+ therapy, take a few minutes to understand your options. ' +
+        'Our free Smart Patient’s Guide is a great place to start.',
+    },
   },
 };
 

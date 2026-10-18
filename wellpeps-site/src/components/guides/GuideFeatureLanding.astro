@@ -12,8 +12,8 @@
  *
  * The words live in src/data/guide-pages.ts (GUIDE_FEATURE_COPY and the guide's own entry), which
  * also notes what was left out of the mock and why. The form is the same GuideLeadForm, with the
- * same consent boxes, as every other guide page. Guides whose data has no `feature` keep the
- * compact GuideLanding.
+ * same form, as every other sign-up. Every guide uses this layout since 2026-10-18 (the compact
+ * GuideLanding was removed).
  */
 import Icon from '../Icon.astro';
 import GuideBook from './GuideBook.astro';
@@ -28,7 +28,8 @@ interface Props {
 }
 const { book } = Astro.props;
 const page = guidePageFor(book.slug);
-const feature = page.feature!;
+const feature = page.feature;
+const [photoW, photoH] = feature.photoSize;
 const formId = `gf-form-${book.slug}`;
 const coverAlt = `Cover of The Smart Patient’s Guide to ${book.title}`;
 const library = EBOOKS.filter((b) => b.slug !== book.slug).slice(0, C.librarySize);
@@ -67,7 +68,7 @@ const library = EBOOKS.filter((b) => b.slug !== book.slug).slice(0, C.librarySiz
 <section class="gf-inside" aria-labelledby="gf-inside-title">
   <div class="container gf-inside__inner">
     <figure class="gf-inside__photo">
-      <img src={feature.photo} alt={feature.photoAlt} width="1150" height="887" loading="lazy" decoding="async" />
+      <img src={feature.photo} alt={feature.photoAlt} width={photoW} height={photoH} loading="lazy" decoding="async" />
     </figure>
 
     <div class="gf-inside__copy">
@@ -172,7 +173,7 @@ const library = EBOOKS.filter((b) => b.slug !== book.slug).slice(0, C.librarySiz
   .gf-inside__inner { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: clamp(1.75rem, 4vw, 4rem); align-items: center; }
   /* The photo keeps its own shape, so she is never cut off at the side. */
   .gf-inside__photo { margin: 0; overflow: hidden; border-radius: 26px; box-shadow: 0 22px 50px rgba(8, 43, 89, 0.16); }
-  .gf-inside__photo img { display: block; width: 100%; height: auto; aspect-ratio: 1150 / 887; }
+  .gf-inside__photo img { display: block; width: 100%; height: auto; }
   .gf-label { font-family: var(--font-sans); font-weight: 700; font-size: 0.875rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); }
   .gf-label--center { text-align: center; }
   .gf-h2 { margin-top: 0.5rem; font-family: var(--font-serif); font-weight: 700; color: var(--navy); font-size: clamp(1.9rem, 1.3rem + 1.8vw, 2.75rem); line-height: 1.1; text-wrap: balance; }

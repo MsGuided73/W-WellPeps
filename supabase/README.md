@@ -1,9 +1,9 @@
 # WellPeps Supabase functions and tables
 
-> **Nothing here has been deployed.** The three edge functions and their three
-> migrations are written and tested (the pure logic, from `wellpeps-site`), but
-> no function has been deployed, no migration has been run, and no Supabase
-> project has been touched. The site's switches in
+> **Status (2026-10-18):** the `notify_signups` consent migration has been applied
+> and the updated `notify-signup` function is ready to deploy. The other three edge
+> functions and their three migrations are written and tested (the pure logic,
+> from `wellpeps-site`), but not deployed or run. The site's switches in
 > `wellpeps-site/src/lib/privacy/config.ts` stay **off** until you have done the
 > steps below. Every command in this file is for **you (the owner)** to run.
 
@@ -17,7 +17,7 @@ Function base URL: `https://kwgwbupqzpusydzflyvi.supabase.co/functions/v1`.
 | `functions/consent-log/` | Records the consent choices the "Your Privacy Choices" control sends. |
 | `functions/privacy-request/` | Receives the privacy request form and logs it as the record of the request. |
 | `functions/analytics-event/` | Receives anonymous page-view, click and page-leave events (see `wellpeps-site/src/lib/analytics/README.md`). |
-| `functions/notify-signup/` | The sign-up forms' function (guides, waitlists, hair notify, footer newsletter), updated to record the consent boxes (W9). Replaces live version 2; apply `migrations/20261001000000_notify_signups_consent.sql` first. Needs `ALLOWED_ORIGINS` for any non-production site (the client preview). |
+| `functions/notify-signup/` | The sign-up forms' function (guides, waitlists, hair notify, footer newsletter), updated to record the consent choices (W9; free-guide forms since 2026-10-16 send only the optional follow-up choice). Replaces live version 2. Its migration `migrations/20261001000000_notify_signups_consent.sql` **was applied on 2026-10-18**; the function is ready to deploy (`supabase functions deploy notify-signup --no-verify-jwt`). Needs `ALLOWED_ORIGINS` for any non-production site (the client preview). |
 | `functions/_shared/` | The pure logic all three share: validation, due dates, CORS, size cap, rate limit. No Deno-only imports, so `npm test` in `wellpeps-site` runs it. |
 | `migrations/` | One migration per table: `consent_events`, `privacy_requests`, `analytics_events`, plus `20261005000000_consent_events_health_ads_anon_optout.sql` (two consent columns added 2026-10-05; apply after the `consent_events` migration). |
 | `analytics/example-views.sql` | Example reporting views over `analytics_events` (not a migration). |

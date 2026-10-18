@@ -8,7 +8,7 @@ Since 2026-10-12 the guide funnel (Derek's strategy) is the site's only way of o
 | Program pages | A band high on the page after the program is explained; opens the guide's landing page |
 | Articles | One call to action partway through and one at the end, matched to the article's subject |
 | Learning Center hub | The same strip |
-| Email form | A landing page per guide (email only; first name dropped 2026-10-02), then a thank-you page. GLP-1 uses the full layout (`GuideFeatureLanding`, client mock 2026-10-12); the other guides keep the compact layout until Derek has reviewed it |
+| Email form | A landing page per guide (email only; first name dropped 2026-10-02), then a thank-you page. Every guide uses the five-section layout (`GuideFeatureLanding`: cover hero + form, trust strip, inside the guide, more free guides, closing call to action; Derek's notes 2026-10-16, all five guides since 2026-10-18). Each guide's own words and photo are its `feature` entry in `src/data/guide-pages.ts` |
 | Pages | `/smart-patient-guides` (index, never behind a form), `/smart-patient-guides/<guide>`, `/smart-patient-guides/<guide>/thank-you` |
 | Footer | a "Smart Patient Guides" link |
 
@@ -16,7 +16,7 @@ Since 2026-10-12 the guide funnel (Derek's strategy) is the site's only way of o
 
 - Addresses, which guide an article gets, and where an article is split: `src/lib/guide-flow.ts` (tested).
 - Copy: `src/data/guide-pages.ts`. It comes from Derek's strategy document and the sample first emails; the six topic cards are real chapter titles from `eBooks/_build/outlines/`. Change copy only there.
-- Components: `src/components/guides/` (`GuideRing`, `GuideBand`, `GuideArticleCta`, `GuideLeadForm`, `GuideLanding`, `GuideFeatureLanding`, `GuideThanks`, `GuideIndex`, `GuideBook`). The routes are `src/pages/smart-patient-guides/[...path].astro`.
+- Components: `src/components/guides/` (`GuideRing`, `GuideBand`, `GuideArticleCta`, `GuideLeadForm`, `GuideFeatureLanding`, `GuideThanks`, `GuideIndex`, `GuideBook`). The routes are `src/pages/smart-patient-guides/[...path].astro`.
 
 ## Checking it
 
