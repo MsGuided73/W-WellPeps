@@ -35,7 +35,9 @@ describe('every guide has what its landing page needs', () => {
       expect(page.articleCta.body.length).toBeGreaterThan(40);
       expect(page.articleCta.button).toMatch(/^Get the Free .+ Guide$/);
       expect(page.thanks.assessmentHeading).toMatch(/^Ready to Explore/);
-      expect(PROGRAM_SLUGS).toContain(page.assessmentProgram);
+      // Modern Healthcare covers care in general, so its button goes to the program chooser.
+      if (book.slug === 'modern-healthcare') expect(page.assessmentProgram).toBeUndefined();
+      else expect(PROGRAM_SLUGS).toContain(page.assessmentProgram);
     });
 
     test(`${book.slug}: no placeholder, no straight apostrophe and no doubled space in the copy`, () => {
@@ -48,7 +50,7 @@ describe('every guide has what its landing page needs', () => {
   }
 
   test('topic icons are names the site has', () => {
-    const known = new Set(['stethoscope', 'pill', 'flask', 'shield', 'receipt', 'dna', 'target', 'molecule', 'layers', 'clock', 'sparkles', 'heart', 'calendar', 'info', 'leaf', 'venn', 'droplet', 'user', 'syringe', 'zap']);
+    const known = new Set(['stethoscope', 'pill', 'flask', 'shield', 'receipt', 'dna', 'target', 'molecule', 'layers', 'clock', 'sparkles', 'heart', 'calendar', 'info', 'leaf', 'venn', 'droplet', 'user', 'syringe', 'zap', 'lock']);
     for (const book of EBOOKS) for (const t of guidePageFor(book.slug).topics) expect(known.has(t.icon), `${book.slug}: ${t.icon}`).toBe(true);
   });
 });

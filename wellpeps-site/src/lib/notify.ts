@@ -20,7 +20,8 @@ export type SignupSource =
   | 'ebook_sexual_wellness'
   | 'ebook_hair_restoration'
   | 'ebook_healthy_aging'
-  | 'ebook_nad';
+  | 'ebook_nad'
+  | 'ebook_modern_healthcare';
 
 import { consentFields, guideConsentFields, type ConsentChoice } from './form-consent';
 

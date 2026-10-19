@@ -23,6 +23,7 @@ export const SOURCES = [
   'ebook_hair_restoration',
   'ebook_healthy_aging',
   'ebook_nad',
+  'ebook_modern_healthcare',
 ] as const;
 
 /** The footer newsletter names no health topic, so it needs no consent box. */

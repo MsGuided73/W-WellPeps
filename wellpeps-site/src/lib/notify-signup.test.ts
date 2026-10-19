@@ -23,7 +23,7 @@ describe('parseSignup (the updated notify-signup function)', () => {
   });
 
   test('a free-guide request needs no collection consent and records only the optional choice (ATT-038)', () => {
-    expect(REQUESTED_SOURCES).toEqual(['ebook_glp1', 'ebook_sexual_wellness', 'ebook_hair_restoration', 'ebook_healthy_aging', 'ebook_nad']);
+    expect(REQUESTED_SOURCES).toEqual(['ebook_glp1', 'ebook_sexual_wellness', 'ebook_hair_restoration', 'ebook_healthy_aging', 'ebook_nad', 'ebook_modern_healthcare']);
     expect(parseSignup({ email: 'a@b.co', source: 'ebook_glp1', consent_marketing: true, consent_text_version: 'chd-guide-v1' }, strict)).toEqual({
       ok: true,
       row: { email: 'a@b.co', source: 'ebook_glp1', consent_marketing: true, consent_text_version: 'chd-guide-v1', consented_at: now.toISOString() },

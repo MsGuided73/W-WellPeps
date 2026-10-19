@@ -10,8 +10,8 @@
  * here promises a result, and each page is education first (see wellpeps-compliance-review before
  * changing any of it).
  *
- * Only the five guides on the site have pages. Modern Healthcare has an outline and a first
- * build but no cover on the site and no sign-up source yet.
+ * All six guides have pages. Modern Healthcare (added 2026-10-19) is about care in general rather
+ * than one program, so its assessment button goes to the program chooser.
  */
 import type { ProgramSlug } from '../lib/cta';
 
@@ -32,8 +32,8 @@ export interface GuidePage {
   topics: readonly GuideTopic[];
   /** The page's meta description: one sentence, short enough for a search result. */
   metaDescription: string;
-  /** The program whose assessment the page and the thank-you page lead to. */
-  assessmentProgram: ProgramSlug;
+  /** The program whose assessment the page and the thank-you page lead to; none sends the button to the program chooser. */
+  assessmentProgram?: ProgramSlug;
   /** The call to action placed inside and at the end of an article about this guide's subject. */
   articleCta: { title: string; body: string; button: string };
   /** The prompt on the thank-you page, where someone has just raised their hand. */
@@ -285,6 +285,50 @@ export const GUIDE_PAGES: Readonly<Record<string, GuidePage>> = {
         'and cannot tell us to treatment approaches, side effects, and provider-guided care.',
       closeBody:
         'Before considering NAD+ therapy, download your free Smart Patient’s Guide ' +
+        'and learn what you need to know.',
+    },
+  },
+
+  'modern-healthcare': {
+    headline: [SMART_PATIENT_LINE, 'Before Choosing Online Healthcare'],
+    intro:
+      'Telehealth, at-home testing and connected care are changing how people get healthcare. Learn what online care does well, ' +
+      'when you still need to be seen in person, and the questions to ask before choosing a provider.',
+    inside: [
+      'How telehealth works and what it does well',
+      'When you still need in-person care',
+      'How at-home and convenient lab testing works',
+      'What “connected care” actually means',
+      'How online prescriptions are reviewed and filled',
+      'Protecting your health information online',
+      'How to tell online healthcare companies apart',
+      LAST_POINT,
+    ],
+    topics: [
+      { title: 'What Is Telehealth, Really?', icon: 'stethoscope' },
+      { title: 'Good Telehealth Knows When You Need In-Person Care', icon: 'heart' },
+      { title: 'The Right Testing, When It’s Appropriate', icon: 'flask' },
+      { title: 'What Does “Connected Care” Actually Mean?', icon: 'layers' },
+      { title: 'Healthcare Convenience Still Requires Privacy', icon: 'lock' },
+      { title: 'Not Every Online Healthcare Company Is the Same', icon: 'shield' },
+    ],
+    metaDescription: 'Free Smart Patient’s Guide to modern healthcare: how telehealth, at-home testing and connected care work, and what to ask before choosing an online provider.',
+    articleCta: {
+      title: 'Want to Learn More About Modern Healthcare?',
+      body: 'Understand how telehealth, at-home testing and connected care work, and the questions worth asking before choosing an online provider.',
+      button: 'Get the Free Modern Healthcare Guide',
+    },
+    thanks: { assessmentHeading: 'Ready to Explore Your Options?', assessmentBody: ASSESSMENT_BODY },
+    feature: {
+      photo: '/images/doctor-assessment.webp',
+      photoAlt: 'A doctor in a white coat reviewing a patient’s information on a laptop',
+      photoSize: [1000, 666],
+      insideTitle: 'What’s Inside Your Free Modern Healthcare Guide?',
+      insideLead:
+        'Everything you should know before choosing online care—from what telehealth does well and when you need to be seen in ' +
+        'person to at-home testing, privacy, and how to compare providers.',
+      closeBody:
+        'Before choosing an online healthcare provider, download your free Smart Patient’s Guide ' +
         'and learn what you need to know.',
     },
   },

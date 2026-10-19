@@ -3,7 +3,8 @@
  *
  * Covers are page 1 of the current builds in eBooks/ (GLP-1 v14, Sexual
  * Wellness v6, Hair Restoration v5, Healthy Aging v5, NAD+ v1), exported to
- * public/images/ebooks/. The client confirmed the cover images are final.
+ * public/images/ebooks/. The client confirmed the cover images are final. Modern Healthcare's cover
+ * (added 2026-10-19) is page 1 of v3, Derek's new photo.
  *
  * `pdf` stays unset until Derek approves the final version of that book (his
  * standing rule: no eBook PDF ships before approval). Without it the email
@@ -24,7 +25,8 @@ export interface Ebook {
   /** The cover's subtitle line. */
   subtitle: string;
   cover: string;
-  program: ProgramSlug;
+  /** The program page that promotes this guide. Modern Healthcare is about care in general, so it has none. */
+  program?: ProgramSlug;
   /** Recorded with the signup so the team knows which guide to send. */
   source: SignupSource;
   /** Four "inside the guide" highlights, from the chapter titles in
@@ -119,6 +121,22 @@ export const EBOOKS: readonly Ebook[] = [
       'NAD+ vs. NR vs. NMN',
       'How is NAD+ therapy used?',
       'What should you expect from NAD+ therapy?',
+    ],
+  },
+  {
+    slug: 'modern-healthcare',
+    title: 'Modern Healthcare',
+    subtitle: 'How telehealth, at-home testing and connected care are changing the patient experience.',
+    cover: '/images/ebooks/modern-healthcare-cover.webp',
+    source: 'ebook_modern_healthcare',
+    pages: 19,
+    // v3 (2026-10-19, Derek's revision), published with scripts/publish-ebook.py.
+    pdf: '/ebooks/modern-healthcare.pdf',
+    inside: [
+      'What is telehealth, really?',
+      'When you still need in-person care',
+      'What does “connected care” actually mean?',
+      'Not every online healthcare company is the same',
     ],
   },
 ];

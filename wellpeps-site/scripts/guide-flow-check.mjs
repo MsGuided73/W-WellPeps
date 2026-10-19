@@ -9,7 +9,7 @@ import { chromium } from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
 
 const LANDING = process.argv.find((a, i) => i === 2 && a.startsWith('http')) || 'http://localhost:4321';
-const GUIDES = ['glp-1-weight-loss', 'sexual-wellness', 'hair-restoration', 'healthy-aging-vitality', 'nad-therapy'];
+const GUIDES = ['glp-1-weight-loss', 'sexual-wellness', 'hair-restoration', 'healthy-aging-vitality', 'nad-therapy', 'modern-healthcare'];
 const PROGRAMS = [
   ['/weight-loss', 'glp-1-weight-loss', 'weight-loss'],
   ['/hair-restoration', 'hair-restoration', 'hair-restoration'],
@@ -91,7 +91,7 @@ async function articleLinks(ctx, base) {
   check('previous turns it back', (await page.locator('[data-ring-name]').innerText()) === 'GLP-1 Weight Loss');
   await page.locator('[data-ring-prev]').click();
   await page.waitForTimeout(200);
-  check('previous from the first wraps round to the last', (await page.locator('[data-ring-name]').innerText()) === 'NAD+ Therapy');
+  check('previous from the first wraps round to the last', (await page.locator('[data-ring-name]').innerText()) === 'Modern Healthcare');
   await page.locator('[data-ring-dot="2"]').click();
   await page.waitForTimeout(200);
   check('a dot goes straight to its guide', (await page.locator('[data-ring-name]').innerText()) === 'Hair Restoration');
