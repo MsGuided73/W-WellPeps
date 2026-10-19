@@ -59,7 +59,8 @@ export interface GuideFeature {
 }
 
 const SMART_PATIENT_LINE = 'What Every Smart Patient Needs to Know';
-const ASSESSMENT_BODY = 'Answer a few online health questions to see if you qualify. A licensed clinician reviews your answers, and that review is included in your monthly price.';
+// Owner, 2026-10-19: say who decides eligibility; no price line here.
+const ASSESSMENT_BODY = 'Answer a few online health questions to see if you qualify. One of our licensed healthcare providers will review your answers and determine whether you are eligible for treatment.';
 const LAST_POINT = 'The questions every Smart Patient should know to ask';
 
 export const GUIDE_PAGES: Readonly<Record<string, GuidePage>> = {
