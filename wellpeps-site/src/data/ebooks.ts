@@ -95,6 +95,8 @@ export const EBOOKS: readonly Ebook[] = [
     program: 'healthy-aging',
     source: 'ebook_healthy_aging',
     pages: 18,
+    // v10 (2026-10-19), published with scripts/publish-ebook.py.
+    pdf: '/ebooks/healthy-aging-vitality.pdf',
     inside: [
       'What does “healthy aging” actually mean?',
       'Where do wellness therapies fit?',
