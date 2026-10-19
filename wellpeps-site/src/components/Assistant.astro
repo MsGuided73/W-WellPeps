@@ -19,7 +19,7 @@ const disclosureLive = linkVisible('/ai-use-disclosure', draftPagesEnabledNow())
   <button class="wa__launcher" data-wa-toggle aria-expanded="false" aria-controls="wa-panel"
           aria-label="Open the WellPeps assistant">
     <span class="wa__launcher-icon"><Icon name="chat" /></span>
-    <span class="wa__launcher-label">Ask WellPeps</span>
+    <span class="wa__launcher-label" aria-hidden="true">Ask WellPeps</span>
   </button>
 
   <section class="wa__panel" id="wa-panel" data-wa-panel hidden aria-label="WellPeps assistant">
@@ -64,10 +64,12 @@ const disclosureLive = linkVisible('/ai-use-disclosure', draftPagesEnabledNow())
 <style>
   .wa { position: fixed; right: clamp(1rem, 3vw, 2rem); bottom: clamp(1rem, 3vw, 2rem); z-index: 150; }
 
-  /* ---- Launcher ---- */
+  /* ---- Launcher ----
+     A round icon button (Derek 2026-10-19: it must never cover text, links or images). The
+     "Ask WellPeps" label slides out only on hover or keyboard focus. */
   .wa__launcher {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    padding: 0.85rem 1.35rem 0.85rem 0.9rem;
+    position: relative; display: inline-flex; align-items: center; justify-content: center;
+    width: 56px; height: 56px; padding: 0;
     border: 0; border-radius: var(--radius-pill); cursor: pointer;
     background: var(--navy); color: #fff;
     font-family: var(--font-sans); font-weight: 700; font-size: var(--text-body-size);
@@ -81,7 +83,17 @@ const disclosureLive = linkVisible('/ai-use-disclosure', draftPagesEnabledNow())
     box-shadow: var(--medallion-shadow); color: var(--blue);
   }
   .wa__launcher-icon :global(svg) { width: 19px; height: 19px; filter: var(--icon-shadow); }
+  .wa__launcher-label {
+    position: absolute; right: calc(100% + 0.6rem); top: 50%; transform: translate(6px, -50%); white-space: nowrap;
+    padding: 0.45rem 0.8rem; border-radius: var(--radius-pill); background: var(--navy); color: #fff;
+    font-size: 1rem; font-weight: 700; box-shadow: 0 8px 20px -8px rgba(8, 43, 89, 0.5);
+    opacity: 0; pointer-events: none; transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+  }
+  .wa__launcher:hover .wa__launcher-label, .wa__launcher:focus-visible .wa__launcher-label { opacity: 1; transform: translate(0, -50%); }
   .wa[data-open] .wa__launcher { display: none; }
+  /* Stepped aside while a form passes under it, so it never covers a field, a box or a button. */
+  .wa__launcher { transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), opacity var(--dur) var(--ease); }
+  .wa[data-aside]:not([data-open]) .wa__launcher { opacity: 0; pointer-events: none; transform: translateY(12px); }
 
   /* ---- Panel ---- */
   .wa__panel {
@@ -166,9 +178,10 @@ const disclosureLive = linkVisible('/ai-use-disclosure', draftPagesEnabledNow())
   .wa__disclaimer { flex: none; padding: 0 0.9rem 0.8rem; background: #fff; color: var(--text-muted); font-size: var(--text-body-size); text-align: center; }
 
   @media (max-width: 480px) {
-    .wa { right: 0.75rem; bottom: 0.75rem; left: 0.75rem; }
+    .wa { right: 0.75rem; bottom: 0.75rem; }
+    .wa[data-open] { left: 0.75rem; }
     .wa__panel { width: 100%; height: min(76vh, 560px); }
-    .wa__launcher { width: 100%; justify-content: center; }
+    .wa__launcher { width: 52px; height: 52px; }
   }
 </style>
 
@@ -184,6 +197,24 @@ const disclosureLive = linkVisible('/ai-use-disclosure', draftPagesEnabledNow())
     const form = root.querySelector('[data-wa-form]') as HTMLFormElement;
     const input = root.querySelector('[data-wa-input]') as HTMLInputElement;
     const suggest = root.querySelector('[data-wa-suggest]') as HTMLElement;
+
+    // Hide the round launcher while any page form (sign-up, waitlist, newsletter) crosses the strip of
+    // screen it sits in, so it never covers a field, a checkbox or a button (Derek 2026-10-19).
+    const band = () => `-${Math.max(0, window.innerHeight - 96)}px 0px 0px 0px`;
+    let crossing = new Set<Element>();
+    let watcher: IntersectionObserver | null = null;
+    const watchForms = () => {
+      watcher?.disconnect();
+      crossing = new Set();
+      root.removeAttribute('data-aside');
+      watcher = new IntersectionObserver((entries) => {
+        entries.forEach((e) => (e.isIntersecting ? crossing.add(e.target) : crossing.delete(e.target)));
+        root.toggleAttribute('data-aside', crossing.size > 0);
+      }, { rootMargin: band() });
+      document.querySelectorAll('main form, footer form').forEach((f) => watcher!.observe(f));
+    };
+    watchForms();
+    window.addEventListener('resize', () => watchForms());
 
     const open = (isOpen: boolean) => {
       panel.hidden = !isOpen;

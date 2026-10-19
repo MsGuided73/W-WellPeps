@@ -291,9 +291,11 @@ async function articleLinks(ctx, base) {
     const { page, status } = await open(ctx, LANDING, `/smart-patient-guides/${slug}`);
     // The series words are visually hidden (screen readers and search only), so they read as their own line.
     const title = (await page.locator('main h1').innerText()).replace(/\s+/g, ' ').trim();
-    check(`${slug}: landing page loads with its title`, status === 200 && /^(The Smart Patient’s Guide to|Download a Free Guide to) /.test(title), title.replace(/\n/g, ' '));
+    check(`${slug}: landing page loads with its title`, status === 200 && /^Your Free Guide to /.test(title), title.replace(/\n/g, ' '));
     check(`${slug}: email is the only field (plus the hidden trap and the optional email box)`, JSON.stringify(await page.locator('[data-guide-form] input:not([type=hidden])').evaluateAll((els) => els.map((e) => e.name))) === JSON.stringify(['email', 'company', 'consentMarketing']));
-    check(`${slug}: eight "inside" points and six topic cards`, (await page.locator('.glp-inside li').count()) === 8 && (await page.locator('.glp-card').count()) === 6);
+    check(`${slug}: eight "inside" points and no chapter preview (removed 2026-10-19)`, (await page.locator('.glp-inside li').count()) === 8 && (await page.locator('.gf-inside details, .gf-preview').count()) === 0);
+    check(`${slug}: every library card opens a guide landing page, never a PDF`, await page.evaluate(() => [...document.querySelectorAll('.gf-library__link')].every((a) => /^\/smart-patient-guides\/[a-z0-9-]+\/?$/.test(a.getAttribute('href') || ''))));
+    check(`${slug}: the closing button points back to the page's own form`, await page.evaluate(() => { const a = document.querySelector('[data-gf-to-form]'); return !!a && !!document.querySelector(a.getAttribute('href') + ' [data-guide-form]') && document.querySelectorAll('[data-guide-form]').length === 1; }));
     check(`${slug}: no link to the PDF anywhere on the page`, (await page.locator('a[href$=".pdf"]').count()) === 0);
     // No required box since 2026-10-16 (counsel, ATT-038): one optional, unchecked box and a short notice.
     check(`${slug}: no required consent box; the optional box starts unchecked and the notice says what the email is for`, await page.evaluate(() => { const f = document.querySelector('[data-guide-form]'); const box = f.querySelector('input[name=consentMarketing]'); return !f.querySelector('input[name=consentCollect]') && !box.required && !box.checked && f.querySelector('[data-fconsent-marketing]').textContent.startsWith('Optional:') && f.querySelector('[data-fconsent-notice]').textContent.includes('send the guide you requested'); }));

@@ -66,8 +66,8 @@ export const GUIDE_PAGES: Readonly<Record<string, GuidePage>> = {
   'glp-1-weight-loss': {
     headline: [SMART_PATIENT_LINE, 'Before Choosing a GLP-1 Program'],
     intro:
-      'GLP-1 medications have changed weight management. But not every medication, provider, or program is the same. ' +
-      'Our free guide helps you understand your options, know what to look for, and ask the right questions before choosing care.',
+      'GLP-1 medications have changed weight management. Learn about treatment options, potential risks, what to look for ' +
+      'in a provider, and the questions to ask before choosing care.',
     inside: [
       'How GLP-1 medications work',
       'Differences between common treatment options',
@@ -95,16 +95,16 @@ export const GUIDE_PAGES: Readonly<Record<string, GuidePage>> = {
     },
     thanks: { assessmentHeading: 'Ready to Explore GLP-1 Treatment?', assessmentBody: ASSESSMENT_BODY },
     feature: {
-      photo: '/images/guides/glp-1-hero.webp',
-      photoAlt: 'A smiling woman in a grey jacket walking a coastal trail at sunrise',
-      photoSize: [1150, 887],
+      photo: '/images/guides/glp-1-reading.webp',
+      photoAlt: 'A smiling woman reading on a tablet on her living-room sofa',
+      photoSize: [1200, 800],
       insideTitle: 'What’s Inside Your Free GLP-1 Guide?',
       insideLead:
         'Everything you should know before choosing a GLP-1 weight loss program—from understanding medications and treatment options ' +
         'to evaluating providers, costs, and safety considerations.',
       closeBody:
-        'Before choosing a GLP-1 weight loss program, take a few minutes to understand your options. ' +
-        'Our free Smart Patient’s Guide is a great place to start.',
+        'Before choosing a GLP-1 weight loss program, download your free Smart Patient’s Guide ' +
+        'and learn what you need to know.',
     },
   },
 
@@ -148,8 +148,8 @@ export const GUIDE_PAGES: Readonly<Record<string, GuidePage>> = {
         'Everything you should know before choosing a sexual wellness program—from how today’s treatments work and what to ' +
         'realistically expect to medication interactions, safety, and provider care.',
       closeBody:
-        'Before choosing a sexual wellness program, take a few minutes to understand your options. ' +
-        'Our free Smart Patient’s Guide is a great place to start.',
+        'Before choosing a sexual wellness program, download your free Smart Patient’s Guide ' +
+        'and learn what you need to know.',
     },
   },
 
@@ -193,8 +193,8 @@ export const GUIDE_PAGES: Readonly<Record<string, GuidePage>> = {
         'Everything you should know before choosing a hair restoration program—from why hair loss happens and how treatments work ' +
         'to what to realistically expect and why results take time.',
       closeBody:
-        'Before choosing a hair restoration program, take a few minutes to understand your options. ' +
-        'Our free Smart Patient’s Guide is a great place to start.',
+        'Before choosing a hair restoration program, download your free Smart Patient’s Guide ' +
+        'and learn what you need to know.',
     },
   },
 
@@ -238,8 +238,8 @@ export const GUIDE_PAGES: Readonly<Record<string, GuidePage>> = {
         'Everything you should know before choosing a healthy aging and vitality program—from the different wellness therapies and ' +
         'why they are used to what the research shows and why provider-guided care matters.',
       closeBody:
-        'Before choosing a healthy aging and vitality program, take a few minutes to understand your options. ' +
-        'Our free Smart Patient’s Guide is a great place to start.',
+        'Before choosing a healthy aging and vitality program, download your free Smart Patient’s Guide ' +
+        'and learn what you need to know.',
     },
   },
 
@@ -283,8 +283,8 @@ export const GUIDE_PAGES: Readonly<Record<string, GuidePage>> = {
         'Everything you should know before considering NAD+ therapy—from what NAD+ does in the body and what the research can ' +
         'and cannot tell us to treatment approaches, side effects, and provider-guided care.',
       closeBody:
-        'Before considering NAD+ therapy, take a few minutes to understand your options. ' +
-        'Our free Smart Patient’s Guide is a great place to start.',
+        'Before considering NAD+ therapy, download your free Smart Patient’s Guide ' +
+        'and learn what you need to know.',
     },
   },
 };
@@ -347,8 +347,9 @@ export const GUIDE_SERIES = {
 /**
  * Shared words for the full landing layout (client mock 2026-10-12, revised to Derek's landing-page
  * notes 2026-10-16). Every guide page follows the same five sections: hero + sign-up, trust strip,
- * inside the guide, more free guides, final call to action. Both buttons, the form's and the closing
- * one, say "Send Me My Free Guide" (owner, 2026-10-16), because the guide is delivered by email.
+ * inside the guide, more free guides, final call to action. The form's button says "Send Me My Free
+ * Guide" (the guide is delivered by email); the closing button says "Download Your Free Guide" and
+ * scrolls back to that form (Derek, 2026-10-19).
  *
  * Left out of the original mock on purpose: the "As seen in WebMD, Healthline, Forbes, Verywell Health,
  * Medscape" bar and the "100K+ patients educated", "4.8/5 patient satisfaction" and "100% unbiased"
@@ -358,7 +359,7 @@ export const GUIDE_SERIES = {
  */
 export const GUIDE_FEATURE_COPY = {
   eyebrow: 'The Smart Patient’s Guide Series',
-  titleLead: 'Download a Free Guide to',
+  titleLead: 'Your Free Guide to',
   formTagline: 'Get the facts before you decide.',
   // True statements only, in place of the mock's media logos and figures.
   trust: [
@@ -367,10 +368,9 @@ export const GUIDE_FEATURE_COPY = {
     { icon: 'lock', title: 'Your Email. Your Choice.', body: 'You choose whether to receive more.' },
   ],
   insideEyebrow: 'Inside the guide',
-  previewButton: 'Preview What’s Inside',
-  previewHeading: 'The chapters',
-  libraryEyebrow: 'Explore the Smart Patient’s Guide Series',
-  libraryTitle: 'More Questions? More Free Guides.',
+  // Derek 2026-10-19: the series name is the headline, the question line sits under it.
+  libraryTitle: 'Explore the Smart Patient’s Guide Series',
+  librarySub: 'More Questions? More Free Guides.',
   libraryLead:
     'Explore our collection of free guides covering today’s treatments, medications, and wellness options. ' +
     'Get the information you need to make more informed healthcare decisions.',
@@ -380,6 +380,6 @@ export const GUIDE_FEATURE_COPY = {
   libraryAll: 'View All Free Guides',
   closeTitle: 'Be Informed. Choose Well.',
   closeSub: 'Your Health. Your Choices. Get the Facts First.',
-  closeButton: 'Send Me My Free Guide',
+  closeButton: 'Download Your Free Guide',
   closeNote: 'Free to download. No obligation.',
 } as const;
