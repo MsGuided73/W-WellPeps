@@ -61,6 +61,8 @@ export const EBOOKS: readonly Ebook[] = [
     program: 'sexual-wellness',
     source: 'ebook_sexual_wellness',
     pages: 18,
+    // v8 (2026-10-19), published with scripts/publish-ebook.py.
+    pdf: '/ebooks/sexual-wellness.pdf',
     inside: [
       'How ED medications work',
       'Sildenafil, tadalafil and daily tadalafil',
