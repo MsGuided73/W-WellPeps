@@ -11,8 +11,8 @@
  * emailed when it is published. To publish a book: run
  *   uv run --with pymupdf --with pillow python scripts/publish-ebook.py <slug> <approved.pdf>
  * (it copies the PDF to public/ebooks/<slug>.pdf and makes the read-online pages), then set
- * `pdf: '/ebooks/<slug>.pdf'` below. The thank-you page then says "Thank You!" and offers Read It
- * Online (/smart-patient-guides/<slug>/read) and Download the PDF.
+ * `pdf: '/ebooks/<slug>.pdf'` below. The thank-you page then says the guide arrives by email shortly
+ * and links to read it online (/smart-patient-guides/<slug>/read, which also has Download the PDF).
  */
 import type { ProgramSlug } from '../lib/cta';
 import type { SignupSource } from '../lib/notify';
@@ -78,6 +78,8 @@ export const EBOOKS: readonly Ebook[] = [
     program: 'hair-restoration',
     source: 'ebook_hair_restoration',
     pages: 18,
+    // v7 (2026-10-19), published with scripts/publish-ebook.py.
+    pdf: '/ebooks/hair-restoration.pdf',
     inside: [
       'Why does hair loss happen?',
       'Finasteride and the role of DHT',

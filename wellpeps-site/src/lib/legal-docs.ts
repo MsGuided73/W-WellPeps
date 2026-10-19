@@ -61,7 +61,7 @@ export const LEGAL_DOCS: readonly LegalDoc[] = [
   { id: 'A2', path: 'privacy-policy', title: 'Privacy Policy', label: 'Privacy Policy', group: 'site',
     blurb: 'What the site collects, why, who receives it and how to exercise privacy rights.', approved: true, effective: 'October 6, 2026', updated: 'October 16, 2026' },
   { id: 'A3', path: 'consumer-health-data-privacy-policy', title: 'Consumer Health Data Privacy Policy', label: 'Consumer Health Data Privacy Policy', group: 'site',
-    blurb: 'Stand-alone policy for health-related data outside HIPAA (required in Washington and Nevada).', approved: true, effective: 'October 6, 2026', updated: 'October 16, 2026' },
+    blurb: 'Stand-alone policy for health-related data outside HIPAA (required in Washington and Nevada).', approved: true, effective: 'October 6, 2026', updated: 'October 19, 2026' },
   { id: 'A4', path: 'cookie-notice', title: 'Cookie and Tracking Technologies Notice', label: 'Cookie Notice', group: 'site',
     blurb: 'What the site stores and loads, and the consent-first rule for any analytics or advertising.', approved: true, effective: 'October 6, 2026' },
   { id: 'A5', path: 'legal-review/your-privacy-choices', title: 'Your Privacy Choices', label: 'Your Privacy Choices', group: 'site', existing: '/your-privacy-choices',

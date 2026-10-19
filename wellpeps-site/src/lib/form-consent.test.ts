@@ -53,7 +53,7 @@ describe('consent wording', () => {
   });
 
   test('the optional box is clearly optional and says it is not needed to receive what was asked for', () => {
-    expect(text.marketing.startsWith('Optional:')).toBe(true);
+    expect(text.marketing.startsWith('FREE BONUS:')).toBe(true);
     expect(text.marketing).toContain('emails from WellPeps about GLP-1 Weight Loss and related wellness tips');
     expect(text.marketing).toContain('I do not need to select this option in order to receive');
   });

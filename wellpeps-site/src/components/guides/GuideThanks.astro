@@ -4,11 +4,12 @@
  * one place the download lives, so the PDF's address is never on the landing page. It is the best
  * moment to offer the assessment, because the visitor has just raised their hand about a topic.
  *
- * Kept out of search results and not linked from anywhere else. Once the guide is published (`pdf` set
- * in src/data/ebooks.ts after Derek approves it, pages made by scripts/publish-ebook.py) it says "Thank
- * You!" and offers two ways to get it: read it online (the guide's /read page) or download the PDF
- * (owner, 2026-10-19). Until then the headline and the text say the request is in and the guide will be
- * emailed. It does not say a copy "has been sent" until the email system that sends one exists.
+ * Kept out of search results and not linked from anywhere else. Every guide's page says "Thank You!"
+ * (owner, 2026-10-19). A published guide (`pdf` set in src/data/ebooks.ts after Derek approves it, pages
+ * made by scripts/publish-ebook.py) says the guide will arrive by email shortly, then offers a plain text
+ * link, not a button, to read it online now. An unpublished guide says it will be emailed once published.
+ * The email itself is sent by the email service set up separately; this page never says a copy "has been
+ * sent".
  */
 import Icon from '../Icon.astro';
 import AssessmentCta from '../AssessmentCta.astro';
@@ -23,20 +24,19 @@ interface Props {
 const { book } = Astro.props;
 const page = guidePageFor(book.slug);
 const readable = Boolean(book.pdf && ebookPagesFor(book.slug));
-const fileName = `${book.slug}-smart-patients-guide.pdf`;
+const guideName = `The Smart Patient’s Guide to ${book.title}`;
 ---
 <section class="gthanks">
   <div class="container gthanks__inner">
     <div class="gthanks__card" role="status">
       <span class="gthanks__icon"><Icon name="check" /></span>
-      <h1 class="gthanks__title">{book.pdf ? 'Thank You!' : 'Thanks, We’ve Got Your Request.'}</h1>
-      <p class="gthanks__lead">{book.pdf ? `Your free Smart Patient’s Guide to ${book.title} is ready.` : `Thanks for requesting The Smart Patient’s Guide to ${book.title}.`}</p>
+      <h1 class="gthanks__title">Thank You!</h1>
       {book.pdf
-        ? <div class="gthanks__actions">
-            {readable && <a class="gthanks__btn" href={guideReadPath(book.slug)} data-guide-read>Read It Online<Icon name="arrow-right" /></a>}
-            <a class:list={[readable ? 'gthanks__alt' : 'gthanks__btn']} href={book.pdf} download={fileName} data-guide-download>Download the PDF{!readable && <Icon name="arrow-right" />}</a>
-          </div>
-        : <p class="gthanks__soon">We’re putting the finishing touches on it. We’ll email it to the address you gave us as soon as it’s published.</p>}
+        ? <p class="gthanks__lead" data-guide-status>You’ll receive <strong>{guideName}</strong> by email shortly. Keep an eye on your inbox, and check your spam folder just in case.</p>
+        : <p class="gthanks__lead" data-guide-status>We’ll email <strong>{guideName}</strong> to you as soon as it’s published.</p>}
+      {readable && (
+        <p class="gthanks__read">Can’t wait? <a href={guideReadPath(book.slug)} data-guide-read>Read the guide online now<Icon name="arrow-right" /></a></p>
+      )}
       <p class="gthanks__more"><a href={GUIDES_INDEX_PATH}>Browse all Smart Patient Guides</a></p>
     </div>
 
@@ -61,24 +61,19 @@ const fileName = `${book.slug}-smart-patients-guide.pdf`;
   .gthanks__icon :global(svg) { width: 32px; height: 32px; stroke-width: 3; }
   .gthanks__title { font-family: var(--font-serif); font-weight: 600; color: var(--navy); font-size: var(--text-section-title); line-height: 1.12; margin: 0; }
   .gthanks__lead { font-size: var(--text-lead); margin: 0; }
-  .gthanks__soon { max-width: 32rem; margin: 0; font-size: var(--text-body-size); line-height: 1.55; }
-  .gthanks__btn {
-    display: inline-flex; align-items: center; gap: 0.55rem; padding: 1.05rem 1.9rem; border-radius: 999px;
-    font-family: var(--font-sans); font-weight: 700; font-size: 1.125rem; letter-spacing: 0.03em; text-transform: uppercase; color: #fff;
-    background: linear-gradient(180deg, #1E86D8, var(--blue)); box-shadow: 0 10px 24px rgba(21, 118, 196, 0.35);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .gthanks__btn :global(svg) { width: 20px; height: 20px; transition: transform 0.2s ease; }
-  .gthanks__btn:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 14px 30px rgba(21, 118, 196, 0.45); }
-  .gthanks__btn:hover :global(svg) { transform: translateX(3px); }
-  .gthanks__btn:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 3px; color: #fff; }
-  .gthanks__actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.9rem 1.5rem; }
-  .gthanks__alt { font-weight: 700; font-size: 1.0625rem; color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+  .gthanks__lead { max-width: 34rem; line-height: 1.55; }
+  .gthanks__lead strong { color: var(--navy); }
+  /* A plain link, not a button (owner, 2026-10-19): the email is the main way the guide arrives. */
+  .gthanks__read { margin: 0; font-size: var(--text-body-size); }
+  .gthanks__read a { display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 700; color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+  .gthanks__read a :global(svg) { width: 18px; height: 18px; transition: transform 0.2s ease; }
+  .gthanks__read a:hover :global(svg) { transform: translateX(3px); }
+  .gthanks__read a:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 3px; border-radius: 4px; }
   .gthanks__more { margin: 0; font-size: 1rem; }
   .gthanks__more a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
 
   .gthanks__next { display: grid; justify-items: center; gap: 0.9rem; padding: clamp(1.5rem, 1rem + 2vw, 2.25rem); border-radius: 22px; text-align: center; color: #fff; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); }
   .gthanks__next h2 { font-family: var(--font-serif); font-weight: 600; color: #fff; font-size: var(--text-card-title); margin: 0; }
   .gthanks__next p { margin: 0; max-width: 34rem; color: rgba(255, 255, 255, 0.88); font-size: var(--text-body-size); }
-  @media (prefers-reduced-motion: reduce) { .gthanks__btn, .gthanks__btn :global(svg) { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { .gthanks__read a :global(svg) { transition: none; } }
 </style>

@@ -29,7 +29,7 @@ for (const [slug, title] of [['glp-1-weight-loss', 'GLP-1 Weight Loss'], ['hair-
   const marketing = await form.locator('[data-fconsent-marketing]').innerText();
   const notice = await form.locator('[data-fconsent-notice]').innerText();
   check(`${slug}: no required consent box`, (await form.locator('input[name=consentCollect]').count()) === 0);
-  check(`${slug}: the optional box is marked optional, says what it is for, and starts unchecked`, marketing.startsWith('Optional:') && marketing.includes('based on the guide I requested') && !(await form.locator('input[name=consentMarketing]').isChecked()), marketing);
+  check(`${slug}: the optional box is marked optional, says what it is for, and starts unchecked`, marketing.startsWith('FREE BONUS:') && marketing.includes('based on the guide I requested') && !(await form.locator('input[name=consentMarketing]').isChecked()), marketing);
   check(`${slug}: the notice says what the email is for and how to unsubscribe, without asking for agreement`, notice.includes('send the guide you requested') && /unsubscribe/.test(notice) && !/agree/i.test(notice), notice);
   check(`${slug}: the form links the Privacy Policy and Your Privacy Choices`, (await form.locator('a[href^="/privacy-policy"]').count()) > 0 && (await form.locator('a[href^="/your-privacy-choices"]').count()) > 0);
   const before = sent.length;

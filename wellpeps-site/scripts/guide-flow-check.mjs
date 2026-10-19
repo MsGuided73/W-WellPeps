@@ -167,22 +167,25 @@ async function articleLinks(ctx, base) {
   check('a native submit leaves no email in the URL', !/[?&]email=/i.test(nj.page.url()) && !nj.page.url().includes('sam%40'), nj.page.url());
   await noJs.close();
 
-  // An unpublished guide's thank-you page must not say "Ready"; a published one says "Thank You!" and offers
-  // Read It Online and Download the PDF (owner, 2026-10-19).
+  // Every thank-you page says "Thank You!" (owner, 2026-10-19). An unpublished guide's says it will be emailed once
+  // published; a published one says it arrives by email shortly and offers a plain read-online link, no buttons.
   const ty = await newContext();
   const unpublished = EBOOK_SLUGS_UNPUBLISHED[0];
   if (unpublished) {
     const t = await open(ty, LANDING, `/smart-patient-guides/${unpublished}/thank-you`);
     const headline = (await t.page.locator('main h1').innerText()).trim();
-    check(`${unpublished}: with no PDF yet, the thank-you headline does not say the guide is ready`, !/ready/i.test(headline) && /request/i.test(headline), headline);
+    const status = (await t.page.locator('[data-guide-status]').innerText()).replace(/\s+/g, ' ');
+    check(`${unpublished}: with no PDF yet, the thank-you page says Thank You! and that the guide comes once published`, headline === 'Thank You!' && /as soon as it.s published/.test(status) && (await t.page.locator('[data-guide-read]').count()) === 0, status);
     check(`${unpublished}: with no PDF yet there is no read-online page`, (await (await ty.request.get(`${LANDING}/smart-patient-guides/${unpublished}/read/`)).status()) === 404);
   }
   for (const slug of EBOOK_SLUGS_PUBLISHED) {
     const t = await open(ty, LANDING, `/smart-patient-guides/${slug}/thank-you`);
     const headline = (await t.page.locator('main h1').innerText()).trim();
     const read = await t.page.locator('[data-guide-read]').getAttribute('href');
-    const dl = await t.page.locator('[data-guide-download]').getAttribute('href');
-    check(`${slug}: published, the thank-you page says Thank You! and offers Read It Online and the PDF`, headline === 'Thank You!' && read === `/smart-patient-guides/${slug}/read` && dl === `/ebooks/${slug}.pdf`, `${headline} | ${read} | ${dl}`);
+    const status = (await t.page.locator('[data-guide-status]').innerText()).replace(/\s+/g, ' ');
+    const buttons = await t.page.locator('.gthanks__card .btn, .gthanks__card .gthanks__btn').count();
+    check(`${slug}: published, the thank-you page says it arrives by email shortly and links to read it online (a link, not a button)`, headline === 'Thank You!' && /by email shortly/.test(status) && read === `/smart-patient-guides/${slug}/read` && buttons === 0, `${status} | ${read}`);
+    const dl = `/ebooks/${slug}.pdf`;
     const r = await open(ty, LANDING, `/smart-patient-guides/${slug}/read`);
     const pages = await r.page.locator('.greader__page img').count();
     check(`${slug}: the read-online page shows every page, each with its text, and is kept out of search`, pages > 0 && (await r.page.locator('.greader__page figcaption').count()) === pages && (await r.page.locator('meta[name="robots"]').getAttribute('content')) === 'noindex,nofollow', `${pages} pages`);
@@ -324,7 +327,7 @@ async function articleLinks(ctx, base) {
     check(`${slug}: the closing button points back to the page's own form`, await page.evaluate(() => { const a = document.querySelector('[data-gf-to-form]'); return !!a && !!document.querySelector(a.getAttribute('href') + ' [data-guide-form]') && document.querySelectorAll('[data-guide-form]').length === 1; }));
     check(`${slug}: no link to the PDF anywhere on the page`, (await page.locator('a[href$=".pdf"]').count()) === 0);
     // No required box since 2026-10-16 (counsel, ATT-038): one optional, unchecked box and a short notice.
-    check(`${slug}: no required consent box; the optional box starts unchecked and the notice says what the email is for`, await page.evaluate(() => { const f = document.querySelector('[data-guide-form]'); const box = f.querySelector('input[name=consentMarketing]'); return !f.querySelector('input[name=consentCollect]') && !box.required && !box.checked && f.querySelector('[data-fconsent-marketing]').textContent.startsWith('Optional:') && f.querySelector('[data-fconsent-notice]').textContent.includes('send the guide you requested'); }));
+    check(`${slug}: no required consent box; the optional box starts unchecked and the notice says what the email is for`, await page.evaluate(() => { const f = document.querySelector('[data-guide-form]'); const box = f.querySelector('input[name=consentMarketing]'); return !f.querySelector('input[name=consentCollect]') && !box.required && !box.checked && f.querySelector('[data-fconsent-marketing]').textContent.startsWith('FREE BONUS:') && f.querySelector('[data-fconsent-notice]').textContent.includes('send the guide you requested'); }));
     await page.close();
   }
 
@@ -340,11 +343,12 @@ async function articleLinks(ctx, base) {
   await form.locator('button[type=submit]').click();
   await page.waitForURL('**/thank-you', { timeout: 8000 });
   const last = sent[sent.length - 1];
-  check('with just an email it sends email (no name), the guide’s source, no collection consent, follow-ups off', sent.length === before + 1 && last.first_name == null && last.email === 'sam@example.com' && last.source === 'ebook_hair_restoration' && !('consent_collect' in last) && last.consent_marketing === false && last.consent_text_version === 'chd-guide-v1', JSON.stringify(last));
+  check('with just an email it sends email (no name), the guide’s source, no collection consent, follow-ups off', sent.length === before + 1 && last.first_name == null && last.email === 'sam@example.com' && last.source === 'ebook_hair_restoration' && !('consent_collect' in last) && last.consent_marketing === false && last.consent_text_version === 'chd-guide-v2', JSON.stringify(last));
   check('it then opens that guide’s thank-you page', new URL(page.url()).pathname === '/smart-patient-guides/hair-restoration/thank-you');
   check('the thank-you page is kept out of search results', (await page.locator('meta[name="robots"]').getAttribute('content')) === 'noindex,nofollow');
   check('the thank-you page offers the assessment', (await page.locator('.gthanks__next').innerText()).includes('Ready to Explore Hair Restoration Treatment?') && /See If You Qualify|Opening Soon/.test(await page.locator('.gthanks__next').innerText()));
-  check('until the PDF is approved the page says it will be emailed, with no download button and no "copy sent" claim', (await page.locator('[data-guide-download]').count()) === 0 && /finishing touches/.test(await page.locator('.gthanks__card').innerText()) && !/already sent|we.ve sent|sent a copy/i.test(await page.locator('.gthanks__card').innerText()));
+  const card = await page.locator('.gthanks__card').innerText();
+  check('the thank-you page says the guide comes by email and never claims a copy was already sent', /by email shortly|as soon as it.s published/.test(card) && !/already sent|we.ve sent|sent a copy/i.test(card), card.replace(/\s+/g, ' ').slice(0, 140));
   await ctx.close();
 
   for (const [w, h, label] of [[1440, 900, 'laptop'], [390, 844, 'phone']]) {

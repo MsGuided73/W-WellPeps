@@ -19,11 +19,14 @@
  * used to send the requested guide, and one optional, unchecked box asks for follow-up emails. Those
  * emails use the person's guide choice, so the box says so (MHMDA consent must name the data and the
  * purpose). See guideConsentText below.
+ *
+ * Since 2026-10-19 the optional box on every form is labelled "FREE BONUS:" instead of "Optional:" (owner);
+ * it stays unchecked and separate from everything else.
  */
-export const FORM_CONSENT_VERSION = 'chd-form-v0.4-draft';
+export const FORM_CONSENT_VERSION = 'chd-form-v0.5-draft';
 
 /** The wording version recorded with a free-guide signup (notice + optional box). */
-export const GUIDE_FORM_VERSION = 'chd-guide-v1';
+export const GUIDE_FORM_VERSION = 'chd-guide-v2';
 
 export interface FormConsentText {
   /** Required box: save the email (and first name, if the form asks) and the topic to send what was asked for. */
@@ -50,7 +53,7 @@ export function formConsentText(topic: string, privacyEmail: string, options: Fo
   return {
     collect: `I agree that WellPeps may save ${details} ${t} so WellPeps can send me what I asked for.`,
     marketing:
-      `Optional: I also agree to receive emails from WellPeps about ${t} and related wellness tips. ` +
+      `FREE BONUS: I also agree to receive emails from WellPeps about ${t} and related wellness tips. ` +
       'I understand that I do not need to select this option in order to receive what I asked for.',
     withdraw:
       `You can unsubscribe from WellPeps emails or withdraw either consent at any time in Your Privacy Choices ` +
@@ -59,7 +62,7 @@ export function formConsentText(topic: string, privacyEmail: string, options: Fo
 }
 
 export interface GuideConsentText {
-  /** The optional box's sentence, after the bold "Optional:". Unchecked by default. */
+  /** The optional box's sentence, after the bold "FREE BONUS:" label. Unchecked by default. */
   marketing: string;
   /** Small print: what the email address is used for, and how to unsubscribe or withdraw. */
   notice: string;
