@@ -236,7 +236,8 @@ def render_el(e, book):
             mark = '•' if neutral else (tick if c == 0 else cross)
             cls = 'neu' if neutral else ('good' if c == 0 else 'bad')
             lis = ''.join(f'<li><span class="mk">{mark}</span>{esc(x)}</li>' for x in col['items'])
-            cols += f'<div class="col {cls}"><h4>{esc(col["title"])}</h4><ul>{lis}</ul></div>'
+            tight = ' class="tight"' if col.get('tight') else ''  # "tight": true keeps the label on one line (Derek's Modern 11)
+            cols += f'<div class="col {cls}"><h4{tight}>{esc(col["title"])}</h4><ul>{lis}</ul></div>'
         return f'<div class="twocol">{cols}</div>'
     return f'<!-- unknown {k} -->'
 
@@ -476,7 +477,7 @@ def cover_page(book, cfg):
     <div class="crule"></div>
     <p class="csub">{esc(book["subtitle"])}</p>
   </div>
-  <div class="cbottom"><span>Personalized Wellness. Simplified.</span></div>
+  <div class="cbottom{' norule' if cfg.get('cover_rule') is False else ''}"><span>Personalized Wellness. Simplified.</span></div>
 </section>"""
     if style == 'plate':
         return f"""<section class="page cover cover-plate">
@@ -612,6 +613,7 @@ p.quote{font-size:19pt;line-height:1.2;font-weight:700;color:var(--blue);margin-
 .twocol li{font-size:12pt;line-height:1.35;margin-bottom:.07in;padding-left:.28in;position:relative}
 .twocol .mk{position:absolute;left:0;top:0;font-weight:700}
 .twocol .good .mk{color:var(--blue)}.twocol .bad .mk{color:var(--red)}
+.twocol h4.tight{letter-spacing:.01em;white-space:nowrap}
 .twocol .neu{background:#fff;border:1px solid var(--edge,#C6D9EA)}.twocol .neu h4{color:var(--blue)}.twocol .neu .mk{color:var(--blue)}
 
 /* callouts */
@@ -698,6 +700,7 @@ p.quote{font-size:19pt;line-height:1.2;font-weight:700;color:var(--blue);margin-
 .cover .crule{width:1.1in;height:.05in;background:var(--sky);margin:.3in 0 .26in}
 .cover-editorial .csub{font-size:17pt;line-height:1.35;color:#fff;max-width:6in;font-weight:500;text-wrap:balance}
 .cover-editorial .cbottom{position:absolute;left:.7in;right:.7in;bottom:.62in;display:flex;justify-content:flex-start;font-size:8.5pt;font-weight:700;letter-spacing:.08em;color:var(--sky);text-transform:uppercase;border-top:1px solid rgba(139,199,238,.45);padding-top:.22in}
+.cover-editorial .cbottom.norule{border-top:0}  /* "cover_rule": false (Derek removed it on Modern Healthcare, 2026-10-19) */
 
 /* ---- cover: plate (photo top, navy base, white title card bridging the seam) ---- */
 .cover-plate .cphoto{position:absolute;left:0;top:0;width:8.5in;height:6.9in;object-fit:cover;display:block}

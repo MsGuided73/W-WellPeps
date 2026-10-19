@@ -34,7 +34,7 @@
         {
           "kind": "callout",
           "style": "insight",
-          "text": "Modern healthcare should remove unnecessary friction and inconvenience—not appropriate medical oversight."
+          "text": "Modern healthcare should remove unnecessary friction and inconvenience—but not remove appropriate medical oversight."
         }
       ]
     },
@@ -336,7 +336,7 @@
     {
       "num": "07",
       "kind": "section",
-      "headline": "What Does “Connected Care” Actually Mean?",
+      "headline": "What Does “Connected Care”\nActually Mean?",
       "elements": [
         {
           "kind": "lead",
@@ -492,7 +492,7 @@
       "elements": [
         {
           "kind": "lead",
-          "text": "Modern healthcare asks patients to share sensitive information digitally."
+          "text": "Modern healthcare asks patients to\nshare sensitive information digitally."
         },
         {
           "kind": "body",
@@ -548,6 +548,7 @@
           "cols": [
             {
               "title": "A MORE CONNECTED EXPERIENCE",
+              "tight": true,
               "items": [
                 "Online health assessment",
                 "Remote medical review",
@@ -618,7 +619,7 @@
     {
       "num": "13",
       "kind": "section",
-      "headline": "The Smart Patient’s Modern Healthcare Checklist",
+      "headline": "The Smart Patient’s\nModern Healthcare Checklist",
       "elements": [
         {
           "kind": "lead",

@@ -186,7 +186,14 @@ building another book.
   wording; v10 is v9 text on the v7 theme plus his edits: Modern Healthcare added to the series list and a word joiner
   (U+2060) after "NAD+" on page 08 so "NAD+—" never splits. His other diffs were manual line-break removals and
   nudges; his v8-era "without a separate membership fee" card and "Start Your Free Assessment" button not adopted.
-  Still to do: Modern, NAD (Derek
+  **Modern Healthcare v3** (2026-10-19, config `config/modern-healthcare-v3.json`, 19 pages, PASS with 1 WARN, page 15
+  too empty as in v2): Derek edited v1; owner rule from here on is to match his formatting as closely as possible.
+  Ported: his cover photo (`_assets/modern/cover-telehealth.png`) without the hairline above the tagline (new config
+  `"cover_rule": false`), page 01 "—but not remove appropriate medical oversight", his headline breaks on pages 08 and
+  14 (`
+` in the headline), his lead break on page 10, and his one-line "A MORE CONNECTED EXPERIENCE" label on page 11
+  (new twocol column option `"tight": true`). Not adopted: "Start Your Free Assessment" and the membership-fee card.
+  Still to do: NAD (Derek
   removed page 09 "Compounded and FDA-Approved Aren't the Same Thing": 17 pages).
 - **Archived:** every earlier GLP-1 version and the old NAD+, Peptides, Sexual Wellness and Healthy Aging guides are in
   `eBooks/_archive/`. Their content is being rewritten; new manuscripts arrive one at a time. Do not rebuild from the
