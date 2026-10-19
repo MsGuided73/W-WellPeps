@@ -38,6 +38,9 @@ CARD_CROP_MAX_PCT = 1.0  # product photos on cards must show the whole product (
 # other elements use those sizes; they now render at 12pt / 15.5pt and 19 is no longer allowed. Note the check is by
 # size, not by element, so a body-area element at an Approach or callout size still passes: audit by page when in doubt.
 TYPE_SCALE = {31, 27, 15.5, 12, 11.5, 14, 13, 7.5, 9.5, 16, 8} | {15, 17, 25, 12.5, 22}
+# editorial-v7 (Derek's 2026-10-19 revision) adds the 13.5pt WellPeps Approach text; its labels use the existing 14pt.
+TYPE_SCALE_V7 = TYPE_SCALE | {13.5}
+FIXED_THEMES = ('editorial-v6', 'editorial-v7')
 
 
 def run(cmd, **kw):
@@ -58,7 +61,7 @@ def flatten(o, out):
     return out
 
 
-def check_pdf(pdf_path):
+def check_pdf(pdf_path, scale=TYPE_SCALE):
     import pymupdf
     d = pymupdf.open(pdf_path)
     lum_pages = []
@@ -84,7 +87,7 @@ def check_pdf(pdf_path):
                     if not t:
                         continue
                     size = round(sp['size'] * 2) / 2
-                    if size not in TYPE_SCALE:
+                    if size not in scale:
                         off_scale.setdefault((pno + 1, size), t[:40])
     return {'pages': len(d), 'luminosity': len(lum_pages), 'fonts': sorted(fonts), 'text': text, 'offScale': off_scale}
 
@@ -97,6 +100,7 @@ def main():
     a = ap.parse_args()
 
     outline = json.load(open(a.outline, encoding='utf8'))
+    theme = json.load(open(a.config, encoding='utf8')).get('theme', 'classic')
     slug = outline['slug']; tag = f'{slug}-v{a.version}'
     html = os.path.join('html', f'{tag}.html'); pdf = os.path.join('pdf', f'{tag}.pdf')
     fails, warns = [], []
@@ -157,25 +161,32 @@ def main():
             elif c['steps']:
                 print(f"  cta: panel type stepped down {c['steps']}x to fit")
         f = lay['fonts']
-        if not (f['loraLoaded'] and f['interLoaded']):
-            fails.append(f"fonts did not load in the browser: {f}")
-        if 'Lora' not in f['headlineFamily'] or 'Inter' not in f['bodyFamily']:
-            fails.append(f"headline/body font-family resolved to {f['headlineFamily']} / {f['bodyFamily']}")
+        if theme == 'editorial-v7':  # system Georgia / Arial: nothing to load, but the CSS must resolve to them first
+            if not f['headlineFamily'].startswith('Georgia') or not f['bodyFamily'].startswith('Arial'):
+                fails.append(f"v7 headline/body font-family resolved to {f['headlineFamily']} / {f['bodyFamily']} (expect Georgia / Arial)")
+        else:
+            if not (f['loraLoaded'] and f['interLoaded']):
+                fails.append(f"fonts did not load in the browser: {f}")
+            if 'Lora' not in f['headlineFamily'] or 'Inter' not in f['bodyFamily']:
+                fails.append(f"headline/body font-family resolved to {f['headlineFamily']} / {f['bodyFamily']}")
 
     # 3. PDF checks
-    info = check_pdf(os.path.join(HERE, pdf))
+    info = check_pdf(os.path.join(HERE, pdf), TYPE_SCALE_V7 if theme == 'editorial-v7' else TYPE_SCALE)
     print(f"  PDF: {info['pages']} pages, luminosity soft masks {info['luminosity']}, fonts {info['fonts']}")
     if info['luminosity'] > 1:
         fails.append(f"{info['luminosity']} luminosity soft masks (expect 1, the cover shade): Apple Preview will show grey boxes")
     # Chromium embeds the web fonts as unnamed Type3 glyph programs, so Lora/Inter never appear by name; a fallback
     # font does (e.g. 'Arial-BoldMT' when a glyph or the whole face was missing). Lora/Inter presence is proven by the
     # browser-side document.fonts check above.
-    fallback = [x for x in info['fonts'] if re.search(r'Arial|Helvetica|Georgia|Times|Segoe|Calibri', x)]
+    if theme == 'editorial-v7':  # v7 is Georgia + Arial only; anything else in the PDF is a fallback or a stray web font
+        fallback = [x for x in info['fonts'] if not re.search(r'Arial|Georgia', x)]
+    else:
+        fallback = [x for x in info['fonts'] if re.search(r'Arial|Helvetica|Georgia|Times|Segoe|Calibri', x)]
     if fallback:
         fails.append(f"fallback font embedded in the PDF: {fallback} (fonts not loaded, or a glyph missing from Inter/Lora)")
     if len(info['text']) < 2000:
         fails.append('PDF text extraction returned almost nothing')
-    if json.load(open(a.config, encoding='utf8')).get('theme') == 'editorial-v6':
+    if theme in FIXED_THEMES:
         for (pno, size), sample in sorted(info['offScale'].items()):
             fails.append(f"fixed-type scale: {size}pt on PDF page {pno} ('{sample}') is not on the v6 scale: pin the element's size in the .theme-editorial-v6 CSS block")
 

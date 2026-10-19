@@ -110,7 +110,7 @@
    "elements": [
     {
      "kind": "lead",
-     "text": "Difficulty achieving or maintaining an erection is not necessarily the same as reduced sexual desire. This distinction matters."
+     "text": "Difficulty achieving or maintaining an erection is not necessarily the same as reduced sexual desire.\n\nThis distinction matters."
     },
     {
      "kind": "body",
@@ -189,7 +189,7 @@
   {
    "num": "04",
    "kind": "section",
-   "headline": "Sildenafil, Tadalafil and Daily Tadalafil",
+   "headline": "Sildenafil, Tadalafil & Daily Tadalafil",
    "elements": [
     {
      "kind": "lead",
@@ -483,7 +483,7 @@
   {
    "num": "10",
    "kind": "section",
-   "headline": "Sexual Wellness and Your Overall Health",
+   "headline": "Sexual Wellness & Your Overall Health",
    "elements": [
     {
      "kind": "lead",
@@ -672,11 +672,7 @@
     },
     {
      "kind": "body",
-     "text": "WellPeps was founded by a physician and an experienced pharmacy owner who believed there should be a better way to bring together thoughtful medical care, quality prescription fulfillment and a more convenient patient experience."
-    },
-    {
-     "kind": "body",
-     "text": "That perspective shaped the WellPeps approach: personalized, provider-guided care designed around the patient—not simply the medication."
+     "text": "WellPeps was founded by a physician and an experienced pharmacy owner who believed there should be a better way to bring together thoughtful medical care, quality prescription fulfillment and a more convenient patient experience. That perspective shaped the WellPeps approach: personalized, provider-guided care designed around the patient—not simply the medication."
     },
     {
      "kind": "cards",

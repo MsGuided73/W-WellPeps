@@ -380,7 +380,7 @@
       "elements": [
         {
           "kind": "lead",
-          "text": "NAD+—nicotinamide adenine dinucleotide—is a naturally occurring coenzyme found throughout the body."
+          "text": "NAD+⁠—nicotinamide adenine dinucleotide—is a naturally occurring coenzyme found throughout the body."
         },
         {
           "kind": "body",
@@ -405,7 +405,7 @@
         {
           "kind": "callout",
           "style": "question",
-          "text": "Am I being told what researchers know about NAD+—or being promised an outcome the evidence hasn’t established?"
+          "text": "Am I being told what researchers know about NAD+⁠—or being promised an outcome the evidence hasn’t established?"
         },
         {
           "kind": "approach",

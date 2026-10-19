@@ -128,7 +128,7 @@ const data = await page.evaluate(async () => {
       const L = Math.min(...tokens.map((t) => t.left)) - P.left;
       if (L > box.x + 1) { box.w -= L - box.x; box.x = L; }
     }
-    return { t: 'text', ...box,
+    return { t: 'text', ...box, pn: el.classList.contains('pn'),
       firstTop: firstTop - P.top, lh, runs: runs.map((x) => (x.br ? { br: true } : { text: x.text, style: x.style })) };
   }
 

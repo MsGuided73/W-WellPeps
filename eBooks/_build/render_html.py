@@ -51,6 +51,9 @@ def img_uri(path, max_px=1800, quality=84, crop=None):
 FONTS = os.path.join(HERE, '..', '_assets', 'fonts')
 FONT_SUBSETS = ('latin', 'latin-ext', 'symbols', 'math')  # English guides; the other subsets stay on disk unused
 GOOGLE_FONTS = "@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');"
+# Themes with Derek's fixed type scale (editorial-v6). editorial-v7 is v6 with his 2026-10-19 revision: Georgia
+# headlines, Arial body, larger Smart Patient / Approach labels (section 3b of the README).
+FIXED_THEMES = ('editorial-v6', 'editorial-v7')
 
 
 def font_css():
@@ -200,8 +203,12 @@ def render_el(e, book):
     if k == 'flow':
         # the arrow is an inline SVG, not U+2192: the bundled Inter subset has no glyph for it and Chromium would fall back to Arial
         arrow = '<div class="arrow"><svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 6h7M6 2.5 9.5 6 6 9.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'
-        steps = ''.join(f'<div class="step">{esc(s)}</div>' + (arrow if i < len(e['steps']) - 1 else '') for i, s in enumerate(e['steps']))
-        return f'<div class="flow">{steps}</div>'
+        # a step is a string, or {"title", "desc"} for a two-line step; "caption" puts a centred label above the row
+        step = lambda s: f'<div class="step"><h5>{esc(s["title"])}</h5><p>{esc(s["desc"])}</p></div>' if isinstance(s, dict) else f'<div class="step">{esc(s)}</div>'
+        steps = ''.join(step(s) + (arrow if i < len(e['steps']) - 1 else '') for i, s in enumerate(e['steps']))
+        detail = ' detail' if any(isinstance(s, dict) for s in e['steps']) else ''
+        row = f'<div class="flow{detail}">{steps}</div>'
+        return f'<div class="flowwrap"><div class="fcap">{esc(e["caption"])}</div>{row}</div>' if e.get('caption') else row
     if k == 'checklist':
         rows = ''.join(f'<div class="ck"><div class="num">{i:02d}</div><div class="ckt"><h4>{esc(it["title"])}</h4>' + (f'<p>{esc(it["desc"])}</p>' if it.get('desc') else '') + '</div></div>' for i, it in enumerate(e['items'], 1))
         # "compact": true -> smaller number squares and row gaps (same type), for a long checklist (Modern Healthcare 13, nine items)
@@ -284,7 +291,7 @@ def render_cards(e, book):
         # editorial-v6: product photos are never cropped, so with no card_image_ratio the slot takes the photo's own
         # proportions (layout_check.mjs measures any crop and build_book.py FAILs on it).
         ratio = book.get('_cimg_ratio')
-        if not ratio and book.get('_theme') == 'editorial-v6' and it.get('image') in book.get('_imgs_ratio', {}):
+        if not ratio and book.get('_theme') in FIXED_THEMES and it.get('image') in book.get('_imgs_ratio', {}):
             ratio = f"{book['_imgs_ratio'][it['image']]:.4f}"
 
         rstyle = f' style="aspect-ratio:{ratio}"' if ratio else ''
@@ -310,14 +317,15 @@ def page_shell(book, num, kicker, inner, cls='', hero=None):
     if hero:
         imgs = ''.join(f'<span class="hph"><img src="{h}" alt=""></span>' for h in hero)
         hero_html = f'<div class="hero n{len(hero)}">{imgs}</div>'
-    if book.get('_theme') in ('editorial-v4', 'editorial-v5', 'editorial-v6'):
-        knum = '' if book['_theme'] in ('editorial-v5', 'editorial-v6') else f'<span class="knum">{num}</span>'
+    if book.get('_theme') in ('editorial-v4', 'editorial-v5') + FIXED_THEMES:
+        knum = '' if book['_theme'] in ('editorial-v5',) + FIXED_THEMES else f'<span class="knum">{num}</span>'
         top = (f'<div class="runhead">SMART PATIENT GUIDE TO {esc(book["topic"])}</div>'
                f'<div class="kicker">{knum}<span class="ktext">{esc(kicker)}</span></div>')
     else:
         top = (f'<div class="runhead">{num}&nbsp;&nbsp;/&nbsp;&nbsp;SMART PATIENT GUIDE TO {esc(book["topic"])}</div>'
                f'<div class="banner">{esc(kicker)}</div>')
-    return f'''<section class="page {cls}" data-num="{num}">
+    front = ' data-front="1"' if num in book.get('_front', ()) else ''  # config "front_matter": numbered i, ii, iii
+    return f'''<section class="page {cls}" data-num="{num}"{front}>
   {top}
   {hero_html}
   <div class="bodywrap{" hashero" if hero else ""}">{inner}</div>
@@ -352,7 +360,7 @@ def section_page(book, sec, cfg):
     icon = f' <img class="hicon" src="{img_uri(cfg["headline_icon"])}" alt="">' if cfg.get('headline_icon') else ''
     inner = f'<div class="head"><h2>{glue(sec["headline"]).replace(chr(10), "<br>")}{icon}</h2>{sub}<div class="rule"></div></div><div class="content">{content}</div><div class="bottom">{bottom}</div>'
     hero = [img_uri(p) for p in cfg['hero']] if cfg.get('hero') else None
-    fixed = book.get('_theme') == 'editorial-v6'  # v6: one fixed type scale; per-page type steps are ignored
+    fixed = book.get('_theme') in FIXED_THEMES  # v6: one fixed type scale; per-page type steps are ignored
     cls = 'section dense' if cfg.get('dense') and not fixed else 'section'  # dense: one type step down so a long page holds on one sheet
     if cfg.get('lead_small') and not fixed:
         cls += ' lead-sm'  # lead one size down, e.g. to hold a long lead to two lines
@@ -385,7 +393,7 @@ def why_page(book, sec, cfg):
         grid = '<div class="fgrid">' + ''.join(f'<div class="fcard plain"><h5>{esc(smart_title(x))}</h5></div>' for x in items) + '</div>'
         ap = ''
     inner = f'<div class="head"><h2>Why We Created WellPeps</h2><div class="rule"></div></div><div class="whytop"><div class="whyintro">{intro}</div><img class="team" src="{team}" alt=""></div><div class="content nosplit">{grid}</div><div class="bottom">{ap}</div>'
-    return page_shell(book, sec['num'], cfg.get('kicker', 'WHY WE CREATED WELLPEPS'), inner, cls='why dense' if cfg.get('dense') and book.get('_theme') != 'editorial-v6' else 'why')  # dense: one step down when eight cards + a long intro overflow
+    return page_shell(book, sec['num'], cfg.get('kicker', 'WHY WE CREATED WELLPEPS'), inner, cls='why dense' if cfg.get('dense') and book.get('_theme') not in FIXED_THEMES else 'why')  # dense: one step down when eight cards + a long intro overflow
 
 
 def decide_page(book, sec, num, cfg):
@@ -507,11 +515,11 @@ def cover_page(book, cfg):
 
 CSS = r'''
 __FONT_FACES__
-:root{--navy:#173A5E;--blue:#1576C4;--slate:#243746;--ice:#F2F7FA;--ice2:#F5F9FC;--sky:#8BC7EE;--muted:#8294A1;--frame:#244466;--cardline:#0070C0;--red:#B3261E;--redbg:#FDF1EF}
+:root{--serif:Lora,Georgia,serif;--sans:Inter,Arial,sans-serif;--navy:#173A5E;--blue:#1576C4;--slate:#243746;--ice:#F2F7FA;--ice2:#F5F9FC;--sky:#8BC7EE;--muted:#8294A1;--frame:#244466;--cardline:#0070C0;--red:#B3261E;--redbg:#FDF1EF}
 *{box-sizing:border-box;margin:0;padding:0}
 .nb{white-space:nowrap}
 html,body{background:#fff}
-body{font-family:Inter,Arial,sans-serif;font-optical-sizing:auto;color:var(--slate);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:var(--sans);font-optical-sizing:auto;color:var(--slate);-webkit-print-color-adjust:exact;print-color-adjust:exact}
 @page{size:8.5in 11in;margin:0}
 .page{width:8.5in;height:11in;position:relative;overflow:hidden;page-break-after:always;break-after:page;background:#fff}
 .page:last-child{page-break-after:auto}
@@ -579,6 +587,14 @@ p.quote{font-size:19pt;line-height:1.2;font-weight:700;color:var(--blue);margin-
 .flow .step{flex:1;background:var(--ice);border:1px solid var(--sky);border-radius:7px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:10.5pt;font-weight:700;color:var(--blue);padding:.12in .1in;min-height:.72in;letter-spacing:.02em}
 .flow .step:last-child{background:var(--navy);border-color:var(--navy);color:#fff}
 .flow .arrow{display:flex;align-items:center;color:var(--blue);font-size:18pt;font-weight:700;padding:0 .02in}
+/* flow with "caption" and {title, desc} steps (GLP-1 06, Derek 2026-10-19): light steps throughout, navy title, blue sub-line */
+.flowwrap{margin:var(--sp-cards,.16in) 0;clear:both}
+.flowwrap .fcap{font-size:12pt;font-weight:700;letter-spacing:.06em;color:var(--blue);text-align:center;margin-bottom:.12in}
+.flowwrap .flow{margin:0}
+.flow.detail .step,.theme-editorial .flow.detail .step,.theme-editorial .flow.detail .step:last-child{flex:1 1 0;flex-direction:column;background:var(--ice);border-color:var(--edge,#D5E3EF);color:var(--navy);padding:.14in .12in}
+.flow.detail .arrow svg{width:16px;height:16px}
+.flow.detail .step h5{font-size:12pt;font-weight:700;letter-spacing:.02em;line-height:1.25;color:var(--navy);margin:0 0 .05in}
+.flow.detail .step p{font-size:11.5pt;font-weight:700;line-height:1.3;color:var(--blue);letter-spacing:0;white-space:nowrap}  /* one line: the step widens to fit its sub-line, as in Derek's diagram */
 .checklist{clear:both;margin-top:.06in}
 .checklist.fill{display:flex;flex-direction:column;justify-content:space-between}.checklist.fill + p.body{margin-top:.28in;font-size:11pt;color:var(--muted)}.checklist.fill .ck{margin-bottom:0}
 .ck{display:grid;grid-template-columns:.78in 1fr;column-gap:.21in;margin-bottom:.19in;align-items:start}
@@ -769,7 +785,7 @@ p.quote{font-size:19pt;line-height:1.2;font-weight:700;color:var(--blue);margin-
 .theme-editorial-v4 .ktext{font-size:10pt;font-weight:700;letter-spacing:.18em;color:var(--blue)}
 .theme-editorial-v4 .ktext.small{font-size:9pt;letter-spacing:.14em}
 .theme-editorial-v4 .bodywrap{top:1.62in;height:8.72in}
-.theme-editorial-v4 .head h2{font-family:Lora,Georgia,serif;font-weight:600;font-size:31pt;line-height:1.1;letter-spacing:-0.01em;color:var(--navy)}
+.theme-editorial-v4 .head h2{font-family:var(--serif);font-weight:600;font-size:31pt;line-height:1.1;letter-spacing:-0.01em;color:var(--navy)}
 .theme-editorial-v4 .head h2.l2{font-size:27pt}
 .theme-editorial-v4 .head h2.l3{font-size:24pt}
 .theme-editorial-v4 .head .sub{color:var(--blue);font-size:14pt;margin-top:.1in}
@@ -865,12 +881,12 @@ p.quote{font-size:19pt;line-height:1.2;font-weight:700;color:var(--blue);margin-
 .theme-editorial-v4 .compact .callout h4,.theme-editorial-v4 .compact .approach h4{font-size:11pt}
 .theme-editorial-v4 .compact .callout p,.theme-editorial-v4 .compact .approach p{font-size:12.5pt;line-height:1.32}
 .theme-editorial-v4 .compact .approach{padding:.13in .2in}
-.theme-editorial-v4 .ptag{font-family:Lora,Georgia,serif;font-weight:600;font-size:15pt;color:var(--navy)}
-.theme-editorial-v4 .ck h4{font-family:Lora,Georgia,serif;font-weight:600;font-size:15pt;color:var(--navy)}
+.theme-editorial-v4 .ptag{font-family:var(--serif);font-weight:600;font-size:15pt;color:var(--navy)}
+.theme-editorial-v4 .ck h4{font-family:var(--serif);font-weight:600;font-size:15pt;color:var(--navy)}
 .theme-editorial-v4 .ck p{font-size:12pt;line-height:1.42;color:var(--ink)}
 .theme-editorial-v4 .ck .num{background:var(--navy);font-size:15pt}
 .theme-editorial-v4 .checklist.fill + p.body{color:var(--muted)}
-.theme-editorial-v4 .whyintro .tag{font-family:Lora,Georgia,serif;font-weight:600;font-size:17pt;color:var(--navy)}
+.theme-editorial-v4 .whyintro .tag{font-family:var(--serif);font-weight:600;font-size:17pt;color:var(--navy)}
 .theme-editorial-v4 .whyintro p.body{font-size:11.5pt;line-height:1.5}
 .theme-editorial-v4 .fcard{background:#fff;border:1px solid var(--edge);border-left:.05in solid var(--blue)}
 .theme-editorial-v4 .fcard h5{color:var(--navy);font-size:12.5pt}
@@ -886,15 +902,15 @@ p.quote{font-size:19pt;line-height:1.2;font-weight:700;color:var(--blue);margin-
 .theme-editorial-v4 .cta .ctahero{top:1.42in;height:4.0in}
 .theme-editorial-v4 .cta .ctahero img{width:3.85in}
 .theme-editorial-v4 .cta .ctapanel{background:var(--navy)}
-.theme-editorial-v4 .cta .ctapanel h2{font-family:Lora,Georgia,serif;font-weight:600;font-size:25pt;line-height:1.12}
+.theme-editorial-v4 .cta .ctapanel h2{font-family:var(--serif);font-weight:600;font-size:25pt;line-height:1.12}
 .theme-editorial-v4 .cta .ctapanel p.body{color:#DCE6F0;font-size:11.5pt;line-height:1.45}
 .theme-editorial-v4 .cta .ctabody{top:5.85in}
-.theme-editorial-v4 .cta .stack{font-family:Lora,Georgia,serif;font-weight:600;font-size:22pt;line-height:1.25}
+.theme-editorial-v4 .cta .stack{font-family:var(--serif);font-weight:600;font-size:22pt;line-height:1.25}
 .theme-editorial-v4 .cta .tagline{font-size:16pt}
 .theme-editorial-v4 .cta .site{font-size:14pt}
-.theme-editorial-v4 .disclaimer h2{font-family:Lora,Georgia,serif;font-weight:600}
+.theme-editorial-v4 .disclaimer h2{font-family:var(--serif);font-weight:600}
 .theme-editorial-v4 .disclaimer .rule{background:var(--accent)}
-.theme-editorial-v4 .closing{font-family:Lora,Georgia,serif;font-weight:600}
+.theme-editorial-v4 .closing{font-family:var(--serif);font-weight:600}
 
 /* editorial v5: v4 with the kicker set as a full-width navy band, bold white, like the original (no number square) */
 .theme-editorial-v5 .runhead{top:.2in}
@@ -979,6 +995,21 @@ p.quote{font-size:19pt;line-height:1.2;font-weight:700;color:var(--blue);margin-
 /* v6 disclaimer: legal text at the standard 12pt body size; the series list follows the text (placed by the
    paginator) instead of sitting at a fixed 6.9in, and the brand block moves down only if the list needs the room */
 .theme-editorial-v6 .disclaimer .dtext p{font-size:12pt;line-height:16.5pt;margin-bottom:.13in}
+
+/* editorial v7: v6 plus Derek's 2026-10-19 revision (his edited decks in eBooks/___Final Revised Books/). Georgia
+   headlines and Arial body, both system fonts on Windows, macOS and PowerPoint for the web, so the editable deck needs
+   no embedded fonts. Weights map as PowerPoint draws them: Lora 600 -> Georgia Bold, Inter 600/700 -> Arial Bold,
+   Inter 400/500 -> Arial Regular. Sizes changed by Derek: the Smart Patient and WellPeps Approach labels 14pt (were
+   7.5 / 9.5), Approach text 13.5pt (was 13), cover eyebrow 16pt (was 13). Everything else keeps the v6 scale. */
+.theme-editorial-v7{--serif:Georgia,serif;--sans:Arial,Helvetica,sans-serif}
+.theme-editorial-v7 .callout h4,.theme-editorial-v7 .approach h4{font-size:14pt;line-height:1.1;letter-spacing:.1em;margin-bottom:.03in}
+/* the 14pt labels add a line's height to both boxes; v7 takes it back from the box padding and the stack gap (once, book-wide) */
+.theme-editorial-v7{--sp-stack:.18in;--pad-callout:.1in .22in .1in 1.1in;--pad-approach:.1in .22in .11in}
+.theme-editorial-v7 .approach p{font-size:13.5pt;line-height:1.38}
+.theme-editorial-v7 .cover-editorial .eyebrow{font-size:16pt}
+/* Georgia sets wider than Lora: Derek's v7 decks give the CTA panel copy a .44in right margin (was .58), so a
+   four-line headline drops to three and the panel stops clipping (Sexual Wellness v8, 2026-10-19). */
+.theme-editorial-v7 .cta .ctapanel{padding-right:.44in}
 
 /* pair_groups: two subhead+cards groups side by side, each a single column of cards */
 .pairgroups{display:grid;grid-template-columns:1fr 1fr;column-gap:.27in;margin:var(--sp-cards,.16in) 0;clear:both}
@@ -1205,6 +1236,15 @@ SCRIPT = r'''
     }
     while (!FIXED && t.getBoundingClientRect().bottom > s.getBoundingClientRect().top - 0.15*IN && guard < 4){ guard++; t.classList.add('d'+guard); }
   });
+  // Page numbers come from the finished page order, never from the outline's section numbers: front-matter pages
+  // (config "front_matter") read i, ii, iii..., the rest 01, 02, 03... A removed page, an added page or a CONTINUED
+  // page renumbers everything after it. data-num keeps the section number for the build reports.
+  const ROMAN = ['i','ii','iii','iv','v','vi','vii','viii','ix','x'];
+  let nFront = 0, nMain = 0;
+  document.querySelectorAll('section.page').forEach(pg=>{
+    const pn = pg.querySelector('.foot .pn'); if (!pn) return;
+    pn.textContent = pg.dataset.front ? ROMAN[nFront++] : String(++nMain).padStart(2, '0');
+  });
   window.__paginated = true;
   window.__overflow = report;
 })();
@@ -1213,6 +1253,8 @@ SCRIPT = r'''
 
 
 def theme_classes(t):
+    if t == 'editorial-v7':
+        return 'theme-editorial theme-editorial-v4 theme-editorial-v5 theme-editorial-v6 theme-editorial-v7'
     if t == 'editorial-v6':
         return 'theme-editorial theme-editorial-v4 theme-editorial-v5 theme-editorial-v6'
     if t == 'editorial-v5':
@@ -1229,6 +1271,7 @@ def build(outline_path, config_path, out_path, cover_style=None):
         cfg['cover_style'] = cover_style
     book.update({k: v for k, v in cfg.items() if k in ('topic', 'title', 'cta_url', 'series')})
     book['_theme'] = cfg.get('theme', 'classic')
+    book['_front'] = set(cfg.get('front_matter', []))
     book['_icon'] = img_uri(ICON)
     book['_imgs'] = {k: img_uri(v) for k, v in cfg.get('card_images', {}).items()}
     book['_imgs_ratio'] = {k: (lambda im: im.size[0] / im.size[1])(Image.open(v if os.path.isabs(v) else os.path.normpath(os.path.join(HERE, v))))

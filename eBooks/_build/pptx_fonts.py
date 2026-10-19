@@ -51,14 +51,26 @@ def deck_chars(z):
     return {c for c in chars if not c.isspace()}
 
 
+def deck_typefaces(z):
+    faces = set()
+    for n in z.namelist():
+        if re.match(r'ppt/slides/slide\d+\.xml$', n):
+            faces |= set(re.findall(r'<a:latin typeface="([^"]+)"', z.read(n).decode('utf8')))
+    return faces
+
+
+SYSTEM_FACES = {'Arial', 'Georgia'}  # editorial-v7 decks: on every Mac, Windows PC and PowerPoint for the web
+
+
 def check(path):
     good = good_fonts()
     with zipfile.ZipFile(path) as z:
         fonts = embedded(z)
         bad = [k for k, part in fonts.items() if k not in good or z.read(part) != good[k]]
-    state = 'NO FONTS' if not fonts else ('BAD ' + ', '.join(bad) if bad else 'GOOD')
+        system = not fonts and deck_typefaces(z) <= SYSTEM_FACES
+    state = 'GOOD SYSTEM' if system else 'NO FONTS' if not fonts else ('BAD ' + ', '.join(bad) if bad else 'GOOD')
     print(f'{state:12s} {path}')
-    return bool(fonts) and not bad
+    return system or (bool(fonts) and not bad)
 
 
 def mark_subset(xml):

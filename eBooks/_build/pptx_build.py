@@ -212,6 +212,9 @@ INVISIBLE = dict.fromkeys(map(ord, '⁠​‌‍﻿­'))
 def face(style):
     fam = style['family'].split(',')[0].strip().strip('"\'')
     wt = int(style['weight'])
+    # editorial-v7: system fonts, bold where the browser draws bold (Georgia/Arial have no medium or semibold faces)
+    if fam.lower() in ('georgia', 'arial'):
+        return fam.capitalize(), wt >= 600
     if fam.lower().startswith('lora'):
         return ('Lora SemiBold', False) if 500 <= wt < 700 else ('Lora', wt >= 700)
     if wt >= 700:
@@ -246,6 +249,10 @@ def add_text(slide, it):
     p.alignment = {'center': PP_ALIGN.CENTER, 'right': PP_ALIGN.RIGHT, 'end': PP_ALIGN.RIGHT, 'justify': PP_ALIGN.JUSTIFY}.get(it['align'], PP_ALIGN.LEFT)
     p.line_spacing = Pt(lh * 0.75)
     p.space_before = p.space_after = Pt(0)
+    if it.get('pn'):
+        add_page_number(p, it)
+        tb.name = 'page number'
+        return
     first_text = ''
     for r in runs:
         if r.get('br'):
@@ -269,6 +276,35 @@ def add_text(slide, it):
     tb.name = (first_text.translate(INVISIBLE)[:40] or 'text')
 
 
+def style_run(rPr, st):
+    """Font, size, colour and tracking on a run or field's rPr (same rules as add_text's runs)."""
+    name, bold = face(st)
+    rPr.set('sz', str(int(round(st['size'] * 0.75 * 2) / 2 * 100)))
+    rPr.set('b', '1' if bold else '0')
+    if st['ls']:
+        rPr.set('spc', str(int(round(st['ls'] * 0.75 * 100))))
+    col, _ = parse_color(st['color'])
+    fill = etree.SubElement(rPr, qn('a:solidFill')); etree.SubElement(fill, qn('a:srgbClr'), val=str(col))
+    for tag in ('a:latin', 'a:ea', 'a:cs'):
+        etree.SubElement(rPr, qn(tag), typeface=name)
+
+
+def add_page_number(p, it):
+    """The footer page number as plain text, exactly as the PDF prints it ("01", "02", ... or "i", "ii").
+    It was a PowerPoint slide-number field counted from firstSlideNum; PowerPoint honoured that, but other viewers
+    (the desktop app's file preview among them) count from the slide's position, so page 01 showed "02" (owner,
+    2026-10-19). Plain text reads the same everywhere; deleting a slide no longer renumbers the deck, so rebuild instead."""
+    st = next(r['style'] for r in it['runs'] if not r.get('br'))
+    label = ''.join(r.get('text', '') for r in it['runs']).strip()
+    r = p.add_run(); r.text = label; style_run(r._r.get_or_add_rPr(), st)
+    end = p._p.find(qn('a:endParaRPr'))
+    if end is not None:  # endParaRPr must stay last
+        p._p.remove(end); p._p.append(end)
+
+
+SYSTEM_FONTS = {('Arial', False): 'arial.ttf', ('Arial', True): 'arialbd.ttf', ('Georgia', False): 'georgia.ttf', ('Georgia', True): 'georgiab.ttf'}
+
+
 def check_glyphs(d):
     """Every character must exist in the desktop font it will be drawn with, or PowerPoint substitutes fonts on
     machines that rely on the embedded copies. Fails the export with the offending characters."""
@@ -286,9 +322,14 @@ def check_glyphs(d):
                 if r.get('br'):
                     continue
                 name, bold = face(r['style'])
-                fn = 'Inter-Bold' if (name == 'Inter' and bold) else files[name]
+                if (name, bold) in SYSTEM_FONTS:  # editorial-v7: the Windows copies of the system fonts
+                    fn = SYSTEM_FONTS[(name, bold)]
+                    path = os.path.join(os.environ.get('WINDIR', r'C:\Windows'), 'Fonts', fn)
+                else:
+                    fn = 'Inter-Bold' if (name == 'Inter' and bold) else files[name]
+                    path = os.path.join(here, 'pptx', 'fonts', fn + '.ttf')
                 if fn not in cmaps:
-                    cmaps[fn] = TTFont(os.path.join(here, 'pptx', 'fonts', fn + '.ttf')).getBestCmap()
+                    cmaps[fn] = TTFont(path).getBestCmap()
                 for ch in r['text'].translate(INVISIBLE):
                     if ord(ch) not in cmaps[fn] and not ch.isspace():
                         missing.setdefault(f'U+{ord(ch):04X} {ch!r}', set()).add(fn)

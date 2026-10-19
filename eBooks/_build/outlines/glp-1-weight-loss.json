@@ -244,6 +244,24 @@
      "text": "The decision to prescribe a compounded formulation should be based on an individual medical evaluation and a specific patient need—not simply on price or preference. Unlike commercially available FDA-approved medications, customized compounded medications are prepared for individual patients based on a provider’s prescription."
     },
     {
+     "kind": "flow",
+     "caption": "HOW AN INDIVIDUALIZED TREATMENT DECISION IS MADE",
+     "steps": [
+      {
+       "title": "YOUR HEALTH INFORMATION",
+       "desc": "History • goals • needs"
+      },
+      {
+       "title": "LICENSED PROVIDER EVALUATION",
+       "desc": "Clinical review"
+      },
+      {
+       "title": "INDIVIDUALIZED TREATMENT",
+       "desc": "Medication • formulation • dose"
+      }
+     ]
+    },
+    {
      "kind": "callout",
      "style": "question",
      "text": "Is my treatment simply a standard medication offered to everyone—or has a licensed provider considered whether the formulation is appropriate for my individual needs?"
@@ -320,7 +338,7 @@
     {
      "kind": "emph",
      "clear": true,
-     "text": "If a GLP-1 program does not offer lab testing as part of treatment, you should ask why."
+     "text": "If a GLP-1 program does not offer lab testing, you should ask why."
     },
     {
      "kind": "cards",
@@ -346,16 +364,16 @@
     },
     {
      "kind": "body",
-     "text": "That does not mean every GLP-1 patient requires the same laboratory panel at the same interval. Testing should be clinically appropriate and determined by healthcare professionals. What matters is whether a program can support appropriate monitoring when it is needed."
+     "text": "That does not mean every GLP-1 patient requires laboratory tests at a certain time or interval. Any testing should be clinically appropriate and determined by healthcare professionals. What matters is whether a program can support appropriate monitoring if and when it is needed."
     },
     {
      "kind": "callout",
      "style": "question",
-     "text": "Ask whether lab testing is offered as part of the program."
+     "text": "Ask whether lab testing is available if clinically appropriate."
     },
     {
      "kind": "approach",
-     "text": "WellPeps offers access to base medical-weight-management laboratory services through Quest Diagnostics and Labcorp, with at-home lab kits also available, helping make laboratory information part of the care process."
+     "text": "WellPeps offers access to base medical-weight-management laboratory services through top national laboratories, with at-home lab kits also available, helping make laboratory information part of the care process."
     }
    ]
   },
@@ -648,7 +666,10 @@
    "elements": [],
    "text": [
     "This guide is provided for general educational purposes only and does not constitute medical advice, diagnosis or treatment. Individual medical needs vary. Always discuss treatment decisions, medications, side effects and health concerns with an appropriately licensed healthcare professional.",
-    "Prescription treatment requires evaluation by a licensed healthcare provider and is not guaranteed. Individual experiences vary, and no specific treatment outcome is guaranteed."
+    "Prescription treatment requires evaluation by a licensed healthcare provider and is not guaranteed. Individual experiences vary, and no specific treatment outcome is guaranteed.",
+    "Some medications discussed in this guide may be prescribed off-label, meaning an FDA-approved medication is prescribed for a use that has not been approved by FDA.",
+    "Some treatment options may involve compounded medications. Compounded medications are not FDA-approved finished drug products. FDA does not review compounded medications for safety, effectiveness or quality before marketing in the same manner as FDA-approved drugs.",
+    "A licensed healthcare provider determines whether a particular medication, formulation and treatment approach may be appropriate for an individual patient."
    ]
   }
  ]

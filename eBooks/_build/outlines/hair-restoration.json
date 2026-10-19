@@ -212,7 +212,7 @@
   {
    "num": "04",
    "kind": "section",
-   "headline": "Today’s Common Hair-Loss Medications",
+   "headline": "Today’s Common\nHair-Loss Medications",
    "elements": [
     {
      "kind": "lead",
@@ -339,7 +339,7 @@
   {
    "num": "07",
    "kind": "section",
-   "headline": "Oral vs. Topical: What Actually Changes?",
+   "headline": "Oral vs. Topical:\nWhat Actually Changes?",
    "elements": [
     {
      "kind": "lead",
@@ -352,21 +352,21 @@
       {
        "title": "TOPICAL",
        "items": [
-        "Applied to the scalp",
-        "Treatment is applied directly to the target area",
-        "Requires a consistent application routine",
-        "May cause local irritation depending on the medication",
-        "Some topical medications can still be absorbed systemically"
+        "Applied directly to the scalp",
+        "Usually part of a regular application routine",
+        "Can cause scalp irritation or residue",
+        "Generally lower systemic exposure, depending on the medication",
+        "May affect some hair-care routines"
        ]
       },
       {
        "title": "ORAL",
        "items": [
         "Taken by mouth",
-        "Simple dosing may be convenient for some patients",
-        "Medication circulates systemically",
-        "Medical history and current medications can be especially important",
-        "Potential systemic adverse effects vary by medication"
+        "Often simple to incorporate into a daily routine",
+        "Produces systemic medication exposure",
+        "May have systemic side effects or monitoring considerations",
+        "Avoids topical residue or scalp application"
        ]
       }
      ]

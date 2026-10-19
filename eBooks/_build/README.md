@@ -155,6 +155,39 @@ building another book.
   PowerPoint only embeds the fonts if Inter/Lora are loaded in the session that runs COM (per-user installs can be
   missing from a background shell: load them with `AddFontResourceW` first, remove after). Report:
   `see-if-you-qualify-update-report.md`. The earlier versions are still in `eBooks/`.
+- **Derek's PowerPoint revisions, 2026-10-19 (`eBooks/___Final Revised Books/`, one deck per book, saved on his Mac):**
+  every deck was edited from the PRE-2026-10-06 versions (GLP-1 v14, Hair v5, Healthy Aging v8, NAD v1, Sexual v6,
+  Modern v1), so their pricing/CTA/membership wording is old: never copy a deck's text wholesale. Diff each deck
+  against the version it came from (python-pptx text + geometry by shape order, not by shape name) to find what he
+  actually changed, apply only that to the outline/config on top of the current version, and rebuild. He swapped
+  every font to Georgia (headlines) and Arial (body); the owner confirmed that is intended, so those books move to
+  theme `editorial-v7` (section 3b). **GLP-1 v17** done (PDF + PPTX in `eBooks/`, config
+  `config/glp-1-weight-loss-v17.json`, 18 pages): v7 theme; page 06 gains his decision diagram (`flow` with `caption`
+  and two-line steps; his had the second word of each title in white, invisible); page 08 lab wording ("top national
+  laboratories", "available if clinically appropriate", "at a certain time or interval" with the "a" added); three
+  disclaimer paragraphs (off-label, compounded, provider decides); series list GLP-1, NAD+, Sexual Wellness, Healthy
+  Aging, Modern Healthcare (Peptides dropped; Hair Restoration not listed and GLP-1 lists itself: open with Derek);
+  08 photo 2.34 x 1.69in. Not adopted: "If prescribed" / "Based on" capitals and a stray character on the checklist
+  page (typos), and v14 text he did not touch. **Sexual Wellness v8** done (2026-10-19, config
+  `config/sexual-wellness-v8.json`, 18 pages, PASS with no warnings): v7 theme; page 03 lead keeps "This distinction
+  matters." on its own line; page 05 "Sildenafil, Tadalafil & Daily Tadalafil" with Derek's three product photos
+  (`_assets/sexual-products/`, trimmed 2% top and bottom so page 05 fits); page 11 "Sexual Wellness & Your Overall
+  Health"; Why page kicker "WHY WE CREATED WELLPEPS" and one intro paragraph; Modern Healthcare added to the series list.
+  Not adopted: his Straightforward Pricing card ("without a separate membership fee", pre-10-06 wording) and his
+  "Start Your Free Assessment" button. Georgia made the CTA headline four lines and clipped the panel, so v7 gives the
+  CTA copy a .44in right margin as his deck does. **Hair Restoration v7** done (2026-10-19, config
+  `config/hair-restoration-v7.json`, 18 pages, PASS with 3 orphan WARNs): v7 theme; page 08 takes Derek's rewritten
+  Topical and Oral lists and breaks the title after the colon; Modern Healthcare added to the series list. His other
+  edits were manual line breaks (some capitalising the next word mid-sentence), not adopted. In Georgia page 04's
+  headline takes two lines and the page ran 0.28in over, so its photo is 2.2in wide (was 2.6); page 05's headline breaks
+  as "Today's Common / Hair-Loss Medications". Derek kept this book's Why kicker "A BETTER APPROACH TO CARE" (GLP-1 and
+  Sexual Wellness say "WHY WE CREATED WELLPEPS"): left as he had it. **Healthy Aging v10** done (2026-10-19, config
+  `config/healthy-aging-vitality-v10.json`, 18 pages, PASS with 1 orphan WARN): his deck came from v8 and changed no
+  wording; v10 is v9 text on the v7 theme plus his edits: Modern Healthcare added to the series list and a word joiner
+  (U+2060) after "NAD+" on page 08 so "NAD+—" never splits. His other diffs were manual line-break removals and
+  nudges; his v8-era "without a separate membership fee" card and "Start Your Free Assessment" button not adopted.
+  Still to do: Modern, NAD (Derek
+  removed page 09 "Compounded and FDA-Approved Aren't the Same Thing": 17 pages).
 - **Archived:** every earlier GLP-1 version and the old NAD+, Peptides, Sexual Wellness and Healthy Aging guides are in
   `eBooks/_archive/`. Their content is being rewritten; new manuscripts arrive one at a time. Do not rebuild from the
   archived outlines.
@@ -325,6 +358,27 @@ Why cards and lists break between rows (five-card and chip grids move whole); if
 section's last block (or a grid's last row) goes with them so the second page is never just two boxes. The build
 report lists each continued section with how far it runs over on one page, and does not WARN "too empty" on
 split sections, whose white space is intentional.
+
+## 3b. Georgia + Arial (theme `editorial-v7`, 2026-10-19) and page numbering
+
+`editorial-v7` is v6 (same fixed scale, same paginator, `FIXED_THEMES` in `render_html.py` / `build_book.py`) plus
+Derek's 2026-10-19 revision, in the `.theme-editorial-v7` CSS block: `--serif` Georgia, `--sans` Arial (every
+font-family in the CSS goes through these two variables); Smart Patient and WellPeps Approach labels 14pt (were
+7.5 / 9.5); Approach text 13.5pt (`TYPE_SCALE_V7`); cover eyebrow 16pt. Weights draw as PowerPoint draws them: 600+
+is bold, 400/500 regular. To keep every section on one page with the taller labels, v7 takes .03-.04in from each
+box's padding and uses a .18in stack gap (was .22). Both fonts are system fonts on Windows, macOS and PowerPoint for
+the web: the PDF embeds them as ordinary TrueType, and the editable deck needs no embedded fonts at all, so for a
+v7 book skip PowerPoint's Save As and `pptx_fonts.py` swap. `pptx_build.py` maps Georgia/Arial, checks glyphs against
+`C:\Windows\Fonts`, and `pptx_fonts.py --check` reports such a deck as `GOOD SYSTEM`. `build_book.py` FAILs a v7 PDF
+with any font other than Arial/Georgia, or when the headline/body CSS does not resolve to them.
+
+**Page numbers (owner, 2026-10-19):** printed from the finished page order, never from the outline's section
+numbers. The first numbered page reads 01 (no 00); a config `"front_matter": ["00", ...]` numbers those sections
+i, ii, iii instead. The CTA page is numbered; the cover and the disclaimer are not. A removed,
+added or CONTINUED page renumbers everything after it. In the editable deck the number is plain text, the same as the
+PDF prints it. It was PowerPoint's slide-number field counted from `firstSlideNum`, but other viewers (the desktop
+app's file preview among them) ignore `firstSlideNum` and count from the slide's position, so page 01 showed "02"
+(owner, 2026-10-19). So deleting a slide in PowerPoint does not renumber the deck: change the outline and rebuild.
 
 ## 4. Rendering constraint (Apple Preview) — do not regress this
 
