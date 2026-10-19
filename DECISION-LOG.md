@@ -99,11 +99,14 @@ eBook.
   work, and never write a config whose version file already exists.
 
 ### Carried forward
-- **GLP-1 v19 series list:** "More in the Smart Patient's Guide Series" names the GLP-1
-  guide itself and leaves out Hair Restoration. Derek's GLP-1 deck had a copy of the Hair
-  Restoration list. The other five guides correctly list the five others. Fix and
-  republish GLP-1; consider one naming for all six (cover titles: GLP-1 Weight Loss, NAD+
-  Therapy, Sexual Wellness, Healthy Aging & Vitality, Hair Restoration, Modern Healthcare).
+- **GLP-1 series list (fixed the same day in v20):** v19's "More in the Smart Patient's
+  Guide Series" named the GLP-1 guide itself and left out Hair Restoration, because Derek's
+  GLP-1 deck had a copy of the Hair Restoration list. v20 (`config/glp-1-weight-loss-v20.json`)
+  lists NAD+, Sexual Wellness Medications, Healthy Aging & Vitality, Hair Restoration and
+  Modern Healthcare. Only page 18 differs from v19. v20 is published at the same URL, and
+  its Published date stays October 19. Still open: the six guides name the series
+  inconsistently ("NAD+" vs "NAD+ Therapy", "Sexual Wellness" vs "Sexual Wellness
+  Medications"); consider using the cover titles everywhere.
 - **ED pricing:** the owner raised that the ED pills listed at $49 and $69 leave too little
   margin. The website comes first. The new prices are not decided here.
 - **Glossary:** recommended against adding one this round, because the key terms are
