@@ -111,11 +111,13 @@ export const EBOOKS: readonly Ebook[] = [
     cover: '/images/ebooks/nad-therapy-cover.webp',
     program: 'healthy-aging',
     source: 'ebook_nad',
-    pages: 18,
+    pages: 17,
+    // v3 (2026-10-19), published with scripts/publish-ebook.py. Derek removed the compounded vs FDA-approved chapter.
+    pdf: '/ebooks/nad-therapy.pdf',
     inside: [
       'What exactly is NAD+?',
       'NAD+ vs. NR vs. NMN',
-      'Compounded and FDA-approved aren’t the same thing',
+      'How is NAD+ therapy used?',
       'What should you expect from NAD+ therapy?',
     ],
   },

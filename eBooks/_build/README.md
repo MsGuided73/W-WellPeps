@@ -193,8 +193,11 @@ building another book.
   14 (`
 ` in the headline), his lead break on page 10, and his one-line "A MORE CONNECTED EXPERIENCE" label on page 11
   (new twocol column option `"tight": true`). Not adopted: "Start Your Free Assessment" and the membership-fee card.
-  Still to do: NAD (Derek
-  removed page 09 "Compounded and FDA-Approved Aren't the Same Thing": 17 pages).
+  **NAD+ v3** (2026-10-19, config `config/nad-therapy-v3.json`, 17 pages, PASS with 3 orphan WARNs): Derek edited v1 and
+  removed "Compounded and FDA-Approved Aren't the Same Thing" (outline section 07 deleted). Ported: his page 04 Insight
+  text ("NAD+ plays an essential role ... how NAD+ therapy may benefit patients"), Modern Healthcare in the series list,
+  his headline breaks on pages 01, 04 and 08, his Approach-box breaks on pages 03, 07 and 09 (approach text now takes
+  `\n`), and his one-line 27pt checklist headline (`"headline_nowrap": true`), which also keeps the checklist on one page.
 - **Archived:** every earlier GLP-1 version and the old NAD+, Peptides, Sexual Wellness and Healthy Aging guides are in
   `eBooks/_archive/`. Their content is being rewritten; new manuscripts arrive one at a time. Do not rebuild from the
   archived outlines.

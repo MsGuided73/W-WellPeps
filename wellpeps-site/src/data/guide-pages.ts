@@ -263,7 +263,7 @@ export const GUIDE_PAGES: Readonly<Record<string, GuidePage>> = {
       { title: 'What Exactly Is NAD+?', icon: 'molecule' },
       { title: 'What NAD+ Biology Can—and Can’t—Tell Us', icon: 'flask' },
       { title: 'NAD+ vs. NR vs. NMN', icon: 'venn' },
-      { title: 'Compounded and FDA-Approved Aren’t the Same Thing', icon: 'shield' },
+      { title: 'How Is NAD+ Therapy Used?', icon: 'syringe' },
       { title: 'What About Side Effects?', icon: 'info' },
       { title: 'What Does the Research Tell Us?', icon: 'target' },
     ],

@@ -216,7 +216,7 @@ def render_el(e, book):
     if k == 'callout':
         return f'<div class="callout"><img class="icon" src="{book["_icon"]}" alt=""><div class="ct"><h4>{CALLOUT_TITLE[e.get("style", "principle")]}</h4><p>{esc(e["text"])}</p></div></div>'
     if k == 'approach':
-        return f'<div class="approach"><h4>THE WELLPEPS APPROACH</h4><p>{esc(e["text"])}</p></div>'
+        return f'<div class="approach"><h4>THE WELLPEPS APPROACH</h4><p>{esc(e["text"]).replace(chr(10), "<br>")}</p></div>'
     if k == 'tagline':
         return f'<p class="ptag">{esc(e["text"])}</p>'
     if k == 'redflag':
@@ -359,7 +359,9 @@ def section_page(book, sec, cfg):
     content = ''.join(rendered[:after]) + fig + ''.join(rendered[after:])
     bottom = ''.join(render_el(e, book) for e in bottom_els)
     icon = f' <img class="hicon" src="{img_uri(cfg["headline_icon"])}" alt="">' if cfg.get('headline_icon') else ''
-    inner = f'<div class="head"><h2>{glue(sec["headline"]).replace(chr(10), "<br>")}{icon}</h2>{sub}<div class="rule"></div></div><div class="content">{content}</div><div class="bottom">{bottom}</div>'
+    # Derek joined some two-line headlines onto one line and kept the two-line size (27pt): "headline_nowrap": true (NAD+ checklist)
+    h2s = ' style="white-space:nowrap;max-width:none;font-size:27pt"' if cfg.get('headline_nowrap') else ''
+    inner = f'<div class="head"><h2{h2s}>{glue(sec["headline"]).replace(chr(10), "<br>")}{icon}</h2>{sub}<div class="rule"></div></div><div class="content">{content}</div><div class="bottom">{bottom}</div>'
     hero = [img_uri(p) for p in cfg['hero']] if cfg.get('hero') else None
     fixed = book.get('_theme') in FIXED_THEMES  # v6: one fixed type scale; per-page type steps are ignored
     cls = 'section dense' if cfg.get('dense') and not fixed else 'section'  # dense: one type step down so a long page holds on one sheet

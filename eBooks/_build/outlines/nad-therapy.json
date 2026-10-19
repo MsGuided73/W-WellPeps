@@ -9,7 +9,7 @@
   {
    "num": "00",
    "kind": "before",
-   "headline": "NAD+ Is Getting Attention—for Good Reason",
+   "headline": "NAD+ Is Getting Attention—\nfor Good Reason",
    "elements": [
     {
      "kind": "lead",
@@ -121,14 +121,14 @@
     },
     {
      "kind": "approach",
-     "text": "WellPeps believes wellness therapies should be considered in the context of the whole person—not as shortcuts around the fundamentals of healthy living."
+     "text": "WellPeps believes wellness therapies should be considered in the context\nof the whole person—not as shortcuts around the fundamentals of healthy living."
     }
    ]
   },
   {
    "num": "03",
    "kind": "section",
-   "headline": "What NAD+ Biology Can—and Can’t—Tell Us",
+   "headline": "What NAD+ Biology Can—\nand Can’t—Tell Us",
    "elements": [
     {
      "kind": "lead",
@@ -163,7 +163,7 @@
     {
      "kind": "callout",
      "style": "insight",
-     "text": "Mechanism is not the same thing as outcome. Understanding how NAD+ works helps explain why researchers are interested in it. Clinical research is needed to determine what specific treatment benefits can actually be expected."
+     "text": "NAD+ plays an essential role in how our bodies function, and its potential applications in health and wellness are generating growing scientific interest. Ongoing research is helping us better understand how NAD+ therapy may benefit patients."
     }
    ]
   },
@@ -287,55 +287,14 @@
     },
     {
      "kind": "approach",
-     "text": "When prescribed, WellPeps provides access to direct NAD+ therapy through a licensed healthcare provider rather than presenting oral precursor research as proof of a particular treatment outcome."
-    }
-   ]
-  },
-  {
-   "num": "07",
-   "kind": "section",
-   "headline": "Compounded and FDA-Approved Aren’t the Same Thing",
-   "elements": [
-    {
-     "kind": "lead",
-     "text": "Understanding how a medication is regulated is an important part of being an informed patient."
-    },
-    {
-     "kind": "cards",
-     "items": [
-      {
-       "title": "FDA-APPROVED MEDICATION",
-       "desc": "An FDA-approved medication has undergone FDA review for safety, effectiveness and quality for its approved use."
-      },
-      {
-       "title": "COMPOUNDED MEDICATION",
-       "desc": "A compounded medication is prepared by a compounding pharmacy to meet a patient’s individual prescription needs under applicable compounding requirements."
-      }
-     ]
-    },
-    {
-     "kind": "body",
-     "text": "Compounded medications are not FDA-approved finished drug products. That means FDA does not review compounded medications for safety, effectiveness and quality before they are marketed in the same way it reviews FDA-approved medications."
-    },
-    {
-     "kind": "body",
-     "text": "Compounding can serve an important patient need in appropriate circumstances, but patients should understand what they are receiving."
-    },
-    {
-     "kind": "callout",
-     "style": "question",
-     "text": "Is the treatment I’m receiving FDA-approved or compounded—and has that distinction been clearly explained to me?"
-    },
-    {
-     "kind": "approach",
-     "text": "When a compounded medication is prescribed, WellPeps believes patients should understand what they are receiving and receive their prescription through an appropriate U.S.-based pharmacy partner."
+     "text": "When prescribed, WellPeps provides access to direct NAD+ therapy\nthrough a licensed healthcare provider rather than presenting oral precursor research as proof of a particular treatment outcome."
     }
    ]
   },
   {
    "num": "08",
    "kind": "section",
-   "headline": "Could NAD+ Therapy Be Appropriate for You?",
+   "headline": "Could NAD+ Therapy\nBe Appropriate for You?",
    "elements": [
     {
      "kind": "lead",
@@ -437,7 +396,7 @@
     },
     {
      "kind": "approach",
-     "text": "Treatment instructions and questions about side effects should be discussed with the licensed healthcare provider responsible for your care."
+     "text": "Treatment instructions and questions about side effects should be\ndiscussed with the licensed healthcare provider responsible for your care."
     }
    ]
   },
