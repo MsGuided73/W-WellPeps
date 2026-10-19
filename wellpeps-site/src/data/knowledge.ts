@@ -219,10 +219,9 @@ export const knowledgeBase: KnowledgeDoc[] = [
     source: 'faq',
     tags: ['candidate', 'eligible', 'qualify', 'right for me', 'suitable'],
     answer:
-      'Most adults may be candidates. After you answer the online health questions, a licensed provider reviews your medical history, symptoms and goals to determine whether treatment is appropriate and which options fit your situation. That review is included in your monthly price.',
-    body: `Eligibility is determined by a licensed provider based on your assessment. Treatment is only
-      recommended when clinically appropriate. The online questions take about 10 minutes, and the
-      provider's review is included in your monthly price.`,
+      'Most adults may be candidates. After you answer the online health questions, one of our licensed healthcare providers reviews your medical history, symptoms and goals and determines whether you are eligible for treatment and which options fit your situation.',
+    body: `Eligibility is determined by one of our licensed healthcare providers based on your answers. Treatment
+      is only recommended when clinically appropriate. The online questions take about 10 minutes.`,
   },
   {
     id: 'faq-results',

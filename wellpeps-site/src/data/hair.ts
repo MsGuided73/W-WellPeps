@@ -56,8 +56,8 @@ export const hairProductsIntro = {
   title: 'Personalized Hair Restoration Plans',
   // Approved copy from "Headlines and text before Product Cards.docx"
   intro:
-    'Every treatment begins with a few online health questions. Our licensed healthcare providers will review your health history, symptoms, and wellness goals before recommending a personalized hair restoration plan—if clinically appropriate. That review is included in your monthly price.',
-  footnote: 'All treatments require a consultation with a licensed healthcare provider, which is included in your monthly price.',
+    'Every treatment begins with a few online health questions. One of our licensed healthcare providers will review your answers and determine whether you are eligible for treatment and, if so, recommend a personalized hair restoration plan.',
+  footnote: 'All treatments require a review by one of our licensed healthcare providers, who determines whether you are eligible for treatment.',
 };
 
 export interface Product {
@@ -163,7 +163,7 @@ export interface HairFaq {
 export const hairFaqs: HairFaq[] = [
   {
     q: 'Am I a good candidate for hair restoration treatment?',
-    a: 'Most adults experiencing hair thinning or hair loss may be candidates for treatment. After you answer the online health questions, a licensed healthcare provider will review your medical history, symptoms, and goals to determine whether treatment is appropriate and recommend the best options for your situation. That review is included in your monthly price.',
+    a: 'Most adults experiencing hair thinning or hair loss may be candidates for treatment. After you answer the online health questions, a licensed healthcare provider will review your medical history, symptoms, and goals and determine whether you are eligible for treatment and, if so, which options fit your situation.',
   },
   {
     q: 'What’s the difference between topical and oral treatments?',
@@ -183,7 +183,7 @@ export const hairFaqs: HairFaq[] = [
   },
   {
     q: 'How does WellPeps determine which treatment is right for me?',
-    a: 'Every treatment begins with a few online health questions. A licensed healthcare provider will review your health history, symptoms, hair loss pattern, and wellness goals before recommending a personalized treatment plan—if clinically appropriate. That review is included in your monthly price.',
+    a: 'Every treatment begins with a few online health questions. A licensed healthcare provider will review your health history, symptoms, hair loss pattern, and wellness goals and determine whether you are eligible for treatment and, if so, recommend a personalized treatment plan.',
   },
 ];
 

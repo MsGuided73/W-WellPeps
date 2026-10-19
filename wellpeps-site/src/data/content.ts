@@ -4,7 +4,7 @@ import { planHomeFaqs } from './plan';
 /* ---- Section 5: Your Wellness Journey (5 steps) ---- */
 export const journeySteps = [
   { n: 1, title: 'Choose a Treatment and Answer a Few Questions', body: 'Pick the treatment you’re interested in, tell us about your health and goals online, then check out for your first month.', image: '/images/journey-1.webp', alt: 'Woman completing an online health assessment on a laptop' },
-  { n: 2, title: 'Licensed Clinician Review', body: 'A licensed clinician reviews your answers, by secure message or, when needed, a short video visit, and decides whether treatment is right for you. The review is included in your monthly price.', image: '/images/journey-2.webp', alt: 'Provider reviewing patient information on a laptop' },
+  { n: 2, title: 'Licensed Clinician Review', body: 'One of our licensed healthcare providers reviews your answers, by secure message or, when needed, a short video visit, and determines whether you are eligible for treatment.', image: '/images/journey-2.webp', alt: 'Provider reviewing patient information on a laptop' },
   { n: 3, title: 'Your Clinician’s Decision', body: 'If your clinician prescribes treatment, your plan begins. If not, we refund your payment in full. You don’t need to ask.', image: '/images/journey-3.webp', alt: 'Woman reading her treatment plan on a tablet' },
   { n: 4, title: 'Discreet Home Delivery', body: 'If prescribed, medication is shipped directly to your home in discreet, secure packaging.', image: '/images/journey-4.webp', alt: 'Person opening a discreet WellPeps delivery box' },
   { n: 5, title: 'Ongoing Provider Support', body: 'Continue working with your provider as your needs evolve over time.', image: '/images/journey-5.webp', alt: 'Woman on a follow-up video visit at home' },
@@ -70,7 +70,7 @@ export const faqs = [
       + 'You pay for your first month when you check out, after the health questions and before the clinician’s review. If your clinician does not prescribe, we refund that payment in full.',
   },
   ...planHomeFaqs,
-  { q: 'How do I know if I’m a candidate for treatment?', a: 'Start by answering a few online health questions. A licensed healthcare provider reviews your health history, symptoms, and goals to determine whether a treatment is clinically appropriate for you. That review is included in your monthly price.' },
+  { q: 'How do I know if I’m a candidate for treatment?', a: 'Start by answering a few online health questions. One of our licensed healthcare providers will review your health history, symptoms, and goals and determine whether you are eligible for treatment.' },
   { q: 'How do online consultations work?', a: 'After you complete your online health questions, a licensed provider reviews your information online. If needed, they’ll follow up with questions before recommending a personalized treatment plan—no in-person visit required. The consultation is included in your one monthly price.' },
   { q: 'Are your healthcare providers licensed?', a: 'Yes. All treatment decisions are made by independent healthcare providers licensed in your state. Availability varies by state.' },
   { q: 'What states do you serve?', a: 'WellPeps serves patients located in all 50 states. Some medications are not available in every state; if one cannot be shipped to yours, we will tell you before you check out.' },

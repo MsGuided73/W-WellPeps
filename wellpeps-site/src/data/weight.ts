@@ -108,7 +108,7 @@ export interface PillProduct {
 
 export const weightProductsIntro = {
   title: 'Weight Management Treatments',
-  lead: 'Every treatment begins with a few online health questions. A licensed healthcare provider will review your health history, symptoms, and wellness goals before recommending a personalized weight management plan—if clinically appropriate. That review is included in your monthly price.',
+  lead: 'Every treatment begins with a few online health questions. One of our licensed healthcare providers will review your answers and determine whether you are eligible for treatment and, if so, recommend a personalized weight management plan.',
   footnote: 'Prescription required. Treatment recommendations depend on your assessment and provider evaluation.',
 };
 
