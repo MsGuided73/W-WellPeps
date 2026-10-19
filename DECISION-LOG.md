@@ -6,6 +6,115 @@ confirmed the plan, and what is carried forward.
 
 ---
 
+## 2026-10-19 — Smart Patient Guides: Derek's final revision round, all six guides published
+
+Commits `036757f` → `200ae42` (all on `main`, pushed). Several Claude sessions worked in
+parallel today: one on the guide pages, one per eBook, and a side session on the GLP-1
+eBook.
+
+### Shipped
+- **GLP-1 guide landing page** (`036757f`, Derek's notes): the hero headline, cover and email
+  form, button included, are on the first screen at 1366x768, 1440x900, 1536x864 and
+  1920x1080, and the button is on the first screen on tablets and phones. Larger trust
+  strip, "Inside the guide" photo, the chapter preview removed, a series library whose
+  cards open each guide's landing page, and one type scale (h1 52, h2 40, body 18). The
+  Ask WellPeps launcher is now a round icon that moves aside while a form passes under it.
+- **All six Smart Patient Guides rebuilt from Derek's 2026-10-19 PowerPoint edits and
+  published** with a read-online page: GLP-1 Weight Loss v19 (`a7f3edc`), Sexual Wellness v8
+  (`005f4ce`), Hair Restoration v7 (`ecc0839`), Healthy Aging & Vitality v10 (`ae32934`),
+  NAD+ Therapy v3 (`c34cdfb`, 17 pages), Modern Healthcare v3 (`4b8d6e0`, and a new landing
+  page, thank-you page and read-online page in `200ae42`). Each PDF and an editable
+  PowerPoint are in `eBooks/`.
+- **Read-online pages** (`/smart-patient-guides/<slug>/read`, noindex): each page is an
+  image with its text in a hidden caption, plus Download the PDF. They use images rather
+  than an embedded PDF because the site's security policy (CSP) blocks frames and plugins,
+  and Android can't show a PDF inside a page. `scripts/publish-ebook.py` copies an approved
+  PDF to the site and renders the page images and text.
+- **Published / Last updated dates** on the guides, Learning Center articles (also in
+  JSON-LD `dateModified`) and released legal pages. `legal-dates.test.ts` fails if a legal
+  document's text changes after the Last updated date it shows.
+- **Eligibility wording** (`631a384`, `2a131e5`): site copy, the assistant and the guide
+  thank-you pages say "One of our licensed healthcare providers will review your answers
+  and determine whether you are eligible for treatment". The "review is included in your
+  monthly price" lines are gone; the lines saying follow-ups are included stay.
+- **Email forms** (`ecc0839`): the optional box is labelled "FREE BONUS:" (privacy policy
+  Appendix A.1 updated, wording versions bumped). Thank-you pages say the guide arrives by
+  email shortly and link to "Read the guide online now".
+- **Modern Healthcare sign-ups:** new source `ebook_modern_healthcare`. The
+  `notify_signups` CHECK migration is applied and the `notify-signup` v4 function is
+  deployed.
+
+### How Derek's revisions were applied (eBook pipeline)
+- Derek edited the editable decks in Mac PowerPoint
+  (`eBooks/___Final Revised Books/`). **Every deck came from the versions before Oct 6**
+  (GLP-1 v14, Sexual v6, Hair v5, Healthy Aging v8, NAD+ v1, Modern v1), so their pricing,
+  CTA and membership-fee wording is out of date. Each deck was compared, shape by shape,
+  with the version it came from, so that only Derek's real edits were copied onto the
+  current text. Nothing was copied from a deck wholesale. The Oct 6 wording therefore stays
+  in place: "One monthly price", "See If You Qualify" and no membership fee.
+- Not taken from the decks: capital letters PowerPoint added after a manual line break
+  ("Treatment, If prescribed", "Based on", "additional Medical evaluation", "parts Of
+  determining"), a stray character on the GLP-1 checklist page, and the deck's own older
+  text sizes (19pt quote, 13pt emphasis lines).
+- **Per-book edits:**
+  - GLP-1: a "How an individualized treatment decision is made" diagram on page 06 (in
+    Derek's deck the second word of each box title was white, so invisible; the build
+    shows every word); new lab-testing wording on page 08 ("top national laboratories",
+    "available if clinically appropriate"); three new disclaimer paragraphs (off-label
+    use, compounded medications, the provider decides).
+  - Sexual Wellness: the website's "AS NEEDED" / "DAILY" bottle photos on the options
+    page, "&" in two headlines, and the Why page titled "Why We Created WellPeps" with one
+    intro paragraph.
+  - NAD+ Therapy: Derek removed "Compounded and FDA-Approved Aren't the Same Thing" and
+    rewrote the page 04 Insight.
+  - Modern Healthcare: new cover photo, "but not remove appropriate medical oversight" on
+    page 01, and Derek's line breaks.
+  - Every book: Modern Healthcare added to the series list.
+
+### Course changes
+- **Fonts: Lora/Inter → Georgia headlines and Arial body text** (new theme
+  `editorial-v7`). Derek changed every font in every deck, and the owner confirmed it
+  ("if he has Georgia, he wants Georgia"). Without that, the books would have stayed on
+  Lora/Inter, whose embedded fonts showed scrambled letters in PowerPoint for the web on
+  2026-09-30. Georgia and Arial are installed on Windows, macOS and PowerPoint for the web,
+  so the editable decks no longer embed fonts at all. Derek also enlarged the Smart Patient
+  and WellPeps Approach labels to 14pt (from 7.5/9.5) and the Approach text to 13.5pt. To
+  keep every section on one page, the box padding and the gap above the boxes were
+  tightened once for the whole book; the first GLP-1 build ran 21 pages, this brought it
+  back to 18 with no wording cut.
+- **Page numbers come from page order** (owner): the first numbered page is 01, never 00.
+  "Before You Start" is page 01 (owner confirmed over making it "i"). Any front matter
+  would be i, ii, iii. The cover and the disclaimer are unnumbered. Removing or adding a
+  page renumbers everything after it. In the decks the number was first a PowerPoint
+  slide-number field. Some viewers, including the desktop app's file preview, count from
+  the slide's position, so page 01 showed "02". It is now plain text; rebuild the deck
+  rather than deleting slides in PowerPoint.
+
+### Discoveries
+- Derek's decks are edited copies of older builds. Any future deck round has to be
+  compared with the version Derek actually received, not with the latest build.
+- Sessions working in parallel can collide. The GLP-1 side session started rewriting book
+  configs that other sessions had already committed under the same version names. It
+  noticed and restored every file exactly. Check `git log -- eBooks` before starting eBook
+  work, and never write a config whose version file already exists.
+
+### Carried forward
+- **GLP-1 v19 series list:** "More in the Smart Patient's Guide Series" names the GLP-1
+  guide itself and leaves out Hair Restoration. Derek's GLP-1 deck had a copy of the Hair
+  Restoration list. The other five guides correctly list the five others. Fix and
+  republish GLP-1; consider one naming for all six (cover titles: GLP-1 Weight Loss, NAD+
+  Therapy, Sexual Wellness, Healthy Aging & Vitality, Hair Restoration, Modern Healthcare).
+- **ED pricing:** the owner raised that the ED pills listed at $49 and $69 leave too little
+  margin. The website comes first. The new prices are not decided here.
+- **Glossary:** recommended against adding one this round, because the key terms are
+  defined where they first appear and in the disclaimer. If wanted, add a single page at
+  the end of every guide, 10–12 terms, with a compliance review.
+- Uncommitted at time of writing: `wellpeps-site/src/lib/privacy/config.ts` and
+  `registry.ts` (changes made before this session started, owner to review), plus
+  long-standing untracked source files (images, manuscripts, legal drafts).
+
+---
+
 ## 2026-10-12 — back to Intake-first: the patient pays at checkout (owner decision)
 
 ### Decisions
