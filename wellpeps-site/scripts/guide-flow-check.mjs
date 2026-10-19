@@ -19,6 +19,13 @@ const PROGRAMS = [
 const hide = '.pbanner{display:none!important} astro-dev-toolbar{display:none!important} .wa{display:none!important}';
 
 let fails = 0;
+// Which guides are published (a `pdf` in src/data/ebooks.ts), read from the source so the checks follow it.
+import { readFileSync as __read } from 'node:fs';
+const __ebooks = __read(new URL('../src/data/ebooks.ts', import.meta.url), 'utf8');
+// Each guide's entry runs from its `slug:` line to the next one; a published guide has a `pdf:` line in it.
+const __entries = __ebooks.split(/\n\s*slug: '/).slice(1).map((part) => ({ slug: part.slice(0, part.indexOf("'")), pdf: /\n\s*pdf: '/.test(part) }));
+const EBOOK_SLUGS_PUBLISHED = __entries.filter((e) => e.pdf).map((e) => e.slug);
+const EBOOK_SLUGS_UNPUBLISHED = __entries.filter((e) => !e.pdf).map((e) => e.slug);
 const check = (name, ok, detail = '') => { console.log(`${ok ? 'PASS' : 'FAIL'}  ${name}${detail ? '  -> ' + detail : ''}`); if (!ok) fails++; };
 
 const browser = await chromium.launch();
@@ -160,11 +167,30 @@ async function articleLinks(ctx, base) {
   check('a native submit leaves no email in the URL', !/[?&]email=/i.test(nj.page.url()) && !nj.page.url().includes('sam%40'), nj.page.url());
   await noJs.close();
 
-  // The thank-you headline must not say "Ready" while the guide is not published.
+  // An unpublished guide's thank-you page must not say "Ready"; a published one says "Thank You!" and offers
+  // Read It Online and Download the PDF (owner, 2026-10-19).
   const ty = await newContext();
-  const t = await open(ty, LANDING, '/smart-patient-guides/glp-1-weight-loss/thank-you');
-  const headline = (await t.page.locator('main h1').innerText()).trim();
-  check('with no PDF yet, the thank-you headline does not say the guide is ready', !/ready/i.test(headline) && /request/i.test(headline), headline);
+  const unpublished = EBOOK_SLUGS_UNPUBLISHED[0];
+  if (unpublished) {
+    const t = await open(ty, LANDING, `/smart-patient-guides/${unpublished}/thank-you`);
+    const headline = (await t.page.locator('main h1').innerText()).trim();
+    check(`${unpublished}: with no PDF yet, the thank-you headline does not say the guide is ready`, !/ready/i.test(headline) && /request/i.test(headline), headline);
+    check(`${unpublished}: with no PDF yet there is no read-online page`, (await (await ty.request.get(`${LANDING}/smart-patient-guides/${unpublished}/read/`)).status()) === 404);
+  }
+  for (const slug of EBOOK_SLUGS_PUBLISHED) {
+    const t = await open(ty, LANDING, `/smart-patient-guides/${slug}/thank-you`);
+    const headline = (await t.page.locator('main h1').innerText()).trim();
+    const read = await t.page.locator('[data-guide-read]').getAttribute('href');
+    const dl = await t.page.locator('[data-guide-download]').getAttribute('href');
+    check(`${slug}: published, the thank-you page says Thank You! and offers Read It Online and the PDF`, headline === 'Thank You!' && read === `/smart-patient-guides/${slug}/read` && dl === `/ebooks/${slug}.pdf`, `${headline} | ${read} | ${dl}`);
+    const r = await open(ty, LANDING, `/smart-patient-guides/${slug}/read`);
+    const pages = await r.page.locator('.greader__page img').count();
+    check(`${slug}: the read-online page shows every page, each with its text, and is kept out of search`, pages > 0 && (await r.page.locator('.greader__page figcaption').count()) === pages && (await r.page.locator('meta[name="robots"]').getAttribute('content')) === 'noindex,nofollow', `${pages} pages`);
+    const dates = await r.page.locator('.greader__dates time').evaluateAll((els) => els.map((e) => e.getAttribute('datetime')));
+    const datesText = (await r.page.locator('.greader__dates').innerText()).replace(/\s+/g, ' ').trim();
+    check(`${slug}: the read-online page shows its Published and Last updated dates`, dates.length === 2 && dates.every((d) => /^\d{4}-\d{2}-\d{2}$/.test(d)) && /^Published .+ · Last updated .+$/.test(datesText), datesText);
+    check(`${slug}: the PDF itself is served`, (await (await ty.request.get(`${LANDING}${dl}`)).headers()['content-type'] || '').includes('pdf'));
+  }
   await ty.close();
 
   const ctx = await newContext();

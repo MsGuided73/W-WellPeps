@@ -66,6 +66,7 @@ export function parseArticleRow(raw: unknown): Article {
     disclaimer_html: nullableStr(row, 'disclaimer_html'),
     reading_minutes: num(row, 'reading_minutes'),
     published_at: nullableStr(row, 'published_at'),
+    updated_at: nullableStr(row, 'updated_at'),
     position: num(row, 'position'),
     featured_position: nullableNum(row, 'featured_position'),
   };

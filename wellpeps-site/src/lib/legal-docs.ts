@@ -42,21 +42,32 @@ export interface LegalDoc {
   approved?: boolean;
   /** Effective date shown on a released document. */
   effective?: string;
+  /** First published on the site, when earlier than `effective` (a later release moved the effective date). */
+  published?: string;
+  /** Last change to the released text, when later than `effective`. legal-dates.test.ts compares it with the
+   *  document's git history, so an edit that forgets to move it fails the tests. */
+  updated?: string;
+}
+
+/** The "Published" and "Last updated" dates a released document shows (owner, 2026-10-19). */
+export function docDates(doc: Pick<LegalDoc, 'effective' | 'published' | 'updated'>): { published?: string; updated?: string } {
+  // `effective` is the latest release; `published` is set only when an earlier first release exists.
+  return { published: doc.published ?? doc.effective, updated: doc.updated ?? doc.effective };
 }
 
 export const LEGAL_DOCS: readonly LegalDoc[] = [
   { id: 'A1', path: 'terms-of-use', title: 'Website Terms of Use', label: 'Terms of Use', group: 'site',
-    blurb: 'The rules for using wellpeps.com: informational site, no medical advice, individual arbitration.', approved: true, effective: 'October 12, 2026' },
+    blurb: 'The rules for using wellpeps.com: informational site, no medical advice, individual arbitration.', approved: true, effective: 'October 12, 2026', published: 'October 6, 2026' },
   { id: 'A2', path: 'privacy-policy', title: 'Privacy Policy', label: 'Privacy Policy', group: 'site',
-    blurb: 'What the site collects, why, who receives it and how to exercise privacy rights.', approved: true, effective: 'October 6, 2026' },
+    blurb: 'What the site collects, why, who receives it and how to exercise privacy rights.', approved: true, effective: 'October 6, 2026', updated: 'October 16, 2026' },
   { id: 'A3', path: 'consumer-health-data-privacy-policy', title: 'Consumer Health Data Privacy Policy', label: 'Consumer Health Data Privacy Policy', group: 'site',
-    blurb: 'Stand-alone policy for health-related data outside HIPAA (required in Washington and Nevada).', approved: true, effective: 'October 6, 2026' },
+    blurb: 'Stand-alone policy for health-related data outside HIPAA (required in Washington and Nevada).', approved: true, effective: 'October 6, 2026', updated: 'October 16, 2026' },
   { id: 'A4', path: 'cookie-notice', title: 'Cookie and Tracking Technologies Notice', label: 'Cookie Notice', group: 'site',
     blurb: 'What the site stores and loads, and the consent-first rule for any analytics or advertising.', approved: true, effective: 'October 6, 2026' },
   { id: 'A5', path: 'legal-review/your-privacy-choices', title: 'Your Privacy Choices', label: 'Your Privacy Choices', group: 'site', existing: '/your-privacy-choices',
     blurb: 'How to opt out, limit use, withdraw consent and make a request; how Global Privacy Control is honored.' },
   { id: 'A6', path: 'notice-of-privacy-practices', title: 'Notice of Privacy Practices', label: 'Notice of Privacy Practices', group: 'site',
-    blurb: 'The HIPAA notice of how medical information is used and disclosed, and the patient’s rights.', approved: true, effective: 'October 6, 2026' },
+    blurb: 'The HIPAA notice of how medical information is used and disclosed, and the patient’s rights.', approved: true, effective: 'October 6, 2026', updated: 'October 12, 2026' },
   { id: 'A7', path: 'accessibility', title: 'Accessibility Statement', label: 'Accessibility', group: 'site',
     blurb: 'The commitment to accessibility and how to get help.', approved: true, effective: 'October 6, 2026' },
   { id: 'A8', path: 'medical-disclaimer', title: 'Medical Disclaimer and Site-Wide Disclosures', label: 'Medical Disclaimer', group: 'patient',
@@ -72,7 +83,7 @@ export const LEGAL_DOCS: readonly LegalDoc[] = [
   { id: 'A13', path: 'how-wellpeps-works', title: 'How WellPeps Works and Our Financial Relationships', label: 'How WellPeps Works', group: 'patient',
     blurb: 'Who does what (WellPeps, the medical practice, the pharmacy) and who is paid for what.', approved: true, effective: 'October 12, 2026' },
   { id: 'A14', path: 'safety/glp-1', title: 'GLP-1 Medication Safety Information', label: 'GLP-1 Safety Information', group: 'patient',
-    blurb: 'Important safety information for GLP-1 weight-management medications.', approved: true, effective: 'October 5, 2026' },
+    blurb: 'Important safety information for GLP-1 weight-management medications.', approved: true, effective: 'October 5, 2026', updated: 'October 6, 2026' },
   { id: 'A15', path: 'safety/sexual-health', title: 'Sexual Health Medication Safety Information', label: 'Sexual Health Safety Information', group: 'patient',
     blurb: 'Important safety information for sexual-health medications.', approved: true, effective: 'October 6, 2026' },
   { id: 'A16', path: 'safety/hair-loss', title: 'Hair Loss Medication Safety Information', label: 'Hair Loss Safety Information', group: 'patient',

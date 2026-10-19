@@ -150,10 +150,12 @@ export interface ArticleMeta {
   description: string;
   section?: string;
   published?: string | null;
+  /** Last change; dateModified falls back to `published`. */
+  updated?: string | null;
   readingMinutes?: number;
 }
 
-export function article({ path, headline, description, section, published, readingMinutes }: ArticleMeta): JsonLd {
+export function article({ path, headline, description, section, published, updated, readingMinutes }: ArticleMeta): JsonLd {
   const url = canonicalUrl(path);
   return {
     '@type': 'BlogPosting',
@@ -168,7 +170,7 @@ export function article({ path, headline, description, section, published, readi
     publisher: { '@id': ORG_ID },
     ...(section ? { articleSection: section } : {}),
     // The page shows this date as "Updated"; dateModified matches it so search and AI tools read the same date.
-    ...(published ? { datePublished: published, dateModified: published } : {}),
+    ...(published ? { datePublished: published, dateModified: updated && updated > published ? updated : published } : {}),
     ...(readingMinutes ? { timeRequired: `PT${readingMinutes}M` } : {}),
   };
 }

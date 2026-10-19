@@ -40,7 +40,7 @@ const articlePath = `/wellness-learning-center/${article.slug}/`;
 const articleDescription = article.meta_description ?? article.lede_html.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().slice(0, 160);
 const jsonLd = [
   breadcrumbs([{ name: 'Wellness Learning Center', path: '/wellness-learning-center/' }, { name: article.title, path: articlePath }]),
-  schemaArticle({ path: articlePath, headline: article.title, description: articleDescription, section: article.category.name, published: article.published_at, readingMinutes: article.reading_minutes }),
+  schemaArticle({ path: articlePath, headline: article.title, description: articleDescription, section: article.category.name, published: article.published_at, updated: article.updated_at, readingMinutes: article.reading_minutes }),
 ];
 const { html: bodyHtml, toc } = withToc(article.body_html);
 const related = await getRelatedArticles(article);
@@ -83,12 +83,11 @@ const assessmentProgram: ProgramSlug | undefined = showSexualTreatments
         ? 'healthy-aging'
         : undefined;
 
-const updated = article.published_at
-  ? new Date(article.published_at).toLocaleDateString('en-US', {
-      month: 'long',
-      year: 'numeric',
-    })
-  : null;
+// Published and Last updated, both shown in full (owner, 2026-10-19). An update stamp older than the publish
+// date (or missing) falls back to the publish date.
+const longDate = (iso: string) => new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'America/New_York' });
+const publishedIso = article.published_at;
+const updatedIso = publishedIso && article.updated_at && article.updated_at > publishedIso ? article.updated_at : publishedIso;
 ---
 
 <BaseLayout
@@ -112,8 +111,10 @@ const updated = article.published_at
           <p class="article__eyebrow">{article.category.name}</p>
           <h1 class="article__title">{article.title}</h1>
           <p class="article__meta">
-            {updated && <span>Updated {updated}</span>}
-            {updated && <span aria-hidden="true">·</span>}
+            {publishedIso && <span>Published <time datetime={publishedIso}>{longDate(publishedIso)}</time></span>}
+            {publishedIso && <span aria-hidden="true">·</span>}
+            {updatedIso && <span>Last updated <time datetime={updatedIso}>{longDate(updatedIso)}</time></span>}
+            {updatedIso && <span aria-hidden="true">·</span>}
             <span>{article.reading_minutes} min read</span>
           </p>
         </header>
@@ -239,6 +240,11 @@ const updated = article.published_at
   .article__meta {
     display: flex; flex-wrap: wrap; gap: 0.6rem;
     font-size: var(--text-body-size); color: var(--text-muted, #5A6B80);
+  }
+  /* On a phone the dates and the reading time stack, without the dots between them. */
+  @media (max-width: 560px) {
+    .article__meta { flex-direction: column; gap: 0.15rem; }
+    .article__meta > [aria-hidden] { display: none; }
   }
 
   .article__lede { margin-top: 1.75rem; }

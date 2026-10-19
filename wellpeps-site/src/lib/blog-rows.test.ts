@@ -18,6 +18,7 @@ const VALID_ROW = {
   disclaimer_html: null,
   reading_minutes: 6,
   published_at: '2026-09-01T00:00:00Z',
+  updated_at: '2026-10-12T00:00:00Z',
   position: 1,
   featured_position: null,
 };

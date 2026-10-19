@@ -8,9 +8,11 @@
  * `pdf` stays unset until Derek approves the final version of that book (his
  * standing rule: no eBook PDF ships before approval). Without it the email
  * form still records the request and tells the visitor the guide will be
- * emailed when it is published. To publish a book: copy the approved PDF to
- * public/ebooks/<slug>.pdf and set `pdf: '/ebooks/<slug>.pdf'` below; the
- * form then opens the guide straight after the email is submitted.
+ * emailed when it is published. To publish a book: run
+ *   uv run --with pymupdf --with pillow python scripts/publish-ebook.py <slug> <approved.pdf>
+ * (it copies the PDF to public/ebooks/<slug>.pdf and makes the read-online pages), then set
+ * `pdf: '/ebooks/<slug>.pdf'` below. The thank-you page then says "Thank You!" and offers Read It
+ * Online (/smart-patient-guides/<slug>/read) and Download the PDF.
  */
 import type { ProgramSlug } from '../lib/cta';
 import type { SignupSource } from '../lib/notify';
@@ -42,6 +44,8 @@ export const EBOOKS: readonly Ebook[] = [
     program: 'weight-loss',
     source: 'ebook_glp1',
     pages: 18,
+    // v19 (2026-10-19), published with scripts/publish-ebook.py.
+    pdf: '/ebooks/glp-1-weight-loss.pdf',
     inside: [
       'What are GLP-1 medications?',
       'Semaglutide, tirzepatide and your treatment options',

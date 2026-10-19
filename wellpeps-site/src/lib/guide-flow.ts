@@ -17,6 +17,11 @@ export function guideThanksPath(slug: string): string {
   return `${guidePath(slug)}/thank-you`;
 }
 
+/** A published guide's read-online page, linked only from its thank-you page. */
+export function guideReadPath(slug: string): string {
+  return `${guidePath(slug)}/read`;
+}
+
 /** The guide a program page promotes. Healthy Aging has two guides; its own comes first. */
 export function primaryGuideFor(program: ProgramSlug): Ebook | undefined {
   return ebooksFor(program)[0];

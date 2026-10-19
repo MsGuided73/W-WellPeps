@@ -13,6 +13,9 @@
   background: #fff3df; color: #97590b; border: 1px solid #f0d49c;
   font-family: var(--font-sans); font-weight: 700; font-size: var(--text-body-size); letter-spacing: 0.04em; text-transform: uppercase;
 }
+.ld__dates { margin-top: 0.6rem; display: flex; flex-wrap: wrap; gap: 0.2rem 0.5rem; color: var(--text-body); font-size: 1.0625rem; }
+/* On a phone the two dates stack, without the dot between them (owner, 2026-10-19). */
+@media (max-width: 560px) { .ld__dates { flex-direction: column; } .ld__dates > [aria-hidden] { display: none; } }
 .ld__blurb { margin-top: 0.8rem; max-width: 70ch; color: var(--text-body); }
 .ld__body { max-width: 56rem; padding-block: clamp(1.75rem, 1.2rem + 2vw, 3rem) clamp(3rem, 2rem + 3vw, 5rem); }
 

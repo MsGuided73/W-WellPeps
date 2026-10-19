@@ -54,6 +54,8 @@ export interface Article {
   disclaimer_html: string | null;
   reading_minutes: number;
   published_at: string | null;
+  /** Last change to the article row (set by the database on every update). Shown as "Last updated". */
+  updated_at: string | null;
   position: number;
   /** 1-based slot in the hub's Featured Articles row; null when not featured. */
   featured_position: number | null;
@@ -67,7 +69,7 @@ export interface ArticleWithCategory extends Article {
 const ARTICLE_FIELDS =
   'id, category_id, slug, title, seo_title, meta_title, meta_description, ' +
   'url_path, lede_html, body_html, key_takeaways, cta_title, cta_html, ' +
-  'disclaimer_html, reading_minutes, published_at, position, featured_position';
+  'disclaimer_html, reading_minutes, published_at, updated_at, position, featured_position';
 
 /**
  * Icon per category, for the hub's category list and featured cards.

@@ -1,0 +1,91 @@
+---
+/**
+ * A published guide, read online: every page of the PDF as an image, one after another, with the
+ * download beside it (owner, 2026-10-19). Linked only from the guide's thank-you page and kept out of
+ * search results, like the thank-you page.
+ *
+ * Images rather than an embedded PDF: the site's Content-Security-Policy forbids frames and plugins
+ * (frame-src 'none', object-src 'none'), and phones such as Android Chrome cannot show a PDF inside a
+ * page. Each page's words sit in a visually hidden caption, so a screen reader reads the guide; the
+ * PDF stays one click away for anyone who wants the file. scripts/publish-ebook.py makes the pages.
+ */
+import Icon from '../Icon.astro';
+import { GUIDES_INDEX_PATH } from '../../lib/guide-flow';
+import type { Ebook } from '../../data/ebooks';
+import type { EbookPages } from '../../data/ebook-pages';
+
+interface Props {
+  book: Ebook;
+  pages: EbookPages;
+}
+const { book, pages } = Astro.props;
+const title = `The Smart Patient’s Guide to ${book.title}`;
+const total = pages.pages.length;
+const fileName = `${book.slug}-smart-patients-guide.pdf`;
+// "October 19, 2026", read as a calendar date (no time zone shift).
+const longDate = (iso: string) => new Date(`${iso}T12:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+---
+<section class="greader" aria-labelledby="greader-title">
+  <div class="container greader__bar">
+    <div>
+      <p class="greader__eyebrow">The Smart Patient’s Guide Series</p>
+      <h1 class="greader__title" id="greader-title">{title}</h1>
+      <p class="greader__lead">Read it here, or download the PDF to keep. {total} pages.</p>
+      <p class="greader__dates">
+        <span>Published <time datetime={pages.publishedOn}>{longDate(pages.publishedOn)}</time></span>
+        <span aria-hidden="true">&middot;</span>
+        <span>Last updated <time datetime={pages.updatedOn}>{longDate(pages.updatedOn)}</time></span>
+      </p>
+    </div>
+    <a class="greader__btn" href={book.pdf} download={fileName} data-guide-download>Download the PDF<Icon name="arrow-right" /></a>
+  </div>
+
+  <ol class="greader__pages" role="list">
+    {pages.pages.map((p, i) => (
+      <li>
+        <figure class="greader__page">
+          <img src={p.src} alt="" width={pages.width} height={pages.height} loading={i < 2 ? 'eager' : 'lazy'} decoding="async" />
+          <figcaption class="visually-hidden">Page {i + 1} of {total}. {p.text}</figcaption>
+        </figure>
+      </li>
+    ))}
+  </ol>
+
+  <div class="container greader__end">
+    <a class="greader__btn" href={book.pdf} download={fileName} data-guide-download>Download the PDF<Icon name="arrow-right" /></a>
+    <a class="greader__more" href={GUIDES_INDEX_PATH}>Browse all Smart Patient Guides</a>
+  </div>
+</section>
+
+<style>
+  .greader { padding-block: clamp(1.75rem, 4vw, 3rem) clamp(2.5rem, 5vw, 4rem); background: #E9EEF5; }
+  .greader__bar {
+    display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1rem 2rem;
+    max-width: calc(56rem + 2 * var(--gutter)); margin-bottom: clamp(1.25rem, 3vw, 2rem);
+  }
+  .greader__eyebrow { font-family: var(--font-sans); font-weight: 700; font-size: 0.875rem; letter-spacing: 0.12em; text-transform: uppercase; color: #0F5F9F; }
+  .greader__title { margin-top: 0.35rem; font-family: var(--font-serif); font-weight: 700; color: var(--navy); font-size: clamp(1.75rem, 1.3rem + 1.4vw, 2.5rem); line-height: 1.12; text-wrap: balance; }
+  .greader__lead { margin-top: 0.4rem; font-size: 1.125rem; color: var(--text-body); }
+  .greader__dates { margin-top: 0.3rem; display: flex; flex-wrap: wrap; gap: 0.2rem 0.5rem; font-size: 1rem; color: var(--text-body); }
+  /* On a phone the two dates stack, without the dot between them. */
+  @media (max-width: 560px) {
+    .greader__dates { flex-direction: column; }
+    .greader__dates > [aria-hidden] { display: none; }
+  }
+  .greader__btn {
+    flex: none; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 1.5rem; border-radius: 999px;
+    font-family: var(--font-sans); font-weight: 700; font-size: 1.0625rem; color: #fff; text-decoration: none;
+    background: linear-gradient(180deg, #1E86D8, var(--blue)); box-shadow: 0 10px 24px rgba(21, 118, 196, 0.3);
+  }
+  .greader__btn :global(svg) { width: 20px; height: 20px; }
+  .greader__btn:hover { color: #fff; }
+  .greader__btn:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 3px; }
+
+  /* The pages, one under the other, at most a comfortable reading width. */
+  .greader__pages { list-style: none; margin: 0 auto; padding: 0 var(--gutter); max-width: calc(56rem + 2 * var(--gutter)); display: grid; gap: clamp(0.9rem, 2vw, 1.5rem); }
+  .greader__page { margin: 0; }
+  .greader__page img { display: block; width: 100%; height: auto; border-radius: 4px; background: #fff; box-shadow: 0 10px 30px rgba(8, 43, 89, 0.14); }
+
+  .greader__end { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem 1.75rem; margin-top: clamp(1.5rem, 3vw, 2.25rem); }
+  .greader__more { font-weight: 600; color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+</style>

@@ -23,6 +23,7 @@ import LegitScriptSeal from '../LegitScriptSeal.astro';
 import { GUIDE_FEATURE_COPY as C, guidePageFor } from '../../data/guide-pages';
 import { EBOOKS, type Ebook } from '../../data/ebooks';
 import { GUIDES_INDEX_PATH, guidePath, keepGlpTogether } from '../../lib/guide-flow';
+import { ebookPagesFor } from '../../data/ebook-pages';
 
 interface Props {
   book: Ebook;
@@ -34,6 +35,10 @@ const [photoW, photoH] = feature.photoSize;
 const formId = `gf-form-${book.slug}`;
 const coverAlt = `Cover of The Smart Patient’s Guide to ${book.title}`;
 const library = EBOOKS.filter((b) => b.slug !== book.slug).slice(0, C.librarySize);
+// A published guide shows when it was published and last updated (owner, 2026-10-19); kept out of the hero,
+// whose form has to stay on the first screen.
+const published = book.pdf ? ebookPagesFor(book.slug) : undefined;
+const longDate = (iso: string) => new Date(`${iso}T12:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
 ---
 <section class="gf-hero">
   <div class="container gf-hero__inner">
@@ -81,6 +86,13 @@ const library = EBOOKS.filter((b) => b.slug !== book.slug).slice(0, C.librarySiz
           <li><span class="gf-checks__tick"><Icon name="check" /></span><span set:html={keepGlpTogether(item)} /></li>
         ))}
       </ul>
+      {published && (
+        <p class="gf-dates">
+          <span>Published <time datetime={published.publishedOn}>{longDate(published.publishedOn)}</time></span>
+          <span aria-hidden="true">&middot;</span>
+          <span>Last updated <time datetime={published.updatedOn}>{longDate(published.updatedOn)}</time></span>
+        </p>
+      )}
     </div>
   </div>
 </section>
@@ -197,6 +209,7 @@ const library = EBOOKS.filter((b) => b.slug !== book.slug).slice(0, C.librarySiz
   .gf-checks li { display: flex; align-items: flex-start; gap: 0.65rem; color: var(--text-body); font-size: 1.125rem; line-height: 1.45; }
   .gf-checks__tick { flex: none; display: grid; place-items: center; width: 24px; height: 24px; margin-top: 0.1rem; border-radius: 50%; background: var(--blue); color: #fff; }
   .gf-checks__tick :global(svg) { width: 14px; height: 14px; stroke-width: 3; }
+  .gf-dates { margin-top: 1.1rem; display: flex; flex-wrap: wrap; gap: 0.2rem 0.5rem; font-size: 1rem; color: var(--text-body); }
 
   /* ---------- More free guides ---------- */
   .gf-library { padding-block: clamp(3rem, 6vw, 5rem); background: #F7F4EF; }
@@ -270,6 +283,8 @@ const library = EBOOKS.filter((b) => b.slug !== book.slug).slice(0, C.librarySiz
     .gf-sub { font-size: 1.125rem; margin-top: 0.4rem; }
   }
   @media (max-width: 560px) {
+    .gf-dates { flex-direction: column; }
+    .gf-dates > [aria-hidden] { display: none; }
     /* Two cards a row, so the four covers fit in about one screen. */
     .gf-library__grid { gap: 0.75rem; }
     .gf-library__cover { padding: 1.1rem 0.75rem 1.4rem; }

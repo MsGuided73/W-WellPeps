@@ -18,6 +18,9 @@ interface Props {
   docId?: string;
   version?: string;
   date?: string;
+  /** A released document's "Published" and "Last updated" dates (docDates in src/lib/legal-docs.ts). */
+  published?: string;
+  updated?: string;
   blocks?: Block[];
   /** Address of the live page for the same subject, when one already exists. */
   existing?: string;
@@ -26,15 +29,18 @@ interface Props {
   /** A released document: no draft box, no "(draft)" in the title, indexable. */
   approved?: boolean;
 }
-const { title, blurb, docId, version = '0.1', date, blocks, existing, plain = false, approved = false } = Astro.props;
+const { title, blurb, docId, version = '0.1', date, published, updated, blocks, existing, plain = false, approved = false } = Astro.props;
 // A released document never shows its internal "Technical and drafting notes" section.
 const techAt = approved && blocks ? blocks.findIndex((b) => b.t === 'h1' && /technical and drafting notes/i.test(String((b as { text?: string }).text ?? ''))) : -1;
 const shown = blocks && techAt >= 0 ? blocks.slice(0, techAt) : blocks;
 const html = shown ? renderBlocks(shown) : '';
 const toc = shown ? outline(shown) : [];
 const tag = approved
-  ? (docId ? `Version ${version}${date ? ` · Effective ${date}` : ''}` : 'Patient information')
+  ? (docId ? `Version ${version}` : 'Patient information')
   : plain ? 'For attorney review' : `Draft v${version}${docId ? ` · Document ${docId}` : ''}`;
+// "October 16, 2026" -> "2026-10-16" for <time datetime>.
+const isoDay = (human: string) => new Date(`${human} 12:00 UTC`).toISOString().slice(0, 10);
+const lastUpdated = updated ?? published;
 // Search results show about 65 characters of a title; a long document title drops the brand suffix instead of being cut off.
 const releasedTitle = `${title} — WellPeps`.length <= 65 ? `${title} — WellPeps` : title;
 ---
@@ -44,6 +50,13 @@ const releasedTitle = `${title} — WellPeps`.length <= 65 ? `${title} — WellP
       <div class="container">
         <p class="ld__tag">{tag}</p>
         <h1>{title}</h1>
+        {approved && docId && published && (
+          <p class="ld__dates">
+            <span>Published <time datetime={isoDay(published)}>{published}</time></span>
+            <span aria-hidden="true">&middot;</span>
+            <span>Last updated <time datetime={isoDay(lastUpdated!)}>{lastUpdated}</time></span>
+          </p>
+        )}
         {blurb && <p class="ld__blurb">{blurb}</p>}
       </div>
     </header>

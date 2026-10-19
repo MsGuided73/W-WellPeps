@@ -12,7 +12,7 @@
  */
 import LegalDocPage from '../components/legal/LegalDocPage.astro';
 import DocList from '../components/legal/DocList.astro';
-import { LEGAL_DOCS, docUrl, docsByGroup, draftPagesEnabledNow, findDoc, pagesToBuild } from '../lib/legal-docs';
+import { LEGAL_DOCS, docDates, docUrl, docsByGroup, draftPagesEnabledNow, findDoc, pagesToBuild } from '../lib/legal-docs';
 import { sectionCopy, type LegalDocData } from '../lib/legal-render';
 
 export function getStaticPaths() {
@@ -36,10 +36,10 @@ const a8 = kind === 'contact' ? load('A8') : undefined;
 const contactBlocks = a8 ? sectionCopy(a8.blocks, /^Block 7\./) : [];
 ---
 {doc && data && (
-  <LegalDocPage title={doc.title} blurb={doc.blurb} docId={doc.id} version={doc.approved ? '1.0' : data.version} date={doc.approved ? (doc.effective ?? data.date) : data.date} blocks={data.blocks} existing={doc.existing} approved={doc.approved} />
+  <LegalDocPage title={doc.title} blurb={doc.blurb} docId={doc.id} version={doc.approved ? '1.0' : data.version} date={doc.approved ? (doc.effective ?? data.date) : data.date} {...(doc.approved ? docDates(doc) : {})} blocks={data.blocks} existing={doc.existing} approved={doc.approved} />
 )}
 {kind === 'contact' && a8 && (
-  <LegalDocPage title="Contact WellPeps" blurb="How to reach WellPeps by phone or email, and what each contact address is for." docId="A8" version={a8doc?.approved ? '1.0' : a8.version} date={a8doc?.approved ? a8doc.effective : a8.date} blocks={contactBlocks} approved={a8doc?.approved} />
+  <LegalDocPage title="Contact WellPeps" blurb="How to reach WellPeps by phone or email, and what each contact address is for." docId="A8" version={a8doc?.approved ? '1.0' : a8.version} date={a8doc?.approved ? a8doc.effective : a8.date} {...(a8doc?.approved ? docDates(a8doc) : {})} blocks={contactBlocks} approved={a8doc?.approved} />
 )}
 {kind === 'hub' && (
   <LegalDocPage plain approved={!drafts} title="Patient Information" blurb="What to read before and during treatment: how it works, safety information, consents, policies and your rights.">
