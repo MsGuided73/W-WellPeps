@@ -21,7 +21,8 @@
  *  - `anonymous` is allowed only on an analytics tool without cookies or storage.
  */
 import { anonymousAnalyticsTracker } from '../analytics/tracker';
-import { ANALYTICS_ENABLED, ANALYTICS_ENDPOINT, ANALYTICS_PATH_DETAIL } from './config';
+import { ANALYTICS_ENABLED, ANALYTICS_ENDPOINT, ANALYTICS_PATH_DETAIL, CURVE_ENABLED, CURVE_SITE_ID } from './config';
+import { curveTracker } from './trackers/curve';
 import type { ConsentCategory } from './consent';
 
 export interface Tracker {
@@ -198,6 +199,9 @@ export function productionTrackers(): Tracker[] {
   const tools: Tracker[] = [];
   if (ANALYTICS_ENABLED) {
     tools.push(anonymousAnalyticsTracker({ endpoint: ANALYTICS_ENDPOINT, pathDetail: ANALYTICS_PATH_DETAIL }));
+  }
+  if (CURVE_ENABLED) {
+    tools.push(curveTracker({ siteId: CURVE_SITE_ID }));
   }
   return tools;
 }

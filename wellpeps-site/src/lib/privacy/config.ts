@@ -66,3 +66,28 @@ export const ANALYTICS_PATH_DETAIL: 'full' | 'section' = 'section';
  * flag and any layout or page disagree.
  */
 export const FONTS_SELF_HOSTED = true;
+
+/**
+ * Curve's public site id. It ships in the page source, so it is not a secret.
+ * Issued for wellpeps.com on 2026-10-15.
+ */
+export const CURVE_SITE_ID = '5224b1abeb7ae27d6eeb532b052b944c62078c741f7fb59f66037dfddbdded04';
+
+/**
+ * Adds Curve Compliance (src/lib/privacy/trackers/curve.ts) to the tracker registry as an
+ * ADVERTISING tool. While false it is not in the registry, no banner names it and nothing loads.
+ *
+ * DO NOT turn this on yet. t.js carries a session recorder and a page rasterizer that Curve's
+ * SERVER decides to run, and its heatmaps work by screenshotting pages the visitor viewed —
+ * which this site bans. validateRegistry() cannot catch it, because the ban list is by vendor
+ * name and host and Curve is on neither. The full blocker and the checklist to clear it are at
+ * the top of src/lib/privacy/trackers/curve.ts. In short, all of:
+ *   1. Curve dashboard shows session recording OFF and heatmap screenshot capture OFF, evidenced,
+ *      and Curve's own consent manager OFF so visitors do not get a second banner,
+ *   2. written answers to the 19 questions already sent to Curve,
+ *   3. counsel has accepted the residual risk given the BAA,
+ *   4. nginx.conf allows both Curve hosts in script-src and connect-src, with
+ *      security-headers.test.ts updated,
+ *   5. the Cookie notice and cookie-notice-inventory.ts name the tool and NOTICE_VERSION is bumped.
+ */
+export const CURVE_ENABLED: boolean = false;
