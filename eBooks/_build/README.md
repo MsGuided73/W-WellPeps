@@ -382,6 +382,13 @@ v7 book skip PowerPoint's Save As and `pptx_fonts.py` swap. `pptx_build.py` maps
 `C:\Windows\Fonts`, and `pptx_fonts.py --check` reports such a deck as `GOOD SYSTEM`. `build_book.py` FAILs a v7 PDF
 with any font other than Arial/Georgia, or when the headline/body CSS does not resolve to them.
 
+**CTA link (owner, 2026-10-19):** `cta_url` in each config is the See If You Qualify target: the guide's program
+treatment cards on wellpeps.com (`/weight-loss/#weight-products`, `/sexual-wellness/#sex-products`,
+`/hair-restoration/#hair-products`, `/healthy-aging/#peptide-products` for Healthy Aging and NAD+), or `/#programs`
+for Modern Healthcare. Use the trailing-slash form (no 301), and never a GEN Health link: a PDF outlives a changed
+checkout link. The www.wellpeps.com line on the CTA page always goes to the home page. The site's read-online page
+makes the same links clickable (`publish-ebook.py` records them, `GuideReader.astro` overlays them).
+
 **Page numbers (owner, 2026-10-19):** printed from the finished page order, never from the outline's section
 numbers. The first numbered page reads 01 (no 00); a config `"front_matter": ["00", ...]` numbers those sections
 i, ii, iii instead. The CTA page is numbered; the cover and the disclaimer are not. A removed,

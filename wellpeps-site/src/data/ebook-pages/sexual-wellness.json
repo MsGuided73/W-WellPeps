@@ -1,5 +1,5 @@
 {
- "source": "sexual-wellness_ebook-v8.pdf",
+ "source": "sexual-wellness_ebook-v9.pdf",
  "publishedOn": "2026-10-19",
  "updatedOn": "2026-10-19",
  "width": 1200,
@@ -71,7 +71,25 @@
   },
   {
    "src": "/ebooks/sexual-wellness/page-17.webp",
-   "text": "SMART PATIENT GUIDE TO SEXUAL WELLNESS GET THE COMPREHENSIVE CARE YOU DESERVE Ready to Explore Your Sexual Wellness Options? Regain & Reconnect. Begin with a private online health assessment. A licensed healthcare provider will review your health information and determine whether prescription treatment is appropriate for you. See If You Qualify It only takes a few minutes. Be informed. Ask questions. Become a Smart Patient and get the comprehensive care you deserve. Personalized Wellness. Simplified. www.wellpeps.com 16"
+   "text": "SMART PATIENT GUIDE TO SEXUAL WELLNESS GET THE COMPREHENSIVE CARE YOU DESERVE Ready to Explore Your Sexual Wellness Options? Regain & Reconnect. Begin with a private online health assessment. A licensed healthcare provider will review your health information and determine whether prescription treatment is appropriate for you. See If You Qualify It only takes a few minutes. Be informed. Ask questions. Become a Smart Patient and get the comprehensive care you deserve. Personalized Wellness. Simplified. www.wellpeps.com 16",
+   "links": [
+    {
+     "href": "/sexual-wellness/#sex-products",
+     "label": "See If You Qualify",
+     "x": 56.5,
+     "y": 39.02,
+     "w": 25.61,
+     "h": 4.45
+    },
+    {
+     "href": "/",
+     "label": "www.wellpeps.com",
+     "x": 7.35,
+     "y": 78.22,
+     "w": 20.83,
+     "h": 1.99
+    }
+   ]
   },
   {
    "src": "/ebooks/sexual-wellness/page-18.webp",

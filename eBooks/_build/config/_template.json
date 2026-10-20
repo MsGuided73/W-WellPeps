@@ -12,8 +12,8 @@
  "_title": "Cover headline (Lora, white on the cover shade). Over 22 characters switches to the smaller 'long' size.",
  "title": "SEXUAL WELLNESS MEDICATIONS",
 
- "_cta_url": "Target of the CTA button and the www.wellpeps.com link on the CTA page.",
- "cta_url": "https://wellpeps.com/#assessment",
+ "_cta_url": "Target of the See If You Qualify button on the CTA page: the guide's program treatment cards, e.g. https://wellpeps.com/weight-loss/#weight-products (2026-10-19), or https://wellpeps.com/#programs for a guide that covers several programs. The www.wellpeps.com line always goes to the home page.",
+ "cta_url": "https://wellpeps.com/#programs",
 
  "_cover": "Cover photo. cover_focus is [x, y] in 0..1 for object-position; cover_crop is [left, top, right, bottom] fractions trimmed before use. cover_meta is only used by the plate/minimal covers.",
  "cover": "../../wellpeps-site/public/images/program-sexual.webp",

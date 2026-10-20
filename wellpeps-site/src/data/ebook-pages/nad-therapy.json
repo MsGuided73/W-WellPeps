@@ -1,5 +1,5 @@
 {
- "source": "nad-therapy_ebook-v3.pdf",
+ "source": "nad-therapy_ebook-v4.pdf",
  "publishedOn": "2026-10-19",
  "updatedOn": "2026-10-19",
  "width": 1200,
@@ -67,7 +67,25 @@
   },
   {
    "src": "/ebooks/nad-therapy/page-16.webp",
-   "text": "SMART PATIENT GUIDE TO NAD+ THERAPY GET THE COMPREHENSIVE CARE YOU DESERVE Interested in Exploring NAD+ Therapy? Start with an online health assessment. A licensed healthcare provider will review your information and determine whether treatment may be appropriate. See If You Qualify It only takes a few minutes. Be informed. Ask questions. Become a Smart Patient and get the comprehensive care you deserve. Personalized Wellness. Simplified. www.wellpeps.com 15"
+   "text": "SMART PATIENT GUIDE TO NAD+ THERAPY GET THE COMPREHENSIVE CARE YOU DESERVE Interested in Exploring NAD+ Therapy? Start with an online health assessment. A licensed healthcare provider will review your information and determine whether treatment may be appropriate. See If You Qualify It only takes a few minutes. Be informed. Ask questions. Become a Smart Patient and get the comprehensive care you deserve. Personalized Wellness. Simplified. www.wellpeps.com 15",
+   "links": [
+    {
+     "href": "/healthy-aging/#peptide-products",
+     "label": "See If You Qualify",
+     "x": 56.5,
+     "y": 36.17,
+     "w": 25.61,
+     "h": 4.45
+    },
+    {
+     "href": "/",
+     "label": "www.wellpeps.com",
+     "x": 7.35,
+     "y": 78.22,
+     "w": 20.83,
+     "h": 1.99
+    }
+   ]
   },
   {
    "src": "/ebooks/nad-therapy/page-17.webp",

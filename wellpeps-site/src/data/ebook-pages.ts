@@ -8,6 +8,20 @@ export interface EbookPage {
   src: string;
   /** The page's words, for screen readers. */
   text: string;
+  /** The PDF's clickable areas on this page (the CTA page's See If You Qualify button and site link), laid over
+   *  the image as real links. Position and size are percentages of the page. */
+  links?: EbookPageLink[];
+}
+
+export interface EbookPageLink {
+  /** Root-relative for wellpeps.com (e.g. /weight-loss/#weight-products), absolute otherwise. */
+  href: string;
+  /** The words on the button, used as the link's accessible name. */
+  label: string;
+  x: number;
+  y: number;
+  w: number;
+  h: number;
 }
 
 export interface EbookPages {

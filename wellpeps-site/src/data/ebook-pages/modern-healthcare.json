@@ -1,5 +1,5 @@
 {
- "source": "modern-healthcare_ebook-v3.pdf",
+ "source": "modern-healthcare_ebook-v4.pdf",
  "publishedOn": "2026-10-19",
  "updatedOn": "2026-10-19",
  "width": 1200,
@@ -75,7 +75,25 @@
   },
   {
    "src": "/ebooks/modern-healthcare/page-18.webp",
-   "text": "SMART PATIENT GUIDE TO MODERN HEALTHCARE GET THE COMPREHENSIVE CARE YOU DESERVE Healthcare Is Changing. Be Informed About How You Receive It. Personalized, provider-guided wellness care designed to be easier to access and easier to navigate. See If You Qualify It only takes a few minutes. Be informed. Ask questions. Become a Smart Patient and get the comprehensive care you deserve. Personalized Wellness. Simplified. www.wellpeps.com 17"
+   "text": "SMART PATIENT GUIDE TO MODERN HEALTHCARE GET THE COMPREHENSIVE CARE YOU DESERVE Healthcare Is Changing. Be Informed About How You Receive It. Personalized, provider-guided wellness care designed to be easier to access and easier to navigate. See If You Qualify It only takes a few minutes. Be informed. Ask questions. Become a Smart Patient and get the comprehensive care you deserve. Personalized Wellness. Simplified. www.wellpeps.com 17",
+   "links": [
+    {
+     "href": "/#programs",
+     "label": "See If You Qualify",
+     "x": 56.5,
+     "y": 38.73,
+     "w": 25.61,
+     "h": 4.45
+    },
+    {
+     "href": "/",
+     "label": "www.wellpeps.com",
+     "x": 7.35,
+     "y": 78.22,
+     "w": 20.83,
+     "h": 1.99
+    }
+   ]
   },
   {
    "src": "/ebooks/modern-healthcare/page-19.webp",

@@ -40,6 +40,26 @@ eBook.
 - **Email forms** (`ecc0839`): the optional box is labelled "FREE BONUS:" (privacy policy
   Appendix A.1 updated, wording versions bumped). Thank-you pages say the guide arrives by
   email shortly and link to "Read the guide online now".
+- **CTA buttons link to each guide's own program** (owner, evening): the "See If You
+  Qualify" button on every guide's CTA page used to go to the home page's general
+  assessment section (`/#assessment`). It now goes to the program's treatment cards on
+  wellpeps.com:
+
+  | Guide | Button goes to |
+  |---|---|
+  | GLP-1 Weight Loss | `/weight-loss/#weight-products` |
+  | Sexual Wellness | `/sexual-wellness/#sex-products` |
+  | Hair Restoration | `/hair-restoration/#hair-products` |
+  | Healthy Aging & Vitality | `/healthy-aging/#peptide-products` |
+  | NAD+ Therapy | `/healthy-aging/#peptide-products` |
+  | Modern Healthcare (covers several programs) | `/#programs` (the program chooser) |
+
+  The "www.wellpeps.com" line now goes to the home page. The PDFs link to wellpeps.com
+  pages rather than to GEN Health checkout links, because a PDF stays in people's inboxes
+  long after a GEN link might change. New versions with no visible change from the ones
+  they replace: GLP-1 v21, Sexual v9, Hair v8, Healthy Aging v11, NAD+ v4, Modern v4. The
+  read-online pages make the button clickable too: `publish-ebook.py` records each PDF
+  link's position and `GuideReader` lays a real link over the image.
 - **Modern Healthcare sign-ups:** new source `ebook_modern_healthcare`. The
   `notify_signups` CHECK migration is applied and the `notify-signup` v4 function is
   deployed.

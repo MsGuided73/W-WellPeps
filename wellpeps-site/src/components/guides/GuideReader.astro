@@ -7,7 +7,8 @@
  * Images rather than an embedded PDF: the site's Content-Security-Policy forbids frames and plugins
  * (frame-src 'none', object-src 'none'), and phones such as Android Chrome cannot show a PDF inside a
  * page. Each page's words sit in a visually hidden caption, so a screen reader reads the guide; the
- * PDF stays one click away for anyone who wants the file. scripts/publish-ebook.py makes the pages.
+ * PDF stays one click away for anyone who wants the file. scripts/publish-ebook.py makes the pages. The
+ * PDF's own links (the CTA page's See If You Qualify button) are laid over the image at the same spot.
  */
 import Icon from '../Icon.astro';
 import { GUIDES_INDEX_PATH } from '../../lib/guide-flow';
@@ -45,6 +46,9 @@ const longDate = (iso: string) => new Date(`${iso}T12:00:00Z`).toLocaleDateStrin
       <li>
         <figure class="greader__page">
           <img src={p.src} alt="" width={pages.width} height={pages.height} loading={i < 2 ? 'eager' : 'lazy'} decoding="async" />
+          {p.links?.map((l) => (
+            <a class="greader__hit" href={l.href} aria-label={l.label || undefined} style={`left:${l.x}%;top:${l.y}%;width:${l.w}%;height:${l.h}%`}></a>
+          ))}
           <figcaption class="visually-hidden">Page {i + 1} of {total}. {p.text}</figcaption>
         </figure>
       </li>
@@ -83,7 +87,11 @@ const longDate = (iso: string) => new Date(`${iso}T12:00:00Z`).toLocaleDateStrin
 
   /* The pages, one under the other, at most a comfortable reading width. */
   .greader__pages { list-style: none; margin: 0 auto; padding: 0 var(--gutter); max-width: calc(56rem + 2 * var(--gutter)); display: grid; gap: clamp(0.9rem, 2vw, 1.5rem); }
-  .greader__page { margin: 0; }
+  .greader__page { margin: 0; position: relative; }
+  /* The PDF's links (the CTA page's See If You Qualify button), over the same spot on the page image. */
+  .greader__hit { position: absolute; border-radius: 6px; }
+  .greader__hit:hover { background: rgba(255, 255, 255, 0.12); }
+  .greader__hit:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 2px; }
   .greader__page img { display: block; width: 100%; height: auto; border-radius: 4px; background: #fff; box-shadow: 0 10px 30px rgba(8, 43, 89, 0.14); }
 
   .greader__end { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem 1.75rem; margin-top: clamp(1.5rem, 3vw, 2.25rem); }

@@ -423,7 +423,7 @@ def cta_page(book, sec, num, cfg):
     bodies = ''.join(f'<p class="body">{esc(e["text"])}</p>' for e in sec['elements'] if e['kind'] == 'body')
     fx, fy = cfg.get('focus', (0.5, 0.4))
     button = cfg.get('button', 'See If You Qualify')
-    url = book['cta_url']
+    url = book['cta_url']  # the guide's own program (its treatment cards on wellpeps.com); the site link below is the home page
     inner = f'''<div class="ctahero">
   <img src="{img_uri(cfg["image"])}" style="object-position:{fx*100:.0f}% {fy*100:.0f}%" alt="">
   <div class="ctapanel">
@@ -437,7 +437,7 @@ def cta_page(book, sec, num, cfg):
   <p class="stack">Be informed.<br>Ask questions.<br>Become a Smart Patient<br>and get the comprehensive care you deserve.</p>
   <img class="logo" src="{img_uri(LOGO_BLUE)}" alt="WellPeps">
   <p class="tagline">Personalized Wellness. Simplified.</p>
-  <p class="site"><a href="{url}">www.wellpeps.com</a></p>
+  <p class="site"><a href="https://wellpeps.com/">www.wellpeps.com</a></p>
 </div>'''
     return page_shell(book, num, cfg.get('kicker', 'GET THE COMPREHENSIVE CARE YOU DESERVE'), inner, cls='cta')
 

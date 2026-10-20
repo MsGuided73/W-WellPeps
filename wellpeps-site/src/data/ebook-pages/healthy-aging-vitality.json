@@ -1,5 +1,5 @@
 {
- "source": "healthy-aging-vitality_ebook-v10.pdf",
+ "source": "healthy-aging-vitality_ebook-v11.pdf",
  "publishedOn": "2026-10-19",
  "updatedOn": "2026-10-19",
  "width": 1200,
@@ -71,7 +71,25 @@
   },
   {
    "src": "/ebooks/healthy-aging-vitality/page-17.webp",
-   "text": "SMART PATIENT GUIDE TO HEALTHY AGING & VITALITY GET THE COMPREHENSIVE CARE YOU DESERVE Don’t Try to Stop Aging. Get Better at It. Feel like yourself again. Explore WellPeps Healthy Aging & Vitality therapies and learn whether provider-guided treatment may be appropriate for your individual needs. See If You Qualify It only takes a few minutes. Be informed. Ask questions. Become a Smart Patient and get the comprehensive care you deserve. Personalized Wellness. Simplified. www.wellpeps.com 16"
+   "text": "SMART PATIENT GUIDE TO HEALTHY AGING & VITALITY GET THE COMPREHENSIVE CARE YOU DESERVE Don’t Try to Stop Aging. Get Better at It. Feel like yourself again. Explore WellPeps Healthy Aging & Vitality therapies and learn whether provider-guided treatment may be appropriate for your individual needs. See If You Qualify It only takes a few minutes. Be informed. Ask questions. Become a Smart Patient and get the comprehensive care you deserve. Personalized Wellness. Simplified. www.wellpeps.com 16",
+   "links": [
+    {
+     "href": "/healthy-aging/#peptide-products",
+     "label": "See If You Qualify",
+     "x": 56.5,
+     "y": 36.17,
+     "w": 25.61,
+     "h": 4.45
+    },
+    {
+     "href": "/",
+     "label": "www.wellpeps.com",
+     "x": 7.35,
+     "y": 78.22,
+     "w": 20.83,
+     "h": 1.99
+    }
+   ]
   },
   {
    "src": "/ebooks/healthy-aging-vitality/page-18.webp",
