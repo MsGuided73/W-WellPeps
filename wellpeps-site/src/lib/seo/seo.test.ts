@@ -123,7 +123,7 @@ describe('llms.txt', () => {
 
   test('never mentions a membership, and links the LegitScript listing', () => {
     expect(text).not.toMatch(/membership/i);
-    expect(text).toContain('https://www.legitscript.com/websites/wellpeps.com/?');
+    expect(text).toContain('https://www.legitscript.com/websites/?checker_keywords=wellpeps.com');
   });
 
   test('includes the build date and the Learning Center articles', () => {

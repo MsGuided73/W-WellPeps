@@ -50,7 +50,7 @@ export function organization(): JsonLd {
       availableLanguage: 'English',
     },
     // The public LegitScript listing for wellpeps.com (certified 2026-10-09).
-    sameAs: [LEGITSCRIPT.verifyUrl.replace(/\/\?$/, '/')],
+    sameAs: [LEGITSCRIPT.listingUrl],
   };
 }
 
