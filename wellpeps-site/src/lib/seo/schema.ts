@@ -49,8 +49,11 @@ export function organization(): JsonLd {
       areaServed: 'US',
       availableLanguage: 'English',
     },
-    // The public LegitScript listing for wellpeps.com (certified 2026-10-09).
-    sameAs: [LEGITSCRIPT.listingUrl],
+    // Brand-entity profiles search engines cross-reference: the public
+    // LegitScript listing for wellpeps.com (certified 2026-10-09) and the
+    // official GitHub organization (owner-confirmed 2026-10-26). Add social
+    // profiles here as they go live.
+    sameAs: [LEGITSCRIPT.listingUrl, 'https://github.com/Wellpeps'],
   };
 }
 
