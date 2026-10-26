@@ -57,6 +57,10 @@ const graph = noindex
     <meta name="description" content={description} />
     {!noindex && <link rel="canonical" href={canonical} />}
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    {/* Bing Webmaster Tools ownership verification (added 2026-10-26). Bing
+        checks the home page; the shared layout ships it on every page, which
+        Bing accepts and which keeps it from being lost in a home-page rework. */}
+    <meta name="msvalidate.01" content="A983B447857BBC7CB354FF71510E01AE" />
     <meta name="theme-color" content="#082b59" />
     <link rel="apple-touch-icon" href="/images/w-mark-v2.png" />
     <meta property="og:site_name" content={SITE_NAME} />
