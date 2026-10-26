@@ -50,10 +50,11 @@ export function organization(): JsonLd {
       availableLanguage: 'English',
     },
     // Brand-entity profiles search engines cross-reference: the public
-    // LegitScript listing for wellpeps.com (certified 2026-10-09) and the
-    // official GitHub organization (owner-confirmed 2026-10-26). Add social
-    // profiles here as they go live.
-    sameAs: [LEGITSCRIPT.listingUrl, 'https://github.com/Wellpeps'],
+    // LegitScript listing for wellpeps.com (certified 2026-10-09). Add
+    // customer-facing social profiles here as they go live. The GitHub org
+    // is deliberately NOT listed (owner 2026-10-26: dev infrastructure,
+    // not a public brand surface).
+    sameAs: [LEGITSCRIPT.listingUrl],
   };
 }
 
