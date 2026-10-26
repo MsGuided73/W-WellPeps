@@ -34,7 +34,7 @@ function pagePaths() {
   walk(dist);
   return out
     .map((p) => (p === '/.' || p === '/' ? '/' : p))
-    .filter((p) => !/^\/(preview-access|membership|peptides|mental-wellness)/.test(p)) // redirect stubs and the gate page
+    .filter((p) => !/^\/(preview-access|membership|peptides)/.test(p)) // redirect stubs and the gate page (/mental-wellness is a 410 in nginx now, never built)
     .sort();
 }
 

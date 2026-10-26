@@ -251,6 +251,20 @@ server {
         return 301 /healthy-aging/;
     }
 
+    # Discontinued 2026-10-26: the Mental Wellness program will not launch.
+    # 410 (not 404, not a redirect) is the signal that drops the URL from
+    # search indexes fastest. Astro no longer builds a page here and nothing
+    # on the site links to it; the www/no-slash variants 301 into these.
+    # (No add_header here on purpose: both inherit the server-level set.)
+    location = /mental-wellness {
+        if ($gate_ok = 0) { return 401; }
+        return 410;
+    }
+    location = /mental-wellness/ {
+        if ($gate_ok = 0) { return 401; }
+        return 410;
+    }
+
     # HTML routes: exact file, directory index, or <name>.html; else 404.
     location / {
         if ($gate_ok = 0) { return 401; }

@@ -20,9 +20,9 @@ export default defineConfig({
     // The membership fee was dropped 2026-09-30; its manage/cancel page became
     // /your-plan. Keep the old footer URL working.
     '/membership': '/your-plan/',
-    // The Mental Wellness program was removed; its waitlist page still collected email addresses
-    // tied to a mental-health topic, for a service that does not exist. Send the old URL home.
-    '/mental-wellness': '/',
+    // /mental-wellness is intentionally absent: the program was discontinued
+    // for good on 2026-10-26, so nginx answers 410 Gone (nginx.conf.template)
+    // instead of a redirect stub being built here.
   },
   server: {
     port: process.env.PORT ? Number(process.env.PORT) : 4321,
