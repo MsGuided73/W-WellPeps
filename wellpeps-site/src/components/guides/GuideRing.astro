@@ -150,7 +150,6 @@ const restPos = (i: number) => {
       const card = cards[index];
       nameEl.textContent = card.dataset.title ?? '';
       ctaEl.href = card.dataset.href ?? ctaEl.href;
-      ctaEl.setAttribute('aria-label', `View free guide: ${card.dataset.title ?? ''}`);
     }
 
     function setTarget(p: number) {

@@ -3,7 +3,8 @@
  * a search engine should index it: no `noindex`, not a redirect stub, and its canonical (if any) is its own
  * address. So a draft page, a gated page or a redirect can never leak into the sitemap, and a new page is
  * listed the moment it exists. A page whose structured data carries a dateModified (the Learning Center
- * articles) gets it as <lastmod>; other pages carry none rather than a made-up date. Wired into
+ * articles) gets it as <lastmod>; failing that, a page that shows one "Last updated <time datetime>" stamp
+ * (legal documents, guide landings) gets that date. Other pages carry none rather than a made-up date. Wired into
  * astro.config.mjs; checked by scripts/seo-check.mjs.
  */
 import fs from 'node:fs';
@@ -40,10 +41,15 @@ function walk(dir, out = []) {
   return out;
 }
 
-/** The page's dateModified from its JSON-LD, as YYYY-MM-DD, or undefined. */
+/**
+ * The page's dateModified from its JSON-LD, else the date of its visible "Last updated <time datetime>"
+ * stamp (only when the page shows exactly one such date), as YYYY-MM-DD, or undefined.
+ */
 export function lastModifiedOf(html) {
   const m = html.match(/"dateModified":"(\d{4}-\d{2}-\d{2})/);
-  return m ? m[1] : undefined;
+  if (m) return m[1];
+  const stamped = new Set([...html.matchAll(/Last updated:?\s*<time datetime="(\d{4}-\d{2}-\d{2})"/g)].map((s) => s[1]));
+  return stamped.size === 1 ? [...stamped][0] : undefined;
 }
 
 /** Every entry the sitemap should list, sorted (home first): { loc, lastmod? }. */
