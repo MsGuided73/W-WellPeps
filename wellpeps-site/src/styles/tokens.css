@@ -16,6 +16,10 @@
      6.8:1. Superseded #0077BE. */
   --blue: #1576C4;
   --blue-hover: #115E9C;
+  /* --blue on the pale tints (--bg-pale-blue, --bg-light-sky) is only
+     4.4:1 / 4.2:1. This one step darker holds 4.79:1 / 4.53:1 there, so use
+     it for text on those tints. */
+  --blue-on-tint: #1470BB;
   --blue-soft: #2EA8F7;     /* Sky accent — icon fills, subtle highlights */
 
   /* ---- Icon medallions ----
@@ -74,7 +78,10 @@
   /* ---- Text ---- */
   --text-heading: #082B59;  /* MASTER Guide OVERRIDE: navy headings (not #153B73) */
   --text-body: #4B5C73;
-  --text-muted: #7A8899;
+  /* Muted text: #657283 (4.90:1 on white, 4.54:1 on --bg-pale-blue). Was #7A8899,
+     3.61:1 on white, which failed WCAG AA for the meta lines, breadcrumbs and
+     price labels it colours. Same hue, just darker. */
+  --text-muted: #657283;
   --text-on-dark: #EAF1FB;
   --text-on-dark-muted: #9DB0CC;
 
