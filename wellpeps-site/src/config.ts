@@ -229,12 +229,11 @@ export const CONTACT = {
  * wellpeps.com (never in print, email, social posts or ads), linked to the verification page, and taken down if
  * the certification lapses. Wording may not suggest LegitScript endorses WellPeps' products or vouches for their
  * quality. The seal links to LegitScript's own verification checker, from the seal code LegitScript sent the owner
- * (2026-10-21). The public listing page is kept for the search-engine profile (schema.ts sameAs).
+ * (2026-10-21). Owner rule (2026-10-29): this verify link is the only LegitScript link the site may use, including schema.ts sameAs.
  */
 export const LEGITSCRIPT = {
   sealSrc: 'https://static.legitscript.com/seals/51837021.png',
   verifyUrl: 'https://www.legitscript.com/websites/?checker_keywords=wellpeps.com',
-  listingUrl: 'https://www.legitscript.com/websites/wellpeps.com/',
 } as const;
 
 export const CONTACT_ADDRESS: string = '30 N Gould St., Suite R, Sheridan, WY 82801';
