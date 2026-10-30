@@ -2,13 +2,21 @@
 import Icon from '../Icon.astro';
 import AssessmentCta from '../AssessmentCta.astro';
 import LegitScriptSeal from '../LegitScriptSeal.astro';
+import { Picture } from 'astro:assets';
+import heroImg from '../../assets/images/hero-couple-coast.webp';
 ---
 <section class="hero">
   <!-- Image is a direct child of the full-width section so it can bleed to the
        right edge of the viewport (not clipped by the centered text wrapper). -->
-  <img class="hero__img" src="/images/hero-couple-coast.webp" width="1666" height="944"
+  <!-- LCP image: AVIF with a WebP fallback, at several widths. Stacked (<=860px)
+       it fills the viewport width. Beside the copy it is cropped (object-fit:
+       cover) into a frame taller than 16:9, so it needs close to the full
+       source width at every desktop size; 1666px keeps it as sharp as before. -->
+  <Picture class="hero__img" src={heroImg} formats={['avif']} fallbackFormat="webp"
+       widths={[480, 768, 1024, 1366, 1666]} sizes="(max-width: 860px) 100vw, 1666px"
+       width={1666} height={944}
        alt="A smiling couple walking arm in arm along a coastal trail at sunset"
-       fetchpriority="high" />
+       loading="eager" fetchpriority="high" />
 
   <div class="hero__wrap">
     <div class="hero__copy reveal">
