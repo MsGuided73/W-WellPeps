@@ -155,6 +155,9 @@ describe('sitemap and robots.txt', () => {
   test('a page with a dateModified gets <lastmod>; others get none', () => {
     expect(lastModifiedOf('{"@type":"BlogPosting","dateModified":"2026-07-20T15:45:48.667+00:00"}')).toBe('2026-07-20');
     expect(lastModifiedOf('{"@type":"WebPage"}')).toBeUndefined();
+    expect(lastModifiedOf('<span>Last updated <time datetime="2026-10-16">October 16, 2026</time></span>')).toBe('2026-10-16');
+    expect(lastModifiedOf('Last updated <time datetime="2026-10-06">a</time> Last updated <time datetime="2026-10-12">b</time>')).toBeUndefined();
+    expect(lastModifiedOf('<p>Last updated: October 8, 2026</p>')).toBeUndefined();
     const xml = renderSitemap([{ loc: 'https://wellpeps.com/a/', lastmod: '2026-07-20' }, { loc: 'https://wellpeps.com/b/' }]);
     expect(xml).toContain('<url><loc>https://wellpeps.com/a/</loc><lastmod>2026-07-20</lastmod></url>');
     expect(xml).toContain('<url><loc>https://wellpeps.com/b/</loc></url>');
