@@ -54,7 +54,7 @@ export function organization(): JsonLd {
     // customer-facing social profiles here as they go live. The GitHub org
     // is deliberately NOT listed (owner 2026-10-26: dev infrastructure,
     // not a public brand surface).
-    sameAs: [LEGITSCRIPT.listingUrl],
+    sameAs: [LEGITSCRIPT.verifyUrl],
   };
 }
 
