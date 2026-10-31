@@ -95,5 +95,8 @@ const longDate = (iso: string) => new Date(`${iso}T12:00:00Z`).toLocaleDateStrin
   .greader__page img { display: block; width: 100%; height: auto; border-radius: 4px; background: #fff; box-shadow: 0 10px 30px rgba(8, 43, 89, 0.14); }
 
   .greader__end { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem 1.75rem; margin-top: clamp(1.5rem, 3vw, 2.25rem); }
-  .greader__more { font-weight: 600; color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+  /* --blue (#1576C4) is 4.07:1 on this #E9EEF5 band and even --blue-on-tint
+     (#1470BB) only 4.43:1, both under WCAG AA 4.5:1. #146EB7 is --blue scaled
+     ~6.5% darker (same hue) and holds 4.57:1 here. */
+  .greader__more { font-weight: 600; color: #146EB7; text-decoration: underline; text-underline-offset: 3px; }
 </style>
