@@ -18,8 +18,10 @@ interface Props {
 }
 const { book, placement } = Astro.props;
 const { articleCta } = guidePageFor(book.slug);
+// Two of these can sit on one article, and landmarks need distinct names (axe landmark-unique).
+const label = placement === 'end' ? `Free guide: ${book.title}, end of article` : `Free guide: ${book.title}`;
 ---
-<aside class="gcta" aria-label={`Free guide: ${book.title}`} data-guide-cta={placement}>
+<aside class="gcta" aria-label={label} data-guide-cta={placement}>
   <a class="gcta__book" href={guidePath(book.slug)} tabindex="-1" aria-hidden="true">
     <GuideBook src={book.cover} star />
   </a>

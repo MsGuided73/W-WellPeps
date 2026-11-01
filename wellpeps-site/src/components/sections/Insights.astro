@@ -17,7 +17,7 @@ import { insights } from '../../data/content';
             <h3>{a.title}</h3>
             <hr class="rule rule--left" />
             <p>{a.body}</p>
-            <a href={a.href} class="pill-link">Read More <Icon name="arrow-right" /></a>
+            <a href={a.href} class="pill-link">Read More<span class="visually-hidden">: {a.title}</span> <Icon name="arrow-right" /></a>
           </div>
         </article>
       ))}

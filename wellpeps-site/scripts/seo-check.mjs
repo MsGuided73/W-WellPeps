@@ -12,6 +12,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
 import { canonicalOf, hasNoindex } from './lib/sitemap.mjs';
 import { pageDirChecker, slashlessPageLinks } from './lib/trailing-slash.mjs';
 
@@ -35,6 +36,11 @@ if (/^Disallow: \/\s*$/m.test(robots)) fail('robots.txt blocks the whole site');
 const sitemap = fs.existsSync(path.join(dist, 'sitemap.xml')) ? read('sitemap.xml') : '';
 const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => decode(m[1]));
 if (urls.length < 10) fail(`sitemap.xml lists only ${urls.length} pages`);
+// The committed page dates (sitemap <lastmod> fallback) must match git, when git is available.
+if (fs.existsSync(path.resolve(dist, '..', '..', '.git'))) {
+  try { execFileSync('node', [path.resolve(dist, '..', 'scripts', 'page-dates.mjs'), '--check'], { stdio: 'pipe' }); }
+  catch { fail('src/data/page-dates.json is out of date: run `node scripts/page-dates.mjs`'); }
+}
 
 const llms = fs.existsSync(path.join(dist, 'llms.txt')) ? read('llms.txt') : '';
 if (!llms.startsWith('# WellPeps')) fail('llms.txt is missing or does not start with "# WellPeps"');

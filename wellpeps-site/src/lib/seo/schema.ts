@@ -179,6 +179,26 @@ export function article({ path, headline, description, section, published, updat
   };
 }
 
+/** A Smart Patient Guide (the free eBook) on its landing page. No dates: the page's visible stamp is the sitemap's source. */
+export function guideBook({ slug, title, subtitle, cover, pages }: { slug: string; title: string; subtitle: string; cover: string; pages: number }): JsonLd {
+  const url = canonicalUrl(`/smart-patient-guides/${slug}/`);
+  return {
+    '@type': 'Book',
+    '@id': `${url}#guide`,
+    mainEntityOfPage: { '@id': `${url}#webpage` },
+    url,
+    name: `The Smart Patient’s Guide to ${title}`,
+    alternativeHeadline: subtitle,
+    bookFormat: 'https://schema.org/EBook',
+    inLanguage: 'en-US',
+    image: absoluteUrl(cover),
+    numberOfPages: pages,
+    isAccessibleForFree: true,
+    author: { '@id': ORG_ID },
+    publisher: { '@id': ORG_ID },
+  };
+}
+
 /** One JSON-LD document for a page. `<` is escaped so no string inside can close the script element. */
 export function serializeGraph(nodes: readonly (JsonLd | undefined)[]): string {
   return JSON.stringify({ '@context': 'https://schema.org', '@graph': nodes.filter(Boolean) }).replace(/</g, '\\u003c');

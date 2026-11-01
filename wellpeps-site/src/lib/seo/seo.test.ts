@@ -163,6 +163,15 @@ describe('sitemap and robots.txt', () => {
     expect(xml).toContain('<url><loc>https://wellpeps.com/b/</loc></url>');
   });
 
+  test('committed page dates (sitemap fallback) are real YYYY-MM-DD dates for real paths', () => {
+    const dates = JSON.parse(readFileSync(resolve(SITE, 'src/data/page-dates.json'), 'utf8')) as Record<string, string>;
+    for (const [url, date] of Object.entries(dates)) {
+      expect(url).toMatch(/^\/([a-z0-9-]+\/)*$/);
+      expect(date).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(Number.isNaN(Date.parse(date))).toBe(false);
+    }
+  });
+
   test('robots.txt allows everything public and names the sitemap', () => {
     const robots = readFileSync(resolve(SITE, 'public/robots.txt'), 'utf8');
     expect(robots).toMatch(/^User-agent: \*$/m);

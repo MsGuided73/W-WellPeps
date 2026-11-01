@@ -4,7 +4,8 @@
  * address. So a draft page, a gated page or a redirect can never leak into the sitemap, and a new page is
  * listed the moment it exists. A page whose structured data carries a dateModified (the Learning Center
  * articles) gets it as <lastmod>; failing that, a page that shows one "Last updated <time datetime>" stamp
- * (legal documents, guide landings) gets that date. Other pages carry none rather than a made-up date. Wired into
+ * (legal documents, guide landings) gets that date; failing that, a page listed in src/data/page-dates.json gets
+ * the git date of its last source change (scripts/page-dates.mjs). Other pages carry none rather than a made-up date. Wired into
  * astro.config.mjs; checked by scripts/seo-check.mjs.
  */
 import fs from 'node:fs';
@@ -52,13 +53,16 @@ export function lastModifiedOf(html) {
   return stamped.size === 1 ? [...stamped][0] : undefined;
 }
 
+const PAGE_DATES_FILE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../src/data/page-dates.json');
+const readPageDates = () => (fs.existsSync(PAGE_DATES_FILE) ? JSON.parse(fs.readFileSync(PAGE_DATES_FILE, 'utf8')) : {});
+
 /** Every entry the sitemap should list, sorted (home first): { loc, lastmod? }. */
-export function collectSitemapEntries(distDir, site) {
+export function collectSitemapEntries(distDir, site, pageDates = readPageDates()) {
   const entries = [];
   for (const file of walk(distDir)) {
     const loc = pageUrlFor(path.relative(distDir, file), site);
     const html = fs.readFileSync(file, 'utf8');
-    if (belongsInSitemap(html, loc)) entries.push({ loc, lastmod: lastModifiedOf(html) });
+    if (belongsInSitemap(html, loc)) entries.push({ loc, lastmod: lastModifiedOf(html) ?? pageDates[new URL(loc).pathname] });
   }
   return entries.sort((a, b) => (a.loc.length - b.loc.length) || a.loc.localeCompare(b.loc));
 }
