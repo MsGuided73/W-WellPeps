@@ -105,7 +105,7 @@ const plans: Plan[] = [
             ))}
           </ul>
           {p.availability && <p class="wocard__availability">{p.availability}</p>}
-          <a href="/weight-loss" class="wocard__cta">Learn More</a>
+          <a href="/weight-loss" class="wocard__cta">Learn More<span class="visually-hidden"> about {p.name}</span></a>
         </div>
       </article>
     ))}
