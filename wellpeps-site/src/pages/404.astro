@@ -1,0 +1,52 @@
+---
+/**
+ * Branded "page not found" page. Astro builds it as dist/404.html. nginx only shows it once
+ * nginx.conf.template has `error_page 404 /404.html;` (not set yet); until then nginx sends its own
+ * bare 404. Kept out of the sitemap and search (noindex).
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AssessmentCta from '../components/AssessmentCta.astro';
+
+const programs = [
+  { href: '/weight-loss/', label: 'Weight Management' },
+  { href: '/sexual-wellness/', label: 'Sexual Wellness' },
+  { href: '/hair-restoration/', label: 'Hair Restoration' },
+  { href: '/healthy-aging/', label: 'Healthy Aging and Vitality' },
+];
+---
+<BaseLayout title="Page Not Found | WellPeps" description="The page you were looking for could not be found. Browse WellPeps programs, guides and articles, or go back to the home page." noindex>
+  <section class="nf">
+    <div class="container nf__inner">
+      <p class="nf__code">404</p>
+      <h1 class="nf__title">We can't find that page</h1>
+      <p class="nf__lead">The link may be old, or the address may have a typo. Here are some places to start.</p>
+      <div class="nf__actions">
+        <AssessmentCta class="btn btn--primary btn--lg" />
+        <a class="btn btn--secondary btn--lg" href="/">Go to the home page</a>
+      </div>
+      <h2 class="nf__sub">Programs</h2>
+      <ul class="nf__links">
+        {programs.map((p) => <li><a href={p.href}>{p.label}</a></li>)}
+      </ul>
+      <h2 class="nf__sub">Learn more</h2>
+      <ul class="nf__links">
+        <li><a href="/smart-patient-guides/">Smart Patient Guides</a></li>
+        <li><a href="/wellness-learning-center/">Wellness Learning Center</a></li>
+        <li><a href="/how-wellpeps-works/">How WellPeps works</a></li>
+        <li><a href="/contact/">Contact WellPeps</a></li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .nf { padding: clamp(3rem, 8vw, 6rem) 0; }
+  .nf__inner { max-width: 44rem; }
+  .nf__code { font-weight: 700; letter-spacing: 0.08em; color: var(--blue, #146EB7); margin-bottom: 0.5rem; }
+  .nf__title { font-size: clamp(2rem, 1.5rem + 2vw, 3rem); margin-bottom: 1rem; }
+  .nf__lead { font-size: 1.125rem; margin-bottom: 2rem; }
+  .nf__actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; }
+  .nf__sub { font-size: 1.25rem; margin: 1.5rem 0 0.75rem; }
+  .nf__links { list-style: none; padding: 0; display: grid; gap: 0.5rem; }
+  .nf__links a { font-weight: 600; }
+</style>
