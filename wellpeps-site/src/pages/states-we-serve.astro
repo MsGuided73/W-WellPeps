@@ -10,6 +10,8 @@ import { CONTACT } from '../config';
 import { STATES, NOTE_LABEL, STATE_NOTES, STATES_LAST_UPDATED } from '../data/states';
 import { breadcrumbs } from '../lib/seo/schema';
 const jsonLd = [breadcrumbs([{ name: 'States We Serve', path: '/states-we-serve/' }])];
+// "October 8, 2026" -> "2026-10-08" for <time datetime> (read by the sitemap's <lastmod>).
+const updatedIso = new Date(`${STATES_LAST_UPDATED} 12:00 UTC`).toISOString().slice(0, 10);
 ---
 <BaseLayout
   title="States We Serve — WellPeps"
@@ -90,7 +92,7 @@ const jsonLd = [breadcrumbs([{ name: 'States We Serve', path: '/states-we-serve/
         <AssessmentCta class="btn btn--primary btn--lg" />
       </div>
 
-      <p class="spage__updated">Last updated: {STATES_LAST_UPDATED}</p>
+      <p class="spage__updated">Last updated: <time datetime={updatedIso}>{STATES_LAST_UPDATED}</time></p>
     </div>
   </section>
 </BaseLayout>
