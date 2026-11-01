@@ -155,7 +155,7 @@ const showAddress = CONTACT_ADDRESS !== '' || showDrafts;
     <div class="footer__grid" style={`--footer-cols: ${shownColumns.length}`}>
       {shownColumns.map((col) => (
         <div class="footer__col">
-          <h4>{col.heading}</h4>
+          <h2>{col.heading}</h2>
           <ul>
             {col.links.map((l) => (
               <li>
@@ -168,7 +168,7 @@ const showAddress = CONTACT_ADDRESS !== '' || showDrafts;
       ))}
 
       <div class="footer__col footer__contact">
-        <h4>Contact Us</h4>
+        <h2>Contact Us</h2>
         <ul>
           <li>
             <svg class="footer__cicon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -198,7 +198,7 @@ const showAddress = CONTACT_ADDRESS !== '' || showDrafts;
           </li>
         </ul>
 
-        <h4 class="footer__pay-head">We Accept</h4>
+        <h2 class="footer__pay-head">We Accept</h2>
         <ul class="footer__pay" role="list">
           {payments.map((p) => (
             <li class="footer__pay-item">
@@ -348,7 +348,7 @@ const showAddress = CONTACT_ADDRESS !== '' || showDrafts;
   .footer__grid {
     display: grid; grid-template-columns: 1.1fr 1fr 1fr 1fr 1.05fr; gap: 2rem;
   }
-  .footer__col h4 {
+  .footer__col h2 {
     font-family: var(--font-sans); font-weight: 700; font-size: var(--text-body-size);
     letter-spacing: 0.06em; text-transform: uppercase;
     color: var(--f-blue); margin-bottom: 1.4rem;

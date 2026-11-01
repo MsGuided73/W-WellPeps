@@ -22,7 +22,7 @@ await page.goto(BASE + '/', { waitUntil: 'load' });
 const footerText = await page.locator('footer').innerText();
 const links = await page.locator('footer a').evaluateAll((as) => as.map((a) => ({ text: a.textContent.trim(), href: a.getAttribute('href') || '' })));
 const legal = await page.locator('footer .footer__legal a').allInnerTexts();
-const headings = (await page.locator('footer h4').allInnerTexts()).map((h) => h.trim().toLowerCase());
+const headings = (await page.locator('footer h2').allInnerTexts()).map((h) => h.trim().toLowerCase());
 
 check('no "HIPAA Compliant" badge', !/HIPAA\s*Compliant/i.test(footerText));
 check('no "All 50 States" claim', !/all 50 states/i.test(footerText));
