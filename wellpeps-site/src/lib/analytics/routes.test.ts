@@ -16,7 +16,8 @@ const pagesDir = resolve(__dirname, '../../pages');
 
 /** Pages that never load the privacy control (the pre-launch gate) or exist only for development. */
 // llms.txt is a text file for AI tools, not a page anyone browses, so it runs no script and sends nothing.
-const NOT_TRACKED = new Set(['preview-access', 'dev-mockups', 'llms.txt.ts']);
+// 404 is served by the web server at whatever address was typed, so it must stay reported as unmatched (checked below).
+const NOT_TRACKED = new Set(['preview-access', 'dev-mockups', 'llms.txt.ts', '404']);
 
 const routes = readdirSync(pagesDir, { withFileTypes: true })
   .map((e) => (e.isDirectory() ? e.name : e.name.replace(/\.astro$/, '')))
@@ -49,5 +50,10 @@ describe('every page of the site is known to the analytics tool', () => {
 
   test('pages that are not part of the site are not reported', () => {
     for (const name of NOT_TRACKED) expect(sanitizePage(`/${name}`).path).toBe(UNMATCHED_PATH);
+  });
+
+  test('the not-found page reports the typed address as unmatched, never the address itself', () => {
+    expect(sanitizePage('/some-typed-address').path).toBe(UNMATCHED_PATH);
+    expect(sanitizePage('/404').path).toBe(UNMATCHED_PATH);
   });
 });
