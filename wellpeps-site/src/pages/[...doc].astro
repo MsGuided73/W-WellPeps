@@ -7,13 +7,14 @@
  *
  *   /legal-review                  index of every draft, for counsel
  *   /patient-information           index of the patient-facing pages
- *   /contact, /states-we-serve     built from the public copy in the Medical Disclaimer set (A8)
+ *   /contact                       built from the public copy in the Medical Disclaimer set (A8, Block 7)
+ *   /medical-disclaimer            A8's Block 2 only (publicSection in the registry)
  *   everything else                a converted draft document (src/data/legal/<id>.json)
  */
 import LegalDocPage from '../components/legal/LegalDocPage.astro';
 import DocList from '../components/legal/DocList.astro';
 import { LEGAL_DOCS, docDates, docUrl, docsByGroup, draftPagesEnabledNow, findDoc, pagesToBuild } from '../lib/legal-docs';
-import { sectionCopy, type LegalDocData } from '../lib/legal-render';
+import { publicPageCopy, sectionCopy, type LegalDocData } from '../lib/legal-render';
 
 export function getStaticPaths() {
   const { docs, custom } = pagesToBuild(draftPagesEnabledNow());
@@ -36,7 +37,7 @@ const a8 = kind === 'contact' ? load('A8') : undefined;
 const contactBlocks = a8 ? sectionCopy(a8.blocks, /^Block 7\./) : [];
 ---
 {doc && data && (
-  <LegalDocPage title={doc.title} blurb={doc.blurb} docId={doc.id} version={doc.approved ? '1.0' : data.version} date={doc.approved ? (doc.effective ?? data.date) : data.date} {...(doc.approved ? docDates(doc) : {})} blocks={data.blocks} existing={doc.existing} approved={doc.approved} />
+  <LegalDocPage title={doc.title} blurb={doc.blurb} docId={doc.id} version={doc.approved ? '1.0' : data.version} date={doc.approved ? (doc.effective ?? data.date) : data.date} {...(doc.approved ? docDates(doc) : {})} blocks={doc.publicSection ? publicPageCopy(data.blocks, doc.publicSection) : data.blocks} existing={doc.existing} approved={doc.approved} />
 )}
 {kind === 'contact' && a8 && (
   <LegalDocPage title="Contact WellPeps" blurb="How to reach WellPeps by phone or email, and what each contact address is for." docId="A8" version={a8doc?.approved ? '1.0' : a8.version} date={a8doc?.approved ? a8doc.effective : a8.date} {...(a8doc?.approved ? docDates(a8doc) : {})} blocks={contactBlocks} approved={a8doc?.approved} />

@@ -147,6 +147,14 @@ export function renderBlocks(blocks: readonly Block[]): string {
  * "Copy" labels and without the internal "Notes" and "How to complete" lists that
  * sit beside the copy in the draft.
  */
+/**
+ * The page copy of one section (see sectionCopy), without the drafting markers that bracket it
+ * ("Page copy begins. ..." and "Page copy ends.").
+ */
+export function publicPageCopy(blocks: readonly Block[], h1: RegExp): Block[] {
+  return sectionCopy(blocks, h1).filter((b) => !(b.t === 'p' && /^Page copy (begins|ends)\b/.test(b.text)));
+}
+
 export function sectionCopy(blocks: readonly Block[], h1: RegExp): Block[] {
   const start = blocks.findIndex((b) => b.t === 'h1' && h1.test(b.text));
   if (start < 0) return [];

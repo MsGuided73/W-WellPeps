@@ -38,6 +38,8 @@ export interface LegalDoc {
   blurb: string;
   /** The live page that already exists for this subject, if any (its text is not replaced by the draft). */
   existing?: string;
+  /** When only one section of the document file is public page copy: the heading (h1) that starts it. */
+  publicSection?: RegExp;
   /** True once the owner has released the text: built in every deployment, no draft banner. */
   approved?: boolean;
   /** Effective date shown on a released document. */
@@ -70,8 +72,11 @@ export const LEGAL_DOCS: readonly LegalDoc[] = [
     blurb: 'The HIPAA notice of how medical information is used and disclosed, and the patient’s rights.', approved: true, effective: 'October 6, 2026', updated: 'October 12, 2026' },
   { id: 'A7', path: 'accessibility', title: 'Accessibility Statement', label: 'Accessibility', group: 'site',
     blurb: 'The commitment to accessibility and how to get help.', approved: true, effective: 'October 6, 2026' },
-  { id: 'A8', path: 'medical-disclaimer', title: 'Medical Disclaimer and Site-Wide Disclosures', label: 'Medical Disclaimer', group: 'patient',
-    blurb: 'The approved disclosure copy blocks: medical disclaimer, compounded-medication statement, prescription-required lines.', approved: true, effective: 'October 12, 2026' },
+  // A8 is the whole disclosure copy set (footer lines, banners, drafting notes). Only its Block 2, the
+  // Medical Disclaimer page copy, is published here; the other blocks are placed elsewhere or internal.
+  { id: 'A8', path: 'medical-disclaimer', title: 'Medical Disclaimer', label: 'Medical Disclaimer', group: 'patient',
+    blurb: 'What the information on this site is and is not, who provides care, and other important disclosures.', approved: true, effective: 'October 12, 2026',
+    publicSection: /^Block 2\. Medical Disclaimer \(page copy\)/ },
   { id: 'A9', path: 'shipping-and-delivery', title: 'Shipping and Delivery Policy', label: 'Shipping & Delivery', group: 'patient',
     blurb: 'How medications ship, delivery timing, delays and what to do about a problem.', approved: true, effective: 'October 6, 2026' },
   { id: 'A10', path: 'refund-and-cancellation', title: 'Refund, Cancellation and Auto-Renewal Policy', label: 'Refund & Cancellation', group: 'patient',
