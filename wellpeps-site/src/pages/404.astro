@@ -45,7 +45,9 @@ const programs = [
   .nf__code { font-weight: 700; letter-spacing: 0.08em; color: var(--blue, #146EB7); margin-bottom: 0.5rem; }
   .nf__title { font-size: clamp(2rem, 1.5rem + 2vw, 3rem); margin-bottom: 1rem; }
   .nf__lead { font-size: 1.125rem; margin-bottom: 2rem; }
-  .nf__actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; }
+  .nf__actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; max-width: 40rem; margin-bottom: 2.5rem; }
+  .nf__actions :global(.btn) { width: 100%; justify-content: center; text-align: center; }
+  @media (max-width: 560px) { .nf__actions { grid-template-columns: 1fr; } }
   .nf__sub { font-size: 1.25rem; margin: 1.5rem 0 0.75rem; }
   .nf__links { list-style: none; padding: 0; display: grid; gap: 0.5rem; }
   .nf__links a { font-weight: 600; }
