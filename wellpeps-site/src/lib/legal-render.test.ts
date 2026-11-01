@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { escapeHtml, outline, renderBlocks, renderInline, sectionCopy, slugify, smartQuotes, tokenKind, type Block } from './legal-render';
+import { escapeHtml, outline, publicPageCopy, renderBlocks, renderInline, sectionCopy, slugify, smartQuotes, tokenKind, type Block } from './legal-render';
 
 describe('smartQuotes', () => {
   test('turns straight quotes into typographic ones', () => {
@@ -155,5 +155,18 @@ describe('sectionCopy', () => {
   });
   test('an unknown block gives nothing', () => {
     expect(sectionCopy(blocks, /^Block 99/)).toEqual([]);
+  });
+});
+
+describe('the published Medical Disclaimer page (A8)', async () => {
+  const { findDoc } = await import('./legal-docs');
+  const a8 = (await import('../data/legal/A8.json')).default as { blocks: Block[] };
+  const doc = findDoc('medical-disclaimer')!;
+  const copy = publicPageCopy(a8.blocks, doc.publicSection!);
+  test('is Block 2 only: the 15 numbered clauses and the date line, without the drafting markers', () => {
+    expect(copy[0]).toMatchObject({ t: 'p' });
+    expect(JSON.stringify(copy[0])).toContain('Version 1.1');
+    expect(copy.filter((b) => b.t === 'clause')).toHaveLength(15);
+    expect(JSON.stringify(copy)).not.toMatch(/Page copy (begins|ends)|Block \d|Variant/);
   });
 });
