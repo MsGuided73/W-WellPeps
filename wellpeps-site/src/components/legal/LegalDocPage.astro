@@ -42,9 +42,11 @@ const tag = approved
 const isoDay = (human: string) => new Date(`${human} 12:00 UTC`).toISOString().slice(0, 10);
 const lastUpdated = updated ?? published;
 // Search results show about 65 characters of a title; a long document title drops the brand suffix instead of being cut off.
-const releasedTitle = `${title} — WellPeps`.length <= 65 ? `${title} — WellPeps` : title;
+// One pattern, "Page | WellPeps"; a title that already names WellPeps is not given it twice.
+const branded = /WellPeps/.test(title) ? title : `${title} | WellPeps`;
+const releasedTitle = branded.length <= 65 ? branded : title;
 ---
-<BaseLayout title={approved ? releasedTitle : `${title} (draft) — WellPeps`} description={blurb ?? `${title}. Draft for review.`} noindex={!approved} jsonLd={[breadcrumbs([{ name: title, path: Astro.url.pathname }])]}>
+<BaseLayout title={approved ? releasedTitle : `${title} (draft) | WellPeps`} description={blurb ?? `${title}. Draft for review.`} noindex={!approved} jsonLd={[breadcrumbs([{ name: title, path: Astro.url.pathname }])]}>
   <article class="ld">
     <header class="ld__head">
       <div class="container">
