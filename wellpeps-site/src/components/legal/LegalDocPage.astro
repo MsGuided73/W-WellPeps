@@ -14,6 +14,8 @@ import { outline, renderBlocks, type Block } from '../../lib/legal-render';
 interface Props {
   title: string;
   blurb?: string;
+  /** Meta description; defaults to the blurb. */
+  description?: string;
   /** Document id from the index (A3, B2 ...), shown in the tag. */
   docId?: string;
   version?: string;
@@ -29,7 +31,7 @@ interface Props {
   /** A released document: no draft box, no "(draft)" in the title, indexable. */
   approved?: boolean;
 }
-const { title, blurb, docId, version = '0.1', date, published, updated, blocks, existing, plain = false, approved = false } = Astro.props;
+const { title, blurb, description, docId, version = '0.1', date, published, updated, blocks, existing, plain = false, approved = false } = Astro.props;
 // A released document never shows its internal "Technical and drafting notes" section.
 const techAt = approved && blocks ? blocks.findIndex((b) => b.t === 'h1' && /technical and drafting notes/i.test(String((b as { text?: string }).text ?? ''))) : -1;
 const shown = blocks && techAt >= 0 ? blocks.slice(0, techAt) : blocks;
@@ -46,7 +48,7 @@ const lastUpdated = updated ?? published;
 const branded = /WellPeps/.test(title) ? title : `${title} | WellPeps`;
 const releasedTitle = branded.length <= 65 ? branded : title;
 ---
-<BaseLayout title={approved ? releasedTitle : `${title} (draft) | WellPeps`} description={blurb ?? `${title}. Draft for review.`} noindex={!approved} jsonLd={[breadcrumbs([{ name: title, path: Astro.url.pathname }])]}>
+<BaseLayout title={approved ? releasedTitle : `${title} (draft) | WellPeps`} description={description ?? blurb ?? `${title}. Draft for review.`} noindex={!approved} jsonLd={[breadcrumbs([{ name: title, path: Astro.url.pathname }])]}>
   <article class="ld">
     <header class="ld__head">
       <div class="container">

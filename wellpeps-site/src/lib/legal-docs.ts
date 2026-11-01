@@ -36,6 +36,8 @@ export interface LegalDoc {
   group: DocGroup;
   /** One line saying what the document is for. */
   blurb: string;
+  /** Search-result description (meta description), when the blurb is too short for one. Defaults to the blurb. */
+  description?: string;
   /** The live page that already exists for this subject, if any (its text is not replaced by the draft). */
   existing?: string;
   /** When only one section of the document file is public page copy: the heading (h1) that starts it. */
@@ -61,7 +63,8 @@ export const LEGAL_DOCS: readonly LegalDoc[] = [
   { id: 'A1', path: 'terms-of-use', title: 'Website Terms of Use', label: 'Terms of Use', group: 'site',
     blurb: 'The rules for using wellpeps.com: informational site, no medical advice, individual arbitration.', approved: true, effective: 'October 12, 2026', published: 'October 6, 2026' },
   { id: 'A2', path: 'privacy-policy', title: 'Privacy Policy', label: 'Privacy Policy', group: 'site',
-    blurb: 'What the site collects, why, who receives it and how to exercise privacy rights.', approved: true, effective: 'October 6, 2026', updated: 'October 16, 2026' },
+    blurb: 'What the site collects, why, who receives it and how to exercise privacy rights.',
+    description: 'How WellPeps collects, uses and shares information on this website, who receives it, and how to use your privacy rights, including opting out.', approved: true, effective: 'October 6, 2026', updated: 'October 16, 2026' },
   { id: 'A3', path: 'consumer-health-data-privacy-policy', title: 'Consumer Health Data Privacy Policy', label: 'Consumer Health Data Privacy Policy', group: 'site',
     blurb: 'Stand-alone policy for health-related data outside HIPAA (required in Washington and Nevada).', approved: true, effective: 'October 6, 2026', updated: 'October 19, 2026' },
   { id: 'A4', path: 'cookie-notice', title: 'Cookie and Tracking Technologies Notice', label: 'Cookie Notice', group: 'site',
@@ -71,24 +74,29 @@ export const LEGAL_DOCS: readonly LegalDoc[] = [
   { id: 'A6', path: 'notice-of-privacy-practices', title: 'Notice of Privacy Practices', label: 'Notice of Privacy Practices', group: 'site',
     blurb: 'The HIPAA notice of how medical information is used and disclosed, and the patient’s rights.', approved: true, effective: 'October 6, 2026', updated: 'October 12, 2026' },
   { id: 'A7', path: 'accessibility', title: 'Accessibility Statement', label: 'Accessibility', group: 'site',
-    blurb: 'The commitment to accessibility and how to get help.', approved: true, effective: 'October 6, 2026' },
+    blurb: 'The commitment to accessibility and how to get help.',
+    description: 'The WellPeps commitment to website accessibility, the standard we work toward, and how to get help or report a barrier on any page of the site.', approved: true, effective: 'October 6, 2026' },
   // A8 is the whole disclosure copy set (footer lines, banners, drafting notes). Only its Block 2, the
   // Medical Disclaimer page copy, is published here; the other blocks are placed elsewhere or internal.
   { id: 'A8', path: 'medical-disclaimer', title: 'Medical Disclaimer', label: 'Medical Disclaimer', group: 'patient',
     blurb: 'What the information on this site is and is not, who provides care, and other important disclosures.', approved: true, effective: 'October 12, 2026',
     publicSection: /^Block 2\. Medical Disclaimer \(page copy\)/ },
   { id: 'A9', path: 'shipping-and-delivery', title: 'Shipping and Delivery Policy', label: 'Shipping & Delivery', group: 'patient',
-    blurb: 'How medications ship, delivery timing, delays and what to do about a problem.', approved: true, effective: 'October 6, 2026' },
+    blurb: 'How medications ship, delivery timing, delays and what to do about a problem.',
+    description: 'How WellPeps prescriptions are shipped by the pharmacy, typical delivery timing, possible delays, and what to do if a package is late or damaged.', approved: true, effective: 'October 6, 2026' },
   { id: 'A10', path: 'refund-and-cancellation', title: 'Refund, Cancellation and Auto-Renewal Policy', label: 'Refund & Cancellation', group: 'patient',
-    blurb: 'How plans renew, how to cancel, and when a refund is due.', approved: true, effective: 'October 12, 2026' },
+    blurb: 'How plans renew, how to cancel, and when a refund is due.',
+    description: 'How WellPeps plans renew, how to cancel before your next charge, how auto-renewal works, and when a refund is due under the WellPeps policy.', approved: true, effective: 'October 12, 2026' },
   { id: 'A11', path: 'text-messaging-terms', title: 'Text Messaging Terms', label: 'Text Messaging Terms', group: 'site',
     blurb: 'Consent, frequency, STOP and HELP for text messages.' },
   { id: 'A12', path: 'ai-use-disclosure', title: 'AI Use Disclosure', label: 'AI Use Disclosure', group: 'site',
     blurb: 'What the site assistant is, what it can and cannot do, and what is done with chats.', approved: true, effective: 'October 6, 2026' },
   { id: 'A13', path: 'how-wellpeps-works', title: 'How WellPeps Works and Our Financial Relationships', label: 'How WellPeps Works', group: 'patient',
-    blurb: 'Who does what (WellPeps, the medical practice, the pharmacy) and who is paid for what.', approved: true, effective: 'October 12, 2026' },
+    blurb: 'Who does what (WellPeps, the medical practice, the pharmacy) and who is paid for what.',
+    description: 'Who does what in WellPeps care (WellPeps, the independent medical practice and the pharmacy), how each one is paid, and our financial relationships.', approved: true, effective: 'October 12, 2026' },
   { id: 'A14', path: 'safety/glp-1', title: 'GLP-1 Medication Safety Information', label: 'GLP-1 Safety Information', group: 'patient',
-    blurb: 'Important safety information for GLP-1 weight-management medications.', approved: true, effective: 'October 5, 2026', updated: 'October 6, 2026' },
+    blurb: 'Important safety information for GLP-1 weight-management medications.',
+    description: 'Important safety information for GLP-1 medications prescribed through WellPeps, including warnings, possible side effects and when to get help.', approved: true, effective: 'October 5, 2026', updated: 'October 6, 2026' },
   { id: 'A15', path: 'safety/sexual-health', title: 'Sexual Health Medication Safety Information', label: 'Sexual Health Safety Information', group: 'patient',
     blurb: 'Important safety information for sexual-health medications.', approved: true, effective: 'October 6, 2026' },
   { id: 'A16', path: 'safety/hair-loss', title: 'Hair Loss Medication Safety Information', label: 'Hair Loss Safety Information', group: 'patient',
@@ -104,7 +112,8 @@ export const LEGAL_DOCS: readonly LegalDoc[] = [
   { id: 'B4', path: 'telehealth-consent', title: 'Informed Consent to Telehealth Services and Treatment', label: 'Telehealth Consent', group: 'patient',
     blurb: 'Informed consent to receive care by telehealth: how it works, its benefits and limits, and your rights.', approved: true, effective: 'October 12, 2026' },
   { id: 'B5', path: 'compounded-medications', title: 'What Compounded Medications Mean', label: 'Compounded Medications', group: 'patient',
-    blurb: 'What compounded means, that it is not FDA-approved, and the patient’s consent.', approved: true, effective: 'October 6, 2026' },
+    blurb: 'What compounded means, that it is not FDA-approved, and the patient’s consent.',
+    description: 'What a compounded medication is, why compounded medications are not FDA-approved, and what you agree to before a compounded prescription is filled.', approved: true, effective: 'October 6, 2026' },
   { id: 'B6', path: 'legal-review/laboratory-testing-consent', title: 'Laboratory Testing Consent', label: 'Laboratory Testing Consent', group: 'checkout',
     blurb: 'Consent for lab tests when a program requires them.' },
   { id: 'B7', path: 'legal-review/hipaa-authorization-forms', title: 'HIPAA Authorization Forms', label: 'HIPAA Authorization Forms', group: 'checkout',
