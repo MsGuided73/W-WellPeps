@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
+import { LEGITSCRIPT } from '../config';
 
 /* Copy for both card sections is verbatim from the approved "Why WellPeps
    Page 7-9 Notes"; icons follow the client's icon sheet. */
@@ -24,8 +25,23 @@ const patientsFirstCards = [
   { icon: 'lock', title: 'Privacy Protected', body: 'Your personal health information is protected using secure technology. Our Privacy Policy explains what we collect and your choices.' },
 ];
 
-/* New FAQ section — copy verbatim from the 7-9 notes. */
-const faqs = [
+/* FAQ copy: first item is the "Is WellPeps legit?" draft (2026-11-05). Plain
+   `a` feeds FAQPage JSON-LD via toFaqs; `linkBefore`/`linkAfter` wrap the
+   LegitScript verify phrase in the visible panel only. */
+const VERIFY_PHRASE = "verify our certification on LegitScript's website";
+const LEGIT_FAQ_A =
+  "Yes, WellPeps (wellpeps.com) is a LegitScript-certified U.S. wellness company. WellPeps, a Wyoming corporation, is located at 30 N Gould St., Suite R, Sheridan, WY 82801, and our support team can be reached at (307) 881-8700 or support@wellpeps.com. WellPeps does not practice medicine or pharmacy. Your care comes from three independent partners: GEN Health, a telehealth technology platform operated by Scriptful, Inc.; a state-licensed clinician of OSI Medical Services, P.A.; and a state-licensed U.S. pharmacy in the OSI / Scriptful Rx pharmacy network. WellPeps handles education, enrollment and customer support. If your clinician does not prescribe, we refund that payment in full, and you may cancel anytime, with no cancellation fee. We serve patients located in all 50 states. You can verify our certification on LegitScript's website. WellPeps is not affiliated with other companies or social media accounts that use similar names.";
+const verifyAt = LEGIT_FAQ_A.indexOf(VERIFY_PHRASE);
+if (verifyAt < 0) throw new Error('LEGIT_FAQ_A is missing VERIFY_PHRASE');
+
+const faqs: { q: string; a: string; linkBefore?: string; linkAfter?: string }[] = [
+  {
+    q: 'Is WellPeps legit?',
+    a: LEGIT_FAQ_A,
+    linkBefore: LEGIT_FAQ_A.slice(0, verifyAt),
+    linkAfter: LEGIT_FAQ_A.slice(verifyAt + VERIFY_PHRASE.length),
+  },
+  // Remaining items: copy verbatim from the 7-9 notes.
   { q: 'Why choose WellPeps instead of another telehealth company?', a: 'WellPeps combines physician-guided care, experienced pharmacy partners, personalized treatment plans, transparent pricing, and ongoing support to deliver a more patient-centered healthcare experience.' },
   { q: 'Are your healthcare providers licensed?', a: 'Yes. Every treatment recommendation is made by licensed healthcare providers practicing in the states where they are authorized to provide care.' },
   { q: 'Where do your medications come from?', a: 'When prescribed, medications are dispensed through licensed U.S. pharmacy partners that meet applicable quality and regulatory standards.' },
@@ -134,7 +150,11 @@ const jsonLd = [breadcrumbs([{ name: 'Why WellPeps', path: '/why-wellpeps/' }]),
               {f.q}
               <span class="why-faq__icon"><Icon name="chevron-down" /></span>
             </button>
-            <div class="why-faq__panel"><p>{f.a}</p></div>
+            <div class="why-faq__panel"><p>
+              {f.linkBefore !== undefined ? (
+                <>{f.linkBefore}<a href={LEGITSCRIPT.verifyUrl} target="_blank" rel="noopener">{VERIFY_PHRASE}</a>{f.linkAfter}</>
+              ) : f.a}
+            </p></div>
           </div>
         ))}
       </div>

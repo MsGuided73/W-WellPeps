@@ -63,6 +63,13 @@ describe('structured data', () => {
     expect(org.description).toMatch(/not a medical practice or a pharmacy/);
   });
 
+  test('Organization alternateName is WellPeps.com and sameAs is LegitScript verify-only', () => {
+    const org = organization() as any;
+    expect(org.alternateName).toBe('WellPeps.com');
+    expect(org.sameAs).toEqual(['https://www.legitscript.com/websites/?checker_keywords=wellpeps.com']);
+    expect(JSON.stringify(org.sameAs)).not.toMatch(/websites\/wellpeps\.com\/?|instagram|wellpepslab|youtube/i);
+  });
+
   test('the business address parses into a postal address', () => {
     expect(postalAddress(CONTACT_ADDRESS)).toMatchObject({ addressLocality: 'Sheridan', addressRegion: 'WY', postalCode: '82801', addressCountry: 'US' });
     expect(postalAddress('somewhere')).toBeUndefined();
