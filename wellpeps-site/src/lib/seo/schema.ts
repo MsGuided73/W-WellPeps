@@ -50,11 +50,13 @@ export function organization(): JsonLd {
       availableLanguage: 'English',
     },
     // Brand-entity profiles search engines cross-reference: the public
-    // LegitScript listing for wellpeps.com (certified 2026-10-09). Add
-    // customer-facing social profiles here as they go live. The GitHub org
-    // is deliberately NOT listed (owner 2026-10-26: dev infrastructure,
-    // not a public brand surface).
-    sameAs: [LEGITSCRIPT.verifyUrl],
+    // LegitScript verification for wellpeps.com (certified 2026-10-09) and
+    // the official YouTube channel (owner confirmed the wellpeps handle
+    // 2026-11-14; channel verified live). Add Instagram/X/LinkedIn here
+    // once confirmed. The GitHub org is deliberately NOT listed (owner
+    // 2026-10-26: dev infrastructure, not a public brand surface), and
+    // instagram.com/wellpepslab is a third party, never ours.
+    sameAs: [LEGITSCRIPT.verifyUrl, 'https://www.youtube.com/@WellPeps'],
   };
 }
 
