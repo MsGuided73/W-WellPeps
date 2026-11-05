@@ -236,6 +236,15 @@ export const LEGITSCRIPT = {
   verifyUrl: 'https://www.legitscript.com/websites/?checker_keywords=wellpeps.com',
 } as const;
 
+/**
+ * Official YouTube channel. Dana (site owner) confirmed this URL and asked for
+ * it on the site and in Organization sameAs (2026-11-05). Instagram is not
+ * listed here and stays unlinked until Dana confirms it.
+ */
+export const YOUTUBE = {
+  url: 'https://www.youtube.com/@wellpeps',
+} as const;
+
 export const CONTACT_ADDRESS: string = '30 N Gould St., Suite R, Sheridan, WY 82801';
 
 /**

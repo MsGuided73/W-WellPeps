@@ -15,7 +15,8 @@
  * exist only in dev and in deployments built with SHOW_DRAFT_PAGES=true, so the footer never
  * shows a dead link, and a column with no links left disappears.
  */
-import { CONTACT, CONTACT_ADDRESS, PATIENT_PORTAL_URL } from '../config';
+import { CONTACT, CONTACT_ADDRESS, PATIENT_PORTAL_URL, YOUTUBE } from '../config';
+import Icon from './Icon.astro';
 import { GUIDES_INDEX_PATH } from '../lib/guide-flow';
 import { draftPagesEnabledNow, linkVisible } from '../lib/legal-docs';
 import LegitScriptSeal from './LegitScriptSeal.astro';
@@ -196,6 +197,10 @@ const showAddress = CONTACT_ADDRESS !== '' || showDrafts;
             </svg>
             <span>Support: {hoursDays}<br />{hoursTimes}<br /><a href={PATIENT_PORTAL_URL}><strong>Patient Portal</strong></a></span>
           </li>
+          <li>
+            <Icon name="youtube" class="footer__social-icon" />
+            <span><a href={YOUTUBE.url} target="_blank" rel="noopener noreferrer" aria-label="WellPeps on YouTube (opens in a new tab)">YouTube</a></span>
+          </li>
         </ul>
 
         <h2 class="footer__pay-head">We Accept</h2>
@@ -363,6 +368,8 @@ const showAddress = CONTACT_ADDRESS !== '' || showDrafts;
 
   .footer__contact ul li { display: flex; gap: 0.7rem; align-items: flex-start; line-height: 1.4; }
   .footer__cicon { width: 22px; height: 22px; color: var(--f-blue); margin-top: 1px; flex: none; }
+  /* Icon.astro svg does not receive this component's scope attribute, so size and color go through :global. */
+  .footer__contact :global(.footer__social-icon) { width: 22px; height: 22px; color: var(--f-blue); margin-top: 1px; flex: none; }
   .footer__contact small { display: block; margin-top: 0.2rem; font-size: var(--text-legal); color: var(--f-muted); }
 
   /* ---- Legal links ---- */

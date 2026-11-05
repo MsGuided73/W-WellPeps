@@ -9,7 +9,7 @@
  *    claim is marked up, because none is substantiated.
  *  - Prices come from the data files through catalog.ts, so markup and page cannot disagree.
  */
-import { CONTACT, CONTACT_ADDRESS, LEGITSCRIPT } from '../../config';
+import { CONTACT, CONTACT_ADDRESS, LEGITSCRIPT, YOUTUBE } from '../../config';
 import type { Faq, ProgramEntry } from './catalog';
 import { SHARE_IMAGE, SITE_NAME, SITE_URL, absoluteUrl, canonicalUrl } from './site';
 
@@ -51,11 +51,11 @@ export function organization(): JsonLd {
       availableLanguage: 'English',
     },
     // Brand-entity profiles search engines cross-reference. Owner rule
-    // (2026-10-29): sameAs is LegitScript verify-only. Do not add the
-    // /websites/wellpeps.com/ listing URL. Instagram wellpeps and YouTube
-    // stay out until linked from the site and Dana confirms; @wellpepslab
-    // is a third party, never ours. GitHub org is not a brand surface.
-    sameAs: [LEGITSCRIPT.verifyUrl],
+    // (2026-10-29): do not add the /websites/wellpeps.com/ listing URL.
+    // YouTube is now approved and linked (Dana, 2026-11-05). Instagram still
+    // waits until it is linked and Dana confirms it. @wellpepslab is a third
+    // party, never ours. GitHub org is not a brand surface.
+    sameAs: [LEGITSCRIPT.verifyUrl, YOUTUBE.url],
   };
 }
 
