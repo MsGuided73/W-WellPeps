@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, test } from 'vitest';
-import { CONTACT_ADDRESS } from '../../config';
+import { CONTACT_ADDRESS, LEGITSCRIPT, YOUTUBE } from '../../config';
 import { weightProducts } from '../../data/weight';
 import { PROGRAMS, programAt, startingPrice, toFaqs, toPrice } from './catalog';
 import { buildLlmsTxt } from './llms';
@@ -63,11 +63,12 @@ describe('structured data', () => {
     expect(org.description).toMatch(/not a medical practice or a pharmacy/);
   });
 
-  test('Organization alternateName is WellPeps.com and sameAs is LegitScript verify-only', () => {
+  test('Organization alternateName is WellPeps.com and sameAs is LegitScript verify plus YouTube', () => {
     const org = organization() as any;
     expect(org.alternateName).toBe('WellPeps.com');
-    expect(org.sameAs).toEqual(['https://www.legitscript.com/websites/?checker_keywords=wellpeps.com']);
-    expect(JSON.stringify(org.sameAs)).not.toMatch(/websites\/wellpeps\.com\/?|instagram|wellpepslab|youtube/i);
+    expect(YOUTUBE.url).toBe('https://www.youtube.com/@wellpeps');
+    expect(org.sameAs).toEqual([LEGITSCRIPT.verifyUrl, YOUTUBE.url]);
+    expect(JSON.stringify(org.sameAs)).not.toMatch(/websites\/wellpeps\.com\/?|instagram|wellpepslab/i);
   });
 
   test('the business address parses into a postal address', () => {
