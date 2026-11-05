@@ -31,6 +31,7 @@ export function organization(): JsonLd {
     '@type': 'Organization',
     '@id': ORG_ID,
     name: SITE_NAME,
+    alternateName: 'WellPeps.com',
     url: `${SITE_URL}/`,
     logo: { '@type': 'ImageObject', url: absoluteUrl('/images/logo-full-v2.png'), width: 600, height: 125 },
     description:
@@ -49,14 +50,12 @@ export function organization(): JsonLd {
       areaServed: 'US',
       availableLanguage: 'English',
     },
-    // Brand-entity profiles search engines cross-reference: the public
-    // LegitScript verification for wellpeps.com (certified 2026-10-09) and
-    // the official YouTube channel (owner confirmed the wellpeps handle
-    // 2026-11-14; channel verified live). Add Instagram/X/LinkedIn here
-    // once confirmed. The GitHub org is deliberately NOT listed (owner
-    // 2026-10-26: dev infrastructure, not a public brand surface), and
-    // instagram.com/wellpepslab is a third party, never ours.
-    sameAs: [LEGITSCRIPT.verifyUrl, 'https://www.youtube.com/@WellPeps'],
+    // Brand-entity profiles search engines cross-reference. Owner rule
+    // (2026-10-29): sameAs is LegitScript verify-only. Do not add the
+    // /websites/wellpeps.com/ listing URL. Instagram wellpeps and YouTube
+    // stay out until linked from the site and Dana confirms; @wellpepslab
+    // is a third party, never ours. GitHub org is not a brand surface.
+    sameAs: [LEGITSCRIPT.verifyUrl],
   };
 }
 
