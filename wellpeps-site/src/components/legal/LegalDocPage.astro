@@ -13,6 +13,8 @@ import { outline, renderBlocks, type Block } from '../../lib/legal-render';
 
 interface Props {
   title: string;
+  /** Optional longer <title> for search results. H1 and breadcrumbs stay `title`. */
+  seoTitle?: string;
   blurb?: string;
   /** Meta description; defaults to the blurb. */
   description?: string;
@@ -31,7 +33,7 @@ interface Props {
   /** A released document: no draft box, no "(draft)" in the title, indexable. */
   approved?: boolean;
 }
-const { title, blurb, description, docId, version = '0.1', date, published, updated, blocks, existing, plain = false, approved = false } = Astro.props;
+const { title, seoTitle, blurb, description, docId, version = '0.1', date, published, updated, blocks, existing, plain = false, approved = false } = Astro.props;
 // A released document never shows its internal "Technical and drafting notes" section.
 const techAt = approved && blocks ? blocks.findIndex((b) => b.t === 'h1' && /technical and drafting notes/i.test(String((b as { text?: string }).text ?? ''))) : -1;
 const shown = blocks && techAt >= 0 ? blocks.slice(0, techAt) : blocks;
@@ -45,8 +47,10 @@ const isoDay = (human: string) => new Date(`${human} 12:00 UTC`).toISOString().s
 const lastUpdated = updated ?? published;
 // Search results show about 65 characters of a title; a long document title drops the brand suffix instead of being cut off.
 // One pattern, "Page | WellPeps"; a title that already names WellPeps is not given it twice.
-const branded = /WellPeps/.test(title) ? title : `${title} | WellPeps`;
-const releasedTitle = branded.length <= 65 ? branded : title;
+// `seoTitle` lengthens the <title> without changing the H1 when the document heading must stay short.
+const titleForMeta = seoTitle ?? title;
+const branded = /WellPeps/.test(titleForMeta) ? titleForMeta : `${titleForMeta} | WellPeps`;
+const releasedTitle = branded.length <= 65 ? branded : titleForMeta;
 ---
 <BaseLayout title={approved ? releasedTitle : `${title} (draft) | WellPeps`} description={description ?? blurb ?? `${title}. Draft for review.`} noindex={!approved} jsonLd={[breadcrumbs([{ name: title, path: Astro.url.pathname }])]}>
   <article class="ld">

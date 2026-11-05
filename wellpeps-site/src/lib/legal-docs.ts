@@ -31,6 +31,8 @@ export interface LegalDoc {
   path: string;
   /** Page heading. */
   title: string;
+  /** Optional longer <title> for search results. H1 stays `title`. Brand suffix applied unless it already names WellPeps. */
+  seoTitle?: string;
   /** Short text for links (footer, lists). */
   label: string;
   group: DocGroup;
@@ -63,6 +65,7 @@ export const LEGAL_DOCS: readonly LegalDoc[] = [
   { id: 'A1', path: 'terms-of-use', title: 'Website Terms of Use', label: 'Terms of Use', group: 'site',
     blurb: 'The rules for using wellpeps.com: informational site, no medical advice, individual arbitration.', approved: true, effective: 'October 12, 2026', published: 'October 6, 2026' },
   { id: 'A2', path: 'privacy-policy', title: 'Privacy Policy', label: 'Privacy Policy', group: 'site',
+    seoTitle: 'Privacy Policy: How We Collect and Share Data',
     blurb: 'What the site collects, why, who receives it and how to exercise privacy rights.',
     description: 'How WellPeps collects, uses and shares information on this website, who receives it, and how to use your privacy rights, including opting out.', approved: true, effective: 'October 6, 2026', updated: 'October 16, 2026' },
   { id: 'A3', path: 'consumer-health-data-privacy-policy', title: 'Consumer Health Data Privacy Policy', label: 'Consumer Health Data Privacy Policy', group: 'site',
@@ -79,6 +82,7 @@ export const LEGAL_DOCS: readonly LegalDoc[] = [
   // A8 is the whole disclosure copy set (footer lines, banners, drafting notes). Only its Block 2, the
   // Medical Disclaimer page copy, is published here; the other blocks are placed elsewhere or internal.
   { id: 'A8', path: 'medical-disclaimer', title: 'Medical Disclaimer', label: 'Medical Disclaimer', group: 'patient',
+    seoTitle: 'Medical Disclaimer: What This Site Is and Is Not',
     blurb: 'What the information on this site is and is not, who provides care, and other important disclosures.', approved: true, effective: 'October 12, 2026',
     publicSection: /^Block 2\. Medical Disclaimer \(page copy\)/ },
   { id: 'A9', path: 'shipping-and-delivery', title: 'Shipping and Delivery Policy', label: 'Shipping & Delivery', group: 'patient',
@@ -90,6 +94,7 @@ export const LEGAL_DOCS: readonly LegalDoc[] = [
   { id: 'A11', path: 'text-messaging-terms', title: 'Text Messaging Terms', label: 'Text Messaging Terms', group: 'site',
     blurb: 'Consent, frequency, STOP and HELP for text messages.' },
   { id: 'A12', path: 'ai-use-disclosure', title: 'AI Use Disclosure', label: 'AI Use Disclosure', group: 'site',
+    seoTitle: 'AI Use Disclosure: What the Site Assistant Can Do',
     blurb: 'What the site assistant is, what it can and cannot do, and what is done with chats.', approved: true, effective: 'October 6, 2026' },
   { id: 'A13', path: 'how-wellpeps-works', title: 'How WellPeps Works and Our Financial Relationships', label: 'How WellPeps Works', group: 'patient',
     blurb: 'Who does what (WellPeps, the medical practice, the pharmacy) and who is paid for what.',
@@ -98,11 +103,14 @@ export const LEGAL_DOCS: readonly LegalDoc[] = [
     blurb: 'Important safety information for GLP-1 weight-management medications.',
     description: 'Important safety information for GLP-1 medications prescribed through WellPeps, including warnings, possible side effects and when to get help.', approved: true, effective: 'October 5, 2026', updated: 'October 6, 2026' },
   { id: 'A15', path: 'safety/sexual-health', title: 'Sexual Health Medication Safety Information', label: 'Sexual Health Safety Information', group: 'patient',
-    blurb: 'Important safety information for sexual-health medications.', approved: true, effective: 'October 6, 2026' },
+    blurb: 'Important safety information for sexual-health medications.',
+    description: 'Important safety information for sexual-health medications prescribed through WellPeps, including warnings, interactions, and when to get emergency help.', approved: true, effective: 'October 6, 2026' },
   { id: 'A16', path: 'safety/hair-loss', title: 'Hair Loss Medication Safety Information', label: 'Hair Loss Safety Information', group: 'patient',
-    blurb: 'Important safety information for hair-loss medications.', approved: true, effective: 'October 6, 2026' },
+    blurb: 'Important safety information for hair-loss medications.',
+    description: 'Important safety information for hair-loss medications prescribed through WellPeps, including warnings, who should not use them, and when to get help.', approved: true, effective: 'October 6, 2026' },
   { id: 'A17', path: 'safety/healthy-aging', title: 'Healthy Aging and Vitality Medication Safety Information', label: 'Healthy Aging Safety Information', group: 'patient',
-    blurb: 'Important safety information for healthy-aging and vitality products.', approved: true, effective: 'October 6, 2026' },
+    blurb: 'Important safety information for healthy-aging and vitality products.',
+    description: 'Important safety information for healthy-aging and vitality products prescribed through WellPeps, including warnings, compounded limits, and when to get help.', approved: true, effective: 'October 6, 2026' },
   { id: 'B1', path: 'legal-review/electronic-records-consent', title: 'Electronic Records, Signatures and Communications Consent', label: 'Electronic Records Consent', group: 'checkout',
     blurb: 'Agreeing to sign and receive documents electronically (first screen of checkout).' },
   { id: 'B2', path: 'patient-terms', title: 'Patient Terms of Service and Payment Agreement', label: 'Patient Terms', group: 'patient',
