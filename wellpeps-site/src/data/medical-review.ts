@@ -47,6 +47,9 @@ type ReviewerId = keyof typeof MEDICAL_REVIEWERS;
 /** The GLP-1 / Weight Management articles: reviewed and approved by Dr. Yirga on 2026-11-06 (owner, 2026-11-06). */
 const GLP1_REVIEW = { reviewer: 'rahel-yirga-md', reviewedOn: '2026-11-06' } as const;
 
+/** Hair Restoration, Sexual Wellness and Healthy Aging & Vitality articles: approved by Dr. Yirga on 2026-11-07 (owner, 2026-11-07). */
+const NOV7_REVIEW = { reviewer: 'rahel-yirga-md', reviewedOn: '2026-11-07' } as const;
+
 export const REVIEWS: Readonly<Record<string, { reviewer: ReviewerId; reviewedOn: string }>> = {
   'common-glp1-side-effects': GLP1_REVIEW,
   'common-questions-about-glp1-medications': GLP1_REVIEW,
@@ -62,6 +65,29 @@ export const REVIEWS: Readonly<Record<string, { reviewer: ReviewerId; reviewedOn
   'understanding-obesity-as-a-chronic-disease': GLP1_REVIEW,
   'weight-loss-plateaus-explained': GLP1_REVIEW,
   'why-am-i-not-losing-weight-on-glp1': GLP1_REVIEW,
+  // Hair Restoration
+  'female-hair-thinning': NOV7_REVIEW,
+  'finasteride-explained': NOV7_REVIEW,
+  'male-pattern-baldness': NOV7_REVIEW,
+  'oral-vs-topical-minoxidil': NOV7_REVIEW,
+  'understanding-hair-loss': NOV7_REVIEW,
+  'why-hair-growth-takes-time': NOV7_REVIEW,
+  // Sexual Wellness
+  'common-causes-of-low-libido-in-men': NOV7_REVIEW,
+  'daily-vs-on-demand-ed-medication': NOV7_REVIEW,
+  'lifestyle-factors-that-affect-sexual-health': NOV7_REVIEW,
+  'performance-anxiety-and-sexual-health': NOV7_REVIEW,
+  'pt-141-explained': NOV7_REVIEW,
+  'sildenafil-vs-tadalafil': NOV7_REVIEW,
+  'understanding-erectile-dysfunction': NOV7_REVIEW,
+  'when-to-talk-to-a-healthcare-provider-about-ed': NOV7_REVIEW,
+  // Healthy Aging & Vitality (peptides-wellness)
+  'glutathione-explained': NOV7_REVIEW,
+  'mic-b12-explained': NOV7_REVIEW,
+  'nad-explained': NOV7_REVIEW,
+  'recovery-and-performance': NOV7_REVIEW,
+  'sermorelin-explained': NOV7_REVIEW,
+  'what-are-peptides': NOV7_REVIEW,
 };
 
 /** "Rahel Yirga, MD" */

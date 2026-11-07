@@ -31,6 +31,18 @@ describe('medical review records', () => {
     }
   });
 
+  it.each([
+    ['hair-restoration', 6],
+    ['sexual-wellness', 8],
+    ['peptides-wellness', 6],
+  ])('covers every %s article: Dr. Yirga approved all of them on 2026-11-07', (category, count) => {
+    const inCategory = articles.filter((a) => a.category_slug === category).map((a) => a.slug);
+    expect(inCategory.length).toBe(count);
+    for (const slug of inCategory) {
+      expect(reviewForArticle(slug), slug).toMatchObject({ reviewedOn: '2026-11-07', reviewer: { id: 'rahel-yirga-md' } });
+    }
+  });
+
   it('uses real calendar dates that are not in the future', () => {
     for (const [slug, r] of Object.entries(REVIEWS)) {
       expect(r.reviewedOn, slug).toMatch(/^\d{4}-\d{2}-\d{2}$/);
@@ -40,7 +52,7 @@ describe('medical review records', () => {
   });
 
   it('leaves unreviewed articles without a review', () => {
-    expect(reviewForArticle('sildenafil-vs-tadalafil')).toBeUndefined();
+    expect(reviewForArticle('how-telehealth-works')).toBeUndefined();
   });
 });
 
@@ -58,7 +70,7 @@ describe('reviewer details', () => {
   });
 
   it('lists the reviewer\'s articles for the profile page', () => {
-    expect(reviewsBy('rahel-yirga-md')).toHaveLength(14);
+    expect(reviewsBy('rahel-yirga-md')).toHaveLength(34);
   });
 
   it('formats a date-only review date without shifting the day', () => {
