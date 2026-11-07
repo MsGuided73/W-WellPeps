@@ -74,9 +74,11 @@ export interface PageMeta {
   review?: ArticleReview;
   /** The @id of the page's main subject (a ProfilePage's Person). */
   mainEntity?: string;
+  /** Last change to the page, YYYY-MM-DD; the page shows the same date. */
+  dateModified?: string;
 }
 
-export function webPage({ path, title, description, type = 'WebPage', review, mainEntity }: PageMeta): JsonLd {
+export function webPage({ path, title, description, type = 'WebPage', review, mainEntity, dateModified }: PageMeta): JsonLd {
   const url = canonicalUrl(path);
   return {
     '@type': type,
@@ -91,6 +93,7 @@ export function webPage({ path, title, description, type = 'WebPage', review, ma
     // reviewedBy / lastReviewed are WebPage properties: the page shows the same reviewer and date.
     ...(review ? { reviewedBy: { '@id': reviewerId(review.reviewer) }, lastReviewed: review.reviewedOn } : {}),
     ...(mainEntity ? { mainEntity: { '@id': mainEntity } } : {}),
+    ...(dateModified ? { dateModified } : {}),
   };
 }
 

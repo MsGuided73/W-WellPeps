@@ -51,6 +51,7 @@ const jsonLd = [
   jsonLd={jsonLd}
   pageType="ProfilePage"
   mainEntity={reviewerId(reviewer)}
+  dateModified={reviewer.profileUpdated}
 >
   <section class="section">
     <div class="container rvw">
@@ -64,6 +65,7 @@ const jsonLd = [
 
       <p class="rvw__eyebrow">Medical Reviewer</p>
       <h1 class="rvw__name">{name}</h1>
+      <p class="rvw__updated">Last updated <time datetime={reviewer.profileUpdated}>{formatReviewDate(reviewer.profileUpdated)}</time></p>
       <p class="rvw__lead">
         {short} is a licensed physician in {reviewer.specialty.toLowerCase()} who reviews WellPeps Wellness
         Learning Center articles for medical accuracy before they are marked as medically reviewed.
@@ -138,6 +140,7 @@ const jsonLd = [
   .rvw__facts dd { margin: 0; font-weight: 700; color: var(--navy); }
   .rvw__facts a { color: var(--blue-on-tint); }
   .rvw__note { font-size: var(--text-note); color: var(--text-muted, #5A6B80); }
+  .rvw__updated { margin: -0.25rem 0 1rem; font-size: var(--text-note); color: var(--text-muted, #5A6B80); }
 
   .rvw__h2 {
     font-size: calc(var(--text-body-size) * 1.55); color: var(--navy);

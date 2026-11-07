@@ -73,6 +73,14 @@ describe('reviewer details', () => {
     for (const r of Object.values(MEDICAL_REVIEWERS)) expect(r.npi).toMatch(/^\d{10}$/);
   });
 
+  it('dates the profile page with a real YYYY-MM-DD that is not in the future', () => {
+    for (const r of Object.values(MEDICAL_REVIEWERS)) {
+      expect(r.profileUpdated).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(Number.isNaN(Date.parse(r.profileUpdated)), r.profileUpdated).toBe(false);
+      expect(r.profileUpdated <= new Date().toISOString().slice(0, 10)).toBe(true);
+    }
+  });
+
   it('lists the reviewer\'s articles for the profile page', () => {
     expect(reviewsBy('rahel-yirga-md')).toHaveLength(35);
   });

@@ -29,6 +29,8 @@ interface Props {
   review?: PageMeta['review'];
   /** @id of the page's main subject, e.g. a ProfilePage's Person. */
   mainEntity?: string;
+  /** Last change to the page (YYYY-MM-DD): dateModified in its structured data, <lastmod> in the sitemap. */
+  dateModified?: string;
   /** og:type: an article page is "article". */
   ogType?: 'website' | 'article';
 }
@@ -40,6 +42,7 @@ const {
   pageType,
   review,
   mainEntity,
+  dateModified,
   ogType = 'website',
 } = Astro.props;
 
@@ -49,7 +52,7 @@ const canonical = canonicalUrl(Astro.url.pathname);
 const shareImage = absoluteUrl(SHARE_IMAGE.path);
 const graph = noindex
   ? ''
-  : serializeGraph([organization(), website(), webPage({ path: Astro.url.pathname, title, description, type: pageType, review, mainEntity }), ...jsonLd]);
+  : serializeGraph([organization(), website(), webPage({ path: Astro.url.pathname, title, description, type: pageType, review, mainEntity, dateModified }), ...jsonLd]);
 ---
 <!doctype html>
 <html lang="en">

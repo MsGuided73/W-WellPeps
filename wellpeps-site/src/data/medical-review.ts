@@ -22,6 +22,9 @@ export interface MedicalReviewer {
   credentialName: string;
   specialty: string;
   npi: string;
+  /** Last change to the reviewer's profile page, YYYY-MM-DD. Shown as "Last updated" and used as the
+   *  page's dateModified, which the sitemap turns into <lastmod>. Change it whenever the profile changes. */
+  profileUpdated: string;
 }
 
 export interface ArticleReview {
@@ -39,6 +42,7 @@ export const MEDICAL_REVIEWERS = {
     credentialName: 'Doctor of Medicine',
     specialty: 'Internal Medicine',
     npi: '1437121910',
+    profileUpdated: '2026-11-07',
   },
 } as const satisfies Record<string, MedicalReviewer>;
 
