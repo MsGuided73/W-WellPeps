@@ -1,0 +1,41 @@
+{
+ "taken": "2026-11-07",
+ "source": "Supabase blog_articles and scripts/data/articles.json (identical for these rows)",
+ "rows": [
+  {
+   "slug": "common-questions-about-glp1-medications",
+   "meta_title": "GLP-1 Medications: Answers to Common Questions | WellPeps",
+   "meta_description": "Answers to common questions about GLP-1 medications: what to expect, lifestyle habits, follow-up care and how personalized weight management works."
+  },
+  {
+   "slug": "male-pattern-baldness",
+   "meta_title": "Male Pattern Baldness: Causes and Treatments | WellPeps",
+   "meta_description": "What causes male pattern baldness, how it usually progresses, and the prescription treatment options a licensed provider may recommend for you."
+  },
+  {
+   "slug": "why-hair-growth-takes-time",
+   "meta_title": "Why Hair Regrowth Takes Time | WellPeps",
+   "meta_description": "Why hair restoration is gradual, how the natural hair growth cycle works, and what realistic expectations and consistency look like during treatment."
+  },
+  {
+   "slug": "nad-explained",
+   "meta_title": "NAD+ Explained: What It Is and Why It Matters | WellPeps",
+   "meta_description": "What NAD+ is, the role it plays in normal cell function, and how a healthcare provider evaluates whether NAD+ therapy may be appropriate for you."
+  },
+  {
+   "slug": "sermorelin-explained",
+   "meta_title": "Sermorelin Explained: What It Is and How It Works | WellPeps",
+   "meta_description": "What sermorelin is, how it signals the pituitary gland to release growth hormone, and how a provider decides whether it fits your wellness plan."
+  },
+  {
+   "slug": "glutathione-explained",
+   "meta_title": "Glutathione: The Body's Natural Antioxidant | WellPeps",
+   "meta_description": "What glutathione is, its role in normal cell function, and how a healthcare provider decides whether glutathione therapy fits your wellness plan."
+  },
+  {
+   "slug": "understanding-compounded-medications",
+   "meta_title": "Compounded Medications: What Patients Should Know | WellPeps",
+   "meta_description": "What compounded medications are, how they differ from FDA-approved drugs, why a clinician may prescribe one, and questions to ask before starting."
+  }
+ ]
+}
