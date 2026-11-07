@@ -43,6 +43,10 @@ describe('medical review records', () => {
     }
   });
 
+  it('covers Healthy Aging (Wellness Foundations), the seventh Healthy Aging article approved on 2026-11-07', () => {
+    expect(reviewForArticle('healthy-aging')).toMatchObject({ reviewedOn: '2026-11-07', reviewer: { id: 'rahel-yirga-md' } });
+  });
+
   it('uses real calendar dates that are not in the future', () => {
     for (const [slug, r] of Object.entries(REVIEWS)) {
       expect(r.reviewedOn, slug).toMatch(/^\d{4}-\d{2}-\d{2}$/);
@@ -70,7 +74,7 @@ describe('reviewer details', () => {
   });
 
   it('lists the reviewer\'s articles for the profile page', () => {
-    expect(reviewsBy('rahel-yirga-md')).toHaveLength(34);
+    expect(reviewsBy('rahel-yirga-md')).toHaveLength(35);
   });
 
   it('formats a date-only review date without shifting the day', () => {

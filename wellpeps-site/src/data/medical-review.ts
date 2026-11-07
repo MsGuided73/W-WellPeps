@@ -47,7 +47,7 @@ type ReviewerId = keyof typeof MEDICAL_REVIEWERS;
 /** The GLP-1 / Weight Management articles: reviewed and approved by Dr. Yirga on 2026-11-06 (owner, 2026-11-06). */
 const GLP1_REVIEW = { reviewer: 'rahel-yirga-md', reviewedOn: '2026-11-06' } as const;
 
-/** Hair Restoration, Sexual Wellness and Healthy Aging & Vitality articles: approved by Dr. Yirga on 2026-11-07 (owner, 2026-11-07). */
+/** Hair Restoration, Sexual Wellness and Healthy Aging & Vitality articles, plus Healthy Aging (Wellness Foundations): approved by Dr. Yirga on 2026-11-07 (owner, 2026-11-07). */
 const NOV7_REVIEW = { reviewer: 'rahel-yirga-md', reviewedOn: '2026-11-07' } as const;
 
 export const REVIEWS: Readonly<Record<string, { reviewer: ReviewerId; reviewedOn: string }>> = {
@@ -88,6 +88,8 @@ export const REVIEWS: Readonly<Record<string, { reviewer: ReviewerId; reviewedOn
   'recovery-and-performance': NOV7_REVIEW,
   'sermorelin-explained': NOV7_REVIEW,
   'what-are-peptides': NOV7_REVIEW,
+  // Wellness Foundations: the owner's Healthy Aging list includes this article
+  'healthy-aging': NOV7_REVIEW,
 };
 
 /** "Rahel Yirga, MD" */
