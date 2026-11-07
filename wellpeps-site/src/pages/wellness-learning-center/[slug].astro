@@ -24,6 +24,7 @@ import { sealMarkup } from '../../lib/md-seal';
 import type { ProgramSlug } from '../../lib/cta';
 import { getArticles, getRelatedArticles, type ArticleWithCategory } from '../../lib/blog';
 import { withToc } from '../../lib/toc';
+import ArticleTocRail from '../../components/ArticleTocRail.astro';
 
 export async function getStaticPaths() {
   const articles = await getArticles();
@@ -60,6 +61,13 @@ const jsonLd = [
   review && reviewerPerson(review.reviewer),
 ];
 const { html: bodyHtml, toc } = withToc(article.body_html);
+/* The sticky side list also links the closing sections, so a reader can jump straight to the medical review. */
+const railEntries = [
+  ...toc,
+  ...(article.key_takeaways.length > 0 ? [{ id: 'key-takeaways', text: 'Key Takeaways' }] : []),
+  ...(review ? [{ id: 'medical-review', text: 'Medical Review' }] : []),
+];
+const hasTocRail = toc.length > 1;
 const related = await getRelatedArticles(article);
 
 /* Guide-funnel flow: the guide that matches the article's subject, offered once partway through the
@@ -117,7 +125,9 @@ const assessmentProgram: ProgramSlug | undefined = showSexualTreatments
       </ol>
     </nav>
 
-    <div class="article-grid">
+    <div class:list={['article-grid', { 'article-grid--toc': hasTocRail }]}>
+      {hasTocRail && <ArticleTocRail entries={railEntries} />}
+
       <article class="article">
         <header class="article__head">
           <p class="article__eyebrow">{article.category.name}</p>
@@ -264,6 +274,14 @@ const assessmentProgram: ProgramSlug | undefined = showSexualTreatments
   @media (min-width: 62rem) {
     .article-grid { grid-template-columns: minmax(0, 1fr) 20.5rem; }
   }
+  /* Wide screens: sticky contents list on the left (ArticleTocRail). 15rem fits the 19px links,
+     and the gap tightens so the article keeps about 60+ characters a line at 1280px. */
+  @media (min-width: 80rem) {
+    .article-grid--toc {
+      grid-template-columns: 15rem minmax(0, 1fr) 20.5rem;
+      gap: clamp(2.5rem, -2rem + 5vw, 4rem);
+    }
+  }
 
   /* ---- Article header ---- */
   .article__eyebrow {
@@ -314,6 +332,10 @@ const assessmentProgram: ProgramSlug | undefined = showSexualTreatments
   .toc {
     margin: 2rem 0 2.5rem; padding: 1.25rem 1.5rem;
     background: var(--bg-pale-blue); border-radius: 12px;
+  }
+  /* The left column takes over on wide screens. */
+  @media (min-width: 80rem) {
+    .toc { display: none; }
   }
   .toc__title {
     font-size: var(--text-card-title); color: var(--navy); margin-bottom: 0.75rem;

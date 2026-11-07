@@ -1,0 +1,123 @@
+---
+/**
+ * Sticky "In this article" list in the left column of a Learning Center article (wide screens only).
+ *
+ * Shown from 80rem (1280px), where the article keeps a readable line length beside both side columns.
+ * Narrower screens keep the inline box under the lede instead, so only one table of contents is ever
+ * visible (or in the accessibility tree: display:none removes the hidden one).
+ *
+ * The link for the section being read is marked aria-current="location" as the reader scrolls.
+ * The label is a <p>, not a heading: this sits before the article's <h1> in the page order.
+ */
+import type { TocEntry } from '../lib/toc';
+
+interface Props {
+  entries: TocEntry[];
+}
+
+const { entries } = Astro.props;
+---
+
+<nav class="toc-rail" aria-labelledby="toc-rail-title" data-toc-rail>
+  <p class="toc-rail__title" id="toc-rail-title">In this article</p>
+  <ul class="toc-rail__list">
+    {entries.map((entry) => (
+      <li><a href={`#${entry.id}`}>{entry.text}</a></li>
+    ))}
+  </ul>
+</nav>
+
+<script>
+  /* Distance from the top of the window at which a section counts as "being read": clears the sticky header. */
+  const READING_LINE_PX = 128;
+
+  const rail = document.querySelector<HTMLElement>('[data-toc-rail]');
+  if (rail) {
+    const pairs = [...rail.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')]
+      .map((link) => ({ link, target: document.getElementById(decodeURIComponent(link.hash.slice(1))) }))
+      .filter((p): p is { link: HTMLAnchorElement; target: HTMLElement } => p.target !== null);
+
+    let active = -1;
+    let queued = false;
+
+    const keepInView = (link: HTMLElement) => {
+      const top = link.offsetTop - rail.offsetTop;
+      if (top < rail.scrollTop) rail.scrollTop = top;
+      else if (top + link.offsetHeight > rail.scrollTop + rail.clientHeight) {
+        rail.scrollTop = top + link.offsetHeight - rail.clientHeight;
+      }
+    };
+
+    const update = () => {
+      queued = false;
+      if (rail.offsetParent === null) return; // hidden below the wide-screen breakpoint
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      let current = -1;
+      pairs.forEach((p, i) => {
+        if (p.target.getBoundingClientRect().top - READING_LINE_PX <= 0) current = i;
+      });
+      if (atBottom) current = pairs.length - 1;
+      if (current === active) return;
+      if (active >= 0) pairs[active].link.removeAttribute('aria-current');
+      active = current;
+      if (active >= 0) {
+        pairs[active].link.setAttribute('aria-current', 'location');
+        keepInView(pairs[active].link);
+      }
+    };
+
+    const schedule = () => {
+      if (!queued) {
+        queued = true;
+        requestAnimationFrame(update);
+      }
+    };
+
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    update();
+  }
+</script>
+
+<style>
+  .toc-rail { display: none; }
+
+  @media (min-width: 80rem) {
+    .toc-rail {
+      display: block;
+      position: sticky; top: 6rem;
+      max-height: calc(100vh - 7.5rem);
+      overflow-y: auto; overscroll-behavior: contain;
+      padding-right: 0.25rem;
+    }
+  }
+
+  .toc-rail__title {
+    font-size: var(--text-body-size); font-weight: 700; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--navy);
+    margin: 0 0 0.75rem; padding-inline: 0.75rem;
+  }
+
+  .toc-rail__list {
+    display: grid; gap: 0.15rem;
+    list-style: none; padding: 0; margin: 0;
+  }
+
+  .toc-rail__list a {
+    display: block;
+    padding: 0.45rem 0.75rem; border-radius: 8px;
+    font-size: var(--text-body-size); line-height: 1.35;
+    color: var(--blue-on-tint); text-decoration: none;
+    transition: background-color 160ms cubic-bezier(0.25, 1, 0.5, 1), color 160ms cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  .toc-rail__list a:hover { background: var(--bg-pale-blue); color: var(--blue-hover); }
+
+  /* The section being read: navy on a pale tint, not just a color change. */
+  .toc-rail__list a[aria-current='location'] {
+    background: var(--bg-pale-blue); color: var(--navy); font-weight: 600;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .toc-rail__list a { transition: none; }
+  }
+</style>
