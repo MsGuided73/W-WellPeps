@@ -19,6 +19,8 @@ import PeptideTherapies from '../../components/sections/PeptideTherapies.astro';
 import SexualTreatmentOptions from '../../components/sections/SexualTreatmentOptions.astro';
 import WeightTreatmentOptions from '../../components/sections/WeightTreatmentOptions.astro';
 import AssessmentCta from '../../components/AssessmentCta.astro';
+import MdReviewedBadge from '../../components/MdReviewedBadge.astro';
+import { sealMarkup } from '../../lib/md-seal';
 import type { ProgramSlug } from '../../lib/cta';
 import { getArticles, getRelatedArticles, type ArticleWithCategory } from '../../lib/blog';
 import { withToc } from '../../lib/toc';
@@ -120,15 +122,7 @@ const assessmentProgram: ProgramSlug | undefined = showSexualTreatments
         <header class="article__head">
           <p class="article__eyebrow">{article.category.name}</p>
           <h1 class="article__title">{article.title}</h1>
-          {review && (
-            <p class="article__review">
-              <svg class="article__review-icon" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l7.5 3v5.6c0 4.6-3.1 8.8-7.5 10.4-4.4-1.6-7.5-5.8-7.5-10.4V5.5z" fill="var(--blue)"></path><path d="M8.4 12.2l2.5 2.5 4.8-4.9" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-              <span>
-                Medically reviewed by <a href={reviewerPath(review.reviewer)}>{reviewerName(review.reviewer)}</a>,
-                {' '}{review.reviewer.specialty}, on <time datetime={review.reviewedOn}>{formatReviewDate(review.reviewedOn)}</time>
-              </span>
-            </p>
-          )}
+          {review && <MdReviewedBadge variant="byline" review={review} />}
           <p class="article__meta">
             {publishedIso && <span>Published <time datetime={publishedIso}>{longDate(publishedIso)}</time></span>}
             {publishedIso && <span aria-hidden="true">·</span>}
@@ -174,6 +168,8 @@ const assessmentProgram: ProgramSlug | undefined = showSexualTreatments
 
         {review && (
           <section class="review-note" aria-labelledby="medical-review">
+            <Fragment set:html={sealMarkup(56, 'md-seal review-note__seal')} />
+            <div class="review-note__body">
             <h2 class="review-note__title" id="medical-review">Medical Review</h2>
             <p>
               This article was reviewed and approved for medical accuracy by{' '}
@@ -189,6 +185,7 @@ const assessmentProgram: ProgramSlug | undefined = showSexualTreatments
                 Verify {reviewerShortName(review.reviewer)}&rsquo;s credentials in the NPI Registry<span class="visually-hidden"> (opens in a new tab)</span>
               </a>
             </p>
+            </div>
           </section>
         )}
 
@@ -201,6 +198,7 @@ const assessmentProgram: ProgramSlug | undefined = showSexualTreatments
               {related.map((item) => (
                 <li>
                   <a href={item.url_path}>{item.title}</a>
+                  {reviewForArticle(item.slug) && <MdReviewedBadge variant="tag" class="related__badge" />}
                 </li>
               ))}
             </ul>
@@ -286,21 +284,19 @@ const assessmentProgram: ProgramSlug | undefined = showSexualTreatments
     .article__meta > [aria-hidden] { display: none; }
   }
 
-  /* ---- Medical review byline ---- */
-  .article__review {
-    display: flex; align-items: flex-start; gap: 0.55rem;
-    margin: 0 0 0.6rem;
-    font-size: var(--text-body-size); line-height: 1.45; color: var(--navy);
-  }
-  .article__review-icon { flex: none; margin-top: 0.1rem; }
-  .article__review a { font-weight: 600; color: var(--blue-on-tint); }
-  .article__review a:hover { color: var(--blue-hover); }
-
   /* ---- Medical review note (end of article) ---- */
+  /* Seal as the leading emblem (a colored side stripe is banned by the design rules). */
   .review-note {
+    display: flex; align-items: flex-start; gap: 1.1rem;
     margin-top: 2.75rem; padding: 1.5rem 1.75rem;
-    border: 1px solid var(--border); border-left: 4px solid var(--blue); border-radius: 14px;
-    background: #fff;
+    border: 1px solid var(--border); border-radius: 14px;
+    background: var(--bg-pale-blue);
+  }
+  .review-note :global(.review-note__seal) { flex: none; margin-top: 0.1rem; }
+  .review-note__body { min-width: 0; }
+  .review-note time { white-space: nowrap; }
+  @media (max-width: 30rem) {
+    .review-note { flex-direction: column; gap: 0.75rem; }
   }
   .review-note__title { font-size: calc(var(--text-body-size) * 1.3); color: var(--navy); margin-bottom: 0.75rem; }
   .review-note p { margin-bottom: 0.75rem; }
@@ -378,6 +374,7 @@ const assessmentProgram: ProgramSlug | undefined = showSexualTreatments
   .related__list li { padding-left: 1.25rem; border-left: 1px solid #E4EAF2; }
   .related__list li:first-child { padding-left: 0; border-left: 0; }
   .related__list a { font-size: var(--text-body-size); line-height: 1.5; }
+  .related__list :global(.related__badge) { display: flex; width: fit-content; margin-top: 0.45rem; font-size: var(--text-note); }
 
   /* ---- Sticky rail ---- */
   /* minmax(0, 1fr) + min-width: 0: rail cards fit the rail column instead of widening it with their content. */

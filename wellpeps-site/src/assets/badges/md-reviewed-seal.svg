@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-labelledby="md-seal-title">
+  <title id="md-seal-title">Medically reviewed by a physician (MD)</title>
+  <path d="M24.00 2.60 Q27.94 -0.86 30.61 3.65 Q35.43 1.58 36.58 6.69 Q41.80 6.20 41.31 11.42 Q46.42 12.57 44.35 17.39 Q48.86 20.06 45.40 24.00 Q48.86 27.94 44.35 30.61 Q46.42 35.43 41.31 36.58 Q41.80 41.80 36.58 41.31 Q35.43 46.42 30.61 44.35 Q27.94 48.86 24.00 45.40 Q20.06 48.86 17.39 44.35 Q12.57 46.42 11.42 41.31 Q6.20 41.80 6.69 36.58 Q1.58 35.43 3.65 30.61 Q-0.86 27.94 2.60 24.00 Q-0.86 20.06 3.65 17.39 Q1.58 12.57 6.69 11.42 Q6.20 6.20 11.42 6.69 Q12.57 1.58 17.39 3.65 Q20.06 -0.86 24.00 2.60 Z" fill="#082B59"/>
+  <circle cx="24" cy="24" r="16.6" fill="none" stroke="#2EA8F7" stroke-width="1.7"/>
+  <path d="M16.2 24.6l5.2 5.2L32 19.2" fill="none" stroke="#FAFCFF" stroke-width="3.9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

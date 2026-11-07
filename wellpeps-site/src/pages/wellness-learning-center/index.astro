@@ -13,6 +13,8 @@
  * full library and the page works without JavaScript (details/summary).
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import MdReviewedBadge from '../../components/MdReviewedBadge.astro';
+import { reviewForArticle } from '../../data/medical-review';
 import { breadcrumbs } from '../../lib/seo/schema';
 import Icon from '../../components/Icon.astro';
 import AssessmentCta from '../../components/AssessmentCta.astro';
@@ -21,6 +23,8 @@ import GuideRing from '../../components/guides/GuideRing.astro';
 import { EBOOKS } from '../../data/ebooks';
 
 const categories = await getCategoriesWithArticles();
+// Physician-reviewed articles carry the "MD Reviewed" tag on every card and list row (src/data/medical-review.ts).
+const isReviewed = (slug: string) => reviewForArticle(slug) !== undefined;
 const featured = await getFeaturedArticles();
 const totalArticles = categories.reduce((n, c) => n + c.articles.length, 0);
 
@@ -38,6 +42,7 @@ const searchIndex = categories.flatMap((c) =>
     c: c.name,
     u: a.url_path,
     m: a.reading_minutes,
+    r: isReviewed(a.slug),
   }))
 );
 // Rendered into a JSON data block, which the Content-Security-Policy does not
@@ -125,7 +130,8 @@ const searchIndexJson = JSON.stringify(searchIndex).replace(/</g, '\\u003c');
                   <span class="lc-fcard__title">{a.title}</span>
                   {a.meta_description && <span class="lc-fcard__desc">{a.meta_description}</span>}
                   <span class="lc-fcard__meta">
-                    <Icon name="clock" />{a.reading_minutes} min read
+                    <span class="lc-fcard__time"><Icon name="clock" />{a.reading_minutes} min read</span>
+                    {isReviewed(a.slug) && <MdReviewedBadge variant="tag" />}
                   </span>
                 </a>
               </li>
@@ -155,7 +161,10 @@ const searchIndexJson = JSON.stringify(searchIndex).replace(/</g, '\\u003c');
               {category.articles.map((a) => (
                 <li>
                   <a href={a.url_path}>
-                    <span class="lc-cat__link-title">{a.title}</span>
+                    <span class="lc-cat__link-title">
+                      {a.title}
+                      {isReviewed(a.slug) && <MdReviewedBadge variant="tag" class="lc-cat__badge" />}
+                    </span>
                     <span class="lc-cat__link-meta">{a.reading_minutes} min</span>
                   </a>
                 </li>
@@ -192,7 +201,11 @@ const searchIndexJson = JSON.stringify(searchIndex).replace(/</g, '\\u003c');
   // Search box. A bundled script (not an inline one) so the site's
   // Content-Security-Policy can stay `script-src 'self'`; the index comes from
   // the JSON data block rendered inside the search form.
-  type SearchEntry = { t: string; d: string; c: string; u: string; m: number };
+  import { MD_REVIEWED_LABEL, sealMarkup } from '../../lib/md-seal';
+
+  type SearchEntry = { t: string; d: string; c: string; u: string; m: number; r: boolean };
+  // Same seal and label as MdReviewedBadge (variant "tag"), for physician-reviewed results.
+  const reviewedTag = `<span class="lc-cat__badge mdb-tag-js">${sealMarkup(22)}<span>${MD_REVIEWED_LABEL}</span></span>`;
 
   (() => {
     const input = document.querySelector<HTMLInputElement>('[data-search]');
@@ -241,7 +254,7 @@ const searchIndexJson = JSON.stringify(searchIndex).replace(/</g, '\\u003c');
       list.innerHTML = hits
         .map(
           (a) => `<li><a href="${esc(a.u)}">
-            <span class="lc-cat__link-title">${esc(a.t)}</span>
+            <span class="lc-cat__link-title">${esc(a.t)}${a.r ? reviewedTag : ''}</span>
             <span class="lc-cat__link-meta">${esc(a.c)} · ${a.m} min</span>
           </a></li>`
         )
@@ -384,7 +397,9 @@ const searchIndexJson = JSON.stringify(searchIndex).replace(/</g, '\\u003c');
     margin-top: auto; padding-top: 0.9rem;
     font-size: var(--text-body-size); color: var(--text-muted, #5A6B80);
   }
-  .lc-fcard__meta :global(svg) { width: 18px; height: 18px; }
+  .lc-fcard__meta { flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1rem; }
+  .lc-fcard__time { display: inline-flex; align-items: center; gap: 0.45rem; }
+  .lc-fcard__time :global(svg) { width: 18px; height: 18px; }
 
   /* ---- Library accordion ---- */
   .lc-library {
@@ -435,6 +450,11 @@ const searchIndexJson = JSON.stringify(searchIndex).replace(/</g, '\\u003c');
   }
   .lc-cat__list a:hover { background: var(--bg-pale-blue); color: var(--blue); }
   .lc-cat__link-title { font-size: var(--text-body-size); line-height: 1.45; }
+  /* "MD Reviewed" sits on its own line under the title, in the badge's navy. The search results are
+     drawn by the script, so their copy of the tag is styled here too (.mdb-tag-js). */
+  .lc-cat__link-title :global(.lc-cat__badge) { display: flex; width: fit-content; margin-top: 0.3rem; font-size: var(--text-note); }
+  :global(.mdb-tag-js) { align-items: center; gap: 0.4rem; font-weight: 600; line-height: 1.2; color: var(--navy); white-space: nowrap; }
+  :global(.mdb-tag-js .md-seal) { flex: none; }
   .lc-cat__link-meta {
     flex: none; font-size: var(--text-body-size); color: var(--text-muted, #5A6B80);
   }
@@ -449,12 +469,17 @@ const searchIndexJson = JSON.stringify(searchIndex).replace(/</g, '\\u003c');
     list-style: none; padding: 0.4rem; margin: 0;
     border: 1px solid #E4EAF2; border-radius: 14px; background: var(--white);
   }
-  .lc-results__list a {
+  /* The result rows are written by the search script, so they carry no Astro scope attribute:
+     everything inside the list is styled with :global (before 2026-11-06 these rules never matched). */
+  .lc-results__list :global(a) {
     display: flex; align-items: baseline; justify-content: space-between;
     gap: 1rem; padding: 0.7rem 0.9rem; border-radius: 8px; color: var(--text-body);
     transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
   }
-  .lc-results__list a:hover { background: var(--bg-pale-blue); color: var(--blue); }
+  .lc-results__list :global(a:hover) { background: var(--bg-pale-blue); color: var(--blue); }
+  .lc-results__list :global(.lc-cat__link-title) { font-size: var(--text-body-size); line-height: 1.45; }
+  .lc-results__list :global(.lc-cat__link-meta) { flex: none; font-size: var(--text-body-size); color: var(--text-muted, #5A6B80); }
+  .lc-results__list :global(.lc-cat__badge) { display: flex; width: fit-content; margin-top: 0.3rem; font-size: var(--text-note); }
 
   /* ---- Closing CTA ---- */
   .lc-cta {

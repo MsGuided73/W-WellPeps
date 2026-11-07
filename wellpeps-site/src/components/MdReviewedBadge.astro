@@ -1,0 +1,62 @@
+---
+/**
+ * "MD Reviewed" badge for Learning Center articles a physician has reviewed (src/data/medical-review.ts).
+ *
+ *  - variant "tag": the seal plus "MD Reviewed", for cards and article lists.
+ *  - variant "byline": a larger seal with the reviewer's name, specialty and review date, for the article header.
+ *
+ * Navy, not Brand Blue: the badge is a mark of trust, not something to click (DESIGN.md, Blue Means Act).
+ * The seal is decorative; the text beside it carries the meaning, so color is never the only signal.
+ */
+import { MD_REVIEWED_LABEL, sealMarkup } from '../lib/md-seal';
+import { formatReviewDate, reviewerName, reviewerPath, type ArticleReview } from '../data/medical-review';
+
+type Props = { variant: 'tag'; class?: string } | { variant: 'byline'; review: ArticleReview; class?: string };
+
+const props = Astro.props;
+---
+
+{props.variant === 'tag' ? (
+  <span class:list={['mdb-tag', props.class]}>
+    <Fragment set:html={sealMarkup(22)} />
+    <span>{MD_REVIEWED_LABEL}</span>
+  </span>
+) : (
+  <p class:list={['mdb-byline', props.class]}>
+    <Fragment set:html={sealMarkup(46)} />
+    <span class="mdb-byline__text">
+      <span class="mdb-byline__who">
+        Medically reviewed by <a href={reviewerPath(props.review.reviewer)}>{reviewerName(props.review.reviewer)}</a>
+      </span>
+      <span class="mdb-byline__when">
+        {props.review.reviewer.specialty} · Reviewed <time datetime={props.review.reviewedOn}>{formatReviewDate(props.review.reviewedOn)}</time>
+      </span>
+    </span>
+  </p>
+)}
+
+<style>
+  .mdb-tag {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-weight: 600; line-height: 1.2; color: var(--navy);
+    white-space: nowrap;
+  }
+  .mdb-tag :global(.md-seal) { flex: none; }
+
+  .mdb-byline {
+    display: flex; align-items: center; gap: 0.75rem;
+    margin: 0 0 0.85rem;
+    font-size: var(--text-body-size); line-height: 1.4;
+  }
+  .mdb-byline :global(.md-seal) { flex: none; }
+  .mdb-byline__text { display: flex; flex-direction: column; gap: 0.1rem; min-width: 0; }
+  .mdb-byline__who { color: var(--navy); }
+  .mdb-byline__who a { font-weight: 700; color: var(--blue-on-tint); white-space: nowrap; }
+  .mdb-byline__who a:hover { color: var(--blue-hover); }
+  .mdb-byline__when { color: var(--text-muted, #5A6B80); }
+  /* Phone: a smaller seal leaves the reviewer's name room on one line. */
+  @media (max-width: 30rem) {
+    .mdb-byline { gap: 0.6rem; align-items: flex-start; }
+    .mdb-byline :global(.md-seal) { width: 38px; height: 38px; margin-top: 0.15rem; }
+  }
+</style>
