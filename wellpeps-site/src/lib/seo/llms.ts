@@ -16,6 +16,8 @@ export interface LlmsArticle {
   title: string;
   path: string;
   category: string;
+  /** Physician review, e.g. { by: 'Rahel Yirga, MD', on: '2026-11-06', profile: '/medical-reviewers/rahel-yirga-md/' }. */
+  review?: { by: string; on: string; profile: string };
 }
 
 const money = (n: number) => `$${Number.isInteger(n) ? n : n.toFixed(2)}`;
@@ -95,7 +97,10 @@ export function buildLlmsTxt(articles: readonly LlmsArticle[], builtOn: Date): s
   ];
   if (articles.length) {
     out.push('## Wellness Learning Center articles', '');
-    for (const a of articles) out.push(`- [${a.title}](${canonicalUrl(a.path)}) (${a.category})`);
+    for (const a of articles) {
+      const review = a.review ? `; medically reviewed by [${a.review.by}](${canonicalUrl(a.review.profile)}) on ${a.review.on}` : '';
+      out.push(`- [${a.title}](${canonicalUrl(a.path)}) (${a.category}${review})`);
+    }
     out.push('');
   }
   out.push(

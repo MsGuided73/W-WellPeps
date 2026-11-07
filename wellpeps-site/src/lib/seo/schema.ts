@@ -10,6 +10,7 @@
  *  - Prices come from the data files through catalog.ts, so markup and page cannot disagree.
  */
 import { CONTACT, CONTACT_ADDRESS, LEGITSCRIPT, YOUTUBE } from '../../config';
+import { npiRegistryUrl, reviewerPath, type ArticleReview, type MedicalReviewer } from '../../data/medical-review';
 import type { Faq, ProgramEntry } from './catalog';
 import { SHARE_IMAGE, SITE_NAME, SITE_URL, absoluteUrl, canonicalUrl } from './site';
 
@@ -68,10 +69,14 @@ export interface PageMeta {
   title: string;
   description: string;
   /** Article pages are BlogPosting; everything else is a WebPage. */
-  type?: 'WebPage' | 'AboutPage' | 'ContactPage' | 'CollectionPage' | 'FAQPage';
+  type?: 'WebPage' | 'AboutPage' | 'ContactPage' | 'CollectionPage' | 'FAQPage' | 'ProfilePage';
+  /** A physician's medical review of the page's content: adds reviewedBy and lastReviewed. */
+  review?: ArticleReview;
+  /** The @id of the page's main subject (a ProfilePage's Person). */
+  mainEntity?: string;
 }
 
-export function webPage({ path, title, description, type = 'WebPage' }: PageMeta): JsonLd {
+export function webPage({ path, title, description, type = 'WebPage', review, mainEntity }: PageMeta): JsonLd {
   const url = canonicalUrl(path);
   return {
     '@type': type,
@@ -83,6 +88,32 @@ export function webPage({ path, title, description, type = 'WebPage' }: PageMeta
     isPartOf: { '@id': SITE_ID },
     publisher: { '@id': ORG_ID },
     primaryImageOfPage: { '@type': 'ImageObject', url: absoluteUrl(SHARE_IMAGE.path) },
+    // reviewedBy / lastReviewed are WebPage properties: the page shows the same reviewer and date.
+    ...(review ? { reviewedBy: { '@id': reviewerId(review.reviewer) }, lastReviewed: review.reviewedOn } : {}),
+    ...(mainEntity ? { mainEntity: { '@id': mainEntity } } : {}),
+  };
+}
+
+export const reviewerId = (r: MedicalReviewer): string => `${canonicalUrl(reviewerPath(r))}#person`;
+
+/**
+ * A medical reviewer as a Person. Only facts the profile page shows; sameAs points at the public CMS NPI
+ * Registry record so search and AI tools can confirm the credential from an outside source.
+ */
+export function reviewerPerson(r: MedicalReviewer): JsonLd {
+  return {
+    '@type': 'Person',
+    '@id': reviewerId(r),
+    name: `${r.givenName} ${r.familyName}`,
+    givenName: r.givenName,
+    familyName: r.familyName,
+    honorificSuffix: r.credential,
+    url: canonicalUrl(reviewerPath(r)),
+    jobTitle: 'Physician',
+    knowsAbout: r.specialty,
+    hasCredential: { '@type': 'EducationalOccupationalCredential', credentialCategory: 'degree', name: r.credentialName },
+    identifier: { '@type': 'PropertyValue', propertyID: 'NPI', value: r.npi },
+    sameAs: [npiRegistryUrl(r)],
   };
 }
 

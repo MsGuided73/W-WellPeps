@@ -55,6 +55,8 @@ export function pageTemplateOf(path: string): PageTemplate {
   if (under(path, '/your-privacy-choices')) return 'privacy_choices';
   if (under(path, '/your-plan')) return 'plan';
   if (under(path, '/why-wellpeps')) return 'about';
+  // Medical reviewer profiles (who reviews the Learning Center) are about-the-company pages.
+  if (under(path, '/medical-reviewers')) return 'about';
   return 'other';
 }
 

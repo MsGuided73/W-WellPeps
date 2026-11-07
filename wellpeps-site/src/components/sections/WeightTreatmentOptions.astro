@@ -7,14 +7,24 @@
  * "Everything Included." bar renders in the article rail instead (client
  * direction).
  *
- * Plan photos reuse the Weight Loss page's product vial shots per the comp's
- * upload note ("Use Correct Pics from Weight Loss Page"), with the same
+ * Plan photos are the Weight Loss page's product shots per the comp's upload
+ * note ("Use Correct Pics from Weight Loss Page"), read from its data, with the same
  * contain-on-white treatment that page uses. Pricing carries the same
  * price note as the product pages, which the comp omits, so the legal
  * treatment matches everywhere the prices appear.
  */
 import { PRICE_NOTE } from '../../config';
-import { ORAL_GLP1_AVAILABILITY } from '../../data/weight';
+import { ORAL_GLP1_AVAILABILITY, weightProducts, type PillProduct } from '../../data/weight';
+
+/* Photos and alt text come from the Weight Loss page's product data, so the
+   article cards always show the same current labels (the "Compounded" vials
+   since 2026-10-12). Until 2026-11-06 this file kept its own copies of the
+   paths and still showed the older unlabelled vials. */
+function photo(form: PillProduct['form'], medication: PillProduct['medication']): Pick<PillProduct, 'image' | 'alt'> {
+  const product = weightProducts.find((p) => p.form === form && p.medication === medication);
+  if (!product) throw new Error(`WeightTreatmentOptions: no ${form} ${medication} product in src/data/weight.ts`);
+  return { image: product.image, alt: product.alt };
+}
 interface PlanFeature {
   text: string;
   /** First feature per the comp — rendered as a filled blue pill. */
@@ -34,8 +44,7 @@ interface Plan {
 const plans: Plan[] = [
   {
     name: 'Semaglutide Injection',
-    image: '/images/weight/product-semaglutide.webp',
-    alt: 'Compounded semaglutide injection vial',
+    ...photo('injection', 'semaglutide'),
     price: 179,
     features: [
       { text: 'All-Inclusive Pricing', highlight: true },
@@ -45,8 +54,7 @@ const plans: Plan[] = [
   },
   {
     name: 'Tirzepatide Injection',
-    image: '/images/weight/product-tirzepatide.webp',
-    alt: 'Compounded tirzepatide injection vial',
+    ...photo('injection', 'tirzepatide'),
     price: 249,
     features: [
       { text: 'All-Inclusive Pricing', highlight: true },
@@ -56,8 +64,7 @@ const plans: Plan[] = [
   },
   {
     name: 'Oral Semaglutide Tablets',
-    image: '/images/weight/product-oral.webp',
-    alt: 'Oral semaglutide tablets',
+    ...photo('oral', 'semaglutide'),
     price: 229,
     availability: ORAL_GLP1_AVAILABILITY,
     features: [

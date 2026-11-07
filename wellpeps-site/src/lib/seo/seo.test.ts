@@ -5,7 +5,8 @@ import { CONTACT_ADDRESS, LEGITSCRIPT, YOUTUBE } from '../../config';
 import { weightProducts } from '../../data/weight';
 import { PROGRAMS, programAt, startingPrice, toFaqs, toPrice } from './catalog';
 import { buildLlmsTxt } from './llms';
-import { breadcrumbs, faqPage, organization, postalAddress, programService, serializeGraph } from './schema';
+import { breadcrumbs, faqPage, organization, postalAddress, programService, reviewerPerson, serializeGraph, webPage } from './schema';
+import { reviewForArticle } from '../../data/medical-review';
 import { canonicalUrl } from './site';
 import { belongsInSitemap, lastModifiedOf, pageUrlFor, renderSitemap } from '../../../scripts/lib/sitemap.mjs';
 import { addTrailingSlashes, slashlessPageLinks } from '../../../scripts/lib/trailing-slash.mjs';
@@ -111,6 +112,35 @@ describe('structured data', () => {
   });
 });
 
+describe('medical review markup', () => {
+  const review = reviewForArticle('semaglutide-vs-tirzepatide')!;
+
+  test('a reviewed page carries reviewedBy (pointing at the reviewer) and lastReviewed', () => {
+    const page = webPage({ path: '/wellness-learning-center/semaglutide-vs-tirzepatide/', title: 't', description: 'd', review });
+    expect(page.reviewedBy).toEqual({ '@id': 'https://wellpeps.com/medical-reviewers/rahel-yirga-md/#person' });
+    expect(page.lastReviewed).toBe('2026-11-06');
+  });
+
+  test('an unreviewed page carries neither', () => {
+    const page = webPage({ path: '/weight-loss/', title: 't', description: 'd' });
+    expect(page).not.toHaveProperty('reviewedBy');
+    expect(page).not.toHaveProperty('lastReviewed');
+  });
+
+  test('the reviewer is a Person with the MD credential and the public NPI Registry record', () => {
+    const person = reviewerPerson(review.reviewer);
+    expect(person).toMatchObject({
+      '@type': 'Person',
+      '@id': 'https://wellpeps.com/medical-reviewers/rahel-yirga-md/#person',
+      name: 'Rahel Yirga',
+      honorificSuffix: 'MD',
+      url: 'https://wellpeps.com/medical-reviewers/rahel-yirga-md/',
+      identifier: { propertyID: 'NPI', value: '1437121910' },
+      sameAs: ['https://npiregistry.cms.hhs.gov/provider-view/1437121910'],
+    });
+  });
+});
+
 describe('llms.txt', () => {
   const text = buildLlmsTxt([{ title: 'Understanding GLP-1s', path: '/wellness-learning-center/glp1/', category: 'Weight' }], new Date('2026-10-11T00:00:00Z'));
 
@@ -137,6 +167,14 @@ describe('llms.txt', () => {
   test('includes the build date and the Learning Center articles', () => {
     expect(text).toContain('last built 2026-10-11');
     expect(text).toContain('[Understanding GLP-1s](https://wellpeps.com/wellness-learning-center/glp1/)');
+  });
+
+  test('names the physician reviewer and review date on a reviewed article', () => {
+    const reviewed = buildLlmsTxt(
+      [{ title: 'Semaglutide vs. Tirzepatide', path: '/wellness-learning-center/semaglutide-vs-tirzepatide/', category: 'Weight Management', review: { by: 'Rahel Yirga, MD', on: '2026-11-06', profile: '/medical-reviewers/rahel-yirga-md/' } }],
+      new Date('2026-11-06T00:00:00Z'),
+    );
+    expect(reviewed).toContain('(Weight Management; medically reviewed by [Rahel Yirga, MD](https://wellpeps.com/medical-reviewers/rahel-yirga-md/) on 2026-11-06)');
   });
 });
 

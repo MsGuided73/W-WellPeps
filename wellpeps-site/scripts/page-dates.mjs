@@ -29,7 +29,8 @@ function sourcesOf(pageRel) {
   const out = [pageRel];
   for (const m of fs.readFileSync(abs, 'utf8').matchAll(LOCAL_IMPORT)) {
     let dep = path.resolve(path.dirname(abs), m[1]);
-    if (SHARED.test(dep)) continue;
+    // Test with forward slashes: on Windows path.resolve gives backslashes and SHARED would never match.
+    if (SHARED.test(dep.split(path.sep).join('/'))) continue;
     if (!fs.existsSync(dep)) dep = ['.ts', '.json', '.mjs'].map((e) => dep + e).find((p) => fs.existsSync(p));
     if (dep) out.push(path.relative(root, dep));
   }

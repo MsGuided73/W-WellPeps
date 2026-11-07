@@ -1,0 +1,93 @@
+/**
+ * Medical review of Learning Center articles: who reviewed which article, and when.
+ *
+ * Kept in code rather than the blog_articles table so every review has a git trail and a test
+ * (medical-review.test.ts checks each slug against scripts/data/articles.json).
+ *
+ * Only verifiable facts go in a reviewer entry. Name, credential, specialty and NPI below come from the
+ * public CMS NPI Registry (checked 2026-11-06); add a biography or photo only once the reviewer has
+ * supplied and approved it.
+ *
+ * To record a new review: add the article slug to REVIEWS with the date the reviewer signed off.
+ * The article then shows "Medically reviewed by", the review note, and reviewedBy/lastReviewed markup.
+ */
+
+export interface MedicalReviewer {
+  /** URL slug of the reviewer's profile page. */
+  id: string;
+  givenName: string;
+  familyName: string;
+  /** Post-nominal credential, e.g. "MD". */
+  credential: string;
+  credentialName: string;
+  specialty: string;
+  npi: string;
+}
+
+export interface ArticleReview {
+  reviewer: MedicalReviewer;
+  /** Date the reviewer approved the article, YYYY-MM-DD. */
+  reviewedOn: string;
+}
+
+export const MEDICAL_REVIEWERS = {
+  'rahel-yirga-md': {
+    id: 'rahel-yirga-md',
+    givenName: 'Rahel',
+    familyName: 'Yirga',
+    credential: 'MD',
+    credentialName: 'Doctor of Medicine',
+    specialty: 'Internal Medicine',
+    npi: '1437121910',
+  },
+} as const satisfies Record<string, MedicalReviewer>;
+
+type ReviewerId = keyof typeof MEDICAL_REVIEWERS;
+
+/** The GLP-1 / Weight Management articles: reviewed and approved by Dr. Yirga on 2026-11-06 (owner, 2026-11-06). */
+const GLP1_REVIEW = { reviewer: 'rahel-yirga-md', reviewedOn: '2026-11-06' } as const;
+
+export const REVIEWS: Readonly<Record<string, { reviewer: ReviewerId; reviewedOn: string }>> = {
+  'common-glp1-side-effects': GLP1_REVIEW,
+  'common-questions-about-glp1-medications': GLP1_REVIEW,
+  'could-you-be-a-candidate-for-glp1-weight-management': GLP1_REVIEW,
+  'healthy-habits-for-long-term-weight-management': GLP1_REVIEW,
+  'hunger-appetite-and-fullness': GLP1_REVIEW,
+  'online-weight-management-consultation': GLP1_REVIEW,
+  'oral-vs-injectable-glp1-medications': GLP1_REVIEW,
+  'semaglutide-vs-tirzepatide': GLP1_REVIEW,
+  'stopping-glp1-medication': GLP1_REVIEW,
+  'understanding-compounded-medications': GLP1_REVIEW,
+  'understanding-glp1-medications': GLP1_REVIEW,
+  'understanding-obesity-as-a-chronic-disease': GLP1_REVIEW,
+  'weight-loss-plateaus-explained': GLP1_REVIEW,
+  'why-am-i-not-losing-weight-on-glp1': GLP1_REVIEW,
+};
+
+/** "Rahel Yirga, MD" */
+export const reviewerName = (r: MedicalReviewer): string => `${r.givenName} ${r.familyName}, ${r.credential}`;
+
+/** "Dr. Yirga" */
+export const reviewerShortName = (r: MedicalReviewer): string => `Dr. ${r.familyName}`;
+
+export const reviewerPath = (r: MedicalReviewer): string => `/medical-reviewers/${r.id}/`;
+
+/** The reviewer's public record in the CMS NPI Registry: an outside source anyone can use to verify the credential. */
+export const npiRegistryUrl = (r: MedicalReviewer): string => `https://npiregistry.cms.hhs.gov/provider-view/${r.npi}`;
+
+export function reviewForArticle(slug: string): ArticleReview | undefined {
+  const entry = REVIEWS[slug];
+  return entry ? { reviewer: MEDICAL_REVIEWERS[entry.reviewer], reviewedOn: entry.reviewedOn } : undefined;
+}
+
+/** Slugs of the articles a reviewer has reviewed, with the review date. */
+export function reviewsBy(reviewerId: string): { slug: string; reviewedOn: string }[] {
+  return Object.entries(REVIEWS)
+    .filter(([, r]) => r.reviewer === reviewerId)
+    .map(([slug, r]) => ({ slug, reviewedOn: r.reviewedOn }));
+}
+
+/** "2026-11-06" -> "November 6, 2026". Formatted in UTC so a date-only value never shifts a day. */
+export function formatReviewDate(day: string): string {
+  return new Date(`${day}T00:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+}

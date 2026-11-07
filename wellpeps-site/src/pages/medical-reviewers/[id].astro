@@ -1,0 +1,150 @@
+---
+/**
+ * Medical reviewer profile: who reviews Learning Center articles, with credentials anyone can check and
+ * the list of articles the reviewer approved. Every article's "Medically reviewed by" link lands here,
+ * and the page's Person markup is what the articles' reviewedBy points to.
+ *
+ * Facts only from src/data/medical-review.ts (public NPI Registry data). No biography or photo until the
+ * reviewer supplies and approves one.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getArticles } from '../../lib/blog';
+import { breadcrumbs, reviewerId, reviewerPerson } from '../../lib/seo/schema';
+import {
+  MEDICAL_REVIEWERS,
+  formatReviewDate,
+  npiRegistryUrl,
+  reviewerName,
+  reviewerPath,
+  reviewerShortName,
+  reviewsBy,
+  type MedicalReviewer,
+} from '../../data/medical-review';
+
+export function getStaticPaths() {
+  return Object.values(MEDICAL_REVIEWERS).map((reviewer) => ({ params: { id: reviewer.id }, props: { reviewer } }));
+}
+
+interface Props {
+  reviewer: MedicalReviewer;
+}
+
+const { reviewer } = Astro.props;
+const name = reviewerName(reviewer);
+const short = reviewerShortName(reviewer);
+const path = reviewerPath(reviewer);
+
+const bySlug = new Map((await getArticles()).map((a) => [a.slug, a]));
+const reviewed = reviewsBy(reviewer.id)
+  .map((r) => ({ ...r, article: bySlug.get(r.slug) }))
+  .filter((r) => r.article !== undefined)
+  .sort((a, b) => a.article!.title.localeCompare(b.article!.title));
+
+const jsonLd = [
+  breadcrumbs([{ name: 'Wellness Learning Center', path: '/wellness-learning-center/' }, { name, path }]),
+  reviewerPerson(reviewer),
+];
+---
+<BaseLayout
+  title={`${name}, Medical Reviewer | WellPeps`}
+  description={`${name} is a licensed physician in ${reviewer.specialty.toLowerCase()} who reviews WellPeps Wellness Learning Center articles for medical accuracy.`}
+  jsonLd={jsonLd}
+  pageType="ProfilePage"
+  mainEntity={reviewerId(reviewer)}
+>
+  <section class="section">
+    <div class="container rvw">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/wellness-learning-center">Wellness Learning Center</a></li>
+          <li aria-current="page">{name}</li>
+        </ol>
+      </nav>
+
+      <p class="rvw__eyebrow">Medical Reviewer</p>
+      <h1 class="rvw__name">{name}</h1>
+      <p class="rvw__lead">
+        {short} is a licensed physician in {reviewer.specialty.toLowerCase()} who reviews WellPeps Wellness
+        Learning Center articles for medical accuracy before they are marked as medically reviewed.
+      </p>
+
+      <dl class="rvw__facts">
+        <div><dt>Credential</dt><dd>{reviewer.credentialName} ({reviewer.credential})</dd></div>
+        <div><dt>Specialty</dt><dd>{reviewer.specialty}</dd></div>
+        <div>
+          <dt>National Provider Identifier (NPI)</dt>
+          <dd>
+            <a href={npiRegistryUrl(reviewer)} target="_blank" rel="noopener">
+              {reviewer.npi}<span class="visually-hidden"> (opens the NPI Registry in a new tab)</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+      <p class="rvw__note">
+        The NPI Registry is the public U.S. Department of Health and Human Services (CMS) directory of
+        healthcare providers. Anyone can use it to confirm {short}&rsquo;s credential and specialty.
+      </p>
+
+      <h2 class="rvw__h2">What medical review means</h2>
+      <p>
+        Before an article shows &ldquo;Medically reviewed by,&rdquo; a physician reads it and approves its health
+        information as accurate. Each article shows the reviewer and the date of the review. Medical review covers
+        the article&rsquo;s educational content; it is not an endorsement of any treatment, and our articles do
+        not replace a conversation with your own healthcare provider.
+      </p>
+
+      {reviewed.length > 0 && (
+        <>
+          <h2 class="rvw__h2">Articles reviewed by {short}</h2>
+          <ul class="rvw__list">
+            {reviewed.map((r) => (
+              <li>
+                <a href={r.article!.url_path}>{r.article!.title}</a>
+                <span class="rvw__date">Reviewed <time datetime={r.reviewedOn}>{formatReviewDate(r.reviewedOn)}</time></span>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .rvw { max-width: 52rem; }
+  .crumbs ol {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem;
+    list-style: none; padding: 0; margin: 0 0 1.75rem;
+    font-size: var(--text-body-size); color: var(--text-muted, #5A6B80);
+  }
+  .crumbs li + li::before { content: '›'; margin-right: 0.5rem; color: #9AAABD; }
+  .crumbs a { color: var(--text-muted, #5A6B80); }
+  .crumbs a:hover { color: var(--blue); }
+
+  .rvw__eyebrow {
+    font-size: var(--text-body-size); font-weight: 700; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--blue); margin-bottom: 0.75rem;
+  }
+  .rvw__name { font-size: var(--text-h2); color: var(--navy); margin-bottom: 1rem; }
+  .rvw__lead { font-size: var(--text-lead); line-height: 1.65; max-width: 44rem; }
+
+  .rvw__facts {
+    display: grid; gap: 1rem; margin: 2rem 0 0.75rem; padding: 1.5rem 1.75rem;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    background: var(--bg-pale-blue); border-radius: 14px;
+  }
+  .rvw__facts dt { font-size: var(--text-note); color: var(--text-muted, #5A6B80); margin-bottom: 0.25rem; }
+  .rvw__facts dd { margin: 0; font-weight: 700; color: var(--navy); }
+  .rvw__facts a { color: var(--blue-on-tint); }
+  .rvw__note { font-size: var(--text-note); color: var(--text-muted, #5A6B80); }
+
+  .rvw__h2 {
+    font-size: calc(var(--text-body-size) * 1.55); color: var(--navy);
+    margin: 2.5rem 0 0.85rem; padding-top: 2.25rem; border-top: 1px solid #E4EAF2;
+  }
+  .rvw__list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.9rem; }
+  .rvw__list li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.25rem 1rem; padding-bottom: 0.9rem; border-bottom: 1px solid #E4EAF2; }
+  .rvw__list a { font-weight: 600; }
+  .rvw__date { font-size: var(--text-note); color: var(--text-muted, #5A6B80); }
+</style>
