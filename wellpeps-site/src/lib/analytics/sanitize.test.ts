@@ -35,6 +35,7 @@ describe('pageTemplateOf', () => {
     ['/accessibility', 'legal'],
     ['/your-privacy-choices', 'privacy_choices'],
     ['/your-plan', 'plan'],
+    ['/do-i-pay-if-im-not-prescribed', 'plan'],
     ['/why-wellpeps', 'about'],
     ['/something-new', 'other'],
     ['/weight-lossy', 'other'],

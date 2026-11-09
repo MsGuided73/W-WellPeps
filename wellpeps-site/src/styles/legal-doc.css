@@ -17,6 +17,8 @@
 /* On a phone the two dates stack, without the dot between them (owner, 2026-10-19). */
 @media (max-width: 560px) { .ld__dates { flex-direction: column; } .ld__dates > [aria-hidden] { display: none; } }
 .ld__blurb { margin-top: 0.8rem; max-width: 70ch; color: var(--text-body); }
+.ld__notice { margin-top: 0.85rem; }
+.ld__notice a { font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 .ld__body { max-width: 56rem; padding-block: clamp(1.75rem, 1.2rem + 2vw, 3rem) clamp(3rem, 2rem + 3vw, 5rem); }
 
 /* The "this is a draft" box at the top of every page. */
