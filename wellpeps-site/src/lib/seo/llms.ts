@@ -86,6 +86,7 @@ export function buildLlmsTxt(articles: readonly LlmsArticle[], builtOn: Date): s
     `- [Home](${SITE_URL}/)`,
     `- [Why WellPeps](${canonicalUrl('/why-wellpeps/')})`,
     `- [Your Plan: what is included and how to cancel](${canonicalUrl('/your-plan/')})`,
+    `- [Do I pay if I'm not prescribed?](${canonicalUrl('/do-i-pay-if-im-not-prescribed/')})`,
     `- [Wellness Learning Center](${canonicalUrl('/wellness-learning-center/')})`,
     `- [Patient Information](${canonicalUrl('/patient-information/')})`,
     `- [Contact WellPeps](${canonicalUrl('/contact/')})`,

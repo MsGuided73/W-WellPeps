@@ -1,7 +1,18 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, test } from 'vitest';
-import { CONTACT_ADDRESS, LEGITSCRIPT, YOUTUBE } from '../../config';
+import { CONTACT_ADDRESS, LEGITSCRIPT, PATIENT_PORTAL_URL, YOUTUBE } from '../../config';
+import {
+  MORE_LINKS,
+  POLICY_CLOSING,
+  POLICY_HREF,
+  POLICY_PHRASE,
+  REFUND_FAQ_DESCRIPTION,
+  REFUND_FAQ_PATH,
+  REFUND_FAQ_TITLE,
+  REFUND_FAQS,
+  refundFaqAnswer,
+} from '../../data/refund-faq';
 import { weightProducts } from '../../data/weight';
 import { PROGRAMS, programAt, startingPrice, toFaqs, toPrice } from './catalog';
 import { buildLlmsTxt } from './llms';
@@ -105,6 +116,32 @@ describe('structured data', () => {
     expect(faqPage([], '/')).toBeUndefined();
   });
 
+  test('the refund FAQ JSON-LD repeats the visible answers, from the same text', () => {
+    const page = readFileSync(resolve(SITE, 'src/pages/do-i-pay-if-im-not-prescribed.astro'), 'utf8');
+    const faqs = REFUND_FAQS.map((item) => ({ q: item.q, a: refundFaqAnswer(item) }));
+    const ld = faqPage(faqs, REFUND_FAQ_PATH) as any;
+
+    expect(REFUND_FAQ_TITLE.length).toBeGreaterThanOrEqual(10);
+    expect(REFUND_FAQ_TITLE.length).toBeLessThanOrEqual(65);
+    expect(REFUND_FAQ_DESCRIPTION.length).toBeGreaterThanOrEqual(50);
+    expect(REFUND_FAQ_DESCRIPTION.length).toBeLessThanOrEqual(160);
+    expect(ld['@id']).toBe('https://wellpeps.com/do-i-pay-if-im-not-prescribed/#faq');
+    expect(ld.mainEntity.map((q: any) => q.name)).toEqual(faqs.map((f) => f.q));
+    expect(ld.mainEntity.map((q: any) => q.acceptedAnswer.text)).toEqual(faqs.map((f) => f.a));
+    expect(faqs.map((f) => f.q)).not.toContain(POLICY_CLOSING.q);
+    expect(faqs.some((f) => f.a.includes(POLICY_PHRASE))).toBe(true);
+    expect(POLICY_HREF).toBe('/refund-and-cancellation');
+    expect(MORE_LINKS.map((l) => l.href)).toEqual(['/your-plan', '/how-wellpeps-works', PATIENT_PORTAL_URL]);
+    expect(PATIENT_PORTAL_URL).toBe('https://portal.wellpeps.com');
+    for (const item of REFUND_FAQS) {
+      expect(page, item.q).not.toContain(item.paragraphs[0].slice(0, 48));
+      expect(`${item.q} ${refundFaqAnswer(item)}`).not.toMatch(/[\u2013\u2014]/);
+    }
+    expect(`${REFUND_FAQ_TITLE} ${REFUND_FAQ_DESCRIPTION} ${POLICY_CLOSING.before}${POLICY_PHRASE}${POLICY_CLOSING.after}`).not.toMatch(/[\u2013\u2014]/);
+    expect(page).toContain('refundFaqAnswer');
+    expect(page).toContain('REFUND_FAQS[0].paragraphs');
+  });
+
   test('a "<" in any text cannot close the script element', () => {
     const out = serializeGraph([{ '@type': 'Thing', name: '</script><script>alert(1)</script>' }, undefined]);
     expect(out).not.toContain('<');
@@ -150,6 +187,10 @@ describe('llms.txt', () => {
         expect(text).toContain(`- ${t.name} (${t.form}): $${t.monthlyPrice}/month`);
       }
     }
+  });
+
+  test('links the do-I-pay-if-not-prescribed answer page', () => {
+    expect(text).toContain("[Do I pay if I'm not prescribed?](https://wellpeps.com/do-i-pay-if-im-not-prescribed/)");
   });
 
   test('states the pay-at-checkout, full-refund-if-not-prescribed model and what WellPeps is not', () => {

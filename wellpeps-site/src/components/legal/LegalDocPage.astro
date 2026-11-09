@@ -66,6 +66,7 @@ const releasedTitle = branded.length <= 65 ? branded : titleForMeta;
           </p>
         )}
         {blurb && <p class="ld__blurb">{blurb}</p>}
+        <slot name="notice" />
       </div>
     </header>
 

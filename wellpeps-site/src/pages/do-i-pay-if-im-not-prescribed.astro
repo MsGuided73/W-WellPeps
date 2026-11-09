@@ -1,0 +1,113 @@
+---
+/**
+ * Short answer page: do you pay if a clinician does not prescribe?
+ * Visible answers and FAQPage JSON-LD both come from src/data/refund-faq.ts.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { breadcrumbs, faqPage } from '../lib/seo/schema';
+import {
+  MORE_LINKS,
+  POLICY_CLOSING,
+  POLICY_HREF,
+  POLICY_PHRASE,
+  REFUND_FAQ_DESCRIPTION,
+  REFUND_FAQ_PATH,
+  REFUND_FAQ_TITLE,
+  REFUND_FAQ_UPDATED,
+  REFUND_FAQS,
+  refundFaqAnswer,
+} from '../data/refund-faq';
+
+const jsonLd = [
+  breadcrumbs([{ name: REFUND_FAQS[0].q, path: REFUND_FAQ_PATH }]),
+  faqPage(
+    REFUND_FAQS.map((item) => ({ q: item.q, a: refundFaqAnswer(item) })),
+    REFUND_FAQ_PATH,
+  ),
+];
+
+/** Wrap the policy name in a link without adding or removing any answer words. */
+function withPolicyLink(paragraph: string) {
+  const at = paragraph.indexOf(POLICY_PHRASE);
+  if (at < 0) return { before: paragraph, phrase: '', after: '' };
+  return {
+    before: paragraph.slice(0, at),
+    phrase: POLICY_PHRASE,
+    after: paragraph.slice(at + POLICY_PHRASE.length),
+  };
+}
+---
+<BaseLayout
+  title={REFUND_FAQ_TITLE}
+  description={REFUND_FAQ_DESCRIPTION}
+  jsonLd={jsonLd}
+  dateModified={REFUND_FAQ_UPDATED}
+>
+  <section class="section">
+    <div class="container mpage">
+      <h1>{REFUND_FAQS[0].q}</h1>
+      <hr class="rule rule--left" />
+      <p class="mpage__kicker">Short answer:</p>
+      {
+        REFUND_FAQS[0].paragraphs.map((paragraph, i) => {
+          const parts = withPolicyLink(paragraph);
+          return (
+            <p class={i === 0 ? 'mpage__lead' : undefined}>
+              {parts.phrase ? (
+                <>
+                  {parts.before}<a href={POLICY_HREF}>{parts.phrase}</a>{parts.after}
+                </>
+              ) : (
+                paragraph
+              )}
+            </p>
+          );
+        })
+      }
+
+      {
+        REFUND_FAQS.slice(1).map((item) => (
+          <>
+            <h2>{item.q}</h2>
+            {item.paragraphs.map((paragraph) => {
+              const parts = withPolicyLink(paragraph);
+              return (
+                <p>
+                  {parts.phrase ? (
+                    <>
+                      {parts.before}<a href={POLICY_HREF}>{parts.phrase}</a>{parts.after}
+                    </>
+                  ) : (
+                    paragraph
+                  )}
+                </p>
+              );
+            })}
+          </>
+        ))
+      }
+
+      <h2>{POLICY_CLOSING.q}</h2>
+      <p>
+        {POLICY_CLOSING.before}<a href={POLICY_HREF}>{POLICY_PHRASE}</a>{POLICY_CLOSING.after}
+      </p>
+      <ul>
+        {MORE_LINKS.map((link) => (
+          <li><a href={link.href}>{link.label}</a></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .mpage { max-width: 760px; }
+  .mpage h1 { font-size: var(--text-section-title); font-weight: 700; }
+  .mpage h2 { margin-top: 2.5rem; font-size: var(--text-card-title); font-weight: 700; }
+  .mpage p, .mpage li { color: var(--text-body); font-size: var(--text-card-body); line-height: 1.6; }
+  .mpage p { margin-top: 0.85rem; }
+  .mpage__kicker { margin-top: 1.25rem; color: var(--navy); font-weight: 700; }
+  .mpage__lead { font-size: var(--text-lead); color: var(--navy); font-weight: 600; }
+  .mpage ul { margin-top: 0.85rem; padding-left: 1.4rem; display: grid; gap: 0.6rem; }
+  .mpage a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+</style>

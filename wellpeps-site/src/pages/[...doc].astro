@@ -37,7 +37,11 @@ const a8 = kind === 'contact' ? load('A8') : undefined;
 const contactBlocks = a8 ? sectionCopy(a8.blocks, /^Block 7\./) : [];
 ---
 {doc && data && (
-  <LegalDocPage title={doc.title} seoTitle={doc.seoTitle} blurb={doc.blurb} description={doc.description} docId={doc.id} version={doc.approved ? '1.0' : data.version} date={doc.approved ? (doc.effective ?? data.date) : data.date} {...(doc.approved ? docDates(doc) : {})} blocks={doc.publicSection ? publicPageCopy(data.blocks, doc.publicSection) : data.blocks} existing={doc.existing} approved={doc.approved} />
+  <LegalDocPage title={doc.title} seoTitle={doc.seoTitle} blurb={doc.blurb} description={doc.description} docId={doc.id} version={doc.approved ? '1.0' : data.version} date={doc.approved ? (doc.effective ?? data.date) : data.date} {...(doc.approved ? docDates(doc) : {})} blocks={doc.publicSection ? publicPageCopy(data.blocks, doc.publicSection) : data.blocks} existing={doc.existing} approved={doc.approved}>
+    {doc.path === 'refund-and-cancellation' && (
+      <p slot="notice" class="ld__notice"><a href="/do-i-pay-if-im-not-prescribed">Short answer: Do I pay if I'm not prescribed?</a></p>
+    )}
+  </LegalDocPage>
 )}
 {kind === 'contact' && a8 && (
   <LegalDocPage title="Contact WellPeps" seoTitle="Contact Support: Phone, Email and Hours" blurb="How to reach WellPeps by phone or email, and what each contact address is for." description="How to reach WellPeps support by phone or email, support hours, what support can help with, and where to send privacy requests and legal notices." docId="A8" version={a8doc?.approved ? '1.0' : a8.version} date={a8doc?.approved ? a8doc.effective : a8.date} {...(a8doc?.approved ? docDates(a8doc) : {})} blocks={contactBlocks} approved={a8doc?.approved} />
