@@ -1,4 +1,4 @@
-# WellPeps — https://wellpeps.com
+# WellPeps - https://wellpeps.com
 # Every page is open to search engines and AI search tools, so they describe WellPeps from the live site.
 # Draft and preview pages carry their own noindex tag; the two paths below are never public.
 
