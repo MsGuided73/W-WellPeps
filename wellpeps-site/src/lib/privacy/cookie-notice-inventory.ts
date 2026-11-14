@@ -6,11 +6,12 @@
  * with the tool registry, so adding a tool to the registry without naming it in
  * the notice (and here) fails the build, and so does the reverse.
  *
- * Today the notice says no optional tool runs, so both lists are empty.
+ * Today the notice names one optional tool: Curve Compliance, advert measurement (2026-11-13).
  */
 import type { ConsentCategory } from './consent';
+import { CURVE_TRACKER_ID } from './trackers/curve';
 
 export const NOTICE_TOOL_IDS: Record<ConsentCategory, string[]> = {
   analytics: [],
-  advertising: [],
+  advertising: [CURVE_TRACKER_ID],
 };

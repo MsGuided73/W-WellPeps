@@ -24,7 +24,7 @@
  */
 
 /** Bump when the notice text, the tool list or a category changes in meaning. */
-export const NOTICE_VERSION = '2026-10-05.1';
+export const NOTICE_VERSION = '2026-11-13.1';
 export const BANNER_VERSION = '1';
 export const CONSENT_COOKIE = 'wp_consent';
 export const CONSENT_MAX_AGE_DAYS = 365;

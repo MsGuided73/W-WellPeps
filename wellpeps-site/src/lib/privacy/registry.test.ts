@@ -29,9 +29,20 @@ describe('production registry', () => {
     expect(() => validateRegistry(productionTrackers())).not.toThrow();
   });
 
-  test('currently lists no non-essential tool, matching the published notice that nothing optional runs today', () => {
-    expect(productionTrackers()).toEqual([]);
-    expect(hasNonEssential(productionTrackers())).toBe(false);
+  test('lists exactly the tools the published notice names: Curve advert measurement, in the advertising category', () => {
+    const tools = productionTrackers();
+    expect(tools.map((t) => `${t.category}:${t.id}`)).toEqual(['advertising:curve-compliance']);
+    expect(hasNonEssential(tools)).toBe(true);
+  });
+
+  test('the Curve entry makes no claim it cannot keep, and lists what the gate must clear', () => {
+    const curve = productionTrackers().find((t) => t.id === 'curve-compliance')!;
+    // Session replay is blocked by the Content-Security-Policy, not by this entry, so it must not claim it.
+    expect(curve.sessionReplay).toBeUndefined();
+    expect(curve.anonymous).toBeUndefined();
+    expect(curve.hosts).toEqual(['t.curvecompliance.com']);
+    expect(curve.cookies).toContain('_ct_xd');
+    for (const key of ['phi_tracker_state', 'complytrack_session', 'complytrack_idmt', 'complytrack_consent']) expect(curve.storageKeys).toContain(key);
   });
 });
 

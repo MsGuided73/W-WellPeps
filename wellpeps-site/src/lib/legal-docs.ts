@@ -46,6 +46,8 @@ export interface LegalDoc {
   publicSection?: RegExp;
   /** True once the owner has released the text: built in every deployment, no draft banner. */
   approved?: boolean;
+  /** Version shown on a released document. Defaults to 1.0; raise it when the released text changes. */
+  version?: string;
   /** Effective date shown on a released document. */
   effective?: string;
   /** First published on the site, when earlier than `effective` (a later release moved the effective date). */
@@ -67,11 +69,11 @@ export const LEGAL_DOCS: readonly LegalDoc[] = [
   { id: 'A2', path: 'privacy-policy', title: 'Privacy Policy', label: 'Privacy Policy', group: 'site',
     seoTitle: 'Privacy Policy: How We Collect and Share Data',
     blurb: 'What the site collects, why, who receives it and how to exercise privacy rights.',
-    description: 'How WellPeps collects, uses and shares information on this website, who receives it, and how to use your privacy rights, including opting out.', approved: true, effective: 'October 6, 2026', updated: 'October 16, 2026' },
+    description: 'How WellPeps collects, uses and shares information on this website, who receives it, and how to use your privacy rights, including opting out.', approved: true, version: '1.1', effective: 'October 6, 2026', updated: 'November 13, 2026' },
   { id: 'A3', path: 'consumer-health-data-privacy-policy', title: 'Consumer Health Data Privacy Policy', label: 'Consumer Health Data Privacy Policy', group: 'site',
     blurb: 'Stand-alone policy for health-related data outside HIPAA (required in Washington and Nevada).', approved: true, effective: 'October 6, 2026', updated: 'October 19, 2026' },
   { id: 'A4', path: 'cookie-notice', title: 'Cookie and Tracking Technologies Notice', label: 'Cookie Notice', group: 'site',
-    blurb: 'What the site stores and loads, and the consent-first rule for any analytics or advertising.', approved: true, effective: 'October 6, 2026' },
+    blurb: 'What the site stores and loads, and the consent-first rule for any analytics or advertising.', approved: true, version: '1.1', effective: 'October 6, 2026', updated: 'November 13, 2026' },
   { id: 'A5', path: 'legal-review/your-privacy-choices', title: 'Your Privacy Choices', label: 'Your Privacy Choices', group: 'site', existing: '/your-privacy-choices',
     blurb: 'How to opt out, limit use, withdraw consent and make a request; how Global Privacy Control is honored.' },
   { id: 'A6', path: 'notice-of-privacy-practices', title: 'Notice of Privacy Practices', label: 'Notice of Privacy Practices', group: 'site',

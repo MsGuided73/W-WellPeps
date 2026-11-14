@@ -29,8 +29,10 @@ import {
   responseScopes,
 } from '../../scripts/lib/nginx-conf.mjs';
 import { createNginxEmulator } from '../../scripts/lib/nginx-emulator.mjs';
+import { TRACKER_CONNECT_SOURCES, TRACKER_HOSTS, TRACKER_REFUSED, TRACKER_SCRIPT_SOURCES } from '../../scripts/lib/tracker-sources.mjs';
 import { CONSENT_LOG_ENDPOINT, PRIVACY_REQUEST_ENDPOINT } from './privacy/config';
 import { NOTIFY_ENDPOINT } from './notify';
+import { productionTrackers } from './privacy/registry';
 
 const SITE = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const REPO = resolve(SITE, '..');
@@ -131,15 +133,15 @@ describe('Content-Security-Policy', () => {
     expect(auditCsp(csp(), connectOrigins())).toEqual([]);
   });
 
-  test('the Supabase host the site calls is on the allow-list, and nothing else is', () => {
+  test('the Supabase host the site calls and the two listed vendor endpoints are on the allow-list, and nothing else is', () => {
     const policy = parseCsp(csp());
-    expect(policy['connect-src']).toEqual(["'self'", ...new Set(connectOrigins())]);
+    expect(policy['connect-src']).toEqual(["'self'", ...new Set(connectOrigins()), ...TRACKER_CONNECT_SOURCES]);
     expect(connectOrigins().length).toBeGreaterThan(0);
   });
 
-  test('scripts and styles are same-origin only, with no inline escape hatch', () => {
+  test('scripts are same-origin plus the one listed vendor file, styles same-origin only, with no inline escape hatch', () => {
     const policy = parseCsp(csp());
-    expect(policy['script-src']).toEqual(["'self'"]);
+    expect(policy['script-src']).toEqual(["'self'", ...TRACKER_SCRIPT_SOURCES]);
     expect(policy['style-src']).toEqual(["'self'"]);
     expect(policy['default-src']).toEqual(["'self'"]);
     expect(policy['object-src']).toEqual(["'none'"]);
@@ -161,6 +163,12 @@ describe('Content-Security-Policy', () => {
       ['a wildcard', base().replace('img-src', 'img-src *')],
       ['a whole scheme', base().replace("img-src 'self'", "img-src 'self' data:")],
       ['an extra connect host', base().replace('connect-src', 'connect-src https://tracker.example')],
+      ['an extra script host', base().replace("script-src 'self'", "script-src 'self' https://tracker.example")],
+      ['the vendor tag widened from its file to its whole host', base().replace('https://t.curvecompliance.com/t.js', 'https://t.curvecompliance.com')],
+      ['a vendor endpoint widened to its whole host', base().replace('https://t.curvecompliance.com/events/track', 'https://t.curvecompliance.com')],
+      ['a vendor endpoint widened to a folder', base().replace('https://t.curvecompliance.com/events/track', 'https://t.curvecompliance.com/events/')],
+      ['an unlisted vendor endpoint', base().replace('connect-src', 'connect-src https://t.curvecompliance.com/session-recordings/events')],
+      ['a listed vendor endpoint removed', base().replace(' https://t.curvecompliance.com/tracking/custom-bootstrap', '')],
       ['unsafe-eval', base().replace("script-src 'self'", "script-src 'self' 'unsafe-eval'")],
       ['framing allowed', base().replace("frame-ancestors 'none'", "frame-ancestors 'self'")],
       ['no upgrade directive', base().replace('; upgrade-insecure-requests', '')],
@@ -172,6 +180,55 @@ describe('Content-Security-Policy', () => {
     test('a connect origin the source calls but the policy omits', () => {
       expect(auditCsp(csp(), [...connectOrigins(), 'https://other.supabase.co']).length).toBeGreaterThan(0);
     });
+  });
+});
+
+/**
+ * The vendor tag (Curve) can do far more than the one job it is here for, and its server decides what
+ * runs. The policy is the control: it names exact paths, and a browser matches a path with no trailing
+ * slash exactly. This models that rule so the lists in tracker-sources.mjs cannot drift apart.
+ */
+describe('the vendor allow-list admits conversion tracking and nothing else the tag can do', () => {
+  const policy = () => parseCsp(auditHeaders(parseTemplate()).canonical.get('Content-Security-Policy') ?? '');
+  /** CSP source matching for the https sources this policy uses: an origin matches any path, a path source matches itself (or, ending "/", its folder). */
+  const admits = (sources: string[], url: string) => {
+    const u = new URL(url);
+    return sources.some((src) => {
+      if (!src.startsWith('https://')) return false;
+      const s = new URL(src);
+      if (s.origin !== u.origin) return false;
+      const hasPath = src.slice(s.origin.length) !== '';
+      if (!hasPath) return true;
+      return s.pathname.endsWith('/') ? u.pathname.startsWith(s.pathname) : u.pathname === s.pathname;
+    });
+  };
+
+  test('the tag file and its two endpoints are admitted', () => {
+    for (const url of TRACKER_SCRIPT_SOURCES) expect(admits(policy()['script-src'], url), url).toBe(true);
+    for (const url of TRACKER_CONNECT_SOURCES) expect(admits(policy()['connect-src'], url), url).toBe(true);
+  });
+
+  test('the recorder, the screenshotter, the recording set-up and its JSONP fallback are refused as scripts', () => {
+    expect(TRACKER_REFUSED.script.length).toBeGreaterThan(0);
+    for (const url of TRACKER_REFUSED.script) expect(admits(policy()['script-src'], url), url).toBe(false);
+  });
+
+  test('recording upload, screenshots, the cross-site bridge and the vendor consent manager are refused as fetches', () => {
+    expect(TRACKER_REFUSED.connect.length).toBeGreaterThan(0);
+    for (const url of TRACKER_REFUSED.connect) expect(admits(policy()['connect-src'], url), url).toBe(false);
+  });
+
+  test('no vendor source is a bare host or a folder', () => {
+    for (const src of [...TRACKER_SCRIPT_SOURCES, ...TRACKER_CONNECT_SOURCES]) {
+      const path = new URL(src).pathname;
+      expect(path.length, src).toBeGreaterThan(1);
+      expect(path.endsWith('/'), src).toBe(false);
+    }
+  });
+
+  test('the hosts in the policy are exactly the hosts the consent-gated tools declare (and so the Cookie notice lists)', () => {
+    const declared = [...new Set(productionTrackers().flatMap((t) => t.hosts))].sort();
+    expect([...TRACKER_HOSTS].sort()).toEqual(declared);
   });
 });
 
