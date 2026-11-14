@@ -28,6 +28,7 @@ import { scanDist, walkFiles } from './lib/html-scan.mjs';
 import { auditHeaders, auditRedirectRule, parseNginx, renderTemplate, REQUIRED_HEADERS } from './lib/nginx-conf.mjs';
 import { createNginxEmulator, listenEmulator } from './lib/nginx-emulator.mjs';
 import { gateHash } from './gate-hash.mjs';
+import { TRACKER_CONNECT_SOURCES, TRACKER_REFUSED, TRACKER_SCRIPT_SOURCES } from './lib/tracker-sources.mjs';
 
 const SITE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
@@ -324,8 +325,7 @@ async function interactions(browser) {
       const form = page.locator('form[data-guide-form]');
       await form.scrollIntoViewIfNeeded();
       await form.locator('input[name="email"]').fill('csp-check@example.com');
-      // The required consent box (W9): the form refuses to send without it.
-      await form.locator('input[name="consentCollect"]').check();
+      // Guide forms have no required consent box (GuideLeadForm.astro, 2026-10-19): a requested guide needs none.
       await form.locator('button[type="submit"]').click();
       await page.waitForURL('**/thank-you/**', { timeout: 8000 }).catch(async () => { await page.waitForURL('**/thank-you', { timeout: 4000 }); });
       if (!bag.supabase.slice(before).some((r) => r.startsWith('POST'))) throw new Error('the signup request never left the page');
@@ -333,16 +333,22 @@ async function interactions(browser) {
   }
 
   await page.goto(`${OPEN}/weight-loss/`, { waitUntil: 'networkidle' });
-  await step('checkout lock: the assessment button opens the password box, a wrong password shows the error', bag, async () => {
-    const button = page.locator('a[data-checkout-lock]:visible').first();
-    await button.scrollIntoViewIfNeeded();
-    await button.click();
-    await page.locator('dialog[data-checkout-dialog][open]').waitFor({ timeout: 5000 });
-    await page.locator('dialog[data-checkout-dialog] input[name="password"]').fill('not-the-password');
-    await page.locator('dialog[data-checkout-dialog] [data-checkout-submit]').click();
-    await page.locator('[data-checkout-error]:not([hidden])').waitFor({ timeout: 10000 });
-    await page.locator('[data-checkout-close]').click();
-  });
+  // The lock exists only in a build made with CHECKOUT_LOCKED true (src/config.ts). With it off the
+  // assessment buttons are plain links, so there is nothing to drive; say so instead of timing out.
+  if (await page.locator('a[data-checkout-lock]').count()) {
+    await step('checkout lock: the assessment button opens the password box, a wrong password shows the error', bag, async () => {
+      const button = page.locator('a[data-checkout-lock]:visible').first();
+      await button.scrollIntoViewIfNeeded();
+      await button.click();
+      await page.locator('dialog[data-checkout-dialog][open]').waitFor({ timeout: 5000 });
+      await page.locator('dialog[data-checkout-dialog] input[name="password"]').fill('not-the-password');
+      await page.locator('dialog[data-checkout-dialog] [data-checkout-submit]').click();
+      await page.locator('[data-checkout-error]:not([hidden])').waitFor({ timeout: 10000 });
+      await page.locator('[data-checkout-close]').click();
+    });
+  } else {
+    console.log('  SKIP  checkout lock: off in this build (CHECKOUT_LOCKED is false), so there is no password box to open');
+  }
 
   await page.goto(`${OPEN}/hormone-optimization/`, { waitUntil: 'networkidle' });
   await step('waitlist form: submits to the signup function and confirms', bag, async () => {
@@ -484,6 +490,89 @@ async function canaries(browser) {
   await ctx.close();
 }
 
+/**
+ * The consent-gated vendor tag (Curve advert measurement). Two things are proved in a real browser:
+ * the tag is requested only when our gate allows it, and of everything that tag is able to ask for,
+ * the policy lets through its own file and its two endpoints and refuses the rest. Nothing here
+ * reaches the vendor: instrument() aborts every request to another host and records it, so "the
+ * browser tried" (allowed by the policy) and "the browser refused" (a CSP violation) can be told apart.
+ */
+async function vendorTag(browser) {
+  console.log('\n7. The consent-gated vendor tag: loads only with consent, and only its three listed URLs are admitted');
+  const TAG = TRACKER_SCRIPT_SOURCES[0];
+  const tagRequests = (bag) => bag.foreign.filter((r) => r === `GET ${TAG}`).length;
+  const open = async ({ gpc = false } = {}) => {
+    const { ctx, bag, watch } = await instrument(browser, OPEN);
+    if (gpc) await ctx.addInitScript(() => Object.defineProperty(Navigator.prototype, 'globalPrivacyControl', { get: () => true, configurable: true }));
+    const page = await ctx.newPage();
+    watch(page);
+    await page.goto(`${OPEN}/`, { waitUntil: 'networkidle' });
+    return { ctx, bag, page };
+  };
+  const banner = (page) => page.locator('[data-privacy-banner]:not([hidden])');
+
+  // a) No choice yet, then "Reject all".
+  {
+    const { ctx, bag, page } = await open();
+    const shown = await banner(page).count();
+    check('first visit: the privacy bar is shown and the tag has not been requested', shown === 1 && tagRequests(bag) === 0, `bar shown: ${shown}, requests: ${head(bag.foreign)}`);
+    if (shown) await banner(page).locator('[data-pc-action="rejectAll"]').click();
+    await settle(page, 600);
+    await page.goto(`${OPEN}/why-wellpeps/`, { waitUntil: 'networkidle' });
+    check('after "Reject all": the tag is never requested, on this page or the next', tagRequests(bag) === 0 && bag.foreign.length === 0, head(bag.foreign));
+    await ctx.close();
+  }
+
+  // b) "Accept all" on a page that is not about a health topic, then a health-topic page.
+  {
+    const { ctx, bag, page } = await open();
+    if (await banner(page).count()) await banner(page).locator('[data-pc-action="acceptAll"]').click();
+    await settle(page, 800);
+    const afterAccept = tagRequests(bag);
+    const scriptViolations = bag.violations.filter((v) => String(v.blocked).startsWith(TAG));
+    check('after "Accept all" on the home page: the tag is requested, and the policy allows it', afterAccept >= 1 && scriptViolations.length === 0, `requests: ${head(bag.foreign)}; violations: ${head(bag.violations.map((v) => `${v.directive} ${v.blocked}`))}`);
+    const strays = bag.foreign.filter((r) => r !== `GET ${TAG}`);
+    check('the only thing requested from another host is the tag itself', strays.length === 0, head(strays));
+    const before = tagRequests(bag);
+    await page.goto(`${OPEN}/weight-loss/`, { waitUntil: 'networkidle' });
+    await settle(page, 600);
+    check('"Accept all" does not carry onto a health-topic page: the tag is not requested there without the second consent', tagRequests(bag) === before, head(bag.foreign.slice(-3)));
+    await ctx.close();
+  }
+
+  // c) Global Privacy Control.
+  {
+    const { ctx, bag, page } = await open({ gpc: true });
+    if (await banner(page).count()) await banner(page).locator('[data-pc-action="acceptAll"]').click().catch(() => {});
+    await settle(page, 800);
+    check('with Global Privacy Control on, "Accept all" still does not load the tag', tagRequests(bag) === 0, head(bag.foreign));
+    await ctx.close();
+  }
+
+  // d) What the tag may and may not ask for, under the policy.
+  {
+    const { ctx, bag, page } = await open();
+    const before = bag.violations.length;
+    await page.evaluate(({ refusedScripts, refusedFetches, allowedFetches }) => {
+      for (const src of refusedScripts) { const s = document.createElement('script'); s.src = src; document.head.appendChild(s); }
+      for (const url of [...refusedFetches, ...allowedFetches]) fetch(url, { method: 'POST', body: '{}' }).catch(() => {});
+    }, { refusedScripts: TRACKER_REFUSED.script, refusedFetches: TRACKER_REFUSED.connect, allowedFetches: TRACKER_CONNECT_SOURCES });
+    const want = TRACKER_REFUSED.script.length + TRACKER_REFUSED.connect.length;
+    for (let i = 0; i < 40 && bag.violations.length - before < want; i += 1) await settle(page, 100);
+    await settle(page, 300);
+    const blocked = bag.violations.slice(before).map((v) => String(v.blocked));
+    const wasBlocked = (url) => blocked.some((b) => b === url || b === url.split('?')[0] || url.startsWith(b));
+    const attempted = (url) => bag.foreign.some((r) => r.endsWith(` ${url}`));
+    const leakedScripts = TRACKER_REFUSED.script.filter((u) => !wasBlocked(u) || attempted(u));
+    const leakedFetches = TRACKER_REFUSED.connect.filter((u) => !wasBlocked(u) || attempted(u));
+    check('refused as scripts: the session recorder, the page screenshotter, the recording set-up (JSONP) and the fallback hosts', leakedScripts.length === 0, head(leakedScripts));
+    check('refused as fetches: recording upload, screenshots, the cross-site bridge, the vendor consent manager and the fallback host', leakedFetches.length === 0, head(leakedFetches));
+    const notAllowed = TRACKER_CONNECT_SOURCES.filter((u) => wasBlocked(u) || !attempted(u));
+    check('admitted: the start-up settings call and the conversion event call', notAllowed.length === 0, head(notAllowed));
+    await ctx.close();
+  }
+}
+
 // -------------------------------------------------------------------- main
 let exit = 0;
 try {
@@ -494,6 +583,7 @@ try {
     await interactions(browser);
     await gatePage(browser);
     await canaries(browser);
+    await vendorTag(browser);
   } finally {
     await browser.close();
   }

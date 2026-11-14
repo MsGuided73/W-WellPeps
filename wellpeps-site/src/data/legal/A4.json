@@ -9,13 +9,13 @@
   },
   {
    "t": "p",
-   "text": "**Effective date:** October 6, 2026  |  **Version:** 1.0  |  **Last updated:** October 6, 2026",
+   "text": "**Effective date:** October 6, 2026  |  **Version:** 1.1  |  **Last updated:** November 13, 2026",
    "italic": false,
    "align": null
   },
   {
    "t": "callout",
-   "text": "**Summary**\n• Today, wellpeps.com uses only essential cookies: one if you enter the preview password, and one that remembers your privacy choices if you make any. Neither tracks you.\n• We do not use analytics, advertising or social media tools, or session recording.\n• Our text fonts are served from wellpeps.com itself, so loading them does not contact any other company.\n• Before we turn on any tool that is not essential, we will ask for your permission. Nothing loads before you say yes, except our own anonymous usage statistics, which set no cookie and keep no identifier and which you can turn off (Section 4).\n• The health assessment, checkout and patient portal at portal.wellpeps.com have their own cookies (Section 3.5).\n• To make or change a choice, use Your Privacy Choices in the footer.",
+   "text": "**Summary**\n• wellpeps.com sets two essential cookies: one if you enter the preview password, and one that remembers your privacy choices if you make any. Neither tracks you.\n• We use one optional tool, and only if you say yes: Curve Compliance, which measures whether our adverts on Google and Meta led to a visit or a sign-up (Section 3.4). We do not show adverts on wellpeps.com. We do not use analytics or social media tools, or session recording.\n• Our text fonts are served from wellpeps.com itself, so loading them does not contact any other company.\n• We ask for your permission before any tool that is not essential runs. Nothing loads before you say yes, except our own anonymous usage statistics, which set no cookie and keep no identifier and which you can turn off (Section 4).\n• The health assessment, checkout and patient portal at portal.wellpeps.com have their own cookies (Section 3.6).\n• To make or change a choice, use Your Privacy Choices in the footer.",
    "kind": "info"
   },
   {
@@ -24,7 +24,7 @@
   },
   {
    "t": "p",
-   "text": "This notice covers wellpeps.com, the WellPeps marketing website. It explains the cookies and similar technologies the site uses, who sets them and what choices you have. It does not cover the Practice or the pharmacies. Section 3.5 covers portal.wellpeps.com, which our technology platform provider runs for us.",
+   "text": "This notice covers wellpeps.com, the WellPeps marketing website. It explains the cookies and similar technologies the site uses, who sets them and what choices you have. It does not cover the Practice or the pharmacies. Section 3.6 covers portal.wellpeps.com, which our technology platform provider runs for us.",
    "italic": false,
    "align": null
   },
@@ -185,7 +185,60 @@
   },
   {
    "t": "h3",
-   "text": "3.4 What we do not use today"
+   "text": "3.4 Optional tools that run only if you say yes"
+  },
+  {
+   "t": "p",
+   "text": "We advertise on Google and Meta. We do not show adverts on wellpeps.com. To learn which of our adverts work, we use one measurement tool. It stays off until you say yes to advertising, and you can turn it off again at any time in Your Privacy Choices.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Tool",
+     "Who provides it",
+     "Kind",
+     "What it does",
+     "What it collects and stores",
+     "How long"
+    ],
+    [
+     "Curve Compliance (conversion measurement tag)",
+     "Curve Compliance, Inc. Loaded from t.curvecompliance.com.",
+     "Advertising (measurement only).",
+     "Tells us which of our adverts on Google and Meta led to a visit or a sign-up. Curve removes health details on its own servers and then sends conversion events to Meta and Google.",
+     "The pages you view on wellpeps.com and their titles, the page you came from, your clicks and scrolling, time on the page, that a form was submitted (not what you typed), the advert codes in the link that brought you here, and an identifier for your browser that the tool works out from browser settings. It saves these in your browser’s local storage (names beginning complytrack_, and phi_tracker_state, curve_exclude and ct_exp) and may set the cookies _ct_xd, _ct_xd2, _ct_rst, _ct_vid and _ct_bt.",
+     "In your browser: until you turn the tool off in Your Privacy Choices, which deletes them, or you clear your browser data. The _ct_xd cookie lasts 30 minutes. On Curve’s servers: [retention period to be confirmed with Curve]."
+    ]
+   ],
+   "widths": [
+    1.2,
+    1.2,
+    1.0,
+    1.8,
+    2.6,
+    1.6
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "p",
+   "text": "**When it loads.** Only after you say yes to advertising. On the pages in Section 5, only after the second, separate yes described there. If your browser sends Global Privacy Control, it stays off.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**What we block.** Curve’s tag is also able to record sessions, take pictures of pages, link a visitor across websites and show a consent banner of its own. We do not use any of these. Our site’s security settings let the tag load one file and contact two addresses at Curve, and tell your browser to refuse everything else it could ask for.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "3.5 What we do not use today"
   },
   {
    "t": "li",
@@ -194,7 +247,7 @@
   },
   {
    "t": "li",
-   "text": "Advertising, retargeting or conversion pixels.",
+   "text": "Retargeting, or adverts shown on wellpeps.com.",
    "level": 0
   },
   {
@@ -209,7 +262,7 @@
   },
   {
    "t": "li",
-   "text": "Device fingerprinting or cross-site tracking.",
+   "text": "Cross-site tracking. (The optional tool in Section 3.4 works out an identifier for your browser from its settings. It runs only if you say yes.)",
    "level": 0
   },
   {
@@ -224,7 +277,7 @@
   },
   {
    "t": "h3",
-   "text": "3.5 Health assessment, checkout and patient portal (portal.wellpeps.com)"
+   "text": "3.6 Health assessment, checkout and patient portal (portal.wellpeps.com)"
   },
   {
    "t": "p",
@@ -238,7 +291,7 @@
   },
   {
    "t": "p",
-   "text": "Today we set only essential cookies, so there is no cookie banner. A banner will appear when we add our first tool that needs your consent. This is how we will run wellpeps.com and how we will change it:",
+   "text": "One optional tool needs your consent (Section 3.4), so a privacy bar asks for your choice on your first visit. This is how we run wellpeps.com and how we will change it:",
    "italic": false,
    "align": null
   },
@@ -248,7 +301,7 @@
     "**Nothing that is not essential loads before you say yes.** That covers analytics, advertising, social media and measurement tools, and any data sent from our servers to such a company. Our own anonymous usage statistics are the one exception: they set no cookie, store nothing in your browser and keep no identifier, so they cannot identify you. They run by default, and you can turn them off at any time in Your Privacy Choices.",
     "**A fair choice.** We show \"Accept,\" \"Reject\" and \"Choose\" with equal weight. Rejecting is as easy as accepting. No box is checked in advance. We do not nag.",
     "**We remember your choice** for 12 months so we do not keep asking. You can change it at any time in Your Privacy Choices.",
-    "**Global Privacy Control.** Before we turn on any tool that is not essential, we will build and test handling for Global Privacy Control, and treat the signal as a \"no\" to advertising, sale and sharing.",
+    "**Global Privacy Control.** We treat a Global Privacy Control signal as a \"no\" to advertising, sale and sharing. \"Accept all\" does not override it.",
     "**Listed first.** A tool is added only after this notice lists it: its name, who provides it, what it does, what it collects, and how long it lasts.",
     "**Contracts.** Where the tool allows it, we sign terms that stop the provider from using the data for its own purposes.",
     "**Review.** We keep a list of every tool on our pages and review it at least every 3 months."
@@ -307,7 +360,7 @@
   },
   {
    "t": "li",
-   "text": "**Your Privacy Choices.** Use the link in the footer of every page. Today there is no tool to switch off, so the page explains your other choices. When we add any non-essential tool, it will have a working control for each category.",
+   "text": "**Your Privacy Choices.** Use the link in the footer of every page. It has a working switch for each kind of optional tool, and explains your other choices.",
    "level": 0
   },
   {

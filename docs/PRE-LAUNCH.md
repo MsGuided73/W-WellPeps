@@ -75,12 +75,20 @@ Coming Soon ribbon on the hair product cards, and the pre-launch hero / bottom
 CTA copy. **Do not paste the Hair link until hair pricing is real (see §2)** —
 the link is what opens the page.
 
-### 1c. Add the Curve tracking script
+### 1c. Curve advert measurement (done 2026-11-13)
 
-Paste the Curve snippet into the `<head>` of
-`wellpeps-site/src/layouts/BaseLayout.astro`, after the font links. Marketing
-site only — do not place it on GEN Health portal pages unless Curve confirms
-that is intended, since those pages carry PHI.
+Curve is not a `<script>` in the page head. It is a consent-gated tool:
+`wellpeps-site/src/lib/privacy/trackers/curve.ts`, switched on by
+`CURVE_ENABLED` in `src/lib/privacy/config.ts`. It loads only after a visitor
+says yes to advertising (and, on a health-topic page, gives the second yes).
+
+The Content-Security-Policy in `nginx.conf.template` admits three exact Curve
+URLs and refuses the rest, which is what keeps Curve's session recorder and
+page screenshots off. Never widen those paths to the host. The table is in
+`wellpeps-site/scripts/lib/tracker-sources.mjs`; `npm run check:headers`
+proves it in a browser.
+
+Marketing site only. Nothing here touches the GEN Health portal.
 
 ### 1d. DNS cutover (Cloudflare) — done for the portal
 

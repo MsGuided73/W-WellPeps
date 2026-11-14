@@ -37,11 +37,20 @@
 # Content-Security-Policy. One line on purpose: nginx would keep a line break
 # inside a quoted value and send it in the header. Directive by directive:
 #   default-src 'self'          anything not listed below: same origin only.
-#   script-src 'self'           only our own bundled files under /_astro/. No
-#                               'unsafe-inline' and no 'unsafe-eval', so an
-#                               injected <script> or onclick= cannot run. JSON
-#                               data blocks (type="application/json") are not
-#                               script and are unaffected.
+#   script-src 'self' https://t.curvecompliance.com/t.js
+#                               our own bundled files under /_astro/, plus ONE
+#                               vendor file by exact path: the Curve Compliance
+#                               tag, which the page adds only after the visitor
+#                               consents to advertising (privacy/trackers/
+#                               curve.ts). The path matters: the same vendor also
+#                               serves a session recorder and a page screenshotter
+#                               (/lib/m1.*.js, /lib/m2.*.js). Naming t.js alone
+#                               means the browser refuses those. Never shorten
+#                               this to the host. No 'unsafe-inline' and no
+#                               'unsafe-eval', so an injected <script> or
+#                               onclick= cannot run. JSON data blocks
+#                               (type="application/json") are not script and are
+#                               unaffected.
 #   style-src 'self'            stylesheets are external files (no <style>).
 #   style-src-attr 'unsafe-inline'
 #                               style="..." attributes only (a few chips on the
@@ -61,6 +70,13 @@
 #                               functions). That exact host only, no wildcard.
 #                               GEN Health (portal.wellpeps.com) is reached by
 #                               plain links, which no CSP directive restricts.
+#                               Plus two Curve endpoints by exact path: its
+#                               start-up settings and its conversion events.
+#                               Everything else Curve's tag can call (session
+#                               recording, screenshots, the cross-site bridge,
+#                               its own consent manager) is refused because it is
+#                               not listed. The full table is in
+#                               scripts/lib/tracker-sources.mjs.
 #   frame-src 'none'            the site embeds nothing.
 #   object-src 'none'           no plugins.
 #   base-uri 'self'             an injected <base> cannot redirect relative URLs.
@@ -70,7 +86,7 @@
 #                               X-Frame-Options DENY for older browsers.
 #   upgrade-insecure-requests   any stray http:// subresource is fetched as https.
 map $uri $wp_csp {
-    default "default-src 'self'; script-src 'self'; style-src 'self'; style-src-attr 'unsafe-inline'; img-src 'self' https://static.legitscript.com; font-src 'self'; connect-src 'self' https://kwgwbupqzpusydzflyvi.supabase.co; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests";
+    default "default-src 'self'; script-src 'self' https://t.curvecompliance.com/t.js; style-src 'self'; style-src-attr 'unsafe-inline'; img-src 'self' https://static.legitscript.com; font-src 'self'; connect-src 'self' https://kwgwbupqzpusydzflyvi.supabase.co https://t.curvecompliance.com/tracking/custom-bootstrap https://t.curvecompliance.com/events/track; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests";
 }
 
 # Permissions-Policy: nothing on the page may use these browser features, and

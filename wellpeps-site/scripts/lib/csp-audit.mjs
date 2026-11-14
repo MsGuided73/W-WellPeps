@@ -5,13 +5,15 @@
  */
 import { parseCsp } from './nginx-conf.mjs';
 import { IMAGE_HOSTS } from './image-hosts.mjs';
+import { TRACKER_CONNECT_SOURCES, TRACKER_SCRIPT_SOURCES } from './tracker-sources.mjs';
 
 const KEYWORDS = new Set(["'self'", "'none'", "'unsafe-inline'", "'unsafe-eval'", "'unsafe-hashes'", "'strict-dynamic'", "'wasm-unsafe-eval'"]);
 
 /** Directives that must be exactly this list of sources. */
 const EXACT = {
   'default-src': ["'self'"],
-  'script-src': ["'self'"],
+  // Our own bundled files, plus the one consent-gated vendor tag, by exact path (tracker-sources.mjs).
+  'script-src': ["'self'", ...TRACKER_SCRIPT_SOURCES],
   'style-src': ["'self'"],
   // Our own images plus the LegitScript seal, which must be LegitScript's live file (image-hosts.mjs).
   'img-src': ["'self'", ...IMAGE_HOSTS],
@@ -50,12 +52,16 @@ export function auditCsp(csp, allowedConnectOrigins) {
   } else {
     if (!connect.includes("'self'")) problems.push("CSP connect-src must include 'self'");
     for (const src of connect.filter((s) => s !== "'self'")) {
+      if (TRACKER_CONNECT_SOURCES.includes(src)) continue; // exact vendor endpoints, see tracker-sources.mjs
       if (!allowedConnectOrigins.includes(src)) {
         problems.push(`CSP connect-src names ${src}, which no endpoint in the source uses`);
       }
     }
     for (const origin of allowedConnectOrigins) {
       if (!connect.includes(origin)) problems.push(`CSP connect-src is missing ${origin}, which the site calls`);
+    }
+    for (const endpoint of TRACKER_CONNECT_SOURCES) {
+      if (!connect.includes(endpoint)) problems.push(`CSP connect-src is missing ${endpoint}, which the consent-gated tag calls`);
     }
   }
 
@@ -73,7 +79,12 @@ export function auditCsp(csp, allowedConnectOrigins) {
       }
       const isKeyword = KEYWORDS.has(lower);
       const isHttpsOrigin = /^https:\/\/[a-z0-9.-]+(:\d+)?$/.test(lower);
-      if (!isKeyword && !isHttpsOrigin && directive !== 'upgrade-insecure-requests') {
+      // A source with a path is allowed only where tracker-sources.mjs lists that exact URL. A vendor
+      // host on its own (no path) would admit everything that vendor serves, so it stays an error.
+      const isListedPath = (directive === 'script-src' && TRACKER_SCRIPT_SOURCES.includes(src)) || (directive === 'connect-src' && TRACKER_CONNECT_SOURCES.includes(src));
+      const vendorHosts = [...TRACKER_SCRIPT_SOURCES, ...TRACKER_CONNECT_SOURCES].map((u) => new URL(u).origin);
+      if (isHttpsOrigin && vendorHosts.includes(lower)) problems.push(`CSP ${directive} allows the whole of ${src}; name the exact path instead (tracker-sources.mjs)`);
+      if (!isKeyword && !isHttpsOrigin && !isListedPath && directive !== 'upgrade-insecure-requests') {
         problems.push(`CSP ${directive} contains an unexpected source: ${src}`);
       }
     }
