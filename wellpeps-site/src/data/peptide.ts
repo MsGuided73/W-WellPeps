@@ -75,7 +75,7 @@ export const VIAL_ALT: Readonly<Record<string, string>> = {
   '/images/peptide/vial-sermorelin.webp': 'An amber vial labeled Sermorelin, Rx Only',
   '/images/peptide/vial-nad.webp': 'An amber vial labeled NAD+, Rx Only',
   '/images/peptide/vial-nad-nasal-spray.webp': 'A spray bottle labeled NAD+ Nasal Spray, Compounded, Rx Only',
-  '/images/peptide/vial-glutathione.webp': 'An amber vial labeled Glutathione, Rx Only',
+  '/images/peptide/vial-glutathione.webp': 'An amber vial labeled Glutathione, Compounded, Rx Only',
   '/images/peptide/vial-mic.webp': 'An amber vial labeled B12 MIC, Rx Only',
   '/images/peptide/vial-lipoc.webp': 'An amber vial labeled Lipo-C L-Carnitine, Rx Only',
   '/images/peptide/vial-methylene-capsules.webp': 'A white bottle labeled Methylene Blue Capsules, Compounded, Rx Only',
