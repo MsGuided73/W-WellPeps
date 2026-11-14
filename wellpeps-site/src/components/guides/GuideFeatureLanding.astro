@@ -24,6 +24,8 @@ import { GUIDE_FEATURE_COPY as C, guidePageFor } from '../../data/guide-pages';
 import { EBOOKS, type Ebook } from '../../data/ebooks';
 import { GUIDES_INDEX_PATH, guidePath, keepGlpTogether } from '../../lib/guide-flow';
 import { ebookPagesFor } from '../../data/ebook-pages';
+import MdReviewedBadge from '../MdReviewedBadge.astro';
+import { reviewForGuide } from '../../data/medical-review';
 
 interface Props {
   book: Ebook;
@@ -38,6 +40,8 @@ const library = EBOOKS.filter((b) => b.slug !== book.slug).slice(0, C.librarySiz
 // A published guide shows when it was published and last updated (owner, 2026-10-19); kept out of the hero,
 // whose form has to stay on the first screen.
 const published = book.pdf ? ebookPagesFor(book.slug) : undefined;
+// Physician review (src/data/medical-review.ts GUIDE_REVIEWS): shown with the dates, below the hero for the same reason.
+const review = reviewForGuide(book.slug);
 const longDate = (iso: string) => new Date(`${iso}T12:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
 ---
 <section class="gf-hero">
@@ -93,6 +97,7 @@ const longDate = (iso: string) => new Date(`${iso}T12:00:00Z`).toLocaleDateStrin
           <span>Last updated <time datetime={published.updatedOn}>{longDate(published.updatedOn)}</time></span>
         </p>
       )}
+      {review && <MdReviewedBadge variant="byline" review={review} class="gf-review" />}
     </div>
   </div>
 </section>
@@ -209,6 +214,7 @@ const longDate = (iso: string) => new Date(`${iso}T12:00:00Z`).toLocaleDateStrin
   .gf-checks li { display: flex; align-items: flex-start; gap: 0.65rem; color: var(--text-body); font-size: 1.125rem; line-height: 1.45; }
   .gf-checks__tick { flex: none; display: grid; place-items: center; width: 24px; height: 24px; margin-top: 0.1rem; border-radius: 50%; background: var(--blue); color: #fff; }
   .gf-checks__tick :global(svg) { width: 14px; height: 14px; stroke-width: 3; }
+  .gf-review { margin-top: 1rem; }
   .gf-dates { margin-top: 1.1rem; display: flex; flex-wrap: wrap; gap: 0.2rem 0.5rem; font-size: 1rem; color: var(--text-body); }
 
   /* ---------- More free guides ---------- */

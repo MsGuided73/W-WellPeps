@@ -53,6 +53,13 @@ const SCRIPTFUL_WEIGHT_PRODUCT_URL = '#scriptful-stub-weight-loss';
 const SCRIPTFUL_HAIR_PRODUCT_URL = '#scriptful-stub-hair-restoration';
 const SCRIPTFUL_SEXUAL_PRODUCT_URL = '#scriptful-stub-sexual-wellness';
 const SCRIPTFUL_HEALTHY_AGING_PRODUCT_URL = '#scriptful-stub-healthy-aging';
+/** Men's and Women's Hormone Therapy (pages added 2026-11-10). The owner is creating the six products in GEN
+ *  Health; until their links are here the hormone buttons show "Opening Soon". Add each treatment to
+ *  PRODUCT_LINKS + LIVE_PRODUCTS, keyed by its card name slugged: 'testosterone-cypionate', 'testosterone-cream', 'hcg',
+ *  'estradiol-transdermal-patches', 'oral-micronized-progesterone', 'vaginal-estradiol-cream'. Each program also
+ *  needs a safety page before it opens (product-disclosures.test.ts). */
+const SCRIPTFUL_MENS_HORMONE_PRODUCT_URL = '#scriptful-stub-mens-hormone-therapy';
+const SCRIPTFUL_WOMENS_HORMONE_PRODUCT_URL = '#scriptful-stub-womens-hormone-therapy';
 
 /** Intake-first links for individual treatments, one per product card
  *  (`checkoutFlow=intake_first`, owner 2026-10-12).
@@ -157,6 +164,8 @@ export const CTA_LINKS: CtaLinks = {
     'hair-restoration': SCRIPTFUL_HAIR_PRODUCT_URL,
     'sexual-wellness': SCRIPTFUL_SEXUAL_PRODUCT_URL,
     'healthy-aging': SCRIPTFUL_HEALTHY_AGING_PRODUCT_URL,
+    'mens-hormone-therapy': SCRIPTFUL_MENS_HORMONE_PRODUCT_URL,
+    'womens-hormone-therapy': SCRIPTFUL_WOMENS_HORMONE_PRODUCT_URL,
   },
   products: Object.fromEntries(LIVE_PRODUCTS.map((key) => [key, PRODUCT_LINKS[key]])),
 };
@@ -261,11 +270,28 @@ export const EMAILS = {
   accessibility: 'accessibility@wellpeps.com',
 } as const;
 
-/** Primary navigation. Program pages are stubbed for this Home Page build. */
-export const NAV_LINKS = [
-  { label: 'Weight Loss', href: '/weight-loss' },
-  { label: 'Hair Restoration', href: '/hair-restoration' },
-  { label: 'Sexual Wellness', href: '/sexual-wellness' },
-  { label: 'Healthy Aging', href: '/healthy-aging' },
-  { label: 'Why WellPeps', href: '/why-wellpeps' },
+/** Primary navigation. An item with `children` renders as a dropdown (NavBar.astro). */
+export interface NavLink {
+  label: string;
+  href: string;
+}
+export interface NavGroup {
+  label: string;
+  children: NavLink[];
+}
+export const NAV_LINKS: (NavLink | NavGroup)[] = [
+  { label: 'Weight Loss', href: '/weight-loss/' },
+  { label: 'Hair Restoration', href: '/hair-restoration/' },
+  { label: 'Sexual Wellness', href: '/sexual-wellness/' },
+  { label: 'Healthy Aging', href: '/healthy-aging/' },
+  // Owner, 2026-11-10: one "Hormone Therapy" menu with the two program pages.
+  {
+    label: 'Hormone Therapy',
+    children: [
+      { label: 'Men’s Hormone Therapy', href: '/mens-hormone-therapy/' },
+      { label: 'Women’s Hormone Therapy', href: '/womens-hormone-therapy/' },
+    ],
+  },
+  // "Why WellPeps" left the bar 2026-11-10 to give the row room (owner); it is linked from the home page,
+  // every program's Why Choose section and the footer ("About WellPeps").
 ];

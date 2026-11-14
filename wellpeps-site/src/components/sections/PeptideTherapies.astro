@@ -16,7 +16,7 @@
  * geometry, icon path) is local, because the comp's art direction is per-card.
  * See docs/compliance/reviews/2026-09-18-page-peptides.md F15.
  */
-import { peptideProducts, peptideProductsIntro } from '../../data/peptide';
+import { VIAL_ALT, peptideProducts, peptideProductsIntro } from '../../data/peptide';
 
 const IMG = '/images/peptide-therapies';
 
@@ -77,7 +77,8 @@ const therapies = CARD_ORDER.map((name) => {
         'Renaming a product there must be mirrored in CARD_ORDER here.'
     );
   }
-  return { ...ART[name], ...product };
+  // Vial alt text names the visible label text (src/data/peptide.ts VIAL_ALT).
+  return { ...ART[name], ...product, vialAlt: VIAL_ALT[product.vial] ?? ART[name].vialAlt };
 });
 
 ---
@@ -90,8 +91,8 @@ const therapies = CARD_ORDER.map((name) => {
     {therapies.map((t) => (
       <article class="tcard">
         <div class="tcard__media">
-          <img src={t.photo} alt={t.photoAlt} loading="lazy" decoding="async" />
-          <img class="tcard__vial" src={t.vial} alt={t.vialAlt} style={t.vialPos} loading="lazy" decoding="async" />
+          <img src={t.photo} alt={t.photoAlt} width="1536" height="1024" loading="lazy" decoding="async" />
+          <img class="tcard__vial" src={t.vial} alt={t.vialAlt} style={t.vialPos} width="294" height="440" loading="lazy" decoding="async" />
         </div>
         <div class="tcard__body">
           <div class="tcard__head">

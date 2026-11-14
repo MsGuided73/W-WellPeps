@@ -54,7 +54,9 @@ describe('program catalog: built from the page data, so markup and llms.txt matc
   });
 
   test('the four programs, each with treatments and FAQs, and plain-text summaries', () => {
-    expect(PROGRAMS.map((p) => p.path)).toEqual(['/weight-loss/', '/hair-restoration/', '/sexual-wellness/', '/healthy-aging/']);
+    expect(PROGRAMS.map((p) => p.path)).toEqual([
+      '/weight-loss/', '/hair-restoration/', '/sexual-wellness/', '/healthy-aging/', '/mens-hormone-therapy/', '/womens-hormone-therapy/',
+    ]);
     for (const p of PROGRAMS) {
       expect(p.treatments.length, p.name).toBeGreaterThan(0);
       expect(p.faqs.length, p.name).toBeGreaterThan(0);

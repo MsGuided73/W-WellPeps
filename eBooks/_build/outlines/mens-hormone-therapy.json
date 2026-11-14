@@ -1,0 +1,840 @@
+{
+ "slug": "mens-hormone-therapy",
+ "source": "website-additions/Hormone Therapy/Hormone-eBooks/Mens Hormone Therapy eBook/WellPeps_Mens_Hormone_Therapy_eBook_Manuscript_V1.docx (V1, received 2026-11-10; copy in eBooks/Hormone-eBooks/). Hand-built outline 2026-11-10. Copy rules from _build/README.md section 5 and the wellpeps-compliance-review pass (docs/compliance/reviews/2026-11-10-ebook-hormone-therapy.md) applied: lab partner names and 'discounted rates' removed, lab fees billed separately, testosterone cream stated as compounded (owner), a status line on testosterone cypionate, the manuscript's CTA button wording and its no-cost screening line replaced by the See If You Qualify button, checklist grammar fixed. The manuscript's editorial notes are not printed. Photos borrowed from wellpeps-site/public/images/hormone (see config). Added for series consistency: the Why We Created WellPeps page and the standard disclaimer page (the manuscript asks for the disclaimer). MEDICAL REVIEW PENDING (Dr. Yirga): fertility, contraindications, monitoring, hCG and compounded-medication language.",
+ "title": "MEN’S HORMONE THERAPY",
+ "subtitle": "Understanding low testosterone, treatment options, and what quality care should include",
+ "deck": "",
+ "tagline": "Personalized Wellness. Simplified.",
+ "sections": [
+  {
+   "num": "00",
+   "kind": "before",
+   "headline": "Testosterone Therapy Is Healthcare,\nNot Just a Prescription",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Testosterone therapy has become increasingly visible through online advertising, wellness clinics, and direct-to-consumer treatment programs."
+    },
+    {
+     "kind": "body",
+     "text": "For men experiencing symptoms associated with low testosterone, medically appropriate treatment may offer meaningful benefits."
+    },
+    {
+     "kind": "body",
+     "text": "But feeling tired, losing muscle, or experiencing changes in sexual desire doesn’t automatically mean low testosterone is the problem. Sleep disorders, medications, stress, obesity, thyroid conditions, depression, and other health issues can produce similar symptoms."
+    },
+    {
+     "kind": "body",
+     "text": "That’s why responsible testosterone care begins with a medical evaluation—not simply selecting a medication."
+    },
+    {
+     "kind": "body",
+     "text": "This guide will help you understand how testosterone works, when treatment may be appropriate, what options are available, and what to look for in a quality hormone therapy program."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Before asking which testosterone treatment is best, ask whether testosterone treatment is appropriate for you."
+    },
+    {
+     "kind": "approach",
+     "text": "Your health information, symptoms, and relevant laboratory results help a licensed healthcare provider determine whether hormone therapy may be appropriate."
+    }
+   ]
+  },
+  {
+   "num": "01",
+   "kind": "section",
+   "headline": "What Does Testosterone Actually Do?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Testosterone is an important hormone involved in several aspects of men’s health."
+    },
+    {
+     "kind": "body",
+     "text": "Although often associated primarily with sexual function and muscle development, testosterone influences multiple systems throughout the body."
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "SEXUAL HEALTH",
+       "desc": "Supports sexual desire and normal reproductive function."
+      },
+      {
+       "title": "MUSCLE & BONE",
+       "desc": "Contributes to muscle development, strength, and bone maintenance."
+      },
+      {
+       "title": "RED BLOOD CELLS",
+       "desc": "Helps regulate red blood cell production."
+      },
+      {
+       "title": "PHYSICAL DEVELOPMENT",
+       "desc": "Supports male sexual development and secondary sexual characteristics."
+      }
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "Testosterone levels naturally fluctuate throughout the day and can change with age, illness, medications, and other health factors. However, a lower testosterone measurement does not automatically establish a medical condition requiring treatment."
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "Testosterone is important to men’s health, but more testosterone is not necessarily better for every man, at every stage of life."
+    },
+    {
+     "kind": "approach",
+     "text": "Treatment decisions should be based on the individual patient’s clinical circumstances—not simply an effort to achieve a higher laboratory number."
+    }
+   ]
+  },
+  {
+   "num": "02",
+   "kind": "section",
+   "headline": "Could Low Testosterone Be Affecting You?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Men with clinically low testosterone may experience a variety of symptoms."
+    },
+    {
+     "kind": "cards",
+     "style": "chips",
+     "cols": 2,
+     "items": [
+      {
+       "title": "Reduced sexual desire"
+      },
+      {
+       "title": "Fewer spontaneous erections"
+      },
+      {
+       "title": "Fatigue or reduced energy"
+      },
+      {
+       "title": "Decreased muscle mass"
+      },
+      {
+       "title": "Changes in body composition"
+      },
+      {
+       "title": "Reduced bone density"
+      },
+      {
+       "title": "Low mood or reduced motivation"
+      },
+      {
+       "title": "Difficulty concentrating"
+      }
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "Some symptoms, particularly changes in sexual desire and spontaneous erections, may be more suggestive of testosterone deficiency than general complaints such as fatigue. But none of these symptoms, by itself, confirms low testosterone."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Could another health condition, medication, or lifestyle factor be contributing to my symptoms?"
+    },
+    {
+     "kind": "approach",
+     "text": "A licensed provider considers your symptoms alongside your broader health history and appropriate testing before recommending treatment."
+    }
+   ]
+  },
+  {
+   "num": "03",
+   "kind": "section",
+   "headline": "Why Can Testosterone Levels Become Low?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Testosterone levels may decline gradually with age, but aging is only one possible factor."
+    },
+    {
+     "kind": "list",
+     "cols": 1,
+     "items": [
+      "Testicular conditions — Conditions affecting the testes can reduce testosterone production.",
+      "Pituitary or hypothalamic conditions — Problems with the hormonal signaling system can interfere with testosterone production.",
+      "Obesity and metabolic health — Excess body fat and certain metabolic conditions may be associated with reduced testosterone.",
+      "Medications — Opioids, glucocorticoids, and certain other medications can affect hormone levels.",
+      "Illness and sleep disorders — Acute illness, chronic medical conditions, and disrupted sleep may influence testosterone levels."
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "Understanding the potential cause matters because some conditions may be reversible or require a different treatment approach."
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "Low testosterone can be a symptom of another health issue. Finding the cause is part of responsible care."
+    },
+    {
+     "kind": "approach",
+     "text": "Hormone therapy evaluation considers the patient’s overall health—not simply the presence of symptoms."
+    }
+   ]
+  },
+  {
+   "num": "04",
+   "kind": "section",
+   "headline": "Low Testosterone: More Than a Number",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "A diagnosis of testosterone deficiency generally requires both compatible symptoms or signs and consistently low testosterone measurements. A single blood test is not always enough."
+    },
+    {
+     "kind": "body",
+     "text": "Clinical guidelines can recommend confirming low testosterone with two separate early-morning measurements, using appropriate laboratory methods. Additional testing may be needed to understand why testosterone is low."
+    },
+    {
+     "kind": "emph",
+     "text": "A responsible evaluation considers:"
+    },
+    {
+     "kind": "list",
+     "cols": 1,
+     "items": [
+      "Symptoms and medical history",
+      "Testosterone measurements",
+      "Other hormone tests when indicated",
+      "Potential underlying medical conditions",
+      "Fertility goals and treatment risks"
+     ]
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Has my testosterone deficiency been properly evaluated and confirmed before treatment is prescribed?"
+    },
+    {
+     "kind": "approach",
+     "text": "Laboratory results are reviewed by a medical provider as part of determining whether hormone treatment may be appropriate."
+    }
+   ]
+  },
+  {
+   "num": "05",
+   "kind": "section",
+   "headline": "Your Lab Results Tell an Important Part of the Story",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Laboratory testing is an essential component of evaluating suspected testosterone deficiency."
+    },
+    {
+     "kind": "body",
+     "text": "Depending on your symptoms, health history, and initial results, your provider may consider:"
+    },
+    {
+     "kind": "list",
+     "cols": 1,
+     "items": [
+      "Total Testosterone — Overall testosterone concentration.",
+      "Free Testosterone / SHBG — Testosterone availability in selected circumstances.",
+      "LH and FSH — Signals involved in testosterone production.",
+      "Prolactin — Certain pituitary-related causes.",
+      "CBC / Hematocrit — Red blood cell levels and treatment safety.",
+      "PSA — Prostate-related assessment when appropriate."
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "Other tests may be recommended based on your individual circumstances. Testing is only part of the process. Medical interpretation matters. A result outside a laboratory reference range doesn’t necessarily tell the entire story."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Will a medical provider personally review my laboratory results and explain how they affect my treatment decisions?"
+    },
+    {
+     "kind": "approach",
+     "text": "WellPeps offers convenient laboratory testing options at a nearby lab or, when clinically suitable, with an at-home kit, with provider review of results. Lab fees are billed separately."
+    }
+   ]
+  },
+  {
+   "num": "06",
+   "kind": "section",
+   "headline": "Who May Be a Candidate for Testosterone Therapy?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Testosterone replacement therapy may be considered for men with confirmed testosterone deficiency when the expected benefits outweigh potential risks. However, treatment is not appropriate for every patient."
+    },
+    {
+     "kind": "emph",
+     "text": "A healthcare provider may consider:"
+    },
+    {
+     "kind": "list",
+     "cols": 1,
+     "items": [
+      "Symptoms and confirmed laboratory findings",
+      "Cardiovascular health and blood pressure",
+      "Prostate-related history and appropriate screening",
+      "Hematocrit and other laboratory results",
+      "Sleep apnea and other medical conditions",
+      "Current or future fertility goals",
+      "Potential medication interactions and contraindications"
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "Testosterone is not an approved general-purpose treatment for aging, athletic performance, or increasing energy in men without an appropriate medical indication."
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "A responsible program should be willing to tell a patient when testosterone therapy is not the right treatment."
+    },
+    {
+     "kind": "approach",
+     "text": "Completing an assessment does not guarantee a prescription. A licensed provider determines whether treatment is medically appropriate."
+    }
+   ]
+  },
+  {
+   "num": "07",
+   "kind": "section",
+   "headline": "What Can Testosterone Therapy—and Can’t It—Do?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "For men with confirmed testosterone deficiency, appropriately prescribed therapy may improve certain symptoms."
+    },
+    {
+     "kind": "body",
+     "text": "Potential benefits can include improvements in sexual desire, some aspects of sexual function, anemia, bone density, and body composition, depending on the patient. However, responses vary."
+    },
+    {
+     "kind": "twocol",
+     "cols": [
+      {
+       "title": "WHAT TREATMENT MAY HELP",
+       "items": [
+        "Symptoms associated with confirmed testosterone deficiency",
+        "Sexual desire in some patients",
+        "Certain physical and metabolic measures",
+        "Bone density over time"
+       ]
+      },
+      {
+       "title": "WHAT IT DOESN’T GUARANTEE",
+       "items": [
+        "Dramatic increases in energy",
+        "Weight loss",
+        "Improved mood or cognition",
+        "Reversal of aging",
+        "Improved fertility"
+       ]
+      }
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "Testosterone therapy should not be presented as a universal solution to fatigue, weight gain, or changes associated with getting older."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "What specific improvements are realistic for someone with my diagnosis and health history?"
+    },
+    {
+     "kind": "approach",
+     "text": "Treatment goals should be individualized, clinically appropriate, and reassessed over time."
+    }
+   ]
+  },
+  {
+   "num": "08",
+   "kind": "section",
+   "headline": "Today’s Testosterone Treatment Options",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Testosterone can be prescribed in different forms. The appropriate option depends on clinical needs, patient preferences, safety considerations, and availability."
+    },
+    {
+     "kind": "cards",
+     "profile": true,
+     "items": [
+      {
+       "title": "TESTOSTERONE CYPIONATE",
+       "sub": "Injectable Testosterone",
+       "desc": "An established injectable formulation that delivers testosterone through scheduled injections.",
+       "image": "product-cypionate"
+      },
+      {
+       "title": "TESTOSTERONE CREAM",
+       "sub": "Topical Testosterone",
+       "desc": "A testosterone formulation applied to the skin. Absorption, dosing, and precautions differ from injectable treatment.",
+       "image": "product-cream"
+      },
+      {
+       "title": "hCG",
+       "sub": "A Different Hormonal Approach",
+       "desc": "Human chorionic gonadotropin stimulates testosterone production through the testes in selected patients. It is not simply another form of testosterone replacement."
+      }
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "Other FDA-approved testosterone products, including gels, patches, and additional injectable formulations, may also be available through medical care."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Why is this particular treatment being recommended for me?"
+    },
+    {
+     "kind": "approach",
+     "text": "WellPeps offers multiple hormone therapy options. The prescribing provider determines which treatment and formulation may be appropriate."
+    }
+   ]
+  },
+  {
+   "num": "09",
+   "kind": "section",
+   "headline": "Understanding Testosterone Cypionate",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Testosterone cypionate is an injectable form of testosterone used to treat certain men with medically diagnosed testosterone deficiency."
+    },
+    {
+     "kind": "body",
+     "text": "It is typically administered on a schedule determined by the prescribing provider. The appropriate dose, injection method, and frequency depend on the patient’s clinical needs and response."
+    },
+    {
+     "kind": "emph",
+     "text": "Considerations include:"
+    },
+    {
+     "kind": "list",
+     "cols": 2,
+     "items": [
+      "Injection technique and appropriate training",
+      "Dosing frequency and consistency",
+      "Testosterone fluctuations between doses",
+      "Follow-up blood testing and dose adjustments",
+      "Safe handling and disposal of needles and syringes"
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "Some men prefer injections because they avoid daily topical application. Others prefer non-injectable options. Testosterone cypionate is made both as an FDA-approved manufactured product and as a compounded preparation. Compounded medications are not FDA-approved. Ask your provider which one you are prescribed."
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "The best treatment isn’t necessarily the most convenient or the highest dose. It’s the one that appropriately fits your medical needs."
+    },
+    {
+     "kind": "approach",
+     "text": "Testosterone cypionate is among the treatment options a licensed provider may prescribe through WellPeps for eligible patients."
+    }
+   ]
+  },
+  {
+   "num": "10",
+   "kind": "section",
+   "headline": "Understanding Testosterone Cream",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Topical testosterone is applied to the skin and absorbed into the body. For some men, it may provide an alternative to injections."
+    },
+    {
+     "kind": "body",
+     "text": "However, topical treatment requires careful attention to application instructions, dosing consistency, and potential transfer to other people."
+    },
+    {
+     "kind": "emph",
+     "text": "Important considerations:"
+    },
+    {
+     "kind": "list",
+     "cols": 1,
+     "items": [
+      "Apply only as prescribed",
+      "Follow instructions about application sites and washing hands",
+      "Prevent skin-to-skin transfer to partners, children, and others",
+      "Follow provider instructions about bathing, clothing, and contact after application",
+      "Attend recommended laboratory monitoring"
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "The testosterone cream prescribed through WellPeps is a compounded preparation. Unlike FDA-approved manufactured testosterone products, compounded medications are not FDA-approved and have not undergone FDA review for safety, effectiveness, or quality."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Do I understand the application instructions, potential transfer risks, and approval status of my prescribed formulation?"
+    },
+    {
+     "kind": "approach",
+     "text": "Your provider considers treatment needs, formulation, safety, and preferences when determining whether topical testosterone may be appropriate."
+    }
+   ]
+  },
+  {
+   "num": "11",
+   "kind": "section",
+   "headline": "Planning to Have Children?\nThis Conversation Matters.",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "One of the most important things men should understand about testosterone replacement therapy is its potential effect on fertility."
+    },
+    {
+     "kind": "body",
+     "text": "External testosterone can suppress the hormonal signals that stimulate sperm production. As a result, testosterone therapy can substantially reduce sperm counts and may cause infertility during treatment."
+    },
+    {
+     "kind": "body",
+     "text": "This is especially important for men who are planning to have children now or in the future. A man with fertility goals may need a different medical approach, potentially involving a reproductive urologist or other specialist."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Testosterone replacement and fertility preservation are not automatically compatible goals. Have I discussed my current and future fertility plans with my provider before starting treatment?"
+    },
+    {
+     "kind": "approach",
+     "text": "Fertility goals should be part of the medical evaluation before testosterone treatment is prescribed."
+    }
+   ]
+  },
+  {
+   "num": "12",
+   "kind": "section",
+   "headline": "hCG: A Different Approach to Hormone Treatment",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Human chorionic gonadotropin, or hCG, is a hormone medication that can stimulate testosterone production by acting on receptors in the testes."
+    },
+    {
+     "kind": "twocol",
+     "style": "neutral",
+     "cols": [
+      {
+       "title": "TESTOSTERONE REPLACEMENT",
+       "items": [
+        "Introduces testosterone directly into the body",
+        "Can suppress the signals that drive the body’s own production"
+       ]
+      },
+      {
+       "title": "hCG",
+       "items": [
+        "Can stimulate the body’s own testicular testosterone production",
+        "Works only when the testes are capable of responding"
+       ]
+      }
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "In selected clinical circumstances, hCG may be considered for certain men with specific hormonal or reproductive needs."
+    },
+    {
+     "kind": "body",
+     "text": "However, hCG is not appropriate for every patient and should not be assumed to preserve fertility reliably when used alongside testosterone. Its role depends on the diagnosis, treatment goals, and medical provider’s judgment."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Could my fertility goals or underlying diagnosis change which hormone treatment is appropriate for me?"
+    },
+    {
+     "kind": "approach",
+     "text": "hCG may be considered for selected patients when clinically appropriate, rather than automatically included in every testosterone treatment plan."
+    }
+   ]
+  },
+  {
+   "num": "13",
+   "kind": "section",
+   "headline": "Responsible Treatment Doesn’t End With a Prescription",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Testosterone therapy requires ongoing medical oversight."
+    },
+    {
+     "kind": "body",
+     "text": "A provider may monitor treatment response, testosterone levels, hematocrit, blood pressure, side effects, and other health measures. Monitoring may also include prostate-related assessment when appropriate."
+    },
+    {
+     "kind": "body",
+     "text": "Potential concerns include elevated hematocrit, acne, changes in blood pressure, worsening of certain sleep-related conditions, fertility suppression, and other adverse effects. The appropriate monitoring schedule depends on the patient, medication, dose, and clinical circumstances."
+    },
+    {
+     "kind": "emph",
+     "text": "Quality hormone care includes:"
+    },
+    {
+     "kind": "list",
+     "cols": 1,
+     "items": [
+      "Appropriate baseline evaluation",
+      "Follow-up laboratory testing",
+      "Provider review of treatment response",
+      "Dose adjustments when appropriate",
+      "Assessment of side effects and safety"
+     ]
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "Monitoring is not an optional extra. It is part of responsible testosterone treatment."
+    },
+    {
+     "kind": "approach",
+     "text": "Provider-guided hormone therapy includes attention to ongoing treatment response and appropriate follow-up care."
+    }
+   ]
+  },
+  {
+   "num": "14",
+   "kind": "section",
+   "headline": "What Should You Look for in a Hormone Therapy Provider?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Telehealth can make accessing hormone care more convenient, but convenience should not replace clinical standards."
+    },
+    {
+     "kind": "emph",
+     "text": "Before choosing a program, consider:"
+    },
+    {
+     "kind": "list",
+     "cols": 1,
+     "items": [
+      "Does a licensed medical provider review my health history?",
+      "Are appropriate laboratory tests required and reviewed?",
+      "Will someone explain whether I actually need treatment?",
+      "Are fertility goals considered?",
+      "Are the medication’s risks and limitations explained?",
+      "Is ongoing monitoring part of the care plan?",
+      "Can treatment be adjusted or discontinued when appropriate?",
+      "Are medication, laboratory, and provider costs clearly explained?"
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "A program should be judged by the quality of its medical process—not simply how quickly a prescription can be delivered."
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "The care surrounding your medication matters as much as the medication itself."
+    },
+    {
+     "kind": "approach",
+     "text": "WellPeps combines convenient telehealth access with licensed-provider evaluation, laboratory testing options, prescription treatment when appropriate, and ongoing care."
+    }
+   ]
+  },
+  {
+   "num": "15",
+   "kind": "section",
+   "headline": "Personalized Hormone Care, Step by Step",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Your treatment journey should begin with understanding your health, not simply choosing a product."
+    },
+    {
+     "kind": "cards",
+     "cols": 4,
+     "items": [
+      {
+       "title": "01 HEALTH ASSESSMENT",
+       "desc": "Share your symptoms and medical history.",
+       "image": "journey-1"
+      },
+      {
+       "title": "02 LAB TESTING",
+       "desc": "Complete appropriate testing for provider review.",
+       "image": "journey-2"
+      },
+      {
+       "title": "03 PROVIDER REVIEW",
+       "desc": "Your provider evaluates results and treatment options.",
+       "image": "journey-3"
+      },
+      {
+       "title": "04 TREATMENT & CARE",
+       "desc": "If prescribed, begin treatment with follow-up oversight.",
+       "image": "journey-4"
+      }
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "WellPeps provides access to licensed healthcare providers, convenient laboratory testing options, and personalized prescription treatment for eligible patients. Your provider evaluates your information and laboratory results, determines whether treatment is appropriate, and recommends a plan based on your individual needs. Treatment and follow-up requirements vary by patient."
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "Quality care is a process—not a single prescription transaction."
+    },
+    {
+     "kind": "approach",
+     "text": "Personalized care, convenient access, and medical oversight are central to the WellPeps hormone therapy experience."
+    }
+   ]
+  },
+  {
+   "num": "16",
+   "kind": "section",
+   "headline": "The Smart Patient Checklist",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Before starting testosterone therapy, ask the right questions."
+    },
+    {
+     "kind": "body",
+     "text": "Use this checklist to help evaluate your options and make informed decisions with your healthcare provider."
+    },
+    {
+     "kind": "checklist",
+     "items": [
+      {
+       "title": "Understanding Your Health",
+       "desc": "Will my symptoms and overall medical history be evaluated? Will low testosterone be confirmed through appropriate laboratory testing? Will other possible causes of my symptoms be considered? Will my current and future fertility goals be considered?"
+      },
+      {
+       "title": "Understanding Your Treatment",
+       "desc": "Do I understand why testosterone therapy may be appropriate for me? Have the differences between injections, topical testosterone, and other treatment approaches been explained? Do I understand the potential benefits, limitations, and risks? Do I know whether my medication is FDA-approved or compounded?"
+      },
+      {
+       "title": "Understanding Your Ongoing Care",
+       "desc": "Will a licensed medical provider review my laboratory results? Do I understand which follow-up tests and appointments may be needed? Will my treatment response and potential side effects be monitored? Do I know whom to contact if I have questions or concerns?"
+      },
+      {
+       "title": "Understanding Your Program",
+       "desc": "Do I understand the full costs, including medication, laboratory testing, and medical review? Do I understand the refill process, cancellation terms, and ongoing care arrangements?"
+      }
+     ],
+     "compact": true
+    },
+    {
+     "kind": "tagline",
+     "text": "The right hormone therapy program should help you understand not just what you’re taking, but why you’re taking it—and how your health will be monitored."
+    },
+    {
+     "kind": "approach",
+     "text": "Licensed medical providers evaluate your symptoms, review appropriate laboratory results, and determine whether treatment may be right for you."
+    }
+   ]
+  },
+  {
+   "num": "17",
+   "kind": "why",
+   "headline": "Why We Created WellPeps",
+   "elements": [
+    {
+     "kind": "emph",
+     "text": "Real Care. Not Just Medication."
+    },
+    {
+     "kind": "body",
+     "text": "WellPeps was founded by a physician and an experienced pharmacy owner who believed there should be a better way to bring together thoughtful medical care, quality prescription fulfillment and a more convenient patient experience. That perspective shaped the WellPeps approach: personalized, provider-guided care designed around the patient—not simply the medication."
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "Personalized Provider-Guided Care",
+       "desc": "Treatment begins with your health information, medications, goals and individual circumstances."
+      },
+      {
+       "title": "Multiple Wellness Options",
+       "desc": "Different treatment options allow providers to consider what may be appropriate for different individuals."
+      },
+      {
+       "title": "More Than a Prescription",
+       "desc": "The WellPeps experience is designed around care—not simply delivering medication."
+      },
+      {
+       "title": "Quality Prescription Fulfillment",
+       "desc": "Prescriptions are fulfilled through U.S.-based pharmacy partners selected to support quality and reliable prescription fulfillment."
+      },
+      {
+       "title": "Ongoing Support",
+       "desc": "Your questions and treatment needs don’t necessarily stop when treatment begins."
+      },
+      {
+       "title": "Straightforward Pricing",
+       "desc": "One monthly price: provider review, follow-up care, messaging, shipping and medication when prescribed. Lab fees are billed separately."
+      },
+      {
+       "title": "Healthcare Without the Runaround",
+       "desc": "A simpler, more convenient way to access treatment—from assessment and medical review to prescription fulfillment and ongoing support."
+      },
+      {
+       "title": "More Than Hormone Therapy",
+       "desc": "WellPeps offers a wide and expanding range of treatment programs for your wellness needs."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "num": "18",
+   "kind": "section",
+   "headline": "Be Informed. Ask Questions.\nTake Charge of Your Health.",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Testosterone therapy may be beneficial for some men with confirmed hormone deficiency. But it isn’t a shortcut to better health, a universal solution to aging, or a treatment everyone needs."
+    },
+    {
+     "kind": "body",
+     "text": "Being a Smart Patient means understanding your symptoms, getting an appropriate evaluation, knowing your treatment options, and recognizing the importance of ongoing medical care."
+    },
+    {
+     "kind": "emph",
+     "text": "The goal isn’t simply to increase a number on a laboratory report. It’s to make informed decisions that support your health and well-being."
+    }
+   ]
+  },
+  {
+   "num": "",
+   "kind": "cta",
+   "headline": "Ready to Learn Whether Treatment May Be Right for You?",
+   "elements": [
+    {
+     "kind": "body",
+     "text": "WellPeps makes it convenient to begin with a confidential health assessment reviewed by a licensed healthcare provider."
+    }
+   ]
+  },
+  {
+   "num": "",
+   "kind": "disclaimer",
+   "headline": "",
+   "elements": [],
+   "text": [
+    "This guide is provided for general educational purposes only and does not provide medical advice, establish a diagnosis or guarantee eligibility for treatment. Always discuss treatment decisions, medications, side effects and health concerns with an appropriately licensed healthcare professional.",
+    "Prescription medications require evaluation and authorization by an appropriately licensed healthcare provider. Individual experiences vary, and no specific treatment outcome is guaranteed. Medication availability and treatment requirements may vary.",
+    "Some medications discussed in this guide may be prescribed off-label, meaning an FDA-approved medication is prescribed for a use that has not been approved by FDA. Some treatment options involve compounded medications. Compounded medications are not FDA-approved finished drug products, and FDA does not review them for safety, effectiveness or quality before marketing in the same manner as FDA-approved drugs.",
+    "Testosterone therapy can reduce sperm production and fertility. Topical testosterone can transfer to other people through skin contact; follow the application instructions."
+   ]
+  }
+ ]
+}

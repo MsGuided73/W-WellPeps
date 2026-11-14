@@ -37,7 +37,8 @@ await page.reload({ waitUntil: 'load' });
 await page.addStyleTag({ content: '.pbanner{display:none!important}' });
 
 // ---- opening ----------------------------------------------------------------
-check('starts closed: only a small button is visible', (await panel.isHidden()) && (await page.locator('[data-pill]').isVisible()));
+// No floating button since 2026-11-10 (it covered page content and printouts); Alt+T is the only way in.
+check('starts closed with nothing on screen', (await panel.isHidden()) && (await page.locator('[data-pill]').isHidden()));
 const widthBefore = await page.evaluate(() => document.documentElement.scrollWidth);
 const sheetsBefore = await page.evaluate(() => document.styleSheets.length);
 await open();
@@ -142,7 +143,7 @@ await page.locator('[data-undo]').click();
 await page.keyboard.press('Escape');
 await open();
 check('Alt+T closes the panel again', await panel.isHidden());
-await page.locator('[data-pill]').click();
+await open();
 await page.locator('[data-reset-all]').click();
 
 check('no script errors', errors.length === 0, errors.slice(0, 2).join(' | '));

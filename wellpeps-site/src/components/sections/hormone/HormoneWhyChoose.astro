@@ -1,0 +1,65 @@
+---
+/**
+ * "Why choose WellPeps for hormone therapy": the Weight Loss Why Choose cards (photo, title, rule, body),
+ * six of them in a 3 x 2 grid for Derek's six reasons.
+ */
+import Icon from '../../Icon.astro';
+import type { HormonePage } from '../../../data/hormone';
+
+interface Props {
+  page: HormonePage;
+}
+const { why } = Astro.props.page;
+---
+<section class="section section--pale-blue" id="why">
+  <div class="container">
+    <div class="section-head hwhy__head reveal">
+      <h2>{why.title}</h2>
+      <p>{why.lead}</p>
+    </div>
+
+    <div class="hwhy__grid reveal">
+      {why.items.map((c) => (
+        <article class="card hwhy__card">
+          <div class="hwhy__media"><img src={c.image} alt={c.alt} width="760" height="651" loading="lazy" /></div>
+          <div class="hwhy__body">
+            <h3>{c.title}</h3>
+            <hr class="rule" />
+            <p>{c.body}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <p class="hwhy__more reveal">
+      <a href="/why-wellpeps/" class="arrow-link">Explore all the reasons Patients choose WellPeps <Icon name="arrow-right" /></a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .hwhy__head { max-width: none; }
+  .hwhy__head p { max-width: 760px; margin-inline: auto; }
+
+  .hwhy__grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem;
+    margin-top: clamp(2rem, 3vw, 3rem);
+  }
+  .hwhy__card { overflow: hidden; display: flex; flex-direction: column; text-align: center; }
+  .hwhy__card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  /* Near-square window, as on Weight Loss, so these photos show essentially uncropped (no sliced heads). */
+  .hwhy__media { aspect-ratio: 7 / 6; overflow: hidden; }
+  .hwhy__media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
+  .hwhy__body { padding: 1.6rem 1.6rem 1.9rem; display: flex; flex-direction: column; align-items: center; }
+  .hwhy__body h3 { font-size: var(--text-card-title); font-weight: 600; line-height: 1.2; }
+  .hwhy__body .rule { margin-top: 0.9rem; }
+  .hwhy__body p { margin-top: 0.9rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.55; }
+
+  .hwhy__more { text-align: center; margin-top: 2rem; }
+  .hwhy__more .arrow-link { font-size: var(--text-lead); font-weight: 700; }
+
+  @media (max-width: 1000px) { .hwhy__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) {
+    .hwhy__grid { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }
+  }
+</style>

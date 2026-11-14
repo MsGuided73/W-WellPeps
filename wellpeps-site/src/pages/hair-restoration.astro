@@ -27,8 +27,9 @@ const jsonLd = [
   <HairHero />
   {HAIR_COMING_SOON && <HairComingSoon />}
   <HairHowItWorks />
-  <GuideBand program="hair-restoration" />
   <HairProducts />
+  {/* Products always come before the Smart Patient Guide band (Derek, 2026-11-12). */}
+  <GuideBand program="hair-restoration" />
   <HairFaq />
   <HairCta />
 </BaseLayout>

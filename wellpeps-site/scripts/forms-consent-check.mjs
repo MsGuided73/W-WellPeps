@@ -43,9 +43,8 @@ for (const [slug, title] of [['glp-1-weight-loss', 'GLP-1 Weight Loss'], ['hair-
   await page.close();
 }
 
-// ---------------------------------------------------------------- waitlist and hair notify
+// ---------------------------------------------------------------- hair notify (the hormone waitlist was removed 2026-11-10)
 for (const [path, selector, label, topicRe] of [
-  ['/hormone-optimization', 'form[data-waitlist]', 'waitlist', /Hormone Optimization/],
   ['/hair-restoration', 'form[data-hair-notify]', 'hair notify', /hair restoration/],
 ]) {
   const page = await ctx.newPage();

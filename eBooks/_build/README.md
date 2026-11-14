@@ -198,6 +198,36 @@ building another book.
   text ("NAD+ plays an essential role ... how NAD+ therapy may benefit patients"), Modern Healthcare in the series list,
   his headline breaks on pages 01, 04 and 08, his Approach-box breaks on pages 03, 07 and 09 (approach text now takes
   `\n`), and his one-line 27pt checklist headline (`"headline_nowrap": true`), which also keeps the checklist on one page.
+- **Men's and Women's Hormone Therapy, v1 (2026-11-10)**, built from the V1 manuscripts in
+  `eBooks/Hormone-eBooks/` straight onto `editorial-v7`. Outlines `outlines/mens-hormone-therapy.json` and
+  `outlines/womens-hormone-therapy.json`, configs `config/<book>-v1.json`, PDF + PPTX `eBooks/<book>_ebook-v1.*`
+  (PPTX `GOOD SYSTEM`). Men's 22 pages, Women's 21, every section on one page, PASS with one "too empty" WARN on
+  each Final Thoughts page. Compliance pass in `docs/compliance/reviews/2026-11-10-ebook-hormone-therapy.md` (lab
+  names out, labs billed separately, compounded/FDA status lines, See If You Qualify). **Medical review by
+  Dr. Yirga pending; Derek has not seen them.** Covers are the client's "Possible Cover" images
+  (`_assets/hormone/`; the men's cover crops the woman at the right edge as the source photo does). Photos are the
+  site's `images/hormone/` set; the journey pages use square crops of the four journey photos
+  (`_assets/hormone/*-journey-N-crop.png`, 1.1:1) because the full portraits pushed the page 1in over. Deviations to
+  raise with Derek: both books gain the series Why page (Straightforward Pricing card adds "Lab fees are billed
+  separately.") and Final Thoughts sits between it and the CTA (Modern Healthcare order); Men's 08 hCG card has no
+  photo (none exists); Men's 12 renders the manuscript's "diagram" as a neutral two-column comparison; Men's 16 and
+  Women's 14 checklists group the questions under their four headings (compact rows; Men's closing insight as the
+  tagline line); Men's 16 trims "Choosing hormone therapy involves more than selecting a medication." and the
+  Approach box's first sentence to fit; Women's has no kickers in the manuscript, so they are written for the series;
+  Women's 06 "does not guarantee" is a full-width card. **Women's v2** (same day): page 11 now says the vaginal estradiol
+  cream is compounded (owner correction; v1, which called it FDA-approved, is in `eBooks/_archive/`), and the
+  disclaimer reads "Some treatment options involve compounded medications"; the disclaimers keep every manuscript point plus the series
+  paragraphs, with the series list naming all seven other guides.
+- **Medical review line, 2026-11-12 (all eight guides):** Rahel Yirga, MD approved every guide (owner, 2026-11-12; the
+  site's `GUIDE_REVIEWS` in `src/data/medical-review.ts`). Each book's back page now carries "Medically reviewed by Rahel
+  Yirga, MD" / "Internal Medicine · Reviewed November 12, 2026" with the site's MD seal, right-aligned and level with the
+  WELLPEPS brand block (config key `medical_review`, `review_block()` in `render_html.py`; the seal's scallop gets a thin
+  white outline so the navy mark reads on the navy page). The books print no Published/Last updated dates (those are on
+  the site's read-online page), so the back page is the one consistent spot. `layout_check.mjs` counts the review block
+  in the brand-into-footer check. Rebuilt and republished: GLP-1 **v22**, Sexual Wellness **v10**, Hair Restoration
+  **v9**, Healthy Aging **v12**, NAD+ **v5**, Modern Healthcare **v5**, Men's Hormone Therapy **v2**, Women's Hormone
+  Therapy **v3**. Each config is the previous version's plus `medical_review`; the PDF text is identical to the previous
+  version except that line (checked page by page). Every deck `GOOD SYSTEM`.
 - **Archived:** every earlier GLP-1 version and the old NAD+, Peptides, Sexual Wellness and Healthy Aging guides are in
   `eBooks/_archive/`. Their content is being rewritten; new manuscripts arrive one at a time. Do not rebuild from the
   archived outlines.

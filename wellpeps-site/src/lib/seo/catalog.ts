@@ -8,6 +8,7 @@ import { weightFaqs, weightHero, weightProducts } from '../../data/weight';
 import { hairFaqs, hairHero, hairProducts } from '../../data/hair';
 import { sexFaqs, sexHero, sexProducts } from '../../data/sexual';
 import { peptideFaqs, peptideHero, peptideProducts } from '../../data/peptide';
+import { HORMONE_PAGES } from '../../data/hormone';
 import { programs } from '../../data/programs';
 
 export interface Treatment {
@@ -93,6 +94,15 @@ export const PROGRAMS: readonly ProgramEntry[] = [
         : [{ name: p.name, form: p.methodOfUse, monthlyPrice: toPrice(p.price) }]),
     faqs: toFaqs(peptideFaqs),
   },
+  // Men's and Women's Hormone Therapy: available (owner, 2026-11-10); prices are not set on the site yet.
+  ...HORMONE_PAGES.map((page) => ({
+    path: page.path,
+    name: page.name,
+    summary: plain(page.hero.lead),
+    live: true,
+    treatments: page.products.items.map((p) => ({ name: p.name, form: p.methodOfUse })),
+    faqs: toFaqs(page.faqs),
+  })),
 ];
 
 export function programAt(path: string): ProgramEntry {

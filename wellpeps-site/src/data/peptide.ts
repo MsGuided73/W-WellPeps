@@ -67,6 +67,20 @@ export const peptideBenefits: ScienceBenefit[] = [
   { title: 'Educational Resources' },
 ];
 
+/**
+ * Alt text for each product vial/bottle cutout, naming the label text that is visible (2026-11-12 alt-text audit).
+ * Used by the Healthy Aging product cards (PeptideCard) and the Learning Center therapies section (PeptideTherapies).
+ */
+export const VIAL_ALT: Readonly<Record<string, string>> = {
+  '/images/peptide/vial-sermorelin.webp': 'An amber vial labeled Sermorelin, Rx Only',
+  '/images/peptide/vial-nad.webp': 'An amber vial labeled NAD+, Rx Only',
+  '/images/peptide/vial-nad-nasal-spray.webp': 'A spray bottle labeled NAD+ Nasal Spray, Compounded, Rx Only',
+  '/images/peptide/vial-glutathione.webp': 'An amber vial labeled Glutathione, Rx Only',
+  '/images/peptide/vial-mic.webp': 'An amber vial labeled B12 MIC, Rx Only',
+  '/images/peptide/vial-lipoc.webp': 'An amber vial labeled Lipo-C L-Carnitine, Rx Only',
+  '/images/peptide/vial-methylene-capsules.webp': 'A white bottle labeled Methylene Blue Capsules, Compounded, Rx Only',
+};
+
 export interface PeptideProduct {
   name: string;
   subtitle: string;
@@ -121,7 +135,7 @@ export const peptideProducts: PeptideProduct[] = [
     description: 'NAD+ is a naturally occurring coenzyme that plays an essential role in cellular energy metabolism and other fundamental cellular processes.',
     icon: 'zap',
     photo: '/images/peptide/photo-nad.webp',
-    photoAlt: 'A woman relaxing with a coffee by a bright window',
+    photoAlt: 'A smiling woman stretching in a sunlit outdoor pool',
     vial: '/images/peptide/vial-nad.webp',
     methodOfUse: 'Injection',
     features: ['Cellular energy metabolism', 'Essential cellular processes', 'Naturally present in the body'],
@@ -137,7 +151,7 @@ export const peptideProducts: PeptideProduct[] = [
     description: 'Glutathione is a naturally occurring antioxidant that plays an important role in cellular antioxidant defenses and normal metabolic processes.',
     icon: 'shield-check',
     photo: '/images/peptide/photo-glutathione.webp',
-    photoAlt: 'A woman with glowing skin in soft natural light',
+    photoAlt: 'A woman closes her eyes in warm morning light beside a houseplant',
     vial: '/images/peptide/vial-glutathione.webp',
     methodOfUse: 'Injection',
     features: ['Antioxidant defense', 'Oxidative balance', 'Naturally present in the body'],
@@ -173,7 +187,7 @@ export const peptideProducts: PeptideProduct[] = [
     description: 'Methylene blue has a long history of medical use and pharmacologic activity involving cellular redox processes and mitochondrial biology. Research into potential applications beyond its established medical uses continues to evolve.',
     icon: 'brain',
     photo: '/images/peptide/photo-methylene.webp',
-    photoAlt: 'A man reading a book in warm evening light',
+    photoAlt: 'A smiling man in a navy jacket sitting in a waterfront park on a sunny day',
     vial: '/images/peptide/vial-methylene-capsules.webp',
     methodOfUse: 'Oral',
     features: ['Mitochondrial biology', 'Cellular redox processes', 'Emerging areas of research'],

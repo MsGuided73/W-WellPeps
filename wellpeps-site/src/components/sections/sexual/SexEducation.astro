@@ -19,7 +19,7 @@ import { sexEducation, sexWorks } from '../../../data/sexual';
       <div class="sxedu__grid">
         {sexWorks.map((s) => (
           <article class="card sxedu__step">
-            <h4>{s.title}</h4>
+            <h3>{s.title}</h3>
             <hr class="rule rule--left" />
             <p>{s.body}</p>
           </article>
@@ -45,7 +45,7 @@ import { sexEducation, sexWorks } from '../../../data/sexual';
   .sxedu__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; text-align: left; }
   .sxedu__step { position: relative; padding: 1.75rem 1.75rem 2rem; overflow: hidden; }
   .sxedu__step:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-  .sxedu__step h4 { font-family: var(--font-serif); font-weight: 600; font-size: var(--text-card-title); color: var(--navy); line-height: 1.2; }
+  .sxedu__step h3 { font-family: var(--font-serif); font-weight: 600; font-size: var(--text-card-title); color: var(--navy); line-height: 1.2; }
   .sxedu__step .rule { margin-top: 0.9rem; }
   .sxedu__step p { margin-top: 0.8rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.6; }
 

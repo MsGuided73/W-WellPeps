@@ -11,7 +11,7 @@ import { safety } from '../../data/content';
     <div class="safety__grid reveal">
       {safety.map((c) => (
         <article class="card safety__card">
-          <span class="medallion safety__medallion"><img src={c.img} alt="" loading="lazy" /></span>
+          <span class="medallion safety__medallion"><img src={c.img} width={c.w} height={c.h} alt="" loading="lazy" /></span>
           <h3>{c.title}</h3>
           <hr class="rule" />
           <p>{c.body}</p>

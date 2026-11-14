@@ -18,8 +18,11 @@ import {
   reviewerPath,
   reviewerShortName,
   reviewsBy,
+  guidesReviewedBy,
   type MedicalReviewer,
 } from '../../data/medical-review';
+import { EBOOKS } from '../../data/ebooks';
+import { guidePath } from '../../lib/guide-flow';
 
 export function getStaticPaths() {
   return Object.values(MEDICAL_REVIEWERS).map((reviewer) => ({ params: { id: reviewer.id }, props: { reviewer } }));
@@ -39,19 +42,27 @@ const reviewed = reviewsBy(reviewer.id)
   .map((r) => ({ ...r, article: bySlug.get(r.slug) }))
   .filter((r) => r.article !== undefined)
   .sort((a, b) => a.article!.title.localeCompare(b.article!.title));
+// The Smart Patient Guides the reviewer approved, in the series' own order.
+const guides = guidesReviewedBy(reviewer.id)
+  .map((r) => ({ ...r, book: EBOOKS.find((b) => b.slug === r.slug) }))
+  .filter((r) => r.book !== undefined)
+  .sort((a, b) => EBOOKS.indexOf(a.book!) - EBOOKS.indexOf(b.book!));
 
 const jsonLd = [
   breadcrumbs([{ name: 'Wellness Learning Center', path: '/wellness-learning-center/' }, { name, path }]),
   reviewerPerson(reviewer),
 ];
+// Google's ProfilePage check wants dateModified as a full ISO 8601 date-time with a time zone; a date alone is
+// reported as an invalid datetime (Search Console notice, 2026-11-12). Midday UTC keeps the same calendar date in
+// every U.S. time zone. The visible "Last updated" date on the page is unchanged.
 ---
 <BaseLayout
   title={`${name}, Medical Reviewer | WellPeps`}
-  description={`${name} is a licensed physician in ${reviewer.specialty.toLowerCase()} who reviews WellPeps Wellness Learning Center articles for medical accuracy.`}
+  description={`${name} is a licensed physician in ${reviewer.specialty.toLowerCase()} who reviews WellPeps Learning Center articles and Smart Patient Guides for medical accuracy.`}
   jsonLd={jsonLd}
   pageType="ProfilePage"
   mainEntity={reviewerId(reviewer)}
-  dateModified={reviewer.profileUpdated}
+  dateModified={`${reviewer.profileUpdated}T12:00:00Z`}
 >
   <section class="section">
     <div class="container rvw">
@@ -104,6 +115,20 @@ const jsonLd = [
               <li>
                 <a href={r.article!.url_path}>{r.article!.title}</a>
                 <span class="rvw__date">Reviewed <time datetime={r.reviewedOn}>{formatReviewDate(r.reviewedOn)}</time></span>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+
+      {guides.length > 0 && (
+        <>
+          <h2 class="rvw__h2">Smart Patient Guides reviewed by {short}</h2>
+          <ul class="rvw__list">
+            {guides.map((g) => (
+              <li>
+                <a href={guidePath(g.book!.slug)}>The Smart Patient&rsquo;s Guide to {g.book!.title}</a>
+                <span class="rvw__date">Reviewed <time datetime={g.reviewedOn}>{formatReviewDate(g.reviewedOn)}</time></span>
               </li>
             ))}
           </ul>

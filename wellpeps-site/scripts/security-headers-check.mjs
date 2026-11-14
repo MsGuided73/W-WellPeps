@@ -344,20 +344,8 @@ async function interactions(browser) {
     await page.locator('[data-checkout-close]').click();
   });
 
-  await page.goto(`${OPEN}/hormone-optimization/`, { waitUntil: 'networkidle' });
-  await step('waitlist form: submits to the signup function and confirms', bag, async () => {
-    const before = bag.supabase.length;
-    const form = page.locator('form[data-waitlist]').first();
-    await form.scrollIntoViewIfNeeded();
-    await form.locator('input[name="firstName"]').fill('Csp');
-    await form.locator('input[name="email"]').fill('csp-check@example.com');
-    // The required consent box (W9): the form refuses to send without it.
-    await form.locator('input[name="consentCollect"]').check();
-    await form.locator('button[type="submit"]').click();
-    await page.locator('[data-waitlist-success]:not([hidden])').first().waitFor({ timeout: 5000 });
-    if (!bag.supabase.slice(before).some((r) => r.startsWith('POST'))) throw new Error('the signup request never left the page');
-  });
-
+  // (The Hormone Optimization waitlist step was removed 2026-11-10 with the waitlist; the guide form above
+  // still checks a signup request under the CSP.)
   await page.goto(`${OPEN}/your-privacy-choices/`, { waitUntil: 'networkidle' });
   await step('Your Privacy Choices page: switches work and the request form validates and offers the email fallback', bag, async () => {
     await page.locator('[data-variant="page"] [data-pc-toggle="analytics"]').check();

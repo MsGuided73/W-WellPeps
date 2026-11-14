@@ -91,7 +91,9 @@ const report = await page.evaluate(() => {
     const t = pg.querySelector('.dtext'), s = pg.querySelector('.series');
     const overlap = t && s ? Math.max(0, (t.getBoundingClientRect().bottom - s.getBoundingClientRect().top) / IN) : 0;
     const b = pg.querySelector('.dbrand'), f = pg.querySelector('.dfoot');
-    const brandOver = b && f ? Math.max(0, (b.getBoundingClientRect().bottom + 0.1 * IN - f.getBoundingClientRect().top) / IN) : 0;
+    const rv = pg.querySelector('.dreview');  // the medical-review line sits level with the brand block and must clear the footer too
+    const brandBottom = b ? Math.max(b.getBoundingClientRect().bottom, rv ? rv.getBoundingClientRect().bottom : 0) : 0;
+    const brandOver = b && f ? Math.max(0, (brandBottom + 0.1 * IN - f.getBoundingClientRect().top) / IN) : 0;
     return { brandOverIn: Math.round(brandOver * 100) / 100, overlapIn: Math.round(overlap * 100) / 100, steps: t ? ['d1', 'd2', 'd3', 'd4'].filter((c) => t.classList.contains(c)).length : 0 };
   });
 

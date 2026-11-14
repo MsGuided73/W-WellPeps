@@ -332,6 +332,98 @@ export const GUIDE_PAGES: Readonly<Record<string, GuidePage>> = {
         'and learn what you need to know.',
     },
   },
+
+  // Added 2026-11-10 with the v1 guides (medical review pending). Topic cards are chapter titles from
+  // eBooks/_build/outlines/<slug>.json.
+  'mens-hormone-therapy': {
+    headline: [SMART_PATIENT_LINE, 'Before Choosing Testosterone Therapy'],
+    intro:
+      'Testosterone therapy is everywhere online, but low energy or low libido does not automatically mean low testosterone. ' +
+      'Our free guide explains how low testosterone is diagnosed, what treatment can and cannot do, and what to ask before choosing a program.',
+    inside: [
+      'What testosterone does in the body',
+      'Symptoms and the many possible causes',
+      'Why diagnosis takes more than one number',
+      'Which lab tests matter and why',
+      'Testosterone cypionate, testosterone cream and hCG',
+      'How testosterone therapy can affect fertility',
+      'Why ongoing monitoring matters',
+      LAST_POINT,
+    ],
+    topics: [
+      { title: 'Could Low Testosterone Be Affecting You?', icon: 'stethoscope' },
+      { title: 'Low Testosterone: More Than a Number', icon: 'target' },
+      { title: 'Your Lab Results Tell an Important Part of the Story', icon: 'flask' },
+      { title: 'Today’s Testosterone Treatment Options', icon: 'syringe' },
+      { title: 'Planning to Have Children? This Conversation Matters.', icon: 'heart' },
+      { title: 'Responsible Treatment Doesn’t End With a Prescription', icon: 'shield' },
+    ],
+    metaDescription: 'Free Smart Patient’s Guide to men’s hormone therapy: how low testosterone is diagnosed, your treatment options, fertility and monitoring.',
+    assessmentProgram: 'mens-hormone-therapy',
+    articleCta: {
+      title: 'Want to Learn More About Testosterone Therapy?',
+      body: 'Understand how low testosterone is diagnosed, what treatment can and cannot do, and the questions worth asking before choosing a program.',
+      button: 'Get the Free Men’s Hormone Therapy Guide',
+    },
+    thanks: { assessmentHeading: 'Ready to Explore Men’s Hormone Therapy?', assessmentBody: ASSESSMENT_BODY },
+    feature: {
+      photo: '/images/hormone/men-education.webp',
+      photoAlt: 'A man on a telehealth video call with a licensed provider at home',
+      photoSize: [1200, 800],
+      insideTitle: 'What’s Inside Your Free Men’s Hormone Therapy Guide?',
+      insideLead:
+        'Everything you should know before choosing testosterone therapy—from symptoms, causes and lab testing to treatment ' +
+        'options, fertility, monitoring, and what to look for in a provider.',
+      closeBody:
+        'Before choosing a testosterone therapy program, download your free Smart Patient’s Guide ' +
+        'and learn what you need to know.',
+    },
+  },
+
+  'womens-hormone-therapy': {
+    headline: [SMART_PATIENT_LINE, 'Before Choosing Menopause Hormone Therapy'],
+    intro:
+      'Perimenopause and menopause can affect sleep, comfort, sexual health and everyday well-being. Our free guide explains ' +
+      'what is happening to your hormones, how hormone therapy works, its benefits and risks, and what to ask before choosing care.',
+    inside: [
+      'Perimenopause, menopause and postmenopause explained',
+      'Symptoms and what may be causing them',
+      'When hormone testing is and isn’t needed',
+      'Systemic versus local vaginal estrogen',
+      'Estradiol patches, progesterone and vaginal estradiol cream',
+      'Benefits, risks and who may not be a candidate',
+      'Why follow-up care matters',
+      LAST_POINT,
+    ],
+    topics: [
+      { title: 'Perimenopause, Menopause & Postmenopause: What’s the Difference?', icon: 'calendar' },
+      { title: 'Do You Need Hormone Testing to Diagnose Menopause?', icon: 'flask' },
+      { title: 'What Is Menopausal Hormone Therapy?', icon: 'pill' },
+      { title: 'Why Is Progesterone Often Prescribed With Estrogen?', icon: 'layers' },
+      { title: 'Vaginal Dryness, Discomfort & Menopause', icon: 'heart' },
+      { title: 'Is Menopausal Hormone Therapy Safe?', icon: 'shield' },
+    ],
+    metaDescription: 'Free Smart Patient’s Guide to women’s hormone therapy: perimenopause and menopause, treatment options, benefits, risks and follow-up care.',
+    assessmentProgram: 'womens-hormone-therapy',
+    articleCta: {
+      title: 'Want to Learn More About Menopause Hormone Therapy?',
+      body: 'Understand what happens during perimenopause and menopause, how hormone therapy works, and the questions worth asking before choosing care.',
+      button: 'Get the Free Women’s Hormone Therapy Guide',
+    },
+    thanks: { assessmentHeading: 'Ready to Explore Women’s Hormone Therapy?', assessmentBody: ASSESSMENT_BODY },
+    feature: {
+      photo: '/images/hormone/women-education.webp',
+      photoAlt: 'A woman sitting thoughtfully on a sofa in a bright living room',
+      photoSize: [1200, 800],
+      insideTitle: 'What’s Inside Your Free Women’s Hormone Therapy Guide?',
+      insideLead:
+        'Everything you should know before choosing menopause hormone therapy—from the stages of menopause and symptoms to ' +
+        'treatment options, safety, and follow-up care.',
+      closeBody:
+        'Before choosing a menopause hormone therapy program, download your free Smart Patient’s Guide ' +
+        'and learn what you need to know.',
+    },
+  },
 };
 
 export function guidePageFor(slug: string): GuidePage {
@@ -363,6 +455,15 @@ export const PROGRAM_BAND_COPY: Readonly<Record<ProgramSlug, ProgramBandCopy>> =
     question: 'Want to learn more before choosing a healthy aging and vitality program?',
     body: 'Understand how different therapies work, what to realistically expect, and the questions worth asking before choosing a treatment program.',
   },
+  // Derek's decks, slide 4. The band stays hidden until each program's guide is published (src/data/ebooks.ts).
+  'mens-hormone-therapy': {
+    question: 'Want to learn more before choosing a testosterone therapy program?',
+    body: 'Understand what low testosterone really means and how it’s diagnosed, what to realistically expect, and the questions worth asking before choosing a treatment program.',
+  },
+  'womens-hormone-therapy': {
+    question: 'Want to learn more before choosing a menopause hormone therapy program?',
+    body: 'Understand what happens during perimenopause and menopause, what to realistically expect, and the questions worth asking before choosing a treatment program.',
+  },
 };
 
 /** Series-level copy: the home section, the program bands, and the central page. */
@@ -378,7 +479,7 @@ export const GUIDE_SERIES = {
   exploreAll: 'Explore All Smart Patient Guides',
   bandHeadline: 'Become a Smart Patient. Download Our Free eBook.',
   bandButton: 'Get the Free Guide',
-  indexMeta: 'Free Smart Patient’s Guides on weight loss, sexual wellness, hair restoration, healthy aging and NAD+: understand your options and know what to ask.',
+  indexMeta: 'Free Smart Patient’s Guides on weight loss, sexual wellness, hair restoration, healthy aging, NAD+ and hormone therapy: know your options and what to ask.',
   indexEyebrow: 'The WellPeps Smart Patient’s Guide Series',
   indexTitle: ['Better Information.', 'Better Healthcare Decisions.'] as [string, string],
   indexBody:

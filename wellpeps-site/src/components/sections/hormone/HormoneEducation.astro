@@ -1,0 +1,90 @@
+---
+/**
+ * "Could low testosterone be affecting you?" / "Understanding perimenopause and menopause": the Sexual
+ * Wellness education layout (photo left, copy right) with Derek's symptom checklist and the
+ * "important thing to know" note.
+ */
+import Icon from '../../Icon.astro';
+import type { HormonePage } from '../../../data/hormone';
+
+interface Props {
+  page: HormonePage;
+}
+const { education } = Astro.props.page;
+---
+<section class="section section--pale-blue" id="symptoms">
+  <div class="container">
+    <div class="hedu reveal">
+      <div class="hedu__media">
+        <img src={education.image} alt={education.alt} width="1200" height="800" loading="lazy" />
+      </div>
+      <div class="hedu__copy">
+        <h2>{education.title}</h2>
+        <hr class="rule rule--left" />
+        <p>{education.intro}</p>
+        <p class="hedu__label">{education.symptomsLabel}</p>
+        <ul class="hedu__list">
+          {education.symptoms.map((s) => (
+            <li><span class="hedu__check"><Icon name="check-circle" /></span>{s}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="hedu__note reveal">
+      <span class="hedu__badge"><Icon name="info" /></span>
+      <p><strong>{education.noteLead}</strong> {education.note}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hedu { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(2rem, 4vw, 4rem); align-items: center; }
+  .hedu__media { border-radius: var(--radius-lg); overflow: hidden; }
+  .hedu__media img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 3 / 2; }
+
+  .hedu__copy h2 { font-size: var(--text-section-title); font-weight: 700; line-height: 1.08; }
+  .hedu__copy .rule { margin-block: 1.1rem 1.4rem; }
+  .hedu__copy p { color: var(--text-body); font-size: var(--text-card-body); line-height: 1.65; }
+  .hedu__copy .hedu__label { margin-top: 1.25rem; color: var(--navy); font-weight: 700; }
+
+  /* Two columns of short symptoms keep the list beside the photo instead of running past it. CSS columns
+     (not a row-by-row grid) so the browser balances the two by height: a symptom that wraps to two lines
+     no longer leaves the right column one item short (owner, 2026-11-10). */
+  .hedu__list {
+    list-style: none; padding: 0; margin: 0.85rem 0 0;
+    columns: 2; column-gap: 1.5rem;
+  }
+  .hedu__list li {
+    display: flex; align-items: flex-start; gap: 0.6rem; break-inside: avoid;
+    color: var(--text-body); font-size: var(--text-body-size); line-height: 1.4;
+  }
+  .hedu__list li + li { margin-top: 0.65rem; }
+  .hedu__check { display: inline-grid; place-items: center; flex: none; color: var(--blue); margin-top: 0.05rem; }
+  .hedu__check :global(svg) { width: 20px; height: 20px; }
+
+  /* Same white trust-bar treatment as the Weight Loss "how it works" notes. */
+  .hedu__note {
+    display: flex; align-items: flex-start; gap: 1.1rem;
+    margin: clamp(2.5rem, 4vw, 3.5rem) auto 0; max-width: 76rem;
+    background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 1.75rem 2.25rem; box-shadow: var(--shadow-sm);
+  }
+  .hedu__badge {
+    flex: none; display: grid; place-items: center;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--bg-wellness); color: var(--blue);
+  }
+  .hedu__badge :global(svg) { width: 22px; height: 22px; }
+  .hedu__note p { color: var(--text-body); font-size: var(--text-card-body); line-height: 1.6; }
+  /* The lead sits on its own line above the explanation (Derek, 2026-11-12). */
+  .hedu__note strong { display: block; margin-bottom: 0.3rem; color: var(--navy); }
+
+  @media (max-width: 900px) {
+    .hedu { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 520px) {
+    .hedu__list { columns: 1; }
+    .hedu__note { padding: 1.5rem; }
+  }
+</style>

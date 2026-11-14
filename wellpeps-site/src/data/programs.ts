@@ -29,7 +29,7 @@ export const programs: Program[] = [
     tagline: 'Rediscover Your Confidence',
     blurb: 'Provider-guided treatments to help regrow hair and restore natural confidence.',
     image: '/images/program-hair.webp',
-    imageAlt: 'Smiling man outdoors',
+    imageAlt: 'A smiling man in a white T-shirt outdoors on a sunny day',
     // Derived from the one launch switch so this card, the program page band,
     // and the product-card ribbons all flip together. Renders exactly like the
     // Hormone Optimization card while true.
@@ -44,7 +44,7 @@ export const programs: Program[] = [
     tagline: 'Reconnect',
     blurb: 'Personalized solutions to improve performance, confidence, and intimacy.',
     image: '/images/program-sexual.webp',
-    imageAlt: 'Happy couple together',
+    imageAlt: 'A smiling couple sharing a relaxed evening together',
     status: 'live',
     href: '/sexual-wellness',
   },
@@ -62,10 +62,11 @@ export const programs: Program[] = [
     slug: 'hormone-optimization',
     title: 'Hormone Optimization',
     tagline: 'Provider-Guided Care',
-    blurb: 'Personalized hormone care, guided by a licensed provider, is coming soon.',
+    blurb: 'Provider-guided testosterone therapy for men and menopause hormone therapy for women.',
     image: '/images/program-hormone.webp',
     imageAlt: 'Man smiling in a bright kitchen',
-    status: 'coming-soon',
-    href: '/hormone-optimization',
+    // Available since 2026-11-10; the hub page links to the men's and women's program pages.
+    status: 'live',
+    href: '/hormone-optimization/',
   },
 ];

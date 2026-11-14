@@ -6,20 +6,20 @@ export const journeySteps = [
   { n: 1, title: 'Choose a Treatment and Answer a Few Questions', body: 'Pick the treatment you’re interested in, tell us about your health and goals online, then check out for your first month.', image: '/images/journey-1.webp', alt: 'Woman completing an online health assessment on a laptop' },
   { n: 2, title: 'Licensed Clinician Review', body: 'One of our licensed healthcare providers reviews your answers, by secure message or, when needed, a short video visit, and determines whether you are eligible for treatment.', image: '/images/journey-2.webp', alt: 'Provider reviewing patient information on a laptop' },
   { n: 3, title: 'Your Clinician’s Decision', body: 'If your clinician prescribes treatment, your plan begins. If not, we refund your payment in full. You don’t need to ask.', image: '/images/journey-3.webp', alt: 'Woman reading her treatment plan on a tablet' },
-  { n: 4, title: 'Discreet Home Delivery', body: 'If prescribed, medication is shipped directly to your home in discreet, secure packaging.', image: '/images/journey-4.webp', alt: 'Person opening a discreet WellPeps delivery box' },
+  { n: 4, title: 'Discreet Home Delivery', body: 'If prescribed, medication is shipped directly to your home in discreet, secure packaging.', image: '/images/journey-4.webp', alt: 'A woman at home opening a WellPeps delivery box' },
   { n: 5, title: 'Ongoing Provider Support', body: 'Continue working with your provider as your needs evolve over time.', image: '/images/journey-5.webp', alt: 'Woman on a follow-up video visit at home' },
 ];
 
 /* ---- Section 2: Why Patients Choose WellPeps ---- */
 export const whyPrimary = [
-  { img: '/images/why-icon-physician.png', title: 'Patient-Centered Care', body: 'Built to make personalized wellness more accessible, convenient, and patient-centered.' },
-  { img: '/images/why-icon-medications.png', title: 'Medications Made in America*', body: 'When applicable, medications are sourced from trusted U.S. pharmacies and manufacturers.' },
-  { img: '/images/why-icon-provider.png', title: 'Personalized Provider Evaluations', body: 'Every plan is tailored to you through comprehensive evaluations and ongoing provider support.' },
+  { img: '/images/why-icon-physician.png', w: 124, h: 140, title: 'Patient-Centered Care', body: 'Built to make personalized wellness more accessible, convenient, and patient-centered.' },
+  { img: '/images/why-icon-medications.png', w: 226, h: 160, title: 'Medications Made in America*', body: 'When applicable, medications are sourced from trusted U.S. pharmacies and manufacturers.' },
+  { img: '/images/why-icon-provider.png', w: 142, h: 154, title: 'Personalized Provider Evaluations', body: 'Every plan is tailored to you through comprehensive evaluations and ongoing provider support.' },
 ];
 export const whySecondary = [
-  { img: '/images/icons/why2-hospital.png', title: 'Clinical Infrastructure Supporting 100+ Healthcare Brands' },
-  { img: '/images/icons/why2-map.png', title: 'Providers Licensed in Your State' },
-  { img: '/images/icons/why2-laurel.png', title: 'Decades of Healthcare Experience' },
+  { img: '/images/icons/why2-hospital.png', w: 147, h: 144, title: 'Clinical Infrastructure Supporting 100+ Healthcare Brands' },
+  { img: '/images/icons/why2-map.png', w: 207, h: 141, title: 'Providers Licensed in Your State' },
+  { img: '/images/icons/why2-laurel.png', w: 180, h: 159, title: 'Decades of Healthcare Experience' },
 ];
 /* ---- Section 6: Every WellPeps Program Includes ----
    Four across; icons come from the shared SVG set (the client asked for the
@@ -33,17 +33,17 @@ export const includes = [
 
 /* ---- Section 7: Safety, Wellness & Privacy ---- */
 export const safety = [
-  { img: '/images/icons/saf-provider.png', title: 'Expert Provider Care', body: 'Every treatment plan is created by a licensed healthcare provider who reviews your health history and makes real clinical decisions.' },
-  { img: '/images/icons/saf-lock.png', title: 'Privacy Protected', body: 'We take your privacy seriously. Our Privacy Policy explains what we collect, why, and the choices you have.' },
-  { img: '/images/icons/saf-rx.png', title: 'Licensed Pharmacy Partners', body: 'Your medications are prepared by licensed U.S. pharmacies that follow strict quality and safety standards.' },
+  { img: '/images/icons/saf-provider.png', w: 141, h: 162, title: 'Expert Provider Care', body: 'Every treatment plan is created by a licensed healthcare provider who reviews your health history and makes real clinical decisions.' },
+  { img: '/images/icons/saf-lock.png', w: 120, h: 162, title: 'Privacy Protected', body: 'We take your privacy seriously. Our Privacy Policy explains what we collect, why, and the choices you have.' },
+  { img: '/images/icons/saf-rx.png', w: 165, h: 165, title: 'Licensed Pharmacy Partners', body: 'Your medications are prepared by licensed U.S. pharmacies that follow strict quality and safety standards.' },
   // Certified 2026-10-09. Wording follows LegitScript's language guide: no endorsement or quality claim.
-  { img: '/images/icons/saf-badge.png', title: 'LegitScript Certified', body: 'LegitScript certification shows that WellPeps meets LegitScript’s standards, which help ensure transparency and compliance with applicable laws and regulations.' },
+  { img: '/images/icons/saf-badge.png', w: 144, h: 168, title: 'LegitScript Certified', body: 'LegitScript certification shows that WellPeps meets LegitScript’s standards, which help ensure transparency and compliance with applicable laws and regulations.' },
 ];
 
 /* ---- Section 8: Wellness Insights & Resources (blog) ---- */
 export const insights = [
-  { title: 'Understanding GLP-1 Weight Management', body: 'Learn how GLP-1 medications work, who they’re for, and what results you can expect with a personalized plan.', image: '/images/insight-glp1.webp', alt: 'Woman running outdoors', href: '/wellness-learning-center/understanding-glp1-medications' },
-  { title: 'What Are Peptides? Understanding Peptide Therapy', body: 'What peptides are, how they function in the body, and how a provider evaluates whether peptide therapy may be appropriate.', image: '/images/insight-peptide.webp', alt: 'Peptide medication vial on a counter', href: '/wellness-learning-center/what-are-peptides' },
+  { title: 'Understanding GLP-1 Weight Management', body: 'Learn how GLP-1 medications work, who they’re for, and what results you can expect with a personalized plan.', image: '/images/insight-glp1.webp', alt: 'A woman in a tank top standing on a coastal hillside above the ocean', href: '/wellness-learning-center/understanding-glp1-medications' },
+  { title: 'What Are Peptides? Understanding Peptide Therapy', body: 'What peptides are, how they function in the body, and how a provider evaluates whether peptide therapy may be appropriate.', image: '/images/insight-peptide.webp', alt: 'An amber injection vial with a prescription label on a marble counter', href: '/wellness-learning-center/what-are-peptides' },
   { title: 'Understanding Hair Loss Treatment Options', body: 'Explore proven solutions for thinning hair and hair loss, and how personalized treatment can help you see real results.', image: '/images/insight-hair.webp', alt: 'Man examining his hairline in a mirror', href: '/wellness-learning-center/understanding-hair-loss' },
 ];
 

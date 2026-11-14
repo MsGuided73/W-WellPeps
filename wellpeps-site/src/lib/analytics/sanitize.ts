@@ -27,6 +27,8 @@ const PROGRAM_PATHS = [
   '/sexual-wellness',
   '/healthy-aging',
   '/hormone-optimization',
+  '/mens-hormone-therapy',
+  '/womens-hormone-therapy',
   '/mental-wellness',
   '/peptides',
 ] as const;

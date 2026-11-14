@@ -41,7 +41,7 @@ const measure = () => {
   // A nav link or button that wraps onto a second line is also a failure: the
   // bar should switch to the menu before that happens.
   const wrapped = [];
-  for (const el of document.querySelectorAll('.nav__links > a, .nav__cta-btn')) {
+  for (const el of document.querySelectorAll('.nav__links > a, .nav__drop-btn, .nav__cta-btn')) {
     if (!visible(el)) continue;
     const menu = el.closest('[data-nav-menu]');
     if (menu && getComputedStyle(menu).position === 'fixed') continue;

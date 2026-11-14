@@ -13,7 +13,7 @@
 import Icon from './Icon.astro';
 import AssessmentCta from './AssessmentCta.astro';
 import ProductDisclosures from './ProductDisclosures.astro';
-import type { PeptideProduct } from '../data/peptide';
+import { VIAL_ALT, type PeptideProduct } from '../data/peptide';
 
 interface Props { product: PeptideProduct; }
 const { product } = Astro.props;
@@ -28,7 +28,7 @@ const group = `form-${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
   <div class="pepcard__body">
     {forms.map((f, i) => (
       <div class="pepcard__v" data-v={i}>
-        <img class="pepcard__vial" src={f.vial} alt={multi ? `${name} ${f.label.toLowerCase()} product` : `${name} product`} width="294" height="440" loading="lazy" />
+        <img class="pepcard__vial" src={f.vial} alt={VIAL_ALT[f.vial] ?? `${name} ${f.label.toLowerCase()}`} width="294" height="440" loading="lazy" />
       </div>
     ))}
     <div class="pepcard__main">

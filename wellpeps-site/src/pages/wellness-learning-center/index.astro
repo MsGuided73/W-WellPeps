@@ -142,7 +142,7 @@ const searchIndexJson = JSON.stringify(searchIndex).replace(/</g, '\\u003c');
 
       <section class="lc-library" id="library" aria-label="Browse all articles">
         {categories.map((category) => (
-          <details class="lc-cat" name="lc-library">
+          <details class="lc-cat" name="lc-library" id={`cat-${category.slug}`}>
             <summary class="lc-cat__row">
               <span class="lc-cat__icon"><Icon name={categoryIcon(category.slug)} /></span>
               <span class="lc-cat__text">
@@ -206,6 +206,14 @@ const searchIndexJson = JSON.stringify(searchIndex).replace(/</g, '\\u003c');
   type SearchEntry = { t: string; d: string; c: string; u: string; m: number; r: boolean };
   // Same seal and label as MdReviewedBadge (variant "tag"), for physician-reviewed results.
   const reviewedTag = `<span class="lc-cat__badge mdb-tag-js">${sealMarkup(22)}<span>${MD_REVIEWED_LABEL}</span></span>`;
+
+  // An article's category pill links to /wellness-learning-center/#cat-<slug>: open that row.
+  const openCategoryFromHash = () => {
+    const row = location.hash.startsWith('#cat-') ? document.getElementById(location.hash.slice(1)) : null;
+    if (row instanceof HTMLDetailsElement) row.open = true;
+  };
+  openCategoryFromHash();
+  window.addEventListener('hashchange', openCategoryFromHash);
 
   (() => {
     const input = document.querySelector<HTMLInputElement>('[data-search]');

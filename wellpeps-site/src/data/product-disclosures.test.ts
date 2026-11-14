@@ -8,7 +8,8 @@ import { hairProducts } from './hair';
 import { peptideProducts } from './peptide';
 import { sexProducts } from './sexual';
 import { weightProducts } from './weight';
-import { PROGRAM_SLUGS } from '../lib/cta';
+import { mensHormone, womensHormone } from './hormone';
+import { PROGRAM_SLUGS, resolveCta } from '../lib/cta';
 import { LEGAL_DOCS } from '../lib/legal-docs';
 
 const productsByProgram = {
@@ -16,6 +17,8 @@ const productsByProgram = {
   'sexual-wellness': sexProducts,
   'hair-restoration': hairProducts,
   'healthy-aging': peptideProducts,
+  'mens-hormone-therapy': mensHormone.products.items,
+  'womens-hormone-therapy': womensHormone.products.items,
 } as const;
 
 describe('every product on a card has a disclosure decision', () => {
@@ -50,6 +53,14 @@ describe('what the decisions say (placement guide, section 4)', () => {
   test('sexual wellness products warn about nitrate medicines', () => {
     for (const p of sexProducts) expect(disclosureFor('sexual-wellness', p.name).note).toBe('Not for use with nitrate medicines.');
   });
+  test('the estradiol patch is not compounded; the vaginal estradiol cream and testosterone cream are (owner, 2026-11-10)', () => {
+    expect(disclosureFor('womens-hormone-therapy', 'Estradiol Transdermal Patches').regulatory).toBeUndefined();
+    expect(disclosureFor('womens-hormone-therapy', 'Vaginal Estradiol Cream').regulatory).toBe('compounded');
+    expect(disclosureFor('mens-hormone-therapy', 'Testosterone Cream').regulatory).toBe('compounded');
+  });
+  test('hCG is never tagged compounded (a biologic, not compoundable under 503A/503B)', () => {
+    expect(disclosureFor('mens-hormone-therapy', 'hCG').regulatory).not.toBe('compounded');
+  });
   test('no product name contains "Fat Burn"', () => {
     for (const list of Object.values(productsByProgram)) for (const p of list) expect(p.name).not.toMatch(/fat burn/i);
   });
@@ -61,10 +72,21 @@ describe('the wording', () => {
     expect(COMPOUNDED_SENTENCE).toBe('Compounded medications are not FDA-approved and have not been evaluated by FDA for safety, effectiveness, or quality.');
     expect(RENEWAL_LINE).toBe('Renews monthly, cancel anytime.');
   });
-  test('every program links to its own safety page, and each is a registered draft page', () => {
+  test('every safety page is its own registered draft page', () => {
     const paths = new Set(LEGAL_DOCS.map((d) => `/${d.path}`));
-    for (const program of PROGRAM_SLUGS) expect(paths.has(SAFETY_PAGE[program]), program).toBe(true);
-    expect(new Set(Object.values(SAFETY_PAGE)).size).toBe(4);
+    const pages = Object.values(SAFETY_PAGE);
+    for (const page of pages) expect(paths.has(page!), page).toBe(true);
+    expect(new Set(pages).size).toBe(pages.length);
+  });
+  test('a program cannot open for assessments without a safety page', () => {
+    for (const program of PROGRAM_SLUGS) {
+      if (!resolveCta(program).isComingSoon) expect(SAFETY_PAGE[program], `${program} is open but has no safety page`).toBeTruthy();
+    }
+  });
+  test('the four launched programs keep their safety pages', () => {
+    for (const program of ['weight-loss', 'sexual-wellness', 'hair-restoration', 'healthy-aging'] as const) {
+      expect(SAFETY_PAGE[program], program).toBeTruthy();
+    }
   });
 });
 

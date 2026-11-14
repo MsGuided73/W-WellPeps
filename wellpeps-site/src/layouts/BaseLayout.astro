@@ -33,6 +33,8 @@ interface Props {
   dateModified?: string;
   /** og:type: an article page is "article". */
   ogType?: 'website' | 'article';
+  /** The page's own share image (a path under public/), in place of the site-wide card. */
+  image?: { path: string; width: number; height: number; alt: string };
 }
 const {
   noindex = false,
@@ -44,12 +46,13 @@ const {
   mainEntity,
   dateModified,
   ogType = 'website',
+  image = SHARE_IMAGE,
 } = Astro.props;
 
 // Search and sharing (src/lib/seo). Every indexable page names its one canonical address, carries a share
 // card, and describes itself and WellPeps in structured data built from the same data files it renders.
 const canonical = canonicalUrl(Astro.url.pathname);
-const shareImage = absoluteUrl(SHARE_IMAGE.path);
+const shareImage = absoluteUrl(image.path);
 const graph = noindex
   ? ''
   : serializeGraph([organization(), website(), webPage({ path: Astro.url.pathname, title, description, type: pageType, review, mainEntity, dateModified }), ...jsonLd]);
@@ -79,9 +82,9 @@ const graph = noindex
     <meta property="og:type" content={ogType} />
     {!noindex && <meta property="og:url" content={canonical} />}
     <meta property="og:image" content={shareImage} />
-    <meta property="og:image:width" content={String(SHARE_IMAGE.width)} />
-    <meta property="og:image:height" content={String(SHARE_IMAGE.height)} />
-    <meta property="og:image:alt" content={SHARE_IMAGE.alt} />
+    <meta property="og:image:width" content={String(image.width)} />
+    <meta property="og:image:height" content={String(image.height)} />
+    <meta property="og:image:alt" content={image.alt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />

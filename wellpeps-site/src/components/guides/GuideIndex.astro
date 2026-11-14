@@ -11,6 +11,8 @@ import GuideBook from './GuideBook.astro';
 import { GUIDE_SERIES } from '../../data/guide-pages';
 import { EBOOKS } from '../../data/ebooks';
 import { guidePath } from '../../lib/guide-flow';
+import MdReviewedBadge from '../MdReviewedBadge.astro';
+import { reviewForGuide } from '../../data/medical-review';
 ---
 <section class="gidx-hero">
   <span class="gidx-hero__star" aria-hidden="true"><FreeStar /></span>
@@ -30,6 +32,7 @@ import { guidePath } from '../../lib/guide-flow';
             <GuideBook src={book.cover} star={false} loading={i < 3 ? 'eager' : 'lazy'} />
           </a>
           <!-- The cover carries the title, so there is no separate title or blurb (client, 2026-10-02). -->
+          {reviewForGuide(book.slug) && <MdReviewedBadge variant="tag" class="gidx-card__md" />}
           <a class="gidx-card__link" href={guidePath(book.slug)} aria-label={`${GUIDE_SERIES.viewGuide}: The Smart Patient’s Guide to ${book.title}`}>{GUIDE_SERIES.viewGuide}<Icon name="arrow-right" /></a>
         </li>
       ))}

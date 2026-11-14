@@ -46,7 +46,7 @@ export const EBOOKS: readonly Ebook[] = [
     program: 'weight-loss',
     source: 'ebook_glp1',
     pages: 18,
-    // v19 (2026-10-19), published with scripts/publish-ebook.py.
+    // v22 (2026-11-12: back-page "Medically reviewed by" line), published with scripts/publish-ebook.py.
     pdf: '/ebooks/glp-1-weight-loss.pdf',
     inside: [
       'What are GLP-1 medications?',
@@ -63,7 +63,7 @@ export const EBOOKS: readonly Ebook[] = [
     program: 'sexual-wellness',
     source: 'ebook_sexual_wellness',
     pages: 18,
-    // v8 (2026-10-19), published with scripts/publish-ebook.py.
+    // v10 (2026-11-12: back-page "Medically reviewed by" line), published with scripts/publish-ebook.py.
     pdf: '/ebooks/sexual-wellness.pdf',
     inside: [
       'How ED medications work',
@@ -80,7 +80,7 @@ export const EBOOKS: readonly Ebook[] = [
     program: 'hair-restoration',
     source: 'ebook_hair_restoration',
     pages: 18,
-    // v7 (2026-10-19), published with scripts/publish-ebook.py.
+    // v9 (2026-11-12: back-page "Medically reviewed by" line), published with scripts/publish-ebook.py.
     pdf: '/ebooks/hair-restoration.pdf',
     inside: [
       'Why does hair loss happen?',
@@ -97,7 +97,7 @@ export const EBOOKS: readonly Ebook[] = [
     program: 'healthy-aging',
     source: 'ebook_healthy_aging',
     pages: 18,
-    // v10 (2026-10-19), published with scripts/publish-ebook.py.
+    // v12 (2026-11-12: back-page "Medically reviewed by" line), published with scripts/publish-ebook.py.
     pdf: '/ebooks/healthy-aging-vitality.pdf',
     inside: [
       'What does “healthy aging” actually mean?',
@@ -114,7 +114,7 @@ export const EBOOKS: readonly Ebook[] = [
     program: 'healthy-aging',
     source: 'ebook_nad',
     pages: 17,
-    // v3 (2026-10-19), published with scripts/publish-ebook.py. Derek removed the compounded vs FDA-approved chapter.
+    // v5 (2026-11-12: back-page "Medically reviewed by" line), published with scripts/publish-ebook.py. Derek removed the compounded vs FDA-approved chapter.
     pdf: '/ebooks/nad-therapy.pdf',
     inside: [
       'What exactly is NAD+?',
@@ -130,13 +130,51 @@ export const EBOOKS: readonly Ebook[] = [
     cover: '/images/ebooks/modern-healthcare-cover.webp',
     source: 'ebook_modern_healthcare',
     pages: 19,
-    // v3 (2026-10-19, Derek's revision), published with scripts/publish-ebook.py.
+    // v5 (2026-11-12: back-page "Medically reviewed by" line), published with scripts/publish-ebook.py.
     pdf: '/ebooks/modern-healthcare.pdf',
     inside: [
       'What is telehealth, really?',
       'When you still need in-person care',
       'What does “connected care” actually mean?',
       'Not every online healthcare company is the same',
+    ],
+  },
+  // Men's and Women's Hormone Therapy (2026-11-10): v1, built from the V1 manuscripts. Dr. Yirga's medical review:
+  // APPROVED (owner, 2026-11-12; src/data/medical-review.ts GUIDE_REVIEWS). Still PENDING Derek's approval
+  // (docs/compliance/reviews/2026-11-10-ebook-hormone-therapy.md lists what is open): do not deploy these two
+  // entries until he signs off.
+  {
+    slug: 'mens-hormone-therapy',
+    title: 'Men’s Hormone Therapy',
+    subtitle: 'Understanding low testosterone, treatment options, and what quality care should include.',
+    cover: '/images/ebooks/mens-hormone-therapy-cover.webp',
+    program: 'mens-hormone-therapy',
+    source: 'ebook_mens_hormone',
+    pages: 22,
+    // v2 (2026-11-12: back-page "Medically reviewed by" line), published with scripts/publish-ebook.py.
+    pdf: '/ebooks/mens-hormone-therapy.pdf',
+    inside: [
+      'Low testosterone: more than a number',
+      'Your lab results tell an important part of the story',
+      'Testosterone cypionate, testosterone cream and hCG',
+      'Planning to have children? This conversation matters',
+    ],
+  },
+  {
+    slug: 'womens-hormone-therapy',
+    title: 'Women’s Hormone Therapy',
+    subtitle: 'Understanding perimenopause, menopause, and today’s treatment options.',
+    cover: '/images/ebooks/womens-hormone-therapy-cover.webp',
+    program: 'womens-hormone-therapy',
+    source: 'ebook_womens_hormone',
+    pages: 21,
+    // v3 (2026-11-12: back-page "Medically reviewed by" line), published with scripts/publish-ebook.py.
+    pdf: '/ebooks/womens-hormone-therapy.pdf',
+    inside: [
+      'Perimenopause, menopause and postmenopause',
+      'Do you need hormone testing to diagnose menopause?',
+      'Estradiol patches, progesterone and vaginal estradiol',
+      'Is menopausal hormone therapy safe?',
     ],
   },
 ];

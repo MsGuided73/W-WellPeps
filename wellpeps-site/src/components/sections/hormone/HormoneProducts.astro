@@ -1,0 +1,68 @@
+---
+/**
+ * Hormone treatment cards on the shared StandardProductCard (cover photos + blue subtitle, as on Sexual
+ * Wellness). No prices are set yet, so each card says "Shown at checkout", and the footnote says what
+ * checkout shows instead of the one-monthly-price note (supply length differs by product).
+ */
+import StandardProductCard from '../../StandardProductCard.astro';
+import type { HormonePage } from '../../../data/hormone';
+
+interface Props {
+  page: HormonePage;
+}
+const { products, program } = Astro.props.page;
+---
+<section class="section" id="hormone-products">
+  <div class="container">
+    <div class="hprod__head reveal">
+      <h2>{products.title}</h2>
+      <p class="hprod__sub">{products.subtitle}</p>
+      <p class="hprod__intro">{products.intro}</p>
+    </div>
+
+    <div class="hprod__grid reveal">
+      {products.items.map((p) => (
+        <StandardProductCard
+          cover
+          image={p.image}
+          alt={p.alt}
+          name={p.name}
+          productName={p.subtitle}
+          description={p.description}
+          form={p.methodOfUse}
+          features={p.features}
+          priceUnit="/month"
+          program={program}
+        />
+      ))}
+    </div>
+
+    <p class="hprod__foot reveal">{products.footnote}</p>
+    {/* No "Everything Included" strip here: labs are billed separately for hormone therapy (Derek, 2026-11-12). */}
+  </div>
+</section>
+
+<style>
+  .hprod__head { text-align: center; margin-inline: auto; }
+  .hprod__head h2 { font-size: var(--text-section-title); font-weight: 700; }
+  .hprod__sub { margin-top: 0.6rem; color: var(--blue); font-weight: 700; font-size: var(--text-lead); }
+  .hprod__intro { margin-top: 1rem; font-size: var(--text-lead); color: var(--text-body); max-width: 66ch; margin-inline: auto; }
+
+  /* Flex, not grid, so two cards (men's) sit centered at the same width as three (women's). */
+  .hprod__grid {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;
+    margin-top: clamp(2.5rem, 4vw, 3.5rem);
+  }
+  .hprod__grid > :global(*) { flex: 0 1 calc((100% - 3rem) / 3); min-width: 0; }
+
+  .hprod__foot {
+    text-align: center; margin: 2.5rem auto 0; max-width: 62ch;
+    color: var(--blue); font-weight: 700; font-size: var(--text-note);
+  }
+
+  @media (max-width: 1100px) { .hprod__grid > :global(*) { flex-basis: calc((100% - 1.5rem) / 2); } }
+  @media (max-width: 620px) {
+    .hprod__grid { max-width: 420px; margin-inline: auto; }
+    .hprod__grid > :global(*) { flex-basis: 100%; }
+  }
+</style>

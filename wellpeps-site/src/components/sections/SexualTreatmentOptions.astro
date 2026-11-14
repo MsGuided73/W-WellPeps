@@ -26,7 +26,7 @@ import { sexProducts } from '../../data/sexual';
   <div class="sxopts__grid">
     {sexProducts.map((p) => (
       <article class="socard">
-        <img class="socard__media" src={p.image} alt={p.alt} loading="lazy" decoding="async" />
+        <img class="socard__media" src={p.image} alt={p.alt} width="900" height="675" loading="lazy" decoding="async" />
         <div class="socard__body">
           <h3 class="socard__name">{p.name}</h3>
           <p class="socard__tagline">{p.subtitle}</p>

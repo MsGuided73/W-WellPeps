@@ -4,7 +4,9 @@
  * DEPLOYED 2026-10-18 (replaced version 2): the same guards, plus recording the consent a person
  * gave on a sign-up form. Its migration (20261001000000_notify_signups_consent.sql) was applied the
  * same day. Version 4 (2026-10-19) adds the ebook_modern_healthcare source
- * (migration 20261019000000_notify_signups_modern_healthcare.sql). Deploy with verify_jwt off
+ * (migration 20261019000000_notify_signups_modern_healthcare.sql). The next version (written 2026-11-10, NOT
+ * deployed) adds ebook_mens_hormone and ebook_womens_hormone (migration
+ * 20261110000000_notify_signups_hormone_guides.sql, not applied). Deploy with verify_jwt off
  * (supabase/config.toml), uploading index.ts and validate.ts.
  *
  * The site is a static build served by nginx with no Node runtime, so it has no server of its own

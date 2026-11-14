@@ -56,7 +56,9 @@ describe('medical review records', () => {
   });
 
   it('leaves unreviewed articles without a review', () => {
-    expect(reviewForArticle('how-telehealth-works')).toBeUndefined();
+    // Every current article is reviewed (2026-11-12), so a slug that is not in REVIEWS stands in for a new one.
+    expect(reviewForArticle('a-new-article-not-yet-reviewed')).toBeUndefined();
+    expect(reviewForArticle('how-telehealth-works')).toMatchObject({ reviewedOn: '2026-11-12', reviewer: { id: 'rahel-yirga-md' } });
   });
 });
 
@@ -82,10 +84,25 @@ describe('reviewer details', () => {
   });
 
   it('lists the reviewer\'s articles for the profile page', () => {
-    expect(reviewsBy('rahel-yirga-md')).toHaveLength(35);
+    expect(reviewsBy('rahel-yirga-md')).toHaveLength(46); // all 46 articles as of 2026-11-12
   });
 
   it('formats a date-only review date without shifting the day', () => {
     expect(formatReviewDate('2026-11-06')).toBe('November 6, 2026');
+  });
+});
+
+describe('Smart Patient Guide reviews', () => {
+  it('covers every guide in the series, and nothing that is not a guide', async () => {
+    const { EBOOKS } = await import('./ebooks');
+    const { GUIDE_REVIEWS } = await import('./medical-review');
+    expect(Object.keys(GUIDE_REVIEWS).sort()).toEqual(EBOOKS.map((b) => b.slug).sort());
+  });
+
+  it('gives each guide the reviewer and date, and nothing for an unknown guide', async () => {
+    const { reviewForGuide, guidesReviewedBy } = await import('./medical-review');
+    expect(reviewForGuide('mens-hormone-therapy')).toMatchObject({ reviewedOn: '2026-11-12', reviewer: { id: 'rahel-yirga-md' } });
+    expect(reviewForGuide('not-a-guide')).toBeUndefined();
+    expect(guidesReviewedBy('rahel-yirga-md')).toHaveLength(8);
   });
 });

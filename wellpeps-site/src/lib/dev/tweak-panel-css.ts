@@ -4,6 +4,8 @@ export const TWEAK_CSS = `
   font: 13px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: #14233c; }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
+/* Never in a printout, even with the panel open. */
+@media print { :host { display: none !important; } }
 button { font: inherit; cursor: pointer; }
 code { font: 12px/1.35 ui-monospace, Consolas, monospace; word-break: break-all; }
 

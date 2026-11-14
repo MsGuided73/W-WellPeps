@@ -12,6 +12,7 @@
  * nothing links to them: the current flow is untouched. See src/lib/guide-flow.ts.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { reviewForGuide } from '../../data/medical-review';
 import { breadcrumbs, guideBook } from '../../lib/seo/schema';
 import GuideIndex from '../../components/guides/GuideIndex.astro';
 import GuideFeatureLanding from '../../components/guides/GuideFeatureLanding.astro';
@@ -70,6 +71,7 @@ const readerPages = kind === 'read' && book ? ebookPagesFor(book.slug) : undefin
     : [{ name: 'Smart Patient Guides', path: '/smart-patient-guides/' }, { name: `${book.title} Guide`, path: `/smart-patient-guides/${book.slug}/` }]),
     kind === 'guide' && book ? guideBook(book) : undefined]}
   pageType={kind === 'index' ? 'CollectionPage' : 'WebPage'}
+  review={kind === 'guide' && book ? reviewForGuide(book.slug) : undefined}
 >
   {kind === 'index' && <GuideIndex />}
   {kind === 'guide' && book && <GuideFeatureLanding book={book} />}

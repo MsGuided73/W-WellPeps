@@ -18,7 +18,7 @@ export const weightHero = {
   lead:
     'Physician-guided GLP-1 weight management that includes semaglutide or tirzepatide, combined with personalized support to help you achieve sustainable results.',
   image: '/images/weight/hero-woman.webp',
-  alt: 'A fit, smiling woman standing with arms crossed',
+  alt: 'A smiling woman in athletic wear standing with arms crossed in a bright room',
 };
 
 export interface WorkStep {

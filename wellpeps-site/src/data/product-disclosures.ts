@@ -37,8 +37,9 @@ export const TAG_LABEL: Record<Regulatory, string> = {
   'off-label': 'Off-label use',
 };
 
-/** The program's safety page (A14 to A17). */
-export const SAFETY_PAGE: Record<ProgramSlug, string> = {
+/** The program's safety page (A14 to A17). The hormone programs have none yet: their safety pages must be drafted
+ *  and approved by counsel before either program opens (product-disclosures.test.ts enforces this). */
+export const SAFETY_PAGE: Partial<Record<ProgramSlug, string>> = {
   'weight-loss': '/safety/glp-1',
   'sexual-wellness': '/safety/sexual-health',
   'hair-restoration': '/safety/hair-loss',
@@ -85,6 +86,27 @@ export const PRODUCT_DISCLOSURES: Record<ProgramSlug, Record<string, ProductDisc
     'MIC + B12': { regulatory: 'compounded' },
     'Lipo-C': { regulatory: 'compounded' },
     'Methylene Blue': { regulatory: 'compounded' },
+  },
+  // Hormone launch set (formulary note, October 2026), plus hCG (owner, 2026-11-10).
+  'mens-hormone-therapy': {
+    // hCG is a biologic (FDA, March 2020) and cannot be compounded under 503A/503B, so it carries no compounded
+    // tag. VERIFY with the pharmacy that a manufactured product is dispensed (formulary note: "verify
+    // Pregnyl/manufactured status"), and with the medical director whether the intended use is off-label.
+    hCG: {},
+    // VERIFY manufactured vs compounded with the pharmacy (formulary note: "confirm manufactured vs compounded status").
+    // Tagged compounded meanwhile, as Derek's card and the product label show; drop the tag if a manufactured vial is dispensed.
+    'Testosterone Cypionate': { regulatory: 'compounded' },
+    // Compounded 20% / 200 mg/g cream (formulary note).
+    'Testosterone Cream': { regulatory: 'compounded' },
+  },
+  'womens-hormone-therapy': {
+    // The patch is an FDA-approved manufactured product (Valiant/Integrity, 8-count boxes), so no tag.
+    'Estradiol Transdermal Patches': {},
+    // Compounded: every vaginal estradiol cream in the GEN formulary is made in a pharmacy base (VersaBase,
+    // Ellage, anhydrous). The owner first understood it was not compounded, then corrected this 2026-11-10.
+    'Vaginal Estradiol Cream': { regulatory: 'compounded' },
+    // VERIFY: the formulary note asks for FDA-approved generic quotes. Tagged compounded meanwhile, as Derek's card shows.
+    'Oral Micronized Progesterone': { regulatory: 'compounded' },
   },
 };
 
