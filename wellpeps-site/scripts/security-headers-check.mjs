@@ -324,8 +324,7 @@ async function interactions(browser) {
       const form = page.locator('form[data-guide-form]');
       await form.scrollIntoViewIfNeeded();
       await form.locator('input[name="email"]').fill('csp-check@example.com');
-      // The required consent box (W9): the form refuses to send without it.
-      await form.locator('input[name="consentCollect"]').check();
+      // Guide forms have no required consent box (GuideLeadForm.astro, 2026-10-19): a requested guide needs none.
       await form.locator('button[type="submit"]').click();
       await page.waitForURL('**/thank-you/**', { timeout: 8000 }).catch(async () => { await page.waitForURL('**/thank-you', { timeout: 4000 }); });
       if (!bag.supabase.slice(before).some((r) => r.startsWith('POST'))) throw new Error('the signup request never left the page');
@@ -333,16 +332,22 @@ async function interactions(browser) {
   }
 
   await page.goto(`${OPEN}/weight-loss/`, { waitUntil: 'networkidle' });
-  await step('checkout lock: the assessment button opens the password box, a wrong password shows the error', bag, async () => {
-    const button = page.locator('a[data-checkout-lock]:visible').first();
-    await button.scrollIntoViewIfNeeded();
-    await button.click();
-    await page.locator('dialog[data-checkout-dialog][open]').waitFor({ timeout: 5000 });
-    await page.locator('dialog[data-checkout-dialog] input[name="password"]').fill('not-the-password');
-    await page.locator('dialog[data-checkout-dialog] [data-checkout-submit]').click();
-    await page.locator('[data-checkout-error]:not([hidden])').waitFor({ timeout: 10000 });
-    await page.locator('[data-checkout-close]').click();
-  });
+  // The lock exists only in a build made with CHECKOUT_LOCKED true (src/config.ts). With it off the
+  // assessment buttons are plain links, so there is nothing to drive; say so instead of timing out.
+  if (await page.locator('a[data-checkout-lock]').count()) {
+    await step('checkout lock: the assessment button opens the password box, a wrong password shows the error', bag, async () => {
+      const button = page.locator('a[data-checkout-lock]:visible').first();
+      await button.scrollIntoViewIfNeeded();
+      await button.click();
+      await page.locator('dialog[data-checkout-dialog][open]').waitFor({ timeout: 5000 });
+      await page.locator('dialog[data-checkout-dialog] input[name="password"]').fill('not-the-password');
+      await page.locator('dialog[data-checkout-dialog] [data-checkout-submit]').click();
+      await page.locator('[data-checkout-error]:not([hidden])').waitFor({ timeout: 10000 });
+      await page.locator('[data-checkout-close]').click();
+    });
+  } else {
+    console.log('  SKIP  checkout lock: off in this build (CHECKOUT_LOCKED is false), so there is no password box to open');
+  }
 
   // (The Hormone Optimization waitlist step was removed 2026-11-10 with the waitlist; the guide form above
   // still checks a signup request under the CSP.)

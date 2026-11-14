@@ -78,7 +78,9 @@ const therapies = CARD_ORDER.map((name) => {
     );
   }
   // Vial alt text names the visible label text (src/data/peptide.ts VIAL_ALT).
-  return { ...ART[name], ...product, vialAlt: VIAL_ALT[product.vial] ?? ART[name].vialAlt };
+  // `icon` here is an SVG path (ART above); the product's own `icon` is an Icon.astro name, which is not
+  // a path. Keep ART's, or the badge renders empty and the browser logs an invalid-path error.
+  return { ...ART[name], ...product, icon: ART[name].icon, vialAlt: VIAL_ALT[product.vial] ?? ART[name].vialAlt };
 });
 
 ---
