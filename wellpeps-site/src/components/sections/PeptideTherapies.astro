@@ -205,6 +205,19 @@ const therapies = CARD_ORDER.map((name) => {
     font-size: var(--text-body-size);
     color: var(--blue);
   }
+
+  /* The vial hangs below the photo into the title row, on the right. In a wide card the title ends
+     well short of it. In a narrow one (two columns beside the article's contents list, about
+     275px) "Glutathione" and "Sermorelin" ran underneath the bottle. So a narrow card sets a
+     smaller badge and title, which end clear of the bottle. Sized to the card, not the screen. */
+  .tcard { container-type: inline-size; }
+  @container (max-width: 330px) {
+    .tcard__head { gap: 0.5rem; }
+    .tcard__icon { width: 32px; height: 32px; }
+    .tcard__icon svg { width: 17px; height: 17px; }
+    .tcard__name { font-size: 1.1rem; }
+    .tcard__tagline { margin-left: 2.5rem; }
+  }
   .tcard__desc {
     margin: 0;
     font-size: var(--text-body-size);
