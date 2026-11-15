@@ -4,14 +4,14 @@ import EverythingIncludedStrip from '../../EverythingIncludedStrip.astro';
 import { hairProducts, hairProductsIntro } from '../../../data/hair';
 import { HAIR_COMING_SOON, PRICE_NOTE } from '../../../config';
 ---
-<section class="section section--gray" id="hair-products">
-  <div class="container">
-    <div class="hprod__head reveal">
-      <h2>{hairProductsIntro.title}</h2>
-      <p class="hprod__intro">{hairProductsIntro.intro}</p>
+<section class="section section--gray flow-products" id="hair-products">
+  <div class="container flow-stack">
+    <div class="hprod__head flow-head">
+      <h2 class="reveal">{hairProductsIntro.title}</h2>
+      <p class="hprod__intro flow-lead reveal">{hairProductsIntro.intro}</p>
     </div>
 
-    <div class="hprod__grid reveal">
+    <div class="hprod__grid flow-grid reveal">
       {hairProducts.map((product) => <ProductCard product={product} comingSoon={HAIR_COMING_SOON} />)}
     </div>
 
@@ -46,5 +46,9 @@ import { HAIR_COMING_SOON, PRICE_NOTE } from '../../../config';
   @media (max-width: 620px) {
     .hprod__grid { max-width: 420px; margin-inline: auto; }
     .hprod__grid > :global(*) { flex-basis: 100%; }
+  }
+  @media (max-width: 767px) {
+    .hprod__head h2 { font-size: 1.7rem; line-height: 1.15; }
+    .hprod__grid { margin-top: 0.75rem; }
   }
 </style>

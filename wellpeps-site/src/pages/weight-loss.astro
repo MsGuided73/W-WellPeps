@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import MobileFlow from '../components/MobileFlow.astro';
 import WeightHero from '../components/sections/weight/WeightHero.astro';
 import WeightHowItWorks from '../components/sections/weight/WeightHowItWorks.astro';
 import WeightWhyChoose from '../components/sections/weight/WeightWhyChoose.astro';
@@ -20,10 +21,12 @@ const jsonLd = [
 ];
 ---
 <BaseLayout
+  mainClass="page-flow"
   title="GLP-1 Weight Loss Online: Semaglutide & Tirzepatide | WellPeps"
   description={description}
   jsonLd={jsonLd}
 >
+  <MobileFlow />
   <WeightHero />
   <WeightHowItWorks />
   <GuideBand program="weight-loss" />

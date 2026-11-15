@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import MobileFlow from '../components/MobileFlow.astro';
 import PeptideHero from '../components/sections/peptide/PeptideHero.astro';
 import PeptideScience from '../components/sections/peptide/PeptideScience.astro';
 import PeptideBenefits from '../components/sections/peptide/PeptideBenefits.astro';
@@ -19,10 +20,12 @@ const jsonLd = [
 ];
 ---
 <BaseLayout
+  mainClass="page-flow"
   title="Sermorelin, NAD+ & Wellness Therapies Online | WellPeps"
   description={description}
   jsonLd={jsonLd}
 >
+  <MobileFlow />
   <PeptideHero />
   <PeptideScience />
   <GuideBand program="healthy-aging" />

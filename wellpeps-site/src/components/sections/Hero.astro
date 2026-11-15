@@ -5,7 +5,7 @@ import LegitScriptSeal from '../LegitScriptSeal.astro';
 import { Picture } from 'astro:assets';
 import heroImg from '../../assets/images/hero-couple-coast.webp';
 ---
-<section class="hero">
+<section class="hero flow-hero">
   <!-- Image is a direct child of the full-width section so it can bleed to the
        right edge of the viewport (not clipped by the centered text wrapper). -->
   <!-- LCP image: AVIF with a WebP fallback, at several widths. Stacked (<=860px)
@@ -116,6 +116,24 @@ import heroImg from '../../assets/images/hero-couple-coast.webp';
     }
     .hero__copy { max-width: none; }
     .hero__actions { max-width: none; }
+  }
+
+  /* Phone: a short photo band and tighter type so the program cards
+     can start on the first screen. Desktop rules above are untouched. */
+  @media (max-width: 767px) {
+    .hero__img { height: 104px; }
+    .hero__copy { padding-block: 0.35rem 0.75rem; }
+    .hero__copy h1 { font-size: 1.85rem; line-height: 1.08; }
+    .hero__copy .rule { margin-top: 0.65rem; }
+    .hero__lead { margin-top: 0.6rem; font-size: 1.1875rem; line-height: 1.4; }
+    .hero__actions { margin-top: 0.75rem; gap: 0.55rem; }
+    .hero__actions :global(.btn) {
+      width: 100%;
+      min-height: 48px;
+      padding: 0.7rem 1rem;
+      font-size: 1.1875rem;
+    }
+    .hero__copy :global(.hero__seal) { margin-top: 0.7rem; }
   }
 </style>
 

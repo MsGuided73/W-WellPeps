@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import MobileFlow from '../components/MobileFlow.astro';
 import SexHero from '../components/sections/sexual/SexHero.astro';
 import SexEducation from '../components/sections/sexual/SexEducation.astro';
 import SexProducts from '../components/sections/sexual/SexProducts.astro';
@@ -19,10 +20,12 @@ const jsonLd = [
 ];
 ---
 <BaseLayout
+  mainClass="page-flow"
   title="ED Treatment Online: Sildenafil & Tadalafil | WellPeps"
   description={description}
   jsonLd={jsonLd}
 >
+  <MobileFlow />
   <SexHero />
   <SexEducation />
   <GuideBand program="sexual-wellness" />

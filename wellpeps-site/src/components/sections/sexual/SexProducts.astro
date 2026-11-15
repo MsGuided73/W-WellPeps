@@ -6,14 +6,14 @@ import { PRICE_NOTE } from '../../../config';
 ---
 <!-- White background: the pale-blue education section sits directly above, and
      the client flagged two consecutive blue-tinted bands. -->
-<section class="section" id="sex-products">
-  <div class="container">
-    <div class="sxprod__head reveal">
-      <h2>{sexProductsIntro.title}</h2>
-      <p class="sxprod__lead">{sexProductsIntro.lead}</p>
+<section class="section flow-products" id="sex-products">
+  <div class="container flow-stack">
+    <div class="sxprod__head flow-head">
+      <h2 class="reveal">{sexProductsIntro.title}</h2>
+      <p class="sxprod__lead flow-lead reveal">{sexProductsIntro.lead}</p>
     </div>
 
-    <div class="sxprod__grid reveal">
+    <div class="sxprod__grid flow-grid reveal">
       {sexProducts.map((product) => (
         <StandardProductCard
           cover
@@ -48,4 +48,8 @@ import { PRICE_NOTE } from '../../../config';
 
   @media (max-width: 1000px) { .sxprod__grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 620px) { .sxprod__grid { grid-template-columns: 1fr; max-width: 420px; margin-inline: auto; } }
+  @media (max-width: 767px) {
+    .sxprod__head h2 { font-size: 1.7rem; line-height: 1.15; }
+    .sxprod__grid { margin-top: 0.75rem; }
+  }
 </style>

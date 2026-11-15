@@ -178,6 +178,11 @@ const group = `form-${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
   .pepcard__cta:hover { background: var(--blue-hover); color: #fff; }
   .pepcard__cta:hover :global(svg) { transform: translateX(3px); }
 
+  @media (max-width: 767px) {
+    .pepcard__photo { aspect-ratio: 2.2 / 1; }
+    .pepcard__form span { min-height: 44px; }
+  }
+
   @media (max-width: 460px) {
     .pepcard__vial { height: 148px; top: -58px; }
     /* On a phone only the name row sits beside the bottle; the description runs the full card

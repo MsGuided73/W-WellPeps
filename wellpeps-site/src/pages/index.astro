@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import MobileFlow from '../components/MobileFlow.astro';
 import Hero from '../components/sections/Hero.astro';
 import WhyChoose from '../components/sections/WhyChoose.astro';
 import HelpFind from '../components/sections/HelpFind.astro';
@@ -19,10 +20,12 @@ import { faqPage } from '../lib/seo/schema';
 const jsonLd = [faqPage(toFaqs(faqs), '/')];
 ---
 <BaseLayout
+  mainClass="page-flow"
   title="WellPeps | Online Weight Loss, Hair Loss, ED & Healthy Aging Care"
   description="Provider-guided telehealth for weight loss, hair loss, ED and healthy aging. One monthly price with medication and shipping. Full refund if not prescribed."
   jsonLd={jsonLd}
 >
+  <MobileFlow />
   <Hero />
   <WhyChoose />
   <HelpFind />
