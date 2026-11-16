@@ -4,14 +4,14 @@ import EverythingIncludedStrip from '../../EverythingIncludedStrip.astro';
 import { peptideProducts, peptideProductsIntro, peptideProductsFootnote } from '../../../data/peptide';
 import { PRICE_NOTE } from '../../../config';
 ---
-<section class="section section--gray" id="peptide-products">
-  <div class="container">
-    <div class="pprod__head reveal">
-      <h2>{peptideProductsIntro.title}</h2>
-      <p class="pprod__lead">{peptideProductsIntro.lead}</p>
+<section class="section section--gray flow-products" id="peptide-products">
+  <div class="container flow-stack">
+    <div class="pprod__head flow-head">
+      <h2 class="reveal">{peptideProductsIntro.title}</h2>
+      <p class="pprod__lead flow-lead reveal">{peptideProductsIntro.lead}</p>
     </div>
 
-    <div class="pprod__grid reveal">
+    <div class="pprod__grid flow-grid reveal">
       {peptideProducts.map((product) => <PeptideCard product={product} />)}
     </div>
 
@@ -39,4 +39,8 @@ import { PRICE_NOTE } from '../../../config';
   .pprod__foot--sub { margin-top: 0.75rem; }
 
   @media (max-width: 900px) { .pprod__grid { grid-template-columns: 1fr; max-width: 560px; } }
+  @media (max-width: 767px) {
+    .pprod__head h2 { font-size: 1.7rem; line-height: 1.15; }
+    .pprod__grid { margin-top: 0.75rem; }
+  }
 </style>

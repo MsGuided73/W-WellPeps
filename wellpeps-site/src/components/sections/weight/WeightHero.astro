@@ -3,7 +3,7 @@ import Icon from '../../Icon.astro';
 import AssessmentCta from '../../AssessmentCta.astro';
 import { weightHero } from '../../../data/weight';
 ---
-<section class="whero">
+<section class="whero flow-hero">
   <img class="whero__img" src={weightHero.image} width="1500" height="1000"
        alt={weightHero.alt} fetchpriority="high" />
 
@@ -58,5 +58,12 @@ import { weightHero } from '../../../data/weight';
               mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
     }
     .whero__copy { max-width: none; padding-block: 2rem; }
+  }
+
+  @media (max-width: 767px) {
+    .whero { min-height: 0; }
+    .whero__img, .whero__lead, .whero__actions, .whero .rule { display: none; }
+    .whero__copy { padding-block: 0.85rem 0.35rem; max-width: none; }
+    .whero__copy h1 { font-size: 1.7rem; line-height: 1.1; }
   }
 </style>

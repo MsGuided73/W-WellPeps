@@ -170,6 +170,12 @@ const {
   .pcard--soon:hover { transform: none; box-shadow: var(--shadow-sm); }
   .pcard--soon:hover .pcard__media img { transform: none; }
 
+  @media (max-width: 767px) {
+    .pcard__media { aspect-ratio: 2.2 / 1; }
+    .pcard__body { padding: 0.85rem 1rem 1.1rem; }
+    .pcard__name { font-size: 1.35rem; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .pcard, .pcard__media img, .pcard__cta, .pcard__cta :global(svg) { transition: none; }
     .pcard:hover { transform: none; }

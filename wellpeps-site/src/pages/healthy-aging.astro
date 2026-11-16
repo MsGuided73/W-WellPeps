@@ -1,5 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Fold from '../components/Fold.astro';
+import ShopChrome from '../components/ShopChrome.astro';
+import ShopShelf from '../components/ShopShelf.astro';
+import ShopSticky from '../components/ShopSticky.astro';
 import PeptideHero from '../components/sections/peptide/PeptideHero.astro';
 import PeptideScience from '../components/sections/peptide/PeptideScience.astro';
 import PeptideBenefits from '../components/sections/peptide/PeptideBenefits.astro';
@@ -19,15 +23,19 @@ const jsonLd = [
 ];
 ---
 <BaseLayout
+  mainClass="page-flow"
   title="Sermorelin, NAD+ & Wellness Therapies Online | WellPeps"
   description={description}
   jsonLd={jsonLd}
 >
   <PeptideHero />
-  <PeptideScience />
-  <GuideBand program="healthy-aging" />
-  <PeptideBenefits />
-  <PeptideProducts />
-  <PeptideFaq />
-  <PeptideCta />
+  <ShopShelf only="healthy-aging" />
+  <Fold label="How it works"><PeptideScience /></Fold>
+  <Fold label="Free guide"><GuideBand program="healthy-aging" /></Fold>
+  <Fold label="What to know"><PeptideBenefits /></Fold>
+  <Fold label="Full details"><PeptideProducts /></Fold>
+  <Fold label="Common Questions"><PeptideFaq /></Fold>
+  <Fold label="Get started"><PeptideCta /></Fold>
+  <ShopSticky program="healthy-aging" />
+  <ShopChrome />
 </BaseLayout>

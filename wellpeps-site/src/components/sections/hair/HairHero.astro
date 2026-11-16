@@ -3,7 +3,7 @@ import Icon from '../../Icon.astro';
 import AssessmentCta from '../../AssessmentCta.astro';
 import { hairHero } from '../../../data/hair';
 ---
-<section class="hhero">
+<section class="hhero flow-hero">
   <!-- Full-bleed image on the right, feathered into white on its left edge.
        The exported photo already carries a soft left fade; the CSS mask
        guarantees a clean blend over the crop. Reusable pattern for all
@@ -85,5 +85,12 @@ import { hairHero } from '../../../data/hair';
     }
     .hhero__copy { max-width: none; padding-block: 2rem; }
     .hhero__actions { max-width: none; }
+  }
+
+  @media (max-width: 767px) {
+    .hhero { min-height: 0; }
+    .hhero__img, .hhero__lead, .hhero__actions, .hhero .rule { display: none; }
+    .hhero__copy { padding-block: 0.85rem 0.35rem; max-width: none; }
+    .hhero__copy h1 { font-size: 1.7rem; line-height: 1.1; }
   }
 </style>

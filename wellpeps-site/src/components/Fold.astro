@@ -1,0 +1,73 @@
+---
+/**
+ * Phone tap-to-open block. From 768px up the wrapper and the control
+ * generate no box, so the section inside lays out as it does today.
+ */
+interface Props { label: string; }
+const { label } = Astro.props;
+const id = `fold-${Math.random().toString(36).slice(2, 8)}`;
+---
+<div class="m-fold">
+  <input class="m-fold__check" type="checkbox" id={id} />
+  <label class="m-fold__sum" for={id}>{label}</label>
+  <div class="m-fold__body">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .m-fold, .m-fold__body { display: contents; }
+  .m-fold__check, .m-fold__sum { display: none; }
+
+  @media (max-width: 767px) {
+    .m-fold { display: block; }
+    .m-fold__body { display: none; }
+    .m-fold__check:checked ~ .m-fold__body { display: block; }
+    .m-fold__check {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      border: 0;
+    }
+    .m-fold__sum {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      width: 100%;
+      min-height: 48px;
+      margin: 0;
+      padding: 0.75rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      background: #fff;
+      color: var(--navy);
+      font-family: var(--font-sans);
+      font-size: 1.1875rem;
+      font-weight: 700;
+      line-height: 1.3;
+      cursor: pointer;
+    }
+    .m-fold__sum::after {
+      content: '';
+      flex: none;
+      width: 0.55rem;
+      height: 0.55rem;
+      margin-top: -0.2rem;
+      border-right: 2px solid var(--navy);
+      border-bottom: 2px solid var(--navy);
+      transform: rotate(45deg);
+    }
+    .m-fold__check:checked + .m-fold__sum::after { transform: rotate(-135deg); margin-top: 0.2rem; }
+    .m-fold__check:focus-visible + .m-fold__sum {
+      outline: 3px solid var(--blue);
+      outline-offset: -3px;
+    }
+  }
+  @media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+    .m-fold__sum::after { transition: none; }
+  }
+</style>

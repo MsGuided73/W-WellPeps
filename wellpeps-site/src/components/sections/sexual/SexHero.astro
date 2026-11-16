@@ -3,7 +3,7 @@ import Icon from '../../Icon.astro';
 import AssessmentCta from '../../AssessmentCta.astro';
 import { sexHero } from '../../../data/sexual';
 ---
-<section class="sxhero">
+<section class="sxhero flow-hero">
   <img class="sxhero__img" src={sexHero.image} width="1500" height="1000" alt={sexHero.alt} fetchpriority="high" />
   <div class="sxhero__wrap">
     <div class="sxhero__copy reveal">
@@ -49,5 +49,12 @@ import { sexHero } from '../../../data/sexual';
               mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
     }
     .sxhero__copy { max-width: none; padding-block: 2rem; }
+  }
+
+  @media (max-width: 767px) {
+    .sxhero { min-height: 0; }
+    .sxhero__img, .sxhero__lead, .sxhero__actions, .sxhero .rule { display: none; }
+    .sxhero__copy { padding-block: 0.85rem 0.35rem; max-width: none; }
+    .sxhero__copy h1 { font-size: 1.7rem; line-height: 1.1; }
   }
 </style>

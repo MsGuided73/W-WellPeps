@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Fold from '../components/Fold.astro';
+import ShopChrome from '../components/ShopChrome.astro';
+import ShopShelf from '../components/ShopShelf.astro';
 import Hero from '../components/sections/Hero.astro';
 import WhyChoose from '../components/sections/WhyChoose.astro';
 import HelpFind from '../components/sections/HelpFind.astro';
@@ -19,20 +22,23 @@ import { faqPage } from '../lib/seo/schema';
 const jsonLd = [faqPage(toFaqs(faqs), '/')];
 ---
 <BaseLayout
+  mainClass="page-flow"
   title="WellPeps | Online Weight Loss, Hair Loss, ED & Healthy Aging Care"
   description="Provider-guided telehealth for weight loss, hair loss, ED and healthy aging. One monthly price with medication and shipping. Full refund if not prescribed."
   jsonLd={jsonLd}
 >
   <Hero />
-  <WhyChoose />
-  <HelpFind />
-  <Programs />
-  <Journey />
-  <Includes />
-  <WhatsIncluded tinted />
-  <Safety />
-  <Insights />
-  <GuideRing books={EBOOKS} />
-  <Faq />
-  <FinalCta />
+  <ShopShelf />
+  <Fold label="Why Patients Choose WellPeps"><WhyChoose /></Fold>
+  <Fold label="Find a treatment"><HelpFind /></Fold>
+  <Fold label="Our Wellness Programs"><Programs /></Fold>
+  <Fold label="Your Wellness Journey"><Journey /></Fold>
+  <Fold label="What every program includes"><Includes /></Fold>
+  <Fold label="One monthly price"><WhatsIncluded tinted /></Fold>
+  <Fold label="Safety and privacy"><Safety /></Fold>
+  <Fold label="Learning Center"><Insights /></Fold>
+  <Fold label="Free guide"><GuideRing books={EBOOKS} /></Fold>
+  <Fold label="Common Questions"><Faq /></Fold>
+  <Fold label="Get started"><FinalCta /></Fold>
+  <ShopChrome />
 </BaseLayout>

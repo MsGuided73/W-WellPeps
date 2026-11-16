@@ -5,7 +5,7 @@ import LegitScriptSeal from '../LegitScriptSeal.astro';
 import { Picture } from 'astro:assets';
 import heroImg from '../../assets/images/hero-couple-coast.webp';
 ---
-<section class="hero">
+<section class="hero flow-hero">
   <!-- Image is a direct child of the full-width section so it can bleed to the
        right edge of the viewport (not clipped by the centered text wrapper). -->
   <!-- LCP image: AVIF with a WebP fallback, at several widths. Stacked (<=860px)
@@ -116,6 +116,16 @@ import heroImg from '../../assets/images/hero-couple-coast.webp';
     }
     .hero__copy { max-width: none; }
     .hero__actions { max-width: none; }
+  }
+
+  /* Phone shop header: headline and seal only. The photo, lead, and
+     buttons stay in the page for desktop. */
+  @media (max-width: 767px) {
+    .hero { min-height: 0; }
+    .hero__img, .hero__lead, .hero__actions, .hero .rule { display: none; }
+    .hero__copy { padding-block: 0.85rem 0.35rem; }
+    .hero__copy h1 { font-size: 1.75rem; line-height: 1.08; }
+    .hero__copy :global(.hero__seal) { margin-top: 0.65rem; }
   }
 </style>
 
