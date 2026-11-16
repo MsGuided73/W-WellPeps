@@ -1,0 +1,238 @@
+---
+/**
+ * Phone shop rows. Hidden from 768px up.
+ * Home shows every category. A treatment page shows only its own row.
+ */
+import AssessmentCta from './AssessmentCta.astro';
+import { HAIR_COMING_SOON } from '../config';
+import { weightProducts } from '../data/weight';
+import { hairProducts } from '../data/hair';
+import { sexProducts } from '../data/sexual';
+import { peptideProducts } from '../data/peptide';
+import type { ProgramSlug } from '../lib/cta';
+
+interface Card {
+  name: string;
+  image: string;
+  alt: string;
+  price?: string;
+  priceUnit: string;
+  program: ProgramSlug;
+  product: string;
+  soon?: boolean;
+}
+interface Group {
+  id: string;
+  label: string;
+  cards: Card[];
+}
+
+interface Props { only?: ProgramSlug; }
+const { only } = Astro.props;
+
+const weight: Card[] = weightProducts.map((p) => ({
+  name: p.name,
+  image: p.image,
+  alt: p.alt,
+  price: p.price,
+  priceUnit: p.priceUnit,
+  program: 'weight-loss',
+  product: p.name,
+}));
+const hair: Card[] = hairProducts.map((p) => ({
+  name: p.name,
+  image: p.image,
+  alt: p.alt,
+  price: p.price,
+  priceUnit: p.priceUnit,
+  program: 'hair-restoration',
+  product: p.name,
+  soon: HAIR_COMING_SOON,
+}));
+const sexual: Card[] = sexProducts.map((p) => ({
+  name: p.name,
+  image: p.image,
+  alt: p.alt,
+  price: p.price,
+  priceUnit: p.priceUnit,
+  program: 'sexual-wellness',
+  product: p.name,
+}));
+const aging: Card[] = peptideProducts.flatMap((p) => {
+  if (p.variants && p.variants.length > 1) {
+    return p.variants.map((v) => ({
+      name: `${p.name} ${v.label}`,
+      image: p.photo,
+      alt: p.photoAlt,
+      price: v.price,
+      priceUnit: '/month',
+      program: 'healthy-aging' as const,
+      product: v.product,
+    }));
+  }
+  return [{
+    name: p.name,
+    image: p.photo,
+    alt: p.photoAlt,
+    price: p.price,
+    priceUnit: '/month',
+    program: 'healthy-aging' as const,
+    product: p.name,
+  }];
+});
+
+const groups: Group[] = [
+  { id: 'shop-weight', label: 'Weight Loss', cards: weight },
+  { id: 'shop-hair', label: 'Hair Restoration', cards: hair },
+  { id: 'shop-sexual', label: 'Sexual Wellness', cards: sexual },
+  { id: 'shop-aging', label: 'Healthy Aging', cards: aging },
+];
+const shown = only ? groups.filter((g) => g.cards[0]?.program === only) : groups;
+const chips = [
+  { label: 'Weight Loss', href: '#shop-weight' },
+  { label: 'Hair Restoration', href: '#shop-hair' },
+  { label: 'Sexual Wellness', href: '#shop-sexual' },
+  { label: 'Healthy Aging', href: '#shop-aging' },
+  { label: 'Hormone Optimization', href: '/hormone-optimization' },
+];
+---
+<div class="shop-shelf">
+  {only ? null : (
+    <nav class="shop-chips" id="shop-categories" aria-label="Categories">
+      {chips.map((c) => <a href={c.href}>{c.label}</a>)}
+    </nav>
+  )}
+  {shown.map((group) => (
+    <section class="shop-block" id={only ? undefined : group.id} aria-labelledby={only ? undefined : `${group.id}-title`}>
+      {only ? null : <h2 id={`${group.id}-title`}>{group.label}</h2>}
+      <div class="shop-row" tabindex="0" aria-label={group.label}>
+        {group.cards.map((card, i) => (
+          <article class="shop-card">
+            <img src={card.image} alt={card.alt} width="640" height="480" loading={i === 0 ? 'eager' : 'lazy'} />
+            <div class="shop-card__body">
+              <h3>{card.name}</h3>
+              {card.price && <p class="shop-card__price">Starting at ${card.price}{card.priceUnit}</p>}
+              <AssessmentCta program={card.program} product={card.product} class="shop-card__cta" arrow>
+                {card.soon && <span slot="soon" class="shop-card__cta shop-card__soon">Coming Soon</span>}
+              </AssessmentCta>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  ))}
+</div>
+
+<style>
+  .shop-shelf { display: none; }
+
+  @media (max-width: 767px) {
+    .shop-shelf { display: block; background: var(--bg-pale-blue); padding-bottom: 0.5rem; }
+    .shop-chips {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      overscroll-behavior-x: contain;
+      padding: 0.35rem 1.1rem 0.85rem;
+      scrollbar-width: none;
+    }
+    .shop-chips::-webkit-scrollbar { display: none; }
+    .shop-chips a {
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0.45rem 0.95rem;
+      border: 1.5px solid var(--border-strong);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--navy);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+    .shop-chips a:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+    .shop-block { scroll-margin-top: 5rem; }
+    .shop-block h2 {
+      margin: 0.15rem 1.1rem 0.55rem;
+      font-size: 1.35rem;
+      line-height: 1.2;
+    }
+    .shop-row {
+      display: flex;
+      gap: 0.75rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline: 1.1rem;
+      overscroll-behavior-x: contain;
+      padding: 0.15rem 1.1rem 0.85rem;
+      scrollbar-width: none;
+    }
+    .shop-row::-webkit-scrollbar { display: none; }
+    .shop-row:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+    .shop-card {
+      flex: 0 0 78%;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .shop-card img {
+      width: 100%;
+      height: 132px;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+    .shop-card__body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      padding: 0.75rem 0.85rem 0.85rem;
+    }
+    .shop-card h3 { margin: 0; font-size: 1.2rem; line-height: 1.25; }
+    .shop-card__price {
+      margin: 0;
+      color: var(--navy);
+      font-family: var(--font-sans);
+      font-size: 1.1875rem;
+      font-weight: 700;
+    }
+    .shop-card :global(.shop-card__cta) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      width: 100%;
+      min-height: 48px;
+      margin-top: 0.35rem;
+      padding: 0.55rem 0.8rem;
+      border-radius: 12px;
+      background: var(--blue);
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-align: center;
+    }
+    .shop-card :global(.shop-card__cta:focus-visible) {
+      outline: 3px solid var(--navy);
+      outline-offset: 2px;
+    }
+    .shop-card :global(.shop-card__soon) {
+      background: var(--bg-light-blue-gray);
+      color: var(--text-muted);
+    }
+  }
+  @media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+    .shop-chips, .shop-row { scroll-behavior: auto; }
+  }
+</style>

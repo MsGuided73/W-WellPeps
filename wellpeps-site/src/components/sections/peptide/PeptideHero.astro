@@ -58,17 +58,9 @@ import { peptideHero } from '../../../data/peptide';
   }
 
   @media (max-width: 767px) {
-    .phero__img { height: 92px; }
-    .phero__copy { padding-block: 0.4rem 0.85rem; }
-    .phero__copy h1 { font-size: 1.8rem; line-height: 1.08; }
-    .phero__copy .rule { margin-top: 0.6rem; }
-    .phero__lead { margin-top: 0.6rem; font-size: 1.1875rem; line-height: 1.4; }
-    .phero__actions { margin-top: 0.75rem; gap: 0.55rem; max-width: none; flex-direction: column; }
-    .phero__actions :global(.btn) {
-      width: 100%;
-      min-height: 48px;
-      padding: 0.7rem 1rem;
-      font-size: 1.1875rem;
-    }
+    .phero { min-height: 0; }
+    .phero__img, .phero__lead, .phero__actions, .phero .rule { display: none; }
+    .phero__copy { padding-block: 0.85rem 0.35rem; max-width: none; }
+    .phero__copy h1 { font-size: 1.7rem; line-height: 1.1; }
   }
 </style>

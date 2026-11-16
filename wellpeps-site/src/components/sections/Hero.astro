@@ -118,22 +118,14 @@ import heroImg from '../../assets/images/hero-couple-coast.webp';
     .hero__actions { max-width: none; }
   }
 
-  /* Phone: a short photo band and tighter type so the program cards
-     can start on the first screen. Desktop rules above are untouched. */
+  /* Phone shop header: headline and seal only. The photo, lead, and
+     buttons stay in the page for desktop. */
   @media (max-width: 767px) {
-    .hero__img { height: 104px; }
-    .hero__copy { padding-block: 0.35rem 0.75rem; }
-    .hero__copy h1 { font-size: 1.85rem; line-height: 1.08; }
-    .hero__copy .rule { margin-top: 0.65rem; }
-    .hero__lead { margin-top: 0.6rem; font-size: 1.1875rem; line-height: 1.4; }
-    .hero__actions { margin-top: 0.75rem; gap: 0.55rem; }
-    .hero__actions :global(.btn) {
-      width: 100%;
-      min-height: 48px;
-      padding: 0.7rem 1rem;
-      font-size: 1.1875rem;
-    }
-    .hero__copy :global(.hero__seal) { margin-top: 0.7rem; }
+    .hero { min-height: 0; }
+    .hero__img, .hero__lead, .hero__actions, .hero .rule { display: none; }
+    .hero__copy { padding-block: 0.85rem 0.35rem; }
+    .hero__copy h1 { font-size: 1.75rem; line-height: 1.08; }
+    .hero__copy :global(.hero__seal) { margin-top: 0.65rem; }
   }
 </style>
 

@@ -1,0 +1,88 @@
+---
+/**
+ * Phone tab bar. Hidden from 768px up, so it does not change desktop layout.
+ * Shop, Categories, and FAQ go to the home page. How it works is the existing
+ * How WellPeps Works page. Patient Portal is the existing sign-in link.
+ */
+import { PATIENT_PORTAL_URL } from '../config';
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const shopCurrent = path === '/';
+const howCurrent = path === '/how-wellpeps-works';
+---
+<nav class="shop-tabbar" aria-label="Phone">
+  <a class="shop-tab" href="/" aria-current={shopCurrent ? 'page' : undefined}>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+    <span>Shop</span>
+  </a>
+  <a class="shop-tab" href="/#shop-categories">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h7v7H4V6Zm9 0h7v7h-7V6ZM4 15h7v5H4v-5Zm9 0h7v5h-7v-5Z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+    <span>Categories</span>
+  </a>
+  <a class="shop-tab" href="/how-wellpeps-works" aria-current={howCurrent ? 'page' : undefined}>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm0 4v5l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    <span>How it works</span>
+  </a>
+  <a class="shop-tab" href={PATIENT_PORTAL_URL}>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm-7 8a7 7 0 0 1 14 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    <span>Sign in</span>
+  </a>
+</nav>
+
+<style>
+  .shop-tabbar { display: none; }
+
+  @media (max-width: 767px) {
+    :global(body:has(main.page-flow)) { overflow-x: clip; }
+    :global(main.page-flow) {
+      padding-bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px));
+    }
+    :global(main.page-flow:has(.shop-sticky)) {
+      padding-bottom: calc(9.5rem + env(safe-area-inset-bottom, 0px));
+    }
+    :global(body:has(main.page-flow) .wa) {
+      bottom: calc(4.25rem + env(safe-area-inset-bottom, 0px));
+    }
+    :global(body:has(main.page-flow):has(.shop-sticky) .wa) {
+      bottom: calc(8.75rem + env(safe-area-inset-bottom, 0px));
+    }
+
+    .shop-tabbar {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 140;
+      margin: 0;
+      padding: 0.15rem 0.25rem env(safe-area-inset-bottom, 0px);
+      background: #fff;
+      border-top: 1px solid var(--border);
+      box-shadow: 0 -6px 20px rgba(8, 43, 89, 0.06);
+    }
+    .shop-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.1rem;
+      min-height: 48px;
+      min-width: 0;
+      padding: 0.35rem 0.15rem;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      line-height: 1.15;
+      text-align: center;
+    }
+    .shop-tab svg { width: 1.35rem; height: 1.35rem; }
+    .shop-tab[aria-current='page'] { color: var(--blue); }
+    .shop-tab:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: -3px;
+      border-radius: 8px;
+    }
+  }
+</style>

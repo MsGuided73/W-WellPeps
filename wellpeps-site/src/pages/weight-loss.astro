@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import MobileFlow from '../components/MobileFlow.astro';
+import Fold from '../components/Fold.astro';
+import ShopChrome from '../components/ShopChrome.astro';
+import ShopShelf from '../components/ShopShelf.astro';
+import ShopSticky from '../components/ShopSticky.astro';
 import WeightHero from '../components/sections/weight/WeightHero.astro';
 import WeightHowItWorks from '../components/sections/weight/WeightHowItWorks.astro';
 import WeightWhyChoose from '../components/sections/weight/WeightWhyChoose.astro';
@@ -26,13 +29,15 @@ const jsonLd = [
   description={description}
   jsonLd={jsonLd}
 >
-  <MobileFlow />
   <WeightHero />
-  <WeightHowItWorks />
-  <GuideBand program="weight-loss" />
-  <WeightWhyChoose />
-  <WeightProducts />
-  <WhatsIncluded />
-  <WeightFaq />
-  <WeightCta />
+  <ShopShelf only="weight-loss" />
+  <Fold label="How it works"><WeightHowItWorks /></Fold>
+  <Fold label="Free guide"><GuideBand program="weight-loss" /></Fold>
+  <Fold label="Why WellPeps"><WeightWhyChoose /></Fold>
+  <Fold label="Full details"><WeightProducts /></Fold>
+  <Fold label="What's included"><WhatsIncluded /></Fold>
+  <Fold label="Common Questions"><WeightFaq /></Fold>
+  <Fold label="Get started"><WeightCta /></Fold>
+  <ShopSticky program="weight-loss" />
+  <ShopChrome />
 </BaseLayout>

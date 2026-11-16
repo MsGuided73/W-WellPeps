@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import MobileFlow from '../components/MobileFlow.astro';
+import Fold from '../components/Fold.astro';
+import ShopChrome from '../components/ShopChrome.astro';
+import ShopShelf from '../components/ShopShelf.astro';
+import ShopSticky from '../components/ShopSticky.astro';
 import HairHero from '../components/sections/hair/HairHero.astro';
 import HairComingSoon from '../components/sections/hair/HairComingSoon.astro';
 import HairHowItWorks from '../components/sections/hair/HairHowItWorks.astro';
@@ -26,12 +29,14 @@ const jsonLd = [
   description={description}
   jsonLd={jsonLd}
 >
-  <MobileFlow />
   <HairHero />
+  <ShopShelf only="hair-restoration" />
   {HAIR_COMING_SOON && <HairComingSoon />}
-  <HairHowItWorks />
-  <GuideBand program="hair-restoration" />
-  <HairProducts />
-  <HairFaq />
-  <HairCta />
+  <Fold label="How it works"><HairHowItWorks /></Fold>
+  <Fold label="Free guide"><GuideBand program="hair-restoration" /></Fold>
+  <Fold label="Full details"><HairProducts /></Fold>
+  <Fold label="Common Questions"><HairFaq /></Fold>
+  <Fold label="Get started"><HairCta /></Fold>
+  <ShopSticky program="hair-restoration" />
+  <ShopChrome />
 </BaseLayout>

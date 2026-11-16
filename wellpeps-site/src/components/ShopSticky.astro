@@ -1,0 +1,40 @@
+---
+/**
+ * Phone-only bar above the tab bar. Uses the same assessment button as the
+ * page hero, so the label and the destination stay the ones the page already uses.
+ */
+import AssessmentCta from './AssessmentCta.astro';
+import type { ProgramSlug } from '../lib/cta';
+
+interface Props { program: ProgramSlug; }
+const { program } = Astro.props;
+---
+<div class="shop-sticky">
+  <AssessmentCta program={program} class="btn btn--primary shop-sticky__btn" />
+</div>
+
+<style>
+  .shop-sticky { display: none; }
+
+  @media (max-width: 767px) {
+    .shop-sticky {
+      display: block;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: calc(3.25rem + env(safe-area-inset-bottom, 0px));
+      z-index: 130;
+      padding: 0.55rem 1rem;
+      background: rgba(255, 255, 255, 0.96);
+      border-top: 1px solid var(--border);
+    }
+    .shop-sticky :global(.shop-sticky__btn) {
+      width: 100%;
+      min-height: 48px;
+    }
+    .shop-sticky :global(.shop-sticky__btn:focus-visible) {
+      outline: 3px solid var(--navy);
+      outline-offset: 2px;
+    }
+  }
+</style>

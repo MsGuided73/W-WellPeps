@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import MobileFlow from '../components/MobileFlow.astro';
+import Fold from '../components/Fold.astro';
+import ShopChrome from '../components/ShopChrome.astro';
+import ShopShelf from '../components/ShopShelf.astro';
+import ShopSticky from '../components/ShopSticky.astro';
 import SexHero from '../components/sections/sexual/SexHero.astro';
 import SexEducation from '../components/sections/sexual/SexEducation.astro';
 import SexProducts from '../components/sections/sexual/SexProducts.astro';
@@ -25,12 +28,14 @@ const jsonLd = [
   description={description}
   jsonLd={jsonLd}
 >
-  <MobileFlow />
   <SexHero />
-  <SexEducation />
-  <GuideBand program="sexual-wellness" />
-  <SexProducts />
-  <SexRecommendation />
-  <SexFaq />
-  <SexCta />
+  <ShopShelf only="sexual-wellness" />
+  <Fold label="How it works"><SexEducation /></Fold>
+  <Fold label="Free guide"><GuideBand program="sexual-wellness" /></Fold>
+  <Fold label="Full details"><SexProducts /></Fold>
+  <Fold label="A provider review"><SexRecommendation /></Fold>
+  <Fold label="Common Questions"><SexFaq /></Fold>
+  <Fold label="Get started"><SexCta /></Fold>
+  <ShopSticky program="sexual-wellness" />
+  <ShopChrome />
 </BaseLayout>
