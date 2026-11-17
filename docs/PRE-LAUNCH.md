@@ -75,12 +75,25 @@ Coming Soon ribbon on the hair product cards, and the pre-launch hero / bottom
 CTA copy. **Do not paste the Hair link until hair pricing is real (see §2)** —
 the link is what opens the page.
 
-### 1c. Add the Curve tracking script
+### 1c. Curve advert measurement (done 2026-11-13)
 
-Paste the Curve snippet into the `<head>` of
-`wellpeps-site/src/layouts/BaseLayout.astro`, after the font links. Marketing
-site only — do not place it on GEN Health portal pages unless Curve confirms
-that is intended, since those pages carry PHI.
+Curve is not a `<script>` in the page head. It is a consent-gated tool:
+`wellpeps-site/src/lib/privacy/trackers/curve.ts`, switched on by
+`CURVE_ENABLED` in `src/lib/privacy/config.ts`. It loads only after a visitor
+says yes to advertising (and, on a health-topic page, gives the second yes).
+
+Owner decision 2026-11-17: Curve runs in full under its BAA. The
+Content-Security-Policy in `nginx.conf.template` admits Curve's whole host, its
+fallback host and the Amazon Ads loader, so whatever the Curve dashboard turns on
+(session recording and page screenshots included) works. Only extra scripts on
+other hosts or inline code named by Curve's settings stay refused. The list is in
+`wellpeps-site/scripts/lib/tracker-sources.mjs`; `npm run check:headers` proves
+it in a browser. Every form and the AI assistant carry the `ct-block` class, so
+Curve's recorder never captures what a visitor types (the notices promise that
+recordings are never tied to a visitor's identity); `recording-block.test.ts`
+keeps it that way.
+
+Marketing site only. Nothing here touches the GEN Health portal.
 
 ### 1d. DNS cutover (Cloudflare) — done for the portal
 
