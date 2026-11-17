@@ -59,4 +59,7 @@ import { weightHero } from '../../../data/weight';
     }
     .whero__copy { max-width: none; padding-block: 2rem; }
   }
+  /* Large screens: match the other program heroes (4.6rem) so the headline stays clearly bigger than the
+     57px section headings. Laptops (1366x768) keep 3.8rem so the hero button stays on the first screen. */
+  @media (min-width: 1440px) and (min-height: 850px) { .whero__copy h1 { font-size: 4.6rem; } }
 </style>
