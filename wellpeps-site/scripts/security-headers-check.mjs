@@ -28,6 +28,7 @@ import { scanDist, walkFiles } from './lib/html-scan.mjs';
 import { auditHeaders, auditRedirectRule, parseNginx, renderTemplate, REQUIRED_HEADERS } from './lib/nginx-conf.mjs';
 import { createNginxEmulator, listenEmulator } from './lib/nginx-emulator.mjs';
 import { gateHash } from './gate-hash.mjs';
+import { TRACKER_ADMITTED } from './lib/tracker-sources.mjs';
 
 const SITE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
@@ -477,6 +478,87 @@ async function canaries(browser) {
   await ctx.close();
 }
 
+/**
+ * The consent-gated vendor tag (Curve advert measurement). Two things are proved in a real browser:
+ * the tag is requested only when our gate allows it, and (owner, 2026-11-17: Curve runs in full)
+ * the policy admits everything that tag is able to ask for. Nothing here
+ * reaches the vendor: instrument() aborts every request to another host and records it, so "the
+ * browser tried" (allowed by the policy) and "the browser refused" (a CSP violation) can be told apart.
+ */
+async function vendorTag(browser) {
+  console.log('\n7. The consent-gated vendor tag: loads only with consent, and everything it can ask for is admitted');
+  const TAG = TRACKER_ADMITTED.script[0];
+  const tagRequests = (bag) => bag.foreign.filter((r) => r === `GET ${TAG}`).length;
+  const open = async ({ gpc = false } = {}) => {
+    const { ctx, bag, watch } = await instrument(browser, OPEN);
+    if (gpc) await ctx.addInitScript(() => Object.defineProperty(Navigator.prototype, 'globalPrivacyControl', { get: () => true, configurable: true }));
+    const page = await ctx.newPage();
+    watch(page);
+    await page.goto(`${OPEN}/`, { waitUntil: 'networkidle' });
+    return { ctx, bag, page };
+  };
+  const banner = (page) => page.locator('[data-privacy-banner]:not([hidden])');
+
+  // a) No choice yet, then "Reject all".
+  {
+    const { ctx, bag, page } = await open();
+    const shown = await banner(page).count();
+    check('first visit: the privacy bar is shown and the tag has not been requested', shown === 1 && tagRequests(bag) === 0, `bar shown: ${shown}, requests: ${head(bag.foreign)}`);
+    if (shown) await banner(page).locator('[data-pc-action="rejectAll"]').click();
+    await settle(page, 600);
+    await page.goto(`${OPEN}/why-wellpeps/`, { waitUntil: 'networkidle' });
+    check('after "Reject all": the tag is never requested, on this page or the next', tagRequests(bag) === 0 && bag.foreign.length === 0, head(bag.foreign));
+    await ctx.close();
+  }
+
+  // b) "Accept all" on a page that is not about a health topic, then a health-topic page.
+  {
+    const { ctx, bag, page } = await open();
+    if (await banner(page).count()) await banner(page).locator('[data-pc-action="acceptAll"]').click();
+    await settle(page, 800);
+    const afterAccept = tagRequests(bag);
+    const scriptViolations = bag.violations.filter((v) => String(v.blocked).startsWith(TAG));
+    check('after "Accept all" on the home page: the tag is requested, and the policy allows it', afterAccept >= 1 && scriptViolations.length === 0, `requests: ${head(bag.foreign)}; violations: ${head(bag.violations.map((v) => `${v.directive} ${v.blocked}`))}`);
+    const strays = bag.foreign.filter((r) => r !== `GET ${TAG}`);
+    check('the only thing requested from another host is the tag itself', strays.length === 0, head(strays));
+    const before = tagRequests(bag);
+    await page.goto(`${OPEN}/weight-loss/`, { waitUntil: 'networkidle' });
+    await settle(page, 600);
+    check('"Accept all" does not carry onto a health-topic page: the tag is not requested there without the second consent', tagRequests(bag) === before, head(bag.foreign.slice(-3)));
+    await ctx.close();
+  }
+
+  // c) Global Privacy Control.
+  {
+    const { ctx, bag, page } = await open({ gpc: true });
+    if (await banner(page).count()) await banner(page).locator('[data-pc-action="acceptAll"]').click().catch(() => {});
+    await settle(page, 800);
+    check('with Global Privacy Control on, "Accept all" still does not load the tag', tagRequests(bag) === 0, head(bag.foreign));
+    await ctx.close();
+  }
+
+  // d) Everything the tag can ask for is admitted by the policy.
+  {
+    const { ctx, bag, page } = await open();
+    const before = bag.violations.length;
+    await page.evaluate(({ scripts, fetches }) => {
+      for (const src of scripts) { const s = document.createElement('script'); s.src = src; document.head.appendChild(s); }
+      for (const url of fetches) fetch(url, { method: 'POST', body: '{}' }).catch(() => {});
+    }, { scripts: TRACKER_ADMITTED.script, fetches: TRACKER_ADMITTED.connect });
+    const all = [...TRACKER_ADMITTED.script, ...TRACKER_ADMITTED.connect];
+    const attempted = (url) => bag.foreign.some((r) => r.endsWith(` ${url}`));
+    for (let i = 0; i < 40 && !all.every(attempted); i += 1) await settle(page, 100);
+    await settle(page, 300);
+    const blocked = bag.violations.slice(before).map((v) => String(v.blocked));
+    const wasBlocked = (url) => blocked.some((b) => b === url || b === url.split('?')[0] || url.startsWith(b));
+    const refusedScripts = TRACKER_ADMITTED.script.filter((u) => wasBlocked(u) || !attempted(u));
+    const refusedFetches = TRACKER_ADMITTED.connect.filter((u) => wasBlocked(u) || !attempted(u));
+    check('admitted as scripts: the tag, the session recorder, the page screenshotter, the recording set-up (JSONP), the fallback host and the Amazon Ads loader', refusedScripts.length === 0, head(refusedScripts));
+    check('admitted as fetches: start-up settings, conversion events, recording upload, screenshots, the bridge, the consent manager and the fallback host', refusedFetches.length === 0, head(refusedFetches));
+    await ctx.close();
+  }
+}
+
 // -------------------------------------------------------------------- main
 let exit = 0;
 try {
@@ -487,6 +569,7 @@ try {
     await interactions(browser);
     await gatePage(browser);
     await canaries(browser);
+    await vendorTag(browser);
   } finally {
     await browser.close();
   }

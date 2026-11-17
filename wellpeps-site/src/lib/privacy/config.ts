@@ -75,19 +75,20 @@ export const CURVE_SITE_ID = '5224b1abeb7ae27d6eeb532b052b944c62078c741f7fb59f66
 
 /**
  * Adds Curve Compliance (src/lib/privacy/trackers/curve.ts) to the tracker registry as an
- * ADVERTISING tool. While false it is not in the registry, no banner names it and nothing loads.
+ * ADVERTISING tool: it measures which Google and Meta adverts led to a sign-up. No adverts are
+ * shown on this site. Turned ON 2026-11-13 at the owner's direction, after the BAA was signed.
  *
- * DO NOT turn this on yet. t.js carries a session recorder and a page rasterizer that Curve's
- * SERVER decides to run, and its heatmaps work by screenshotting pages the visitor viewed —
- * which this site bans. validateRegistry() cannot catch it, because the ban list is by vendor
- * name and host and Curve is on neither. The full blocker and the checklist to clear it are at
- * the top of src/lib/privacy/trackers/curve.ts. In short, all of:
- *   1. Curve dashboard shows session recording OFF and heatmap screenshot capture OFF, evidenced,
- *      and Curve's own consent manager OFF so visitors do not get a second banner,
- *   2. written answers to the 19 questions already sent to Curve,
- *   3. counsel has accepted the residual risk given the BAA,
- *   4. nginx.conf allows both Curve hosts in script-src and connect-src, with
- *      security-headers.test.ts updated,
- *   5. the Cookie notice and cookie-notice-inventory.ts name the tool and NOTICE_VERSION is bumped.
+ * While true: the first-visit privacy bar appears, Your Privacy Choices shows a working switch,
+ * and the tag loads only for a visitor who says yes to advertising (and, on a health-topic page,
+ * gives the second, separate yes). Global Privacy Control keeps it off.
+ *
+ * t.js also carries a session recorder, a page screenshotter and a cross-site bridge that Curve's
+ * SERVER can switch on. They are refused by the Content-Security-Policy, which admits three exact
+ * Curve URLs and nothing else (scripts/lib/tracker-sources.mjs, nginx.conf.template). Do not widen
+ * those paths. What is still open (counsel's review of the notice wording, Curve's written
+ * answers, the consent log) is listed at the top of src/lib/privacy/trackers/curve.ts.
+ *
+ * To turn it off again: set this to false, empty NOTICE_TOOL_IDS.advertising in
+ * cookie-notice-inventory.ts, and the tests will point at the notice text to restore.
  */
-export const CURVE_ENABLED: boolean = false;
+export const CURVE_ENABLED: boolean = true;

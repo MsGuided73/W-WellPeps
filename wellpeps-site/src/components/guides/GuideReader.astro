@@ -4,8 +4,8 @@
  * download beside it (owner, 2026-10-19). Linked only from the guide's thank-you page and kept out of
  * search results, like the thank-you page.
  *
- * Images rather than an embedded PDF: the site's Content-Security-Policy forbids frames and plugins
- * (frame-src 'none', object-src 'none'), and phones such as Android Chrome cannot show a PDF inside a
+ * Images rather than an embedded PDF: the site's Content-Security-Policy forbids frames (other than
+ * the advertising tool's sandbox) and plugins, and phones such as Android Chrome cannot show a PDF inside a
  * page. Each page's words sit in a visually hidden caption, so a screen reader reads the guide; the
  * PDF stays one click away for anyone who wants the file. scripts/publish-ebook.py makes the pages. The
  * PDF's own links (the CTA page's See If You Qualify button) are laid over the image at the same spot.

@@ -8,7 +8,7 @@ import {
 } from '../privacy/config';
 import { NOTICE_TOOL_IDS } from '../privacy/cookie-notice-inventory';
 import { createGate } from '../privacy/gate';
-import { productionTrackers, validateRegistry } from '../privacy/registry';
+import { hasNonEssential, productionTrackers, validateRegistry } from '../privacy/registry';
 import { ANALYTICS_TRACKER_ID } from './tracker';
 
 /**
@@ -18,10 +18,12 @@ import { ANALYTICS_TRACKER_ID } from './tracker';
  */
 describe('the analytics tool in the production registry', () => {
   test('is registered exactly when ANALYTICS_ENABLED is true, and not otherwise', () => {
-    expect(productionTrackers().map((t) => t.id)).toEqual(ANALYTICS_ENABLED ? [ANALYTICS_TRACKER_ID] : []);
+    expect(productionTrackers().map((t) => t.id).filter((id) => id === ANALYTICS_TRACKER_ID)).toEqual(ANALYTICS_ENABLED ? [ANALYTICS_TRACKER_ID] : []);
   });
 
-  test('while it is off, the registry is empty, so the first-visit bar never appears', () => {
+  test('while it is off it adds nothing: the first-visit bar appears only because of the other tools in the registry', () => {
+    // Other tools (Curve advert measurement, 2026-11-13) need a choice of their own.
+    const othersNeedAChoice = hasNonEssential(productionTrackers().filter((t) => t.id !== ANALYTICS_TRACKER_ID));
     const gate = createGate({
       now: () => Date.UTC(2026, 9, 1),
       uuid: () => '00000000-0000-4000-8000-000000000001',
@@ -32,8 +34,8 @@ describe('the analytics tool in the production registry', () => {
       log: () => {},
     });
     gate.init();
-    expect(gate.hasNonEssential()).toBe(ANALYTICS_ENABLED);
-    expect(gate.promptReason()).toBe(ANALYTICS_ENABLED ? 'first' : null);
+    expect(gate.hasNonEssential()).toBe(ANALYTICS_ENABLED || othersNeedAChoice);
+    expect(gate.promptReason()).toBe(ANALYTICS_ENABLED || othersNeedAChoice ? 'first' : null);
   });
 
   test('the production registry is valid in either state', () => {
