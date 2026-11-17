@@ -43,7 +43,7 @@ export const safety = [
 /* ---- Section 8: Wellness Insights & Resources (blog) ---- */
 export const insights = [
   { title: 'Understanding GLP-1 Weight Management', body: 'Learn how GLP-1 medications work, who they’re for, and what results you can expect with a personalized plan.', image: '/images/insight-glp1.webp', alt: 'Woman running outdoors', href: '/wellness-learning-center/understanding-glp1-medications' },
-  { title: 'What Are Peptides? Understanding Peptide Therapy', body: 'What peptides are, how they function in the body, and how a provider evaluates whether peptide therapy may be appropriate.', image: '/images/insight-peptide.webp', alt: 'An amber vial labeled Sermorelin, Compounded, Rx Only, on a marble counter', href: '/wellness-learning-center/what-are-peptides' },
+  { title: 'What Are Peptides? Understanding Peptide Therapy', body: 'What peptides are, how they function in the body, and how a provider evaluates whether peptide therapy may be appropriate.', image: '/images/insight-sermorelin.webp', alt: 'An amber vial labeled Sermorelin, Compounded, Rx Only, on a marble counter', href: '/wellness-learning-center/what-are-peptides' },
   { title: 'Understanding Hair Loss Treatment Options', body: 'Explore proven solutions for thinning hair and hair loss, and how personalized treatment can help you see real results.', image: '/images/insight-hair.webp', alt: 'Man examining his hairline in a mirror', href: '/wellness-learning-center/understanding-hair-loss' },
 ];
 
