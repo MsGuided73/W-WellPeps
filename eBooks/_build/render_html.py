@@ -442,6 +442,28 @@ def cta_page(book, sec, num, cfg):
     return page_shell(book, num, cfg.get('kicker', 'GET THE COMPREHENSIVE CARE YOU DESERVE'), inner, cls='cta')
 
 
+# The site's MD-reviewed seal (wellpeps-site/src/assets/badges/md-reviewed-seal.svg), unchanged except a thin opaque
+# outline on the scallop: the seal is navy and the back page is navy. Opaque on purpose (no transparency, section 4).
+MD_SEAL = ('<svg class="seal" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true">'
+           '<path d="M24.00 2.60 Q27.94 -0.86 30.61 3.65 Q35.43 1.58 36.58 6.69 Q41.80 6.20 41.31 11.42 Q46.42 12.57 44.35 17.39 '
+           'Q48.86 20.06 45.40 24.00 Q48.86 27.94 44.35 30.61 Q46.42 35.43 41.31 36.58 Q41.80 41.80 36.58 41.31 Q35.43 46.42 30.61 44.35 '
+           'Q27.94 48.86 24.00 45.40 Q20.06 48.86 17.39 44.35 Q12.57 46.42 11.42 41.31 Q6.20 41.80 6.69 36.58 Q1.58 35.43 3.65 30.61 '
+           'Q-0.86 27.94 2.60 24.00 Q-0.86 20.06 3.65 17.39 Q1.58 12.57 6.69 11.42 Q6.20 6.20 11.42 6.69 Q12.57 1.58 17.39 3.65 '
+           'Q20.06 -0.86 24.00 2.60 Z" fill="#082B59" stroke="#FFFFFF" stroke-width="1"/>'
+           '<circle cx="24" cy="24" r="16.6" fill="none" stroke="#2EA8F7" stroke-width="1.7"/>'
+           '<path d="M16.2 24.6l5.2 5.2L32 19.2" fill="none" stroke="#FAFCFF" stroke-width="3.9" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+
+
+def review_block(book):
+    """'Medically reviewed by' line on the back page, from config "medical_review" (owner, 2026-11-12). Same words as the
+    site's byline; registry facts only (name, credential, specialty, date), never an endorsement of a treatment."""
+    r = book.get('medical_review')
+    if not r:
+        return ''
+    return (f'<div class="dreview">{MD_SEAL}<div class="rvt"><div class="rv1">Medically reviewed by {esc(r["reviewer"])}</div>'
+            f'<div class="rv2">{esc(r["specialty"])} · Reviewed {esc(r["date"])}</div></div></div>')
+
+
 def disclaimer_page(book, sec, theme='classic'):
     ps = ''.join(f'<p>{esc(t)}</p>' for t in sec['text'])
     dlogo = f'<img class="dlogo" src="{img_uri(LOGO_WHITE)}" alt="WellPeps">' if theme.startswith('editorial') else ''
@@ -456,6 +478,7 @@ def disclaimer_page(book, sec, theme='classic'):
   <div class="dtext">{ps}</div>
   {series}
   <div class="dbrand"><div class="wp">WELLPEPS</div><div class="ser">The Smart Patient’s Guide Series</div></div>
+  {review_block(book)}
   <div class="dfoot">WELLPEPS&nbsp;&nbsp; | &nbsp;&nbsp;THE SMART PATIENT’S GUIDE&nbsp;&nbsp; | &nbsp;&nbsp;wellpeps.com</div>
 </section>'''
 
@@ -1053,6 +1076,10 @@ p.quote{font-size:19pt;line-height:1.2;font-weight:700;color:var(--blue);margin-
 .disclaimer .wp{font-size:16pt;font-weight:700;letter-spacing:.04em}
 .disclaimer .ser{font-size:15pt;font-weight:700;margin-top:.1in}
 .disclaimer .dfoot{position:absolute;left:.7in;top:10.1in;font-size:8pt;font-weight:700;color:var(--sky);letter-spacing:.04em}
+.disclaimer .dreview{position:absolute;right:.7in;top:8.7in;display:flex;align-items:center;gap:.14in}
+.disclaimer .dreview .seal{width:.56in;height:.56in;flex:none}
+.disclaimer .dreview .rv1{font-size:11pt;font-weight:700;color:#fff}
+.disclaimer .dreview .rv2{font-size:9pt;font-weight:700;color:var(--sky);letter-spacing:.02em;margin-top:.05in}
 /* ---- print / PDF: no blurred or filter-based shadows (Chromium writes them as luminosity soft masks, which Apple
    Preview renders as grey boxes). Hard opaque offset shadow instead; text stays vector. Screen styles above are unchanged. ---- */
 @media print{
@@ -1238,6 +1265,7 @@ SCRIPT = r'''
       const need = (t.getBoundingClientRect().bottom - pt) / IN + 0.3;           // .3in below the legal text
       if (need > 6.9) s.style.top = need.toFixed(2) + 'in';
       if (b) { const sb = (s.getBoundingClientRect().bottom - pt) / IN + 0.3; if (sb > 8.7) b.style.top = sb.toFixed(2) + 'in'; }
+      const rv = pg.querySelector('.dreview'); if (rv && b) rv.style.top = b.style.top;  // the review line stays level with the brand block
     }
     while (!FIXED && t.getBoundingClientRect().bottom > s.getBoundingClientRect().top - 0.15*IN && guard < 4){ guard++; t.classList.add('d'+guard); }
   });
@@ -1274,7 +1302,7 @@ def build(outline_path, config_path, out_path, cover_style=None):
     cfg = json.load(open(config_path, encoding='utf8'))
     if cover_style:
         cfg['cover_style'] = cover_style
-    book.update({k: v for k, v in cfg.items() if k in ('topic', 'title', 'cta_url', 'series')})
+    book.update({k: v for k, v in cfg.items() if k in ('topic', 'title', 'cta_url', 'series', 'medical_review')})
     book['_theme'] = cfg.get('theme', 'classic')
     book['_front'] = set(cfg.get('front_matter', []))
     book['_icon'] = img_uri(ICON)

@@ -9,7 +9,11 @@ import { chromium } from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
 
 const LANDING = process.argv.find((a, i) => i === 2 && a.startsWith('http')) || 'http://localhost:4321';
-const GUIDES = ['glp-1-weight-loss', 'sexual-wellness', 'hair-restoration', 'healthy-aging-vitality', 'nad-therapy', 'modern-healthcare'];
+// Built guides in series order, minus those held back from publishing (src/data/held-ebooks.json).
+import { readFileSync as __readHeld } from 'node:fs';
+const HELD = JSON.parse(__readHeld(new URL('../src/data/held-ebooks.json', import.meta.url), 'utf8')).slugs;
+const GUIDES = ['glp-1-weight-loss', 'sexual-wellness', 'hair-restoration', 'healthy-aging-vitality', 'nad-therapy', 'modern-healthcare', 'mens-hormone-therapy', 'womens-hormone-therapy'].filter((g) => !HELD.includes(g));
+const GUIDE_TITLES = { 'modern-healthcare': 'Modern Healthcare', 'mens-hormone-therapy': 'Men’s Hormone Therapy', 'womens-hormone-therapy': 'Women’s Hormone Therapy', 'nad-therapy': 'NAD+ Therapy' };
 const PROGRAMS = [
   ['/weight-loss', 'glp-1-weight-loss', 'weight-loss'],
   ['/hair-restoration', 'hair-restoration', 'hair-restoration'],
@@ -24,8 +28,8 @@ import { readFileSync as __read } from 'node:fs';
 const __ebooks = __read(new URL('../src/data/ebooks.ts', import.meta.url), 'utf8');
 // Each guide's entry runs from its `slug:` line to the next one; a published guide has a `pdf:` line in it.
 const __entries = __ebooks.split(/\n\s*slug: '/).slice(1).map((part) => ({ slug: part.slice(0, part.indexOf("'")), pdf: /\n\s*pdf: '/.test(part) }));
-const EBOOK_SLUGS_PUBLISHED = __entries.filter((e) => e.pdf).map((e) => e.slug);
-const EBOOK_SLUGS_UNPUBLISHED = __entries.filter((e) => !e.pdf).map((e) => e.slug);
+const EBOOK_SLUGS_PUBLISHED = __entries.filter((e) => e.pdf && !HELD.includes(e.slug)).map((e) => e.slug);
+const EBOOK_SLUGS_UNPUBLISHED = __entries.filter((e) => !e.pdf && !HELD.includes(e.slug)).map((e) => e.slug);
 const check = (name, ok, detail = '') => { console.log(`${ok ? 'PASS' : 'FAIL'}  ${name}${detail ? '  -> ' + detail : ''}`); if (!ok) fails++; };
 
 const browser = await chromium.launch();
@@ -91,7 +95,8 @@ async function articleLinks(ctx, base) {
   check('previous turns it back', (await page.locator('[data-ring-name]').innerText()) === 'GLP-1 Weight Loss');
   await page.locator('[data-ring-prev]').click();
   await page.waitForTimeout(200);
-  check('previous from the first wraps round to the last', (await page.locator('[data-ring-name]').innerText()) === 'Modern Healthcare');
+  // The last guide in src/data/ebooks.ts (the hormone guides were added after Modern Healthcare, 2026-11-10).
+  check('previous from the first wraps round to the last', (await page.locator('[data-ring-name]').innerText()) === GUIDE_TITLES[GUIDES[GUIDES.length - 1]]);
   await page.locator('[data-ring-dot="2"]').click();
   await page.waitForTimeout(200);
   check('a dot goes straight to its guide', (await page.locator('[data-ring-name]').innerText()) === 'Hair Restoration');
@@ -270,7 +275,12 @@ async function articleLinks(ctx, base) {
     const band = page.locator(`[data-guide-band="${program}"]`);
     check(`${path}: the guide band links to its landing page`, (await band.count()) === 1 && (await band.locator('.gband__btn').getAttribute('href')) === `/smart-patient-guides/${guide}`);
     check(`${path}: the old dialog band is gone`, (await page.locator('.ebook--band').count()) === 0);
-    check(`${path}: the band is high on the page (first third of the sections)`, await page.evaluate(() => { const b = document.querySelector('[data-guide-band]').getBoundingClientRect().top + scrollY; return b < document.documentElement.scrollHeight * 0.4; }));
+    // Products always come before the guide band (Derek, 2026-11-12; it used to sit high on the page).
+    check(`${path}: the band comes after the product cards`, await page.evaluate(() => {
+      const band = document.querySelector('[data-guide-band]');
+      const cards = [...document.querySelectorAll('[id$="-products"], .scard, .pcard')];
+      return cards.length > 0 && cards.every((c) => !!(c.compareDocumentPosition(band) & Node.DOCUMENT_POSITION_FOLLOWING));
+    }));
     check(`${path}: the band says what Derek wrote`, (await band.locator('.gband__title').innerText()).trim() === 'Become a Smart Patient. Download Our Free eBook.' && /^Want to learn more before choosing/i.test(await band.locator('.gband__question').innerText()));
     check(`${path}: no sideways scroll`, await noSideways(page));
   }
@@ -295,10 +305,14 @@ async function articleLinks(ctx, base) {
     if (!href) { console.log('SKIP  an article for', guide, 'was not found in the Learning Center'); continue; }
     const { page } = await open(ctx, LANDING, href);
     const ctas = await page.locator('[data-guide-cta]').evaluateAll((els) => els.map((e) => ({ place: e.dataset.guideCta, href: e.querySelector('.gcta__btn').getAttribute('href'), title: e.querySelector('.gcta__title').textContent })));
-    check(`${href}: one call to action inside and one at the end, both to ${guide}`, ctas.length === 2 && ctas[0].place === 'inline' && ctas[1].place === 'end' && ctas.every((c) => c.href === `/smart-patient-guides/${guide}` && titleRe.test(c.title)), JSON.stringify(ctas.map((c) => c.place + ':' + c.href)));
-    check(`${href}: the inline one is between sections, the end one after the article`, await page.evaluate(() => {
-      const inline = document.querySelector('[data-guide-cta="inline"]'), end = document.querySelector('[data-guide-cta="end"]');
-      return inline.previousElementSibling?.classList.contains('prose') && inline.nextElementSibling?.classList.contains('prose--cont') && end.compareDocumentPosition(document.querySelector('.related') || document.querySelector('.endcta')) & Node.DOCUMENT_POSITION_FOLLOWING;
+    // Products always come before the guides (Derek, 2026-11-12): these articles all show a treatment section, so the
+    // mid-article guide box is dropped and only the one after the treatments remains.
+    check(`${href}: one call to action, at the end, to ${guide}`, ctas.length === 1 && ctas[0].place === 'end' && ctas.every((c) => c.href === `/smart-patient-guides/${guide}` && titleRe.test(c.title)), JSON.stringify(ctas.map((c) => c.place + ':' + c.href)));
+    check(`${href}: the guide box comes after the treatment section and before the related articles`, await page.evaluate(() => {
+      const end = document.querySelector('[data-guide-cta="end"]');
+      const treatments = document.querySelector('.wtopts, .therapies, .sxopts, .htopts');
+      const after = (a, b) => !!(a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING);
+      return (!treatments || after(treatments, end)) && after(end, document.querySelector('.related') || document.querySelector('.endcta'));
     }));
     check(`${href}: the sidebar guide card is gone, every section heading is still there`, (await page.locator('.ebook-rail').count()) === 0 && (await page.locator('.prose h2').count()) === (await page.locator('.toc__list li').count()));
     await page.close();

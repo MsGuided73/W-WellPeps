@@ -42,7 +42,7 @@ export const MEDICAL_REVIEWERS = {
     credentialName: 'Doctor of Medicine',
     specialty: 'Internal Medicine',
     npi: '1437121910',
-    profileUpdated: '2026-11-07',
+    profileUpdated: '2026-11-12',
   },
 } as const satisfies Record<string, MedicalReviewer>;
 
@@ -53,6 +53,9 @@ const GLP1_REVIEW = { reviewer: 'rahel-yirga-md', reviewedOn: '2026-11-06' } as 
 
 /** Hair Restoration, Sexual Wellness and Healthy Aging & Vitality articles, plus Healthy Aging (Wellness Foundations): approved by Dr. Yirga on 2026-11-07 (owner, 2026-11-07). */
 const NOV7_REVIEW = { reviewer: 'rahel-yirga-md', reviewedOn: '2026-11-07' } as const;
+
+/** The remaining Wellness Foundations and Telehealth Resources articles: approved by Dr. Yirga, confirmed by the owner 2026-11-12. */
+const NOV12_REVIEW = { reviewer: 'rahel-yirga-md', reviewedOn: '2026-11-12' } as const;
 
 export const REVIEWS: Readonly<Record<string, { reviewer: ReviewerId; reviewedOn: string }>> = {
   'common-glp1-side-effects': GLP1_REVIEW,
@@ -94,7 +97,49 @@ export const REVIEWS: Readonly<Record<string, { reviewer: ReviewerId; reviewedOn
   'what-are-peptides': NOV7_REVIEW,
   // Wellness Foundations: the owner's Healthy Aging list includes this article
   'healthy-aging': NOV7_REVIEW,
+  // Wellness Foundations (the rest)
+  'healthy-nutrition': NOV12_REVIEW,
+  'managing-stress': NOV12_REVIEW,
+  'benefits-of-regular-exercise': NOV12_REVIEW,
+  'importance-of-hydration': NOV12_REVIEW,
+  'why-sleep-matters': NOV12_REVIEW,
+  // Telehealth Resources
+  'personalized-treatment-plans': NOV12_REVIEW,
+  'how-telehealth-works': NOV12_REVIEW,
+  'prescription-delivery': NOV12_REVIEW,
+  'when-is-telehealth-appropriate': NOV12_REVIEW,
+  'hipaa-and-telehealth-privacy': NOV12_REVIEW,
+  'understanding-laboratory-testing': NOV12_REVIEW,
 };
+
+/**
+ * Medical review of the Smart Patient Guides (eBooks), by guide slug (src/data/ebooks.ts). The guide's landing page
+ * shows the same "Medically reviewed by" line as an article, and the reviewer's profile lists the guide.
+ * The owner confirmed 2026-11-12 that Dr. Yirga approved every guide, including the two hormone therapy guides
+ * (Women's at v2, the 2026-11-10 compounded-cream correction).
+ */
+export const GUIDE_REVIEWS: Readonly<Record<string, { reviewer: ReviewerId; reviewedOn: string }>> = {
+  'glp-1-weight-loss': NOV12_REVIEW,
+  'sexual-wellness': NOV12_REVIEW,
+  'hair-restoration': NOV12_REVIEW,
+  'healthy-aging-vitality': NOV12_REVIEW,
+  'nad-therapy': NOV12_REVIEW,
+  'modern-healthcare': NOV12_REVIEW,
+  'mens-hormone-therapy': NOV12_REVIEW,
+  'womens-hormone-therapy': NOV12_REVIEW,
+};
+
+export function reviewForGuide(slug: string): ArticleReview | undefined {
+  const entry = GUIDE_REVIEWS[slug];
+  return entry ? { reviewer: MEDICAL_REVIEWERS[entry.reviewer], reviewedOn: entry.reviewedOn } : undefined;
+}
+
+/** Slugs of the guides a reviewer has reviewed, with the review date. */
+export function guidesReviewedBy(reviewerId: string): { slug: string; reviewedOn: string }[] {
+  return Object.entries(GUIDE_REVIEWS)
+    .filter(([, r]) => r.reviewer === reviewerId)
+    .map(([slug, r]) => ({ slug, reviewedOn: r.reviewedOn }));
+}
 
 /** "Rahel Yirga, MD" */
 export const reviewerName = (r: MedicalReviewer): string => `${r.givenName} ${r.familyName}, ${r.credential}`;

@@ -10,7 +10,9 @@
 import { CTA_LINKS } from '../config';
 import { isLinked } from './links';
 
-export const PROGRAM_SLUGS = ['weight-loss', 'hair-restoration', 'sexual-wellness', 'healthy-aging'] as const;
+export const PROGRAM_SLUGS = [
+  'weight-loss', 'hair-restoration', 'sexual-wellness', 'healthy-aging', 'mens-hormone-therapy', 'womens-hormone-therapy',
+] as const;
 export type ProgramSlug = (typeof PROGRAM_SLUGS)[number];
 
 /** The only wording used on an assessment button, site-wide. */
@@ -27,6 +29,8 @@ const PROGRAM_TREATMENTS_HREF: Readonly<Record<ProgramSlug, string>> = {
   'hair-restoration': '/hair-restoration#hair-products',
   'sexual-wellness': '/sexual-wellness#sex-products',
   'healthy-aging': '/healthy-aging#peptide-products',
+  'mens-hormone-therapy': '/mens-hormone-therapy/#hormone-products',
+  'womens-hormone-therapy': '/womens-hormone-therapy/#hormone-products',
 };
 
 export interface ProductLink {

@@ -47,7 +47,22 @@ const READ_AS: Readonly<Record<string, string>> = { gap: 'column-gap' };
 
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c] as string);
 
+/**
+ * Hide Astro's dev toolbar (the dark bar at the bottom in `astro dev`): it covered page content on screen and in
+ * printouts (owner, 2026-11-10). It is hidden, not disabled, because turning it off also removes the
+ * data-astro-source-file stamps this panel reads. Done here because this script only ever runs in dev, and the
+ * site's security policy allows no inline <style> in any component.
+ */
+function hideDevToolbar() {
+  if (document.querySelector('style[data-hide-dev-toolbar]')) return;
+  const s = document.createElement('style');
+  s.dataset.hideDevToolbar = '';
+  s.textContent = 'astro-dev-toolbar { display: none !important; }';
+  document.head.append(s);
+}
+
 function init() {
+  hideDevToolbar();
   if (document.querySelector(HOST_TAG)) return;
 
   const tracked = new Map<Element, Tracked>();
@@ -461,7 +476,9 @@ function init() {
   function setOpen(on: boolean) {
     open = on;
     panel.hidden = !on;
-    pill.hidden = on;
+    // The floating "Tweak" button stays hidden (owner, 2026-11-10: it covered page content, also in printouts).
+    // Alt+T is the way in.
+    pill.hidden = true;
     if (!on) setPicking(false);
     else {
       renderSelected();
@@ -470,6 +487,7 @@ function init() {
     scheduleOverlay();
   }
 
+  pill.hidden = true;
   pill.addEventListener('click', () => setOpen(true));
   q('[data-close]').addEventListener('click', () => setOpen(false));
   q('[data-move]').addEventListener('click', () => panel.classList.toggle('left'));

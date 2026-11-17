@@ -1,0 +1,782 @@
+{
+ "slug": "womens-hormone-therapy",
+ "source": "website-additions/Hormone Therapy/Hormone-eBooks/Womens Hormone Therapy eBook/WellPeps_Womens_Hormone_Therapy_eBook_Manuscript_V1.docx (V1, received 2026-11-10; copy in eBooks/Hormone-eBooks/). Hand-built outline 2026-11-10. Copy rules from _build/README.md section 5 and the wellpeps-compliance-review pass (docs/compliance/reviews/2026-11-10-ebook-hormone-therapy.md) applied: lab partner names removed and lab fees billed separately, estradiol patch stated as not compounded and vaginal estradiol cream as compounded (owner, 2026-11-10; the cream was first reported as not compounded), a status line on oral progesterone, the transdermal clot-risk line attributed to observational studies, the manuscript's CTA button wording and its no-cost screening line replaced by the See If You Qualify button, checklist grammar fixed. Design notes are not printed. Kickers written for the series (the manuscript has none). Photos borrowed from wellpeps-site/public/images/hormone (see config). Added for series consistency: the Why We Created WellPeps page and the standard disclaimer page (the manuscript asks for the disclaimer). MEDICAL REVIEW PENDING (Dr. Yirga).",
+ "title": "WOMEN’S HORMONE THERAPY",
+ "subtitle": "Understanding perimenopause, menopause, and today’s treatment options",
+ "deck": "",
+ "tagline": "Personalized Wellness. Simplified.",
+ "sections": [
+  {
+   "num": "00",
+   "kind": "before",
+   "headline": "Menopause Is Natural.\nYou Don’t Have to Navigate It Alone.",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Menopause is a normal stage of life, but the transition can bring changes that affect sleep, comfort, sexual health, and everyday well-being."
+    },
+    {
+     "kind": "body",
+     "text": "For some women, symptoms are mild. For others, they can disrupt work, relationships, and quality of life. Effective treatment options are available, including hormone therapy for appropriate patients."
+    },
+    {
+     "kind": "body",
+     "text": "But not every woman needs hormone therapy, and not every symptom experienced during midlife is caused by menopause."
+    },
+    {
+     "kind": "body",
+     "text": "This guide explains what happens during perimenopause and menopause, how hormone therapy works, available treatments, and what to look for in quality care."
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "Menopause is a natural transition. Suffering through disruptive symptoms doesn’t have to be inevitable."
+    },
+    {
+     "kind": "approach",
+     "text": "WellPeps connects women with licensed healthcare providers who evaluate symptoms, medical history, and individual treatment needs before recommending care."
+    }
+   ]
+  },
+  {
+   "num": "01",
+   "kind": "section",
+   "headline": "Perimenopause, Menopause & Postmenopause:\nWhat’s the Difference?",
+   "elements": [
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "PERIMENOPAUSE",
+       "desc": "The years leading up to menopause, when hormone levels fluctuate and menstrual cycles may become irregular. Symptoms can begin while periods continue."
+      },
+      {
+       "title": "MENOPAUSE",
+       "desc": "The point reached after 12 consecutive months without a menstrual period, when no other cause explains the absence of periods. Natural menopause typically occurs between ages 45 and 55."
+      },
+      {
+       "title": "POSTMENOPAUSE",
+       "desc": "The years following menopause. Some symptoms improve; vaginal and urinary symptoms may persist or develop later."
+      }
+     ],
+     "layout": "rows"
+    },
+    {
+     "kind": "body",
+     "text": "The timing and experience vary. Certain surgeries or medical treatments can change the course of menopause."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Which stage of the menopause transition am I experiencing, and how might that affect my treatment options?"
+    },
+    {
+     "kind": "approach",
+     "text": "Your symptoms, menstrual history, age, and medical background help your provider recommend next steps."
+    }
+   ]
+  },
+  {
+   "num": "02",
+   "kind": "section",
+   "headline": "Could Hormonal Changes Be Affecting How You Feel?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "As estrogen levels fluctuate and eventually decline, women may experience:"
+    },
+    {
+     "kind": "list",
+     "cols": 1,
+     "items": [
+      "Hot flashes and night sweats",
+      "Difficulty sleeping",
+      "Mood changes or irritability",
+      "Difficulty concentrating or brain fog",
+      "Vaginal dryness and irritation",
+      "Discomfort or pain during intercourse",
+      "Changes in sexual desire",
+      "Irregular menstrual cycles during perimenopause",
+      "Urinary urgency or recurrent urinary symptoms"
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "Symptoms may begin during perimenopause, continue after menopause, or change over time. Some are strongly associated with menopause; others have multiple possible causes."
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "Your symptoms deserve attention, but the right treatment starts with understanding what may be causing them."
+    },
+    {
+     "kind": "approach",
+     "text": "Your provider considers your complete health picture rather than assuming every symptom is caused by menopause."
+    }
+   ]
+  },
+  {
+   "num": "03",
+   "kind": "section",
+   "headline": "What’s Happening to Your Hormones?",
+   "elements": [
+    {
+     "kind": "cards",
+     "cols": 2,
+     "items": [
+      {
+       "title": "ESTROGEN",
+       "desc": "Plays a role in reproductive health, temperature regulation, vaginal and urinary tissue health, and bone maintenance. During perimenopause, levels can rise and fall unpredictably; after menopause they generally remain lower."
+      },
+      {
+       "title": "PROGESTERONE",
+       "desc": "Helps regulate the menstrual cycle and supports the uterine lining during reproductive years. As ovulation becomes less regular during perimenopause, progesterone production may become irregular."
+      }
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "Hormone changes help explain why symptoms vary, but sleep, medications, stress, age, and medical history can also influence how a woman feels."
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "A single hormone measurement rarely tells the complete story of the menopause transition."
+    },
+    {
+     "kind": "approach",
+     "text": "Treatment decisions are based on clinical evaluation, not simply achieving a particular hormone number."
+    }
+   ]
+  },
+  {
+   "num": "04",
+   "kind": "section",
+   "headline": "Do You Need Hormone Testing to Diagnose Menopause?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Not necessarily."
+    },
+    {
+     "kind": "body",
+     "text": "For most otherwise healthy women age 45 or older with typical symptoms and menstrual changes, perimenopause and menopause can usually be identified through history and symptoms without routine hormone blood testing."
+    },
+    {
+     "kind": "body",
+     "text": "Estrogen and follicle-stimulating hormone (FSH) fluctuate substantially during perimenopause, so one test may be misleading."
+    },
+    {
+     "kind": "body",
+     "text": "Testing can be useful if symptoms suggest another condition, or when age, menstrual history, or clinical circumstances require further evaluation. A provider may assess thyroid disease, anemia, or other possible causes. Possible menopause before age 40 warrants evaluation for premature ovarian insufficiency."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Which tests are useful for me, and what decisions will the results help my provider make?"
+    },
+    {
+     "kind": "approach",
+     "text": "WellPeps offers laboratory testing access at a nearby lab or, when appropriate, with an at-home kit. Providers review relevant results in context. Lab fees are billed separately."
+    }
+   ]
+  },
+  {
+   "num": "05",
+   "kind": "section",
+   "headline": "What Is Menopausal Hormone Therapy?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Menopausal hormone therapy uses estrogen, sometimes together with a progestogen, to treat certain menopause symptoms."
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "SYSTEMIC HORMONE THERAPY",
+       "desc": "Delivers estrogen throughout the body, including through transdermal patches. It is among the most effective treatments for bothersome hot flashes and night sweats and may help prevent bone loss in selected patients."
+      },
+      {
+       "title": "LOCAL VAGINAL ESTROGEN",
+       "desc": "Delivers estrogen primarily to vaginal tissues to address dryness, irritation, and painful intercourse."
+      },
+      {
+       "title": "PROGESTERONE",
+       "desc": "May be prescribed with systemic estrogen to protect the uterine lining in women who have a uterus."
+      }
+     ],
+     "layout": "rows"
+    },
+    {
+     "kind": "body",
+     "text": "Not every woman needs the same medications or combination."
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "Hormone therapy isn’t one treatment. Different formulations address different needs."
+    },
+    {
+     "kind": "approach",
+     "text": "A licensed provider determines the appropriate medication, combination, and formulation."
+    }
+   ]
+  },
+  {
+   "num": "06",
+   "kind": "section",
+   "headline": "What Can Hormone Therapy—and Can’t It—Do?",
+   "elements": [
+    {
+     "kind": "twocol",
+     "style": "neutral",
+     "cols": [
+      {
+       "title": "SYSTEMIC THERAPY MAY HELP",
+       "items": [
+        "Moderate to severe hot flashes and night sweats",
+        "Sleep disruption related to night sweats",
+        "Prevention of bone loss in selected patients"
+       ],
+       "tight": true
+      },
+      {
+       "title": "LOCAL VAGINAL ESTROGEN MAY HELP",
+       "items": [
+        "Vaginal dryness and irritation",
+        "Painful intercourse related to menopausal tissue changes",
+        "Certain urinary symptoms associated with genitourinary syndrome of menopause"
+       ],
+       "tight": true
+      }
+     ]
+    },
+    {
+     "kind": "cards",
+     "single": true,
+     "items": [
+      {
+       "title": "HORMONE THERAPY DOES NOT GUARANTEE",
+       "desc": "Weight loss • Improved memory or concentration • Increased sexual desire • Prevention of aging, heart disease, or dementia"
+      }
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "Individual responses vary; some patients need adjustments or alternative treatment."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Which symptoms are most likely to improve with this particular treatment?"
+    },
+    {
+     "kind": "approach",
+     "text": "Treatment goals should be realistic, personalized, and reviewed over time."
+    }
+   ]
+  },
+  {
+   "num": "07",
+   "kind": "section",
+   "headline": "Three Treatment Options. Different Needs.",
+   "elements": [
+    {
+     "kind": "cards",
+     "profile": true,
+     "items": [
+      {
+       "title": "ESTRADIOL TRANSDERMAL PATCHES",
+       "sub": "Systemic Estrogen Therapy",
+       "desc": "Deliver estrogen through the skin to help treat symptoms such as hot flashes and night sweats.",
+       "image": "product-patch"
+      },
+      {
+       "title": "ORAL MICRONIZED PROGESTERONE",
+       "sub": "Uterine Protection With Systemic Estrogen",
+       "desc": "Often prescribed alongside systemic estrogen for women with a uterus.",
+       "image": "product-progesterone"
+      },
+      {
+       "title": "VAGINAL ESTRADIOL CREAM",
+       "sub": "Targeted Vaginal Estrogen Therapy",
+       "desc": "Treats menopause-related vaginal dryness, irritation, and painful intercourse through local application.",
+       "image": "product-cream"
+      }
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "These are not necessarily alternatives to one another. Some women may need more than one treatment."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Which treatment addresses my symptoms, and why might I need one medication or a combination?"
+    },
+    {
+     "kind": "approach",
+     "text": "WellPeps offers multiple options; a licensed provider determines the appropriate treatment."
+    }
+   ]
+  },
+  {
+   "num": "08",
+   "kind": "section",
+   "headline": "Understanding Estradiol Transdermal Patches",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Estradiol patches deliver estrogen through the skin into the bloodstream."
+    },
+    {
+     "kind": "body",
+     "text": "They are commonly used to treat moderate to severe hot flashes and night sweats associated with menopause. The estradiol patches prescribed through WellPeps are manufactured, FDA-approved products, not compounded preparations."
+    },
+    {
+     "kind": "twocol",
+     "style": "neutral",
+     "cols": [
+      {
+       "title": "POTENTIAL ADVANTAGES",
+       "items": [
+        "No daily oral estrogen tablet",
+        "Steady delivery through the skin",
+        "Different strengths for individual needs",
+        "Observational studies suggest a lower blood-clot risk than oral estrogen, although individual risks still matter"
+       ]
+      },
+      {
+       "title": "IMPORTANT CONSIDERATIONS",
+       "items": [
+        "Apply and replace as instructed",
+        "Skin irritation or adhesion difficulties may occur",
+        "Systemic estrogen has contraindications and potential risks",
+        "Women with a uterus generally require appropriate endometrial protection"
+       ]
+      }
+     ]
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "How estrogen is delivered matters; formulations differ in benefits, risks, and practical considerations."
+    },
+    {
+     "kind": "approach",
+     "text": "Your provider determines whether systemic estrogen is appropriate and selects the dose and formulation."
+    }
+   ]
+  },
+  {
+   "num": "09",
+   "kind": "section",
+   "headline": "Why Is Progesterone Often Prescribed With Estrogen?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "For women with a uterus, systemic estrogen without adequate progestogen can increase the risk of endometrial hyperplasia and endometrial cancer. Progesterone helps protect the uterine lining."
+    },
+    {
+     "kind": "body",
+     "text": "Oral micronized progesterone may be prescribed alongside systemic estrogen, continuously or cyclically depending on the regimen."
+    },
+    {
+     "kind": "emph",
+     "text": "Important points:"
+    },
+    {
+     "kind": "list",
+     "cols": 1,
+     "items": [
+      "Not every woman taking estrogen needs progesterone",
+      "Women who have had a hysterectomy often do not require it",
+      "Dose and schedule depend on the estrogen regimen and medical history",
+      "Oral progesterone can cause dizziness or drowsiness",
+      "Progesterone should not be assumed to independently treat every menopause symptom"
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "Oral micronized progesterone is made both as an FDA-approved manufactured product and as a compounded preparation. Compounded medications are not FDA-approved. Ask your provider which one you are prescribed."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "Do I need progesterone with my estrogen treatment, and what purpose does it serve?"
+    },
+    {
+     "kind": "approach",
+     "text": "Your provider considers uterine status, regimen, and medical history."
+    }
+   ]
+  },
+  {
+   "num": "10",
+   "kind": "section",
+   "headline": "Vaginal Dryness, Discomfort & Menopause",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Declining estrogen can affect vaginal and urinary tissues, contributing to genitourinary syndrome of menopause (GSM)."
+    },
+    {
+     "kind": "body",
+     "text": "Symptoms may include vaginal dryness, irritation, discomfort during intercourse, burning, soreness, urgency, and recurrent urinary tract infections."
+    },
+    {
+     "kind": "body",
+     "text": "Unlike hot flashes, these symptoms may persist or worsen without treatment. Low-dose vaginal estradiol cream delivers estrogen locally and is used to treat these symptoms. The vaginal estradiol cream prescribed through WellPeps is a compounded preparation made by a state-licensed pharmacy. Compounded medications are not FDA-approved and have not been evaluated by FDA for safety, effectiveness, or quality."
+    },
+    {
+     "kind": "body",
+     "text": "Because systemic absorption is generally low with appropriately prescribed low-dose vaginal estrogen, it may suit some women who do not need systemic therapy. Progesterone generally is not required solely for low-dose local vaginal estrogen, but unexpected vaginal bleeding requires evaluation."
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "Vaginal health is part of overall health. These symptoms are common, treatable, and worth discussing."
+    },
+    {
+     "kind": "approach",
+     "text": "WellPeps offers vaginal estradiol options for eligible patients."
+    }
+   ]
+  },
+  {
+   "num": "11",
+   "kind": "section",
+   "headline": "Is Menopausal Hormone Therapy Safe?",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Benefits and risks depend on age, time since menopause, medical history, formulation, dose, and route."
+    },
+    {
+     "kind": "body",
+     "text": "For many healthy women younger than 60 or within about 10 years of menopause onset, systemic therapy may have a favorable benefit-risk balance for bothersome symptoms when no contraindications exist."
+    },
+    {
+     "kind": "emph",
+     "text": "It may not be appropriate with:"
+    },
+    {
+     "kind": "list",
+     "cols": 1,
+     "items": [
+      "Certain estrogen-sensitive cancers",
+      "Prior blood clots or clotting disorders",
+      "Stroke or certain cardiovascular conditions",
+      "Unexplained vaginal bleeding",
+      "Significant liver disease"
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "A history of breast cancer or other complex conditions may require specialist evaluation."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "What are the benefits and risks given my age, symptoms, and medical history?"
+    },
+    {
+     "kind": "approach",
+     "text": "Eligibility is determined through individualized medical review; not every patient qualifies."
+    }
+   ]
+  },
+  {
+   "num": "12",
+   "kind": "section",
+   "headline": "The Right Treatment Depends on Your Symptoms",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Two women of the same age can experience menopause very differently."
+    },
+    {
+     "kind": "body",
+     "text": "One may struggle with hot flashes and sleep; another may have vaginal dryness without hot flashes; a third may have symptoms with another medical cause."
+    },
+    {
+     "kind": "emph",
+     "text": "A provider considers:"
+    },
+    {
+     "kind": "cards",
+     "style": "chips",
+     "cols": 2,
+     "items": [
+      {
+       "title": "Most bothersome symptoms"
+      },
+      {
+       "title": "Age and menopause stage"
+      },
+      {
+       "title": "Whether you have a uterus"
+      },
+      {
+       "title": "Medical and family history"
+      },
+      {
+       "title": "Medications and risk factors"
+      },
+      {
+       "title": "Treatment goals and preferences"
+      },
+      {
+       "title": "Response to prior treatments"
+      }
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "Nonhormonal prescription treatments and lifestyle measures may also be appropriate."
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "The best regimen is not necessarily the most extensive; it is the one that fits your needs."
+    },
+    {
+     "kind": "approach",
+     "text": "WellPeps emphasizes individualized decisions, not the same combination for everyone."
+    }
+   ]
+  },
+  {
+   "num": "13",
+   "kind": "section",
+   "headline": "Hormone Therapy Shouldn’t End With a Prescription",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Menopause treatment often needs reassessment. Symptoms change, side effects can occur, and a regimen may require adjustment."
+    },
+    {
+     "kind": "emph",
+     "text": "Appropriate follow-up can include:"
+    },
+    {
+     "kind": "list",
+     "cols": 2,
+     "items": [
+      "Reviewing symptom improvement",
+      "Evaluating side effects",
+      "Discussing unexpected bleeding",
+      "Updating medical history",
+      "Assessing dose and formulation",
+      "Determining whether testing is needed",
+      "Periodically reviewing benefits and risks"
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "There is no one treatment duration for everyone. Some patients use therapy briefly; others continue longer following individualized medical discussion."
+    },
+    {
+     "kind": "callout",
+     "style": "question",
+     "text": "How will treatment be monitored if my symptoms or medical needs change?"
+    },
+    {
+     "kind": "approach",
+     "text": "WellPeps is designed around provider-guided care and appropriate follow-up."
+    }
+   ]
+  },
+  {
+   "num": "14",
+   "kind": "section",
+   "headline": "The Smart Patient Checklist",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Before starting menopausal hormone therapy, ask:"
+    },
+    {
+     "kind": "checklist",
+     "compact": true,
+     "items": [
+      {
+       "title": "Understanding Your Health",
+       "desc": "Will my symptoms and menopause stage be evaluated? Will other possible causes be considered? Is laboratory testing useful for my situation?"
+      },
+      {
+       "title": "Understanding Your Treatment",
+       "desc": "Do I understand systemic versus vaginal estrogen? If I have a uterus, has progesterone been discussed? Why is this treatment and dose recommended? Have appropriate nonhormonal alternatives been discussed?"
+      },
+      {
+       "title": "Understanding Safety",
+       "desc": "Have my personal and family histories been reviewed? Do I understand benefits, risks, and side effects? Is my medication FDA-approved or compounded?"
+      },
+      {
+       "title": "Understanding Ongoing Care",
+       "desc": "Will I have appropriate follow-up? What should I do if symptoms persist or bleeding occurs? Do I understand medication, testing, and provider costs?"
+      }
+     ]
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "A quality program helps you understand what you’re taking, why, and how your health will be monitored."
+    },
+    {
+     "kind": "approach",
+     "text": "Personalized care begins with understanding your health and evaluating appropriate options."
+    }
+   ]
+  },
+  {
+   "num": "15",
+   "kind": "section",
+   "headline": "The WellPeps Patient Journey",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Menopause care should begin with understanding your health, not simply choosing a medication online."
+    },
+    {
+     "kind": "cards",
+     "cols": 4,
+     "items": [
+      {
+       "title": "01 HEALTH ASSESSMENT",
+       "desc": "Share symptoms, medical history, and treatment goals.",
+       "image": "journey-1"
+      },
+      {
+       "title": "02 APPROPRIATE TESTING",
+       "desc": "Complete testing when clinically required.",
+       "image": "journey-2"
+      },
+      {
+       "title": "03 PROVIDER REVIEW",
+       "desc": "Receive individualized medical evaluation and a treatment decision.",
+       "image": "journey-3"
+      },
+      {
+       "title": "04 TREATMENT & CARE",
+       "desc": "If prescribed, receive medication and appropriate follow-up.",
+       "image": "journey-4"
+      }
+     ]
+    },
+    {
+     "kind": "body",
+     "text": "A licensed provider reviews relevant information, determines eligibility, and recommends an individualized plan."
+    },
+    {
+     "kind": "callout",
+     "style": "insight",
+     "text": "Quality menopause care is a process—not simply a prescription transaction."
+    },
+    {
+     "kind": "approach",
+     "text": "Personalized care, convenient access, and medical oversight are central to WellPeps."
+    }
+   ]
+  },
+  {
+   "num": "16",
+   "kind": "why",
+   "headline": "Why We Created WellPeps",
+   "elements": [
+    {
+     "kind": "emph",
+     "text": "Real Care. Not Just Medication."
+    },
+    {
+     "kind": "body",
+     "text": "WellPeps was founded by a physician and an experienced pharmacy owner who believed there should be a better way to bring together thoughtful medical care, quality prescription fulfillment and a more convenient patient experience. That perspective shaped the WellPeps approach: personalized, provider-guided care designed around the patient—not simply the medication."
+    },
+    {
+     "kind": "cards",
+     "items": [
+      {
+       "title": "Personalized Provider-Guided Care",
+       "desc": "Treatment begins with your health information, medications, goals and individual circumstances."
+      },
+      {
+       "title": "Multiple Wellness Options",
+       "desc": "Different treatment options allow providers to consider what may be appropriate for different individuals."
+      },
+      {
+       "title": "More Than a Prescription",
+       "desc": "The WellPeps experience is designed around care—not simply delivering medication."
+      },
+      {
+       "title": "Quality Prescription Fulfillment",
+       "desc": "Prescriptions are fulfilled through U.S.-based pharmacy partners selected to support quality and reliable prescription fulfillment."
+      },
+      {
+       "title": "Ongoing Support",
+       "desc": "Your questions and treatment needs don’t necessarily stop when treatment begins."
+      },
+      {
+       "title": "Straightforward Pricing",
+       "desc": "One monthly price: provider review, follow-up care, messaging, shipping and medication when prescribed. Lab fees are billed separately."
+      },
+      {
+       "title": "Healthcare Without the Runaround",
+       "desc": "A simpler, more convenient way to access treatment—from assessment and medical review to prescription fulfillment and ongoing support."
+      },
+      {
+       "title": "More Than Hormone Therapy",
+       "desc": "WellPeps offers a wide and expanding range of treatment programs for your wellness needs."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "num": "17",
+   "kind": "section",
+   "headline": "Menopause Changes Things.\nUnderstanding Your Options Changes Everything.",
+   "elements": [
+    {
+     "kind": "lead",
+     "text": "Perimenopause and menopause are natural stages of life, but the symptoms women experience deserve attention."
+    },
+    {
+     "kind": "body",
+     "text": "For some women, hormone therapy provides meaningful relief. For others, nonhormonal treatments or different approaches are more appropriate."
+    },
+    {
+     "kind": "body",
+     "text": "Being a Smart Patient means understanding symptoms, knowing options, asking questions, and working with a qualified provider."
+    },
+    {
+     "kind": "emph",
+     "text": "The goal isn’t to reverse menopause. It’s to make informed decisions about health and quality of life."
+    }
+   ]
+  },
+  {
+   "num": "",
+   "kind": "cta",
+   "headline": "Ready to Explore Your Options?",
+   "elements": [
+    {
+     "kind": "body",
+     "text": "Begin with a private online health assessment. A licensed healthcare provider will review your health information and determine whether treatment is appropriate for you."
+    }
+   ]
+  },
+  {
+   "num": "",
+   "kind": "disclaimer",
+   "headline": "",
+   "elements": [],
+   "text": [
+    "This guide is provided for general educational purposes only and does not provide medical advice or guarantee eligibility for treatment. Always discuss treatment decisions, medications, side effects and health concerns with an appropriately licensed healthcare professional.",
+    "Prescription medications require evaluation by a licensed healthcare provider. Individual experiences vary, and no specific treatment outcome is guaranteed. Medication availability and treatment requirements may vary.",
+    "Some treatment options involve compounded medications. Compounded medications are not FDA-approved finished drug products, and FDA does not review them for safety, effectiveness or quality before marketing in the same manner as FDA-approved drugs.",
+    "Systemic estrogen has contraindications and potential risks. Women with a uterus who use systemic estrogen generally need a progestogen to protect the uterine lining. Report unexpected vaginal bleeding to a healthcare professional."
+   ]
+  }
+ ]
+}

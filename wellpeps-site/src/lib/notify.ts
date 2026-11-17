@@ -21,7 +21,9 @@ export type SignupSource =
   | 'ebook_hair_restoration'
   | 'ebook_healthy_aging'
   | 'ebook_nad'
-  | 'ebook_modern_healthcare';
+  | 'ebook_modern_healthcare'
+  | 'ebook_mens_hormone'
+  | 'ebook_womens_hormone';
 
 import { consentFields, guideConsentFields, type ConsentChoice } from './form-consent';
 

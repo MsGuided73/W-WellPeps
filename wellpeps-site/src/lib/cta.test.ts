@@ -19,6 +19,8 @@ const NOTHING_LINKED = {
     'hair-restoration': '#scriptful-stub-hair-restoration',
     'sexual-wellness': '#scriptful-stub-sexual-wellness',
     'healthy-aging': '#scriptful-stub-healthy-aging',
+    'mens-hormone-therapy': '#scriptful-stub-mens-hormone-therapy',
+    'womens-hormone-therapy': '#scriptful-stub-womens-hormone-therapy',
   },
   products: {},
 } as const;

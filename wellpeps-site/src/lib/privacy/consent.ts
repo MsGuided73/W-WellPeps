@@ -313,6 +313,8 @@ const SENSITIVE_PREFIXES = [
   '/sexual-wellness',
   '/healthy-aging',
   '/hormone-optimization',
+  '/mens-hormone-therapy',
+  '/womens-hormone-therapy',
   '/mental-wellness',
   '/peptides',
   '/wellness-learning-center',

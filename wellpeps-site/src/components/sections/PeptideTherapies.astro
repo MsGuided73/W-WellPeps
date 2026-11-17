@@ -16,7 +16,7 @@
  * geometry, icon path) is local, because the comp's art direction is per-card.
  * See docs/compliance/reviews/2026-09-18-page-peptides.md F15.
  */
-import { peptideProducts, peptideProductsIntro } from '../../data/peptide';
+import { VIAL_ALT, peptideProducts, peptideProductsIntro } from '../../data/peptide';
 
 const IMG = '/images/peptide-therapies';
 
@@ -77,9 +77,10 @@ const therapies = CARD_ORDER.map((name) => {
         'Renaming a product there must be mirrored in CARD_ORDER here.'
     );
   }
+  // Vial alt text names the visible label text (src/data/peptide.ts VIAL_ALT).
   // `icon` here is an SVG path (ART above); the product's own `icon` is an Icon.astro name, which is not
   // a path. Keep ART's, or the badge renders empty and the browser logs an invalid-path error.
-  return { ...ART[name], ...product, icon: ART[name].icon };
+  return { ...ART[name], ...product, icon: ART[name].icon, vialAlt: VIAL_ALT[product.vial] ?? ART[name].vialAlt };
 });
 
 ---
@@ -92,8 +93,8 @@ const therapies = CARD_ORDER.map((name) => {
     {therapies.map((t) => (
       <article class="tcard">
         <div class="tcard__media">
-          <img src={t.photo} alt={t.photoAlt} loading="lazy" decoding="async" />
-          <img class="tcard__vial" src={t.vial} alt={t.vialAlt} style={t.vialPos} loading="lazy" decoding="async" />
+          <img src={t.photo} alt={t.photoAlt} width="1536" height="1024" loading="lazy" decoding="async" />
+          <img class="tcard__vial" src={t.vial} alt={t.vialAlt} style={t.vialPos} width="294" height="440" loading="lazy" decoding="async" />
         </div>
         <div class="tcard__body">
           <div class="tcard__head">
@@ -203,6 +204,19 @@ const therapies = CARD_ORDER.map((name) => {
     font-weight: 700;
     font-size: var(--text-body-size);
     color: var(--blue);
+  }
+
+  /* The vial hangs below the photo into the title row, on the right. In a wide card the title ends
+     well short of it. In a narrow one (two columns beside the article's contents list, about
+     275px) "Glutathione" and "Sermorelin" ran underneath the bottle. So a narrow card sets a
+     smaller badge and title, which end clear of the bottle. Sized to the card, not the screen. */
+  .tcard { container-type: inline-size; }
+  @container (max-width: 330px) {
+    .tcard__head { gap: 0.5rem; }
+    .tcard__icon { width: 32px; height: 32px; }
+    .tcard__icon svg { width: 17px; height: 17px; }
+    .tcard__name { font-size: 1.1rem; }
+    .tcard__tagline { margin-left: 2.5rem; }
   }
   .tcard__desc {
     margin: 0;

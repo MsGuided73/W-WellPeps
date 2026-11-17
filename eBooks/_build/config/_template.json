@@ -38,6 +38,9 @@
  "_card_image_ratio": "Aspect ratio of the card image slot as w/h. Match it to the photos (the website product shots are 4/3) so bottle caps are not cropped.",
  "card_image_ratio": "9/5",
 
+ "_medical_review": "Back-page 'Medically reviewed by' line with the site's MD seal, level with the WELLPEPS brand block. Registry facts only (name and credential, specialty, review date); same words as the site byline in src/data/medical-review.ts. Added 2026-11-12 to all eight guides.",
+ "medical_review": {"reviewer": "Rahel Yirga, MD", "specialty": "Internal Medicine", "date": "November 12, 2026"},
+
  "_sections": "Keyed by the outline section number ('00', '01', ...) plus 'decide' and 'cta'. Every key is optional.",
  "sections": {
   "00": {

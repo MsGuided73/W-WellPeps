@@ -12,7 +12,7 @@ import { whyPrimary, whySecondary } from '../../data/content';
     <div class="why__grid reveal">
       {whyPrimary.map((c) => (
         <article class="card why__card">
-          <img class="why__icon" src={c.img} alt="" loading="lazy" />
+          <img class="why__icon" src={c.img} width={c.w} height={c.h} alt="" loading="lazy" />
           <h3>{c.title}</h3>
           <hr class="rule" />
           <p>{c.body}</p>
@@ -23,7 +23,7 @@ import { whyPrimary, whySecondary } from '../../data/content';
     <div class="why__secondary reveal">
       {whySecondary.map((s) => (
         <div class="why__sec-item">
-          <img class="why__sec-icon" src={s.img} alt="" loading="lazy" />
+          <img class="why__sec-icon" src={s.img} width={s.w} height={s.h} alt="" loading="lazy" />
           <span>{s.title}</span>
         </div>
       ))}

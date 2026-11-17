@@ -1,0 +1,111 @@
+---
+/**
+ * Hormone therapy hero: the shared sub-category hero (photo bleeding off the right edge, feathered
+ * into white on its left, as on Hair Restoration) plus Derek's eyebrow label and the
+ * "a licensed provider decides" note under the buttons.
+ */
+import Icon from '../../Icon.astro';
+import AssessmentCta from '../../AssessmentCta.astro';
+import { ASSESSMENT_CTA_LABEL } from '../../../lib/cta';
+import type { HormonePage } from '../../../data/hormone';
+
+interface Props {
+  page: HormonePage;
+}
+const { page } = Astro.props;
+const { hero, program } = page;
+---
+<section class="hhero">
+  <img class="hhero__img" src={hero.image} width={hero.width} height={hero.height} alt={hero.alt} fetchpriority="high" />
+
+  <div class="hhero__wrap">
+    <div class:list={['hhero__copy', 'reveal', { 'hhero__copy--nowrap': hero.titleNoWrap }]}>
+      {hero.eyebrow && <p class="hhero__eyebrow">{hero.eyebrow}</p>}
+      <h1>
+        <span class="hhero__line">{hero.titleLead}</span>
+        {hero.titleMiddle && <span class="hhero__line">{hero.titleMiddle}</span>}
+        <span class="hhero__line hhero__line--accent">{hero.titleAccent}</span>
+      </h1>
+      <hr class="rule rule--left" />
+      <p class="hhero__lead">{hero.lead}</p>
+      <div class="hhero__actions">
+        {/* Until the program's GEN Health links exist, the button takes the visitor to the treatment cards instead of
+            showing a grey "Opening Soon" (owner, 2026-11-12). */}
+        <AssessmentCta program={program} class="btn btn--primary btn--lg">
+          <a slot="soon" href="#hormone-products" class="btn btn--primary btn--lg">{ASSESSMENT_CTA_LABEL}</a>
+        </AssessmentCta>
+        <a href="#hormone-products" class="btn btn--secondary btn--lg">Explore Treatment Options <Icon name="arrow-right" /></a>
+      </div>
+      {/* No disclosure line here (owner, 2026-11-12): the product cards, the note under them and the footer carry it,
+          and the other program heroes have none. */}
+    </div>
+  </div>
+</section>
+
+<style>
+  .hhero {
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    min-height: clamp(480px, 42vw, 700px);
+    display: flex;
+    align-items: center;
+  }
+
+  /* Derek's photos already carry a white fade on the left; the mask keeps the blend clean over any crop. */
+  .hhero__img {
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 66vw;
+    height: 100%;
+    object-fit: cover;
+    object-position: 85% center;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 22%, #000 48%);
+            mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 22%, #000 48%);
+  }
+
+  .hhero__wrap {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: var(--content-max);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+  /* Sized so the buttons sit on the first screen at 1366 x 768 with the cookie banner showing
+     (Derek, 2026-10-19), level with the Weight Loss and Healthy Aging heroes. */
+  /* Wide enough that "Women's Hormone Therapy" holds one line (Derek's 2026-11-12 title). */
+  .hhero__copy { max-width: clamp(360px, 57vw, 820px); padding-block: clamp(1.75rem, 2.5vw, 3rem); }
+
+  .hhero__eyebrow { color: var(--blue); font-weight: 700; font-size: var(--text-lead); margin-bottom: 0.6rem; }
+
+  .hhero__copy h1 {
+    font-size: clamp(2.3rem, 1.2rem + 2.85vw, 3.75rem);
+    line-height: 1.05; font-weight: 700; letter-spacing: -0.025em; color: var(--navy);
+  }
+  .hhero__line { display: block; }
+  /* Each title line stays whole and may run past the copy column over the photo's faded edge (women's hero).
+     Desktop layout only: when the photo stacks above the text (900px and down), lines wrap as usual. */
+  @media (min-width: 901px) {
+    .hhero__copy--nowrap .hhero__line { white-space: nowrap; }
+  }
+  .hhero__line--accent { color: var(--blue); }
+  .hhero__copy .rule { margin-top: 1.1rem; }
+
+  .hhero__lead {
+    margin-top: 1.1rem; color: var(--text-body); line-height: 1.55;
+    font-size: clamp(1.0625rem, 1rem + 0.25vw, 1.2rem); max-width: 54ch;
+  }
+  .hhero__actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
+
+  @media (max-width: 900px) {
+    .hhero { flex-direction: column; min-height: 0; align-items: stretch; }
+    .hhero__img {
+      position: relative; inset: auto; width: 100%; height: clamp(260px, 60vw, 420px);
+      object-position: 80% center;
+      -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+              mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+    }
+    .hhero__copy { max-width: none; padding-block: 2rem; }
+  }
+</style>

@@ -10,7 +10,18 @@ import { NAV_LINKS, PATIENT_PORTAL_URL } from '../config';
     </a>
 
     <nav class="nav__links" data-nav-menu aria-label="Primary">
-      {NAV_LINKS.map((l) => <a href={l.href}>{l.label}</a>)}
+      {NAV_LINKS.map((l, i) => 'children' in l
+        ? (
+          <div class="nav__drop" data-nav-drop>
+            <button type="button" class="nav__drop-btn" aria-expanded="false" aria-controls={`nav-drop-${i}`}>
+              {l.label}<Icon name="chevron-down" />
+            </button>
+            <div class="nav__drop-menu" id={`nav-drop-${i}`}>
+              {l.children.map((c) => <a href={c.href}>{c.label}</a>)}
+            </div>
+          </div>
+        )
+        : <a href={l.href}>{l.label}</a>)}
       <a href={PATIENT_PORTAL_URL} class="btn btn--secondary nav__links-cta nav__links-portal">Patient Portal</a>
       <AssessmentCta class="btn btn--primary nav__links-cta" />
     </nav>
@@ -27,6 +38,28 @@ import { NAV_LINKS, PATIENT_PORTAL_URL } from '../config';
     </button>
   </div>
 </header>
+
+<script>
+  // Dropdown menus in the primary nav: a click toggles (touch screens and the menu drawer), Escape and
+  // a click elsewhere close it. Hover and keyboard focus open it in the bar through CSS alone.
+  const drops = [...document.querySelectorAll<HTMLElement>('[data-nav-drop]')];
+  const close = (except?: HTMLElement) =>
+    drops.forEach((d) => d !== except && d.querySelector('button')?.setAttribute('aria-expanded', 'false'));
+  drops.forEach((drop) => {
+    const btn = drop.querySelector('button');
+    btn?.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') !== 'true';
+      close(drop);
+      btn.setAttribute('aria-expanded', String(open));
+    });
+    drop.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { close(); btn?.focus(); }
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (!drops.some((d) => d.contains(e.target as Node))) close();
+  });
+</script>
 
 <style>
   .nav {
@@ -69,6 +102,35 @@ import { NAV_LINKS, PATIENT_PORTAL_URL } from '../config';
   .nav__links a:hover { color: var(--blue); }
   .nav__links a:hover::after { right: 0; }
 
+  /* "Hormone Therapy" dropdown. In the bar it opens on hover, keyboard focus or a click (the script sets
+     aria-expanded); in the drawer the same button expands the two links in place. */
+  .nav__drop { position: relative; }
+  .nav__drop-btn {
+    display: inline-flex; align-items: center; gap: 0.2rem;
+    background: none; border: 0; cursor: pointer; padding: 0.25rem 0;
+    font-family: var(--font-sans); font-weight: 500; font-size: var(--text-body-size);
+    color: var(--navy); white-space: nowrap;
+  }
+  .nav__drop-btn :global(svg) { width: 1.05em; height: 1.05em; transition: transform var(--dur) var(--ease); }
+  .nav__drop-btn:hover, .nav__drop-btn[aria-expanded='true'] { color: var(--blue); }
+  .nav__drop-btn[aria-expanded='true'] :global(svg) { transform: rotate(180deg); }
+  .nav__drop-menu {
+    position: absolute; top: calc(100% + 0.75rem); left: 50%; z-index: 20;
+    display: flex; flex-direction: column; min-width: 15.5rem; padding: 0.5rem;
+    background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+    box-shadow: 0 14px 32px rgba(8, 43, 89, 0.16);
+    opacity: 0; visibility: hidden; transform: translate(-50%, -4px);
+    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+  }
+  /* Invisible bridge over the gap so the menu stays open while the pointer moves down to it. */
+  .nav__drop-menu::before { content: ''; position: absolute; left: 0; right: 0; top: -0.8rem; height: 0.8rem; }
+  .nav__drop:hover .nav__drop-menu,
+  .nav__drop:focus-within .nav__drop-menu,
+  .nav__drop-btn[aria-expanded='true'] + .nav__drop-menu { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+  .nav__drop-menu a { padding: 0.65rem 0.85rem; border-radius: 10px; }
+  .nav__drop-menu a::after { display: none; }
+  .nav__drop-menu a:hover, .nav__drop-menu a:focus-visible { background: var(--bg-light-sky); color: var(--blue); }
+
   .nav__cta { display: flex; align-items: center; gap: 0.75rem; }
   .nav__cta-btn { padding: 0.7rem 1.25rem; font-size: var(--text-body-size); white-space: nowrap; }
   .nav__links-cta { display: none; }
@@ -105,10 +167,10 @@ import { NAV_LINKS, PATIENT_PORTAL_URL } from '../config';
   /* The nav text is held at the site's 19px floor, so the only things that can
      give are spacing, the logo and the Patient Portal button. Widths are the
      window width, scrollbar included.
-       1700px and up   full row: logo, five links, Patient Portal, assessment
+       1700px and up   full row: logo, four links + the Hormone Therapy menu, Patient Portal, assessment
        1440 to 1699    tighter spacing, Patient Portal shrinks to its icon
        1439 and down   portal icon + menu button; the drawer holds the links and assessment
-     (The row measures about 1665px in full and 1390px tightened.)
+     ("Why WellPeps" left the row on 2026-11-10 to make room for the Hormone Therapy menu at the original spacing.)
      scripts/header-overflow-check.mjs fails if any width scrolls sideways, a
      link wraps, or the row has under a scrollbar's width to spare. */
   @media (max-width: 1699px) {
@@ -139,6 +201,19 @@ import { NAV_LINKS, PATIENT_PORTAL_URL } from '../config';
       margin: 0;
     }
     .nav__links a { width: 100%; padding: 0.9rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-body-size); }
+    /* In the drawer the dropdown is an accordion: a full-width row whose links indent beneath it. */
+    .nav__drop { width: 100%; }
+    .nav__drop-btn { width: 100%; justify-content: space-between; padding: 0.9rem 0; border-bottom: 1px solid var(--border); }
+    .nav__drop-menu {
+      position: static; transform: none; min-width: 0; padding: 0 0 0 1rem;
+      border: 0; border-radius: 0; box-shadow: none; background: none;
+      display: none; opacity: 1; visibility: visible; transition: none;
+    }
+    .nav__drop-menu::before { display: none; }
+    .nav__drop:hover .nav__drop-menu, .nav__drop:focus-within .nav__drop-menu { transform: none; }
+    .nav__drop-btn[aria-expanded='true'] + .nav__drop-menu { display: flex; transform: none; }
+    .nav__drop-menu a { padding: 0.8rem 0; border-radius: 0; }
+    .nav__drop-menu a:hover { background: none; }
     :global(.nav.nav-open) .nav__links { transform: none; opacity: 1; pointer-events: auto; }
     /* The portal icon stays in the bar on every screen, with the menu button to its right;
        only the assessment button moves into the drawer. */

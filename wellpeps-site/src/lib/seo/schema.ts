@@ -192,9 +192,11 @@ export interface ArticleMeta {
   /** Last change; dateModified falls back to `published`. */
   updated?: string | null;
   readingMinutes?: number;
+  /** The article's cover photo (a path under public/); the site-wide share image when absent. */
+  image?: string;
 }
 
-export function article({ path, headline, description, section, published, updated, readingMinutes }: ArticleMeta): JsonLd {
+export function article({ path, headline, description, section, published, updated, readingMinutes, image }: ArticleMeta): JsonLd {
   const url = canonicalUrl(path);
   return {
     '@type': 'BlogPosting',
@@ -204,7 +206,7 @@ export function article({ path, headline, description, section, published, updat
     headline: headline.slice(0, 110),
     description,
     inLanguage: 'en-US',
-    image: absoluteUrl(SHARE_IMAGE.path),
+    image: absoluteUrl(image ?? SHARE_IMAGE.path),
     author: { '@id': ORG_ID },
     publisher: { '@id': ORG_ID },
     ...(section ? { articleSection: section } : {}),

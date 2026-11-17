@@ -48,7 +48,7 @@ export const hairWorks: HairWorkStep[] = [
     title: 'Personalized Treatment',
     body: 'Your licensed healthcare provider will recommend treatment options based on your hair loss pattern, medical history, treatment goals, and lifestyle.',
     image: '/images/hair/works-personalized.webp',
-    alt: 'A woman on a telehealth video call with a licensed provider',
+    alt: 'A licensed provider smiling at her laptop during a telehealth visit',
   },
 ];
 
@@ -139,7 +139,7 @@ export const hairProducts: Product[] = [
   {
     name: 'Topical Finasteride + Minoxidil + Tretinoin',
     image: '/images/hair/product-finasteride-minoxidil-tretinoin-foam.webp',
-    alt: 'A white foam pump bottle labeled Minoxidil plus Finasteride plus Tretinoin, Topical Foam',
+    alt: 'A white foam pump bottle labeled Finasteride + Minoxidil + Tretinoin Topical Foam, Rx Only',
     icon: 'venn',
     description:
       'Three prescription medications in one topical foam applied to the scalp: minoxidil supports blood flow to hair follicles, finasteride lowers DHT, and tretinoin, a retinoid, speeds skin-cell turnover. Your provider decides whether it is appropriate and which strength fits you.',

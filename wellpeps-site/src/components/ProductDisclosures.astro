@@ -27,7 +27,7 @@ const { part, program, name } = Astro.props;
 const showDrafts = draftPagesEnabledNow();
 const live = (href: string) => linkVisible(href, showDrafts);
 const d = part === 'notes' && program && name ? disclosureFor(program, name) : undefined;
-const safety = program ? SAFETY_PAGE[program] : undefined;
+const safety = program ? SAFETY_PAGE[program] : undefined; // undefined until the program has a safety page
 // A compounded product links to the Learning Center article; an off-label product to the B5 page.
 const learnHref = d?.regulatory === 'compounded' ? COMPOUNDED_ARTICLE : COMPOUNDED_PAGE;
 const learnLabel = d?.regulatory === 'compounded' ? 'Understanding Compounded Medications' : 'What off-label means';

@@ -24,7 +24,10 @@ interface Props {
   form: string;
   /** Benefit checklist — rendered with check-circle icons. */
   features: string[];
-  /** Omit while a price is not yet set: the card shows "Shown at checkout". */
+  /**
+   * Omit while a price is not yet set. The card then shows "Coming soon" for the price and a
+   * "Coming Soon" button: a card goes live only with BOTH its GEN Health link and its price (owner, 2026-11-17).
+   */
   price?: string;
   priceUnit: string;
   /** When present, appends a "*" to the unit to key the page's legal footnote. */
@@ -74,12 +77,12 @@ const {
       <span class="scard__price-row">
         {price
           ? <Fragment><span class="scard__price-amount">${price}</span><span class="scard__price-unit">{priceUnit}{priceNote ? '*' : ''}</span></Fragment>
-          : <span class="scard__price-pending">Shown at checkout</span>}
+          : <span class="scard__price-pending">Coming soon</span>}
       </span>
     </div>
     <ProductDisclosures part="renewal" />
 
-    <AssessmentCta program={program} product={name} class="scard__cta" arrow />
+    <AssessmentCta program={program} product={name} comingSoon={!price} class="scard__cta" arrow />
   </div>
 </article>
 

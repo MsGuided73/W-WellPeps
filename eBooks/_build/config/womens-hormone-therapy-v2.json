@@ -1,0 +1,150 @@
+{
+ "topic": "WOMEN’S HORMONE THERAPY",
+ "title": "WOMEN’S HORMONE THERAPY",
+ "cta_url": "https://wellpeps.com/womens-hormone-therapy/#hormone-products",
+ "cover": "../_assets/hormone/womens-cover.png",
+ "cover_focus": [
+  0.85,
+  0.4
+ ],
+ "cover_style": "editorial",
+ "theme": "editorial-v7",
+ "shadows": "blur",
+ "series": [
+  {
+   "title": "The Smart Patient’s Guide to Men’s Hormone Therapy"
+  },
+  {
+   "title": "The Smart Patient’s Guide to GLP-1 Weight Loss"
+  },
+  {
+   "title": "The Smart Patient’s Guide to Sexual Wellness"
+  },
+  {
+   "title": "The Smart Patient’s Guide to Hair Restoration"
+  },
+  {
+   "title": "The Smart Patient’s Guide to Healthy Aging & Vitality"
+  },
+  {
+   "title": "The Smart Patient’s Guide to NAD+ Therapy"
+  },
+  {
+   "title": "The Smart Patient’s Guide to Modern Healthcare"
+  }
+ ],
+ "card_images": {
+  "product-patch": "../../wellpeps-site/public/images/hormone/women-product-estradiol-patch.webp",
+  "product-progesterone": "../../wellpeps-site/public/images/hormone/women-product-progesterone.webp",
+  "product-cream": "../../wellpeps-site/public/images/hormone/women-product-estradiol-cream.webp",
+  "journey-1": "../_assets/hormone/women-journey-1-crop.png",
+  "journey-2": "../_assets/hormone/women-journey-2-crop.png",
+  "journey-3": "../_assets/hormone/women-journey-3-crop.png",
+  "journey-4": "../_assets/hormone/women-journey-4-crop.png"
+ },
+ "sections": {
+  "00": {
+   "kicker": "BEFORE YOU START"
+  },
+  "01": {
+   "kicker": "KNOW THE STAGES"
+  },
+  "02": {
+   "kicker": "RECOGNIZING THE SYMPTOMS",
+   "image": "../../wellpeps-site/public/images/hormone/women-education.webp",
+   "image_w": 3.0,
+   "image_h": 2.0,
+   "focus": [
+    0.5,
+    0.45
+   ]
+  },
+  "03": {
+   "kicker": "UNDERSTANDING YOUR HORMONES"
+  },
+  "04": {
+   "kicker": "TESTING AND DIAGNOSIS",
+   "image": "../../wellpeps-site/public/images/hormone/women-journey-2.webp",
+   "image_w": 2.0,
+   "image_h": 2.4,
+   "focus": [
+    0.5,
+    0.4
+   ]
+  },
+  "05": {
+   "kicker": "UNDERSTAND THE TREATMENT"
+  },
+  "06": {
+   "kicker": "SET REALISTIC EXPECTATIONS"
+  },
+  "07": {
+   "kicker": "KNOW YOUR OPTIONS"
+  },
+  "08": {
+   "kicker": "ESTRADIOL PATCHES",
+   "image": "../../wellpeps-site/public/images/hormone/women-product-estradiol-patch.webp",
+   "image_w": 2.2,
+   "image_h": 1.67,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  "09": {
+   "kicker": "PROGESTERONE",
+   "image": "../../wellpeps-site/public/images/hormone/women-product-progesterone.webp",
+   "image_w": 2.2,
+   "image_h": 1.67,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  "10": {
+   "kicker": "VAGINAL HEALTH",
+   "image": "../../wellpeps-site/public/images/hormone/women-product-estradiol-cream.webp",
+   "image_w": 2.2,
+   "image_h": 1.67,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  "11": {
+   "kicker": "SAFETY"
+  },
+  "12": {
+   "kicker": "PERSONALIZED TREATMENT"
+  },
+  "13": {
+   "kicker": "FOLLOW-UP CARE"
+  },
+  "14": {
+   "kicker": "USE THE CHECKLIST",
+   "headline_icon": "../_assets/glp1-media/ppt/media/image13.png"
+  },
+  "15": {
+   "kicker": "THE WELLPEPS PATIENT JOURNEY"
+  },
+  "16": {
+   "kicker": "WHY WE CREATED WELLPEPS"
+  },
+  "17": {
+   "kicker": "FINAL THOUGHTS",
+   "hero": [
+    "../../wellpeps-site/public/images/hormone/women-hero.webp",
+    "../../wellpeps-site/public/images/hormone/couple.webp"
+   ]
+  },
+  "cta": {
+   "kicker": "GET THE COMPREHENSIVE CARE YOU DESERVE",
+   "image": "../../wellpeps-site/public/images/hormone/women-cta.webp",
+   "focus": [
+    0.5,
+    0.4
+   ],
+   "button": "See If You Qualify"
+  }
+ }
+}

@@ -13,7 +13,7 @@ import { article as schemaArticle, breadcrumbs, reviewerPerson } from '../../lib
 import { formatReviewDate, npiRegistryUrl, reviewForArticle, reviewerName, reviewerPath, reviewerShortName } from '../../data/medical-review';
 import EverythingIncludedStrip from '../../components/EverythingIncludedStrip.astro';
 import GuideArticleCta from '../../components/guides/GuideArticleCta.astro';
-import { guideForArticle, splitAtMiddleSection } from '../../lib/guide-flow';
+import { guideForArticle } from '../../lib/guide-flow';
 import HairTreatmentOptions from '../../components/sections/HairTreatmentOptions.astro';
 import PeptideTherapies from '../../components/sections/PeptideTherapies.astro';
 import SexualTreatmentOptions from '../../components/sections/SexualTreatmentOptions.astro';
@@ -25,6 +25,9 @@ import type { ProgramSlug } from '../../lib/cta';
 import { getArticles, getRelatedArticles, type ArticleWithCategory } from '../../lib/blog';
 import { withToc } from '../../lib/toc';
 import ArticleTocRail from '../../components/ArticleTocRail.astro';
+import ArticleDiagram from '../../components/ArticleDiagram.astro';
+import { coverForArticle, diagramForArticle } from '../../data/article-heroes';
+import { middleSectionStart, sectionEnd, splitBody } from '../../lib/article-body';
 
 export async function getStaticPaths() {
   const articles = await getArticles();
@@ -55,9 +58,14 @@ const longDate = (iso: string) =>
     ? formatReviewDate(iso)
     : new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'America/New_York' });
 
+/* Graphics (src/data/article-heroes.ts): a cover photo under the title, which is also the share image, and a
+   "how it works" diagram at the end of the section it explains (approved ones; drafts too in `astro dev`). */
+const cover = coverForArticle(article.slug);
+const diagram = diagramForArticle(article.slug, { includeDrafts: import.meta.env.DEV });
+
 const jsonLd = [
   breadcrumbs([{ name: 'Wellness Learning Center', path: '/wellness-learning-center/' }, { name: article.title, path: articlePath }]),
-  schemaArticle({ path: articlePath, headline: article.title, description: articleDescription, section: article.category.name, published: publishedIso, updated: updatedIso, readingMinutes: article.reading_minutes }),
+  schemaArticle({ path: articlePath, headline: article.title, description: articleDescription, section: article.category.name, published: publishedIso, updated: updatedIso, readingMinutes: article.reading_minutes, image: cover?.src }),
   review && reviewerPerson(review.reviewer),
 ];
 const { html: bodyHtml, toc } = withToc(article.body_html);
@@ -68,12 +76,13 @@ const railEntries = [
   ...(review ? [{ id: 'medical-review', text: 'Medical Review' }] : []),
 ];
 const hasTocRail = toc.length > 1;
+const diagramSectionId = diagram ? toc.find((entry) => entry.text === diagram.section)?.id : undefined;
+
 const related = await getRelatedArticles(article);
 
 /* Guide-funnel flow: the guide that matches the article's subject, offered once partway through the
    article and once after its last section. In the default flow the sidebar card below does this. */
 const guide = guideForArticle(article);
-const [proseBefore, proseAfter] = guide ? splitAtMiddleSection(bodyHtml) : [bodyHtml, ''];
 
 /* Treatment inserts are scoped per category, matched on the SLUG. Each renders
    between the article's closing prose section and Key Takeaways.
@@ -90,6 +99,16 @@ const showTherapies = article.category.slug === 'peptides-wellness';
 const showSexualTreatments = article.category.slug === 'sexual-wellness';
 const showWeightTreatments = article.category.slug === 'weight-management';
 const showHairTreatments = article.category.slug === 'hair-restoration';
+const hasTreatments = showTherapies || showSexualTreatments || showWeightTreatments || showHairTreatments;
+
+/* The body in pieces, cut between sections: the diagram after the section it explains, and the guide offer
+   partway through, which an article with a treatment section skips (see the note in the markup). */
+const guideAt = guide && !hasTreatments ? middleSectionStart(bodyHtml) : undefined;
+const diagramAt = diagramSectionId ? sectionEnd(bodyHtml, diagramSectionId) : undefined;
+const bodySegments = splitBody(bodyHtml, [
+  ...(diagramAt !== undefined ? [{ at: diagramAt, insert: 'diagram' as const }] : []),
+  ...(guideAt !== undefined ? [{ at: guideAt, insert: 'guide' as const }] : []),
+]);
 /* The "Everything Included." bar accompanies every treatment insert, but in
    the rail (client direction) rather than below the insert's product cards.
    Hidden 2026-09-19 to 2026-09-30 while pricing was being settled. */
@@ -115,6 +134,7 @@ const assessmentProgram: ProgramSlug | undefined = showSexualTreatments
   jsonLd={jsonLd}
   review={review}
   ogType="article"
+  image={cover && { path: cover.src, width: cover.width, height: cover.height, alt: cover.alt }}
 >
   <div class="container article-shell">
     <nav class="crumbs" aria-label="Breadcrumb">
@@ -125,22 +145,43 @@ const assessmentProgram: ProgramSlug | undefined = showSexualTreatments
       </ol>
     </nav>
 
+    <header class:list={['article-hero', cover ? 'article-hero--cover' : 'article-hero--plain']}>
+      <div class="article-hero__title">
+        <a class="article-hero__tag" href={`/wellness-learning-center/#cat-${article.category.slug}`}>{article.category.name}</a>
+        <h1 class="article__title">{article.title}</h1>
+      </div>
+
+      {cover && (
+        <figure
+          class:list={['article-cover', `article-cover--${cover.fit}`]}
+          style={cover.focus ? `--cover-focus: ${cover.focus}` : undefined}
+        >
+          <img
+            src={cover.src}
+            alt={cover.alt}
+            width={cover.width}
+            height={cover.height}
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </figure>
+      )}
+
+      <div class="article-hero__meta">
+        {review && <MdReviewedBadge variant="byline" review={review} />}
+        <p class="article__meta">
+          {publishedIso && <span>Published <time datetime={publishedIso}>{longDate(publishedIso)}</time></span>}
+          {updatedIso && <span>Last updated <time datetime={updatedIso}>{longDate(updatedIso)}</time></span>}
+          <span>{article.reading_minutes} min read</span>
+        </p>
+      </div>
+    </header>
+
     <div class:list={['article-grid', { 'article-grid--toc': hasTocRail }]}>
       {hasTocRail && <ArticleTocRail entries={railEntries} />}
 
       <article class="article">
-        <header class="article__head">
-          <p class="article__eyebrow">{article.category.name}</p>
-          <h1 class="article__title">{article.title}</h1>
-          {review && <MdReviewedBadge variant="byline" review={review} />}
-          <p class="article__meta">
-            {publishedIso && <span>Published <time datetime={publishedIso}>{longDate(publishedIso)}</time></span>}
-            {publishedIso && <span aria-hidden="true">·</span>}
-            {updatedIso && <span>Last updated <time datetime={updatedIso}>{longDate(updatedIso)}</time></span>}
-            {updatedIso && <span aria-hidden="true">·</span>}
-            <span>{article.reading_minutes} min read</span>
-          </p>
-        </header>
 
         <div class="article__lede" set:html={article.lede_html} />
 
@@ -155,9 +196,15 @@ const assessmentProgram: ProgramSlug | undefined = showSexualTreatments
           </nav>
         )}
 
-        <div class="prose" set:html={proseBefore} />
-        {guide && proseAfter && <GuideArticleCta book={guide} placement="inline" />}
-        {proseAfter && <div class="prose prose--cont" set:html={proseAfter} />}
+        {/* Products always come before the Smart Patient Guides (Derek, 2026-11-12): an article with a treatment section
+            drops the mid-article guide box and keeps only the one after the treatments (guideAt above). */}
+        {bodySegments.map((segment, i) => (
+          <>
+            {segment.html && <div class:list={['prose', { 'prose--cont': i > 0 }]} set:html={segment.html} />}
+            {segment.after === 'diagram' && diagram && <ArticleDiagram diagram={diagram} />}
+            {segment.after === 'guide' && guide && <GuideArticleCta book={guide} placement="inline" />}
+          </>
+        ))}
 
         {showTherapies && <PeptideTherapies />}
 
@@ -283,23 +330,60 @@ const assessmentProgram: ProgramSlug | undefined = showSexualTreatments
     }
   }
 
-  /* ---- Article header ---- */
-  .article__eyebrow {
-    font-size: var(--text-body-size); font-weight: 700; letter-spacing: 0.05em;
-    text-transform: uppercase; color: var(--blue); margin-bottom: 0.75rem;
+  /* ---- Article header ----
+     Title on the left, the physician review and dates on the right, and the cover photo under both. On phones
+     the photo sits straight under the title, so it is on the first screen. The header sits above the reading
+     columns, so the photo can run full width. */
+  .article-hero {
+    display: grid; gap: 1.5rem; grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "title" "graphic" "meta";
+    margin-bottom: clamp(2rem, 1.5rem + 2vw, 3.25rem);
   }
+  .article-hero--plain { grid-template-areas: "title" "meta"; }
+  .article-hero__title { grid-area: title; min-width: 0; }
+  .article-hero__meta { grid-area: meta; min-width: 0; }
+  .article-cover { grid-area: graphic; }
+  @media (min-width: 62rem) {
+    .article-hero--cover, .article-hero--plain {
+      grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 2.5rem 3rem; align-items: end;
+    }
+    .article-hero--cover { grid-template-areas: "title meta" "graphic graphic"; }
+    .article-hero--plain { grid-template-areas: "title meta"; }
+  }
+
+  /* Category: links to its row on the Learning Center, which opens it. */
+  .article-hero__tag {
+    display: inline-flex; align-items: center; min-height: 2.5rem; margin-bottom: 1.1rem;
+    padding: 0.4rem 1rem; border-radius: var(--radius-pill);
+    background: var(--bg-cool-blue); color: var(--blue-hover);
+    font-weight: 600; text-decoration: none;
+    transition: background-color 200ms var(--ease), color 200ms var(--ease);
+  }
+  .article-hero__tag:hover { background: var(--blue); color: var(--white); }
+  /* At least 1.25 times the section headings below (DESIGN.md, The Title Leads Rule). */
   .article__title {
-    font-size: var(--text-h2);
-    color: var(--navy); margin-bottom: 0.85rem;
+    font-size: clamp(2.4rem, 1.6rem + 2.4vw, 3.5rem); line-height: 1.1;
+    color: var(--navy); text-wrap: balance;
   }
+  .article-hero__meta :global(.mdb-byline) { margin-bottom: 0.75rem; }
   .article__meta {
-    display: flex; flex-wrap: wrap; gap: 0.6rem;
+    display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; margin: 0;
     font-size: var(--text-body-size); color: var(--text-muted, #5A6B80);
   }
-  /* On a phone the dates and the reading time stack, without the dots between them. */
-  @media (max-width: 560px) {
-    .article__meta { flex-direction: column; gap: 0.15rem; }
-    .article__meta > [aria-hidden] { display: none; }
+  .article__meta time { white-space: nowrap; }
+
+  /* ---- Cover photo ---- */
+  .article-cover {
+    margin: 0; overflow: hidden; border-radius: var(--radius-lg);
+    background: var(--bg-pale-blue);
+  }
+  .article-cover img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  /* 'wide': 3:2 on phones, 16:9 from tablet up, cropped at the photo's focus point. 'full': the photo's own shape. */
+  .article-cover--wide { aspect-ratio: 3 / 2; }
+  .article-cover--wide img { object-position: var(--cover-focus, 50% 20%); }
+  @media (min-width: 48rem) { .article-cover--wide { aspect-ratio: 16 / 9; } }
+  @media (prefers-reduced-motion: reduce) {
+    .article-hero__tag { transition: none; }
   }
 
   /* ---- Medical review note (end of article) ---- */
@@ -322,7 +406,7 @@ const assessmentProgram: ProgramSlug | undefined = showSexualTreatments
   .review-note a { font-weight: 600; color: var(--blue-on-tint); }
   .review-note a:hover { color: var(--blue-hover); }
 
-  .article__lede { margin-top: 1.75rem; }
+  .article__lede { margin-top: 0; }
   .article__lede :global(p) {
     font-size: var(--text-lead); line-height: 1.65; margin-bottom: 1rem;
   }

@@ -1,0 +1,41 @@
+---
+/**
+ * The full Men's / Women's Hormone Therapy page: hero, the condition explained, treatments, the guide band
+ * (Derek, 2026-11-12: products come before the eBook), how it works, why WellPeps, questions, closing call
+ * to action.
+ */
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GuideBand from '../../guides/GuideBand.astro';
+import HormoneHero from './HormoneHero.astro';
+import HormoneEducation from './HormoneEducation.astro';
+import HormoneProducts from './HormoneProducts.astro';
+import HormoneJourney from './HormoneJourney.astro';
+import HormoneWhyChoose from './HormoneWhyChoose.astro';
+import HormoneFaq from './HormoneFaq.astro';
+import HormoneCta from './HormoneCta.astro';
+import { programAt } from '../../../lib/seo/catalog';
+import { breadcrumbs, faqPage, programService } from '../../../lib/seo/schema';
+import type { HormonePage } from '../../../data/hormone';
+
+interface Props {
+  page: HormonePage;
+}
+const { page } = Astro.props;
+const program = programAt(page.path);
+const jsonLd = [
+  breadcrumbs([{ name: page.name, path: page.path }]),
+  programService(program),
+  faqPage(program.faqs, program.path),
+];
+---
+<BaseLayout title={page.seo.title} description={page.seo.description} jsonLd={jsonLd}>
+  <HormoneHero page={page} />
+  <HormoneEducation page={page} />
+  {/* Products before the eBook band on these pages (Derek, 2026-11-12). */}
+  <HormoneProducts page={page} />
+  <GuideBand program={page.program} />
+  <HormoneJourney page={page} />
+  <HormoneWhyChoose page={page} />
+  <HormoneFaq page={page} />
+  <HormoneCta page={page} />
+</BaseLayout>

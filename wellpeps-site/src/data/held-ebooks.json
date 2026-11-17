@@ -1,0 +1,4 @@
+{
+  "_note": "Guides built but not yet released (owner, 2026-11-17: hormone guides wait for Derek's sign-off). Remove a slug to publish it: its landing page, reader, program-page band and its files under /ebooks/ all follow this list (src/data/ebooks.ts, scripts/lib/held-ebooks.mjs).",
+  "slugs": ["mens-hormone-therapy", "womens-hormone-therapy"]
+}

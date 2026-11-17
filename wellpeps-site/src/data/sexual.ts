@@ -16,7 +16,7 @@ export const sexHero = {
 
 export const sexEducation = {
   image: '/images/sexual/understanding.webp',
-  alt: 'A couple sharing a relaxed, affectionate moment together at home',
+  alt: 'A smiling couple walking hand in hand through a sunlit park',
   title: 'Understanding Sexual Wellness',
   paragraphs: [
     'Sexual wellness is an important part of overall health—and you’re not alone.',
@@ -110,7 +110,7 @@ export const sexRecommendation = {
   title: 'You Don’t Have to Figure It Out Alone.',
   body: 'Choosing the right treatment doesn’t have to be complicated. Every WellPeps journey begins with a few online health questions. One of our licensed healthcare providers will review your answers and determine whether you are eligible for treatment and, if so, which options fit your symptoms, health history, and individual wellness goals.',
   image: '/images/sexual/not-alone.webp',
-  alt: 'A woman smiling confidently at home',
+  alt: 'A smiling provider in a white coat with a stethoscope, working at a laptop',
 };
 
 export interface SexFaq {
