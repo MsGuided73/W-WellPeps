@@ -201,8 +201,8 @@ export const mensHormone: HormonePage = {
       {
         name: 'Testosterone Cream',
         subtitle: 'Topical Testosterone',
-        image: '/images/hormone/men-product-testosterone-cream.webp',
-        alt: 'A pump bottle labeled Testosterone Cream, Topical, Compounded, Rx Only',
+        image: '/images/hormone/men-product-testosterone-cream-v2.webp',
+        alt: 'A pump bottle labeled Testosterone Cream, Topical, Compounded, Rx Only, on a marble counter',
         description:
           'A prescription cream that delivers testosterone through the skin, applied daily as prescribed.',
         methodOfUse: 'Topical Cream',
