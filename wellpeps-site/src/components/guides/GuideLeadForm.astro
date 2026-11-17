@@ -26,7 +26,7 @@ interface Props {
 const { book, tagline } = Astro.props;
 const id = `gform-${book.slug}`;
 ---
-<form class="gform" id={id} method="post" novalidate data-guide-form data-source={book.source} data-next={guideThanksPath(book.slug)} aria-labelledby={`${id}-title`}>
+<form class="gform ct-block" id={id} method="post" novalidate data-guide-form data-source={book.source} data-next={guideThanksPath(book.slug)} aria-labelledby={`${id}-title`}>
   <div class="gform__head">
     <div>
       <h2 class="gform__title" id={`${id}-title`}>Download Your Free Guide</h2>

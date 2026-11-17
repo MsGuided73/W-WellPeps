@@ -178,7 +178,7 @@
   },
   {
    "t": "callout",
-   "text": "**What wellpeps.com does and does not collect today**\n**Does:** your email address; a first name where a form asks for it; which form you used (newsletter, a free guide, a program notice or a waitlist, for example for hormone optimization); the date and time; and standard web server logs (IP address, browser, pages requested). Our text fonts are served from wellpeps.com itself, so loading them does not send your IP address or browser details to another company.\n**Does not:** no accounts or log-ins; no health questions; no payments; no cookies other than those described in Section 6; no analytics or social media tags; no session recording; no location tracking. If you say yes to advertising in Your Privacy Choices, the advert-measurement tool described in Section 6 also records the pages you view and what you click on wellpeps.com. The AI assistant runs in your browser. What you type is not sent to us or to an AI company, and the assistant does not give medical advice (see the AI Use Disclosure).",
+   "text": "**What wellpeps.com does and does not collect today**\n**Does:** your email address; a first name where a form asks for it; which form you used (newsletter, a free guide, a program notice or a waitlist, for example for hormone optimization); the date and time; and standard web server logs (IP address, browser, pages requested). Our text fonts are served from wellpeps.com itself, so loading them does not send your IP address or browser details to another company.\n**Does not:** no accounts or log-ins; no health questions; no payments; no cookies other than those described in Section 6; no analytics or social media tags; no location tracking. If you say yes to advertising in Your Privacy Choices, the advert-measurement tool described in Section 6 also records the pages you view and what you do on them on wellpeps.com, linked only to a random browser identifier and never to your name or email address. The AI assistant runs in your browser. What you type is not sent to us or to an AI company, and the assistant does not give medical advice (see the AI Use Disclosure).",
    "kind": "info"
   },
   {
@@ -405,7 +405,7 @@
   },
   {
    "t": "p",
-   "text": "Our text fonts are served from wellpeps.com itself, so loading them does not contact another company. If you say yes to advertising, we load one tool, Curve Compliance, which measures whether our adverts on Google and Meta led to a visit or a sign-up. We do not show adverts on wellpeps.com. We do not use analytics or social media tags, or session recording. The Cookie and Tracking Technologies Notice lists everything. portal.wellpeps.com is run for us by our technology platform provider and has its own cookies.",
+   "text": "Our text fonts are served from wellpeps.com itself, so loading them does not contact another company. If you say yes to advertising, we load one tool, Curve Compliance, which measures whether our adverts on Google and Meta led to a visit or a sign-up. We do not show adverts on wellpeps.com. We do not use analytics or social media tags. Curve records what happens on our pages, never who you are: we do not release your name, email address or other details that identify you to Curve or to advertisers. The Cookie and Tracking Technologies Notice lists everything. portal.wellpeps.com is run for us by our technology platform provider and has its own cookies.",
    "italic": false,
    "align": null
   },

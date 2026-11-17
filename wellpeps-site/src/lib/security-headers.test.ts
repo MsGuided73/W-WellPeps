@@ -29,7 +29,7 @@ import {
   responseScopes,
 } from '../../scripts/lib/nginx-conf.mjs';
 import { createNginxEmulator } from '../../scripts/lib/nginx-emulator.mjs';
-import { TRACKER_CONNECT_SOURCES, TRACKER_HOSTS, TRACKER_REFUSED, TRACKER_SCRIPT_SOURCES } from '../../scripts/lib/tracker-sources.mjs';
+import { TRACKER_ADMITTED, TRACKER_CONNECT_SOURCES, TRACKER_FRAME_SOURCES, TRACKER_HOSTS, TRACKER_IMG_SOURCES, TRACKER_SCRIPT_SOURCES } from '../../scripts/lib/tracker-sources.mjs';
 import { CONSENT_LOG_ENDPOINT, PRIVACY_REQUEST_ENDPOINT } from './privacy/config';
 import { NOTIFY_ENDPOINT } from './notify';
 import { productionTrackers } from './privacy/registry';
@@ -133,13 +133,13 @@ describe('Content-Security-Policy', () => {
     expect(auditCsp(csp(), connectOrigins())).toEqual([]);
   });
 
-  test('the Supabase host the site calls and the two listed vendor endpoints are on the allow-list, and nothing else is', () => {
+  test('the Supabase host the site calls and the advertising tool hosts are on the allow-list, and nothing else is', () => {
     const policy = parseCsp(csp());
     expect(policy['connect-src']).toEqual(["'self'", ...new Set(connectOrigins()), ...TRACKER_CONNECT_SOURCES]);
     expect(connectOrigins().length).toBeGreaterThan(0);
   });
 
-  test('scripts are same-origin plus the one listed vendor file, styles same-origin only, with no inline escape hatch', () => {
+  test('scripts are same-origin plus the advertising tool hosts, styles same-origin only, with no inline escape hatch', () => {
     const policy = parseCsp(csp());
     expect(policy['script-src']).toEqual(["'self'", ...TRACKER_SCRIPT_SOURCES]);
     expect(policy['style-src']).toEqual(["'self'"]);
@@ -148,6 +148,8 @@ describe('Content-Security-Policy', () => {
     expect(policy['base-uri']).toEqual(["'self'"]);
     expect(policy['frame-ancestors']).toEqual(["'none'"]);
     expect(policy['upgrade-insecure-requests']).toEqual([]);
+    expect(policy['frame-src']).toEqual(TRACKER_FRAME_SOURCES);
+    expect(policy['img-src']).toEqual(["'self'", 'https://static.legitscript.com', ...TRACKER_IMG_SOURCES]);
   });
 
   test('the only unsafe-inline is for style attributes', () => {
@@ -161,14 +163,12 @@ describe('Content-Security-Policy', () => {
       ["script-src 'self' 'unsafe-inline'", base().replace("script-src 'self'", "script-src 'self' 'unsafe-inline'")],
       ["style-src 'unsafe-inline'", base().replace("style-src 'self';", "style-src 'self' 'unsafe-inline';")],
       ['a wildcard', base().replace('img-src', 'img-src *')],
-      ['a whole scheme', base().replace("img-src 'self'", "img-src 'self' data:")],
+      ['a whole scheme', base().replace("img-src 'self'", "img-src 'self' blob:")],
+      ['a whole scheme outside img-src', base().replace("font-src 'self'", "font-src 'self' data:")],
       ['an extra connect host', base().replace('connect-src', 'connect-src https://tracker.example')],
       ['an extra script host', base().replace("script-src 'self'", "script-src 'self' https://tracker.example")],
-      ['the vendor tag widened from its file to its whole host', base().replace('https://t.curvecompliance.com/t.js', 'https://t.curvecompliance.com')],
-      ['a vendor endpoint widened to its whole host', base().replace('https://t.curvecompliance.com/events/track', 'https://t.curvecompliance.com')],
-      ['a vendor endpoint widened to a folder', base().replace('https://t.curvecompliance.com/events/track', 'https://t.curvecompliance.com/events/')],
-      ['an unlisted vendor endpoint', base().replace('connect-src', 'connect-src https://t.curvecompliance.com/session-recordings/events')],
-      ['a listed vendor endpoint removed', base().replace(' https://t.curvecompliance.com/tracking/custom-bootstrap', '')],
+      ['an extra frame host', base().replace('frame-src', 'frame-src https://tracker.example')],
+      ['a listed vendor host removed from connect-src', base().replace(' https://complytrack-be-production.up.railway.app;', ';')],
       ['unsafe-eval', base().replace("script-src 'self'", "script-src 'self' 'unsafe-eval'")],
       ['framing allowed', base().replace("frame-ancestors 'none'", "frame-ancestors 'self'")],
       ['no upgrade directive', base().replace('; upgrade-insecure-requests', '')],
@@ -184,11 +184,11 @@ describe('Content-Security-Policy', () => {
 });
 
 /**
- * The vendor tag (Curve) can do far more than the one job it is here for, and its server decides what
- * runs. The policy is the control: it names exact paths, and a browser matches a path with no trailing
- * slash exactly. This models that rule so the lists in tracker-sources.mjs cannot drift apart.
+ * Owner decision 2026-11-17: Curve's tag runs in full under its BAA. Every request the tag is able to
+ * make must therefore be admitted. This models CSP source matching so tracker-sources.mjs and the
+ * policy cannot drift apart.
  */
-describe('the vendor allow-list admits conversion tracking and nothing else the tag can do', () => {
+describe('the policy admits everything the advertising tool can do', () => {
   const policy = () => parseCsp(auditHeaders(parseTemplate()).canonical.get('Content-Security-Policy') ?? '');
   /** CSP source matching for the https sources this policy uses: an origin matches any path, a path source matches itself (or, ending "/", its folder). */
   const admits = (sources: string[], url: string) => {
@@ -203,27 +203,22 @@ describe('the vendor allow-list admits conversion tracking and nothing else the 
     });
   };
 
-  test('the tag file and its two endpoints are admitted', () => {
-    for (const url of TRACKER_SCRIPT_SOURCES) expect(admits(policy()['script-src'], url), url).toBe(true);
-    for (const url of TRACKER_CONNECT_SOURCES) expect(admits(policy()['connect-src'], url), url).toBe(true);
+  test('the tag, the recorder and screenshot libraries, and the recording set-up are admitted as scripts', () => {
+    expect(TRACKER_ADMITTED.script.length).toBeGreaterThan(0);
+    for (const url of TRACKER_ADMITTED.script) expect(admits(policy()['script-src'], url), url).toBe(true);
   });
 
-  test('the recorder, the screenshotter, the recording set-up and its JSONP fallback are refused as scripts', () => {
-    expect(TRACKER_REFUSED.script.length).toBeGreaterThan(0);
-    for (const url of TRACKER_REFUSED.script) expect(admits(policy()['script-src'], url), url).toBe(false);
+  test('conversion events, recording upload, screenshots, the bridge and the consent manager are admitted as fetches', () => {
+    expect(TRACKER_ADMITTED.connect.length).toBeGreaterThan(0);
+    for (const url of TRACKER_ADMITTED.connect) expect(admits(policy()['connect-src'], url), url).toBe(true);
   });
 
-  test('recording upload, screenshots, the cross-site bridge and the vendor consent manager are refused as fetches', () => {
-    expect(TRACKER_REFUSED.connect.length).toBeGreaterThan(0);
-    for (const url of TRACKER_REFUSED.connect) expect(admits(policy()['connect-src'], url), url).toBe(false);
+  test('the Amazon Ads sandbox frame Curve serves is admitted', () => {
+    expect(admits(policy()['frame-src'], 'https://t.curvecompliance.com/amazon-ads/sandbox.html')).toBe(true);
   });
 
-  test('no vendor source is a bare host or a folder', () => {
-    for (const src of [...TRACKER_SCRIPT_SOURCES, ...TRACKER_CONNECT_SOURCES]) {
-      const path = new URL(src).pathname;
-      expect(path.length, src).toBeGreaterThan(1);
-      expect(path.endsWith('/'), src).toBe(false);
-    }
+  test('inline script stays blocked, so Curve settings that inject inline code cannot run', () => {
+    expect(policy()['script-src']).not.toContain("'unsafe-inline'");
   });
 
   test('the hosts in the policy are exactly the hosts the consent-gated tools declare (and so the Cookie notice lists)', () => {

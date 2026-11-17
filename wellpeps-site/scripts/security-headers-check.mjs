@@ -28,7 +28,7 @@ import { scanDist, walkFiles } from './lib/html-scan.mjs';
 import { auditHeaders, auditRedirectRule, parseNginx, renderTemplate, REQUIRED_HEADERS } from './lib/nginx-conf.mjs';
 import { createNginxEmulator, listenEmulator } from './lib/nginx-emulator.mjs';
 import { gateHash } from './gate-hash.mjs';
-import { TRACKER_CONNECT_SOURCES, TRACKER_REFUSED, TRACKER_SCRIPT_SOURCES } from './lib/tracker-sources.mjs';
+import { TRACKER_ADMITTED } from './lib/tracker-sources.mjs';
 
 const SITE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
@@ -492,14 +492,14 @@ async function canaries(browser) {
 
 /**
  * The consent-gated vendor tag (Curve advert measurement). Two things are proved in a real browser:
- * the tag is requested only when our gate allows it, and of everything that tag is able to ask for,
- * the policy lets through its own file and its two endpoints and refuses the rest. Nothing here
+ * the tag is requested only when our gate allows it, and (owner, 2026-11-17: Curve runs in full)
+ * the policy admits everything that tag is able to ask for. Nothing here
  * reaches the vendor: instrument() aborts every request to another host and records it, so "the
  * browser tried" (allowed by the policy) and "the browser refused" (a CSP violation) can be told apart.
  */
 async function vendorTag(browser) {
-  console.log('\n7. The consent-gated vendor tag: loads only with consent, and only its three listed URLs are admitted');
-  const TAG = TRACKER_SCRIPT_SOURCES[0];
+  console.log('\n7. The consent-gated vendor tag: loads only with consent, and everything it can ask for is admitted');
+  const TAG = TRACKER_ADMITTED.script[0];
   const tagRequests = (bag) => bag.foreign.filter((r) => r === `GET ${TAG}`).length;
   const open = async ({ gpc = false } = {}) => {
     const { ctx, bag, watch } = await instrument(browser, OPEN);
@@ -549,26 +549,24 @@ async function vendorTag(browser) {
     await ctx.close();
   }
 
-  // d) What the tag may and may not ask for, under the policy.
+  // d) Everything the tag can ask for is admitted by the policy.
   {
     const { ctx, bag, page } = await open();
     const before = bag.violations.length;
-    await page.evaluate(({ refusedScripts, refusedFetches, allowedFetches }) => {
-      for (const src of refusedScripts) { const s = document.createElement('script'); s.src = src; document.head.appendChild(s); }
-      for (const url of [...refusedFetches, ...allowedFetches]) fetch(url, { method: 'POST', body: '{}' }).catch(() => {});
-    }, { refusedScripts: TRACKER_REFUSED.script, refusedFetches: TRACKER_REFUSED.connect, allowedFetches: TRACKER_CONNECT_SOURCES });
-    const want = TRACKER_REFUSED.script.length + TRACKER_REFUSED.connect.length;
-    for (let i = 0; i < 40 && bag.violations.length - before < want; i += 1) await settle(page, 100);
+    await page.evaluate(({ scripts, fetches }) => {
+      for (const src of scripts) { const s = document.createElement('script'); s.src = src; document.head.appendChild(s); }
+      for (const url of fetches) fetch(url, { method: 'POST', body: '{}' }).catch(() => {});
+    }, { scripts: TRACKER_ADMITTED.script, fetches: TRACKER_ADMITTED.connect });
+    const all = [...TRACKER_ADMITTED.script, ...TRACKER_ADMITTED.connect];
+    const attempted = (url) => bag.foreign.some((r) => r.endsWith(` ${url}`));
+    for (let i = 0; i < 40 && !all.every(attempted); i += 1) await settle(page, 100);
     await settle(page, 300);
     const blocked = bag.violations.slice(before).map((v) => String(v.blocked));
     const wasBlocked = (url) => blocked.some((b) => b === url || b === url.split('?')[0] || url.startsWith(b));
-    const attempted = (url) => bag.foreign.some((r) => r.endsWith(` ${url}`));
-    const leakedScripts = TRACKER_REFUSED.script.filter((u) => !wasBlocked(u) || attempted(u));
-    const leakedFetches = TRACKER_REFUSED.connect.filter((u) => !wasBlocked(u) || attempted(u));
-    check('refused as scripts: the session recorder, the page screenshotter, the recording set-up (JSONP) and the fallback hosts', leakedScripts.length === 0, head(leakedScripts));
-    check('refused as fetches: recording upload, screenshots, the cross-site bridge, the vendor consent manager and the fallback host', leakedFetches.length === 0, head(leakedFetches));
-    const notAllowed = TRACKER_CONNECT_SOURCES.filter((u) => wasBlocked(u) || !attempted(u));
-    check('admitted: the start-up settings call and the conversion event call', notAllowed.length === 0, head(notAllowed));
+    const refusedScripts = TRACKER_ADMITTED.script.filter((u) => wasBlocked(u) || !attempted(u));
+    const refusedFetches = TRACKER_ADMITTED.connect.filter((u) => wasBlocked(u) || !attempted(u));
+    check('admitted as scripts: the tag, the session recorder, the page screenshotter, the recording set-up (JSONP), the fallback host and the Amazon Ads loader', refusedScripts.length === 0, head(refusedScripts));
+    check('admitted as fetches: start-up settings, conversion events, recording upload, screenshots, the bridge, the consent manager and the fallback host', refusedFetches.length === 0, head(refusedFetches));
     await ctx.close();
   }
 }

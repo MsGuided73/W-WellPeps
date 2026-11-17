@@ -15,7 +15,7 @@
  * document any of it.
  *
  * ──────────────────────────────────────────────────────────────────────────
- * THE RISK IN THIS FILE, AND WHAT CONTAINS IT
+ * WHAT THE TAG CAN DO, AND THE OWNER'S DECISION (2026-11-17)
  * ──────────────────────────────────────────────────────────────────────────
  * The same t.js that does conversion tracking also contains a session recorder and a page
  * rasterizer, which it loads on demand:
@@ -24,42 +24,28 @@
  *     RASTERIZER_LIB_URL      /lib/m2.<hash>.js
  *     HEATMAP_SCREENSHOT_ENDPOINT  /api/heatmaps/screenshot
  *
- * plus a cross-site identity bridge (/api/bridge-tokens, /api/cross-domain-links) and its own
- * consent manager (/api/consent/*). Whether each runs is decided by CURVE'S SERVER, from the
- * Curve dashboard, with no change to this repo and no deploy. Nothing in this file, and nothing
- * in the registry, can stop that: validateRegistry() bans session replay by vendor name and
- * host, and Curve is on neither list. So the entry below still does NOT claim
- * `sessionReplay: false`.
+ * plus a cross-site identity bridge (/api/bridge-tokens, /api/cross-domain-links), its own
+ * consent manager (/api/consent/*) and an Amazon Ads destination (a sandboxed iframe). Whether
+ * each runs is decided by CURVE'S SERVER, from the Curve dashboard, with no change to this repo.
  *
- * The control is the Content-Security-Policy instead. nginx.conf.template admits three exact
- * URLs and nothing else from Curve: /t.js as a script, and /tracking/custom-bootstrap and
- * /events/track as fetches. The recorder and rasterizer libraries, the recording set-up call
- * (and its JSONP fallback, which is a script), screenshots, the bridge and the consent manager
- * are therefore refused by the visitor's browser whatever the dashboard says. The table, and
- * the record of the test that proved conversion events still send under it, are in
- * scripts/lib/tracker-sources.mjs. security-headers.test.ts fails if a path is widened to the
- * host, and `npm run check:headers` proves the refusals in a real browser on every run.
+ * From 2026-11-13 to 2026-11-17 the Content-Security-Policy admitted only three exact Curve URLs,
+ * so the browser refused all of the above. On 2026-11-17 the owner directed that Curve run IN
+ * FULL: Curve is engaged under a signed BAA to de-identify and aggregate what it collects. The
+ * policy now admits Curve's whole host, its fallback host and the Amazon Ads loader
+ * (scripts/lib/tracker-sources.mjs), and `npm run check:headers` proves every request the tag can
+ * make is admitted. What it still refuses: extra scripts on other hosts or inline code that
+ * Curve's start-up settings could name, because admitting those would switch off the policy's
+ * protection against injected script on every page.
  *
- * What the policy cannot see or stop, and Curve's BAA and written answers must cover:
- *   - what the /events/track payload contains (page URL and title, referrer, ad click ids, a
- *     browser identifier derived from browser characteristics, session counters);
- *   - what Curve forwards to Meta and Google and how long it keeps it;
- *   - anything Curve adds to t.js itself in a later release. Re-read t.js when its size changes.
+ * The consent gate is unchanged: the tag loads only after a yes to advertising, and on
+ * health-topic pages only after the separate second consent.
  *
- * Observed on 2026-11-13 from Curve's own start-up responses for this site id: Curve's consent
- * manager is not enabled, cross-domain linking is off with no linked domains, the call-tracking
- * bridge is off, and no extra script or inline code is configured. The session-recording
- * setting could not be read (the endpoint refuses automated browsers), so confirm in the Curve
- * dashboard that session recording and heatmap screenshots are OFF, and keep a screenshot.
- * The policy blocks them either way; the dashboard setting is the second lock.
+ * `sessionReplay` is still not declared. The registry refuses `sessionReplay: true` and bans
+ * replay vendors by name and host; Curve is on neither list, and the owner's decision is recorded
+ * here rather than by loosening that rule for every future tool.
  *
- * Still to do outside this repo:
- *   - counsel reviews the wording of the Cookie notice, Privacy Policy and Your Privacy Choices
- *     changes that went out with this switch, and whether sending conversion events to Meta and
- *     Google is "sharing" or "targeted advertising" under state law;
- *   - Curve's written answers to the questions sent in October;
- *   - deploy the consent-log function and turn CONSENT_LOG_ENABLED on, so there is a server
- *     record of each visitor's choice (today the choice is kept in the visitor's browser only).
+ * Covered only by Curve's BAA and written answers: what each call carries, what Curve forwards to
+ * Meta, Google and Amazon, and how long it keeps it. Re-read t.js when its size changes.
  *
  * ──────────────────────────────────────────────────────────────────────────
  * WHY THIS IS NOT A <script> TAG IN BaseLayout
@@ -126,12 +112,11 @@ const SCRIPT_SRC = 'https://t.curvecompliance.com/t.js';
 const SCRIPT_ID = 'curve-compliance-tag';
 
 /**
- * The one host a page contacts once the tool is on. t.js takes its backend address from its own
- * script URL, so every call goes to this host; Curve's fallback backend
- * (complytrack-be-production.up.railway.app) is not used and the policy refuses it. Must match
- * the Cookie notice and scripts/lib/tracker-sources.mjs (security-headers.test.ts checks).
+ * The hosts a page may contact once the tool is on: Curve's host, its fallback backend and the
+ * Amazon Ads loader its Amazon destination uses. Must match the Cookie notice and
+ * scripts/lib/tracker-sources.mjs (security-headers.test.ts checks).
  */
-export const CURVE_HOSTS = ['t.curvecompliance.com'];
+export const CURVE_HOSTS = ['t.curvecompliance.com', 'complytrack-be-production.up.railway.app', 'c.amazon-adsystem.com'];
 
 interface CurveWindow extends Window {
   Curve?: { (...args: unknown[]): void; q?: unknown[]; l?: number };
@@ -161,12 +146,12 @@ export function curveTracker(opts: CurveTrackerOptions): Tracker {
     // Shown to visitors in Your Privacy Choices. Counsel still has to review this wording. It
     // must stay true of what the script actually does.
     description:
-      'Measures which of our adverts on Google and Meta led to a visit or a sign-up, so we can stop paying for ones that do not work. We do not show adverts on this site. It stores an identifier for this browser, records the pages you view and what you click, and shares conversion events with Meta and Google after removing health details. It does not read what you type; form tracking sends only that a form was submitted. Session recording and screenshots are blocked.',
+      'Measures which of our adverts on Google and Meta led to a visit or a sign-up, so we can stop paying for ones that do not work. We do not show adverts on this site. It stores an identifier for this browser, records the pages you view and what you click, and shares conversion events with Meta and Google after removing health details. Depending on the settings in Curve’s account, it may also record how you move through our pages and take pictures of them. What it records is never tied to your name, email address or account, and our forms and the AI assistant are never recorded.',
     hosts: CURVE_HOSTS,
     cookies: CURVE_COOKIES,
     storageKeys: CURVE_STORAGE_KEYS,
-    // `sessionReplay: false` is deliberately NOT claimed. t.js carries a recorder
-    // that Curve's server can enable; we cannot assert from here that it is off.
+    // `sessionReplay: false` is deliberately NOT claimed: t.js carries a recorder that Curve's
+    // server can enable, and since 2026-11-17 the policy lets it run (see the header).
 
     /** Called by the gate ONLY after it has confirmed advertising consent for this page. */
     load() {

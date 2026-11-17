@@ -1,67 +1,68 @@
 /**
- * The only third-party SCRIPT and FETCH targets the Content-Security-Policy admits, and why each is
- * as narrow as it is. Shared by the nginx policy checks (csp-audit.mjs), the unit tests
- * (src/lib/security-headers.test.ts) and the browser check (security-headers-check.mjs).
+ * The third-party sources the Content-Security-Policy admits for the consent-gated advertising tool,
+ * Curve Compliance (src/lib/privacy/trackers/curve.ts). Shared by the nginx policy checks
+ * (csp-audit.mjs), the unit tests (src/lib/security-headers.test.ts) and the browser check
+ * (security-headers-check.mjs).
  *
- * Curve Compliance (src/lib/privacy/trackers/curve.ts), added 2026-11-13.
+ * OWNER DECISION, 2026-11-17: Curve's tag runs IN FULL. Curve is engaged under a signed BAA to
+ * de-identify and aggregate what it collects, so the site no longer narrows the tag to three exact
+ * URLs (the 2026-11-13 policy). Whatever Curve's dashboard switches on now works in the browser:
+ * conversion events, session recording, heatmap screenshots, the cross-site bridge, Curve's own
+ * consent manager, the Amazon Ads destination (a sandboxed iframe Curve serves) and Curve's
+ * fallback backend host.
  *
- * These are FULL PATHS, not hosts, and that is the whole point. Curve's one file, t.js, also
- * contains a session recorder, a page screenshotter, a cross-site identity bridge and its own
- * consent manager, and Curve's SERVER decides which of them run. We cannot switch them off from our
- * side, so the browser refuses them instead. A CSP source that ends without "/" matches that exact
- * path only, so with the two lists below:
+ * What did NOT change: the tag still loads only after the visitor says yes to advertising, and on
+ * health-topic pages only after the separate second consent (the gate in src/lib/privacy/).
  *
- *   allowed   https://t.curvecompliance.com/t.js                       the tag itself
- *   allowed   https://t.curvecompliance.com/tracking/custom-bootstrap  its start-up settings (GET)
- *   allowed   https://t.curvecompliance.com/events/track               conversion events (POST)
- *
- *   refused   /lib/m1.<hash>.js, /lib/m2.<hash>.js      recorder and rasterizer libraries (script-src)
- *   refused   /session-recordings/config and /events    recording set-up and upload, incl. its JSONP
- *                                                       fallback, which is a <script> (both lists)
- *   refused   /api/heatmaps/screenshot                  page screenshots
- *   refused   /api/bridge-tokens, /api/cross-domain-links   identity carried to another site
- *   refused   /api/consent/*                            Curve's own consent manager and its record
- *                                                       of the visitor (ours is the only one)
- *   refused   /events/track/amazon-ads/*, c.amazon-adsystem.com   Amazon Ads destination
- *   refused   complytrack-be-production.up.railway.app  Curve's fallback backend host, unused when
- *                                                       t.js is loaded from t.curvecompliance.com
- *
- * Verified 2026-11-13 by running the live t.js in Chromium under exactly this policy: the pageview
- * event was still sent, and every refused request above was blocked by the browser and logged by
- * t.js as a failed fetch, after which it carried on. `npm run check:headers` repeats the
- * allowed/refused test on every run (section 7).
- *
- * If Curve moves an endpoint, tracking stops and nothing else breaks. Fix it here and in
- * nginx.conf.template; never widen a path to the whole host.
+ * One thing stays closed on purpose. Curve's start-up settings can also name an extra script on ANY
+ * host (`scriptUrl`) or inline code (`inlineCode`). Admitting those would mean `script-src *` or
+ * `'unsafe-inline'`, which switches off the policy's protection against injected script on every
+ * page, not just for Curve. Neither was configured for this site on 2026-11-13. If Curve needs one,
+ * add that exact host here and in nginx.conf.template.
  */
-export const TRACKER_SCRIPT_SOURCES = ['https://t.curvecompliance.com/t.js'];
+export const CURVE_ORIGIN = 'https://t.curvecompliance.com';
+/** Curve's fallback backend (used if t.js is served from there). */
+export const CURVE_FALLBACK_ORIGIN = 'https://complytrack-be-production.up.railway.app';
+/** Amazon Ads loader, which Curve's Amazon Ads destination can load. */
+export const AMAZON_ADS_ORIGIN = 'https://c.amazon-adsystem.com';
 
-export const TRACKER_CONNECT_SOURCES = [
-  'https://t.curvecompliance.com/tracking/custom-bootstrap',
-  'https://t.curvecompliance.com/events/track',
-];
+export const TRACKER_SCRIPT_SOURCES = [CURVE_ORIGIN, CURVE_FALLBACK_ORIGIN, AMAZON_ADS_ORIGIN];
 
-/** Requests Curve's tag is able to make that the policy must keep refusing. Used by the browser check. */
-export const TRACKER_REFUSED = {
+export const TRACKER_CONNECT_SOURCES = [CURVE_ORIGIN, CURVE_FALLBACK_ORIGIN];
+
+/** Curve's Amazon Ads destination runs in a sandboxed iframe that Curve serves. */
+export const TRACKER_FRAME_SOURCES = [CURVE_ORIGIN];
+
+/** Curve's page screenshots draw video frames as data: images while capturing. */
+export const TRACKER_IMG_SOURCES = ['data:'];
+
+/**
+ * Requests Curve's tag is able to make. Every one must be ADMITTED by the policy (the browser check
+ * and the unit tests prove it). Until 2026-11-17 most of these were refused.
+ */
+export const TRACKER_ADMITTED = {
   script: [
-    'https://t.curvecompliance.com/lib/m1.00000000.js',
-    'https://t.curvecompliance.com/lib/m2.00000000.js',
-    'https://t.curvecompliance.com/session-recordings/config?callback=x',
-    'https://complytrack-be-production.up.railway.app/lib/m1.00000000.js',
-    'https://c.amazon-adsystem.com/aat/amzn.js',
+    `${CURVE_ORIGIN}/t.js`,
+    `${CURVE_ORIGIN}/lib/m1.00000000.js`,
+    `${CURVE_ORIGIN}/lib/m2.00000000.js`,
+    `${CURVE_ORIGIN}/session-recordings/config?callback=x`,
+    `${CURVE_FALLBACK_ORIGIN}/lib/m1.00000000.js`,
+    `${AMAZON_ADS_ORIGIN}/aat/amzn.js`,
   ],
   connect: [
-    'https://t.curvecompliance.com/session-recordings/config',
-    'https://t.curvecompliance.com/session-recordings/events',
-    'https://t.curvecompliance.com/api/heatmaps/screenshot',
-    'https://t.curvecompliance.com/api/bridge-tokens',
-    'https://t.curvecompliance.com/api/cross-domain-links',
-    'https://t.curvecompliance.com/api/consent/config',
-    'https://t.curvecompliance.com/api/consent/record',
-    'https://t.curvecompliance.com/events/track/amazon-ads/sandbox-dispatch',
-    'https://complytrack-be-production.up.railway.app/events/track',
+    `${CURVE_ORIGIN}/tracking/custom-bootstrap`,
+    `${CURVE_ORIGIN}/events/track`,
+    `${CURVE_ORIGIN}/session-recordings/config`,
+    `${CURVE_ORIGIN}/session-recordings/events`,
+    `${CURVE_ORIGIN}/api/heatmaps/screenshot`,
+    `${CURVE_ORIGIN}/api/bridge-tokens`,
+    `${CURVE_ORIGIN}/api/cross-domain-links`,
+    `${CURVE_ORIGIN}/api/consent/config`,
+    `${CURVE_ORIGIN}/api/consent/record`,
+    `${CURVE_ORIGIN}/events/track/amazon-ads/sandbox-dispatch`,
+    `${CURVE_FALLBACK_ORIGIN}/events/track`,
   ],
 };
 
-/** Hosts named by the two allow-lists, without the scheme (what the Cookie notice and the registry list). */
-export const TRACKER_HOSTS = [...new Set([...TRACKER_SCRIPT_SOURCES, ...TRACKER_CONNECT_SOURCES].map((u) => new URL(u).host))];
+/** Hosts the policy admits for the tool, without the scheme (what the Cookie notice and the registry list). */
+export const TRACKER_HOSTS = [...new Set([...TRACKER_SCRIPT_SOURCES, ...TRACKER_CONNECT_SOURCES, ...TRACKER_FRAME_SOURCES].map((u) => new URL(u).host))];

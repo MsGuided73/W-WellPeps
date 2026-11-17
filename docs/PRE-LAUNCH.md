@@ -82,11 +82,16 @@ Curve is not a `<script>` in the page head. It is a consent-gated tool:
 `CURVE_ENABLED` in `src/lib/privacy/config.ts`. It loads only after a visitor
 says yes to advertising (and, on a health-topic page, gives the second yes).
 
-The Content-Security-Policy in `nginx.conf.template` admits three exact Curve
-URLs and refuses the rest, which is what keeps Curve's session recorder and
-page screenshots off. Never widen those paths to the host. The table is in
-`wellpeps-site/scripts/lib/tracker-sources.mjs`; `npm run check:headers`
-proves it in a browser.
+Owner decision 2026-11-17: Curve runs in full under its BAA. The
+Content-Security-Policy in `nginx.conf.template` admits Curve's whole host, its
+fallback host and the Amazon Ads loader, so whatever the Curve dashboard turns on
+(session recording and page screenshots included) works. Only extra scripts on
+other hosts or inline code named by Curve's settings stay refused. The list is in
+`wellpeps-site/scripts/lib/tracker-sources.mjs`; `npm run check:headers` proves
+it in a browser. Every form and the AI assistant carry the `ct-block` class, so
+Curve's recorder never captures what a visitor types (the notices promise that
+recordings are never tied to a visitor's identity); `recording-block.test.ts`
+keeps it that way.
 
 Marketing site only. Nothing here touches the GEN Health portal.
 

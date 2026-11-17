@@ -40,7 +40,7 @@ describe('production registry', () => {
     // Session replay is blocked by the Content-Security-Policy, not by this entry, so it must not claim it.
     expect(curve.sessionReplay).toBeUndefined();
     expect(curve.anonymous).toBeUndefined();
-    expect(curve.hosts).toEqual(['t.curvecompliance.com']);
+    expect(curve.hosts).toEqual(['t.curvecompliance.com', 'complytrack-be-production.up.railway.app', 'c.amazon-adsystem.com']);
     expect(curve.cookies).toContain('_ct_xd');
     for (const key of ['phi_tracker_state', 'complytrack_session', 'complytrack_idmt', 'complytrack_consent']) expect(curve.storageKeys).toContain(key);
   });

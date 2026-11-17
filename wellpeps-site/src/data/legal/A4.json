@@ -15,7 +15,7 @@
   },
   {
    "t": "callout",
-   "text": "**Summary**\n• wellpeps.com sets two essential cookies: one if you enter the preview password, and one that remembers your privacy choices if you make any. Neither tracks you.\n• We use one optional tool, and only if you say yes: Curve Compliance, which measures whether our adverts on Google and Meta led to a visit or a sign-up (Section 3.4). We do not show adverts on wellpeps.com. We do not use analytics or social media tools, or session recording.\n• Our text fonts are served from wellpeps.com itself, so loading them does not contact any other company.\n• We ask for your permission before any tool that is not essential runs. Nothing loads before you say yes, except our own anonymous usage statistics, which set no cookie and keep no identifier and which you can turn off (Section 4).\n• The health assessment, checkout and patient portal at portal.wellpeps.com have their own cookies (Section 3.6).\n• To make or change a choice, use Your Privacy Choices in the footer.",
+   "text": "**Summary**\n• wellpeps.com sets two essential cookies: one if you enter the preview password, and one that remembers your privacy choices if you make any. Neither tracks you.\n• We use one optional tool, and only if you say yes: Curve Compliance, which measures whether our adverts on Google and Meta led to a visit or a sign-up (Section 3.4). It records what visitors do on our pages, never who they are: your name, email address and other details that identify you are never released to Curve or to advertisers. We do not show adverts on wellpeps.com. We do not use analytics or social media tools.\n• Our text fonts are served from wellpeps.com itself, so loading them does not contact any other company.\n• We ask for your permission before any tool that is not essential runs. Nothing loads before you say yes, except our own anonymous usage statistics, which set no cookie and keep no identifier and which you can turn off (Section 4).\n• The health assessment, checkout and patient portal at portal.wellpeps.com have their own cookies (Section 3.6).\n• To make or change a choice, use Your Privacy Choices in the footer.",
    "kind": "info"
   },
   {
@@ -206,10 +206,10 @@
     ],
     [
      "Curve Compliance (conversion measurement tag)",
-     "Curve Compliance, Inc. Loaded from t.curvecompliance.com.",
+     "Curve Compliance, Inc. Loaded from t.curvecompliance.com, or Curve’s backup address complytrack-be-production.up.railway.app. For Amazon adverts it may also load Amazon’s advert code from c.amazon-adsystem.com.",
      "Advertising (measurement only).",
-     "Tells us which of our adverts on Google and Meta led to a visit or a sign-up. Curve removes health details on its own servers and then sends conversion events to Meta and Google.",
-     "The pages you view on wellpeps.com and their titles, the page you came from, your clicks and scrolling, time on the page, that a form was submitted (not what you typed), the advert codes in the link that brought you here, and an identifier for your browser that the tool works out from browser settings. It saves these in your browser’s local storage (names beginning complytrack_, and phi_tracker_state, curve_exclude and ct_exp) and may set the cookies _ct_xd, _ct_xd2, _ct_rst, _ct_vid and _ct_bt.",
+     "Tells us which of our adverts on Google and Meta led to a visit or a sign-up. Curve removes health details on its own servers and then sends conversion events, without your name or contact details, to Meta and Google.",
+     "The pages you view on wellpeps.com and their titles, the page you came from, your clicks and scrolling, time on the page, that a form was submitted (never what you typed: our forms and the AI assistant are excluded from recording), the advert codes in the link that brought you here, depending on Curve’s settings a recording of how you move through a page and pictures of pages, and a random identifier for your browser that the tool works out from browser settings. The identifier is not your name, email address or account. It saves these in your browser’s local storage (names beginning complytrack_, and phi_tracker_state, curve_exclude and ct_exp) and may set the cookies _ct_xd, _ct_xd2, _ct_rst, _ct_vid and _ct_bt.",
      "In your browser: until you turn the tool off in Your Privacy Choices, which deletes them, or you clear your browser data. The _ct_xd cookie lasts 30 minutes. On Curve’s servers: [retention period to be confirmed with Curve]."
     ]
    ],
@@ -232,7 +232,7 @@
   },
   {
    "t": "p",
-   "text": "**What we block.** Curve’s tag is also able to record sessions, take pictures of pages, link a visitor across websites and show a consent banner of its own. We do not use any of these. Our site’s security settings let the tag load one file and contact two addresses at Curve, and tell your browser to refuse everything else it could ask for.",
+   "text": "**Your identity stays private.** Curve records actions, not identities. It sees what happens on our pages: the pages viewed, clicks and scrolling and, depending on its settings, a recording of the visit and pictures of pages. All of it is linked only to a random identifier for your browser. We never give Curve or any advertiser your name, email address, phone number or anything else that says who you are, and Curve works for us under a business associate agreement that requires it to protect what it collects. Our forms and the AI assistant are excluded from recording, so what you type is never captured. One thing to know: if you came to us from an advert, Curve’s report to Google or Meta includes that advert’s click code, which lets that company credit its own advert.",
    "italic": false,
    "align": null
   },
@@ -257,12 +257,12 @@
   },
   {
    "t": "li",
-   "text": "Session replay, screen recording, heatmaps or form-field capture.",
+   "text": "Recording of what you type into our forms or the AI assistant.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "Cross-site tracking. (The optional tool in Section 3.4 works out an identifier for your browser from its settings. It runs only if you say yes.)",
+   "text": "Cross-site tracking. (The optional tool in Section 3.4 works out a random identifier for your browser from its settings; it never reveals who you are. It runs only if you say yes.)",
    "level": 0
   },
   {
@@ -313,7 +313,7 @@
   },
   {
    "t": "p",
-   "text": "Some pages could show that you have, or are looking into, a health condition or treatment. On these pages we will not use advertising tools unless you also give a second, separate consent to advertising on these pages. \"Accept all\" does not include it. If you give it, advertising companies can learn that you visited pages about health topics; our vendor removes the names of conditions and treatments before anything is shared. We will not use analytics tools on these pages either, unless you have also given the separate consent that the Consumer Health Data Privacy Policy describes. Our anonymous usage statistics (Section 4) run on these pages too unless you turn them off. We will never use session replay on them. These pages are:",
+   "text": "Some pages could show that you have, or are looking into, a health condition or treatment. On these pages we will not use advertising tools unless you also give a second, separate consent to advertising on these pages. \"Accept all\" does not include it. If you give it, advertising companies can learn that you visited pages about health topics; our vendor removes the names of conditions and treatments before anything is shared. We will not use analytics tools on these pages either, unless you have also given the separate consent that the Consumer Health Data Privacy Policy describes. Our anonymous usage statistics (Section 4) run on these pages too unless you turn them off. Even on these pages, nothing recorded is ever tied to your identity, and your name and contact details are never released. These pages are:",
    "italic": false,
    "align": null
   },
@@ -344,13 +344,13 @@
   },
   {
    "t": "p",
-   "text": "**No session replay.** We do not use session replay, screen recording or form-field capture on any page of wellpeps.com or portal.wellpeps.com. These tools can record what you type or see, including health information. We would have to change this notice and ask for your consent before using one anywhere.",
+   "text": "**Recording, never identity.** If you say yes to advertising, Curve may record how visitors move through a page, such as clicks, scrolling and what is on screen, to measure our adverts and improve our pages. Recordings are linked only to a random browser identifier, never to your name, email address or account. Our forms, the AI assistant and anything you type are excluded from recording. We do not use session recording on portal.wellpeps.com.",
    "italic": false,
    "align": null
   },
   {
    "t": "p",
-   "text": "**Aggregate heatmaps.** We may use heatmaps that combine where many visitors click and scroll. They record no one's session, take no picture of your screen, do not link positions to you, and mask form fields and the AI assistant. They count as analytics: they run only if you allow analytics and, on the pages above, only with the separate consent, unless they are part of our anonymous usage statistics.",
+   "text": "**Aggregate heatmaps.** We may use heatmaps that combine where many visitors click and scroll. They do not link positions to you, and mask form fields and the AI assistant. They count as analytics: they run only if you allow analytics and, on the pages above, only with the separate consent, unless they are part of our anonymous usage statistics.",
    "italic": false,
    "align": null
   },
