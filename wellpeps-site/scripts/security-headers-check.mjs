@@ -255,6 +255,19 @@ async function step(name, bag, fn) {
   }
 }
 
+/**
+ * The first-visit privacy choice is a pop-up in front of the page (owner, 2026-11-17), so a visitor
+ * answers it before using anything. Answer it the way most of these checks need: Reject all, so no
+ * optional tool loads. The choice is kept for the rest of this browser context.
+ */
+async function answerPrivacyChoice(page) {
+  const reject = page.locator('[data-privacy-banner]:not([hidden]) [data-pc-action="rejectAll"]');
+  if (await reject.count()) {
+    await reject.click();
+    await page.waitForFunction(() => document.querySelector('[data-privacy-banner]')?.hidden !== false);
+  }
+}
+
 async function interactions(browser) {
   console.log('\n4. Interactive pieces work under the policy (no violation while used)');
   const { ctx, bag, watch } = await instrument(browser, OPEN);
@@ -262,6 +275,7 @@ async function interactions(browser) {
   watch(page);
 
   await page.goto(`${OPEN}/`, { waitUntil: 'networkidle' });
+  await answerPrivacyChoice(page);
   await step('privacy panel: opens from the footer, a switch changes, Escape closes', bag, async () => {
     const link = page.locator('footer a[data-privacy-open]').first();
     await link.scrollIntoViewIfNeeded();
@@ -371,6 +385,7 @@ async function interactions(browser) {
   const mobile = await phone.ctx.newPage();
   phone.watch(mobile);
   await mobile.goto(`${OPEN}/`, { waitUntil: 'networkidle' });
+  await answerPrivacyChoice(mobile);
   await step('phone width: the menu button opens and closes the navigation', phone.bag, async () => {
     await mobile.locator('[data-nav-toggle]').click();
     await mobile.waitForFunction(() => document.querySelector('[data-nav]')?.classList.contains('nav-open'));

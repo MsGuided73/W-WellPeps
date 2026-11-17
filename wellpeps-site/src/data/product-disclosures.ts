@@ -64,10 +64,10 @@ export const PRODUCT_DISCLOSURES: Record<ProgramSlug, Record<string, ProductDisc
     'Oral Tirzepatide': { regulatory: 'compounded' },
   },
   'sexual-wellness': {
-    // VERIFY with the pharmacy roster whether a compounded form is dispensed; if so, tag it.
-    'Tadalafil Daily': { note: NITRATE_NOTE },
-    'Tadalafil As Needed': { note: NITRATE_NOTE },
-    'Sildenafil As Needed': { note: NITRATE_NOTE },
+    // Compounded (owner, 2026-11-17): the pharmacy dispenses compounded tadalafil and sildenafil.
+    'Tadalafil Daily': { regulatory: 'compounded', note: NITRATE_NOTE },
+    'Tadalafil As Needed': { regulatory: 'compounded', note: NITRATE_NOTE },
+    'Sildenafil As Needed': { regulatory: 'compounded', note: NITRATE_NOTE },
   },
   'hair-restoration': {
     'Oral Finasteride': {},

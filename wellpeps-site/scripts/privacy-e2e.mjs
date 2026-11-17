@@ -60,7 +60,10 @@ async function main() {
   const watch = (page, label) => {
     page.on('pageerror', (e) => errorsByPage.push(`${label}: ${e.message}`));
     page.on('console', (m) => {
-      if (m.type() === 'error' && !/favicon|vite|net::ERR|Failed to load resource/.test(m.text())) {
+      // Curve's servers refuse calls from localhost (CORS), so its tag logs errors here that cannot
+      // happen on wellpeps.com. Only the CORS refusals and messages logged by Curve's own script are ignored.
+      const curveCorsOnLocalhost = /localhost/.test(BASE) && (/curvecompliance\.com.*blocked by CORS policy/.test(m.text()) || /curvecompliance\.com/.test(m.location()?.url ?? ''));
+      if (m.type() === 'error' && !curveCorsOnLocalhost && !/favicon|vite|net::ERR|Failed to load resource/.test(m.text())) {
         errorsByPage.push(`${label}: ${m.text()}`);
       }
     });
@@ -104,7 +107,7 @@ async function main() {
     check('advertising switch off: the tool stops in the same session', s.demo['demo-advertising'] === false);
     check('advertising switch off: its cookie is deleted', !hasCookie(s, '_demo_ads'));
     check('advertising switch off: analytics is untouched', s.demo['demo-analytics'] === true && hasCookie(s, '_demo_analytics'));
-    check('advertising switch off: the page confirms it', /Advertising is off/.test(await d.locator('[data-pc-status]').innerText()));
+    check('advertising switch off: the page confirms it', /Ad measurement is off/.test(await d.locator('[data-pc-status]').innerText()));
 
     await d.locator('[data-pc-toggle="analytics"]').uncheck();
     s = await read(page);
@@ -182,7 +185,7 @@ async function main() {
     check('conflict: the browser signal wins and advertising does not start', s.demo['demo-advertising'] !== true && !hasCookie(s, '_demo_ads'));
     await openPanel(page);
     const d = dlg(page);
-    check('conflict: the panel asks whether to allow advertising anyway', /allow advertising anyway/i.test(await d.locator('[data-pc-gpc]').innerText()));
+    check('conflict: the panel asks whether to allow advertising anyway', /allow ad measurement anyway/i.test(await d.locator('[data-pc-gpc]').innerText()));
     await shot(page, '05-panel-gpc-conflict.png');
     await d.locator('[data-pc-action="gpcAllowAnyway"]').click();
     s = await read(page);

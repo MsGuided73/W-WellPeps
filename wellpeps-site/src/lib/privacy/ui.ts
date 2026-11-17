@@ -37,10 +37,10 @@ const COPY = {
   gpcDetected:
     'We detected your Global Privacy Control signal. We treat it as your choice to opt out of advertising, sale and sharing, so that setting is off.',
   gpcConflict:
-    'Your browser’s Global Privacy Control signal says opt out, but you earlier chose to allow advertising on this site. We are following your browser’s signal. Do you want to allow advertising anyway?',
-  gpcOverride: 'You chose to allow advertising even though your browser sends a Global Privacy Control signal.',
+    'Your browser’s Global Privacy Control signal says opt out, but you earlier chose to allow ad measurement on this site. We are following your browser’s signal. Do you want to allow ad measurement anyway?',
+  gpcOverride: 'You chose to allow ad measurement even though your browser sends a Global Privacy Control signal.',
   storageBlocked:
-    'We could not save your choice because your browser blocks storage. We will treat analytics and advertising as off.',
+    'We could not save your choice because your browser blocks storage. We will treat analytics and ad measurement as off.',
   advertisingLockedByGpc: 'Locked off because your browser sent a Global Privacy Control signal.',
   noTools: (label: string) => `No ${label} tool runs on this site today. If we add one, it stays off until you turn it on.`,
 };
@@ -52,7 +52,7 @@ const ANON_SENTENCE =
 export function sensitiveNote(trackers: readonly Tracker[]): string {
   const parts = ['This is a page about a health topic.'];
   if (showsAdsHealthSwitch(trackers)) {
-    parts.push('Advertising tools run here only if you also allow advertising on health-topic pages.');
+    parts.push('Ad measurement runs here only if you also allow it on health-topic pages.');
   }
   if (showsHealthSwitch(trackers)) parts.push('Other analytics runs here only if you also allow it on health-topic pages.');
   if (showsAnonymousRow(trackers)) {
@@ -91,13 +91,20 @@ export function bannerCopy(trackers: readonly Tracker[]): string {
     advertising.length ? 'measure our ads' : '',
   ].filter(Boolean);
   const names = say(asked.map((t) => t.name));
-  const parts = [
-    `We would like to use ${names} to ${purposes.join(' and to ')}.`,
-    'They stay off unless you say yes. Essential cookies always run.',
-  ];
+  const one = asked.length === 1;
+  // A tool's own introduction (who the company is, what it does) when every asked tool has one.
+  const intros = asked.every((t) => t.bannerText) ? asked.map((t) => t.bannerText as string) : null;
+  const short = one ? asked[0].vendor.split(/[ ,]/)[0] : '';
+  const parts = intros ?? [`We would like to use ${names} to ${purposes.join(' and to ')}.`];
+  parts.push(intros && one ? `${short} stays off unless you say yes.` : `${one ? 'It stays' : 'They stay'} off unless you say yes.`);
   if (analytics.length) parts.push('Analytics runs on pages about health topics only if you separately allow it.');
   if (advertising.length) {
-    parts.push('Advertising runs on pages about health topics only if you separately allow that too; "Accept all" does not include it.');
+    // Not "advertising": visitors read that as showing ads. This is measurement of our own ads.
+    parts.push(
+      one
+        ? 'On pages about health topics it needs a second yes; “Accept all” doesn’t include those.'
+        : 'Ad measurement on pages about health topics needs a second yes; “Accept all” doesn’t include those.',
+    );
   }
   if (hasAnonymous) parts.push(ANON_SENTENCE);
   return parts.join(' ');
@@ -137,21 +144,21 @@ export function statusAfter(action: ConsentAction, snap: GateSnapshot): string {
   switch (action.type) {
     case 'acceptAll':
       return s.gpc && !s.gpcOverride
-        ? 'Saved in this browser. Analytics is on. Advertising stays off because your browser sent a Global Privacy Control signal.'
-        : 'Saved in this browser. Analytics and advertising are on. Pages about health topics are included only if you separately allow them.';
+        ? 'Saved in this browser. Analytics is on. Ad measurement stays off because your browser sent a Global Privacy Control signal.'
+        : 'Saved in this browser. Analytics and ad measurement are on. Pages about health topics are included only if you separately allow them.';
     case 'rejectAll':
-      return 'Saved in this browser. Analytics and advertising are off.';
+      return 'Saved in this browser. Analytics and ad measurement are off.';
     case 'withdrawAll':
       return 'All optional tools are off and your saved choice was deleted from this browser.';
     case 'set': {
       const health = (on: boolean, included: boolean) => (on ? `, health-topic pages ${included ? 'included' : 'not included'}` : '');
       const anon = 'anonymous' in action.changes ? ` Anonymous usage statistics are ${s.anonOptOut ? 'off' : 'on'}.` : '';
-      return `Saved in this browser. ${state('Analytics', s.analytics)}${health(s.analytics, s.analyticsSensitive)}. ${state('Advertising', s.advertising)}${health(s.advertising, s.advertisingSensitive)}.${anon}`;
+      return `Saved in this browser. ${state('Analytics', s.analytics)}${health(s.analytics, s.analyticsSensitive)}. ${state('Ad measurement', s.advertising)}${health(s.advertising, s.advertisingSensitive)}.${anon}`;
     }
     case 'gpcAllowAnyway':
-      return 'Saved in this browser. Advertising is on, as you asked.';
+      return 'Saved in this browser. Ad measurement is on, as you asked.';
     case 'gpcKeepOff':
-      return 'Saved in this browser. Advertising stays off.';
+      return 'Saved in this browser. Ad measurement stays off.';
     default:
       return 'Saved in this browser.';
   }
@@ -165,6 +172,9 @@ export interface UiOptions {
 export function initPrivacyUI({ gate, trackers }: UiOptions): void {
   const dialog = document.querySelector<HTMLDialogElement>('[data-privacy-dialog]');
   const banner = document.querySelector<HTMLElement>('[data-privacy-banner]');
+  // True once the visitor has made any choice on this page. If the browser blocks storage the choice
+  // cannot be saved, and the pop-up must still go away instead of trapping the visitor.
+  let answeredHere = false;
   let lastFocus: HTMLElement | null = null;
   let lastStatus = '';
 
@@ -278,7 +288,7 @@ export function initPrivacyUI({ gate, trackers }: UiOptions): void {
     }
 
     if (banner) {
-      const hide = !(gate.hasNonEssential() && snap.promptReason !== null);
+      const hide = !(gate.hasNonEssential() && snap.promptReason !== null) || (snap.storageBlocked && answeredHere);
       if (hide && !banner.hidden && banner.contains(document.activeElement)) {
         // The banner is going away under the keyboard focus: put focus somewhere sensible.
         const main = document.getElementById('main');
@@ -287,10 +297,40 @@ export function initPrivacyUI({ gate, trackers }: UiOptions): void {
           main.focus({ preventScroll: true });
         }
       }
-      if (banner.hidden !== hide) banner.hidden = hide;
+      if (banner.hidden !== hide) {
+        banner.hidden = hide;
+        if (bannerIsModal) onModalToggle(!hide);
+      }
     }
 
     window.dispatchEvent(new CustomEvent('wp:privacy-change', { detail: snap }));
+  }
+
+  // ------------------------------------------------------------- pop-up (first visit)
+  // The first-visit choice is a centered pop-up on most pages (PrivacyBanner.astro). While it is open the
+  // page behind cannot scroll, keyboard focus starts in it, and Tab stays inside it. There is no close
+  // button: Reject all is one click, and closing without a choice would just bring it back next page.
+  const bannerIsModal = banner?.dataset.privacyBannerMode === 'modal';
+  function onModalToggle(open: boolean): void {
+    document.documentElement.classList.toggle('pc-modal-open', open);
+    if (open) banner?.querySelector<HTMLElement>('[data-privacy-banner-card]')?.focus({ preventScroll: true });
+  }
+  if (banner && bannerIsModal) {
+    banner.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab') return;
+      const items = [...banner.querySelectorAll<HTMLElement>('a[href], button:not([disabled])')].filter((el) => el.offsetParent !== null);
+      if (items.length === 0) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      const active = document.activeElement;
+      if (e.shiftKey && (active === first || !banner.contains(active))) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && (active === last || !banner.contains(active))) {
+        e.preventDefault();
+        first.focus();
+      }
+    });
   }
 
   // ------------------------------------------------------------------ dialog
@@ -309,6 +349,7 @@ export function initPrivacyUI({ gate, trackers }: UiOptions): void {
 
   // ------------------------------------------------------------ interactions
   function dispatch(action: ConsentAction): void {
+    answeredHere = true;
     gate.dispatch(action);
     lastStatus = statusAfter(action, gate.snapshot());
     render(gate.snapshot());
