@@ -47,6 +47,10 @@ describe('what the decisions say (placement guide, section 4)', () => {
     expect(disclosureFor('hair-restoration', 'Oral Finasteride').regulatory).toBeUndefined();
     expect(disclosureFor('hair-restoration', 'Topical Minoxidil').regulatory).toBeUndefined();
   });
+  test('sexual wellness products are tagged compounded (owner, 2026-11-17)', () => {
+    for (const p of sexProducts) expect(disclosureFor('sexual-wellness', p.name).regulatory, p.name).toBe('compounded');
+  });
+
   test('sexual wellness products warn about nitrate medicines', () => {
     for (const p of sexProducts) expect(disclosureFor('sexual-wellness', p.name).note).toBe('Not for use with nitrate medicines.');
   });
