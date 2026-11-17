@@ -1,17 +1,37 @@
 ---
 /**
- * PrivacyBanner — the first-visit choice bar. It sits in the page above the menu (not floating over
- * it), so it never covers the hero headline or buttons; it scrolls away with the page and goes
- * away for good once the visitor chooses. It is shown only when the site has an optional tool to
+ * PrivacyBanner — the first-visit privacy choice. Owner, 2026-11-17: a centered pop-up over a dimmed
+ * page (it used to be a bar above the menu). Accept all, Reject all and Choose have equal weight, and it
+ * goes away for good once the visitor chooses. It is shown only when the site has an optional tool to
  * ask about, and its wording is written by src/lib/privacy/ui.ts from the tool list.
+ *
+ * On the privacy and legal pages it stays a slim bar at the top instead, so "Learn more" (and the
+ * footer's legal links) open a page the visitor can actually read.
  */
 import '../../styles/privacy.css';
+import { LEGAL_DOCS } from '../../lib/legal-docs';
+
+const path = Astro.url.pathname.replace(/\/$/, '');
+const readingPages = ['/your-privacy-choices', ...LEGAL_DOCS.map((d) => `/${d.path}`)];
+// Developer preview pages (/dev-mockups/*, not built for production) need the page usable too.
+const inline = readingPages.includes(path) || path.startsWith('/dev-mockups');
+// The Cookie Notice section that describes the optional tool(s).
+const LEARN_MORE = '/cookie-notice/#3-4-optional-tools-that-run-only-if-you-say-yes';
 ---
-<section class="pbanner" data-privacy-banner hidden aria-label="Your privacy choices">
-  <div class="pbanner__inner">
+<section
+  class:list={['pbanner', inline ? 'pbanner--bar' : 'pbanner--modal']}
+  data-privacy-banner
+  data-privacy-banner-mode={inline ? 'bar' : 'modal'}
+  hidden
+  role={inline ? 'region' : 'dialog'}
+  aria-modal={inline ? undefined : 'true'}
+  aria-labelledby="pbanner-title"
+  aria-describedby="pbanner-text"
+>
+  <div class="pbanner__inner" tabindex="-1" data-privacy-banner-card>
     <div class="pbanner__text">
-      <h2 class="pbanner__title">Your privacy choices</h2>
-      <p data-pc-banner-text></p>
+      <h2 class="pbanner__title" id="pbanner-title">Your privacy choices</h2>
+      <p id="pbanner-text"><span data-pc-banner-text></span> <a class="pbanner__more" href={LEARN_MORE}>Learn more</a></p>
     </div>
     <div class="pbanner__buttons">
       <button type="button" class="pc-btn pc-btn--primary" data-pc-action="acceptAll">Accept all</button>

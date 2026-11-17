@@ -33,6 +33,12 @@ export interface Tracker {
   category: ConsentCategory;
   /** Plain-language purpose, shown to visitors. */
   description: string;
+  /**
+   * What the first-visit privacy pop-up says about this tool: who the company is and what the tool does,
+   * in plain words, as full sentences. Must stay true of what the tool does. Without it the pop-up falls
+   * back to naming the tool and its purpose.
+   */
+  bannerText?: string;
   /** Hosts this tool contacts. Must be listed in the Cookie notice. */
   hosts: string[];
   /** Cookies the tool sets; removed when the visitor turns the tool off. */
