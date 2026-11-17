@@ -8,7 +8,7 @@
  * Changes from the decks, made on purpose:
  * - Products: the launch set, plus hCG (added at the owner's request, 2026-11-10; the formulary note calls it a
  *   provider-directed specialty option, which its card copy reflects).
- * - No prices yet: the cards say "Shown at checkout", and the footnote replaces the one-monthly-price note,
+ * - No prices yet: each card shows "Coming soon" and a "Coming Soon" button until it has its link AND price; the footnote replaces the one-monthly-price note,
  *   because supply length differs by product (formulary: "do not advertise a single monthly price until actual
  *   days supply is established").
  * - "Free Health Assessment" became "online health assessment": the first month is paid at checkout and refunded
@@ -31,6 +31,12 @@ export interface HormoneProduct {
   /** Delivery method, the bold label above the checklist. */
   methodOfUse: string;
   features: [string, string, string];
+  /**
+   * Monthly price in dollars, e.g. '149'. Leave it out until the owner gives the GEN Health link WITH its price.
+   * A card goes live (See If You Qualify) only when it has both this price and its link in PRODUCT_LINKS +
+   * LIVE_PRODUCTS (src/config.ts); otherwise it shows "Coming soon" and a non-clickable "Coming Soon" button.
+   */
+  price?: string;
 }
 
 export interface HormoneStep {
@@ -234,7 +240,7 @@ export const mensHormone: HormonePage = {
       },
       {
         title: 'Medical Review of Your Results',
-        body: 'A U.S.-licensed provider reviews your symptoms, history, and lab results and decides whether treatment is appropriate. If not, we refund you in full.',
+        body: 'A U.S.-licensed provider reviews your symptoms, history, and lab results and decides whether treatment is appropriate. If not, we refund your payment in full, except the cost of any lab tests.',
         // Derek, 2026-11-12: show a doctor here, not the patient again.
         image: '/images/doctor-assessment.webp',
         alt: 'A licensed provider reviewing a patient’s results on a laptop',
@@ -247,7 +253,7 @@ export const mensHormone: HormonePage = {
       },
       {
         title: 'Continue With Ongoing Care',
-        body: 'Follow-up visits and monitoring labs help your provider track your response and adjust treatment when needed.',
+        body: 'Your provider may recommend follow-up visits and monitoring labs to track your response and adjust treatment when needed.',
         // Derek, 2026-11-12: not the patient back in the lab; a follow-up visit with the provider instead.
         image: '/images/weight/why-doctor.webp',
         alt: 'A licensed provider on a follow-up telehealth visit',
@@ -419,7 +425,7 @@ export const womensHormone: HormonePage = {
       },
       {
         title: 'Medical Review of Your Results',
-        body: 'A U.S.-licensed provider reviews your symptoms, history, and any relevant lab results and decides whether treatment is appropriate. If not, we refund you in full.',
+        body: 'A U.S.-licensed provider reviews your symptoms, history, and any relevant lab results and decides whether treatment is appropriate. If not, we refund your payment in full, except the cost of any lab tests.',
         // Derek, 2026-11-12: show a doctor here, not the patient again.
         image: '/images/hair/works-personalized.webp',
         alt: 'A licensed provider reviewing a patient’s results on a laptop',
@@ -432,7 +438,7 @@ export const womensHormone: HormonePage = {
       },
       {
         title: 'Continue With Ongoing Care',
-        body: 'Follow-up care helps your provider evaluate symptom relief and treatment response, and adjust treatment when needed.',
+        body: 'Your provider may recommend follow-up care to evaluate symptom relief and treatment response, and adjust treatment when needed.',
         // Derek, 2026-11-12: not the patient back in the lab; a follow-up video visit instead.
         image: '/images/journey-5.webp',
         alt: 'A woman on a follow-up video visit at home',

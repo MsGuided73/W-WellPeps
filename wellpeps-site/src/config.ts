@@ -54,7 +54,7 @@ const SCRIPTFUL_HAIR_PRODUCT_URL = '#scriptful-stub-hair-restoration';
 const SCRIPTFUL_SEXUAL_PRODUCT_URL = '#scriptful-stub-sexual-wellness';
 const SCRIPTFUL_HEALTHY_AGING_PRODUCT_URL = '#scriptful-stub-healthy-aging';
 /** Men's and Women's Hormone Therapy (pages added 2026-11-10). The owner is creating the six products in GEN
- *  Health; until their links are here the hormone buttons show "Opening Soon". Add each treatment to
+ *  Health; until their links and prices are here the hormone buttons show "Coming Soon". Add each treatment to
  *  PRODUCT_LINKS + LIVE_PRODUCTS, keyed by its card name slugged: 'testosterone-cypionate', 'testosterone-cream', 'hcg',
  *  'estradiol-transdermal-patches', 'oral-micronized-progesterone', 'vaginal-estradiol-cream'. Each program also
  *  needs a safety page before it opens (product-disclosures.test.ts). */
@@ -126,7 +126,7 @@ export const PRODUCT_LINKS = {
 
 /**
  * LIVE TREATMENTS. Only the cards listed here send a visitor to a GEN Health
- * intake; every other card, even one with a link above, shows "Opening Soon".
+ * intake; every other card, even one with a link above, shows "Coming Soon".
  * Reactivate a treatment by adding its key here and deploying; take it down by
  * removing it. A key with no link above fails typecheck.
  *

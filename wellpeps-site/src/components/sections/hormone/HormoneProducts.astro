@@ -1,8 +1,9 @@
 ---
 /**
  * Hormone treatment cards on the shared StandardProductCard (cover photos + blue subtitle, as on Sexual
- * Wellness). No prices are set yet, so each card says "Shown at checkout", and the footnote says what
- * checkout shows instead of the one-monthly-price note (supply length differs by product).
+ * Wellness). A card goes live only once it has both its GEN Health link and its price (owner, 2026-11-17);
+ * until then it shows "Coming soon" and a non-clickable "Coming Soon" button. The footnote says what checkout
+ * shows instead of the one-monthly-price note (supply length differs by product).
  */
 import StandardProductCard from '../../StandardProductCard.astro';
 import type { HormonePage } from '../../../data/hormone';
@@ -31,6 +32,7 @@ const { products, program } = Astro.props.page;
           description={p.description}
           form={p.methodOfUse}
           features={p.features}
+          price={p.price}
           priceUnit="/month"
           program={program}
         />

@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import { sitemapIntegration } from './scripts/lib/sitemap.mjs';
 import { trailingSlashIntegration } from './scripts/lib/trailing-slash.mjs';
+import { heldEbooksIntegration } from './scripts/lib/held-ebooks.mjs';
 
 // WellPeps marketing site — static output.
 // All PHI, accounts, and onboarding live on Scriptful's GEN Health platform;
@@ -11,7 +12,7 @@ export default defineConfig({
   // After each build: internal links get their trailing slash so no click goes through the /page -> /page/
   // redirect (scripts/lib/trailing-slash.mjs), then sitemap.xml is written from the built pages
   // (scripts/lib/sitemap.mjs).
-  integrations: [trailingSlashIntegration(), sitemapIntegration()],
+  integrations: [trailingSlashIntegration(), sitemapIntegration(), heldEbooksIntegration()],
   // /peptides was the route until 2026-09-19, when the program was renamed
   // "Healthy Aging & Vitality" to match the GEN Health product. Keep the old
   // URL working for anything already shared or indexed.

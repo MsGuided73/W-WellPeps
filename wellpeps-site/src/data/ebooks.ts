@@ -15,6 +15,7 @@
  * `pdf: '/ebooks/<slug>.pdf'` below. The thank-you page then says the guide arrives by email shortly
  * and links to read it online (/smart-patient-guides/<slug>/read, which also has Download the PDF).
  */
+import heldEbooks from './held-ebooks.json';
 import type { ProgramSlug } from '../lib/cta';
 import type { SignupSource } from '../lib/notify';
 
@@ -37,7 +38,15 @@ export interface Ebook {
   pdf?: string;
 }
 
-export const EBOOKS: readonly Ebook[] = [
+/**
+ * Guides built but not yet released. Owner, 2026-11-17: the hormone pages launch now; the two hormone guides
+ * wait for Derek's sign-off. Remove a slug here to publish that guide (landing page, reader, and the
+ * "Become a Smart Patient" band on its program page all follow EBOOKS; the build also leaves out its files
+ * under /ebooks/ — scripts/lib/held-ebooks.mjs). The list lives in src/data/held-ebooks.json.
+ */
+export const HELD_EBOOKS: ReadonlySet<string> = new Set(heldEbooks.slugs);
+
+export const ALL_EBOOKS: readonly Ebook[] = [
   {
     slug: 'glp-1-weight-loss',
     title: 'GLP-1 Weight Loss',
@@ -178,6 +187,9 @@ export const EBOOKS: readonly Ebook[] = [
     ],
   },
 ];
+
+/** Published guides: every built guide except those held back above. */
+export const EBOOKS: readonly Ebook[] = ALL_EBOOKS.filter((book) => !HELD_EBOOKS.has(book.slug));
 
 /** The guides for one program (Healthy Aging has two). */
 export function ebooksFor(program: ProgramSlug): Ebook[] {

@@ -9,8 +9,9 @@
  *   <AssessmentCta class="btn btn--primary btn--lg" />                  generic
  *   <AssessmentCta program="weight-loss" class="scard__cta" arrow />    a program
  *
- * While a program's GEN Health link is still a stub the button renders as a
- * non-interactive "Opening Soon" state. Pass a `soon` slot to replace that with
+ * While a program's GEN Health link is still a stub (or the caller passes
+ * `comingSoon`, e.g. a product card with no price yet) the button renders as a
+ * non-interactive "Coming Soon" state. Pass a `soon` slot to replace that with
  * something better suited to the spot (e.g. Hair's "Get Launch Updates" link).
  *
  * Styling stays with the caller: `class` and Astro's scoped-style attribute are
@@ -37,10 +38,13 @@ interface Props {
   class?: string;
   /** Append the right-arrow icon. */
   arrow?: boolean;
+  /** Force the non-interactive "Coming Soon" state even when a link exists (e.g. no price set yet). */
+  comingSoon?: boolean;
   [attr: `data-astro-cid-${string}`]: unknown;
 }
-const { program, product, class: className, arrow = false, ...scopeAttrs } = Astro.props;
-const cta = resolveCta(program, product && toProductKey(product));
+const { program, product, class: className, arrow = false, comingSoon = false, ...scopeAttrs } = Astro.props;
+const resolved = resolveCta(program, product && toProductKey(product));
+const cta = comingSoon ? { ...resolved, isComingSoon: true } : resolved;
 
 // Checkout lock (CHECKOUT_LOCKED in src/config.ts): the real link stays out of
 // the page; CheckoutLock.astro decrypts it once the access password is entered.
@@ -59,7 +63,7 @@ const href = isLocked ? '#checkout-access' : cta.href;
 {cta.isComingSoon
   ? (Astro.slots.has('soon')
       ? <slot name="soon" />
-      : <span class:list={[className, 'cta-soon']} role="button" aria-disabled="true" {...scopeAttrs}><Icon name="clock" /> Opening Soon</span>)
+      : <span class:list={[className, 'cta-soon']} role="button" aria-disabled="true" {...scopeAttrs}><Icon name="clock" /> Coming Soon</span>)
   : <a href={href} class={className} data-assessment={cta.target} data-checkout-lock={isLocked ? cta.target : undefined} {...scopeAttrs}>{ASSESSMENT_CTA_LABEL}{arrow && <Fragment> <Icon name="arrow-right" /></Fragment>}</a>}
 
 <style is:global>

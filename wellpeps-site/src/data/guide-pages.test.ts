@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { EBOOKS } from './ebooks';
+import { ALL_EBOOKS, EBOOKS, HELD_EBOOKS } from './ebooks';
 import { GUIDE_PAGES, GUIDE_SERIES, guidePageFor, PROGRAM_BAND_COPY } from './guide-pages';
 import { PROGRAM_SLUGS } from '../lib/cta';
 
@@ -8,7 +8,12 @@ const everyString = (value: unknown): string[] =>
 
 describe('every guide has what its landing page needs', () => {
   test('there is a page for each guide and none for a guide that does not exist', () => {
-    expect(Object.keys(GUIDE_PAGES).sort()).toEqual(EBOOKS.map((b) => b.slug).sort());
+    // Held guides (not yet released) keep their landing-page content, ready to publish.
+    expect(Object.keys(GUIDE_PAGES).sort()).toEqual(ALL_EBOOKS.map((b) => b.slug).sort());
+  });
+
+  test('a held guide is not published', () => {
+    for (const slug of HELD_EBOOKS) expect(EBOOKS.map((b) => b.slug)).not.toContain(slug);
   });
 
   for (const book of EBOOKS) {

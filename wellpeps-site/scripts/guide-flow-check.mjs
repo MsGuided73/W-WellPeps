@@ -9,7 +9,11 @@ import { chromium } from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
 
 const LANDING = process.argv.find((a, i) => i === 2 && a.startsWith('http')) || 'http://localhost:4321';
-const GUIDES = ['glp-1-weight-loss', 'sexual-wellness', 'hair-restoration', 'healthy-aging-vitality', 'nad-therapy', 'modern-healthcare', 'mens-hormone-therapy', 'womens-hormone-therapy'];
+// Built guides in series order, minus those held back from publishing (src/data/held-ebooks.json).
+import { readFileSync as __readHeld } from 'node:fs';
+const HELD = JSON.parse(__readHeld(new URL('../src/data/held-ebooks.json', import.meta.url), 'utf8')).slugs;
+const GUIDES = ['glp-1-weight-loss', 'sexual-wellness', 'hair-restoration', 'healthy-aging-vitality', 'nad-therapy', 'modern-healthcare', 'mens-hormone-therapy', 'womens-hormone-therapy'].filter((g) => !HELD.includes(g));
+const GUIDE_TITLES = { 'modern-healthcare': 'Modern Healthcare', 'mens-hormone-therapy': 'Men’s Hormone Therapy', 'womens-hormone-therapy': 'Women’s Hormone Therapy', 'nad-therapy': 'NAD+ Therapy' };
 const PROGRAMS = [
   ['/weight-loss', 'glp-1-weight-loss', 'weight-loss'],
   ['/hair-restoration', 'hair-restoration', 'hair-restoration'],
@@ -24,8 +28,8 @@ import { readFileSync as __read } from 'node:fs';
 const __ebooks = __read(new URL('../src/data/ebooks.ts', import.meta.url), 'utf8');
 // Each guide's entry runs from its `slug:` line to the next one; a published guide has a `pdf:` line in it.
 const __entries = __ebooks.split(/\n\s*slug: '/).slice(1).map((part) => ({ slug: part.slice(0, part.indexOf("'")), pdf: /\n\s*pdf: '/.test(part) }));
-const EBOOK_SLUGS_PUBLISHED = __entries.filter((e) => e.pdf).map((e) => e.slug);
-const EBOOK_SLUGS_UNPUBLISHED = __entries.filter((e) => !e.pdf).map((e) => e.slug);
+const EBOOK_SLUGS_PUBLISHED = __entries.filter((e) => e.pdf && !HELD.includes(e.slug)).map((e) => e.slug);
+const EBOOK_SLUGS_UNPUBLISHED = __entries.filter((e) => !e.pdf && !HELD.includes(e.slug)).map((e) => e.slug);
 const check = (name, ok, detail = '') => { console.log(`${ok ? 'PASS' : 'FAIL'}  ${name}${detail ? '  -> ' + detail : ''}`); if (!ok) fails++; };
 
 const browser = await chromium.launch();
@@ -92,7 +96,7 @@ async function articleLinks(ctx, base) {
   await page.locator('[data-ring-prev]').click();
   await page.waitForTimeout(200);
   // The last guide in src/data/ebooks.ts (the hormone guides were added after Modern Healthcare, 2026-11-10).
-  check('previous from the first wraps round to the last', (await page.locator('[data-ring-name]').innerText()) === 'Women’s Hormone Therapy');
+  check('previous from the first wraps round to the last', (await page.locator('[data-ring-name]').innerText()) === GUIDE_TITLES[GUIDES[GUIDES.length - 1]]);
   await page.locator('[data-ring-dot="2"]').click();
   await page.waitForTimeout(200);
   check('a dot goes straight to its guide', (await page.locator('[data-ring-name]').innerText()) === 'Hair Restoration');

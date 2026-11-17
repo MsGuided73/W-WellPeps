@@ -94,9 +94,10 @@ describe('reviewer details', () => {
 
 describe('Smart Patient Guide reviews', () => {
   it('covers every guide in the series, and nothing that is not a guide', async () => {
-    const { EBOOKS } = await import('./ebooks');
+    const { ALL_EBOOKS } = await import('./ebooks');
     const { GUIDE_REVIEWS } = await import('./medical-review');
-    expect(Object.keys(GUIDE_REVIEWS).sort()).toEqual(EBOOKS.map((b) => b.slug).sort());
+    // Every built guide, including ones held back from publishing.
+    expect(Object.keys(GUIDE_REVIEWS).sort()).toEqual(ALL_EBOOKS.map((b) => b.slug).sort());
   });
 
   it('gives each guide the reviewer and date, and nothing for an unknown guide', async () => {
