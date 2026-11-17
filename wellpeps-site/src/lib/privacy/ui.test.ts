@@ -79,11 +79,26 @@ describe('bannerCopy: written from the tool list, so it cannot promise what the 
     expect(text).toContain('Ad pixel');
   });
 
-  test('says advertising runs on health-topic pages only with a separate yes that "Accept all" does not give', () => {
+  test('says ad measurement runs on health-topic pages only with a second yes that "Accept all" does not give', () => {
     const text = bannerCopy([tool({ id: 'ads', name: 'Ad pixel', category: 'advertising' })]);
-    expect(text).toMatch(/advertising.*health.*separately/i);
-    expect(text).toMatch(/accept all.*does not include/i);
+    expect(text).toMatch(/health topics.*second yes/i);
+    expect(text).toMatch(/accept all.*doesn’t include/i);
+    // "Advertising" reads as showing ads; the site shows none (owner, 2026-11-17).
+    expect(text).not.toMatch(/advertising/i);
     expect(text).not.toMatch(/never/i);
+  });
+
+  test('uses a tool’s own introduction, says it stays off without a yes, and keeps the health-page rule', () => {
+    const text = bannerCopy([tool({ id: 'c', name: 'Curve Compliance conversion tracking', vendor: 'Curve Compliance, Inc.', category: 'advertising', bannerText: 'We’d like to use Curve Compliance, a service. We don’t show ads on this site.' })]);
+    expect(text).toMatch(/^We’d like to use Curve Compliance, a service\./);
+    expect(text).toMatch(/Curve stays off unless you say yes\./);
+    expect(text).toMatch(/second yes; “Accept all” doesn’t include those\./);
+  });
+
+  test('falls back to naming the tools when one has no introduction', () => {
+    const text = bannerCopy([tool({ name: 'Page counter', cookies: ['_x'] }), tool({ id: 'c', name: 'Curve', category: 'advertising', bannerText: 'Intro.' })]);
+    expect(text).toMatch(/We would like to use Page counter and Curve/);
+    expect(text).toMatch(/They stay off unless you say yes/);
   });
 
   test('with only an anonymous analytics tool it says it is on by default with an opt-out, and asks nothing', () => {
@@ -137,14 +152,14 @@ describe('the separate health-page advertising switch and the anonymous row', ()
   test('the health-page note no longer says advertising never runs there, and states the real rule', () => {
     const ads = tool({ id: 'ads', category: 'advertising' });
     expect(sensitiveNote([])).not.toMatch(/never/i);
-    expect(sensitiveNote([ads])).toMatch(/advertising.*only if you also allow/i);
+    expect(sensitiveNote([ads])).toMatch(/ad measurement.*only if you also allow/i);
     expect(sensitiveNote([tool({ anonymous: true })])).toMatch(/unless you turned them off/i);
   });
 
   test('a custom change reports the health-page advertising choice and, when changed, the anonymous statistics', () => {
     let s = reduce(defaultState(NOW, 'c'), { type: 'set', changes: { advertising: true, advertisingSensitive: true } }, NOW);
     expect(statusAfter({ type: 'set', changes: { advertisingSensitive: true } }, snap({ state: s }))).toMatch(
-      /Advertising is on, health-topic pages included/,
+      /Ad measurement is on, health-topic pages included/,
     );
     s = reduce(s, { type: 'set', changes: { anonymous: false } }, NOW);
     expect(statusAfter({ type: 'set', changes: { anonymous: false } }, snap({ state: s }))).toMatch(/Anonymous usage statistics are off/);

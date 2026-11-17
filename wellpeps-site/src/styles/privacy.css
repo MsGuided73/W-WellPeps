@@ -26,32 +26,67 @@
 .pc-btn[disabled] { opacity: 0.55; cursor: not-allowed; }
 .pc-btn[hidden] { display: none; }
 
-/* ---- Banner (only shown when an optional tool exists to ask about) ----
-   An ordinary bar at the very top of the page, above the sticky menu. It is not fixed or floating,
-   so it cannot cover the hero headline or buttons at any window size; it pushes the page down until
-   the visitor chooses, then goes away. The words and buttons are centered in the page width. */
-.pbanner {
-  background: var(--bg-pale-blue); color: var(--text-body);
+/* ---- First-visit privacy choice (only shown when an optional tool exists to ask about) ----
+   Owner, 2026-11-17: a centered pop-up over a dimmed page (.pbanner--modal). The three buttons have
+   equal weight. On the privacy and legal pages it is a slim bar above the menu instead (.pbanner--bar),
+   so those pages stay readable. */
+.pbanner { color: var(--text-body); line-height: 1.5; }
+.pbanner[hidden] { display: none; }
+.pbanner__title { margin: 0 0 0.35rem; }
+.pbanner p { margin: 0; }
+.pbanner__more { font-weight: 600; white-space: nowrap; }
+.pbanner__inner:focus { outline: none; }
+
+/* The pop-up. */
+.pbanner--modal {
+  position: fixed; inset: 0; z-index: 1000;
+  display: grid; place-items: center;
+  padding: 1rem var(--gutter);
+  background: rgba(12, 28, 56, 0.55);
+  overflow-y: auto;
+}
+.pbanner--modal .pbanner__inner {
+  width: min(100%, 36rem);
+  background: #fff; border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(12, 28, 56, 0.28);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  font-size: 1.0625rem;
+}
+.pbanner--modal .pbanner__title { font-size: 1.5rem; color: var(--navy); }
+.pbanner--modal .pbanner__buttons {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.6rem; margin-top: 1.5rem;
+}
+.pbanner--modal .pbanner__buttons .pc-btn { min-height: 48px; padding: 0.6rem 0.75rem; font-size: 1.0625rem; }
+/* The page behind cannot scroll while the pop-up is open (set by ui.ts). */
+html.pc-modal-open { overflow: hidden; }
+
+@media (max-width: 480px) {
+  .pbanner--modal .pbanner__inner { font-size: 1rem; }
+  .pbanner--modal .pbanner__title { font-size: 1.3rem; }
+  .pbanner--modal .pbanner__buttons { grid-template-columns: 1fr; }
+}
+
+/* The bar (privacy and legal pages): an ordinary bar at the very top, above the sticky menu. */
+.pbanner--bar {
+  background: var(--bg-pale-blue);
   border-bottom: 1px solid var(--border-strong);
   padding: 0.7rem var(--gutter);
   font-size: 0.9375rem; line-height: 1.45;
 }
-.pbanner[hidden] { display: none; }
-.pbanner__inner {
+.pbanner--bar .pbanner__inner {
   max-width: 64rem; margin: 0 auto;
   display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0.5rem 1.5rem;
 }
-.pbanner__title { font-size: 1.0625rem; margin: 0 0 0.15rem; }
-.pbanner p { margin: 0; }
-.pbanner__buttons { display: flex; flex-wrap: nowrap; gap: 0.5rem; }
-.pbanner__buttons .pc-btn { flex: none; padding: 0.6rem 1.1rem; font-size: 1rem; }
+.pbanner--bar .pbanner__title { font-size: 1.0625rem; margin-bottom: 0.15rem; }
+.pbanner--bar .pbanner__buttons { display: flex; flex-wrap: nowrap; gap: 0.5rem; }
+.pbanner--bar .pbanner__buttons .pc-btn { flex: none; padding: 0.6rem 1.1rem; font-size: 1rem; }
 
 @media (max-width: 860px) {
-  .pbanner { padding: 0.6rem var(--gutter) 0.7rem; font-size: 0.875rem; }
-  .pbanner__inner { grid-template-columns: 1fr; gap: 0.5rem; }
-  .pbanner__title { font-size: 0.9375rem; }
-  .pbanner__buttons { gap: 0.4rem; }
-  .pbanner__buttons .pc-btn { flex: 1 1 0; min-width: 0; min-height: 44px; padding: 0.5rem 0.4rem; font-size: 0.9375rem; }
+  .pbanner--bar { padding: 0.6rem var(--gutter) 0.7rem; font-size: 0.875rem; }
+  .pbanner--bar .pbanner__inner { grid-template-columns: 1fr; gap: 0.5rem; }
+  .pbanner--bar .pbanner__title { font-size: 0.9375rem; }
+  .pbanner--bar .pbanner__buttons { gap: 0.4rem; }
+  .pbanner--bar .pbanner__buttons .pc-btn { flex: 1 1 0; min-width: 0; min-height: 44px; padding: 0.5rem 0.4rem; font-size: 0.9375rem; }
 }
 
 /* ---- Panel (modal dialog) ---- */

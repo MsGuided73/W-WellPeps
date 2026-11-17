@@ -147,6 +147,10 @@ export function curveTracker(opts: CurveTrackerOptions): Tracker {
     // must stay true of what the script actually does.
     description:
       'Measures which of our adverts on Google and Meta led to a visit or a sign-up, so we can stop paying for ones that do not work. We do not show adverts on this site. It stores an identifier for this browser, records the pages you view and what you click, and shares conversion events with Meta and Google after removing health details. Depending on the settings in Curve’s account, it may also record how you move through our pages and take pictures of them. What it records is never tied to your name, email address or account, and our forms and the AI assistant are never recorded.',
+    // The first-visit pop-up (owner, 2026-11-17): visitors do not know who Curve is, so say it plainly.
+    // Describe, do not label: no "compliant" claim in our own words (the Privacy Policy avoids such labels).
+    bannerText:
+      'We’d like to use Curve Compliance, an ad-measurement service built for healthcare websites, to see which of our own ads on Google and Meta bring people to WellPeps. It removes health details before anything is shared, and it records what happens on our pages, never who you are. We don’t show ads on this site.',
     hosts: CURVE_HOSTS,
     cookies: CURVE_COOKIES,
     storageKeys: CURVE_STORAGE_KEYS,
