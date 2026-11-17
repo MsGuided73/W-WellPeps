@@ -18,6 +18,7 @@
  * - Quest Diagnostics and Labcorp are not named: the site may not name a lab partner without a written
  *   arrangement (src/lib/claims.test.ts). Restore the names only once that arrangement exists.
  */
+import type { CardPlan } from '../components/StandardProductCard.astro';
 import type { ProgramSlug } from '../lib/cta';
 
 export interface HormoneProduct {
@@ -37,6 +38,11 @@ export interface HormoneProduct {
    * LIVE_PRODUCTS (src/config.ts); otherwise it shows "Coming soon" and a non-clickable "Coming Soon" button.
    */
   price?: string;
+  /**
+   * Plan choices (e.g. 1 month / 3 months), each with its own price, renewal wording and GEN Health link.
+   * Each plan's `product` slug is its PRODUCT_LINKS key. Leave a plan's price out to keep it on Coming Soon.
+   */
+  plans?: CardPlan[];
 }
 
 export interface HormoneStep {
@@ -197,6 +203,13 @@ export const mensHormone: HormonePage = {
           'Prescription testosterone given by injection on a schedule set by your provider.',
         methodOfUse: 'Injectable',
         features: ['Injected on a prescribed schedule', 'Dose set by your provider', 'Ongoing provider monitoring'],
+        // Owner, 2026-11-17. GEN Health: 1 month $169 (LFYNjw8vldxMO6N52OCs); 3 months $299, a subscription
+        // charged every 3 months (WLP-PRD-4FG3HT). Labs are extra (priceExtra on the hormone cards).
+        price: '169',
+        plans: [
+          { label: '1 month', price: '169', priceUnit: '/month', product: 'Testosterone Cypionate' },
+          { label: '3 months', price: '299', priceUnit: '/3 months', product: 'Testosterone Cypionate 3 Month', renewal: 'Renews every 3 months, cancel anytime.' },
+        ],
       },
       {
         name: 'Testosterone Cream',
