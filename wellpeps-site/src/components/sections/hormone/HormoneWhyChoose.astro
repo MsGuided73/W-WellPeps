@@ -1,7 +1,8 @@
 ---
 /**
- * "Why choose WellPeps for hormone therapy": the Weight Loss Why Choose cards (photo, title, rule, body),
- * six of them in a 3 x 2 grid for Derek's six reasons.
+ * "Why choose WellPeps for hormone therapy": six icon boxes in a 3 x 2 grid (Derek, round 2 notes,
+ * 2026-11-13: "we don't need pictures, we could use icons and boxes"). Same card look as the home
+ * page's Why Choose (icon, title, rule, body), with the site's brand line icons.
  */
 import Icon from '../../Icon.astro';
 import type { HormonePage } from '../../../data/hormone';
@@ -21,12 +22,10 @@ const { why } = Astro.props.page;
     <div class="hwhy__grid reveal">
       {why.items.map((c) => (
         <article class="card hwhy__card">
-          <div class="hwhy__media"><img src={c.image} alt={c.alt} width="760" height="651" loading="lazy" /></div>
-          <div class="hwhy__body">
-            <h3>{c.title}</h3>
-            <hr class="rule" />
-            <p>{c.body}</p>
-          </div>
+          <img class="hwhy__icon" src={c.icon} width={c.w} height={c.h} alt="" loading="lazy" />
+          <h3>{c.title}</h3>
+          <hr class="rule" />
+          <p>{c.body}</p>
         </article>
       ))}
     </div>
@@ -45,15 +44,13 @@ const { why } = Astro.props.page;
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem;
     margin-top: clamp(2rem, 3vw, 3rem);
   }
-  .hwhy__card { overflow: hidden; display: flex; flex-direction: column; text-align: center; }
+  .hwhy__card { padding: 2.5rem 2rem 2.25rem; text-align: center; display: flex; flex-direction: column; align-items: center; }
   .hwhy__card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-  /* Near-square window, as on Weight Loss, so these photos show essentially uncropped (no sliced heads). */
-  .hwhy__media { aspect-ratio: 7 / 6; overflow: hidden; }
-  .hwhy__media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
-  .hwhy__body { padding: 1.6rem 1.6rem 1.9rem; display: flex; flex-direction: column; align-items: center; }
-  .hwhy__body h3 { font-size: var(--text-card-title); font-weight: 600; line-height: 1.2; }
-  .hwhy__body .rule { margin-top: 0.9rem; }
-  .hwhy__body p { margin-top: 0.9rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.55; }
+  /* Same height for every icon so the titles line up across a row; wide icons keep their shape. */
+  .hwhy__icon { height: 72px; width: auto; max-width: 110px; object-fit: contain; }
+  .hwhy__card h3 { font-size: var(--text-card-title); font-weight: 600; line-height: 1.2; margin-top: 1.4rem; }
+  .hwhy__card .rule { margin-top: 0.9rem; }
+  .hwhy__card p { margin-top: 0.9rem; color: var(--text-body); font-size: var(--text-card-body); line-height: 1.55; }
 
   .hwhy__more { text-align: center; margin-top: 2rem; }
   .hwhy__more .arrow-link { font-size: var(--text-lead); font-weight: 700; }

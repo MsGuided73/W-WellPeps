@@ -43,8 +43,10 @@ export interface HormoneStep {
 export interface HormoneWhy {
   title: string;
   body: string;
-  image: string;
-  alt: string;
+  /** Brand line icon (decorative; the title says what it means). */
+  icon: string;
+  w: number;
+  h: number;
 }
 
 export interface HormoneFaq {
@@ -110,15 +112,24 @@ export interface HormonePage {
 const PRODUCT_FOOTNOTE =
   'Treatment is prescribed only when a licensed provider decides it is appropriate for you. Pricing, supply length, and any lab costs are shown before you pay at checkout.';
 
-/** Why Choose cards: existing site photos (Derek: "use pictures we already have"). The copy differs by program. */
-const WHY_IMAGES = {
-  providers: { image: '/images/weight/why-doctor.webp', alt: 'A licensed provider on a telehealth call' },
-  testing: { image: '/images/weight/why-lab.webp', alt: 'A lab nurse preparing a test' },
-  review: { image: '/images/journey-2.webp', alt: 'A provider reviewing patient information on a laptop' },
-  options: { image: '/images/about/built-around-you.webp', alt: 'A smiling woman on the beach holding a water bottle' },
-  // Derek, 2026-11-12: no WellPeps branding on the box (the home page photo with the logo removed).
-  delivery: { image: '/images/hormone/delivery-plain-box.webp', alt: 'A woman opening a discreet delivery box at home' },
+/**
+ * Why Choose cards: the site's brand line icons in boxes, no photos (Derek, round 2 notes, 2026-11-13).
+ * The copy is Derek's, per program.
+ */
+const WHY_ICONS = {
+  providers: { icon: '/images/why-icon-provider.png', w: 142, h: 154 },
+  personalized: { icon: '/images/icons/included/support.png', w: 160, h: 160 },
+  pricing: { icon: '/images/icons/included/tag.png', w: 160, h: 160 },
+  pharmacies: { icon: '/images/why-icon-medications.png', w: 226, h: 160 },
+  convenient: { icon: '/images/icons/included/calendar-check.png', w: 160, h: 160 },
+  ongoing: { icon: '/images/why-icon-physician.png', w: 124, h: 140 },
 } as const;
+
+const WHY_SHARED = {
+  pricing: { title: 'Transparent Pricing. Exceptional Value.', body: 'Quality hormone therapy should come with clear, competitive pricing. Know what your treatment costs before you commit.', ...WHY_ICONS.pricing },
+  pharmacies: { title: 'Quality Medications From Licensed U.S. Pharmacies', body: 'When prescribed, your medications are fulfilled by licensed U.S. pharmacies, providing confidence in where your treatment comes from.', ...WHY_ICONS.pharmacies },
+  convenient: { title: 'Convenient Care That Fits Your Life', body: 'Access medical evaluations, treatment recommendations, and ongoing care through a convenient telehealth experience designed around your schedule.', ...WHY_ICONS.convenient },
+};
 
 const LAB_STEP_IMAGE = { image: '/images/hormone/journey-lab.webp', alt: 'A smiling lab technician preparing a sample' };
 
@@ -133,7 +144,8 @@ export const mensHormone: HormonePage = {
       'Provider-guided testosterone therapy online. A licensed provider reviews your symptoms and lab results and decides whether treatment is appropriate.',
   },
   hero: {
-    eyebrow: 'Men’s Hormone Therapy',
+    // Derek, round 2 (2026-11-13): the extra "Men’s Hormone Therapy" label above the title is dropped.
+    eyebrow: '',
     titleLead: 'Personalized Testosterone Therapy.',
     titleAccent: 'Real Medical Care.',
     lead:
@@ -217,7 +229,7 @@ export const mensHormone: HormonePage = {
       },
       {
         title: 'Complete Appropriate Lab Testing',
-        body: 'Complete the lab tests your provider orders at a nearby lab or, when appropriate, with an at-home kit. Lab fees are billed separately.',
+        body: 'Complete the lab tests your provider orders at a nearby lab. Lab fees are billed separately.',
         ...LAB_STEP_IMAGE,
       },
       {
@@ -244,16 +256,14 @@ export const mensHormone: HormonePage = {
   },
   why: {
     title: 'Why Choose WellPeps for Men’s Hormone Therapy?',
-    lead: 'Personalized Wellness. Simplified.',
+    lead: 'Personalized medical care. Trusted providers. Convenient treatment. Exceptional value.',
     items: [
-      // Different provider photos from the journey above (which now uses why-doctor and doctor-assessment).
-      { title: 'U.S.-Licensed Medical Providers', body: 'Your treatment is evaluated and prescribed by qualified medical professionals.', image: '/images/journey-2.webp', alt: 'A licensed provider reviewing patient information on a laptop' },
-      { title: 'Convenient Testing', body: 'Lab testing at a nearby lab or, when appropriate, with an at-home kit. Lab fees are billed separately.', ...WHY_IMAGES.testing },
-      { title: 'Medical Review of Lab Results', body: 'Your provider considers your lab results alongside your symptoms and medical history before deciding whether treatment is appropriate.', image: '/images/hair/works-personalized.webp', alt: 'A licensed provider reviewing lab results on a laptop' },
-      // Men's photos where the shared set shows women.
-      { title: 'Personalized Treatment Options', body: 'Injectable and topical testosterone options, with specialized therapies available for selected patients.', image: '/images/hormone/men-why-options.webp', alt: 'A man working out with dumbbells in his home gym while his partner smiles beside him' },
-      { title: 'Discreet Home Delivery', body: 'Prescribed medications are filled by licensed pharmacies and shipped directly to you.', ...WHY_IMAGES.delivery },
-      { title: 'Ongoing Care & Monitoring', body: 'Medical oversight continues beyond the first prescription, with follow-up based on your treatment needs.', image: '/images/program-hormone.webp', alt: 'A smiling man in a bright kitchen' },
+      { title: 'U.S.-Licensed Medical Providers', body: 'Your care is guided by licensed medical professionals who evaluate your health, review your needs, and determine whether treatment is appropriate.', ...WHY_ICONS.providers },
+      { title: 'Personalized Treatment, Not One-Size-Fits-All', body: 'Your health, symptoms, and treatment goals are unique. Our medical providers develop individualized treatment plans based on your clinical needs.', ...WHY_ICONS.personalized },
+      WHY_SHARED.pricing,
+      WHY_SHARED.pharmacies,
+      WHY_SHARED.convenient,
+      { title: 'Care That Goes Beyond the Prescription', body: 'Hormone therapy isn’t one-size-fits-all or set-it-and-forget-it. Ongoing medical oversight helps ensure your treatment remains appropriate as your needs evolve.', ...WHY_ICONS.ongoing },
     ],
   },
   faqIntro: 'Get answers to the most frequently asked questions about men’s hormone therapy.',
@@ -404,7 +414,7 @@ export const womensHormone: HormonePage = {
       },
       {
         title: 'Complete Appropriate Lab Testing',
-        body: 'If your provider orders lab tests, complete them at a nearby lab or, when appropriate, with an at-home kit. Lab fees are billed separately.',
+        body: 'If your provider orders lab tests, complete them at a nearby lab. Lab fees are billed separately.',
         ...LAB_STEP_IMAGE,
       },
       {
@@ -431,15 +441,14 @@ export const womensHormone: HormonePage = {
   },
   why: {
     title: 'Why Choose WellPeps for Women’s Hormone Therapy?',
-    lead: 'Personalized Wellness. Simplified.',
+    lead: 'Personalized menopause care. Trusted medical providers. Convenient treatment. Exceptional value.',
     items: [
-      { title: 'U.S.-Licensed Medical Providers', body: 'Your treatment is evaluated and prescribed by qualified medical professionals.', ...WHY_IMAGES.providers },
-      { title: 'Convenient Lab Testing Options', body: 'When your provider orders lab tests, complete them at a nearby lab or, when appropriate, with an at-home kit. Lab fees are billed separately.', ...WHY_IMAGES.testing },
-      { title: 'Medical Review of Lab Results', body: 'Your provider considers relevant lab results alongside your symptoms and medical history before recommending treatment.', ...WHY_IMAGES.review },
-      { title: 'Personalized Treatment Options', body: 'Systemic and local hormone therapy options, tailored to your symptoms, medical needs, and treatment goals.', ...WHY_IMAGES.options },
-      { title: 'Discreet Home Delivery', body: 'Prescribed medications are filled by licensed pharmacies and delivered directly to your home.', ...WHY_IMAGES.delivery },
-      // The journey's step 5 now uses journey-5, so this card takes Derek's Cozy Morning Coffee photo.
-      { title: 'Ongoing Care & Monitoring', body: 'Medical oversight continues beyond the first prescription, with follow-up based on your individual treatment needs.', image: '/images/hormone/women-why-ongoing.webp', alt: 'A smiling woman relaxing on her sofa with a morning coffee' },
+      { title: 'U.S.-Licensed Medical Providers', body: 'Your care is guided by licensed medical professionals who evaluate your symptoms, health history, and individual needs to determine whether hormone therapy is appropriate.', ...WHY_ICONS.providers },
+      { title: 'Personalized Care for Your Stage of Life', body: 'Every woman’s menopause journey is different. Your treatment plan is tailored to your symptoms, health history, and personal treatment goals.', ...WHY_ICONS.personalized },
+      WHY_SHARED.pricing,
+      WHY_SHARED.pharmacies,
+      WHY_SHARED.convenient,
+      { title: 'Care That Goes Beyond the Prescription', body: 'Hormone therapy needs may change over time. Ongoing medical oversight helps ensure your treatment remains appropriate as your symptoms and needs evolve.', ...WHY_ICONS.ongoing },
     ],
   },
   faqIntro: 'Get answers to the most frequently asked questions about women’s hormone therapy.',
