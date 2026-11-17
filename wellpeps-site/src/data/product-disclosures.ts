@@ -44,6 +44,8 @@ export const SAFETY_PAGE: Partial<Record<ProgramSlug, string>> = {
   'sexual-wellness': '/safety/sexual-health',
   'hair-restoration': '/safety/hair-loss',
   'healthy-aging': '/safety/healthy-aging',
+  // Draft (A18), pending review: products stay out of LIVE_PRODUCTS until it is approved (test below).
+  'mens-hormone-therapy': '/safety/testosterone',
 };
 
 /** Where "What off-label means" goes (B5, which also explains off-label use). */

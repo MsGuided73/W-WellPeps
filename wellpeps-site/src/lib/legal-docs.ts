@@ -113,6 +113,11 @@ export const LEGAL_DOCS: readonly LegalDoc[] = [
   { id: 'A17', path: 'safety/healthy-aging', title: 'Healthy Aging and Vitality Medication Safety Information', label: 'Healthy Aging Safety Information', group: 'patient',
     blurb: 'Important safety information for healthy-aging and vitality products.',
     description: 'Important safety information for healthy-aging and vitality products prescribed through WellPeps, including warnings, compounded limits, and when to get help.', approved: true, effective: 'October 6, 2026' },
+  // Draft 2026-11-17, pending Dr. Yirga, pharmacy and counsel review (notes at the end of A18). Not approved, so
+  // it is built only in draft-preview deployments; approve it before any testosterone product goes live.
+  { id: 'A18', path: 'safety/testosterone', title: 'Testosterone and hCG Safety Information', label: 'Testosterone Safety Information', group: 'patient',
+    blurb: 'Important safety information for testosterone and hCG.',
+    description: 'Important safety information for testosterone and hCG prescribed through WellPeps, including warnings, who should not use them, required lab monitoring and when to get help.' },
   { id: 'B1', path: 'legal-review/electronic-records-consent', title: 'Electronic Records, Signatures and Communications Consent', label: 'Electronic Records Consent', group: 'checkout',
     blurb: 'Agreeing to sign and receive documents electronically (first screen of checkout).' },
   { id: 'B2', path: 'patient-terms', title: 'Patient Terms of Service and Payment Agreement', label: 'Patient Terms', group: 'patient',

@@ -40,14 +40,35 @@ interface Props {
   cover?: boolean;
   /** Where the treatment is not offered, e.g. "Not available to California residents." */
   availability?: string;
+  /**
+   * Plan choices with their own price, renewal wording and GEN Health product (e.g. 1 month / 3 months).
+   * Two or more show a toggle (radio buttons + CSS :has, no JavaScript); only the chosen plan's price,
+   * renewal line and button are displayed. Each plan goes live only with its own price and link.
+   */
+  plans?: CardPlan[];
+  /** Shown under the price, e.g. "Plus lab testing, billed separately." */
+  priceExtra?: string;
+}
+export interface CardPlan {
+  /** Toggle label, e.g. "1 month". */
+  label: string;
+  price?: string;
+  priceUnit: string;
+  /** Product name whose slug is the PRODUCT_LINKS key (e.g. "Testosterone Cypionate 3 Month"). */
+  product: string;
+  /** Renewal wording when it is not monthly. */
+  renewal?: string;
 }
 const {
   image, alt, name, description, form, features,
   price, priceUnit, priceNote, program,
-  productName, cover = false, availability,
+  productName, cover = false, availability, plans: planList, priceExtra,
 } = Astro.props;
+const plans: CardPlan[] = planList && planList.length > 1 ? planList : [{ label: form, price, priceUnit, product: name }];
+const multi = plans.length > 1;
+const group = `plan-${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
 ---
-<article class:list={['scard', { 'scard--cover': cover }]}>
+<article class:list={['scard', { 'scard--cover': cover, 'scard--plans': multi }]}>
   <div class="scard__media">
     <img src={image} alt={alt} width="720" height="540" loading="lazy" />
   </div>
@@ -72,21 +93,63 @@ const {
 
     <ProductDisclosures part="notes" program={program} name={name} />
 
-    <div class="scard__price">
-      <span class="scard__price-label">{price ? 'Starting at' : 'Pricing'}</span>
-      <span class="scard__price-row">
-        {price
-          ? <Fragment><span class="scard__price-amount">${price}</span><span class="scard__price-unit">{priceUnit}{priceNote ? '*' : ''}</span></Fragment>
-          : <span class="scard__price-pending">Coming soon</span>}
-      </span>
-    </div>
-    <ProductDisclosures part="renewal" />
+    {multi && (
+      <fieldset class="scard__plans">
+        <legend class="visually-hidden">Choose a plan for {name}</legend>
+        {plans.map((p, i) => (
+          <label class="scard__plan">
+            <input type="radio" name={group} value={String(i)} checked={i === 0} />
+            <span>{p.label}</span>
+          </label>
+        ))}
+      </fieldset>
+    )}
 
-    <AssessmentCta program={program} product={name} comingSoon={!price} class="scard__cta" arrow />
+    {plans.map((p, i) => (
+      <div class="scard__v" data-v={i}>
+        <div class="scard__price">
+          <span class="scard__price-label">{p.price ? (multi ? p.label : 'Starting at') : 'Pricing'}</span>
+          <span class="scard__price-row">
+            {p.price
+              ? <Fragment><span class="scard__price-amount">${p.price}</span><span class="scard__price-unit">{p.priceUnit}{priceNote ? '*' : ''}</span></Fragment>
+              : <span class="scard__price-pending">Coming soon</span>}
+          </span>
+          {p.price && priceExtra && <span class="scard__price-extra">{priceExtra}</span>}
+        </div>
+        <ProductDisclosures part="renewal" renewal={p.renewal} />
+
+        <AssessmentCta program={program} product={p.product} comingSoon={!p.price} class="scard__cta" arrow />
+      </div>
+    ))}
   </div>
 </article>
 
 <style>
+  /* Plan toggle (e.g. 1 month / 3 months). Each plan's price, renewal line and button sit in a .scard__v
+     wrapper: display: contents when chosen (layout unchanged), display: none otherwise. */
+  .scard__v { display: contents; }
+  .scard__v:not([data-v="0"]) { display: none; }
+  .scard--plans:has(.scard__plans input[value="1"]:checked) .scard__v[data-v="0"],
+  .scard--plans:has(.scard__plans input[value="2"]:checked) .scard__v[data-v="0"] { display: none; }
+  .scard--plans:has(.scard__plans input[value="1"]:checked) .scard__v[data-v="1"],
+  .scard--plans:has(.scard__plans input[value="2"]:checked) .scard__v[data-v="2"] { display: contents; }
+  .scard__plans {
+    margin: 1.1rem 0 0; padding: 0.25rem; border: 1px solid var(--border); border-radius: var(--radius-sm);
+    display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 0.25rem; background: var(--bg-gray);
+  }
+  .scard__plan { position: relative; cursor: pointer; display: flex; }
+  .scard__plan input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+  .scard__plan span {
+    flex: 1; text-align: center; padding: 0.55rem 0.5rem; border-radius: calc(var(--radius-sm) - 3px);
+    font-weight: 700; font-size: var(--text-card-body); color: var(--text-muted); transition: background var(--dur), color var(--dur);
+  }
+  .scard__plan input:checked + span { background: #fff; color: var(--navy); box-shadow: var(--shadow-sm); }
+  .scard__plan input:focus-visible + span { outline: 2px solid var(--blue); outline-offset: 2px; }
+  /* With plans, the toggle takes the bottom-aligning margin so it sits right above the price. */
+  .scard--plans .scard__plans { margin-top: auto; }
+  .scard--plans .scard__price { margin-top: 1rem; }
+  .scard__price-extra { display: block; margin-top: 0.35rem; color: var(--text-muted); font-size: var(--text-note); }
+
   .scard {
     display: flex; flex-direction: column;
     background: #fff;

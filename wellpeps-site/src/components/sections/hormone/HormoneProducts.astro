@@ -34,6 +34,8 @@ const { products, program } = Astro.props.page;
           features={p.features}
           price={p.price}
           priceUnit="/month"
+          plans={p.plans}
+          priceExtra="Plus lab testing, billed separately."
           program={program}
         />
       ))}

@@ -87,6 +87,13 @@ describe('the wording', () => {
       if (!resolveCta(program).isComingSoon) expect(SAFETY_PAGE[program], `${program} is open but has no safety page`).toBeTruthy();
     }
   });
+  test('an open program has an approved (published) safety page, not only a draft', () => {
+    for (const program of PROGRAM_SLUGS) {
+      if (resolveCta(program).isComingSoon) continue;
+      const doc = LEGAL_DOCS.find((d) => `/${d.path}` === SAFETY_PAGE[program]);
+      expect(doc?.approved, `${program} is open but its safety page ${SAFETY_PAGE[program]} is not approved`).toBe(true);
+    }
+  });
   test('the four launched programs keep their safety pages', () => {
     for (const program of ['weight-loss', 'sexual-wellness', 'hair-restoration', 'healthy-aging'] as const) {
       expect(SAFETY_PAGE[program], program).toBeTruthy();

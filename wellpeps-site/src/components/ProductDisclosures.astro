@@ -21,8 +21,10 @@ interface Props {
   part: 'notes' | 'renewal';
   program?: ProgramSlug;
   name?: string;
+  /** Renewal wording for a plan that does not renew monthly (e.g. "Renews every 3 months, cancel anytime."). */
+  renewal?: string;
 }
-const { part, program, name } = Astro.props;
+const { part, program, name, renewal } = Astro.props;
 
 const showDrafts = draftPagesEnabledNow();
 const live = (href: string) => linkVisible(href, showDrafts);
@@ -51,7 +53,7 @@ const learnLabel = d?.regulatory === 'compounded' ? 'Understanding Compounded Me
   </div>
 )}
 {part === 'renewal' && (
-  <p class="pdisc__renew">{RENEWAL_LINE}{live(REFUND_PAGE) && <Fragment>{' '}<a href={REFUND_PAGE}>Refund &amp; cancellation</a></Fragment>}</p>
+  <p class="pdisc__renew">{renewal ?? RENEWAL_LINE}{live(REFUND_PAGE) && <Fragment>{' '}<a href={REFUND_PAGE}>Refund &amp; cancellation</a></Fragment>}</p>
 )}
 
 <style>
