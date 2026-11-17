@@ -39,7 +39,7 @@ const ART: Record<string, CardArt> = {
     photo: `${IMG}/photo-1.png`,
     photoAlt: 'Woman relaxing in warm sunlight',
     vial: `${IMG}/vial-1.png`,
-    vialAlt: 'Glutathione vial',
+    vialAlt: 'An amber vial labeled Glutathione, Compounded, Rx Only',
     vialPos: 'left:71.4%;top:65.7%;width:25.4%',
     icon: 'M12 3.5l6.5 2.4v4.8c0 4.2-2.8 7.2-6.5 8.8-3.7-1.6-6.5-4.6-6.5-8.8V5.9L12 3.5zM9.4 12l1.9 1.9 3.3-3.6',
   },
@@ -47,7 +47,7 @@ const ART: Record<string, CardArt> = {
     photo: `${IMG}/photo-2.png`,
     photoAlt: 'Man hiking in the mountains',
     vial: `${IMG}/vial-2.png`,
-    vialAlt: 'Sermorelin vial',
+    vialAlt: 'An amber vial labeled Sermorelin, Rx Only',
     vialPos: 'left:65.4%;top:62.8%;width:31.1%',
     icon: 'M7.5 4h9M7.5 20h9M8.5 4.5v2c0 2.6 3.5 3.6 3.5 5.5s-3.5 2.9-3.5 5.5v2M15.5 4.5v2c0 2.6-3.5 3.6-3.5 5.5s3.5 2.9 3.5 5.5v2',
   },
@@ -55,7 +55,7 @@ const ART: Record<string, CardArt> = {
     photo: `${IMG}/photo-3.png`,
     photoAlt: 'Woman jogging along the coast',
     vial: `${IMG}/vial-3.png`,
-    vialAlt: 'B12 MIC vial',
+    vialAlt: 'An amber vial labeled B12 MIC, Rx Only',
     vialPos: 'left:70%;top:66.5%;width:25.4%',
     icon: 'M12 4.5s5 5.6 5 9.3a5 5 0 11-10 0c0-3.7 5-9.3 5-9.3z',
   },
@@ -63,7 +63,7 @@ const ART: Record<string, CardArt> = {
     photo: `${IMG}/photo-4.png`,
     photoAlt: 'Woman stretching in a pool',
     vial: `${IMG}/vial-4.png`,
-    vialAlt: 'NAD+ vial',
+    vialAlt: 'An amber vial labeled NAD+, Rx Only',
     vialPos: 'left:71.8%;top:67.4%;width:26.5%',
     icon: 'M13 3.5L6.5 13.5H11L10.5 20.5L17.5 10.5H13L13 3.5z',
   },
@@ -77,7 +77,9 @@ const therapies = CARD_ORDER.map((name) => {
         'Renaming a product there must be mirrored in CARD_ORDER here.'
     );
   }
-  return { ...ART[name], ...product };
+  // `icon` here is an SVG path (ART above); the product's own `icon` is an Icon.astro name, which is not
+  // a path. Keep ART's, or the badge renders empty and the browser logs an invalid-path error.
+  return { ...ART[name], ...product, icon: ART[name].icon };
 });
 
 ---
