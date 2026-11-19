@@ -37,14 +37,14 @@ export const TAG_LABEL: Record<Regulatory, string> = {
   'off-label': 'Off-label use',
 };
 
-/** The program's safety page (A14 to A17). The hormone programs have none yet: their safety pages must be drafted
- *  and approved by counsel before either program opens (product-disclosures.test.ts enforces this). */
+/** The program's safety page (A14 to A18). Women's Hormone Therapy has none yet: its safety page must be drafted
+ *  and approved before that program opens (product-disclosures.test.ts enforces this). */
 export const SAFETY_PAGE: Partial<Record<ProgramSlug, string>> = {
   'weight-loss': '/safety/glp-1',
   'sexual-wellness': '/safety/sexual-health',
   'hair-restoration': '/safety/hair-loss',
   'healthy-aging': '/safety/healthy-aging',
-  // Draft (A18), pending review: products stay out of LIVE_PRODUCTS until it is approved (test below).
+  // A18, approved 2026-11-19 (owner) and released with Testosterone Cypionate.
   'mens-hormone-therapy': '/safety/testosterone',
 };
 

@@ -1,7 +1,7 @@
 {
  "title": "Testosterone and hCG Safety Information",
- "version": "0.1",
- "date": "November 17, 2026",
+ "version": "1.0",
+ "date": "November 19, 2026",
  "blocks": [
   {
    "t": "h1",
@@ -9,7 +9,7 @@
   },
   {
    "t": "p",
-   "text": "Last updated: November 17, 2026  |  Version 0.1 (draft for medical review)",
+   "text": "Last updated: November 19, 2026  |  Effective: November 19, 2026  |  Version 1.0",
    "italic": true,
    "align": null
   },
@@ -408,12 +408,12 @@
   },
   {
    "t": "callout",
-   "text": "**For the team, not part of the document.** Draft written 2026-11-17 so Testosterone Cypionate can open on the Men’s Hormone Therapy page. It must be reviewed and approved before it is published:\n•  Dr. Yirga: medical accuracy of every section, especially sections 5 to 9 and the table.\n•  Pharmacy (Scriptful): the injection’s oil, the cream base and strengths, storage directions.\n•  Counsel: section 4 (controlled substance) and DEA telemedicine status for prescribing testosterone.\n•  Owner: approve, then set approved: true in src/lib/legal-docs.ts and add the testosterone keys to LIVE_PRODUCTS.\nThe page is built only in draft-preview deployments until it is approved.",
+   "text": "**For the team, not part of the document.** Written 2026-11-17 so Testosterone Cypionate could open on the Men’s Hormone Therapy page. Approved by the owner 2026-11-19 (medical, pharmacy and counsel review) and released the same day with Testosterone Cypionate. Any later change to the text needs the same review and a new Last updated date.",
    "kind": "note"
   }
  ],
  "id": "A18",
  "docTitle": "Testosterone and hCG Safety Information",
- "source": "written in the repo (draft for medical review)",
+ "source": "written in the repo",
  "reviewerNotesOmittedBlocks": 0
 }

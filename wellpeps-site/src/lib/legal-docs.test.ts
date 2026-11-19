@@ -81,10 +81,13 @@ describe('draft page switch', () => {
   test('only documents the owner has released are approved', () => {
     // Released by the owner for the 2026-10-06 launch audit. A1, A2, A6 and A7 replace the old template pages at
     // the same addresses. Held back: A5 (the live interactive page stays), A11 (texts go through the patient portal)
-    // and the portal-only forms B1, B3, B6, B7, B8.
+    // and the portal-only forms B1, B3, B6, B7, B8. A18 (testosterone safety) released 2026-11-19 with Testosterone
+    // Cypionate.
     expect(LEGAL_DOCS.filter((d) => d.approved).map((d) => d.id)).toEqual(
-      ['A1', 'A2', 'A3', 'A4', 'A6', 'A7', 'A8', 'A9', 'A10', 'A12', 'A13', 'A14', 'A15', 'A16', 'A17', 'B2', 'B4', 'B5']);
-    for (const d of LEGAL_DOCS.filter((x) => x.approved)) expect(d.effective).toMatch(/^October ([56]|12), 2026$/);
+      ['A1', 'A2', 'A3', 'A4', 'A6', 'A7', 'A8', 'A9', 'A10', 'A12', 'A13', 'A14', 'A15', 'A16', 'A17', 'A18', 'B2', 'B4', 'B5']);
+    for (const d of LEGAL_DOCS.filter((x) => x.approved)) {
+      expect(d.effective).toMatch(d.id === 'A18' ? /^November 19, 2026$/ : /^October ([56]|12), 2026$/);
+    }
   });
 });
 

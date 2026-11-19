@@ -1,102 +1,112 @@
 {
   "version": 1,
-  "salt": "chzAalpD4/pq4DK/qHtGXg==",
+  "salt": "7+Z/YsRwgxYp8hzq2KmPWw==",
   "iterations": 600000,
   "links": {
     "compounded-semaglutide": {
-      "iv": "ZfbaS56GyYJ5CgIG",
-      "data": "1KB6sLZikWABL/GEwgK3+nxp+KHM2UdXDi4+bG5Z524OsHBs8qUcbNHDqz6txcD0MhvLdc+F3VhCeBf24GnFlPZgvS/nJeGhOpcU+rCrf6xddFhwDZn6/fBe9smCvL67E5eyJlPfHUI4CfxzMgjqrZrNtehJqso=",
+      "iv": "FY1IhVNya5/AawXP",
+      "data": "ftIKckejDTsVor85kmXDKMCYBLN3U3toFl3dQ3i3UANacuQDx8MS1s5QPI7MibXoYeJywP91AkxMnnFgu+VWkDar6Hgq9nYrMT3FIIbNsrbdJJl/KUPL6j2YEg/KlcIRrULAShbND+iPokk1kkTwT7+N3Fduxm8=",
       "fingerprint": "ff06c5a3a53fd9d1fd35fdec976b9ca128c2f9446753765578c4b145919917ea"
     },
     "compounded-tirzepatide": {
-      "iv": "GSuiijifXflYCRSb",
-      "data": "fBgR9hLvx72puiZQdJg18xqTBQTNgU/rfwor1mJQLY0CzRj4SkuMw8Mmuep2WSVkLkd5iArONnW/1zxWD2t8n/qHZ1frbI5hQbWh9nHFZN8vfyLGCDaVmJmzHkNLQtjoAkuWEAPUhEQnIiFTOxe0Y98JubMLguk=",
+      "iv": "aSpe8n/f8E3/zFHR",
+      "data": "WspBVesCkT32nhdLHPM9BcqjvN6Dpwn0KNk2yJMQQjav4CaITouJlbEnkH9A9wsyPjNN/zRpaA97rqjtS+Jd5C9DSgAM1YNb2Nq3MwgAZRaNAWMuFhIrdd7ww4XpcPpEwSwPh6APj0Y6VamvAeIRXSJAQzyRx64=",
       "fingerprint": "340d1aafb21f37da6d467c0d782a42170760d41e41378097e0a2336c704b951c"
     },
     "oral-semaglutide": {
-      "iv": "QpQgljMBceGgqHi+",
-      "data": "GBSHmYTvnnnfB3MepeGBZGnFRtCHA8mp/YH0YgStwNes1rqfX0sl3lS3mt0hc2YYYUQIFsbQBP7j4fX/HqBBfY1/fOkD1l24zdhxm1+jw1zPgsIO7obbilTrd+B13dIHcta+d3q802XEHVJ/mHl+gYXK8WDr1+bYHw==",
+      "iv": "iHWp3mE82QMiq/Eu",
+      "data": "ABn6fgys1qDK2yLoCPyngrA8/ZG5rE/90oQOUalor2T0j3sGhOoeb75vcxcz6yZk0c7gwexORsIp90DNEdLL2JqR/usszdN4VCBwfd2Vq6eTmm8wYjfjXjc+gj6eZGYl8tfKEbu51Vu9cazyrFcs4vX1KWhOLpVUDw==",
       "fingerprint": "e536bad70d362e098dffa49d1ee25974b077fd4862b33f390c862fb9dc32b4f6"
     },
     "oral-tirzepatide": {
-      "iv": "jDxBXDxl9Zo1Ql+u",
-      "data": "AtExkkHj8EN/p7F5YsaC4MVNvGYIpa9WM98dgU+Wn7btXn1raj7lFjOOd4KZXtTO84w6orZwon7ygVbIqeJNe/38ywqVgNngi3hlja6fOEiIUgpK+yl7R55wZwU2X/sem53Q7yYeZDMBUq6pGYiegbhMfjKdahE=",
+      "iv": "7uZO6zdmPab3jjYO",
+      "data": "0j4UpxW/Vtkrbk6qa9Teip0UcgGxONo5RHGbeDVQd6+jgtIU1/nI6AWMjQq+hnQeaKRzzXMVK8BqVBm8dmn1tI5d1d1d7V/9jUN07vNkFZV4ShPaECsKm7DwK7HEBMJMbnDeUZbpdhauxNvmnMjjLglIyE2ag2s=",
       "fingerprint": "4c8057967e4a7147fca9bf1aeda1c7799b6d9c7dce71232b8afcd414244af52b"
     },
     "oral-finasteride": {
-      "iv": "71tru7ujTiCDF1s8",
-      "data": "PDAhcdPrku1tW8qEdaR2xuuo6dAznGHrUe/+MIkFjXGPYSvEYIE5v1RozD1vYtPPRn9CL+u49fAP4R7Y51kdcMNIYYfh82GtT/s5eQIPLO/+xCA577oe2xVKmobh4CwM0+75iaWi6YWXe7Wa7z/8mnDVPkb6QZg=",
+      "iv": "j7pk3mwYe1YOpgqd",
+      "data": "r1qkVj6Ncb6OQINJ5+EeOcGU2NPnQs/iuC2wJUcfzzljyWHQQkMYm0GeHhE3X8mq6d+nbFYxgsjk8ydWQPV5jLNWbKbxdzKihh5BFjc/mm2z5LrDxcfYcwovIrZxHnS5UQTxVt1EOPdZgiI1AFDR/i2tQLhtwWY=",
       "fingerprint": "2a636089e460abeb63b53285e61ecf5d437fef98097281cc31369143c00f59f2"
     },
     "oral-minoxidil": {
-      "iv": "qqYKkvPFmqlGd349",
-      "data": "Y2qXuqJ4m2COE10yJCR9e/K9kWrKTQgB/9o5NLL/edvMw8NUf+0qgsjtg0szXSsV08Jwh3jXydKuGmItAZxp2nBC5EQe/3S7/1lwDZRi/cB8xTRaj0BK4sHNyJxDkfrN6QrcoAVix9WHuA3SQ35R8z87XeMiHlE=",
+      "iv": "nqtaP++uEYm7ZqIs",
+      "data": "aEhtBApdsrBXkddFo1QtRpiZqO1MnJq8at/4lF6yAYGCOnW/UzlDJRbRXaTCBiEvQphP/+xNTC0ZtOc41GoZeVT242/WTjrQssrV5M0VSh3wrD9YylgS82EuvtAsAt5TNEAs1L0NB/g/IAWqKipwNFptIUcUrUA=",
       "fingerprint": "7c5ed8e7b868d0c5dd5c5db9fb6f103321b76a40ad95ca5504efdbce794a34ca"
     },
     "topical-minoxidil": {
-      "iv": "+ahmNuVsM9lBXPS/",
-      "data": "1VXEJ6I7kCTuPI7M/Bld6fbyABFw1uh91RozFWW+cNTzyfZUkBM9uVUUXeXsWRxgV12W/Mj0lxpn+8imeuDZJ2VSZ6Pkg6ZVL0AgtAHuJDbQ84H4WWaYx0WrjUnd16MYWOKol8qd1rLIZ3gQaLfb8HJP9iVAYXM=",
+      "iv": "2srrdffFs1snsR2N",
+      "data": "6CYthNpOgUmuwIq3yiIJ7vSvbQTBrgDEcjB6N/sC27O+UzkqSALodUpfjYkFUKZaXBSUxgty7zhoQC/V2Sj0KP7MTqPhwuOKbomkbZRdVQtYeVqNeEk3e0cFLD1jWcKfYu/s2MK91vT6XueYldLI8qtzlqeyW0M=",
       "fingerprint": "94fd0ee978abf09b82842f09e93dbacf1cf7473b62b2b1c238da21f85946bbce"
     },
     "topical-minoxidil-finasteride": {
-      "iv": "TB4tMez3EvX6Y5Zm",
-      "data": "3a5p8oQpzpiwe1d5fMDqpHlbz5CEW56vIT9nc/K4dUAtz6M9rLomCzkKdnXoHGJf4M2rZnbymV2QIXMsviyrCM2sw04lDh+pKeeldOfw7X8fjClPfvXnQ2DnIXpxftX2He2JoAwOZ3ITrBvAlyVlfUpvu5B4lDQLNQ==",
+      "iv": "r2F074Ti6gzciQDN",
+      "data": "MDywKucBnamiczGfN827oW4R1ECeGRrWRn42d2zBDJkzviIA51XDchJFTBrikjUXuh+Tf2cStzbQ/hVY4MgeV0j5BiwvYyTBCFUeuHaBT6rgxrieRMmgmcWd0J6fvT6pRCm2PaDrKG9+si4GFAzMwD+QWl+QTB1gpA==",
       "fingerprint": "36c8162a60b8a5f2af00e64d48bc54bf9e5e835f798299c7d905c99ec193231a"
     },
     "topical-finasteride-minoxidil-tretinoin": {
-      "iv": "7jLwaCHAcK9WEqSd",
-      "data": "9tiJVDSSMJp1POaSKAWviEutoOLuCgcpzxKs9Qm3aTtYtd5Y33F4VGCzWSsJ3otGapkAtDl6r7XSDHgyVDjxjJLxBzkkK0fCvKCNmEeazCPQiGzlKFbFdX/B5FNS/SMrFnAB//smoh56IwwmUxrma3DIxO1KwVg=",
+      "iv": "YALXUuIj0EHIsVVE",
+      "data": "bDrRv13fgpUlPYkaHDUhrqNCCtfMfuTF6a+kda7/ERDwOINlzVQRUiclm8J/Dcs2+e6theDSCxdGOVlQZ+JbecDYEwwEWgjjXcDBgoJncTWqAG3vSgSuOpmVuEMg71Jc70pZ+9JuoTbyYXL8zg+wpeWlsGxlkLg=",
       "fingerprint": "c841fab2599d9c52965585609426641e0112ce92f71a6638936a376007847779"
     },
     "tadalafil-daily": {
-      "iv": "aow5Dl0uH3QMZ38D",
-      "data": "eoYz4eiOwZZ3haO1eDJT06rxGKvFghsCmT3O/vgdx4Xd5HEp7II7aBzreBhm8KM+CU/yRRhA+zTa1OCkjwot37i7L3SdAz5BDR4uVMez3G3/kPCe6xxbTt0LsQYUqvD2AHGn1g3roQVTHwdIUzE8ajFbcRYbYTE=",
+      "iv": "XSn9oo1VmJz2WRJQ",
+      "data": "ihsKf0J4gntTQGpHjm9DThNfNptC9jspIDSx+7xdq8kM2x5f5mCPkeQDtRgxAmbma/3qTJL4VXPF72mT6/z2WNfNpNmXody2Do2zs+sBVx2sVsZ0BmwQqxNpWp5HU961MvqIE0sTctiz07jFmNnTDZPVr8Wv4Qw=",
       "fingerprint": "cd67a3f19dc5aed857f0c6b7832a5d956e512250daa1105fbcbe0ccce5439765"
     },
     "tadalafil-as-needed": {
-      "iv": "vvLzvhbvSLJ6Q6F6",
-      "data": "r2hyt9/4FZorKYVKbXjc7QWOpgVeUMOB/DytLKvWoT+pJdkcy3PmbwxzWcSk+cFJISPnsXIkNwUikuHLzjABDbH/ItN5RXMH1Jr/SvS4OgQbXLRDMb3AmqM+bLYWoo5Kp2CqCOBm5vS9OByqTah+9CEt/JM4j+p1Bw==",
+      "iv": "MRN0TkXPknCZzYSG",
+      "data": "uZ/rCOxn5ETkZ22k84wKHJ1tyuDHF71uiH3uYlfTw/vw9c4THLIVsXoNcjKfZh760WZT0x/uCGK6jHwuY8qTPB1SO0lmdRLlxBl0/n8f+VH6FdETb9x+him0EbXI9NfsHYj+YVEXeX5tT/UdrsO62Io4P1Q1eddlfA==",
       "fingerprint": "83eb54e514be83baf3facc49b93c736f674316a4c7449585ff1237cf314cc373"
     },
     "sildenafil-as-needed": {
-      "iv": "XEiERzUN8y/dFGTM",
-      "data": "IyMHfkPCrEvLql6RSz1s1VNevr2my1s+QSgTAnosJrxVR8NWvw+k+WBoj1jCcrxlQsm0bZ19vH7J8XbMQb/PnThX8ET7xK5Vs5mpccQCi1JT4uTxh4uOBZICsSvCrFYlHgRYnGtrQ+xIsXo6xfornJswj4k2uUrg4g==",
+      "iv": "Kh9lLvb0LJHJ4PfP",
+      "data": "cdh7Kf0kje6S8C1zhESKVkCDK+ueT1fmTK7T6+681XySxcq3Qy5H5IuTPagQE5cAMao7OVh4PuVSdj5xrL5fJ55m4juDV16YDmLMRsRfkkaytlR9EUd2Z7DN9K2V7IeMKbOQhAOElMM/RiaepWhNEl48nOdsOSkM5w==",
       "fingerprint": "98f05c82747d30278df249ad0cb46ba5ff0230ff10686bd09ae3e10b8877cb09"
     },
     "sermorelin": {
-      "iv": "H5nre+tQ9ScN82Y7",
-      "data": "SDWUFOR35gBVSL+A8OI2X1pISkuk8frc5fXSyzFDZKiTM9kI7RA2Sy/8I1/UyWe9Ml9FjbbbopUU54vhgh1MVfO644FeZtgeBoulXRq6B2RaCsl9RvB8r/6iBeUq4BkxO5WeTCFspGd9lD87w3oMNr/bCz4NPEA=",
+      "iv": "kX3UrBtNc/Z/Kb3W",
+      "data": "xRq6FzImxyyobRa8YwpZCqtIm6RCXTx5S3Xmgk8aNaoqoQOqMLKkkgZ7WAmDU+9NEWLollR69sF52VAA8Q95CyFp54maF6/dC4thC7ANuIPUzHKwftFExET8d/IwMLAYIzGReIkP7t+X6YYERxm48QiNOOGmQJI=",
       "fingerprint": "839a6583d837bbde178a9c4b12b2a8f5be5acc78d87a125bd6ff1b505dbe78ea"
     },
     "nad": {
-      "iv": "hv/onHFB6nMfGN8P",
-      "data": "7+uPP73nZPkpzzwCIXtmYWnOo4G6KNaTuhGZWqFBCvxnPdodr7F2CoRoiniiS2V+nyKDryBDpyc8dVUlZxO3oCb094B7vG/piCXk/39L989NxC7JA2LWrWTegUDwxujJQIZ/hDBqJZcPczb0CHBh9ggcQBNBDks=",
+      "iv": "bbIepMMXXiBUeWzc",
+      "data": "1iEfpyT9UspWJlmqHkHRhZrhtUHs7exqXQdDnheObxtYSMpC43cmB2NdRdaim4EaC/e51rjPOc+r3aO9r4V1Il657ZevFx15rGF9SFKr67df/yimUj8W6wxfEtq8E6Y2Q4wPqQdc29bYDtoKtZH2YvuPZCkun2o=",
       "fingerprint": "b7a5dd665ea822cc8fe6b2a72e87c8af0b44a1349d21ca5458db6feb42ca481c"
     },
     "nad-nasal-spray": {
-      "iv": "+kjjHaX3Qq5dChal",
-      "data": "b6LMGFJ5/zJ0XcV7i5ecgfwuqIShlrVtMfaywt2gmmXMFYKn7BEb7LS+xVtCRSH/U2JYgDYso1GUh/Sz7cfeWXaJL+HoufMqmTIbDW/Ufoi32deyZBRfPpG3GvN/aS7Fs4ZiWaYXL3RtGoCQUV+GASV0z15SlhU=",
+      "iv": "yFwDvqUKHuixSo2G",
+      "data": "eaYmEjRLFosOZ/L3IUgMndW1ew5BHp9qZrn/tnoGEAznZJkquoFwPxsJc9xAfGL+zhTPSINQH3QDV8pwN/539Cb3s+DF7PdqvS9+9Pb76A3uhshqFlR6dn5iHI0vnS35TJEUE6RAtGAte95KRNSJ0hkk1XSI0Ro=",
       "fingerprint": "6c205a02e1530066e1428348f9b2217c8254413ae9229b848f5aa4d02ac28dfb"
     },
     "glutathione": {
-      "iv": "aVnTwV0K9EbzkXE5",
-      "data": "c+/Uz12GHU+JOcMpKjuRTwD7YkT5Dn+ZE3rBr+iAKuv4F8C5RviTZPDKPN5Uqgbxb6dRuzpETuPX+5isSpa7s311Bac+sdjckjVmnhGSA90aN9WGfAfjumoYKFYQAdl+A8IeT3DtKcfvKyT3/TZJ21dUhKA6604=",
+      "iv": "VIrXjT18HvzUI5/9",
+      "data": "cjwtPecXSKB6K3IhMtHCsxUTxk81fG8WDdNRdvOoJA6IJpl9lxPSbuECgISFtceooyqDf/tSDoAvHFR0tb2jwFR7O2bmkfjqS7U6FO16JTIzD7f9rv1GFwm0I6WstQCRlVBIsE89p12In2CHSPQfW8rXdI/8OgA=",
       "fingerprint": "047dc9c1072a31f8257af1220f044b144524a318ac42fd3ff679c9b46526aff1"
     },
     "methylene-blue": {
-      "iv": "6sjjTO+41JF/rnWe",
-      "data": "xvK5WQ/6+PwNonhJ58CX2HtE8qFm8oBcme+WLKur2KSpQqDYt8Xz+mwmF5K3EVf/thkYrPVeK5+hwwuek8t6ikJtJW6P5qzI2KmMdo3E0lR9BFrlt3ucWPpaST5PaGn5989dD8xS45OOVV8B4ul/Y4BUY+itGdY=",
+      "iv": "hdBLr/AYSmJE3paH",
+      "data": "K70yyf0eymd8YXRROikfHtGHkF5WytGE+6GWeCoCQwYciNBtgaHSKQT5kytDMpLUdvteL/SiO8yzGZXwfeN6zFhFjk+kY4NysLcc+NqU/Lmzv0ad7tqoiicBR50NHVCtVkgyLsWcix0JkakXvMBIjlC+kHuZEqA=",
       "fingerprint": "c5416c6fc7bda996ee0137ddcbe3809dfe20b601930a270a6696dd278639ba68"
     },
     "mic-b12": {
-      "iv": "wYw1L07Cnb7nGvdr",
-      "data": "7MUDyYkmCWU8I7trKk4tbQ2aFguCWM2GlWEzAaJh0XWg/BWQZIr4UF7IYXUPYqqpPwe9lxLAUoETZf5cuONWVjlRg9/xy344MnJ7oSUIhsZ8c30r8zcIMtFlNEeKt5ncPQlHn2gl9lOfZNNGoiRx/w8hMpmD0yM=",
+      "iv": "m3t/r4s1AMO428M8",
+      "data": "qDsj5nxh6p78FzJJedwiSliPQfBkcgjVjEq2Yb/gb/aAw2BSPPYW2NaJcvNLVfQ1aa0I4CkBKzLWXfWWbLPni720lT38VxGxCcEUp+2ZnxwD6i461g53x0+sBBjLOT/ryjGoN4cUQeOM+Er/CI6G2y5mxxcdVZI=",
       "fingerprint": "9efd88764673f44716323ea2e257bf44bb58a3cd0022f232acb8ec03391065ec"
     },
     "lipo-c": {
-      "iv": "cyZaLKwBzej8lRlG",
-      "data": "HnpK4Udfn1JN8Mte1g10zrEMA7YoKIdhqQaaFpm7nNJdMrI5vjgl2LrzxmOHuLh24+AyNTUiyf7vrM3tKZiw7a35t86bKR9zRhIPAtqtrdEHuqiQl79pW76G/zzVVLK3I4PtJx9H/keK8m1eSPkgQiY7n87o+J+RDg==",
+      "iv": "S2yCRkUitLslve04",
+      "data": "mNSn6dCqm8PRlhJpsbrbrnzarfrA/MeU3s9NkYvK0CEynRk0+3FHtVhVtv46dgOkmtof7Ebwh1Ux7RaCiBhvM3qVqhaL02Mn8YRK43tl9bcsNQjtxU2KkWJt7irhRlET1GOJ5ssPhMbeP5C6peop0kK62JBp2mDAkQ==",
       "fingerprint": "548b1efd6b0d9ebdf274a9eb8d3bea9feecafb0fb8a29973a1006993fa5bc31a"
+    },
+    "testosterone-cypionate": {
+      "iv": "vX6HTXE+ZECms1I4",
+      "data": "byp/M+BmDIz1dXSrYS3zp3eCLZ0p06hpiMfNEhINjjNpEirEvXCEJsC5ukwrICelIu+jRwKJKee/K+0r+r6Do3XRPxH5/axeYMbS4+Mj72uVscc4IaZPWNgE7NfPURt+xlVmYJtBCKYf0fV3dNPvaDQhQ5YW9zk=",
+      "fingerprint": "f7322622f22ac988ca53460120c9304b20e7ed775582a7a996d28ca696464f97"
+    },
+    "testosterone-cypionate-3-month": {
+      "iv": "BoHnuDLrpv8+/eae",
+      "data": "KIHGFHw2P09x/FjaXEnKACi7fd8UkcvHptSpWXNEizkW9AUYWlIYWQ55dq5iwZlYBRz0PV6dg32smlUNpgCsP1dOp4524t/5Cu8+1/VoF8RakUQ5YSAELhpRAesqy6se9ji+SrqTgtPEkd0Oc2lgsYs=",
+      "fingerprint": "5a0821fcdba522c6d45f2a642f645740837ab6fb52dedd422d28e353dc832692"
     }
   }
 }
