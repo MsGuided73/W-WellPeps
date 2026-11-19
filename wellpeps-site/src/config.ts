@@ -122,8 +122,8 @@ export const PRODUCT_LINKS = {
   // GEN: "Wellness – Lipo-C" ($119/mo; created as a duplicate of MIC-B12 in GEN,
   // so confirm its formulary pairing is the L-carnitine formula)
   'lipo-c': { program: 'healthy-aging', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Ia4ee35szTk7xk02eBQp_1?checkoutFlow=intake_first' },
-  // mens-hormone-therapy (owner, 2026-11-17). Not in LIVE_PRODUCTS until the testosterone safety page
-  // (/safety/testosterone) is approved: a program cannot open without its safety information.
+  // mens-hormone-therapy (owner, 2026-11-17). Testosterone Cypionate live 2026-11-19 (owner), the day its
+  // safety page (/safety/testosterone, A18) was approved: a program cannot open without its safety information.
   // GEN: "Men's Hormone Plan – Testosterone Injectable (Cypionate / Enanthate)" ($169/mo)
   'testosterone-cypionate': { program: 'mens-hormone-therapy', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/LFYNjw8vldxMO6N52OCs?checkoutFlow=intake_first' },
   // GEN: "Men's Hormone Plan – 3 month Testosterone Injectable (Cypionate / Enanthate)" ($299, subscription every 3 months)
@@ -159,6 +159,9 @@ export const LIVE_PRODUCTS: readonly (keyof typeof PRODUCT_LINKS)[] = [
   'methylene-blue',
   'mic-b12',
   'lipo-c',
+  // Live 2026-11-19 (owner): priced, linked in GEN Health, safety page A18 approved.
+  'testosterone-cypionate',
+  'testosterone-cypionate-3-month',
 ];
 
 /** Every assessment link, keyed by program. Buttons never read these directly —
