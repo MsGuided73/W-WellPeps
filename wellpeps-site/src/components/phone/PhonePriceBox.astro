@@ -1,0 +1,130 @@
+---
+/**
+ * The phone price box: the first thing under a treatment page's headline.
+ *
+ * Every price is a choice (a radio button). The box's "See If You Qualify" button, and the header's
+ * (PhoneHeader), open the health questions for the one product chosen, through AssessmentCta, so the
+ * link always matches the product the visitor picked. Optional tabs group the products (e.g. Weekly
+ * injection / Daily tablet); switching tabs selects that tab's first product. The price terms sit
+ * under the button, next to the prices (LegitScript / FTC).
+ */
+import AssessmentCta from '../AssessmentCta.astro';
+import { toProductKey, type ProgramSlug } from '../../lib/cta';
+
+export interface PriceOption {
+  /** Product-card name: the key for its GEN Health link (PRODUCT_LINKS). */
+  product: string;
+  /** Short label above the price, e.g. "Semaglutide". */
+  label: string;
+  /** Whole dollars, e.g. "179". */
+  price: string;
+  /** Default "/mo". */
+  unit?: string;
+  /** Small line under the price, e.g. "Renews every 3 months". */
+  note?: string;
+  /** Name in the "For …" line; defaults to `product`. */
+  name?: string;
+}
+export interface PriceGroup {
+  label: string;
+  options: PriceOption[];
+}
+interface Props {
+  program: ProgramSlug;
+  groups: PriceGroup[];
+  /** Price terms under the button. */
+  terms?: string;
+  /** Optional product line above the prices (a single-product box). */
+  heading?: { image: string; title: string; sub: string };
+}
+
+export const DEFAULT_TERMS =
+  'Includes clinician review, follow-ups, medication if prescribed and standard shipping. Labs billed separately. Full refund if not prescribed.';
+
+const { program, groups, terms = DEFAULT_TERMS, heading } = Astro.props;
+const uid = `pbox-${program}-${Math.random().toString(36).slice(2, 7)}`;
+const all = groups.flatMap((g) => g.options);
+const keyOf = (o: PriceOption) => toProductKey(o.product);
+---
+<div class="ph-pbox" data-ph-pbox>
+  {heading && (
+    <div class="ph-pbox__hd">
+      <img src={heading.image} alt={heading.title} aria-hidden="true" width="46" height="46" />
+      <div><b>{heading.title}</b><span>{heading.sub}</span></div>
+    </div>
+  )}
+  {groups.length > 1 && (
+    <div class="ph-seg" role="group" aria-label="Show treatments">
+      {groups.map((g, i) => (
+        <button type="button" aria-pressed={i === 0 ? 'true' : 'false'} aria-controls={`${uid}-p${i}`} data-ph-seg={i}>{g.label}</button>
+      ))}
+    </div>
+  )}
+  {groups.map((g, gi) => (
+    <fieldset class:list={['ph-opts', `ph-opts--${Math.min(g.options.length, 3)}`]} id={`${uid}-p${gi}`} data-ph-panel={gi} hidden={gi > 0}>
+      <legend class="visually-hidden">Choose a treatment{groups.length > 1 ? `: ${g.label}` : ''}</legend>
+      {g.options.map((o, oi) => (
+        <label class="ph-opt">
+          <input
+            class="visually-hidden" type="radio" name={uid} value={keyOf(o)} checked={gi === 0 && oi === 0}
+            data-ph-opt data-name={o.name ?? o.product}
+          />
+          <span class="ph-opt__l">{o.label}</span>
+          <b>${o.price}<small>{o.unit ?? '/mo'}</small></b>
+          {o.note && <span class="ph-opt__n">{o.note}</span>}
+        </label>
+      ))}
+    </fieldset>
+  ))}
+  <p class="ph-sel" aria-live="polite" data-ph-sel>For <b>{all[0].name ?? all[0].product}</b> · ${all[0].price}{all[0].unit ?? '/mo'}</p>
+  {all.map((o, i) => (
+    <div class="ph-pbox__cta" data-ph-cta={keyOf(o)} hidden={i > 0}>
+      <AssessmentCta program={program} product={o.product} class="ph-btn" arrow />
+    </div>
+  ))}
+  <p class="ph-terms">{terms}</p>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-ph-pbox]').forEach((box) => {
+    const sel = box.querySelector<HTMLElement>('[data-ph-sel]');
+    const radios = [...box.querySelectorAll<HTMLInputElement>('input[data-ph-opt]')];
+    const ctas = [...box.querySelectorAll<HTMLElement>('[data-ph-cta]')];
+
+    const pick = (r: HTMLInputElement) => {
+      r.checked = true;
+      ctas.forEach((c) => { c.hidden = c.dataset.phCta !== r.value; });
+      if (sel) {
+        const label = r.closest('label');
+        const unit = label?.querySelector('small')?.textContent ?? '';
+        const price = label?.querySelector('b')?.firstChild?.textContent ?? '';
+        sel.textContent = '';
+        sel.append('For ');
+        const b = document.createElement('b');
+        b.textContent = r.dataset.name ?? '';
+        sel.append(b, ` · ${price}${unit}`);
+      }
+      const shown = ctas.find((c) => !c.hidden)?.firstElementChild ?? null;
+      box.dispatchEvent(new CustomEvent('ph:select', { detail: shown }));
+    };
+
+    radios.forEach((r) => r.addEventListener('change', () => pick(r)));
+
+    const segs = [...box.querySelectorAll<HTMLButtonElement>('[data-ph-seg]')];
+    const panels = [...box.querySelectorAll<HTMLElement>('[data-ph-panel]')];
+    segs.forEach((b) => b.addEventListener('click', () => {
+      segs.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      panels.forEach((p) => { p.hidden = p.dataset.phPanel !== b.dataset.phSeg; });
+      const first = panels.find((p) => !p.hidden)?.querySelector<HTMLInputElement>('input[data-ph-opt]');
+      if (first) pick(first);
+    }));
+
+    // Start from the checked option (a browser may restore a previous choice on Back).
+    const checked = radios.find((r) => r.checked) ?? radios[0];
+    if (checked) {
+      const panel = checked.closest<HTMLElement>('[data-ph-panel]');
+      if (panel?.hidden) segs.find((s) => s.dataset.phSeg === panel.dataset.phPanel)?.click();
+      else pick(checked);
+    }
+  });
+</script>

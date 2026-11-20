@@ -1,0 +1,53 @@
+---
+/**
+ * Two-up product cards for the phone layout. Each card's button opens that product's own health
+ * questions (AssessmentCta with the product), or shows Coming Soon when the product has no live
+ * link or no price yet. An optional help tile fills the grid's last cell.
+ */
+import AssessmentCta from '../AssessmentCta.astro';
+import Icon from '../Icon.astro';
+import type { ProgramSlug } from '../../lib/cta';
+
+export interface PhoneCard {
+  /** Product-card name: the key for its GEN Health link. */
+  product: string;
+  /** Title on the card; defaults to `product`. */
+  title?: string;
+  image: string;
+  alt: string;
+  tags: string[];
+  /** "$179/month", "From $139/month"; leave out for Coming soon. */
+  price?: string;
+  /** Show the image whole on the tint (vials), instead of filling the frame. */
+  contain?: boolean;
+  /** A short line under the price, e.g. a state limit. */
+  note?: string;
+}
+interface Props {
+  program: ProgramSlug;
+  cards: PhoneCard[];
+  help?: { title: string; body: string };
+}
+const { program, cards, help } = Astro.props;
+---
+<div class="ph-cards">
+  {cards.map((c) => (
+    <article class:list={['ph-card', { 'ph-card--soon': !c.price, 'ph-card--contain': c.contain }]}>
+      <img src={c.image} alt={c.alt} width="200" height="116" loading="lazy" decoding="async" />
+      <div class="ph-card__t">
+        <div class="ph-tags">{c.tags.map((t) => <span>{t}</span>)}</div>
+        <h3>{c.title ?? c.product}</h3>
+        <p class="ph-card__pr">{c.price ?? 'Coming soon'}</p>
+        {c.note && <p class="ph-card__note">{c.note}</p>}
+        <AssessmentCta program={program} product={c.product} comingSoon={!c.price} class="ph-mini" />
+      </div>
+    </article>
+  ))}
+  {help && (
+    <div class="ph-card ph-card--help">
+      <Icon name="stethoscope" />
+      <h3>{help.title}</h3>
+      <p>{help.body}</p>
+    </div>
+  )}
+</div>

@@ -6,6 +6,7 @@ import PeptideBenefits from '../components/sections/peptide/PeptideBenefits.astr
 import PeptideProducts from '../components/sections/peptide/PeptideProducts.astro';
 import PeptideFaq from '../components/sections/peptide/PeptideFaq.astro';
 import PeptideCta from '../components/sections/peptide/PeptideCta.astro';
+import PeptidePhone from '../components/sections/peptide/PeptidePhone.astro';
 import GuideBand from '../components/guides/GuideBand.astro';
 import { programAt, startingPrice } from '../lib/seo/catalog';
 import { breadcrumbs, faqPage, programService } from '../lib/seo/schema';
@@ -23,12 +24,15 @@ const jsonLd = [
   description={description}
   jsonLd={jsonLd}
 >
-  <PeptideHero />
-  <PeptideScience />
-  <PeptideBenefits />
-  <PeptideProducts />
-  {/* Products always come before the Smart Patient Guide band (Derek, 2026-11-12). */}
-  <GuideBand program="healthy-aging" />
-  <PeptideFaq />
-  <PeptideCta />
+  <div class="ph-only"><PeptidePhone /></div>
+  <div class="ph-hide">
+    <PeptideHero />
+    <PeptideScience />
+    <PeptideBenefits />
+    <PeptideProducts />
+    {/* Products always come before the Smart Patient Guide band (Derek, 2026-11-12). */}
+    <GuideBand program="healthy-aging" />
+    <PeptideFaq />
+    <PeptideCta />
+  </div>
 </BaseLayout>

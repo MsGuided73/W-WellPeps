@@ -30,7 +30,11 @@ const LEARN_MORE = '/cookie-notice/#3-4-optional-tools-that-run-only-if-you-say-
 >
   <div class="pbanner__inner" tabindex="-1" data-privacy-banner-card>
     <div class="pbanner__text">
-      <h2 class="pbanner__title" id="pbanner-title">Your privacy choices</h2>
+      <div class="pbanner__head">
+        {/* The WellPeps "W" marks the pop-up as ours (owner, 2026-11-19); decorative, the title names it. */}
+        {!inline && <img class="pbanner__mark" src="/images/w-mark-v2.png" alt="WellPeps W logo" aria-hidden="true" width="40" height="40" />}
+        <h2 class="pbanner__title" id="pbanner-title">Your privacy choices</h2>
+      </div>
       <p id="pbanner-text"><span data-pc-banner-text></span> <a class="pbanner__more" href={LEARN_MORE}>Learn more</a></p>
     </div>
     <div class="pbanner__buttons">

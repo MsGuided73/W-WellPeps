@@ -1,0 +1,72 @@
+---
+/**
+ * Hair Restoration page, phone layout (≤ 767px; the desktop sections are hidden there).
+ * Round-2 mockup: headline and three check lines, the price box (Oral / Topical), the guide row, all
+ * five treatments as cards, what the price covers, how hair treatments work, every FAQ, the guide
+ * band and the disclosures. Copy and prices come from data/hair.ts.
+ */
+import Icon from '../../Icon.astro';
+import PhonePriceBox from '../../phone/PhonePriceBox.astro';
+import PhoneProductCards from '../../phone/PhoneProductCards.astro';
+import PhonePriceBand from '../../phone/PhonePriceBand.astro';
+import PhoneFaq from '../../phone/PhoneFaq.astro';
+import PhoneGuide from '../../phone/PhoneGuide.astro';
+import { hairHero, hairProducts, hairProductsIntro, hairWorks, hairFaqs } from '../../../data/hair';
+import { HAIR_COMING_SOON } from '../../../config';
+import { COMPOUNDED_SENTENCE } from '../../../data/product-disclosures';
+
+const priced = (p: { price: string }) => /^\d+$/.test(p.price);
+const isOral = (name: string) => name.startsWith('Oral ');
+// Short labels for the price box; the "For …" line under it names the full product.
+const SHORT: Record<string, string> = {
+  'Oral Finasteride': 'Finasteride',
+  'Oral Minoxidil': 'Minoxidil',
+  'Topical Minoxidil': 'Minoxidil',
+  'Topical Minoxidil + Finasteride': 'Minoxidil + Finasteride',
+  'Topical Finasteride + Minoxidil + Tretinoin': 'Both, plus Tretinoin',
+};
+const option = (p: (typeof hairProducts)[number]) => ({ product: p.name, label: SHORT[p.name] ?? p.name, price: p.price });
+const groups = [
+  { label: 'Oral', options: hairProducts.filter((p) => isOral(p.name) && priced(p)).map(option) },
+  { label: 'Topical', options: hairProducts.filter((p) => !isOral(p.name) && priced(p)).map(option) },
+].filter((g) => g.options.length > 0);
+
+const compounded = (alt: string) => /compounded/i.test(alt);
+const cards = hairProducts.map((p) => ({
+  product: p.name,
+  image: p.image,
+  alt: p.alt,
+  tags: [p.methodOfUse.replace(/^Oral (Tablet|Capsule)$/, 'Oral'), ...(compounded(p.alt) ? ['Compounded'] : [])],
+  price: priced(p) ? `$${p.price}${p.priceUnit}` : undefined,
+}));
+const anyCompounded = hairProducts.some((p) => compounded(p.alt));
+---
+<div class="ph-page" style="--ph-tint:var(--ph-t-hair)">
+  <div class="ph-head"><h1>{hairHero.titleLead} <em>{hairHero.titleAccent}</em></h1></div>
+  <div class="ph-checks">
+    <div><i><Icon name="stethoscope" /></i><span><b>A licensed provider</b> reviews your answers and recommends a plan</span></div>
+    <div><i><Icon name="pill" /></i><span><b>Oral and topical options,</b> for men and women</span></div>
+    <div><i><Icon name="tag" /></i><span><b>One monthly price.</b> No setup or cancellation fee</span></div>
+  </div>
+
+  {groups.length > 0 && !HAIR_COMING_SOON && <PhonePriceBox program="hair-restoration" groups={groups} />}
+  <PhoneGuide program="hair-restoration" variant="row" question="Which treatment is right for me?" />
+
+  <h2 class="ph-htitle">All treatments</h2>
+  <PhoneProductCards
+    program="hair-restoration"
+    cards={cards}
+    help={{ title: 'Oral, topical, or both?', body: hairWorks[hairWorks.length - 1].body }}
+  />
+
+  <PhonePriceBand />
+
+  <section class="ph-band" style="background:var(--ph-t-gray)" aria-labelledby="ph-hair-works">
+    <h2 id="ph-hair-works">How hair treatments work</h2>
+    {hairWorks.map((w, i) => <p class="ph-li"><i>{i + 1}</i><span><b>{w.title}:</b> {w.body}</span></p>)}
+  </section>
+
+  <PhoneFaq faqs={hairFaqs} />
+  <PhoneGuide program="hair-restoration" variant="band" />
+  <p class="ph-fine">{anyCompounded && `Some treatments are compounded. ${COMPOUNDED_SENTENCE} `}{hairProductsIntro.footnote} Prescription required.</p>
+</div>

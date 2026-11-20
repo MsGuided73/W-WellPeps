@@ -1,0 +1,160 @@
+---
+/**
+ * Phone slide-in menu (opened by the ☰ button in PhoneHeader). A modal <dialog>, so focus stays inside
+ * it and Escape closes it. Programs first, in the desktop menu's order, each with its starting price;
+ * Hormone Therapy lists the men's and women's pages. Then the learning and help links, and the
+ * Patient Portal. It has no "See If You Qualify" button: every button of that name opens one
+ * product's health questions, and the menu has no product.
+ */
+import Icon from '../Icon.astro';
+import { PATIENT_PORTAL_URL } from '../../config';
+import { PROGRAMS, startingPrice } from '../../lib/seo/catalog';
+import { mensHormone, womensHormone } from '../../data/hormone';
+import { GUIDES_INDEX_PATH } from '../../lib/guide-flow';
+import { draftPagesEnabledNow, linkVisible } from '../../lib/legal-docs';
+
+const fromPrice = (path: string) => {
+  const p = PROGRAMS.find((x) => x.path === path);
+  const n = p && startingPrice(p);
+  return n === undefined ? undefined : `From $${n}/mo`;
+};
+const hormoneFrom = (items: { price?: string }[]) => {
+  const prices = items.map((i) => Number(i.price)).filter((n) => Number.isFinite(n) && n > 0);
+  return prices.length ? `From $${Math.min(...prices)}/mo` : 'Coming soon';
+};
+
+const programs = [
+  { href: '/weight-loss/', name: 'Weight Loss', sub: 'GLP-1 care', price: fromPrice('/weight-loss/'), image: '/images/weight/product-semaglutide-compounded.webp', tint: 'var(--ph-t-weight)' },
+  { href: '/hair-restoration/', name: 'Hair Restoration', sub: 'Oral and topical', price: fromPrice('/hair-restoration/'), image: '/images/hair/product-combo.webp', tint: 'var(--ph-t-hair)' },
+  { href: '/sexual-wellness/', name: 'Sexual Wellness', sub: 'Daily or as needed', price: fromPrice('/sexual-wellness/'), image: '/images/sexual/product-tadalafil-daily.webp', tint: 'var(--ph-t-sex)' },
+  { href: '/healthy-aging/', name: 'Healthy Aging', sub: 'NAD+ and more', price: fromPrice('/healthy-aging/'), image: '/images/peptide/vial-nad.webp', tint: 'var(--ph-t-aging)', contain: true },
+];
+const hormone = [
+  { href: mensHormone.path, name: mensHormone.name, sub: hormoneFrom(mensHormone.products.items) },
+  { href: womensHormone.path, name: womensHormone.name, sub: hormoneFrom(womensHormone.products.items) },
+];
+
+const showDrafts = draftPagesEnabledNow();
+const learn = [
+  { href: '/wellness-learning-center/', label: 'Learning Center' },
+  { href: `${GUIDES_INDEX_PATH}/`, label: 'Smart Patient Guides' },
+  { href: '/why-wellpeps/', label: 'Why WellPeps' },
+  { href: '/do-i-pay-if-im-not-prescribed/', label: 'Do I pay if I’m not prescribed?' },
+  { href: '/states-we-serve/', label: 'States we serve' },
+].filter((l) => linkVisible(l.href.replace(/\/$/, ''), showDrafts));
+---
+<dialog class="phm ph-only" id="ph-menu" aria-label="Menu" data-phm>
+  <div class="phm__head">
+    <a href="/" aria-label="WellPeps home"><img src="/images/logo-full-v2.png" alt="WellPeps" width="600" height="125" /></a>
+    <button type="button" class="phm__close" aria-label="Close menu" data-phm-close>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Programs">
+    <p class="phm__lbl">Programs</p>
+    <ul class="phm__list">
+      {programs.map((p) => (
+        <li>
+          <a class="phm__row" href={p.href}>
+            <img class:list={[{ contain: p.contain }]} src={p.image} alt={`${p.name} treatment`} aria-hidden="true" width="46" height="46" loading="lazy" style={`background:${p.tint}`} />
+            <span class="t"><b>{p.name}</b><span>{p.sub}{p.price && ` · ${p.price}`}</span></span>
+            <Icon name="arrow-right" />
+          </a>
+        </li>
+      ))}
+      <li>
+        <p class="phm__row phm__row--group">
+          <img src="/images/hormone/men-product-testosterone-cypionate.webp" alt="A vial of Testosterone Cypionate" aria-hidden="true" width="46" height="46" loading="lazy" style="background:var(--ph-t-horm)" />
+          <span class="t"><b>Hormone Therapy</b><span>For men and women</span></span>
+        </p>
+        <ul class="phm__sub">
+          {hormone.map((h) => (
+            <li><a href={h.href}><span><b>{h.name}</b><span>{h.sub}</span></span><Icon name="arrow-right" /></a></li>
+          ))}
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <nav aria-label="Learn">
+    <p class="phm__lbl">Learn</p>
+    <ul class="phm__links">
+      {learn.map((l) => <li><a href={l.href}>{l.label}<Icon name="arrow-right" /></a></li>)}
+    </ul>
+  </nav>
+
+  <div class="phm__foot">
+    <a class="phm__portal" href={PATIENT_PORTAL_URL}><Icon name="lock" />Patient Portal</a>
+    <p><Icon name="shield-check" />LegitScript Certified · Licensed U.S. clinicians</p>
+  </div>
+</dialog>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('[data-phm]');
+  const opener = document.querySelector<HTMLButtonElement>('[data-phm-open]');
+  if (dialog && opener) {
+    opener.addEventListener('click', () => {
+      dialog.showModal();
+      opener.setAttribute('aria-expanded', 'true');
+    });
+    dialog.querySelector('[data-phm-close]')?.addEventListener('click', () => dialog.close());
+    // A tap on the dimmed page beside the menu closes it.
+    dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
+    dialog.addEventListener('close', () => { opener.setAttribute('aria-expanded', 'false'); opener.focus(); });
+    // Links marked data-phm-proxy (e.g. "Explore treatments") open the menu on a phone instead of navigating.
+    document.querySelectorAll<HTMLAnchorElement>('[data-phm-proxy]').forEach((a) =>
+      a.addEventListener('click', (e) => {
+        if (!matchMedia('(max-width: 767px)').matches) return;
+        e.preventDefault();
+        opener.click();
+      }));
+    // Leaving phone width with the menu open closes it.
+    matchMedia('(min-width: 768px)').addEventListener('change', (e) => { if (e.matches && dialog.open) dialog.close(); });
+  }
+</script>
+
+<style>
+  .phm { display: none; }
+  @media (max-width: 767px) {
+    .phm[open] {
+      display: block; position: fixed; inset: 0 0 0 auto; margin: 0; height: 100%; max-height: 100dvh;
+      width: min(352px, calc(100vw - 42px)); max-width: none; box-sizing: border-box;
+      padding: 8px 0 max(28px, env(safe-area-inset-bottom)); border: 0; border-radius: 28px 0 0 28px;
+      background: #fff; color: var(--ph-ink); overflow-y: auto; overscroll-behavior: contain;
+      box-shadow: -16px 0 40px rgba(8, 20, 38, 0.25);
+      animation: phm-in 0.26s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .phm::backdrop { background: rgba(8, 20, 38, 0.48); }
+    .phm ul { list-style: none; margin: 0; padding: 0; }
+    .phm a { color: inherit; text-decoration: none; }
+    .phm__head { display: flex; justify-content: space-between; align-items: center; padding: 4px 12px 4px 18px; }
+    .phm__head img { height: 22px; width: auto; display: block; }
+    .phm__close { width: 44px; height: 44px; border-radius: 50%; border: 0; background: #f1f3f6; color: var(--ph-ink); display: grid; place-items: center; cursor: pointer; }
+    .phm__close svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+    .phm__lbl { font: 700 11px/1 var(--font-sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ph-muted); padding: 16px 18px 6px; margin: 0; }
+    .phm__row { display: flex; gap: 12px; align-items: center; padding: 7px 14px 7px 18px; min-height: 60px; box-sizing: border-box; margin: 0; }
+    .phm__row img { width: 46px; height: 46px; border-radius: 13px; object-fit: cover; flex: none; }
+    .phm__row img.contain { object-fit: contain; padding: 3px; box-sizing: border-box; mix-blend-mode: multiply; }
+    .phm__row .t { flex: 1; min-width: 0; display: grid; gap: 2px; }
+    .phm__row b { font: 600 16px/1.15 var(--ph-head); }
+    .phm__row .t > span { font-size: 12.5px; color: var(--ph-body); }
+    .phm__row :global(svg) { width: 18px; height: 18px; color: var(--ph-ink); flex: none; }
+    .phm__sub { margin: 2px 14px 4px 76px !important; border-left: 2px solid var(--ph-t-horm); }
+    .phm__sub a { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 0 8px 12px; min-height: 48px; box-sizing: border-box; }
+    .phm__sub b { display: block; font: 600 14.5px/1.2 var(--font-sans); }
+    .phm__sub span span { font-size: 12px; color: var(--ph-body); }
+    .phm__sub :global(svg) { width: 18px; height: 18px; flex: none; }
+    .phm__links a { display: flex; justify-content: space-between; align-items: center; padding: 0 16px 0 18px; min-height: 48px; border-bottom: 1px solid var(--ph-line); font: 600 15px/1.2 var(--font-sans); }
+    .phm__links li:last-child a { border-bottom: 0; }
+    .phm__links :global(svg) { width: 18px; height: 18px; }
+    .phm__foot { padding: 14px 18px 0; display: grid; gap: 10px; }
+    .phm__portal { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; border-radius: 999px; border: 1.5px solid #c9d1dd; font: 600 16px/1 var(--font-sans); }
+    .phm__portal :global(svg) { width: 18px; height: 18px; }
+    .phm__foot p { margin: 0; font-size: 11.5px; color: var(--ph-muted); display: flex; gap: 6px; align-items: center; justify-content: center; }
+    .phm__foot p :global(svg) { width: 14px; height: 14px; color: var(--blue); }
+    .phm a:focus-visible, .phm button:focus-visible { outline: 3px solid var(--blue); outline-offset: -3px; border-radius: 12px; }
+  }
+  @keyframes phm-in { from { transform: translateX(100%); } to { transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .phm[open] { animation: none; } }
+</style>

@@ -1,0 +1,24 @@
+---
+/** Every FAQ for the page as a phone accordion (native <details>, so it works without script). */
+import { toFaqs } from '../../lib/seo/catalog';
+
+type Para = string | { lead: string; text: string };
+interface Props {
+  title?: string;
+  faqs: readonly { q: string; a: string | readonly Para[] }[];
+}
+const { title = 'Common questions', faqs } = Astro.props;
+const list = toFaqs(faqs);
+const id = `ph-faq-${Math.random().toString(36).slice(2, 7)}`;
+---
+<section aria-labelledby={id}>
+  <h2 class="ph-htitle" id={id}>{title}</h2>
+  <div class="ph-acc" style="margin-top:4px">
+    {list.map((f, i) => (
+      <details open={i === 0}>
+        <summary>{f.q}</summary>
+        <div class="ph-acc-body"><p>{f.a}</p></div>
+      </details>
+    ))}
+  </div>
+</section>

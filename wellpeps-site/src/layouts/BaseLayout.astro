@@ -1,11 +1,14 @@
 ---
 import '../styles/fonts.css';
 import '../styles/global.css';
+import '../styles/phone.css';
 // The two files nearly every page needs, preloaded so text does not shift when
 // the fonts arrive. Same files fonts.css points to, so they are fetched once.
 import interLatin from '../../node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
 import loraLatin from '../../node_modules/@fontsource-variable/lora/files/lora-latin-wght-normal.woff2?url';
 import NavBar from '../components/NavBar.astro';
+import PhoneHeader from '../components/phone/PhoneHeader.astro';
+import PhoneMenu from '../components/phone/PhoneMenu.astro';
 import Footer from '../components/Footer.astro';
 import Assistant from '../components/Assistant.astro';
 import CheckoutLock from '../components/CheckoutLock.astro';
@@ -104,6 +107,8 @@ const graph = noindex
     <a href="#main" class="skip-link">Skip to content</a>
     <PrivacyBanner />
     <NavBar />
+    <PhoneHeader />
+    <PhoneMenu />
     <main id="main">
       <slot />
     </main>

@@ -8,6 +8,21 @@ import Icon from '../components/Icon.astro';
 import { HORMONE_PAGES } from '../data/hormone';
 import { breadcrumbs } from '../lib/seo/schema';
 const jsonLd = [breadcrumbs([{ name: 'Hormone Therapy', path: '/hormone-optimization/' }])];
+// Phone treatment list: every product on both pages, priced ones first ("From $X/mo"), the rest Coming soon.
+const treatments = HORMONE_PAGES.flatMap((p) =>
+  p.products.items.map((item) => {
+    const prices = [item.price, ...(item.plans ?? []).map((pl) => pl.price)].map(Number).filter((n) => Number.isFinite(n) && n > 0);
+    return {
+      name: item.name,
+      who: p.audience === 'men’s' ? 'Men' : 'Women',
+      price: prices.length ? `From $${Math.min(...prices)}/mo` : 'Coming soon',
+      priced: prices.length > 0,
+      href: `${p.path}#ph-treatments`,
+      image: item.image,
+      tint: p.audience === 'men’s' ? 'var(--ph-t-horm)' : 'var(--ph-t-sex)',
+    };
+  }),
+).sort((a, b) => Number(b.priced) - Number(a.priced));
 const choices = HORMONE_PAGES.map((p) => ({ name: p.name, href: p.path, lead: p.products.subtitle, image: p.hero.image, alt: p.hero.alt }));
 ---
 <BaseLayout
@@ -15,7 +30,33 @@ const choices = HORMONE_PAGES.map((p) => ({ name: p.name, href: p.path, lead: p.
   description="Provider-guided testosterone therapy for men and menopause hormone therapy for women, prescribed only when a licensed provider decides it is appropriate."
   jsonLd={jsonLd}
 >
-  <section class="section section--pale-blue hhub">
+  {/* Phone layout (≤ 767px): two portrait tiles, then every treatment with its price or Coming soon. */}
+  <div class="ph-only">
+    <div class="ph-page hph2">
+      <div class="ph-head"><h1>Hormone therapy, <em>guided by a provider.</em></h1></div>
+      <nav class="hph2__portraits" aria-label="Hormone therapy programs">
+        {HORMONE_PAGES.map((p) => (
+          <a class="hph2__portrait" href={p.path}>
+            <img src={p.hero.image} alt={p.hero.alt} aria-hidden="true" width="400" height="500" />
+            <span class="hph2__lab"><b>{p.audience === 'men’s' ? 'For men' : 'For women'}</b><Icon name="arrow-right" /></span>
+          </a>
+        ))}
+      </nav>
+      <h2 class="ph-htitle">Treatments</h2>
+      <div class="hph2__rows">
+        {treatments.map((t) => (
+          <a class="ph-row" href={t.href} style={`background:${t.tint};margin:0`}>
+            <span class="t"><b>{t.name}</b><span>{t.who} · {t.price}</span></span>
+            <img src={t.image} alt={`${t.name} treatment`} aria-hidden="true" width="56" height="48" loading="lazy" />
+            <Icon name="arrow-right" />
+          </a>
+        ))}
+      </div>
+      <p class="ph-fine">Treatment is prescribed only when a licensed provider decides it is appropriate for you. Lab tests are billed separately.</p>
+    </div>
+  </div>
+
+  <section class="section section--pale-blue hhub ph-hide">
     <div class="container">
       <div class="section-head reveal">
         <p class="hhub__eyebrow">Hormone Therapy</p>
@@ -58,4 +99,18 @@ const choices = HORMONE_PAGES.map((p) => ({ name: p.name, href: p.path, lead: p.
   .hchoose__body p { margin-top: 0.9rem; color: var(--text-body); font-size: var(--text-card-body); }
   .hchoose__body .arrow-link { margin-top: 1rem; font-weight: 700; }
   @media (max-width: 720px) { .hchoose { grid-template-columns: 1fr; max-width: 460px; } }
+  @media (max-width: 767px) {
+    .hph2 .ph-head h1 { font-size: 31px; line-height: 1.08; }
+    .hph2__portraits { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 6px 12px 0; }
+    .hph2__portrait { border-radius: 24px; overflow: hidden; position: relative; height: 252px; background: var(--ph-t-horm); display: block; }
+    .hph2__portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 82% center; }
+    .hph2__lab {
+      position: absolute; left: 8px; right: 8px; bottom: 8px; background: rgba(255, 255, 255, 0.94); border-radius: 16px;
+      padding: 10px 12px; display: flex; justify-content: space-between; align-items: center; color: var(--ph-ink);
+    }
+    .hph2__lab b { font: 600 15px/1.15 var(--ph-head); }
+    .hph2__lab :global(svg) { width: 16px; height: 16px; }
+    .hph2__rows { display: grid; gap: 8px; padding: 2px 12px 0; }
+    .hph2 a:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+  }
 </style>

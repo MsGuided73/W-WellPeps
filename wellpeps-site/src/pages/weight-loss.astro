@@ -7,6 +7,7 @@ import WeightProducts from '../components/sections/weight/WeightProducts.astro';
 import WhatsIncluded from '../components/sections/WhatsIncluded.astro';
 import WeightFaq from '../components/sections/weight/WeightFaq.astro';
 import WeightCta from '../components/sections/weight/WeightCta.astro';
+import WeightPhone from '../components/sections/weight/WeightPhone.astro';
 import GuideBand from '../components/guides/GuideBand.astro';
 import { programAt, startingPrice } from '../lib/seo/catalog';
 import { breadcrumbs, faqPage, programService } from '../lib/seo/schema';
@@ -24,13 +25,16 @@ const jsonLd = [
   description={description}
   jsonLd={jsonLd}
 >
-  <WeightHero />
-  <WeightHowItWorks />
-  <WeightWhyChoose />
-  <WeightProducts />
-  <WhatsIncluded />
-  {/* Products always come before the Smart Patient Guide band (Derek, 2026-11-12). */}
-  <GuideBand program="weight-loss" />
-  <WeightFaq />
-  <WeightCta />
+  <div class="ph-only"><WeightPhone /></div>
+  <div class="ph-hide">
+    <WeightHero />
+    <WeightHowItWorks />
+    <WeightWhyChoose />
+    <WeightProducts />
+    <WhatsIncluded />
+    {/* Products always come before the Smart Patient Guide band (Derek, 2026-11-12). */}
+    <GuideBand program="weight-loss" />
+    <WeightFaq />
+    <WeightCta />
+  </div>
 </BaseLayout>

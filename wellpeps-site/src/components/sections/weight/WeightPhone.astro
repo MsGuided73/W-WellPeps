@@ -1,0 +1,58 @@
+---
+/**
+ * Weight Loss (GLP-1) page, phone layout (≤ 767px; the desktop sections are hidden there).
+ * Approved round-2 mockup: headline and three check lines, the price box (weekly injection / daily
+ * tablet), the guide row, all four treatments as cards, then what the price covers, how GLP-1
+ * medications work, every FAQ, the guide band and the compounded disclosure. Copy and prices come
+ * from data/weight.ts and data/plan.ts.
+ */
+import Icon from '../../Icon.astro';
+import PhonePriceBox from '../../phone/PhonePriceBox.astro';
+import PhoneProductCards from '../../phone/PhoneProductCards.astro';
+import PhonePriceBand from '../../phone/PhonePriceBand.astro';
+import PhoneFaq from '../../phone/PhoneFaq.astro';
+import PhoneGuide from '../../phone/PhoneGuide.astro';
+import { weightHero, weightProducts, weightWorks, weightWorksIntro, weightFaqs, weightProductsIntro, ORAL_GLP1_AVAILABILITY } from '../../../data/weight';
+import { COMPOUNDED_SENTENCE } from '../../../data/product-disclosures';
+
+const byForm = (form: 'injection' | 'oral') => weightProducts.filter((p) => p.form === form && p.price);
+const short = (name: string) => name.replace(/^Compounded /, '');
+const groups = [
+  { label: 'Weekly injection', options: byForm('injection').map((p) => ({ product: p.name, label: short(p.name), price: p.price! })) },
+  { label: 'Daily tablet', options: byForm('oral').map((p) => ({ product: p.name, label: p.name, price: p.price! })) },
+].filter((g) => g.options.length > 0);
+
+const cards = weightProducts.map((p) => ({
+  product: p.name,
+  image: p.image,
+  alt: p.alt,
+  tags: [p.form === 'injection' ? 'Weekly' : 'Daily tablet', 'Compounded'],
+  price: p.price ? `$${p.price}${p.priceUnit}` : undefined,
+}));
+---
+<div class="ph-page" style="--ph-tint:var(--ph-t-weight)">
+  <div class="ph-head"><h1>{weightHero.titleLead}, <em>{weightHero.titleAccent.toLowerCase()}</em></h1></div>
+  <div class="ph-checks">
+    <div><i><Icon name="stethoscope" /></i><span><b>Physician-guided care</b> with follow-ups included</span></div>
+    <div><i><Icon name="pharmacy" /></i><span><b>State-licensed U.S. pharmacies</b> fill every prescription</span></div>
+    <div><i><Icon name="tag" /></i><span><b>One monthly price.</b> No setup or cancellation fee</span></div>
+  </div>
+
+  <PhonePriceBox program="weight-loss" groups={groups} />
+  <PhoneGuide program="weight-loss" variant="row" question="Is GLP-1 right for me?" />
+
+  <h2 class="ph-htitle">{weightProductsIntro.title}</h2>
+  <PhoneProductCards program="weight-loss" cards={cards} />
+  <p class="ph-fine" style="padding-top:8px">Oral tablets: {ORAL_GLP1_AVAILABILITY.toLowerCase()}</p>
+
+  <PhonePriceBand />
+
+  <section class="ph-band" style="background:var(--ph-t-gray)" aria-labelledby="ph-glp-works">
+    <h2 id="ph-glp-works">{weightWorksIntro.title}</h2>
+    {weightWorks.map((w, i) => <p class="ph-li"><i>{i + 1}</i><span><b>{w.title}:</b> {w.body}</span></p>)}
+  </section>
+
+  <PhoneFaq faqs={weightFaqs} />
+  <PhoneGuide program="weight-loss" variant="band" />
+  <p class="ph-fine">{COMPOUNDED_SENTENCE} {weightProductsIntro.footnote}</p>
+</div>

@@ -1,0 +1,183 @@
+---
+/**
+ * Men's / Women's Hormone Therapy, phone layout (≤ 767px; the desktop sections are hidden there).
+ * Approved round-2 mockup: back link to the hub, headline, three check lines, then the price box.
+ *
+ * While no product on the page has a price, the box instead lists the treatments as Coming soon (sorted
+ * by the kind of symptom where the page defines that, e.g. women's) with a non-clickable Coming Soon
+ * button. Once any product has a price and link, the box becomes the usual price box (PhonePriceBox),
+ * with one option per plan, so "See If You Qualify" always opens the chosen plan's health questions.
+ */
+import Icon from '../../Icon.astro';
+import AssessmentCta from '../../AssessmentCta.astro';
+import PhonePriceBox from '../../phone/PhonePriceBox.astro';
+import PhoneProductCards from '../../phone/PhoneProductCards.astro';
+import PhoneFaq from '../../phone/PhoneFaq.astro';
+import PhoneGuide from '../../phone/PhoneGuide.astro';
+import { COMPOUNDED_SENTENCE, SAFETY_PAGE, disclosureFor } from '../../../data/product-disclosures';
+import type { HormonePage, HormoneProduct } from '../../../data/hormone';
+
+interface Props {
+  page: HormonePage;
+}
+const { page } = Astro.props;
+const program = page.program;
+const isMen = program === 'mens-hormone-therapy';
+const items = page.products.items;
+const compounded = (p: HormoneProduct) => disclosureFor(program, p.name).regulatory === 'compounded';
+const priced = (v?: string) => !!v && Number(v) > 0;
+const shortUnit = (u: string) => u.replace('/month', '/mo').replace(/\/(\d+) months?/, '/$1 mo');
+
+// Price box: one option per priced plan (or per priced product without plans).
+const pricedItems = items.filter((p) => priced(p.price) || (p.plans ?? []).some((pl) => priced(pl.price)));
+const options = pricedItems.flatMap((p) =>
+  p.plans && p.plans.length > 1
+    ? p.plans.filter((pl) => priced(pl.price)).map((pl) => ({
+        product: pl.product,
+        label: pl.label,
+        price: pl.price!,
+        unit: shortUnit(pl.priceUnit),
+        note: pl.renewal ? pl.renewal.split(',')[0] : 'Renews monthly',
+        name: `${p.name}, ${pl.label}`,
+      }))
+    : [{ product: p.name, label: p.name, price: p.price!, unit: '/mo', note: 'Renews monthly', name: p.name }],
+);
+const heading = pricedItems.length === 1
+  ? { image: pricedItems[0].image, title: pricedItems[0].name, sub: [pricedItems[0].methodOfUse, compounded(pricedItems[0]) ? 'Compounded' : ''].filter(Boolean).join(' · ') }
+  : undefined;
+
+// Page-specific copy, drawn from each page's approved text (data/hormone.ts).
+const CHECKS = isMen
+  ? [
+      { icon: 'stethoscope', b: 'U.S.-licensed providers', t: ' review your symptoms and lab results' },
+      { icon: 'flask', b: 'Lab testing required.', t: ' Lab fees are billed separately' },
+      { icon: 'pharmacy', b: 'Licensed U.S. pharmacies,', t: ' delivered discreetly' },
+    ]
+  : [
+      { icon: 'stethoscope', b: 'U.S.-licensed providers', t: ' review your symptoms and health history' },
+      { icon: 'flask', b: 'Labs only if ordered,', t: ' billed separately' },
+      { icon: 'pharmacy', b: 'Licensed U.S. pharmacies,', t: ' delivered discreetly' },
+    ];
+const HELP = isMen
+  ? { title: 'Which option is right for me?', body: 'If treatment is appropriate, your provider recommends an option based on your lab results, medical history and goals.' }
+  : { title: 'Do I need estrogen and progesterone?', body: 'Women with a uterus who use estrogen generally also need progesterone. Your provider decides.' };
+const GUIDE_QUESTION = isMen ? 'Is testosterone therapy right for me?' : 'Understanding menopause';
+
+// Coming-soon box: treatments sorted by the kind of symptom they treat (women's FAQ wording).
+const SOON_GROUPS: { label: string; products: string[]; text: string }[] = program === 'womens-hormone-therapy'
+  ? [
+      { label: 'Whole-body symptoms', products: ['Estradiol Transdermal Patches', 'Oral Micronized Progesterone'], text: 'Patches deliver estrogen throughout the body, for symptoms such as hot flashes and night sweats.' },
+      { label: 'Vaginal symptoms', products: ['Vaginal Estradiol Cream'], text: 'Low-dose vaginal estradiol primarily treats local symptoms, such as dryness and painful intercourse.' },
+    ]
+  : [{ label: 'Treatments', products: items.map((p) => p.name), text: '' }];
+const soonGroups = SOON_GROUPS.map((g) => ({ ...g, items: g.products.map((n) => items.find((p) => p.name === n)).filter((p): p is HormoneProduct => !!p) }))
+  .filter((g) => g.items.length > 0);
+const SHORT_NAME: Record<string, string> = { 'Estradiol Transdermal Patches': 'Estradiol Patches', 'Oral Micronized Progesterone': 'Micronized Progesterone' };
+
+const cards = items.map((p) => {
+  const prices = [p.price, ...(p.plans ?? []).map((pl) => pl.price)].filter(priced).map(Number);
+  const many = (p.plans ?? []).filter((pl) => priced(pl.price)).length > 1;
+  return {
+    product: p.name,
+    title: SHORT_NAME[p.name] ?? p.name,
+    image: p.image,
+    alt: p.alt,
+    tags: [p.methodOfUse, ...(compounded(p) ? ['Compounded'] : [])],
+    price: prices.length ? `${many ? 'From ' : ''}$${Math.min(...prices)}/month` : undefined,
+  };
+});
+const safety = SAFETY_PAGE[program];
+const anyCompounded = items.some(compounded);
+const uid = `hsoon-${program}`;
+---
+<div class="ph-page hpp" style={`--ph-tint:${isMen ? 'var(--ph-t-horm)' : 'var(--ph-t-sex)'}`}>
+  <a class="ph-back" href="/hormone-optimization/"><Icon name="arrow-right" />Hormone therapy</a>
+  <div class="ph-head">
+    <h1>{page.hero.titleLead}{page.hero.titleMiddle && ` ${page.hero.titleMiddle.replace(/\.?$/, '.')}`} <em>{page.hero.titleAccent}</em></h1>
+  </div>
+  <div class="ph-checks">
+    {CHECKS.map((c) => <div><i><Icon name={c.icon} /></i><span><b>{c.b}</b>{c.t}</span></div>)}
+  </div>
+
+  {options.length > 0 ? (
+    <PhonePriceBox
+      program={program}
+      groups={[{ label: 'Plans', options }]}
+      heading={heading}
+      terms="Lab tests are billed separately. If a provider does not prescribe, we refund your payment in full, except the cost of any lab tests. Cancel anytime."
+    />
+  ) : (
+    <div class="ph-pbox hpp__soon" data-hpp-soon>
+      {soonGroups.length > 1 && (
+        <div class="ph-seg" role="group" aria-label="Kind of symptoms">
+          {soonGroups.map((g, i) => <button type="button" aria-pressed={i === 0 ? 'true' : 'false'} aria-controls={`${uid}-${i}`} data-hpp-seg={i}>{g.label}</button>)}
+        </div>
+      )}
+      {soonGroups.map((g, i) => (
+        <div class="hpp__list" id={`${uid}-${i}`} data-hpp-panel={i} hidden={i > 0}>
+          <ul>
+            {g.items.map((p) => (
+              <li><img src={p.image} alt={p.alt} aria-hidden="true" width="44" height="44" /><b>{SHORT_NAME[p.name] ?? p.name}</b><span class="hpp__pill">Coming soon</span></li>
+            ))}
+          </ul>
+          {g.text && <p>{g.text}</p>}
+        </div>
+      ))}
+      <AssessmentCta program={program} product={items[0]?.name} comingSoon class="ph-btn" />
+      <p class="ph-terms">Pricing, supply length, and any lab costs are shown before you pay at checkout.</p>
+    </div>
+  )}
+
+  <PhoneGuide program={program} variant="row" question={GUIDE_QUESTION} />
+
+  <h2 class="ph-htitle" id="ph-treatments">Treatment options</h2>
+  <PhoneProductCards program={program} cards={cards} help={HELP} />
+
+  <section class="ph-band" style="background:var(--ph-t-gray)" aria-labelledby={`${uid}-edu`}>
+    <h2 id={`${uid}-edu`}>{page.education.title}</h2>
+    <p>{page.education.symptomsLabel}</p>
+    <div class="ph-chips">{page.education.symptoms.map((s) => <span>{s}</span>)}</div>
+    <small>{page.education.note}</small>
+  </section>
+
+  <section class="ph-band" style="background:var(--ph-t-aging)" aria-labelledby={`${uid}-how`}>
+    <h2 id={`${uid}-how`}>How your care works</h2>
+    {page.journey.steps.map((s, i) => <p class="ph-li"><i>{i + 1}</i>{s.title}</p>)}
+  </section>
+
+  <PhoneFaq faqs={page.faqs} />
+
+  {safety && (
+    <a class="ph-row" href={safety} style="background:var(--ph-t-gray)">
+      <span class="t"><b>Testosterone safety information</b><span>Risks, side effects and who should not use it</span></span>
+      <Icon name="shield-check" />
+    </a>
+  )}
+  <PhoneGuide program={program} variant="band" />
+  <p class="ph-fine">{anyCompounded && `Some treatments are compounded. ${COMPOUNDED_SENTENCE} `}{page.products.footnote}</p>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-hpp-soon]').forEach((box) => {
+    const segs = [...box.querySelectorAll<HTMLButtonElement>('[data-hpp-seg]')];
+    const panels = [...box.querySelectorAll<HTMLElement>('[data-hpp-panel]')];
+    segs.forEach((b) => b.addEventListener('click', () => {
+      segs.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      panels.forEach((p) => { p.hidden = p.dataset.hppPanel !== b.dataset.hppSeg; });
+    }));
+  });
+</script>
+
+<style>
+  @media (max-width: 767px) {
+    .hpp .ph-head h1 { font-size: 28px; }
+    .hpp__list { background: #fff; border-radius: 18px; padding: 2px 12px 10px; }
+    .hpp__list[hidden] { display: none; }
+    .hpp__list ul { list-style: none; margin: 0; padding: 0; }
+    .hpp__list li { display: flex; gap: 10px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--ph-line); }
+    .hpp__list li img { width: 44px; height: 44px; border-radius: 12px; object-fit: cover; flex: none; }
+    .hpp__list li b { flex: 1; font: 600 14.5px/1.2 var(--ph-head); color: var(--ph-ink); }
+    .hpp__pill { font: 600 11px/1 var(--font-sans); color: var(--ph-body); background: #f1f3f6; border-radius: 999px; padding: 6px 8px; white-space: nowrap; }
+    .hpp__list p { font-size: 12.5px; line-height: 1.45; padding-top: 10px; }
+  }
+</style>

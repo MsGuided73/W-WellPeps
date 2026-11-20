@@ -1,0 +1,64 @@
+---
+/**
+ * Sexual Wellness page, phone layout (≤ 767px; the desktop sections are hidden there).
+ * Round-2 mockup: headline and three check lines, the price box (As needed / Daily), the guide row,
+ * the three treatments as cards, a short "Understanding sexual wellness" band, what the price
+ * covers, every FAQ, the guide band and the fine print. Copy and prices come from data/sexual.ts.
+ * The cards carry no "Compounded" tag: that is not confirmed for these products.
+ */
+import Icon from '../../Icon.astro';
+import PhonePriceBox from '../../phone/PhonePriceBox.astro';
+import PhoneProductCards from '../../phone/PhoneProductCards.astro';
+import PhonePriceBand from '../../phone/PhonePriceBand.astro';
+import PhoneFaq from '../../phone/PhoneFaq.astro';
+import PhoneGuide from '../../phone/PhoneGuide.astro';
+import { sexHero, sexEducation, sexProducts, sexProductsIntro, sexRecommendation, sexFaqs } from '../../../data/sexual';
+
+const daily = (name: string) => /daily/i.test(name);
+// Short labels for the price box; the "For …" line under it names the full product.
+const short = (name: string) => (daily(name) ? 'Tadalafil Daily, low-dose tablet' : name.replace(/ As Needed$/, ''));
+const option = (p: (typeof sexProducts)[number]) => ({ product: p.name, label: short(p.name), price: p.price! });
+const groups = [
+  { label: 'As needed', options: sexProducts.filter((p) => !daily(p.name) && p.price).map(option) },
+  { label: 'Daily', options: sexProducts.filter((p) => daily(p.name) && p.price).map(option) },
+].filter((g) => g.options.length > 0);
+
+// As-needed first, matching the price box.
+const ordered = [...sexProducts.filter((p) => !daily(p.name)), ...sexProducts.filter((p) => daily(p.name))];
+const cards = ordered.map((p) => ({
+  product: p.name,
+  image: p.image,
+  alt: p.alt,
+  tags: [daily(p.name) ? 'Daily' : 'As needed', 'Tablet'],
+  price: p.price ? `$${p.price}${p.priceUnit}` : undefined,
+}));
+---
+<div class="ph-page" style="--ph-tint:var(--ph-t-sex)">
+  <div class="ph-head"><h1>{sexHero.titleLead} <em>{sexHero.titleAccent}</em></h1></div>
+  <div class="ph-checks">
+    <div><i><Icon name="lock" /></i><span><b>Private and judgment-free,</b> from the privacy of home</span></div>
+    <div><i><Icon name="pill" /></i><span><b>Discreet packaging,</b> shipped directly to your door</span></div>
+    <div><i><Icon name="tag" /></i><span><b>One monthly price.</b> No setup or cancellation fee</span></div>
+  </div>
+
+  {groups.length > 0 && <PhonePriceBox program="sexual-wellness" groups={groups} />}
+  <PhoneGuide program="sexual-wellness" variant="row" question="Daily or as needed?" />
+
+  <h2 class="ph-htitle">{sexProductsIntro.title}</h2>
+  <PhoneProductCards
+    program="sexual-wellness"
+    cards={cards}
+    help={{ title: sexRecommendation.title, body: 'Your provider will recommend the medication and dosage best suited to your individual needs.' }}
+  />
+
+  <section class="ph-band" style="background:var(--ph-t-gray)" aria-labelledby="ph-sex-understand">
+    <h2 id="ph-sex-understand">Understanding <em>sexual wellness</em></h2>
+    <p>{sexEducation.paragraphs[1]}</p>
+    <small>{sexEducation.paragraphs[3]}</small>
+  </section>
+
+  <PhonePriceBand />
+  <PhoneFaq faqs={sexFaqs} />
+  <PhoneGuide program="sexual-wellness" variant="band" />
+  <p class="ph-fine">Prescription required. {sexProductsIntro.footnote}</p>
+</div>

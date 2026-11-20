@@ -303,4 +303,23 @@ const longDate = (iso: string) => new Date(`${iso}T12:00:00Z`).toLocaleDateStrin
   @media (prefers-reduced-motion: reduce) {
     .gf-library__link, .gf-close__btn { transition: none; }
   }
+
+  /* ---------- Phone layout (round-2 mockup): a light card with the cover beside the title, then the form ---------- */
+  @media (max-width: 767px) {
+    .gf-hero { background: #fff; color: var(--ph-ink); }
+    .gf-hero__inner {
+      grid-template-columns: 110px minmax(0, 1fr); grid-template-areas: 'book head' 'form form' 'intro intro';
+      column-gap: 0; row-gap: 14px; padding-block: 10px 22px;
+    }
+    /* The cover and the title share one sage card. */
+    .gf-hero__book { grid-area: book; width: auto; margin: 0; padding: 14px 0 14px 14px; align-self: stretch; display: flex; align-items: center; background: var(--ph-t-aging); border-radius: 26px 0 0 26px; }
+    .gf-hero__glow { display: none; }
+    .gf-hero__book :global(.gbook) { filter: drop-shadow(0 8px 14px rgba(19, 37, 61, 0.25)); }
+    .gf-hero__head { align-self: stretch; display: flex; flex-direction: column; justify-content: center; padding: 14px 14px 14px 0; background: var(--ph-t-aging); border-radius: 0 26px 26px 0; }
+    .gf-eyebrow { font-size: 11px; letter-spacing: 0.08em; color: var(--blue); }
+    .gf-hero__head { padding-left: 14px; }
+    .gf-title { color: var(--ph-ink); font-size: 24px; line-height: 1.1; margin-top: 6px; }
+    .gf-sub { display: none; }
+    .gf-intro { color: var(--ph-body); font-size: 14px; }
+  }
 </style>

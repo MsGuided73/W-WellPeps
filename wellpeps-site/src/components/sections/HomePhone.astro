@@ -1,0 +1,126 @@
+---
+/**
+ * Home page, phone layout (≤ 767px; the desktop sections are hidden there). Approved round-2 mockup
+ * ("Shelf"): headline, every program on the first screen (two tiles, then rows), trust chips, what the
+ * monthly price covers, how it works, then the home FAQs. No "See If You Qualify" here: every such
+ * button opens one product's health questions, and the home page has no product.
+ */
+import Icon from '../Icon.astro';
+import PhonePriceBand from '../phone/PhonePriceBand.astro';
+import PhoneFaq from '../phone/PhoneFaq.astro';
+import { PROGRAMS, startingPrice } from '../../lib/seo/catalog';
+import { GUIDES_INDEX_PATH } from '../../lib/guide-flow';
+import { faqs } from '../../data/content';
+
+/**
+ * Home headline (lead, accent). New wording: awaits Derek's approval and a compliance read before
+ * launch. Options reviewed in the mockups: "Provider-guided care, / priced in plain sight.",
+ * "Real care, / one clear monthly price.", "Understand it first. / Then decide.",
+ * "Online care from / licensed U.S. clinicians."
+ */
+export const HOME_PHONE_HEADLINE = { lead: 'Know the treatment.', accent: 'Know the price.' } as const;
+
+const from = (path: string) => {
+  const p = PROGRAMS.find((x) => x.path === path);
+  const n = p && startingPrice(p);
+  return n === undefined ? undefined : `From $${n}/mo`;
+};
+const rows = [
+  { href: '/sexual-wellness/', title: 'Sexual wellness', sub: from('/sexual-wellness/'), image: '/images/sexual/product-tadalafil-daily.webp', tint: 'var(--ph-t-sex)' },
+  { href: '/hormone-optimization/', title: 'Hormone therapy', sub: 'For men and women', image: '/images/hormone/men-product-testosterone-cypionate.webp', tint: 'var(--ph-t-horm)' },
+  { href: '/hair-restoration/', title: 'Hair restoration', sub: from('/hair-restoration/'), image: '/images/hair/product-combo.webp', tint: 'var(--ph-t-hair)' },
+];
+const weightFrom = from('/weight-loss/');
+const agingFrom = from('/healthy-aging/');
+---
+<div class="ph-page hph">
+  <div class="ph-head"><h1>{HOME_PHONE_HEADLINE.lead} <em>{HOME_PHONE_HEADLINE.accent}</em></h1></div>
+
+  <nav class="hph__tiles" aria-label="Programs">
+    <a class="hph__tile hph__tile--photo" href="/weight-loss/" style="background:var(--ph-t-weight)">
+      <img class="hph__photo" src="/images/weight/product-semaglutide-compounded.webp" alt="An amber vial labeled Semaglutide, Compounded, Rx Only" aria-hidden="true" width="400" height="400" />
+      <h2>Weight loss <em>GLP-1 care</em></h2>
+      {weightFrom && <span class="hph__ft">{weightFrom}<Icon name="arrow-right" /></span>}
+    </a>
+    <a class="hph__tile hph__tile--trio" href="/healthy-aging/" style="background:var(--ph-t-aging)">
+      <span class="hph__trio" aria-hidden="true">
+        <img class="g" src="/images/peptide/vial-glutathione-v2.webp" alt="An amber vial labeled Glutathione, Compounded, Rx Only" aria-hidden="true" width="120" height="160" />
+        <img class="s" src="/images/peptide/vial-sermorelin.webp" alt="An amber vial labeled Sermorelin, Rx Only" aria-hidden="true" width="120" height="160" />
+        <img class="n" src="/images/peptide/vial-nad.webp" alt="An amber vial labeled NAD+, Rx Only" aria-hidden="true" width="120" height="160" />
+      </span>
+      <h2>Healthy aging <em>NAD+, Sermorelin, Glutathione</em></h2>
+      {agingFrom && <span class="hph__ft">{agingFrom}</span>}
+    </a>
+  </nav>
+
+  <div class="hph__rows">
+    {rows.map((r) => (
+      <a class="ph-row" href={r.href} style={`background:${r.tint};margin:0`}>
+        <span class="t"><b>{r.title}</b>{r.sub && <span>{r.sub}</span>}</span>
+        <img src={r.image} alt={`${r.title} treatment`} aria-hidden="true" width="56" height="48" loading="lazy" />
+        <Icon name="arrow-right" />
+      </a>
+    ))}
+    <a class="ph-row" href={`${GUIDES_INDEX_PATH}/`} style="background:var(--ph-t-help);margin:0">
+      <span class="t"><b>Not sure where to begin?</b><span>Start with a Smart Patient Guide</span></span>
+      <img class="hph__face" src="/images/doctor-assessment.webp" alt="A licensed provider reviewing results on a laptop" aria-hidden="true" width="52" height="52" loading="lazy" />
+      <Icon name="arrow-right" />
+    </a>
+  </div>
+
+  <ul class="hph__chips" aria-label="Why WellPeps">
+    {/* Same claim as the desktop home page's Why Choose card and the footer seal. */}
+    <li><Icon name="shield-check" />LegitScript Certified</li>
+    <li><Icon name="stethoscope" />Licensed U.S. clinicians</li>
+    <li><Icon name="receipt" />Refund if not prescribed</li>
+  </ul>
+
+  <PhonePriceBand />
+
+  <section class="ph-band" style="background:var(--ph-t-aging)" aria-labelledby="hph-how">
+    <h2 id="hph-how">How it works</h2>
+    <p class="ph-li"><i>1</i>Answer a few health questions</p>
+    <p class="ph-li"><i>2</i>A licensed provider reviews your answers</p>
+    <p class="ph-li"><i>3</i>Medication ships if prescribed</p>
+  </section>
+
+  <PhoneFaq faqs={faqs} />
+</div>
+
+<style>
+  @media (max-width: 767px) {
+    .hph .ph-head h1 { font-size: 33px; line-height: 1.08; }
+    .hph__tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 6px 12px 0; }
+    .hph__tile {
+      border-radius: 24px; height: 196px; position: relative; overflow: hidden; padding: 14px;
+      display: flex; flex-direction: column; justify-content: space-between; color: var(--ph-ink);
+    }
+    .hph__tile h2 { font-size: 18px; font-weight: 600; line-height: 1.12; position: relative; z-index: 2; }
+    .hph__tile h2 em { display: block; }
+    .hph__ft {
+      position: relative; z-index: 2; align-self: flex-start; display: inline-flex; gap: 6px; align-items: center;
+      font: 600 13px/1 var(--font-sans); color: var(--ph-ink); background: rgba(255, 255, 255, 0.9); border-radius: 999px; padding: 8px 10px;
+    }
+    .hph__ft :global(svg) { width: 14px; height: 14px; }
+    .hph__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
+    .hph__tile--photo::after {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(180deg, rgba(226,237,246,0.96) 0%, rgba(226,237,246,0.75) 34%, rgba(226,237,246,0) 60%);
+    }
+    .hph__trio { position: absolute; inset: 0; }
+    .hph__trio img { position: absolute; width: auto; mix-blend-mode: multiply; }
+    .hph__trio .g { height: 92px; left: 10px; bottom: 10px; }
+    .hph__trio .s { height: 106px; left: 54px; bottom: 6px; }
+    .hph__trio .n { height: 120px; right: 4px; bottom: 2px; }
+    .hph__rows { display: grid; gap: 8px; padding: 10px 12px 0; }
+    .hph__face { width: 52px !important; height: 52px !important; border-radius: 50% !important; }
+    .hph__chips { display: flex; gap: 6px; overflow-x: auto; padding: 14px 12px 0; margin: 0; list-style: none; scrollbar-width: none; }
+    .hph__chips::-webkit-scrollbar { display: none; }
+    .hph__chips li {
+      flex: none; display: inline-flex; gap: 6px; align-items: center; border: 1px solid var(--ph-line); border-radius: 999px;
+      padding: 8px 12px; font: 600 12.5px/1 var(--font-sans); color: var(--ph-ink);
+    }
+    .hph__chips :global(svg) { width: 15px; height: 15px; color: var(--blue); }
+    .hph a:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+  }
+</style>
