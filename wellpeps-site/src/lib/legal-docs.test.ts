@@ -91,6 +91,18 @@ describe('draft page switch', () => {
   });
 });
 
+describe('search descriptions', () => {
+  // Bing Webmaster (2026-11-19) flags meta descriptions that are too short; it asks for 150 to 160 characters.
+  // A released page's description (or its blurb, when it has none) stays between 120 and 160, as for articles.
+  test('every released document has a 120 to 160 character description', () => {
+    for (const d of LEGAL_DOCS.filter((x) => x.approved)) {
+      const text = d.description ?? d.blurb;
+      expect(text.length, `${d.id}: ${text}`).toBeGreaterThanOrEqual(120);
+      expect(text.length, `${d.id}: ${text}`).toBeLessThanOrEqual(160);
+    }
+  });
+});
+
 describe('registry', () => {
   test('ids and paths are unique, and no path collides with an existing page', () => {
     const ids = LEGAL_DOCS.map((d) => d.id);
