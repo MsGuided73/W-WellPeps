@@ -22,7 +22,7 @@ const { why } = Astro.props.page;
     <div class="hwhy__grid reveal">
       {why.items.map((c) => (
         <article class="card hwhy__card">
-          <img class="hwhy__icon" src={c.icon} width={c.w} height={c.h} alt="" loading="lazy" />
+          <img class="hwhy__icon" src={c.icon} width={c.w} height={c.h} alt={`${c.title} icon`} aria-hidden="true" loading="lazy" />
           <h3>{c.title}</h3>
           <hr class="rule" />
           <p>{c.body}</p>

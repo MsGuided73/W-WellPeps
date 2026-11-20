@@ -26,7 +26,7 @@ const headingId = `gband-${program}`;
   <section class="gband" aria-labelledby={headingId} data-guide-band={program}>
     <div class="container gband__inner">
       <a class="gband__book" href={guidePath(book.slug)} tabindex="-1" aria-hidden="true">
-        <GuideBook src={book.cover} star />
+        <GuideBook src={book.cover} alt={`Cover of The Smart Patient’s Guide to ${book.title}`} hidden star />
       </a>
       <div class="gband__copy">
         <p class="gband__question" set:html={keepGlpTogether(copy.question)} />

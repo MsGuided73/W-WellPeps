@@ -112,7 +112,7 @@ const longDate = (iso: string) => new Date(`${iso}T12:00:00Z`).toLocaleDateStrin
         <li class="gf-library__card">
           <!-- Each card opens that guide's own landing page, where the email form is; never the PDF. -->
           <a href={guidePath(b.slug)} class="gf-library__link">
-            <span class="gf-library__cover"><GuideBook src={b.cover} alt="" /></span>
+            <span class="gf-library__cover"><GuideBook src={b.cover} alt={`Cover of The Smart Patient’s Guide to ${b.title}`} hidden /></span>
             <span class="gf-library__body">
               <span class="gf-library__series">The Smart Patient’s Guide to</span>
               <span class="gf-library__title" set:html={keepGlpTogether(b.title)} />

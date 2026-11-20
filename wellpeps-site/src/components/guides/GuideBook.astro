@@ -9,16 +9,19 @@ import FreeStar from '../FreeStar.astro';
 
 interface Props {
   src: string;
-  alt?: string;
+  /** Always set: search engines read it (Bing flags an empty alt, 2026-11-19). */
+  alt: string;
+  /** The cover sits next to its own title: hide it from screen readers so the title is not read twice. */
+  hidden?: boolean;
   star?: boolean;
   /** Leaning (default) or flat, square-on to the viewer. */
   flat?: boolean;
   loading?: 'eager' | 'lazy';
 }
-const { src, alt = '', star = false, flat = false, loading = 'lazy' } = Astro.props;
+const { src, alt, hidden = false, star = false, flat = false, loading = 'lazy' } = Astro.props;
 ---
 <div class:list={['gbook', { 'gbook--flat': flat }]}>
-  <img src={src} alt={alt} width="600" height="776" loading={loading} decoding="async" />
+  <img src={src} alt={alt} aria-hidden={hidden ? 'true' : undefined} width="600" height="776" loading={loading} decoding="async" />
   {star && <span class="gbook__star" aria-hidden="true"><FreeStar /></span>}
 </div>
 

@@ -29,7 +29,7 @@ import { reviewForGuide } from '../../data/medical-review';
       {EBOOKS.map((book, i) => (
         <li class="gidx-card">
           <a class="gidx-card__book" href={guidePath(book.slug)} tabindex="-1" aria-hidden="true">
-            <GuideBook src={book.cover} star={false} loading={i < 3 ? 'eager' : 'lazy'} />
+            <GuideBook src={book.cover} alt={`Cover of The Smart Patient’s Guide to ${book.title}`} hidden star={false} loading={i < 3 ? 'eager' : 'lazy'} />
           </a>
           <!-- The cover carries the title, so there is no separate title or blurb (client, 2026-10-02). -->
           {reviewForGuide(book.slug) && <MdReviewedBadge variant="tag" class="gidx-card__md" />}
