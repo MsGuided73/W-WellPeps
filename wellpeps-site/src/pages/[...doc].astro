@@ -47,7 +47,7 @@ const contactBlocks = a8 ? sectionCopy(a8.blocks, /^Block 7\./) : [];
   <LegalDocPage title="Contact WellPeps" seoTitle="Contact Support: Phone, Email and Hours" blurb="How to reach WellPeps by phone or email, and what each contact address is for." description="How to reach WellPeps support by phone or email, support hours, what support can help with, and where to send privacy requests and legal notices." docId="A8" version={a8doc?.approved ? '1.0' : a8.version} date={a8doc?.approved ? a8doc.effective : a8.date} {...(a8doc?.approved ? docDates(a8doc) : {})} blocks={contactBlocks} approved={a8doc?.approved} />
 )}
 {kind === 'hub' && (
-  <LegalDocPage plain approved={!drafts} title="Patient Information" blurb="What to read before and during treatment: how it works, safety information, consents, policies and your rights.">
+  <LegalDocPage plain approved={!drafts} title="Patient Information" blurb="What to read before and during treatment: how it works, safety information, consents, policies and your rights." description="Everything to read before and during treatment with WellPeps: how care works, medication safety information, consents, policies and your rights as a patient.">
     <DocList docs={released} hideIds={!drafts} />
     <p>
       <a href="/states-we-serve">States We Serve</a> &middot; <a href="/contact">Contact WellPeps</a>

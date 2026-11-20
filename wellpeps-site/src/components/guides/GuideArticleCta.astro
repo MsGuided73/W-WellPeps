@@ -23,7 +23,7 @@ const label = placement === 'end' ? `Free guide: ${book.title}, end of article` 
 ---
 <aside class="gcta" aria-label={label} data-guide-cta={placement}>
   <a class="gcta__book" href={guidePath(book.slug)} tabindex="-1" aria-hidden="true">
-    <GuideBook src={book.cover} star />
+    <GuideBook src={book.cover} alt={`Cover of The Smart Patient’s Guide to ${book.title}`} hidden star />
   </a>
   <div class="gcta__copy">
     <h2 class="gcta__title" set:html={keepGlpTogether(articleCta.title)} />

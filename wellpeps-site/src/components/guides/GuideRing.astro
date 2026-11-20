@@ -56,7 +56,7 @@ const restPos = (i: number) => {
             {books.map((book, i) => (
               <li class="gring__card" data-ring-card data-title={book.title} data-href={guidePath(book.slug)} data-pos={restPos(i)} style={restStyle(i)}>
                 <a class="gring__link" href={guidePath(book.slug)} aria-label={`Free guide: ${book.title}`}>
-                  <img class="gring__face" src={book.cover} alt="" width="600" height="776" decoding="async" draggable="false" />
+                  <img class="gring__face" src={book.cover} alt={`Cover of The Smart Patient’s Guide to ${book.title}`} aria-hidden="true" width="600" height="776" decoding="async" draggable="false" />
                 </a>
               </li>
             ))}
