@@ -97,6 +97,10 @@ const graph = noindex
     <link rel="preload" href={loraLatin} as="font" type="font/woff2" crossorigin />
   </head>
   <body>
+    {/* Cloudflare's Email Address Obfuscation rewrites every email address on the page into a
+        /cdn-cgi/l/email-protection#... link, which returns 404 to search crawlers (Bing site scan, 2026-11-19).
+        email_off tells Cloudflare to leave the page's addresses as written (plain HTML comments survive the build). */}
+    <!--email_off-->
     <a href="#main" class="skip-link">Skip to content</a>
     <PrivacyBanner />
     <NavBar />
@@ -108,6 +112,7 @@ const graph = noindex
     <CheckoutLock />
     <PrivacyRoot />
     <TweakPanel />
+    <!--/email_off-->
 
     <style>
       .skip-link {
