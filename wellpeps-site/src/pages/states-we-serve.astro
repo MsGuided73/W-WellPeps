@@ -105,7 +105,7 @@ const updatedIso = new Date(`${STATES_LAST_UPDATED} 12:00 UTC`).toISOString().sl
   .spage__lead strong { color: var(--navy); }
   .spage h2 { margin-top: 2.5rem; font-size: var(--text-card-title); font-weight: 700; }
   .spage p { line-height: 1.6; }
-  .spage a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+  .spage a:not(.btn) { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
 
   .spage__callout {
     margin-top: 2rem; padding: 1.25rem 1.5rem;
