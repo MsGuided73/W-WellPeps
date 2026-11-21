@@ -184,6 +184,8 @@ export const peptidesPage: PeptidesPage = {
         // 1 month or 3 months prepaid (owner, 2026-11-18). Each plan opens with its own price and GEN Health link:
         // PRODUCT_LINKS keys 'epitalon' and 'epitalon-3-month'.
         plans: [
+          // Owner, 2026-11-21: $157.50/month, GEN Health link saved as 'epitalon' in src/config.ts. Add price: '157.50' here
+          // and 'epitalon' to LIVE_PRODUCTS together, once Peptide Therapy has an approved safety page.
           { label: '1 month', priceUnit: '/month', product: 'Epitalon' },
           { label: '3 months', priceUnit: '/3 months', product: 'Epitalon 3 Month', renewal: 'Renews every 3 months, cancel anytime.' },
         ],
