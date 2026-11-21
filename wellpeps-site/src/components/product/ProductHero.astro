@@ -1,0 +1,47 @@
+---
+/**
+ * The product image on a product page. A photo product shows its photo, rounded and cropped to fill.
+ * A vial product (Healthy Aging) shows the vial cutout on the pale "Ice" ground, no frame: a close-up on
+ * phones (the page lays the frosted title panel over its lower part), the whole vial on wider screens.
+ */
+import type { ProductPage } from '../../lib/products';
+
+interface Props {
+  page: ProductPage;
+  class?: string;
+}
+const { page, class: className } = Astro.props;
+const isVial = page.imageStyle === 'vial';
+---
+<div class:list={['phero', isVial ? 'phero--vial' : 'phero--photo', className]}>
+  {isVial
+    ? <img src={page.image} alt={page.alt} height="440" width="294" decoding="async" fetchpriority="high" />
+    : <img src={page.image} alt={page.alt} width="1000" height="750" decoding="async" fetchpriority="high" />}
+</div>
+
+<style>
+  .phero { position: relative; overflow: hidden; min-width: 0; }
+  .phero--photo { margin: 0 16px; border-radius: 18px; aspect-ratio: 4 / 3; background: var(--bg-gray); }
+  .phero--photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+  /* Ice: a white glow over a cool linear wash. */
+  .phero--vial {
+    height: 330px;
+    background:
+      radial-gradient(ellipse 70% 55% at 50% 30%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0) 70%),
+      linear-gradient(170deg, #f6f9fc, #dceaf6);
+  }
+  /* Close-up: the vial is taller than the band and lifted, so its label sits in the upper half, clear of the panel. */
+  .phero--vial img {
+    position: absolute; left: 50%; top: -38%;
+    height: 112%; width: auto; max-width: none;
+    transform: translateX(-50%);
+    filter: drop-shadow(0 14px 22px rgba(8, 43, 89, 0.16));
+  }
+
+  @media (min-width: 768px) {
+    .phero--photo { margin: 0; border-radius: var(--radius-lg); }
+    .phero--vial { height: auto; aspect-ratio: 4 / 5; max-height: 640px; border-radius: var(--radius-lg); }
+    .phero--vial img { top: 50%; height: 78%; transform: translate(-50%, -50%); }
+  }
+</style>

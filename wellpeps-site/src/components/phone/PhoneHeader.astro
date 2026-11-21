@@ -1,0 +1,101 @@
+---
+/**
+ * Phone header (≤ 767px; the desktop NavBar is hidden there by styles/phone.css).
+ *
+ * Logo, then on the right: "Patient Portal", or, on a page with a price box (PhonePriceBox), a
+ * "See If You Qualify" button that appears once the price box has scrolled under the header. That
+ * button always opens the health questions for the product chosen in the price box: it copies the
+ * box's selected button (its link, and its checkout-lock target when checkout is locked).
+ */
+import { PATIENT_PORTAL_URL } from '../../config';
+import { ASSESSMENT_CTA_LABEL } from '../../lib/cta';
+---
+<header class="phd ph-only" data-phd>
+  <a href="/" class="phd__brand" aria-label="WellPeps home">
+    <img src="/images/logo-full-v2.png" alt="WellPeps" width="600" height="125" />
+  </a>
+  <div class="phd__r">
+    <a class="phd__portal" href={PATIENT_PORTAL_URL} data-phd-portal>Patient Portal</a>
+    <a class="phd__cta" href="#" data-phd-cta hidden>{ASSESSMENT_CTA_LABEL}</a>
+    <button class="phd__menu" type="button" aria-label="Open menu" aria-haspopup="dialog" aria-controls="ph-menu" data-phm-open>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+    </button>
+  </div>
+</header>
+
+<script>
+  // Program-wide and generic buttons ("Explore treatments" on phones) lead to the phone layout's own
+  // treatments, because the desktop anchors they normally point at are hidden on phone widths.
+  if (window.matchMedia('(max-width: 767px)').matches) {
+    document.querySelectorAll<HTMLAnchorElement>('a[data-ph-href]').forEach((a) => { a.href = a.dataset.phHref ?? a.href; });
+  }
+
+  const header = document.querySelector<HTMLElement>('[data-phd]');
+  const portal = header?.querySelector<HTMLElement>('[data-phd-portal]');
+  const cta = header?.querySelector<HTMLAnchorElement>('[data-phd-cta]');
+  const box = document.querySelector<HTMLElement>('[data-ph-pbox]');
+
+  if (header && cta && portal && box) {
+    portal.hidden = true;
+    let canShow = false;
+
+    // Mirror the price box's selected button.
+    const mirror = (selected: Element | null) => {
+      const a = selected instanceof HTMLAnchorElement ? selected : null;
+      canShow = !!a;
+      if (a) {
+        cta.href = a.href;
+        for (const attr of ['data-checkout-lock', 'data-assessment']) {
+          const v = a.getAttribute(attr);
+          if (v === null) cta.removeAttribute(attr); else cta.setAttribute(attr, v);
+        }
+        const product = box.querySelector<HTMLInputElement>('input[data-ph-opt]:checked')?.dataset.name;
+        cta.setAttribute('aria-label', product ? `${a.textContent?.trim()}: ${product}` : (a.textContent?.trim() ?? ''));
+      }
+      update();
+    };
+
+    const update = () => {
+      const past = box.getBoundingClientRect().bottom < header.getBoundingClientRect().bottom + 4;
+      cta.hidden = !(past && canShow);
+    };
+
+    box.addEventListener('ph:select', (e) => mirror((e as CustomEvent<Element | null>).detail));
+    mirror(box.querySelector('[data-ph-cta]:not([hidden]) > *'));
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
+  }
+</script>
+
+<style>
+  .phd { display: none; }
+  @media (max-width: 767px) {
+    .phd {
+      position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between;
+      min-height: 58px; padding: 8px 12px 8px 18px; box-sizing: border-box;
+      background: rgba(255, 255, 255, 0.95);
+      -webkit-backdrop-filter: saturate(180%) blur(10px); backdrop-filter: saturate(180%) blur(10px);
+      border-bottom: 1px solid rgba(8, 43, 89, 0.06);
+    }
+    .phd__brand { display: flex; align-items: center; min-height: 44px; }
+    .phd__brand img { height: 24px; width: auto; display: block; }
+    .phd__r { display: flex; align-items: center; gap: 6px; }
+    .phd__portal {
+      display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid #d5dbe3; border-radius: 999px;
+      font: 600 13.5px/1 var(--font-sans); color: var(--ph-ink); text-decoration: none;
+    }
+    .phd__cta {
+      display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 999px;
+      background: var(--ph-ink); color: #fff; font: 600 13.5px/1 var(--font-sans); text-decoration: none;
+      animation: phd-in 0.22s ease-out;
+    }
+    .phd__cta[hidden], .phd__portal[hidden] { display: none; }
+    .phd__menu {
+      width: 44px; height: 44px; display: grid; place-items: center; border: 0; background: transparent; color: var(--ph-ink); cursor: pointer; border-radius: 12px;
+    }
+    .phd__menu svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+    .phd a:focus-visible, .phd button:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+  }
+  @keyframes phd-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .phd__cta { animation: none; } }
+</style>

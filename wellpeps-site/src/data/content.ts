@@ -77,5 +77,6 @@ export const faqs = [
   { q: 'How are medications delivered?', a: 'If prescribed, medications are prepared by licensed U.S. pharmacies and shipped directly to your home in discreet, secure packaging.' },
   { q: 'Is my personal information secure?', a: 'We take your privacy seriously and use secure technology to protect your information. Our Privacy Policy explains what we collect, why, and the choices you have.' },
   { q: 'What payment methods do you accept?', a: 'We accept Visa, Mastercard, American Express, Discover, FSA/HSA cards, Apple Pay and Google Pay. You’ll see clear pricing before you begin. You pay at checkout, and if a clinician does not prescribe, we refund you in full.' },
-  { q: 'What programs does WellPeps offer?', a: 'Weight Management, Hair Restoration, Sexual Wellness, and Healthy Aging & Vitality are available today, with Hormone Optimization coming soon.' },
+  // Men's Hormone Therapy live 2026-11-19 (owner); the phone and desktop FAQ and its structured data share this answer.
+  { q: 'What programs does WellPeps offer?', a: 'Weight Management, Hair Restoration, Sexual Wellness, Healthy Aging & Vitality, and Men’s Hormone Therapy are available today, with Women’s Hormone Therapy coming soon.' },
 ];

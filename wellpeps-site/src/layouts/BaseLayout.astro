@@ -1,11 +1,16 @@
 ---
 import '../styles/fonts.css';
 import '../styles/global.css';
+import '../styles/phone.css';
 // The two files nearly every page needs, preloaded so text does not shift when
 // the fonts arrive. Same files fonts.css points to, so they are fetched once.
 import interLatin from '../../node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
 import loraLatin from '../../node_modules/@fontsource-variable/lora/files/lora-latin-wght-normal.woff2?url';
+// Phone headlines (Schibsted Grotesk, styles/phone.css): preloaded on phone widths only, so headings don't jump.
+import schibstedLatin from '../../node_modules/@fontsource-variable/schibsted-grotesk/files/schibsted-grotesk-latin-wght-normal.woff2?url';
 import NavBar from '../components/NavBar.astro';
+import PhoneHeader from '../components/phone/PhoneHeader.astro';
+import PhoneMenu from '../components/phone/PhoneMenu.astro';
 import Footer from '../components/Footer.astro';
 import Assistant from '../components/Assistant.astro';
 import CheckoutLock from '../components/CheckoutLock.astro';
@@ -95,6 +100,7 @@ const graph = noindex
          served from this site (styles/fonts.css), so a visit sends nothing to Google. -->
     <link rel="preload" href={interLatin} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={loraLatin} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={schibstedLatin} as="font" type="font/woff2" crossorigin media="(max-width: 767px)" />
   </head>
   <body>
     {/* Cloudflare's Email Address Obfuscation rewrites every email address on the page into a
@@ -104,6 +110,8 @@ const graph = noindex
     <a href="#main" class="skip-link">Skip to content</a>
     <PrivacyBanner />
     <NavBar />
+    <PhoneHeader />
+    <PhoneMenu />
     <main id="main">
       <slot />
     </main>

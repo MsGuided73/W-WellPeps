@@ -265,7 +265,7 @@ const assessmentProgram: ProgramSlug | undefined = showSexualTreatments
 
       <aside class="rail" aria-label="Get started">
         {article.cta_html && (
-          <div class="rail__card rail__card--cta">
+          <div class="rail__card rail__card--cta ph-hide">
             <h2 class="rail__title">{article.cta_title}</h2>
             <div class="rail__body" set:html={article.cta_html} />
             <AssessmentCta program={assessmentProgram} class="btn btn--primary rail__btn" arrow />
@@ -292,7 +292,10 @@ const assessmentProgram: ProgramSlug | undefined = showSexualTreatments
           and determine whether you are eligible for treatment.
         </p>
       </div>
-      <AssessmentCta program={assessmentProgram} class="btn btn--primary btn--lg" arrow />
+      <AssessmentCta program={assessmentProgram} class="btn btn--primary btn--lg ph-hide" arrow />
+      {/* Phone: "See If You Qualify" always opens one product's questions, and this button has no product,
+          so on a phone it goes to the program's treatments (or opens the menu when the article has no program). */}
+      <a class="ph-only ph-btn endcta__explore" href={assessmentProgram ? `/${assessmentProgram}/` : '/#programs'} data-phm-proxy={assessmentProgram ? undefined : ''}>Explore treatments</a>
     </section>
   </div>
 </BaseLayout>
@@ -513,4 +516,26 @@ const assessmentProgram: ProgramSlug | undefined = showSexualTreatments
   .endcta__text { flex: 1 1 22rem; }
   .endcta h2 { font-size: calc(var(--text-body-size) * 1.55); color: var(--navy); }
   .endcta p { margin-top: 0.5rem; font-size: var(--text-body-size); max-width: 38rem; }
+
+  /* ---- Phone layout (round-2 mockup): compact header, reviewer box, 16px reading text ---- */
+  @media (max-width: 767px) {
+    .article-shell { padding-top: 6px; padding-bottom: 28px; }
+    .crumbs ol { margin-bottom: 10px; font-size: 13px; gap: 4px; }
+    .crumbs li + li::before { margin-right: 4px; }
+    .article-hero__tag { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 0; background: none; color: var(--blue); }
+    .article-hero__tag:hover { background: none; color: var(--blue-hover); }
+    .article__title { font-size: 27px; line-height: 1.12; margin-top: 0; color: var(--ph-ink); text-wrap: pretty; }
+    .article-hero { gap: 0; margin-bottom: 18px; }
+    .article-hero__tag { min-height: 44px; margin-bottom: 0; }
+    .article-hero__meta { margin-top: 12px; padding: 10px 12px; background: var(--ph-t-gray); border-radius: 16px; font-size: 12.5px; }
+    .article__meta { margin-top: 6px; font-size: 12px; gap: 2px 10px; }
+    .article :global(.article__lede), .prose :global(p), .prose :global(li) { font-size: 16px; line-height: 1.65; }
+    .prose :global(h2) { font-size: 21px; line-height: 1.2; }
+    .prose :global(h3) { font-size: 17px; }
+    .toc { border-radius: 16px; padding: 12px 14px; }
+    .takeaways { border-radius: 20px; }
+    .endcta { flex-direction: column; align-items: stretch; background: var(--ph-t-help); border-radius: 24px; padding: 18px 16px; gap: 12px; }
+    .endcta h2 { font-size: 22px; line-height: 1.15; color: var(--ph-ink); }
+    .endcta__text { flex: none; }
+  }
 </style>

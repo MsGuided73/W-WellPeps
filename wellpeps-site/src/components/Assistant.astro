@@ -21,6 +21,14 @@ const disclosureLive = linkVisible('/ai-use-disclosure', draftPagesEnabledNow())
     <span class="wa__launcher-icon"><Icon name="chat" /></span>
     <span class="wa__launcher-label" aria-hidden="true">Ask WellPeps</span>
   </button>
+  {/* Phones (owner, 2026-11-21): the button is partly see-through, and × tucks it into a slim tab at the
+      screen edge for the rest of the visit; tapping the tab brings it back. */}
+  <button class="wa__hide" type="button" data-wa-hide aria-label="Hide the assistant button">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+  </button>
+  <button class="wa__tab" type="button" data-wa-show aria-label="Show the WellPeps assistant button">
+    <Icon name="chat" />
+  </button>
 
   <section class="wa__panel ct-block" id="wa-panel" data-wa-panel hidden aria-label="WellPeps assistant">
     <header class="wa__head">
@@ -177,6 +185,28 @@ const disclosureLive = linkVisible('/ai-use-disclosure', draftPagesEnabledNow())
 
   .wa__disclaimer { flex: none; padding: 0 0.9rem 0.8rem; background: #fff; color: var(--text-muted); font-size: var(--text-body-size); text-align: center; }
 
+  /* ---- Phones: see-through button, hide (×) and edge tab (owner, 2026-11-21) ---- */
+  .wa__hide, .wa__tab { display: none; }
+  @media (max-width: 767px) {
+    .wa__launcher { opacity: 0.72; }
+    .wa__launcher:hover, .wa__launcher:focus-visible, .wa__launcher:active { opacity: 1; }
+    .wa:not([data-open]):not([data-min]):not([data-aside]) .wa__hide {
+      position: absolute; top: -10px; left: -10px; display: grid; place-items: center;
+      width: 26px; height: 26px; padding: 0; border: 0; border-radius: 50%; cursor: pointer;
+      background: #fff; color: var(--navy); box-shadow: 0 2px 8px rgba(8, 43, 89, 0.3);
+    }
+    .wa__hide::before { content: ''; position: absolute; inset: -9px; } /* 44px touch target */
+    .wa__hide svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; }
+    .wa[data-min] .wa__launcher { display: none; }
+    .wa[data-min]:not([data-open]) .wa__tab {
+      display: grid; place-items: center; width: 30px; height: 46px; margin-right: calc(-0.75rem - env(safe-area-inset-right, 0px));
+      padding: 0; border: 0; border-radius: 14px 0 0 14px; cursor: pointer;
+      background: rgba(13, 42, 82, 0.72); color: #fff; box-shadow: 0 4px 14px rgba(8, 43, 89, 0.25);
+    }
+    .wa__tab :global(svg) { width: 16px; height: 16px; }
+    .wa__hide:focus-visible, .wa__tab:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 2px; }
+  }
+
   @media (max-width: 480px) {
     .wa { right: 0.75rem; bottom: 0.75rem; }
     .wa[data-open] { left: 0.75rem; }
@@ -197,6 +227,19 @@ const disclosureLive = linkVisible('/ai-use-disclosure', draftPagesEnabledNow())
     const form = root.querySelector('[data-wa-form]') as HTMLFormElement;
     const input = root.querySelector('[data-wa-input]') as HTMLInputElement;
     const suggest = root.querySelector('[data-wa-suggest]') as HTMLElement;
+    const hideBtn = root.querySelector('[data-wa-hide]') as HTMLButtonElement;
+    const showBtn = root.querySelector('[data-wa-show]') as HTMLButtonElement;
+
+    // Hidden into the edge tab for the rest of the visit (phones). Storage can be blocked; then it simply
+    // starts visible on the next page.
+    const MIN_KEY = 'wp-assistant-min';
+    const setMin = (on: boolean) => {
+      root.toggleAttribute('data-min', on);
+      try { on ? sessionStorage.setItem(MIN_KEY, '1') : sessionStorage.removeItem(MIN_KEY); } catch { /* storage blocked */ }
+    };
+    try { if (sessionStorage.getItem(MIN_KEY) === '1') root.setAttribute('data-min', ''); } catch { /* storage blocked */ }
+    hideBtn.addEventListener('click', () => { setMin(true); showBtn.focus(); });
+    showBtn.addEventListener('click', () => { setMin(false); toggle.focus(); });
 
     // Hide the round launcher while any page form (sign-up, waitlist, newsletter) crosses the strip of
     // screen it sits in, so it never covers a field, a checkbox or a button (Derek 2026-10-19).

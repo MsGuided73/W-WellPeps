@@ -110,6 +110,20 @@ const healthPolicyLive = visible('/consumer-health-data-privacy-policy');
 // The business address is shown once it is confirmed. Until then the placeholder appears
 // only where draft pages are enabled, so the live site never prints "[Business address]".
 const showAddress = CONTACT_ADDRESS !== '' || showDrafts;
+// Phone footer (owner, 2026-11-21): a short list of key links and the contact line in place of the
+// newsletter and link columns. The legal links, the disclaimer and the seal stay, as on desktop.
+const phoneLinks = [
+  { label: 'Learning Center', href: '/wellness-learning-center' },
+  { label: 'Smart Patient Guides', href: GUIDES_INDEX_PATH },
+  { label: 'About WellPeps', href: '/why-wellpeps' },
+  { label: 'States We Serve', href: '/states-we-serve' },
+].filter((l) => visible(l.href));
+// Phone footer, one tap-to-open row (owner, 2026-11-21): the Patient Information column plus refunds and
+// shipping, so the safety pages and patient policies stay reachable on phones (LegitScript).
+const phonePatient = [
+  ...(shownColumns.find((c) => c.heading === 'Patient Information')?.links ?? []),
+  ...shownColumns.flatMap((c) => c.links).filter((l) => /^(Refund|Shipping)/.test(l.label)),
+];
 ---
 <footer class="footer">
   <svg class="footer__wave" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true" focusable="false">
@@ -118,7 +132,26 @@ const showAddress = CONTACT_ADDRESS !== '' || showDrafts;
   </svg>
 
   <div class="container-wide footer__inner">
-    <div class="footer__top">
+    <div class="ph-only footer__phone">
+      <img src="/images/logo-full-v2.png" alt="WellPeps" class="footer__phone-logo" width="600" height="125" loading="lazy" />
+      <ul class="footer__phone-links">
+        {phoneLinks.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+        <li><a href={PATIENT_PORTAL_URL}><strong>Patient Portal</strong></a></li>
+      </ul>
+      {phonePatient.length > 0 && (
+        <details class="footer__phone-acc">
+          <summary>Patient Information</summary>
+          <ul>{phonePatient.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
+        </details>
+      )}
+      <p class="footer__phone-contact">
+        <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+        <span aria-hidden="true">·</span>
+        <a href={CONTACT.phoneHref}>{CONTACT.phone}</a>
+      </p>
+    </div>
+
+    <div class="footer__top ph-hide">
       <div class="footer__brand">
         <img src="/images/logo-full-v2.png" alt="WellPeps" class="footer__logo" width="600" height="125" />
       </div>
@@ -153,9 +186,9 @@ const showAddress = CONTACT_ADDRESS !== '' || showDrafts;
       </div>
     </div>
 
-    <hr class="footer__rule" />
+    <hr class="footer__rule ph-hide" />
 
-    <div class="footer__grid" style={`--footer-cols: ${shownColumns.length}`}>
+    <div class="footer__grid ph-hide" style={`--footer-cols: ${shownColumns.length}`}>
       {shownColumns.map((col) => (
         <div class="footer__col">
           <h2>{col.heading}</h2>
@@ -452,6 +485,36 @@ const showAddress = CONTACT_ADDRESS !== '' || showDrafts;
   @media (max-width: 340px) {
     .footer__grid { grid-template-columns: 1fr; }
   }
+
+  /* ---- Phone footer (767px and narrower): short and calm ---- */
+  @media (max-width: 767px) {
+    .footer__wave { display: none; }
+    .footer__phone { display: grid; gap: 14px; padding-top: 4px; }
+    .footer__phone-logo { height: 26px; width: auto; }
+    .footer__phone-links { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 2px 12px; }
+    .footer__phone-links a { display: flex; align-items: center; min-height: 44px; font-size: 15px; }
+    .footer__phone-contact { margin: 0; display: flex; flex-wrap: wrap; gap: 4px 8px; font-size: 14px; }
+    .footer__phone-contact a { min-height: 44px; display: inline-flex; align-items: center; }
+    .footer__rule--legal { margin-block: 12px; }
+    .footer__legal { flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0 14px; }
+    .footer__legal a { min-height: 40px; display: inline-flex; align-items: center; font-size: 13px; }
+    .footer__bottom { flex-direction: column; align-items: center; gap: 14px; margin-top: 10px; }
+    .footer__phone-contact span { align-self: center; }
+    .footer__disclaimer { font-size: 12px; line-height: 1.5; }
+    .footer__copy { font-size: 12px; }
+    .footer__phone-acc { background: #fff; border: 1px solid var(--border); border-radius: 12px; }
+    .footer__phone-acc summary {
+      list-style: none; cursor: pointer; min-height: 48px; padding: 0 14px; display: flex; align-items: center; justify-content: space-between;
+      font: 700 12px/1 var(--font-sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue);
+    }
+    .footer__phone-acc summary::-webkit-details-marker { display: none; }
+    .footer__phone-acc summary::after { content: '+'; font-size: 20px; font-weight: 500; }
+    .footer__phone-acc[open] summary::after { content: '3'; }
+    .footer__phone-acc summary:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 2px; border-radius: 12px; }
+    .footer__phone-acc ul { list-style: none; margin: 0; padding: 0 14px 10px; display: grid; }
+    .footer__phone-acc a { display: flex; align-items: center; min-height: 40px; font-size: 14.5px; }
+  }
+
 </style>
 
 <script>

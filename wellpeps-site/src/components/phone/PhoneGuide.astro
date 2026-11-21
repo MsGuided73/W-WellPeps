@@ -1,0 +1,37 @@
+---
+/**
+ * A program's Smart Patient Guide on the phone layout: a short row (`variant="row"`, under the price
+ * box) or a band (`variant="band"`, after the products, per Derek's 2026-11-12 rule). Renders nothing
+ * while the program's guide is held back (data/held-ebooks.json).
+ */
+import Icon from '../Icon.astro';
+import { guidePath, primaryGuideFor } from '../../lib/guide-flow';
+import { ebooksFor } from '../../data/ebooks';
+import type { ProgramSlug } from '../../lib/cta';
+
+interface Props {
+  program: ProgramSlug;
+  variant: 'row' | 'band';
+  /** Row title, e.g. "Is GLP-1 right for me?" */
+  question?: string;
+  /** Background of the row or band; set it when the page's own tint is the default sage. */
+  tint?: string;
+}
+const { program, variant, question, tint } = Astro.props;
+const book = primaryGuideFor(program);
+const others = ebooksFor(program).filter((b) => b.slug !== book?.slug);
+---
+{book && variant === 'row' && (
+  <a class="ph-row" href={guidePath(book.slug)} style={tint ? `background:${tint}` : undefined}>
+    <span class="t"><b>{question ?? `Thinking about ${book.title}?`}</b><span>Get a Free Smart Patient Guide</span></span>
+    <Icon name="book-open" />
+  </a>
+)}
+{book && variant === 'band' && (
+  <section class="ph-band" style={`background:${tint ?? 'var(--ph-t-aging)'}`} aria-label="Smart Patient Guide">
+    <h2>Smart Patient Guide: <em>{book.title}</em></h2>
+    <p>{book.subtitle}</p>
+    <a class="ph-btn ph-btn--light" href={guidePath(book.slug)}>Get the free guide</a>
+    {others.map((o) => <small>Also: <a href={guidePath(o.slug)} style="text-decoration:underline">The Smart Patient’s Guide to {o.title}</a></small>)}
+  </section>
+)}

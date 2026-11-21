@@ -1,0 +1,75 @@
+---
+/**
+ * Two-up product cards for the phone layout. Every card opens its product's own page ("View details"),
+ * where the full disclosures and the "See If You Qualify" button are, so no route to the health
+ * questions skips the warnings (owner, 2026-11-21). The card itself carries only short tags: its form,
+ * then "Rx" and "Compounded" or "Off-label" from PRODUCT_DISCLOSURES (lib/disclosure-line.ts).
+ *
+ * variant="glass" (Healthy Aging): no frame around the product. The vial fills the card as a close-up
+ * on a pale "Ice" background, and the name, price and tags sit on a frosted-glass label over it
+ * (owner, 2026-11-21). An optional help tile fills the grid's last cell.
+ */
+import Icon from '../Icon.astro';
+import { shortDisclosure } from '../../lib/disclosure-line';
+import type { ProgramSlug } from '../../lib/cta';
+
+export interface PhoneCard {
+  /** Product-card name. */
+  product: string;
+  /** Title on the card; defaults to `product`. */
+  title?: string;
+  image: string;
+  alt: string;
+  /** Form tags, e.g. "Weekly", "Tablet"; the Rx and Compounded tags are added from the disclosure data. */
+  tags: string[];
+  /** "$179/month", "From $139/month"; leave out for Coming soon. */
+  price?: string;
+  /** Show the image whole on the tint (vials), instead of filling the frame. */
+  contain?: boolean;
+  /** A short line under the price, e.g. a state limit. */
+  note?: string;
+  /** Its PRODUCT_DISCLOSURES key, when that differs from `product` (e.g. a form of NAD+). */
+  disclosure?: string;
+  /** The product's own page. */
+  href: string;
+}
+interface Props {
+  program: ProgramSlug;
+  cards: PhoneCard[];
+  help?: { title: string; body: string };
+  variant?: 'tint' | 'glass';
+}
+const { program, cards, help, variant = 'tint' } = Astro.props;
+const tagsOf = (c: PhoneCard) => [...c.tags, ...shortDisclosure(program, c.disclosure ?? c.product).tags];
+---
+<div class:list={['ph-cards', { 'ph-cards--glass': variant === 'glass' }]}>
+  {cards.map((c) => variant === 'glass' ? (
+    <a class:list={['ph-gcard', { 'ph-card--soon': !c.price }]} href={c.href} aria-label={`${c.title ?? c.product}: view details`}>
+      <img src={c.image} alt={c.alt} width="300" height="440" loading="lazy" decoding="async" />
+      <span class="ph-gcard__glass">
+        <span class="ph-tags">{tagsOf(c).map((t) => <span class:list={{ 'ph-tag--rx': t === 'Rx' || t === 'Compounded' || t === 'Off-label' }}>{t}</span>)}</span>
+        <span class="ph-gcard__name">{c.title ?? c.product}</span>
+        <span class="ph-card__pr">{c.price ?? 'Coming soon'}</span>
+        <span class="ph-gcard__go">View details<Icon name="arrow-right" /></span>
+      </span>
+    </a>
+  ) : (
+    <article class:list={['ph-card', { 'ph-card--soon': !c.price, 'ph-card--contain': c.contain }]}>
+      <img src={c.image} alt={c.alt} width="200" height="116" loading="lazy" decoding="async" />
+      <div class="ph-card__t">
+        <div class="ph-tags">{tagsOf(c).map((t) => <span class:list={{ 'ph-tag--rx': t === 'Rx' || t === 'Compounded' || t === 'Off-label' }}>{t}</span>)}</div>
+        <h3>{c.title ?? c.product}</h3>
+        <p class="ph-card__pr">{c.price ?? 'Coming soon'}</p>
+        {c.note && <p class="ph-card__note">{c.note}</p>}
+        <a class="ph-mini" href={c.href}>View details<span class="visually-hidden">: {c.title ?? c.product}</span></a>
+      </div>
+    </article>
+  ))}
+  {help && (
+    <div class="ph-card ph-card--help">
+      <Icon name="stethoscope" />
+      <h3>{help.title}</h3>
+      <p>{help.body}</p>
+    </div>
+  )}
+</div>

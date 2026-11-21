@@ -6,6 +6,7 @@ import SexProducts from '../components/sections/sexual/SexProducts.astro';
 import SexRecommendation from '../components/sections/sexual/SexRecommendation.astro';
 import SexFaq from '../components/sections/sexual/SexFaq.astro';
 import SexCta from '../components/sections/sexual/SexCta.astro';
+import SexPhone from '../components/sections/sexual/SexPhone.astro';
 import GuideBand from '../components/guides/GuideBand.astro';
 import { programAt, startingPrice } from '../lib/seo/catalog';
 import { breadcrumbs, faqPage, programService } from '../lib/seo/schema';
@@ -23,12 +24,15 @@ const jsonLd = [
   description={description}
   jsonLd={jsonLd}
 >
-  <SexHero />
-  <SexEducation />
-  <SexProducts />
-  <SexRecommendation />
-  {/* Products always come before the Smart Patient Guide band (Derek, 2026-11-12). */}
-  <GuideBand program="sexual-wellness" />
-  <SexFaq />
-  <SexCta />
+  <div class="ph-only"><SexPhone /></div>
+  <div class="ph-hide">
+    <SexHero />
+    <SexEducation />
+    <SexProducts />
+    <SexRecommendation />
+    {/* Products always come before the Smart Patient Guide band (Derek, 2026-11-12). */}
+    <GuideBand program="sexual-wellness" />
+    <SexFaq />
+    <SexCta />
+  </div>
 </BaseLayout>

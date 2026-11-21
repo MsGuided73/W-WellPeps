@@ -1,0 +1,83 @@
+---
+/**
+ * Every FAQ for the page as a phone accordion (native <details>, so it works without script).
+ *
+ * Answers get a structure so they are easy to scan on a phone (owner, 2026-11-21). The words are the
+ * data file's, unchanged:
+ * - a plain answer: its first sentence is the short answer, in bold; the sentences after it become
+ *   bullet points (or one paragraph when there is only one);
+ * - an answer written as paragraphs: plain paragraphs stay paragraphs, and "lead + text" paragraphs
+ *   become bullet points with the lead in bold.
+ */
+type Para = string | { lead: string; text: string };
+interface Props {
+  title?: string;
+  faqs: readonly { q: string; a: string | readonly Para[] }[];
+}
+const { title = 'Common questions', faqs } = Astro.props;
+// Stable id from the first question (a random one made every build differ).
+const id = `ph-faq-${(faqs[0]?.q ?? 'faq').toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 32)}`;
+
+// Sentence split that does not break after abbreviations such as "U.S." or "P.A.".
+const ABBR = /(?:\b[A-Z]\.){2,}$|\b(?:Dr|Mr|Ms|Mrs|Inc|e\.g|i\.e|vs|etc)\.$/;
+function sentences(text: string): string[] {
+  const parts = text.replace(/\s+/g, ' ').trim().split(/(?<=[.!?])\s+(?=[A-Z0-9“"(])/);
+  const out: string[] = [];
+  for (const p of parts) {
+    if (out.length && ABBR.test(out[out.length - 1])) out[out.length - 1] += ` ${p}`;
+    else out.push(p);
+  }
+  return out;
+}
+
+type Block = { kind: 'lead'; text: string } | { kind: 'p'; text: string } | { kind: 'ul'; items: { lead?: string; text: string }[] };
+function blocks(a: string | readonly Para[]): Block[] {
+  if (typeof a === 'string') {
+    const [first, ...rest] = sentences(a);
+    const out: Block[] = [{ kind: 'lead', text: first }];
+    if (rest.length === 1) out.push({ kind: 'p', text: rest[0] });
+    if (rest.length > 1) out.push({ kind: 'ul', items: rest.map((text) => ({ text })) });
+    return out;
+  }
+  const out: Block[] = [];
+  for (const p of a) {
+    if (typeof p === 'string') out.push({ kind: 'p', text: p.trim() });
+    else {
+      const last = out[out.length - 1];
+      const item = { lead: p.lead, text: p.text };
+      if (last?.kind === 'ul') last.items.push(item);
+      else out.push({ kind: 'ul', items: [item] });
+    }
+  }
+  return out;
+}
+const list = faqs.map((f) => ({ q: f.q, blocks: blocks(f.a) }));
+---
+<section aria-labelledby={id}>
+  <h2 class="ph-htitle" id={id}>{title}</h2>
+  <div class="ph-acc" style="margin-top:4px">
+    {list.map((f, i) => (
+      <details open={i === 0}>
+        <summary>{f.q}</summary>
+        <div class="ph-acc-body ph-faq">
+          {f.blocks.map((b) =>
+            b.kind === 'lead' ? <p class="ph-faq__lead">{b.text}</p>
+            : b.kind === 'p' ? <p>{b.text}</p>
+            : <ul>{b.items.map((it) => <li>{it.lead && <b>{it.lead} </b>}{it.text}</li>)}</ul>
+          )}
+        </div>
+      </details>
+    ))}
+  </div>
+</section>
+
+<style>
+  @media (max-width: 767px) {
+    .ph-faq { gap: 10px; }
+    .ph-faq__lead { font-weight: 600; color: var(--ph-ink); }
+    .ph-faq ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+    .ph-faq li { position: relative; padding-left: 20px; }
+    .ph-faq li::before { content: ''; position: absolute; left: 4px; top: 0.62em; width: 7px; height: 7px; border-radius: 50%; background: var(--blue); }
+    .ph-faq li b { color: var(--ph-ink); font-weight: 600; }
+  }
+</style>
