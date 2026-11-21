@@ -13,6 +13,12 @@ import { PROGRAMS, startingPrice } from '../../lib/seo/catalog';
 import { GUIDES_INDEX_PATH } from '../../lib/guide-flow';
 import { faqs } from '../../data/content';
 
+// Phone only: the programs answer reflects that Men's Hormone Therapy is live (owner, 2026-11-21). The
+// desktop answer in data/content.ts is being updated separately; fold this back in once it is.
+const PROGRAMS_Q = 'What programs does WellPeps offer?';
+const PROGRAMS_A = 'Weight Management, Hair Restoration, Sexual Wellness, Healthy Aging & Vitality, and Men’s Hormone Therapy are available today, with Women’s Hormone Therapy coming soon.';
+const phoneFaqs = faqs.map((f) => (f.q === PROGRAMS_Q ? { ...f, a: PROGRAMS_A } : f));
+
 /** Home headline and supporting copy: Derek's wording (notes of 2026-11-20). */
 export const HOME_PHONE_HEADLINE = { lead: 'Online healthcare', accent: 'that’s more than medication.' } as const;
 export const HOME_PHONE_SUB =
@@ -91,7 +97,7 @@ const agingFrom = from('/healthy-aging/');
     <p class="ph-li"><i>3</i>Your prescribed medication ships to you</p>
   </section>
 
-  <PhoneFaq faqs={faqs} />
+  <PhoneFaq faqs={phoneFaqs} />
 </div>
 
 <style>
