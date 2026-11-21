@@ -134,6 +134,9 @@ export const PRODUCT_LINKS = {
   'testosterone-cypionate': { program: 'mens-hormone-therapy', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/LFYNjw8vldxMO6N52OCs?checkoutFlow=intake_first' },
   // GEN: "Men's Hormone Plan – 3 month Testosterone Injectable (Cypionate / Enanthate)" ($299, subscription every 3 months)
   'testosterone-cypionate-3-month': { program: 'mens-hormone-therapy', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/WLP-PRD-4FG3HT?checkoutFlow=intake_first' },
+  // womens-hormone-therapy (owner, 2026-11-21): Oral Micronized Progesterone, 30 capsules (1 month), $199. NOT in
+  // LIVE_PRODUCTS until Women's Hormone Therapy has an approved safety page (SAFETY_PAGE has none yet).
+  'oral-micronized-progesterone': { program: 'womens-hormone-therapy', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/WLP-PRD-GKKACS?checkoutFlow=intake_first' },
   // peptides (owner, 2026-11-21): TB-500, 1 month, $231. NOT in LIVE_PRODUCTS until Peptide Therapy has an approved
   // safety page (SAFETY_PAGE in src/data/product-disclosures.ts): a program cannot open without its safety information.
   'tb-500': { program: 'peptides', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Mld6DVZWa0X3dYxRdhai?checkoutFlow=intake_first' },

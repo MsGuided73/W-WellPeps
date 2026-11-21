@@ -423,6 +423,9 @@ export const womensHormone: HormonePage = {
           'Progesterone is commonly prescribed alongside systemic estrogen for women who have a uterus, to help protect the uterine lining.',
         methodOfUse: 'Oral Capsule',
         features: ['Oral capsule, taken as prescribed', 'Often prescribed with estrogen therapy', 'Dose set by your provider'],
+        // Owner, 2026-11-21: 30 capsules (1 month), $199, GEN Health link saved as 'oral-micronized-progesterone' in
+        // src/config.ts. Add price: '199' here and the key to LIVE_PRODUCTS together, once Women's Hormone Therapy has
+        // an approved safety page.
       },
       {
         name: 'Vaginal Estradiol Cream',
