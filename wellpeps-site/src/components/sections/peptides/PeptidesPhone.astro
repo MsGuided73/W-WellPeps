@@ -18,7 +18,9 @@ import { GUIDES_INDEX_PATH } from '../../../lib/guide-flow';
 
 const program = 'peptides' as const;
 const items = page.products.items;
-const priced = (price?: string) => Boolean(price && /^\d+$/.test(price));
+// Whole dollars or dollars and cents (BPC-157 is $168.50).
+const priced = (price?: string) => Boolean(price && /^\d+(\.\d{2})?$/.test(price));
+const money = (n: number) => (Number.isInteger(n) ? String(n) : n.toFixed(2));
 const shortUnit = (unit: string) => (unit === '/month' ? '/mo' : unit.replace('/3 months', '/3 mo'));
 
 // Price box: every live, priced plan (1 month and 3 months are separate choices).
@@ -37,8 +39,8 @@ const cards = items.map((p) => {
     alt: p.alt,
     photo: true,
     href: productPath(program, p.name),
-    tags: [p.methodOfUse.replace(/ Peptide$/, '').replace('Oral Capsules & Topical Cream', 'Capsules & cream')],
-    price: prices.length ? `From $${Math.min(...prices)}/month` : undefined,
+    tags: [p.methodOfUse.replace(/ Peptide$/, '').replace('Oral Capsules', 'Capsules')],
+    price: prices.length ? `From $${money(Math.min(...prices))}/month` : undefined,
   };
 });
 const line = shortDisclosure(program, items[0].name);

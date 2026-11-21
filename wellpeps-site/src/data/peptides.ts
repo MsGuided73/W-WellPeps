@@ -95,7 +95,8 @@ export const peptidesPage: PeptidesPage = {
     footnote: 'Pricing and supply length are shown before you pay at checkout.',
     anchor: 'peptides-products',
     priceExtra: null,
-    // 3-month prepaid plans on every card with one pharmacy form (KPV waits: its card covers capsules AND cream).
+    // 3-month prepaid plans on BPC-157, TB-500, MOTS-c, Semax and Epitalon (owner, 2026-11-18). KPV is capsules only
+    // since 2026-11-21; it gets a plan toggle once the owner confirms a 3-month plan for it.
     // Collapsing "View details" cards were tried 2026-11-18 and dropped 2026-11-19 (Derek): full standard cards.
     // Derek's cards, in his order. Titles are the PRODUCT_DISCLOSURES keys; slugged, the PRODUCT_LINKS keys.
     items: [
@@ -110,6 +111,8 @@ export const peptidesPage: PeptidesPage = {
         // 1 month or 3 months prepaid (owner, 2026-11-18). Each plan opens with its own price and GEN Health link:
         // PRODUCT_LINKS keys 'bpc-157' and 'bpc-157-3-month'.
         plans: [
+          // Owner, 2026-11-21: $168.50/month, GEN Health link saved as 'bpc-157' in src/config.ts. Add price: '168.50' here
+          // and 'bpc-157' to LIVE_PRODUCTS together, once Peptide Therapy has an approved safety page.
           { label: '1 month', priceUnit: '/month', product: 'BPC-157' },
           { label: '3 months', priceUnit: '/3 months', product: 'BPC-157 3 Month', renewal: 'Renews every 3 months, cancel anytime.' },
         ],
@@ -136,9 +139,10 @@ export const peptidesPage: PeptidesPage = {
         name: 'KPV',
         subtitle: 'Inflammation & Skin Health',
         image: '/images/peptides/product-kpv.webp',
-        alt: 'A bottle of compounded KPV capsules beside a tube of KPV topical cream',
+        alt: 'A bottle of compounded KPV capsules on a marble counter',
         description: 'KPV is a naturally occurring peptide fragment being studied for its potential role in inflammatory processes, skin health, and gastrointestinal wellness.',
-        methodOfUse: 'Oral Capsules & Topical Cream',
+        // Capsules only (owner, 2026-11-21); the topical cream is not offered.
+        methodOfUse: 'Oral Capsules',
         features: ['Studied for its potential anti-inflammatory properties', 'Research involving skin and gastrointestinal health', ...PRODUCT_FEATURES],
       },
       {
@@ -152,6 +156,8 @@ export const peptidesPage: PeptidesPage = {
         // 1 month or 3 months prepaid (owner, 2026-11-18). Each plan opens with its own price and GEN Health link:
         // PRODUCT_LINKS keys 'mots-c' and 'mots-c-3-month'.
         plans: [
+          // Owner, 2026-11-21: $157.50/month, GEN Health link saved as 'mots-c' in src/config.ts. Add price: '157.50' here
+          // and 'mots-c' to LIVE_PRODUCTS together, once Peptide Therapy has an approved safety page.
           { label: '1 month', priceUnit: '/month', product: 'MOTS-c' },
           { label: '3 months', priceUnit: '/3 months', product: 'MOTS-c 3 Month', renewal: 'Renews every 3 months, cancel anytime.' },
         ],
@@ -182,6 +188,8 @@ export const peptidesPage: PeptidesPage = {
         // 1 month or 3 months prepaid (owner, 2026-11-18). Each plan opens with its own price and GEN Health link:
         // PRODUCT_LINKS keys 'epitalon' and 'epitalon-3-month'.
         plans: [
+          // Owner, 2026-11-21: $157.50/month, GEN Health link saved as 'epitalon' in src/config.ts. Add price: '157.50' here
+          // and 'epitalon' to LIVE_PRODUCTS together, once Peptide Therapy has an approved safety page.
           { label: '1 month', priceUnit: '/month', product: 'Epitalon' },
           { label: '3 months', priceUnit: '/3 months', product: 'Epitalon 3 Month', renewal: 'Renews every 3 months, cancel anytime.' },
         ],
@@ -228,7 +236,7 @@ export const peptidesPage: PeptidesPage = {
     },
     {
       q: 'How are peptide therapies taken?',
-      a: 'It depends on the product: some are injected, some are taken as a nasal spray, and some come as oral capsules or a topical cream. If a treatment is prescribed, your provider explains how and when to use it.',
+      a: 'It depends on the product: most are injected, one is a nasal spray, and one is taken as capsules by mouth. If a treatment is prescribed, your provider explains how and when to use it.',
     },
     {
       q: 'Are there side effects or risks?',

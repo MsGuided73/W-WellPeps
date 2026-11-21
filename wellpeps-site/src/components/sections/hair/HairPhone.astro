@@ -15,7 +15,8 @@ import { hairHero, hairProducts, hairProductsIntro, hairWorks, hairFaqs } from '
 import { HAIR_COMING_SOON } from '../../../config';
 import { COMPOUNDED_SENTENCE, disclosureFor } from '../../../data/product-disclosures';
 
-const priced = (p: { price: string }) => /^\d+$/.test(p.price);
+// Whole dollars or dollars and cents ($168.50).
+const priced = (p: { price: string }) => /^\d+(\.\d{2})?$/.test(p.price);
 const isOral = (name: string) => name.startsWith('Oral ');
 // Short labels for the price box; the "For …" line under it names the full product.
 const SHORT: Record<string, string> = {
