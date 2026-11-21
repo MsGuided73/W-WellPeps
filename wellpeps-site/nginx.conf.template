@@ -141,7 +141,7 @@ server {
     root /usr/share/nginx/html;
     index index.html;
 
-    # Redirects (e.g. /weight-loss -> /weight-loss/, /peptides) send a relative
+    # Redirects (e.g. /weight-loss -> /weight-loss/) send a relative
     # Location. nginx sits behind TLS-terminating Traefik and only sees http,
     # so absolute redirects downgraded visitors from https to http.
     absolute_redirect off;
@@ -163,7 +163,7 @@ server {
     }
 
     # Server-level copy of the security headers: inherited by every location
-    # below that has no add_header of its own (the /peptides redirects, the
+    # below that has no add_header of its own (the /mental-wellness 410s, the
     # 404 and 403 locations, the unlock rate-limit reply) and by the redirect
     # above.
     add_header Content-Security-Policy $wp_csp always;
@@ -252,19 +252,8 @@ server {
         return 403;
     }
 
-    # Renamed 2026-09-19: the Healthy Aging & Vitality program moved from
-    # /peptides to /healthy-aging. Astro also emits a meta-refresh stub at
-    # /peptides/, but a real 301 here is what search engines need, and it
-    # takes precedence because an exact-match location beats the prefix below.
-    # (No add_header here on purpose: both inherit the server-level set.)
-    location = /peptides {
-        if ($gate_ok = 0) { return 401; }
-        return 301 /healthy-aging/;
-    }
-    location = /peptides/ {
-        if ($gate_ok = 0) { return 401; }
-        return 301 /healthy-aging/;
-    }
+    # /peptides 301'd to /healthy-aging/ from the 2026-09-19 rename until
+    # 2026-11-19; it is the Peptide Therapy page again, served by location /.
 
     # Discontinued 2026-10-26: the Mental Wellness program will not launch.
     # 410 (not 404, not a redirect) is the signal that drops the URL from

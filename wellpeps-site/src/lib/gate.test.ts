@@ -55,7 +55,7 @@ describe('nginx.conf.template', () => {
   });
 
   test('every HTML location is gated', () => {
-    for (const loc of ['location = /peptides {', 'location = /peptides/ {', 'location / {']) {
+    for (const loc of ['location = /mental-wellness {', 'location = /mental-wellness/ {', 'location / {']) {
       const start = TEMPLATE.indexOf(loc);
       expect(start, loc).toBeGreaterThan(-1);
       expect(TEMPLATE.slice(start, start + 200), loc).toContain('if ($gate_ok = 0) { return 401; }');

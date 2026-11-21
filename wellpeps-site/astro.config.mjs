@@ -13,11 +13,9 @@ export default defineConfig({
   // redirect (scripts/lib/trailing-slash.mjs), then sitemap.xml is written from the built pages
   // (scripts/lib/sitemap.mjs).
   integrations: [trailingSlashIntegration(), sitemapIntegration(), heldEbooksIntegration()],
-  // /peptides was the route until 2026-09-19, when the program was renamed
-  // "Healthy Aging & Vitality" to match the GEN Health product. Keep the old
-  // URL working for anything already shared or indexed.
+  // /peptides redirected to /healthy-aging/ from the 2026-09-19 rename until
+  // 2026-11-19, when /peptides became its own page again (Peptide Therapy).
   redirects: {
-    '/peptides': '/healthy-aging/',
     // The membership fee was dropped 2026-09-30; its manage/cancel page became
     // /your-plan. Keep the old footer URL working.
     '/membership': '/your-plan/',

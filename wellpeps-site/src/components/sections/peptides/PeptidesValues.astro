@@ -1,0 +1,62 @@
+---
+/**
+ * "Personalized Wellness. Simplified." (Derek's mockup): the brand line beside four short promises, each with
+ * a site icon, split by thin rules. Two by two on tablets, one column on phones.
+ */
+import type { PeptidesPage } from '../../../data/peptides';
+
+interface Props {
+  values: PeptidesPage['values'];
+}
+const { values } = Astro.props;
+---
+<section class="section pvals">
+  <div class="container pvals__inner reveal">
+    <div class="pvals__head">
+      <h2>{values.titleLead} <span class="accent">{values.titleAccent}</span></h2>
+      <hr class="rule rule--left" />
+    </div>
+    <ul class="pvals__list">
+      {values.items.map((v) => (
+        <li class="pvals__item">
+          <img src={v.icon} alt={`${v.title} icon`} width="56" height="56" loading="lazy" decoding="async" />
+          <h3>{v.title}</h3>
+          <p>{v.body}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .pvals { padding-block: clamp(2.5rem, 4vw, 3.75rem); }
+  .pvals__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+    gap: clamp(1.5rem, 3vw, 3rem);
+    align-items: center;
+  }
+  .pvals__head h2 { font-size: var(--text-section-title); font-weight: 700; }
+  .pvals__list {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .pvals__item {
+    text-align: center;
+    padding-inline: clamp(0.75rem, 1.5vw, 1.5rem);
+    border-left: 1px solid var(--border-strong);
+  }
+  .pvals__item img { width: 52px; height: 52px; object-fit: contain; margin: 0 auto 0.6rem; display: block; }
+  .pvals__item h3 { font-family: var(--font-sans); font-size: 1.15rem; font-weight: 700; color: var(--navy); line-height: 1.25; }
+  .pvals__item p { margin-top: 0.35rem; font-size: var(--text-small); color: var(--text-body); }
+
+  @media (max-width: 1080px) {
+    .pvals__inner { grid-template-columns: 1fr; }
+    .pvals__list { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 1.75rem; }
+    .pvals__item:nth-child(odd) { border-left: 0; }
+  }
+  @media (max-width: 520px) {
+    .pvals__list { grid-template-columns: 1fr; }
+    .pvals__item { border-left: 0; }
+  }
+</style>

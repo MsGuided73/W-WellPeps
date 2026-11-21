@@ -9,6 +9,7 @@ import { peptideProducts } from './peptide';
 import { sexProducts } from './sexual';
 import { weightProducts } from './weight';
 import { mensHormone, womensHormone } from './hormone';
+import { peptidesPage } from './peptides';
 import { PROGRAM_SLUGS, resolveCta } from '../lib/cta';
 import { LEGAL_DOCS } from '../lib/legal-docs';
 
@@ -19,6 +20,7 @@ const productsByProgram = {
   'healthy-aging': peptideProducts,
   'mens-hormone-therapy': mensHormone.products.items,
   'womens-hormone-therapy': womensHormone.products.items,
+  peptides: peptidesPage.products.items,
 } as const;
 
 describe('every product on a card has a disclosure decision', () => {

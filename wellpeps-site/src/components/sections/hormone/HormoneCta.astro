@@ -6,14 +6,15 @@
  */
 import AssessmentCta from '../../AssessmentCta.astro';
 import { ASSESSMENT_CTA_LABEL } from '../../../lib/cta';
-import type { HormonePage } from '../../../data/hormone';
+import { productsAnchor, type ProgramPageCore } from '../../../data/hormone';
 
 interface Props {
-  page: HormonePage;
+  page: ProgramPageCore;
 }
 const { cta, program } = Astro.props.page;
+const toProducts = productsAnchor(Astro.props.page);
 ---
-<section class="hcta">
+<section class:list={['hcta', { 'hcta--left': cta.imageSide === 'left' }]}>
   <img class="hcta__img" src={cta.image} width={cta.width} height={cta.height} alt={cta.alt} loading="lazy" />
 
   <div class="hcta__wrap">
@@ -22,7 +23,7 @@ const { cta, program } = Astro.props.page;
       <p class="hcta__lead">{cta.lead}</p>
       {/* Until the program's GEN Health links exist, the button goes to the treatment cards (owner, 2026-11-12). */}
       <AssessmentCta program={program} class="btn btn--primary btn--lg hcta__btn">
-        <a slot="soon" href="#hormone-products" class="btn btn--primary btn--lg hcta__btn">{ASSESSMENT_CTA_LABEL}</a>
+        <a slot="soon" href={toProducts} class="btn btn--primary btn--lg hcta__btn">{ASSESSMENT_CTA_LABEL}</a>
       </AssessmentCta>
       <p class="hcta__note">{cta.note}</p>
     </div>
@@ -63,6 +64,15 @@ const { cta, program } = Astro.props.page;
   .hcta__btn { margin-top: 1.75rem; align-self: flex-start; }
   .hcta__note { margin-top: 1rem; color: var(--navy); font-weight: 700; font-size: var(--text-note); }
 
+  /* Photo on the left, copy on the right (Peptides). */
+  .hcta--left .hcta__img {
+    right: auto; left: 0;
+    object-position: 30% top;
+    -webkit-mask-image: linear-gradient(to left, transparent 0%, rgba(0,0,0,0.5) 10%, #000 24%);
+            mask-image: linear-gradient(to left, transparent 0%, rgba(0,0,0,0.5) 10%, #000 24%);
+  }
+  .hcta--left .hcta__copy { margin-left: auto; }
+
   @media (max-width: 900px) {
     .hcta { flex-direction: column; min-height: 0; align-items: stretch; }
     .hcta__img {
@@ -72,5 +82,6 @@ const { cta, program } = Astro.props.page;
               mask-image: linear-gradient(to bottom, #000 62%, transparent 100%);
     }
     .hcta__copy { max-width: none; padding-block: 2rem 2.75rem; }
+    .hcta--left .hcta__img { object-position: 20% center; }
   }
 </style>

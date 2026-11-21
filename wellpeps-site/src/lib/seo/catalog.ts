@@ -9,6 +9,7 @@ import { hairFaqs, hairHero, hairProducts } from '../../data/hair';
 import { sexFaqs, sexHero, sexProducts } from '../../data/sexual';
 import { peptideFaqs, peptideHero, peptideProducts } from '../../data/peptide';
 import { HORMONE_PAGES } from '../../data/hormone';
+import { peptidesPage } from '../../data/peptides';
 import { programs } from '../../data/programs';
 
 export interface Treatment {
@@ -103,6 +104,15 @@ export const PROGRAMS: readonly ProgramEntry[] = [
     treatments: page.products.items.map((p) => ({ name: p.name, form: p.methodOfUse })),
     faqs: toFaqs(page.faqs),
   })),
+  // Peptide Therapy (2026-11-18): its six newest products have no price or link yet ("Coming soon").
+  {
+    path: peptidesPage.path,
+    name: peptidesPage.name,
+    summary: plain(peptidesPage.hero.lead),
+    live: true,
+    treatments: peptidesPage.products.items.map((p) => ({ name: p.name, form: p.methodOfUse, monthlyPrice: toPrice(p.price) })),
+    faqs: toFaqs(peptidesPage.faqs),
+  },
 ];
 
 export function programAt(path: string): ProgramEntry {

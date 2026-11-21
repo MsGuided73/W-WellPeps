@@ -115,7 +115,7 @@ async function headerProbes() {
     ['image', OPEN, image, 200],
     ['svg', OPEN, svg, 200],
     ['dotfile (403)', OPEN, '/.env', 403],
-    ['renamed program (301)', OPEN, '/peptides', 301],
+    ['discontinued program (410)', OPEN, '/mental-wellness', 410],
     ['gate folder (404)', OPEN, '/preview-access/', 404],
     ['gate page when locked (401)', GATED, '/weight-loss/', 401],
     ['asset while locked', GATED, asset, 200],

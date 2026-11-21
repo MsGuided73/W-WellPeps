@@ -48,6 +48,8 @@ interface Props {
   plans?: CardPlan[];
   /** Shown under the price, e.g. "Plus lab testing, billed separately." */
   priceExtra?: string;
+  /** Anchor for links that jump to this card (the Peptides product tiles). */
+  id?: string;
 }
 export interface CardPlan {
   /** Toggle label, e.g. "1 month". */
@@ -68,7 +70,7 @@ const plans: CardPlan[] = planList && planList.length > 1 ? planList : [{ label:
 const multi = plans.length > 1;
 const group = `plan-${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
 ---
-<article class:list={['scard', { 'scard--cover': cover, 'scard--plans': multi }]}>
+<article id={Astro.props.id} class:list={['scard', { 'scard--cover': cover, 'scard--plans': multi }]}>
   <div class="scard__media">
     <img src={image} alt={alt} width="720" height="540" loading="lazy" />
   </div>

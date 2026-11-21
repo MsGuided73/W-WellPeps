@@ -110,6 +110,15 @@ export const PRODUCT_DISCLOSURES: Record<ProgramSlug, Record<string, ProductDisc
     // VERIFY: the formulary note asks for FDA-approved generic quotes. Tagged compounded meanwhile, as Derek's card shows.
     'Oral Micronized Progesterone': { regulatory: 'compounded' },
   },
+  // Peptide Therapy (Derek's cards, 2026-11-17): every product is compounded, as each card states. None is FDA-approved.
+  peptides: {
+    'BPC-157': { regulatory: 'compounded' },
+    'TB-500': { regulatory: 'compounded' },
+    KPV: { regulatory: 'compounded' },
+    'MOTS-c': { regulatory: 'compounded' },
+    Semax: { regulatory: 'compounded' },
+    Epitalon: { regulatory: 'compounded' },
+  },
 };
 
 /** The disclosure for a product. Throws for an unlisted product, so the build stops until someone decides. */

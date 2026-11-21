@@ -464,6 +464,11 @@ export const PROGRAM_BAND_COPY: Readonly<Record<ProgramSlug, ProgramBandCopy>> =
     question: 'Want to learn more before choosing a menopause hormone therapy program?',
     body: 'Understand what happens during perimenopause and menopause, what to realistically expect, and the questions worth asking before choosing a treatment program.',
   },
+  // Derek is writing one Peptides guide (2026-11-17). The band stays hidden until it is published.
+  peptides: {
+    question: 'Want to learn more before choosing a peptide therapy?',
+    body: 'Understand what peptides are, where the research stands, what to realistically expect, and the questions worth asking before choosing a treatment program.',
+  },
 };
 
 /** Series-level copy: the home section, the program bands, and the central page. */

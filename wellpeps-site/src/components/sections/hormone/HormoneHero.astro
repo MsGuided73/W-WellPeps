@@ -7,13 +7,14 @@
 import Icon from '../../Icon.astro';
 import AssessmentCta from '../../AssessmentCta.astro';
 import { ASSESSMENT_CTA_LABEL } from '../../../lib/cta';
-import type { HormonePage } from '../../../data/hormone';
+import { productsAnchor, type ProgramPageCore } from '../../../data/hormone';
 
 interface Props {
-  page: HormonePage;
+  page: ProgramPageCore;
 }
 const { page } = Astro.props;
 const { hero, program } = page;
+const toProducts = productsAnchor(page);
 ---
 <section class="hhero">
   <img class="hhero__img" src={hero.image} width={hero.width} height={hero.height} alt={hero.alt} fetchpriority="high" />
@@ -32,9 +33,9 @@ const { hero, program } = page;
         {/* Until the program's GEN Health links exist, the button takes the visitor to the treatment cards instead of
             showing a grey "Opening Soon" (owner, 2026-11-12). */}
         <AssessmentCta program={program} class="btn btn--primary btn--lg">
-          <a slot="soon" href="#hormone-products" class="btn btn--primary btn--lg">{ASSESSMENT_CTA_LABEL}</a>
+          <a slot="soon" href={toProducts} class="btn btn--primary btn--lg">{ASSESSMENT_CTA_LABEL}</a>
         </AssessmentCta>
-        <a href="#hormone-products" class="btn btn--secondary btn--lg">Explore Treatment Options <Icon name="arrow-right" /></a>
+        <a href={toProducts} class="btn btn--secondary btn--lg">{hero.exploreLabel ?? 'Explore Treatment Options'} <Icon name="arrow-right" /></a>
       </div>
       {/* No disclosure line here (owner, 2026-11-12): the product cards, the note under them and the footer carry it,
           and the other program heroes have none. */}

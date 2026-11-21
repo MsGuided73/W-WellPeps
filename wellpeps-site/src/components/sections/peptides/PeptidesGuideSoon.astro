@@ -1,0 +1,97 @@
+---
+/**
+ * The Peptides guide, coming soon (Derek, 2026-11-19: "this will be a peptide book, coming soon"). It wears the
+ * program-page guide band's look (GuideBand.astro), with a plain cover in place of the book art and a link to the
+ * guides that are already free in place of the download button. When the guide is published, the page switches to
+ * <GuideBand program="peptides" /> and this file goes.
+ */
+import Icon from '../../Icon.astro';
+import { GUIDE_SERIES, PROGRAM_BAND_COPY } from '../../../data/guide-pages';
+import { GUIDES_INDEX_PATH } from '../../../lib/guide-flow';
+
+const copy = PROGRAM_BAND_COPY.peptides;
+const title = 'The Smart Patient’s Guide to Peptide Therapy';
+---
+<section class="pguide" aria-labelledby="pguide-title">
+  <div class="container pguide__inner">
+    <div class="pguide__cover" aria-hidden="true">
+      <img class="pguide__mark" src="/images/w-mark-v2.png" alt="WellPeps W logo" width="48" height="48" />
+      <p class="pguide__series">{GUIDE_SERIES.name}</p>
+      <p class="pguide__name">Peptide Therapy</p>
+      <span class="pguide__ribbon">Coming Soon</span>
+    </div>
+    <div class="pguide__copy">
+      <p class="pguide__question">{copy.question}</p>
+      <h2 class="pguide__title" id="pguide-title">{title} <span class="pguide__soon">Coming Soon</span></h2>
+      <p class="pguide__lead">{copy.body}</p>
+      <div class="pguide__actions">
+        <a class="pguide__btn" href={GUIDES_INDEX_PATH}>{GUIDE_SERIES.homeExploreAll}<Icon name="arrow-right" /></a>
+        <span class="pguide__fine">Our other guides are free to download now.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pguide {
+    position: relative; overflow: hidden; color: #fff;
+    padding-block: clamp(3.5rem, 6vw, 5.5rem);
+    background:
+      radial-gradient(60rem 30rem at 12% 20%, rgba(46, 168, 247, 0.28), transparent 60%),
+      radial-gradient(50rem 30rem at 95% 100%, rgba(21, 118, 196, 0.35), transparent 60%),
+      linear-gradient(160deg, #0B3670 0%, var(--navy) 45%, var(--navy-deep) 100%);
+  }
+  .pguide__inner { position: relative; display: grid; grid-template-columns: minmax(260px, 0.7fr) 1.3fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: center; }
+
+  /* A plain book cover: same 600 x 776 shape as the published guide covers. */
+  .pguide__cover {
+    position: relative; width: min(320px, 100%); aspect-ratio: 600 / 776; margin-inline: auto;
+    display: flex; flex-direction: column; justify-content: center; gap: 0.9rem; padding: 2rem 1.75rem;
+    border-radius: 6px 14px 14px 6px; overflow: hidden;
+    background: linear-gradient(165deg, #FFFFFF 0%, #EAF4FC 100%);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35), inset 6px 0 0 rgba(11, 54, 112, 0.12);
+    transform: perspective(1400px) rotateY(-6deg);
+  }
+  .pguide__mark { width: 44px; height: auto; }
+  .pguide__series { font-family: var(--font-sans); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); }
+  .pguide__name { font-family: var(--font-serif); font-weight: 700; font-size: clamp(1.9rem, 1.4rem + 1.4vw, 2.5rem); line-height: 1.05; color: var(--navy); }
+  .pguide__ribbon {
+    position: absolute; top: 1.4rem; right: -2.9rem; transform: rotate(35deg);
+    width: 11rem; text-align: center; padding: 0.35rem 0;
+    font-family: var(--font-sans); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: #fff; background: var(--blue);
+  }
+
+  .pguide__question {
+    font-family: var(--font-sans); font-weight: 700; font-size: var(--text-card-body); letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--blue-soft); line-height: 1.35;
+  }
+  .pguide__title {
+    margin-top: 0.9rem; font-family: var(--font-serif); font-weight: 600; color: #fff;
+    font-size: clamp(2.1rem, 1.5rem + 2.2vw, 3.3rem); line-height: 1.1; letter-spacing: -0.01em;
+  }
+  .pguide__soon {
+    display: inline-block; vertical-align: middle; margin-left: 0.4rem; padding: 0.3rem 0.8rem; border-radius: 999px;
+    font-family: var(--font-sans); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--navy); background: var(--blue-soft);
+  }
+  .pguide__lead { margin-top: 1.1rem; max-width: 40rem; font-size: clamp(1.3rem, 1.05rem + 0.9vw, 1.75rem); line-height: 1.4; color: rgba(255, 255, 255, 0.88); }
+  .pguide__actions { margin-top: 2rem; display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+  .pguide__btn {
+    display: inline-flex; align-items: center; gap: 0.55rem; padding: 1rem 1.8rem; border-radius: 999px;
+    font-family: var(--font-sans); font-weight: 700; font-size: 1.125rem; letter-spacing: 0.03em; text-transform: uppercase; color: var(--navy);
+    background: linear-gradient(180deg, #FFFFFF, #E4F2FD);
+    box-shadow: 0 10px 26px rgba(46, 168, 247, 0.35), inset 0 -2px 0 rgba(21, 118, 196, 0.15);
+    transition: transform 0.2s ease;
+  }
+  .pguide__btn :global(svg) { width: 20px; height: 20px; }
+  .pguide__btn:hover { transform: translateY(-2px); }
+  .pguide__btn:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 3px; }
+  .pguide__fine { color: rgba(255, 255, 255, 0.78); font-size: var(--text-note); }
+
+  @media (max-width: 900px) {
+    .pguide__inner { grid-template-columns: 1fr; }
+    .pguide__cover { width: min(240px, 70%); }
+  }
+  @media (prefers-reduced-motion: reduce) { .pguide__btn { transition: none; } }
+</style>

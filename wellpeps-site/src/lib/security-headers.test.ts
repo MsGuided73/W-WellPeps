@@ -102,10 +102,10 @@ describe('security headers: every response scope in the template', () => {
     });
 
     test('a location that adds a header of its own and forgets the rest', () => {
-      const broken = (t: string) => t.replace('location = /peptides {\n', 'location = /peptides {\n        add_header Cache-Control "no-store" always;\n');
+      const broken = (t: string) => t.replace('location = /mental-wellness {\n', 'location = /mental-wellness {\n        add_header Cache-Control "no-store" always;\n');
       expect(broken(TEMPLATE)).not.toBe(TEMPLATE);
       const problems = problemsFor(broken);
-      expect(problems.filter((p) => p.startsWith('location = /peptides:'))).toHaveLength(REQUIRED_HEADERS.length);
+      expect(problems.filter((p) => p.startsWith('location = /mental-wellness:'))).toHaveLength(REQUIRED_HEADERS.length);
     });
 
     test('a header without "always"', () => {
@@ -260,6 +260,7 @@ describe('answers from the emulated server (built from the template)', () => {
     };
     put('index.html', '<html>home</html>');
     put('weight-loss/index.html', '<html>wl</html>');
+    put('peptides/index.html', '<html>peptides</html>');
     put('preview-access/index.html', '<html>gate</html>');
     put('_astro/app.abc.js', 'console.log(1)');
     put('images/a.webp');
@@ -289,8 +290,8 @@ describe('answers from the emulated server (built from the template)', () => {
     ['dotfile (403)', '/.env', 403, 'location ~ /\\.'],
     ['gate page, direct hit (404)', '/preview-access/index.html', 404, 'location = /preview-access/index.html'],
     ['gate folder (404)', '/preview-access/', 404, 'location ^~ /preview-access/'],
-    ['renamed program (301)', '/peptides', 301, 'location = /peptides'],
-    ['renamed program with slash (301)', '/peptides/', 301, 'location = /peptides/'],
+    ['discontinued program (410)', '/mental-wellness', 410, 'location = /mental-wellness'],
+    ['discontinued program with slash (410)', '/mental-wellness/', 410, 'location = /mental-wellness/'],
     ['unlock without the header (403)', '/__unlock', 403, 'location @gate_unlock'],
   ])('gate off: %s carries every security header', (label, url, status, scope) => {
     const res = emulator().handle({ url, headers: { host: 'wellpeps.com' } });
@@ -325,8 +326,8 @@ describe('answers from the emulated server (built from the template)', () => {
     expect(headerMap(unlocked).get('cache-control')).toBe('private, no-cache');
     expectAllSecurityHeaders(unlocked, 'unlocked page');
 
-    const peptides = e.handle({ url: '/peptides', headers: { host: 'wellpeps.com' } });
-    expect(peptides.status).toBe(401);
+    const gone = e.handle({ url: '/mental-wellness', headers: { host: 'wellpeps.com' } });
+    expect(gone.status).toBe(401);
   });
 
   describe('www to the apex domain', () => {
@@ -344,12 +345,11 @@ describe('answers from the emulated server (built from the template)', () => {
       expect(get('/', 'wellpeps-demo.example.com').status).toBe(200);
     });
 
-    test('/peptides goes straight to the canonical /healthy-aging/ in one hop', () => {
-      for (const url of ['/peptides', '/peptides/']) {
-        const res = get(url, 'wellpeps.com');
-        expect(res.status, url).toBe(301);
-        expect(headerMap(res).get('location'), url).toBe('/healthy-aging/');
-      }
+    test('/peptides is its own page again (2026-11-19), no longer a redirect to /healthy-aging/', () => {
+      expect(get('/peptides/', 'wellpeps.com').status).toBe(200);
+      const bare = get('/peptides', 'wellpeps.com');
+      expect(bare.status).toBe(301);
+      expect(headerMap(bare).get('location')).toBe('/peptides/');
     });
   });
 

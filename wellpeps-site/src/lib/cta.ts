@@ -12,6 +12,7 @@ import { isLinked } from './links';
 
 export const PROGRAM_SLUGS = [
   'weight-loss', 'hair-restoration', 'sexual-wellness', 'healthy-aging', 'mens-hormone-therapy', 'womens-hormone-therapy',
+  'peptides',
 ] as const;
 export type ProgramSlug = (typeof PROGRAM_SLUGS)[number];
 
@@ -31,6 +32,7 @@ const PROGRAM_TREATMENTS_HREF: Readonly<Record<ProgramSlug, string>> = {
   'healthy-aging': '/healthy-aging#peptide-products',
   'mens-hormone-therapy': '/mens-hormone-therapy/#hormone-products',
   'womens-hormone-therapy': '/womens-hormone-therapy/#hormone-products',
+  peptides: '/peptides/#peptides-products',
 };
 
 export interface ProductLink {
