@@ -1,0 +1,412 @@
+{
+ "title": "Estradiol and Progesterone Safety Information",
+ "version": "0.1",
+ "date": "November 21, 2026",
+ "id": "A20",
+ "docTitle": "Estradiol and Progesterone Safety Information",
+ "source": "scratchpad make_a20.py (layout from A18)",
+ "blocks": [
+  {
+   "t": "h1",
+   "text": "PART 1. ESTRADIOL AND PROGESTERONE SAFETY INFORMATION"
+  },
+  {
+   "t": "p",
+   "text": "DRAFT for medical and legal review  |  Prepared: November 21, 2026  |  Version 0.1",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "1. Emergency information"
+  },
+  {
+   "t": "callout",
+   "text": "**Call 911 or go to the nearest emergency room right away if you have any of these:**\n•  Chest pain, pressure or tightness, or pain in your arm, neck, jaw or back.\n•  Sudden shortness of breath, a fast heartbeat, or coughing up blood.\n•  Signs of a stroke: face drooping, arm or leg weakness on one side, trouble speaking, sudden confusion, sudden trouble seeing, or a sudden severe headache.\n•  Pain, swelling, warmth or redness in one leg, especially the calf.\n•  Sudden partial or complete loss of vision, or sudden double vision.\n•  A severe allergic reaction: swelling of the face, lips, tongue or throat, trouble breathing, or a widespread rash or hives."
+  },
+  {
+   "t": "p",
+   "text": "Do not wait for a reply by email, chat, text message or the patient portal.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "If you may have taken too much medicine, call Poison Control at 1-800-222-1222. Call 911 if the person collapses, has a seizure, has trouble breathing or cannot be woken up.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "2. About this information"
+  },
+  {
+   "t": "p",
+   "text": "This page gives general safety information for adult women who are prescribed estradiol skin patches or oral micronized progesterone through WellPeps, a Wyoming corporation (“WellPeps”). Estradiol patches treat moderate to severe hot flashes and night sweats caused by menopause. Progesterone is prescribed with estrogen for women who have a uterus, to protect the lining of the uterus. This page does not replace your prescription label, your pharmacy’s paperwork, a Medication Guide or your clinician’s advice.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "**WellPeps is not a medical practice or a pharmacy.** WellPeps helps you reach telehealth services provided by independent licensed clinicians of OSI Medical Services, P.A. (the “Practice”). WellPeps does not prescribe, compound or dispense medication.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**A licensed clinician decides** whether a prescription is medically appropriate for you, after reviewing your symptoms and health history. A prescription is not guaranteed.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**A state-licensed pharmacy** prepares and ships your medication. Your label names it. Pharmacies that fill WellPeps prescriptions: OSI / Scriptful Rx, 433 Plaza Real, Suite 275, Boca Raton, FL 33432.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Your label comes first.** If this page and your label disagree, follow your label and contact your clinician or pharmacy.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "3. About your medicines"
+  },
+  {
+   "t": "li",
+   "text": "**Estradiol patches are an FDA-approved, manufactured medicine.** They come with an FDA Patient Information leaflet or Medication Guide. Read it with each fill; it has more detail than this page.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Oral micronized progesterone is compounded.** A compounded medicine is made by a state-licensed pharmacy for you, based on your prescriber’s order. **Compounded medicines are not FDA-approved.** FDA does not review them for safety, effectiveness or quality before they are sold.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "A compounded medicine is not the same as, equivalent to or interchangeable with an FDA-approved product, even when the active ingredient has the same name. The strength, the inactive ingredients and how it is absorbed can be different. See also the Compounded Medication Disclosure and Consent.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**If you have a uterus and use estradiol, you should also take a progestogen such as progesterone,** unless your clinician tells you otherwise. Estrogen on its own raises the risk of cancer of the uterus (endometrial cancer).",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "These medicines are not birth control. They do not protect against pregnancy or sexually transmitted infections.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "WellPeps does not claim these medicines prevent heart disease, dementia, bone loss or aging, or improve weight, mood, sleep or sex drive. Your clinician explains what they are prescribed for.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "4. The most important information about estrogen and progestogens"
+  },
+  {
+   "t": "callout",
+   "text": "**Estrogen-containing medicines carry FDA’s most serious (boxed) warnings:**\n•  **Cancer of the uterus.** Using estrogen alone, without a progestogen, increases the risk of endometrial cancer in women who have a uterus. Report any unusual vaginal bleeding right away; it can be a warning sign.\n•  **Heart disease, stroke and blood clots.** In a large study (the Women’s Health Initiative), estrogen with or without a progestin was linked to higher risks of stroke and blood clots in the legs and lungs, and estrogen with a progestin to higher risks of heart attack.\n•  **Breast cancer.** Estrogen with a progestin was linked to a higher risk of invasive breast cancer.\n•  **Dementia.** In women 65 or older, estrogen with or without a progestin was linked to a higher risk of probable dementia.\nEstrogen, with or without a progestogen, should be used at the lowest dose that works, for the shortest time needed. You and your clinician should review regularly whether you still need it."
+  },
+  {
+   "t": "h2",
+   "text": "5. Do not use estradiol or progesterone if you"
+  },
+  {
+   "t": "li",
+   "text": "Have unusual vaginal bleeding that has not been checked by a doctor.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Have, have had, or may have breast cancer, cancer of the uterus, or any cancer that is sensitive to hormones.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Have or have had a blood clot in your legs or lungs, a stroke or a heart attack.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Have a known blood clotting disorder (for example, protein C, protein S or antithrombin deficiency).",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Have liver disease or liver problems.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Are pregnant or may be pregnant.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Have had an allergic reaction to estradiol, progesterone or any ingredient in your medicine, including the patch adhesive or the oil or filler in the capsules. **Some progesterone capsules contain peanut oil.** If you are allergic to peanuts, tell your clinician and ask the pharmacy for the full ingredient list before you take it.",
+   "level": 0
+  },
+  {
+   "t": "p",
+   "text": "**Tell your clinician before you start if you have** high blood pressure, high cholesterol or triglycerides, diabetes, migraines, asthma, epilepsy (seizures), lupus, endometriosis or fibroids, gallbladder disease, thyroid problems, low calcium, kidney disease, depression, a family history of breast cancer or blood clots, or if you smoke. Also tell your clinician about every medicine, supplement and herbal product you use, and if you are planning surgery or will be on bed rest.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "6. Serious risks and the checks that watch for them"
+  },
+  {
+   "t": "p",
+   "text": "Your clinician will review your health history before you start and regularly during treatment. Keep up with routine breast exams, mammograms and pelvic exams as your clinician recommends, and have your blood pressure checked. Any lab tests are billed separately.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Possible problem",
+     "What to know",
+     "What to do"
+    ],
+    [
+     "Blood clots, stroke or heart attack",
+     "The risk is higher with estrogen, especially in women who smoke, are over 60, are overweight, or are immobile after surgery.",
+     "Call 911 for the signs in Section 1. Tell your clinician about any planned surgery; you may need to stop beforehand."
+    ],
+    [
+     "Cancer of the uterus",
+     "Linked to estrogen used without a progestogen in women with a uterus.",
+     "Take your progesterone as prescribed. Report unusual vaginal bleeding right away."
+    ],
+    [
+     "Breast cancer",
+     "Linked to estrogen with a progestin.",
+     "Do monthly breast self-checks, get mammograms as recommended, and report any lump."
+    ],
+    [
+     "High blood pressure",
+     "Estrogen can raise blood pressure in some women.",
+     "Have your blood pressure checked regularly."
+    ],
+    [
+     "Gallbladder disease",
+     "Estrogen can raise the risk of gallbladder problems.",
+     "Report pain in the upper right belly, especially after meals."
+    ],
+    [
+     "Dizziness and drowsiness (progesterone)",
+     "Progesterone can make you sleepy or dizzy.",
+     "Take it at bedtime unless told otherwise. Do not drive or use machines until you know how it affects you."
+    ]
+   ],
+   "widths": [
+    2.3,
+    4.5,
+    4
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "h2",
+   "text": "7. Stop and contact your clinician if you have"
+  },
+  {
+   "t": "li",
+   "text": "Unusual vaginal bleeding or spotting, especially after it had stopped.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "A new breast lump, or breast pain or swelling that does not go away.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Changes in vision, or a severe or unusual headache.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Yellowing of the skin or eyes, dark urine, or pain in the upper right belly.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Swelling of the legs, ankles or feet, or fast weight gain.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "New or worse depression, or thoughts of harming yourself. If you are thinking about harming yourself, call or text 988 (Suicide and Crisis Lifeline) or 911.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "A rash, redness, blistering or irritation where you apply the patch that does not go away when you move the patch.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "8. Other possible side effects"
+  },
+  {
+   "t": "li",
+   "text": "**Estradiol patches:** redness or itching where the patch was, breast tenderness, headache, nausea, bloating, stomach cramps, and spotting or bleeding.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Progesterone:** drowsiness, dizziness, headache, breast tenderness, bloating, mood changes, and spotting or bleeding.",
+   "level": 0
+  },
+  {
+   "t": "p",
+   "text": "Tell your clinician if a side effect bothers you or does not go away.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "9. Using your medicines safely"
+  },
+  {
+   "t": "li",
+   "text": "Use exactly the dose and schedule on your label. Do not change your dose or stop without talking to your clinician.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Patches:** apply to clean, dry, unbroken skin where your label says, usually the lower belly or buttocks. **Never apply a patch to your breasts.** Press it firmly in place for about 10 seconds. Change it on the days your label says, and use a different spot each time; do not reuse the same spot within a week.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not put lotion, oil or powder where the patch goes. Avoid heating pads, electric blankets, saunas and long hot baths over the patch; heat can increase how much medicine you absorb.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "If a patch falls off, press it back on. If it will not stick, put on a new patch and keep your usual change day, unless your label says otherwise.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "After removing a patch, fold it in half with the sticky sides together and throw it away where children and pets cannot reach it. A used patch still contains medicine.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Progesterone capsules:** swallow them whole, as your label says, usually at bedtime.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "If you miss a dose, follow your label or ask your clinician. Do not double up.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Tell any other doctor, dentist or emergency team that you use estradiol and progesterone, and before any surgery or long period of bed rest.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "10. Storage and product quality"
+  },
+  {
+   "t": "li",
+   "text": "Follow the storage directions on your label or in your pharmacy paperwork. Keep patches in their sealed pouches until you use them, at room temperature.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Keep your medicine and supplies out of reach of children and pets, in a secure place.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not use your medicine if the package is damaged or opened, the label is missing or unclear, it looks or smells different from your last fill, or it is past the date on the label. Call the pharmacy first.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "If your package arrives late or was left in heat or cold, contact the pharmacy before you use it. See also the Shipping and Delivery Policy.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "11. Questions and reporting problems"
+  },
+  {
+   "t": "li",
+   "text": "**Non-emergency medical questions:** message your clinician in the patient portal at portal.wellpeps.com.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Orders, shipping or billing help:** support@wellpeps.com or (307) 881-8700, during normal business hours. WellPeps support cannot answer medical questions.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Ingredients, strength, preparation, storage or the date on the label:** the pharmacy named on your label.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**To report a side effect or product problem to FDA:** MedWatch at www.fda.gov/medwatch or 1-800-FDA-1088. Please also tell your clinician.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "12. This is not everything"
+  },
+  {
+   "t": "p",
+   "text": "This page is a summary. It does not list every warning, side effect or interaction. If your prescription label, your pharmacy’s paperwork, a Medication Guide or your clinician’s instructions disagree with this page, follow them and ask your clinician or pharmacy. Read the paperwork that comes with each fill.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "Technical and drafting notes"
+  },
+  {
+   "t": "callout",
+   "text": "**For the team, not part of the document.** These notes are for WellPeps, counsel, the medical director and the pharmacy."
+  },
+  {
+   "t": "h2",
+   "text": "Review needed before approval"
+  },
+  {
+   "t": "li",
+   "text": "**Medical review (Dr. Yirga):** Sections 3 to 9. The boxed warning (Section 4), the “do not use” list (Section 5) and the risks table summarize FDA-approved labeling for estradiol transdermal systems and for micronized progesterone capsules; check them against the specific products dispensed.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Pharmacy:** confirm the patch product (brand or generic, patch size, twice-weekly or weekly change; the owner’s plan is 8 patches a month) and whether the compounded progesterone capsules contain peanut oil or another oil.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Counsel:** confirm the program description in Section 2 and the claims line in Section 3. Confirm written consent to name the Practice and the pharmacy, as on the other safety pages.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Vaginal estradiol cream** is not covered. Add an article for it before that product opens.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Status of progesterone:** product-disclosures.ts lists it as compounded pending FDA-approved generic quotes; if an FDA-approved product is dispensed instead, revise Section 3.",
+   "level": 0
+  }
+ ]
+}

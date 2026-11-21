@@ -129,6 +129,11 @@ export const LEGAL_DOCS: readonly LegalDoc[] = [
   { id: 'A19', path: 'safety/peptides', title: 'Peptide Therapy Medication Safety Information', label: 'Peptide Therapy Safety Information', group: 'patient',
     blurb: 'Important safety information for peptide therapies.',
     description: 'Important safety information for peptide therapies prescribed through WellPeps: what is known, warnings, who should not use them and when to get help.', approved: true, effective: 'November 21, 2026' },
+  // DRAFT 2026-11-21 for medical (Dr. Yirga), pharmacy and counsel review. Women's Hormone Therapy products stay
+  // Coming Soon until this is approved and added to SAFETY_PAGE (product-disclosures.test.ts).
+  { id: 'A20', path: 'safety/estradiol-progesterone', title: 'Estradiol and Progesterone Safety Information', label: 'Estradiol and Progesterone Safety Information', group: 'patient',
+    blurb: 'Important safety information for estradiol patches and progesterone.',
+    description: 'Important safety information for estradiol patches and progesterone prescribed through WellPeps: warnings, who should not use them and when to get help.' },
   { id: 'B1', path: 'legal-review/electronic-records-consent', title: 'Electronic Records, Signatures and Communications Consent', label: 'Electronic Records Consent', group: 'checkout',
     blurb: 'Agreeing to sign and receive documents electronically (first screen of checkout).' },
   { id: 'B2', path: 'patient-terms', title: 'Patient Terms of Service and Payment Agreement', label: 'Patient Terms', group: 'patient',
