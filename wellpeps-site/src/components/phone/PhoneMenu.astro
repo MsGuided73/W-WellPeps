@@ -27,7 +27,9 @@ const programs = [
   { href: '/weight-loss/', name: 'Weight Loss', sub: 'GLP-1 care', price: fromPrice('/weight-loss/'), image: '/images/weight/product-semaglutide-compounded.webp', tint: 'var(--ph-t-weight)' },
   { href: '/hair-restoration/', name: 'Hair Restoration', sub: 'Oral and topical', price: fromPrice('/hair-restoration/'), image: '/images/hair/product-combo.webp', tint: 'var(--ph-t-hair)' },
   { href: '/sexual-wellness/', name: 'Sexual Wellness', sub: 'Daily or as needed', price: fromPrice('/sexual-wellness/'), image: '/images/sexual/product-tadalafil-daily.webp', tint: 'var(--ph-t-sex)' },
-  { href: '/healthy-aging/', name: 'Peptides', sub: 'NAD+, Sermorelin and more', price: fromPrice('/healthy-aging/'), image: '/images/peptide/vial-nad.webp', tint: 'var(--ph-t-aging)', contain: true },
+  { href: '/healthy-aging/', name: 'Healthy Aging', sub: 'NAD+, Sermorelin and more', price: fromPrice('/healthy-aging/'), image: '/images/peptide/vial-nad.webp', tint: 'var(--ph-t-ice)', contain: true },
+  // Its own program page since 2026-11-21; "Coming soon" until the first peptide has a live link and price.
+  { href: '/peptides/', name: 'Peptide Therapy', sub: 'BPC-157, TB-500 and more', price: fromPrice('/peptides/') ?? 'Coming soon', image: '/images/peptides/product-bpc-157.webp', tint: 'var(--ph-t-ice)' },
 ];
 const hormone = [
   { href: mensHormone.path, name: mensHormone.name, sub: hormoneFrom(mensHormone.products.items) },

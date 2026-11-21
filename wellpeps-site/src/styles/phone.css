@@ -193,6 +193,11 @@
   .ph-cards--glass > .ph-gcard:last-child:nth-child(odd) > img { left: 30%; top: -30%; height: 135%; }
   .ph-cards--glass > .ph-gcard:last-child:nth-child(odd) .ph-gcard__glass { left: auto; width: 54%; top: 14px; bottom: 14px; align-content: center; }
 
+  /* Glass card on a full photo (Peptide Therapy): the photo fills the card; the glass label sits over its foot. */
+  /* Zoomed so the vial's label sits above the glass. */
+  .ph-gcard--photo > img { left: 50%; top: -58%; width: auto; height: 140%; max-width: none; transform: translateX(-50%); filter: none; }
+  .ph-cards--glass > .ph-gcard--photo:last-child:nth-child(odd) > img { left: 30%; top: -40%; height: 150%; }
+
   /* Ice page tint (Healthy Aging): the price box moves from green to pale blue glass. */
   .ph-page--ice .ph-pbox { background: linear-gradient(160deg, #eaf3fb, #f7fafd); border: 1px solid #dbe7f2; }
 

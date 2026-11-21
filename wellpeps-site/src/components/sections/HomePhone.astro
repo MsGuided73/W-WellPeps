@@ -30,6 +30,8 @@ const rows = [
   { href: '/sexual-wellness/', title: 'Sexual wellness', sub: from('/sexual-wellness/'), image: '/images/sexual/product-tadalafil-daily.webp', tint: 'var(--ph-t-sex)' },
   { href: '/hormone-optimization/', title: 'Hormone therapy', sub: 'For men and women', image: '/images/hormone/men-product-testosterone-cypionate.webp', tint: 'var(--ph-t-horm)' },
   { href: '/hair-restoration/', title: 'Hair restoration', sub: from('/hair-restoration/'), image: '/images/hair/product-combo.webp', tint: 'var(--ph-t-hair)' },
+  // Peptide Therapy has its own page (2026-11-21); the tile above is Healthy Aging again.
+  { href: '/peptides/', title: 'Peptide therapy', sub: from('/peptides/') ?? 'BPC-157, TB-500 and more · Coming soon', image: '/images/peptides/product-bpc-157.webp', tint: 'var(--ph-t-ice)' },
 ];
 const weightFrom = from('/weight-loss/');
 const agingFrom = from('/healthy-aging/');
@@ -52,13 +54,13 @@ const agingFrom = from('/healthy-aging/');
       <h2>Weight loss <em>GLP-1 care</em></h2>
       {weightFrom && <span class="hph__ft">{weightFrom}<Icon name="arrow-right" /></span>}
     </a>
-    <a class="hph__tile hph__tile--trio" href="/healthy-aging/" style="background:var(--ph-t-aging)">
+    <a class="hph__tile hph__tile--trio" href="/healthy-aging/" style="background:var(--ph-t-ice)">
       <span class="hph__trio" aria-hidden="true">
         <img loading="lazy" class="g" src="/images/peptide/vial-glutathione-v2.webp" alt="An amber vial labeled Glutathione, Compounded, Rx Only" aria-hidden="true" width="120" height="160" />
         <img loading="lazy" class="s" src="/images/peptide/vial-sermorelin.webp" alt="An amber vial labeled Sermorelin, Rx Only" aria-hidden="true" width="120" height="160" />
         <img loading="lazy" class="n" src="/images/peptide/vial-nad.webp" alt="An amber vial labeled NAD+, Rx Only" aria-hidden="true" width="120" height="160" />
       </span>
-      <h2>Peptides <em>NAD+, Sermorelin, Glutathione</em></h2>
+      <h2>Healthy aging <em>NAD+, Sermorelin, Glutathione</em></h2>
       {agingFrom && <span class="hph__ft">{agingFrom}</span>}
     </a>
   </nav>

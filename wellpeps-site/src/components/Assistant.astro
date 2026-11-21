@@ -22,7 +22,7 @@ const disclosureLive = linkVisible('/ai-use-disclosure', draftPagesEnabledNow())
     <span class="wa__launcher-label" aria-hidden="true">Ask WellPeps</span>
   </button>
   {/* Phones (owner, 2026-11-21): the button is partly see-through, and × tucks it into a slim tab at the
-      screen edge for the rest of the visit; tapping the tab brings it back. */}
+      screen edge on this page; tapping the tab brings it back. */}
   <button class="wa__hide" type="button" data-wa-hide aria-label="Hide the assistant button">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
   </button>
@@ -230,14 +230,9 @@ const disclosureLive = linkVisible('/ai-use-disclosure', draftPagesEnabledNow())
     const hideBtn = root.querySelector('[data-wa-hide]') as HTMLButtonElement;
     const showBtn = root.querySelector('[data-wa-show]') as HTMLButtonElement;
 
-    // Hidden into the edge tab for the rest of the visit (phones). Storage can be blocked; then it simply
-    // starts visible on the next page.
-    const MIN_KEY = 'wp-assistant-min';
-    const setMin = (on: boolean) => {
-      root.toggleAttribute('data-min', on);
-      try { on ? sessionStorage.setItem(MIN_KEY, '1') : sessionStorage.removeItem(MIN_KEY); } catch { /* storage blocked */ }
-    };
-    try { if (sessionStorage.getItem(MIN_KEY) === '1') root.setAttribute('data-min', ''); } catch { /* storage blocked */ }
+    // Hidden into the edge tab on this page (phones). Nothing is stored: the assistant's privacy promise
+    // (AI Use Disclosure, assistant.test.ts) is that it writes no storage, so the button returns on the next page.
+    const setMin = (on: boolean) => root.toggleAttribute('data-min', on);
     hideBtn.addEventListener('click', () => { setMin(true); showBtn.focus(); });
     showBtn.addEventListener('click', () => { setMin(false); toggle.focus(); });
 

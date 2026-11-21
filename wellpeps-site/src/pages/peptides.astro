@@ -12,6 +12,7 @@ import HormoneFaq from '../components/sections/hormone/HormoneFaq.astro';
 import PeptidesBand from '../components/sections/peptides/PeptidesBand.astro';
 import PeptidesValues from '../components/sections/peptides/PeptidesValues.astro';
 import PeptidesGuideSoon from '../components/sections/peptides/PeptidesGuideSoon.astro';
+import PeptidesPhone from '../components/sections/peptides/PeptidesPhone.astro';
 import { PEPTIDES_PAGE_UPDATED, peptidesPage as page } from '../data/peptides';
 import { programAt } from '../lib/seo/catalog';
 import { breadcrumbs, faqPage, programService } from '../lib/seo/schema';
@@ -29,6 +30,8 @@ const jsonLd = [
   jsonLd={jsonLd}
   dateModified={`${PEPTIDES_PAGE_UPDATED}T12:00:00Z`}
 >
+  <div class="ph-only"><PeptidesPhone /></div>
+  <div class="ph-hide">
   <HormoneHero page={page} />
   <PeptidesBand band={page.intro} id="power-of-peptides" />
   <HormoneProducts page={page} />
@@ -39,4 +42,5 @@ const jsonLd = [
   {/* Derek's order: the closing call to action comes before the questions on this page. */}
   <HormoneCta page={page} />
   <HormoneFaq page={page} />
+  </div>
 </BaseLayout>

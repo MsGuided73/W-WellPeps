@@ -16,7 +16,8 @@ import { weightProducts } from '../data/weight';
 import { hairProducts } from '../data/hair';
 import { sexProducts } from '../data/sexual';
 import { VIAL_ALT, peptideProducts } from '../data/peptide';
-import { HORMONE_PAGES, type HormonePage } from '../data/hormone';
+import { HORMONE_PAGES, type HormonePage, type ProgramPageCore } from '../data/hormone';
+import { peptidesPage } from '../data/peptides';
 import { SAFETY_PAGE, disclosureFor, type ProductDisclosure } from '../data/product-disclosures';
 import { resolveCta, toProductKey, type ProgramSlug } from './cta';
 import { programAt } from './seo/catalog';
@@ -96,7 +97,8 @@ interface ProgramSource {
 
 const MONTH = '/month';
 
-const hormoneDrafts = (page: HormonePage): Draft[] =>
+/** Hormone and Peptide Therapy pages share the program-page shape (ProgramPageCore). */
+const hormoneDrafts = (page: ProgramPageCore): Draft[] =>
   page.products.items.map((p) => ({
     name: p.name,
     form: p.methodOfUse,
@@ -157,6 +159,10 @@ export const PROGRAM_SOURCES: readonly ProgramSource[] = [
     program: 'womens-hormone-therapy',
     includedExtra: 'Lab tests for hormone therapy are billed separately.',
     drafts: () => hormoneDrafts(hormonePage('womens-hormone-therapy')),
+  },
+  {
+    program: 'peptides',
+    drafts: () => hormoneDrafts(peptidesPage),
   },
 ];
 

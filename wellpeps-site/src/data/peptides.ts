@@ -125,6 +125,9 @@ export const peptidesPage: PeptidesPage = {
         // 1 month or 3 months prepaid (owner, 2026-11-18). Each plan opens with its own price and GEN Health link:
         // PRODUCT_LINKS keys 'tb-500' and 'tb-500-3-month'.
         plans: [
+          // Owner, 2026-11-21: $231/month, GEN Health link saved as 'tb-500' in src/config.ts. Add price: '231' here and
+          // 'tb-500' to LIVE_PRODUCTS together, once Peptide Therapy has an approved safety page (a price on a plan
+          // shows on the card even while it is Coming Soon).
           { label: '1 month', priceUnit: '/month', product: 'TB-500' },
           { label: '3 months', priceUnit: '/3 months', product: 'TB-500 3 Month', renewal: 'Renews every 3 months, cancel anytime.' },
         ],

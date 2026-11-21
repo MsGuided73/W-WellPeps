@@ -1,0 +1,78 @@
+---
+/**
+ * Peptide Therapy (/peptides/), phone layout (≤ 767px; the desktop sections are hidden there). Same pattern as
+ * the other program pages (PR 25): headline and three check lines, the price box once a product is priced, the
+ * six products as Ice glass cards over their marble photos (owner, 2026-11-21), the short disclosure line, the
+ * two education bands, the Peptides guide (coming soon), every FAQ and the compounded fine print.
+ * Copy and products come from data/peptides.ts.
+ */
+import Icon from '../../Icon.astro';
+import PhonePriceBox from '../../phone/PhonePriceBox.astro';
+import PhoneProductCards from '../../phone/PhoneProductCards.astro';
+import PhoneFaq from '../../phone/PhoneFaq.astro';
+import { peptidesPage as page } from '../../../data/peptides';
+import { COMPOUNDED_SENTENCE } from '../../../data/product-disclosures';
+import { shortDisclosure } from '../../../lib/disclosure-line';
+import { isPlanLive, productPath } from '../../../lib/products';
+import { GUIDES_INDEX_PATH } from '../../../lib/guide-flow';
+
+const program = 'peptides' as const;
+const items = page.products.items;
+const priced = (price?: string) => Boolean(price && /^\d+$/.test(price));
+const shortUnit = (unit: string) => (unit === '/month' ? '/mo' : unit.replace('/3 months', '/3 mo'));
+
+// Price box: every live, priced plan (1 month and 3 months are separate choices).
+const options = items.flatMap((p) =>
+  (p.plans ?? [{ label: p.name, priceUnit: '/month', product: p.name, price: p.price }])
+    .filter((pl) => priced(pl.price) && isPlanLive(program, pl.product, pl.price))
+    .map((pl) => ({ product: pl.product, disclosure: p.name, label: p.plans ? `${p.name} · ${pl.label}` : p.name, price: pl.price!, unit: shortUnit(pl.priceUnit), name: `${p.name}, ${pl.label}` })),
+);
+
+const cards = items.map((p) => {
+  // Only plans that are open count, so a saved price never shows on a Coming Soon card.
+  const prices = (p.plans ?? [{ product: p.name, price: p.price }]).filter((pl) => priced(pl.price) && isPlanLive(program, pl.product, pl.price)).map((pl) => Number(pl.price));
+  return {
+    product: p.name,
+    image: p.image,
+    alt: p.alt,
+    photo: true,
+    href: productPath(program, p.name),
+    tags: [p.methodOfUse.replace(/ Peptide$/, '').replace('Oral Capsules & Topical Cream', 'Capsules & cream')],
+    price: prices.length ? `From $${Math.min(...prices)}/month` : undefined,
+  };
+});
+const line = shortDisclosure(program, items[0].name);
+---
+<div class="ph-page ph-page--ice" style="--ph-tint:var(--ph-t-ice)">
+  <div class="ph-head"><h1>{page.hero.titleLead} <em>{page.hero.titleAccent}</em></h1></div>
+  <div class="ph-checks">
+    <div><i><Icon name="stethoscope" /></i><span><b>Licensed U.S. providers</b> review every request</span></div>
+    <div><i><Icon name="pharmacy" /></i><span><b>Licensed U.S. pharmacies,</b> delivered to your door</span></div>
+    <div><i><Icon name="tag" /></i><span><b>One monthly price.</b> No setup or cancellation fee</span></div>
+  </div>
+
+  {options.length > 0 && <PhonePriceBox program={program} groups={[{ label: 'Peptides', options }]} />}
+
+  <h2 class="ph-htitle" id="ph-treatments">{page.products.title}</h2>
+  <p class="ph-lede" style="padding-top:0">{page.products.intro}</p>
+  <PhoneProductCards program={program} cards={cards} variant="glass" />
+  <p class="ph-disc" style="padding-top:10px">{line.line.join(' · ')} · <a href={line.safetyHref}>Safety info</a></p>
+
+  {[page.intro, page.understanding].map((band) => (
+    <section class="ph-band" style="background:var(--ph-t-gray)">
+      <img src={band.image.src} alt={band.image.alt} width={band.image.width} height={band.image.height} loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:16px" />
+      <h2>{band.title}</h2>
+      {band.paragraphs.map((para) => <p>{para.lead && <b>{para.lead} </b>}{para.text}</p>)}
+    </section>
+  ))}
+
+  <section class="ph-band" style="background:var(--ph-t-help)" aria-label="Smart Patient Guide">
+    <span class="ph-eyebrow">Coming soon</span>
+    <h2>Smart Patient Guide: <em>Peptide Therapy</em></h2>
+    <p>Our other free guides are ready to download now.</p>
+    <a class="ph-btn ph-btn--light" href={GUIDES_INDEX_PATH}>Explore all free eBooks</a>
+  </section>
+
+  <PhoneFaq faqs={page.faqs} />
+  <p class="ph-fine">{COMPOUNDED_SENTENCE} {page.products.footnote} Prescription required.</p>
+</div>

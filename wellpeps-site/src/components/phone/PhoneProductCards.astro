@@ -32,6 +32,8 @@ export interface PhoneCard {
   disclosure?: string;
   /** The product's own page. */
   href: string;
+  /** Glass cards: a full photo (Peptide Therapy's marble shots) instead of a vial cutout close-up. */
+  photo?: boolean;
 }
 interface Props {
   program: ProgramSlug;
@@ -44,7 +46,7 @@ const tagsOf = (c: PhoneCard) => [...c.tags, ...shortDisclosure(program, c.discl
 ---
 <div class:list={['ph-cards', { 'ph-cards--glass': variant === 'glass' }]}>
   {cards.map((c) => variant === 'glass' ? (
-    <a class:list={['ph-gcard', { 'ph-card--soon': !c.price }]} href={c.href} aria-label={`${c.title ?? c.product}: view details`}>
+    <a class:list={['ph-gcard', { 'ph-card--soon': !c.price, 'ph-gcard--photo': c.photo }]} href={c.href} aria-label={`${c.title ?? c.product}: view details`}>
       <img src={c.image} alt={c.alt} width="300" height="440" loading="lazy" decoding="async" />
       <span class="ph-gcard__glass">
         <span class="ph-tags">{tagsOf(c).map((t) => <span class:list={{ 'ph-tag--rx': t === 'Rx' || t === 'Compounded' || t === 'Off-label' }}>{t}</span>)}</span>
