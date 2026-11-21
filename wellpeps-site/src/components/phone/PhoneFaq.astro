@@ -57,7 +57,7 @@ const list = faqs.map((f) => ({ q: f.q, blocks: blocks(f.a) }));
   <h2 class="ph-htitle" id={id}>{title}</h2>
   <div class="ph-acc" style="margin-top:4px">
     {list.map((f, i) => (
-      <details open={i === 0}>
+      <details>
         <summary>{f.q}</summary>
         <div class="ph-acc-body ph-faq">
           {f.blocks.map((b) =>
