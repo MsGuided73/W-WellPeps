@@ -46,6 +46,8 @@ export const SAFETY_PAGE: Partial<Record<ProgramSlug, string>> = {
   'healthy-aging': '/safety/healthy-aging',
   // A18, approved 2026-11-19 (owner) and released with Testosterone Cypionate.
   'mens-hormone-therapy': '/safety/testosterone',
+  // A20, approved 2026-11-21 (owner, after Dr. Yirga's review). Covers the patch and progesterone, not the vaginal cream.
+  'womens-hormone-therapy': '/safety/estradiol-progesterone',
   // A19, approved 2026-11-21 (owner, after medical review) and released with the six Peptide Therapy products.
   peptides: '/safety/peptides',
 };

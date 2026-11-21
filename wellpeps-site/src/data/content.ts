@@ -78,5 +78,5 @@ export const faqs = [
   { q: 'Is my personal information secure?', a: 'We take your privacy seriously and use secure technology to protect your information. Our Privacy Policy explains what we collect, why, and the choices you have.' },
   { q: 'What payment methods do you accept?', a: 'We accept Visa, Mastercard, American Express, Discover, FSA/HSA cards, Apple Pay and Google Pay. You’ll see clear pricing before you begin. You pay at checkout, and if a clinician does not prescribe, we refund you in full.' },
   // Men's Hormone Therapy live 2026-11-19 (owner); the phone and desktop FAQ and its structured data share this answer.
-  { q: 'What programs does WellPeps offer?', a: 'Weight Management, Hair Restoration, Sexual Wellness, Healthy Aging & Vitality, and Men’s Hormone Therapy are available today, with Women’s Hormone Therapy coming soon.' },
+  { q: 'What programs does WellPeps offer?', a: 'Weight Management, Hair Restoration, Sexual Wellness, Healthy Aging & Vitality, Peptide Therapy, and Men’s and Women’s Hormone Therapy are available today.' },
 ];

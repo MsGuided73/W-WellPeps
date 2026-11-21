@@ -134,12 +134,13 @@ export const PRODUCT_LINKS = {
   'testosterone-cypionate': { program: 'mens-hormone-therapy', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/LFYNjw8vldxMO6N52OCs?checkoutFlow=intake_first' },
   // GEN: "Men's Hormone Plan – 3 month Testosterone Injectable (Cypionate / Enanthate)" ($299, subscription every 3 months)
   'testosterone-cypionate-3-month': { program: 'mens-hormone-therapy', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/WLP-PRD-4FG3HT?checkoutFlow=intake_first' },
-  // womens-hormone-therapy (owner, 2026-11-21): NOT in LIVE_PRODUCTS until Women's Hormone Therapy has an approved
-  // safety page (SAFETY_PAGE has none yet). Prices are noted beside each card in src/data/hormone.ts.
+  // womens-hormone-therapy (owner, 2026-11-21): live with safety page A20 (Dr. Yirga approved).
   // Oral Micronized Progesterone, 30 capsules (1 month), $199.
   'oral-micronized-progesterone': { program: 'womens-hormone-therapy', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/WLP-PRD-GKKACS?checkoutFlow=intake_first' },
   // Estradiol Transdermal Patches, 8 patches (1 month), $199.
   'estradiol-transdermal-patches': { program: 'womens-hormone-therapy', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/EfujuAhcU9qgWQ36oEI3?checkoutFlow=intake_first' },
+  // mens-hormone-therapy (owner, 2026-11-21): Testosterone Cream, $145/month. Live with safety page A18.
+  'testosterone-cream': { program: 'mens-hormone-therapy', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/WLP-PRD-A8WUT6?checkoutFlow=intake_first' },
   // peptides (owner, 2026-11-21): TB-500, 1 month, $231. Live 2026-11-21 with safety page A19.
   'tb-500': { program: 'peptides', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Mld6DVZWa0X3dYxRdhai?checkoutFlow=intake_first' },
   // BPC-157, 1 month, $168.50 (owner, 2026-11-21). Live 2026-11-21.
@@ -186,6 +187,11 @@ export const LIVE_PRODUCTS: readonly (keyof typeof PRODUCT_LINKS)[] = [
   // Live 2026-11-19 (owner): priced, linked in GEN Health, safety page A18 approved.
   'testosterone-cypionate',
   'testosterone-cypionate-3-month',
+  // Live 2026-11-21 (owner): Women's Hormone Therapy, safety page A20 approved by Dr. Yirga.
+  'estradiol-transdermal-patches',
+  'oral-micronized-progesterone',
+  // Live 2026-11-21 (owner): Testosterone Cream, safety page A18.
+  'testosterone-cream',
   // Live 2026-11-21 (owner): Peptide Therapy, 1-month plans, safety page A19 approved.
   'bpc-157',
   'tb-500',

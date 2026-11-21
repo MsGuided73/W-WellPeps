@@ -236,6 +236,8 @@ export const mensHormone: HormonePage = {
           'A prescription cream that delivers testosterone through the skin, applied daily as prescribed.',
         methodOfUse: 'Topical Cream',
         features: ['Daily application to the skin, as prescribed', 'Dose set by your provider', 'Ongoing provider monitoring'],
+        // Live 2026-11-21 (owner): $145/month with its GEN Health link.
+        price: '145',
       },
       // Derek's "Minimal hCG Therapy Information Card" (owner asked for it, 2026-11-10). His "clinically proven"
       // and "may support fertility" were softened to provider-decides wording, as on the other cards.
@@ -413,9 +415,8 @@ export const womensHormone: HormonePage = {
           'Estradiol patches deliver estrogen through the skin and may be prescribed for moderate to severe hot flashes and night sweats associated with menopause.',
         methodOfUse: 'Transdermal Patch',
         features: ['Worn on the skin, changed on a prescribed schedule', 'Available in different strengths, as prescribed', 'Ongoing provider follow-up'],
-        // Owner, 2026-11-21: 8 patches (1 month), $199, GEN Health link saved as 'estradiol-transdermal-patches' in
-        // src/config.ts. Add price: '199' here and the key to LIVE_PRODUCTS together, once Women's Hormone Therapy has
-        // an approved safety page.
+        // Live 2026-11-21 (owner): 8 patches (1 month), $199, with its GEN Health link.
+        price: '199',
       },
       {
         name: 'Oral Micronized Progesterone',
@@ -426,9 +427,8 @@ export const womensHormone: HormonePage = {
           'Progesterone is commonly prescribed alongside systemic estrogen for women who have a uterus, to help protect the uterine lining.',
         methodOfUse: 'Oral Capsule',
         features: ['Oral capsule, taken as prescribed', 'Often prescribed with estrogen therapy', 'Dose set by your provider'],
-        // Owner, 2026-11-21: 30 capsules (1 month), $199, GEN Health link saved as 'oral-micronized-progesterone' in
-        // src/config.ts. Add price: '199' here and the key to LIVE_PRODUCTS together, once Women's Hormone Therapy has
-        // an approved safety page.
+        // Live 2026-11-21 (owner): 30 capsules (1 month), $199, with its GEN Health link.
+        price: '199',
       },
       {
         name: 'Vaginal Estradiol Cream',

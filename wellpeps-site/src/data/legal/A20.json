@@ -1,6 +1,6 @@
 {
  "title": "Estradiol and Progesterone Safety Information",
- "version": "0.1",
+ "version": "1.0",
  "date": "November 21, 2026",
  "id": "A20",
  "docTitle": "Estradiol and Progesterone Safety Information",
@@ -12,7 +12,7 @@
   },
   {
    "t": "p",
-   "text": "DRAFT for medical and legal review  |  Prepared: November 21, 2026  |  Version 0.1",
+   "text": "Last updated: November 21, 2026  |  Effective: November 21, 2026  |  Version 1.0",
    "italic": true,
    "align": null
   },
@@ -381,7 +381,16 @@
   },
   {
    "t": "h2",
-   "text": "Review needed before approval"
+   "text": "Approval"
+  },
+  {
+   "t": "li",
+   "text": "Approved by the owner on November 21, 2026, after medical review by Dr. Rahel Yirga, MD, who approved it without edits. Released with the estradiol patch and oral micronized progesterone.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "Items listed for review"
   },
   {
    "t": "li",
