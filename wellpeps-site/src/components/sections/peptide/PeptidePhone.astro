@@ -28,7 +28,8 @@ const forms = (p: P) =>
 const TAB: Record<string, 'Peptides' | 'Cellular' | 'Nutrients'> = {
   Sermorelin: 'Peptides', 'NAD+': 'Peptides', Glutathione: 'Cellular', 'Methylene Blue': 'Cellular', 'MIC + B12': 'Nutrients', 'Lipo-C': 'Nutrients',
 };
-const priced = (price: string) => /^\d+$/.test(price);
+// Whole dollars or dollars and cents ($168.50).
+const priced = (price: string) => /^\d+(\.\d{2})?$/.test(price);
 const groups = (['Peptides', 'Cellular', 'Nutrients'] as const)
   .map((label) => ({
     label,

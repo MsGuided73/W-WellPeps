@@ -137,6 +137,8 @@ export const PRODUCT_LINKS = {
   // peptides (owner, 2026-11-21): TB-500, 1 month, $231. NOT in LIVE_PRODUCTS until Peptide Therapy has an approved
   // safety page (SAFETY_PAGE in src/data/product-disclosures.ts): a program cannot open without its safety information.
   'tb-500': { program: 'peptides', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Mld6DVZWa0X3dYxRdhai?checkoutFlow=intake_first' },
+  // BPC-157, 1 month, $168.50 (owner, 2026-11-21). Not live yet, for the same reason as TB-500.
+  'bpc-157': { program: 'peptides', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/KXMm9SsbOEYnFy9phmZn?checkoutFlow=intake_first' },
 } satisfies CtaLinks['products'];
 
 /**
