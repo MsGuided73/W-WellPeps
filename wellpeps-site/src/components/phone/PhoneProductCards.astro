@@ -34,6 +34,9 @@ export interface PhoneCard {
   href: string;
   /** Glass cards: a full photo (Peptide Therapy's marble shots) instead of a vial cutout close-up. */
   photo?: boolean;
+  /** Glass photo cards: how the photo is framed when its label sits higher or lower than usual, e.g.
+   *  { top: '-20%', height: '125%' } (defaults in phone.css: -58% / 140%). */
+  frame?: { top: string; height: string };
 }
 interface Props {
   program: ProgramSlug;
@@ -47,7 +50,8 @@ const tagsOf = (c: PhoneCard) => [...c.tags, ...shortDisclosure(program, c.discl
 <div class:list={['ph-cards', { 'ph-cards--glass': variant === 'glass' }]}>
   {cards.map((c) => variant === 'glass' ? (
     <a class:list={['ph-gcard', { 'ph-card--soon': !c.price, 'ph-gcard--photo': c.photo }]} href={c.href} aria-label={`${c.title ?? c.product}: view details`}>
-      <img src={c.image} alt={c.alt} width="300" height="440" loading="lazy" decoding="async" />
+      <img src={c.image} alt={c.alt} width="300" height="440" loading="lazy" decoding="async"
+        style={c.frame ? `--ph-gtop:${c.frame.top};--ph-gh:${c.frame.height}` : undefined} />
       <span class="ph-gcard__glass">
         <span class="ph-tags">{tagsOf(c).map((t) => <span class:list={{ 'ph-tag--rx': t === 'Rx' || t === 'Compounded' || t === 'Off-label' }}>{t}</span>)}</span>
         <span class="ph-gcard__name">{c.title ?? c.product}</span>

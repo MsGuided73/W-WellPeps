@@ -38,6 +38,8 @@ const cards = items.map((p) => {
     image: p.image,
     alt: p.alt,
     photo: true,
+    // KPV's label sits higher in its photo than the vials' do (owner, 2026-11-21: it was cut off).
+    frame: p.name === 'KPV' ? { top: '-36%', height: '124%' } : undefined,
     href: productPath(program, p.name),
     tags: [p.methodOfUse.replace(/ Peptide$/, '').replace('Oral Capsules', 'Capsules')],
     price: prices.length ? `From $${money(Math.min(...prices))}/month` : undefined,
