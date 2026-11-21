@@ -84,9 +84,9 @@ describe('draft page switch', () => {
     // and the portal-only forms B1, B3, B6, B7, B8. A18 (testosterone safety) released 2026-11-19 with Testosterone
     // Cypionate.
     expect(LEGAL_DOCS.filter((d) => d.approved).map((d) => d.id)).toEqual(
-      ['A1', 'A2', 'A3', 'A4', 'A6', 'A7', 'A8', 'A9', 'A10', 'A12', 'A13', 'A14', 'A15', 'A16', 'A17', 'A18', 'A19', 'B2', 'B4', 'B5']);
+      ['A1', 'A2', 'A3', 'A4', 'A6', 'A7', 'A8', 'A9', 'A10', 'A12', 'A13', 'A14', 'A15', 'A16', 'A17', 'A18', 'A19', 'A20', 'B2', 'B4', 'B5']);
     for (const d of LEGAL_DOCS.filter((x) => x.approved)) {
-      expect(d.effective).toMatch(d.id === 'A18' ? /^November 19, 2026$/ : d.id === 'A19' ? /^November 21, 2026$/ : /^October ([56]|12), 2026$/);
+      expect(d.effective).toMatch(d.id === 'A18' ? /^November 19, 2026$/ : d.id === 'A19' || d.id === 'A20' ? /^November 21, 2026$/ : /^October ([56]|12), 2026$/);
     }
   });
 });

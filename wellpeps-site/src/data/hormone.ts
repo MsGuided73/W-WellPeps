@@ -415,6 +415,8 @@ export const womensHormone: HormonePage = {
           'Estradiol patches deliver estrogen through the skin and may be prescribed for moderate to severe hot flashes and night sweats associated with menopause.',
         methodOfUse: 'Transdermal Patch',
         features: ['Worn on the skin, changed on a prescribed schedule', 'Available in different strengths, as prescribed', 'Ongoing provider follow-up'],
+        // Live 2026-11-21 (owner): 8 patches (1 month), $199, with its GEN Health link.
+        price: '199',
       },
       {
         name: 'Oral Micronized Progesterone',
@@ -425,6 +427,8 @@ export const womensHormone: HormonePage = {
           'Progesterone is commonly prescribed alongside systemic estrogen for women who have a uterus, to help protect the uterine lining.',
         methodOfUse: 'Oral Capsule',
         features: ['Oral capsule, taken as prescribed', 'Often prescribed with estrogen therapy', 'Dose set by your provider'],
+        // Live 2026-11-21 (owner): 30 capsules (1 month), $199, with its GEN Health link.
+        price: '199',
       },
       {
         name: 'Vaginal Estradiol Cream',

@@ -23,9 +23,12 @@ describe('short-form phone disclosures', () => {
     }
   });
 
-  test('a program without a safety page links to the medical disclaimer', () => {
-    expect(SAFETY_PAGE['womens-hormone-therapy']).toBeUndefined();
-    expect(shortDisclosure('womens-hormone-therapy', 'Vaginal Estradiol Cream').safetyHref).toBe(FALLBACK_SAFETY_PAGE);
+  test('every program links its own safety page, falling back to the medical disclaimer only when it has none', () => {
+    for (const program of Object.keys(PRODUCT_DISCLOSURES) as ProgramSlug[]) {
+      const name = Object.keys(PRODUCT_DISCLOSURES[program])[0];
+      expect(shortDisclosure(program, name).safetyHref).toBe(SAFETY_PAGE[program] ?? FALLBACK_SAFETY_PAGE);
+    }
+    expect(shortDisclosure('womens-hormone-therapy', 'Oral Micronized Progesterone').safetyHref).toBe('/safety/estradiol-progesterone');
   });
 
   test('every listed product gets a short disclosure that starts with the prescription line', () => {
