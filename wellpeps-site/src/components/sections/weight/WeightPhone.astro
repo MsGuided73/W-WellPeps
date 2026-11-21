@@ -8,6 +8,7 @@
 import Icon from '../../Icon.astro';
 import PhonePriceBox from '../../phone/PhonePriceBox.astro';
 import PhoneProductCards from '../../phone/PhoneProductCards.astro';
+import { productPath } from '../../../lib/products';
 import PhoneFaq from '../../phone/PhoneFaq.astro';
 import PhoneGuide from '../../phone/PhoneGuide.astro';
 import { weightHero, weightProducts, weightWorksIntro, weightFaqs, weightProductsIntro, ORAL_GLP1_AVAILABILITY } from '../../../data/weight';
@@ -32,7 +33,8 @@ const cards = ordered.map((p) => ({
   product: p.name,
   image: p.image,
   alt: p.alt,
-  tags: [p.form === 'injection' ? 'Weekly' : 'Daily tablet', 'Compounded'],
+  href: productPath('weight-loss', p.name),
+  tags: [p.form === 'injection' ? 'Weekly' : 'Daily tablet'],
   price: p.price ? `$${p.price}${p.priceUnit}` : undefined,
 }));
 ---
@@ -47,7 +49,7 @@ const cards = ordered.map((p) => ({
   <PhonePriceBox program="weight-loss" groups={groups} />
   <PhoneGuide program="weight-loss" variant="row" question="Is GLP-1 right for me?" />
 
-  <h2 class="ph-htitle">{weightProductsIntro.title}</h2>
+  <h2 class="ph-htitle" id="ph-treatments">{weightProductsIntro.title}</h2>
   <PhoneProductCards program="weight-loss" cards={cards} />
   <p class="ph-fine" style="padding-top:8px">Oral tablets: {ORAL_GLP1_AVAILABILITY.toLowerCase()}</p>
 

@@ -13,11 +13,8 @@ import { PROGRAMS, startingPrice } from '../../lib/seo/catalog';
 import { GUIDES_INDEX_PATH } from '../../lib/guide-flow';
 import { faqs } from '../../data/content';
 
-// Phone only: the programs answer reflects that Men's Hormone Therapy is live (owner, 2026-11-21). The
-// desktop answer in data/content.ts is being updated separately; fold this back in once it is.
-const PROGRAMS_Q = 'What programs does WellPeps offer?';
-const PROGRAMS_A = 'Weight Management, Hair Restoration, Sexual Wellness, Healthy Aging & Vitality, and Men’s Hormone Therapy are available today, with Women’s Hormone Therapy coming soon.';
-const phoneFaqs = faqs.map((f) => (f.q === PROGRAMS_Q ? { ...f, a: PROGRAMS_A } : f));
+// Same answers as the desktop FAQ and the home page's structured data (data/content.ts).
+const phoneFaqs = faqs;
 
 /** Home headline and supporting copy: Derek's wording (notes of 2026-11-20). */
 export const HOME_PHONE_HEADLINE = { lead: 'Online healthcare', accent: 'that’s more than medication.' } as const;
@@ -48,18 +45,18 @@ const agingFrom = from('/healthy-aging/');
     <li><Icon name="shield-check" />LegitScript Certified</li>
   </ul>
 
-  <nav class="hph__tiles" aria-label="Programs">
+  <nav class="hph__tiles" id="ph-programs" aria-label="Programs">
     <a class="hph__tile hph__tile--photo" href="/weight-loss/" style="background:var(--ph-t-weight)">
       {/* Tirzepatide: the more popular GLP-1 (Derek). */}
-      <img class="hph__photo" src="/images/weight/product-tirzepatide-compounded.webp" alt="An amber vial labeled Tirzepatide, Compounded, Rx Only" aria-hidden="true" width="400" height="400" />
+      <img loading="lazy" class="hph__photo" src="/images/weight/product-tirzepatide-compounded.webp" alt="An amber vial labeled Tirzepatide, Compounded, Rx Only" aria-hidden="true" width="400" height="400" />
       <h2>Weight loss <em>GLP-1 care</em></h2>
       {weightFrom && <span class="hph__ft">{weightFrom}<Icon name="arrow-right" /></span>}
     </a>
     <a class="hph__tile hph__tile--trio" href="/healthy-aging/" style="background:var(--ph-t-aging)">
       <span class="hph__trio" aria-hidden="true">
-        <img class="g" src="/images/peptide/vial-glutathione-v2.webp" alt="An amber vial labeled Glutathione, Compounded, Rx Only" aria-hidden="true" width="120" height="160" />
-        <img class="s" src="/images/peptide/vial-sermorelin.webp" alt="An amber vial labeled Sermorelin, Rx Only" aria-hidden="true" width="120" height="160" />
-        <img class="n" src="/images/peptide/vial-nad.webp" alt="An amber vial labeled NAD+, Rx Only" aria-hidden="true" width="120" height="160" />
+        <img loading="lazy" class="g" src="/images/peptide/vial-glutathione-v2.webp" alt="An amber vial labeled Glutathione, Compounded, Rx Only" aria-hidden="true" width="120" height="160" />
+        <img loading="lazy" class="s" src="/images/peptide/vial-sermorelin.webp" alt="An amber vial labeled Sermorelin, Rx Only" aria-hidden="true" width="120" height="160" />
+        <img loading="lazy" class="n" src="/images/peptide/vial-nad.webp" alt="An amber vial labeled NAD+, Rx Only" aria-hidden="true" width="120" height="160" />
       </span>
       <h2>Peptides <em>NAD+, Sermorelin, Glutathione</em></h2>
       {agingFrom && <span class="hph__ft">{agingFrom}</span>}
@@ -79,9 +76,10 @@ const agingFrom = from('/healthy-aging/');
   {/* Consumer confidence, after the programs (Derek). Labs are footnoted in the price panel below. */}
   <ul class="hph__conf" aria-label="Our promises">
     <li><Icon name="check" />No hidden fees</li>
-    <li><Icon name="check" />Full refund if not prescribed</li>
+    <li><Icon name="check" />Full refund if not prescribed*</li>
     <li><Icon name="check" />Cancel anytime</li>
   </ul>
+  <p class="hph__conf-note">*Lab tests for hormone therapy are billed separately.</p>
 
   <a class="ph-row" href={`${GUIDES_INDEX_PATH}/`} style="background:var(--ph-t-help)">
     <span class="t"><b>Get a Free Smart Patient Guide</b><span>to help you make informed decisions</span></span>
@@ -110,6 +108,7 @@ const agingFrom = from('/healthy-aging/');
     .hph__conf { margin: 12px 12px 0; padding: 14px 16px; list-style: none; background: var(--navy); border-radius: 20px; display: grid; gap: 8px; }
     .hph__conf li { display: flex; gap: 10px; align-items: center; color: #fff; font: 600 15px/1.25 var(--font-sans); }
     .hph__conf :global(svg) { width: 18px; height: 18px; color: #8fd0ff; }
+    .hph__conf-note { margin: 6px 16px 0; font-size: 12px; line-height: 1.4; color: var(--ph-body); }
     .hph__tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 6px 12px 0; }
     .hph__tile {
       border-radius: 24px; height: 196px; position: relative; overflow: hidden; padding: 14px;

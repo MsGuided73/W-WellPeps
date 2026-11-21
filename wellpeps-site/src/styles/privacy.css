@@ -66,10 +66,13 @@ html.pc-modal-open { overflow: hidden; }
   .pbanner--modal .pbanner__buttons { grid-template-columns: 1fr; }
 }
 
-/* The W mark beside the title (pop-up only). */
-.pbanner__head { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.35rem; }
-.pbanner__head .pbanner__title { margin: 0; }
-.pbanner__mark { width: 40px; height: auto; flex: none; }
+/* The W mark beside the title: phones only, so the desktop pop-up stays as it was (owner, 2026-11-21). */
+.pbanner__mark { display: none; }
+@media (max-width: 767px) {
+  .pbanner__head { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.35rem; }
+  .pbanner__head .pbanner__title { margin: 0; }
+  .pbanner__mark { display: block; width: 40px; height: auto; flex: none; }
+}
 
 /* Phone (round-2 mockup): a card near the bottom of the screen, within thumb reach. Accept all and
    Reject all side by side, Choose below; all three stay equal in weight. */

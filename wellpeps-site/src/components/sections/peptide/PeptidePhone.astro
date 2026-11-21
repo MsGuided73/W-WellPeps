@@ -9,6 +9,7 @@
 import Icon from '../../Icon.astro';
 import PhonePriceBox from '../../phone/PhonePriceBox.astro';
 import PhoneProductCards from '../../phone/PhoneProductCards.astro';
+import { productPath } from '../../../lib/products';
 import PhoneFaq from '../../phone/PhoneFaq.astro';
 import PhoneGuide from '../../phone/PhoneGuide.astro';
 import {
@@ -20,8 +21,8 @@ type P = (typeof peptideProducts)[number];
 // Every form sold as its own product (NAD+ injection and NAD+ nasal spray are two).
 const forms = (p: P) =>
   p.variants && p.variants.length > 1
-    ? p.variants.map((v) => ({ product: v.product, label: `${p.name} ${v.label.toLowerCase()}`, price: v.price, method: v.methodOfUse, vial: v.vial }))
-    : [{ product: p.name, label: p.name, price: p.price, method: p.methodOfUse, vial: p.vial }];
+    ? p.variants.map((v) => ({ product: v.product, disclosure: p.name, label: `${p.name} ${v.label.toLowerCase()}`, price: v.price, method: v.methodOfUse, vial: v.vial }))
+    : [{ product: p.name, disclosure: p.name, label: p.name, price: p.price, method: p.methodOfUse, vial: p.vial }];
 
 // Tabs: peptide and coenzyme therapies, cellular support, nutrient injections.
 const TAB: Record<string, 'Peptides' | 'Cellular' | 'Nutrients'> = {
@@ -36,11 +37,10 @@ const groups = (['Peptides', 'Cellular', 'Nutrients'] as const)
       .flatMap(forms)
       .filter((f) => priced(f.price))
       // The "For …" line names the form too (NAD+ injection vs NAD+ nasal spray).
-      .map((f) => ({ product: f.product, label: f.label, name: f.label, price: f.price })),
+      .map((f) => ({ product: f.product, disclosure: f.disclosure, label: f.label, name: f.label, price: f.price })),
   }))
   .filter((g) => g.options.length > 0);
 
-const compounded = (vial: string) => /compounded/i.test(VIAL_ALT[vial] ?? '');
 // One card per form sold, so each card's button opens that form's own health questions
 // (NAD+ injection and NAD+ nasal spray each get a card).
 const cards = peptideProducts.flatMap(forms).map((f) => ({
@@ -48,12 +48,13 @@ const cards = peptideProducts.flatMap(forms).map((f) => ({
   title: f.label,
   image: f.vial,
   alt: VIAL_ALT[f.vial] ?? '',
-  contain: true,
-  tags: [f.method.replace('Subcutaneous ', ''), ...(compounded(f.vial) ? ['Compounded'] : [])],
+  disclosure: f.disclosure,
+  href: productPath('healthy-aging', f.product),
+  tags: [f.method.replace('Subcutaneous ', '')],
   price: priced(f.price) ? `$${f.price}/month` : undefined,
 }));
 ---
-<div class="ph-page" style="--ph-tint:var(--ph-t-aging)">
+<div class="ph-page ph-page--ice" style="--ph-tint:var(--ph-t-ice)">
   <div class="ph-head"><h1>{peptideHero.titleLead} <em>{peptideHero.titleAccent}</em></h1></div>
   <div class="ph-checks">
     <div><i><Icon name="stethoscope" /></i><span><b>Health history review</b> by a licensed provider</span></div>
@@ -64,8 +65,8 @@ const cards = peptideProducts.flatMap(forms).map((f) => ({
   {groups.length > 0 && <PhonePriceBox program="healthy-aging" groups={groups} />}
   <PhoneGuide program="healthy-aging" variant="row" question="New to wellness therapies?" tint="var(--ph-t-help)" />
 
-  <h2 class="ph-htitle">{peptideProductsIntro.title}</h2>
-  <PhoneProductCards program="healthy-aging" cards={cards} />
+  <h2 class="ph-htitle" id="ph-treatments">{peptideProductsIntro.title}</h2>
+  <PhoneProductCards program="healthy-aging" cards={cards} variant="glass" />
 
   <section class="ph-band" style="background:var(--ph-t-gray)" aria-labelledby="ph-aging-care">
     <h2 id="ph-aging-care">{peptideScience.benefitsTitle}</h2>

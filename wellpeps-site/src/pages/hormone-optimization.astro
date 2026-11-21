@@ -37,7 +37,7 @@ const choices = HORMONE_PAGES.map((p) => ({ name: p.name, href: p.path, lead: p.
       <nav class="hph2__portraits" aria-label="Hormone therapy programs">
         {HORMONE_PAGES.map((p) => (
           <a class="hph2__portrait" href={p.path}>
-            <img src={p.hero.image} alt={p.hero.alt} aria-hidden="true" width="400" height="500" />
+            <img loading="lazy" src={p.hero.image} alt={p.hero.alt} aria-hidden="true" width="400" height="500" />
             <span class="hph2__lab"><b>{p.audience === 'men’s' ? 'For men' : 'For women'}</b><Icon name="arrow-right" /></span>
           </a>
         ))}

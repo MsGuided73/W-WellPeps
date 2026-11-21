@@ -12,6 +12,7 @@ import Icon from '../../Icon.astro';
 import AssessmentCta from '../../AssessmentCta.astro';
 import PhonePriceBox from '../../phone/PhonePriceBox.astro';
 import PhoneProductCards from '../../phone/PhoneProductCards.astro';
+import { productPath } from '../../../lib/products';
 import PhoneFaq from '../../phone/PhoneFaq.astro';
 import PhoneGuide from '../../phone/PhoneGuide.astro';
 import { COMPOUNDED_SENTENCE, SAFETY_PAGE, disclosureFor } from '../../../data/product-disclosures';
@@ -34,6 +35,7 @@ const options = pricedItems.flatMap((p) =>
   p.plans && p.plans.length > 1
     ? p.plans.filter((pl) => priced(pl.price)).map((pl) => ({
         product: pl.product,
+        disclosure: p.name,
         label: pl.label,
         price: pl.price!,
         unit: shortUnit(pl.priceUnit),
@@ -82,7 +84,8 @@ const cards = items.map((p) => {
     title: SHORT_NAME[p.name] ?? p.name,
     image: p.image,
     alt: p.alt,
-    tags: [p.methodOfUse, ...(compounded(p) ? ['Compounded'] : [])],
+    href: productPath(program, p.name),
+    tags: [p.methodOfUse],
     price: prices.length ? `${many ? 'From ' : ''}$${Math.min(...prices)}/month` : undefined,
   };
 });
@@ -117,7 +120,7 @@ const uid = `hsoon-${program}`;
         <div class="hpp__list" id={`${uid}-${i}`} data-hpp-panel={i} hidden={i > 0}>
           <ul>
             {g.items.map((p) => (
-              <li><img src={p.image} alt={p.alt} aria-hidden="true" width="44" height="44" /><b>{SHORT_NAME[p.name] ?? p.name}</b><span class="hpp__pill">Coming soon</span></li>
+              <li><img loading="lazy" src={p.image} alt={p.alt} aria-hidden="true" width="44" height="44" /><b>{SHORT_NAME[p.name] ?? p.name}</b><span class="hpp__pill">Coming soon</span></li>
             ))}
           </ul>
           {g.text && <p>{g.text}</p>}

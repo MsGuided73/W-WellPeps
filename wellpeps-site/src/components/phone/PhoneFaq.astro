@@ -15,7 +15,8 @@ interface Props {
   faqs: readonly { q: string; a: string | readonly Para[] }[];
 }
 const { title = 'Common questions', faqs } = Astro.props;
-const id = `ph-faq-${Math.random().toString(36).slice(2, 7)}`;
+// Stable id from the first question (a random one made every build differ).
+const id = `ph-faq-${(faqs[0]?.q ?? 'faq').toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 32)}`;
 
 // Sentence split that does not break after abbreviations such as "U.S." or "P.A.".
 const ABBR = /(?:\b[A-Z]\.){2,}$|\b(?:Dr|Mr|Ms|Mrs|Inc|e\.g|i\.e|vs|etc)\.$/;

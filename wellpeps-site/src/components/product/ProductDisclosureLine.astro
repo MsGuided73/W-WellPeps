@@ -1,0 +1,37 @@
+---
+/**
+ * The disclosure a visitor sees without tapping anything, near the price (LegitScript / FTC): the compounded
+ * or off-label sentence, the product's warning (nitrates), and links to the safety information and the page that
+ * explains compounding and off-label use. An FDA-approved product shows the prescription line instead.
+ * Links show only for pages that are built (src/lib/legal-docs.ts).
+ */
+import {
+  COMPOUNDED_PAGE, COMPOUNDED_SENTENCE, OFF_LABEL_SENTENCE, RX_LINE,
+} from '../../data/product-disclosures';
+import { draftPagesEnabledNow, linkVisible } from '../../lib/legal-docs';
+import { safetyLink, type PageLink, type ProductPage } from '../../lib/products';
+
+interface Props {
+  page: ProductPage;
+}
+const { page } = Astro.props;
+const showDrafts = draftPagesEnabledNow();
+const visible = (href: string) => linkVisible(href, showDrafts);
+const { regulatory, note } = page.disclosure;
+const sentence = regulatory === 'compounded' ? COMPOUNDED_SENTENCE : regulatory === 'off-label' ? OFF_LABEL_SENTENCE : RX_LINE;
+const safety = safetyLink(page.program, visible);
+const links: PageLink[] = [
+  ...(safety ? [safety] : []),
+  ...(regulatory === 'off-label' && visible(COMPOUNDED_PAGE) ? [{ href: COMPOUNDED_PAGE, label: 'What off-label means' }] : []),
+];
+---
+<p class="pdl">
+  {sentence}{note && <Fragment>{' '}{note}</Fragment>}
+  {links.map((l) => <Fragment> <a href={l.href}>{l.label}</a></Fragment>)}
+</p>
+
+<style>
+  .pdl { margin: 0; font: 400 11.5px/1.5 var(--font-sans); color: var(--text-body); }
+  .pdl a { color: var(--blue); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; white-space: nowrap; }
+  @media (min-width: 768px) { .pdl { font-size: var(--text-legal); } }
+</style>

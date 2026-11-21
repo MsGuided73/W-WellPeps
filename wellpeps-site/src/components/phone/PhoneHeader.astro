@@ -24,6 +24,12 @@ import { ASSESSMENT_CTA_LABEL } from '../../lib/cta';
 </header>
 
 <script>
+  // Program-wide and generic buttons ("Explore treatments" on phones) lead to the phone layout's own
+  // treatments, because the desktop anchors they normally point at are hidden on phone widths.
+  if (window.matchMedia('(max-width: 767px)').matches) {
+    document.querySelectorAll<HTMLAnchorElement>('a[data-ph-href]').forEach((a) => { a.href = a.dataset.phHref ?? a.href; });
+  }
+
   const header = document.querySelector<HTMLElement>('[data-phd]');
   const portal = header?.querySelector<HTMLElement>('[data-phd-portal]');
   const cta = header?.querySelector<HTMLAnchorElement>('[data-phd-cta]');

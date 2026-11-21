@@ -6,10 +6,12 @@
  * (PhoneHeader), open the health questions for the one product chosen, through AssessmentCta, so the
  * link always matches the product the visitor picked. Optional tabs group the products (e.g. Weekly
  * injection / Daily tablet); switching tabs selects that tab's first product. The price terms sit
- * under the button, next to the prices (LegitScript / FTC).
+ * under the button, next to the prices (LegitScript / FTC), and under them one short disclosure line for
+ * the product chosen ("Rx required · Compounded, not FDA-approved · Safety info"; owner, 2026-11-21).
  */
 import AssessmentCta from '../AssessmentCta.astro';
 import { toProductKey, type ProgramSlug } from '../../lib/cta';
+import { shortDisclosure } from '../../lib/disclosure-line';
 
 export interface PriceOption {
   /** Product-card name: the key for its GEN Health link (PRODUCT_LINKS). */
@@ -24,6 +26,8 @@ export interface PriceOption {
   note?: string;
   /** Name in the "For …" line; defaults to `product`. */
   name?: string;
+  /** Its PRODUCT_DISCLOSURES key, when that differs from `product` (a plan or a form). */
+  disclosure?: string;
 }
 export interface PriceGroup {
   label: string;
@@ -43,14 +47,16 @@ export const DEFAULT_TERMS =
   'Includes your clinician’s review and follow-ups, prescribed medication and shipping, and messaging with your care team. Full refund if not prescribed.';
 
 const { program, groups, terms = DEFAULT_TERMS, heading } = Astro.props;
-const uid = `pbox-${program}-${Math.random().toString(36).slice(2, 7)}`;
+// Stable id from the program and its products (a random one made every build differ).
+const uid = `pbox-${program}-${groups.flatMap((g) => g.options).map((o) => toProductKey(o.product)).join('-').slice(0, 40)}`;
 const all = groups.flatMap((g) => g.options);
 const keyOf = (o: PriceOption) => toProductKey(o.product);
+const discOf = (o: PriceOption) => shortDisclosure(program, o.disclosure ?? o.product);
 ---
 <div class="ph-pbox" data-ph-pbox>
   {heading && (
     <div class="ph-pbox__hd">
-      <img src={heading.image} alt={heading.title} aria-hidden="true" width="46" height="46" />
+      <img loading="lazy" src={heading.image} alt={heading.title} aria-hidden="true" width="46" height="46" />
       <div><b>{heading.title}</b><span>{heading.sub}</span></div>
     </div>
   )}
@@ -84,6 +90,14 @@ const keyOf = (o: PriceOption) => toProductKey(o.product);
     </div>
   ))}
   <p class="ph-terms">{terms}</p>
+  {all.map((o, i) => {
+    const d = discOf(o);
+    return (
+      <p class="ph-disc" data-ph-disc={keyOf(o)} hidden={i > 0}>
+        {d.line.join(' · ')} · <a href={d.safetyHref}>Safety info</a>
+      </p>
+    );
+  })}
 </div>
 
 <script>
@@ -91,10 +105,12 @@ const keyOf = (o: PriceOption) => toProductKey(o.product);
     const sel = box.querySelector<HTMLElement>('[data-ph-sel]');
     const radios = [...box.querySelectorAll<HTMLInputElement>('input[data-ph-opt]')];
     const ctas = [...box.querySelectorAll<HTMLElement>('[data-ph-cta]')];
+    const discs = [...box.querySelectorAll<HTMLElement>('[data-ph-disc]')];
 
     const pick = (r: HTMLInputElement) => {
       r.checked = true;
       ctas.forEach((c) => { c.hidden = c.dataset.phCta !== r.value; });
+      discs.forEach((d) => { d.hidden = d.dataset.phDisc !== r.value; });
       if (sel) {
         const label = r.closest('label');
         const unit = label?.querySelector('small')?.textContent ?? '';

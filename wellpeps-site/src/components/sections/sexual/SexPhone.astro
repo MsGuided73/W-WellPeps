@@ -9,6 +9,8 @@
 import Icon from '../../Icon.astro';
 import PhonePriceBox from '../../phone/PhonePriceBox.astro';
 import PhoneProductCards from '../../phone/PhoneProductCards.astro';
+import { productPath } from '../../../lib/products';
+import { COMPOUNDED_SENTENCE } from '../../../data/product-disclosures';
 import PhoneFaq from '../../phone/PhoneFaq.astro';
 import PhoneGuide from '../../phone/PhoneGuide.astro';
 import { sexHero, sexEducation, sexProducts, sexProductsIntro, sexRecommendation, sexFaqs } from '../../../data/sexual';
@@ -28,6 +30,7 @@ const cards = ordered.map((p) => ({
   product: p.name,
   image: p.image,
   alt: p.alt,
+  href: productPath('sexual-wellness', p.name),
   tags: [daily(p.name) ? 'Daily' : 'As needed', 'Tablet'],
   price: p.price ? `$${p.price}${p.priceUnit}` : undefined,
 }));
@@ -43,7 +46,7 @@ const cards = ordered.map((p) => ({
   {groups.length > 0 && <PhonePriceBox program="sexual-wellness" groups={groups} />}
   <PhoneGuide program="sexual-wellness" variant="row" question="Daily or as needed?" />
 
-  <h2 class="ph-htitle">{sexProductsIntro.title}</h2>
+  <h2 class="ph-htitle" id="ph-treatments">{sexProductsIntro.title}</h2>
   <PhoneProductCards
     program="sexual-wellness"
     cards={cards}
@@ -58,5 +61,5 @@ const cards = ordered.map((p) => ({
 
   <PhoneFaq faqs={sexFaqs} />
   <PhoneGuide program="sexual-wellness" variant="band" />
-  <p class="ph-fine">Prescription required. {sexProductsIntro.footnote}</p>
+  <p class="ph-fine">Prescription required. {COMPOUNDED_SENTENCE} Tadalafil and sildenafil are not for use with nitrate medicines. {sexProductsIntro.footnote}</p>
 </div>

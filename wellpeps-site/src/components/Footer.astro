@@ -118,6 +118,12 @@ const phoneLinks = [
   { label: 'About WellPeps', href: '/why-wellpeps' },
   { label: 'States We Serve', href: '/states-we-serve' },
 ].filter((l) => visible(l.href));
+// Phone footer, one tap-to-open row (owner, 2026-11-21): the Patient Information column plus refunds and
+// shipping, so the safety pages and patient policies stay reachable on phones (LegitScript).
+const phonePatient = [
+  ...(shownColumns.find((c) => c.heading === 'Patient Information')?.links ?? []),
+  ...shownColumns.flatMap((c) => c.links).filter((l) => /^(Refund|Shipping)/.test(l.label)),
+];
 ---
 <footer class="footer">
   <svg class="footer__wave" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true" focusable="false">
@@ -132,6 +138,12 @@ const phoneLinks = [
         {phoneLinks.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
         <li><a href={PATIENT_PORTAL_URL}><strong>Patient Portal</strong></a></li>
       </ul>
+      {phonePatient.length > 0 && (
+        <details class="footer__phone-acc">
+          <summary>Patient Information</summary>
+          <ul>{phonePatient.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
+        </details>
+      )}
       <p class="footer__phone-contact">
         <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
         <span aria-hidden="true">·</span>
@@ -490,6 +502,17 @@ const phoneLinks = [
     .footer__phone-contact span { align-self: center; }
     .footer__disclaimer { font-size: 12px; line-height: 1.5; }
     .footer__copy { font-size: 12px; }
+    .footer__phone-acc { background: #fff; border: 1px solid var(--border); border-radius: 12px; }
+    .footer__phone-acc summary {
+      list-style: none; cursor: pointer; min-height: 48px; padding: 0 14px; display: flex; align-items: center; justify-content: space-between;
+      font: 700 12px/1 var(--font-sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue);
+    }
+    .footer__phone-acc summary::-webkit-details-marker { display: none; }
+    .footer__phone-acc summary::after { content: '+'; font-size: 20px; font-weight: 500; }
+    .footer__phone-acc[open] summary::after { content: '3'; }
+    .footer__phone-acc summary:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 2px; border-radius: 12px; }
+    .footer__phone-acc ul { list-style: none; margin: 0; padding: 0 14px 10px; display: grid; }
+    .footer__phone-acc a { display: flex; align-items: center; min-height: 40px; font-size: 14.5px; }
   }
 
 </style>

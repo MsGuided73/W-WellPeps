@@ -149,7 +149,7 @@ const searchIndexJson = JSON.stringify(searchIndex).replace(/</g, '\\u003c');
     <div data-browse>
       {lead && leadPhoto && (
         <a class="lc-lead ph-only" href={lead.url_path}>
-          <img src={leadPhoto.src} alt={leadPhoto.alt} width="800" height="500" loading="eager" />
+          <img src={leadPhoto.src} alt={leadPhoto.alt} width="800" height="500" loading="lazy" />
           <span class="lc-lead__t">
             <span class="lc-lead__cat">Featured · {lead.category.name}</span>
             <span class="lc-lead__title">{lead.title}</span>
