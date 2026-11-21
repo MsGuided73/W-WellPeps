@@ -1,0 +1,1518 @@
+{
+ "title": "Peptide Therapy Medication Safety Information",
+ "version": "1.0",
+ "date": "November 21, 2026",
+ "id": "A19",
+ "docTitle": "Peptide Therapy Medication Safety Information and Acknowledgment",
+ "source": "scratchpad make_a19.py (from A17)",
+ "blocks": [
+  {
+   "t": "h1",
+   "text": "PART 1. PEPTIDE THERAPY MEDICATION SAFETY INFORMATION"
+  },
+  {
+   "t": "p",
+   "text": "Last updated: November 21, 2026  |  Effective: November 21, 2026  |  Version 1.0",
+   "italic": true,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "1. Emergency information"
+  },
+  {
+   "t": "p",
+   "text": "**If you think you are having a medical emergency, call 911 or go to the nearest emergency room right away.** Do not wait for a reply by email, chat, text message or the patient portal.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "Call 911 for trouble breathing, swelling of the face, lips, tongue or throat, chest pain or pressure, fainting, a seizure, or severe confusion.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**If you may have taken too much medication or used the wrong dose, call Poison Control at 1-800-222-1222.** If the person collapses, has a seizure, has trouble breathing or cannot be woken up, call 911.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "2. About this information"
+  },
+  {
+   "t": "p",
+   "text": "This page gives general safety information for adults who are prescribed one of the six products below through WellPeps, a Wyoming corporation (“WellPeps”). It does not replace your prescription label, your pharmacy’s instructions or your clinician’s advice.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "**WellPeps is not a medical practice or a pharmacy.** WellPeps helps you reach telehealth services provided by independent licensed clinicians of OSI Medical Services, P.A. (the “Practice”). WellPeps does not prescribe, compound or dispense medication.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**A licensed clinician decides** whether a prescription is medically appropriate for you. A prescription is not guaranteed. A clinician may decline to prescribe, or may change or stop a prescription, at any time.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**A state-licensed pharmacy** named on your prescription label prepares and ships your medication.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Your label comes first.** Ingredients, strengths, forms, syringes, storage rules and beyond-use dates can differ between prescriptions and between pharmacies. If this page and your label disagree, follow your label and contact your clinician or pharmacy.",
+   "level": 0
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Product",
+     "Form on the site",
+     "What to read"
+    ],
+    [
+     "BPC-157",
+     "Injection under the skin",
+     "Sections 1 to 15 and Article A"
+    ],
+    [
+     "TB-500",
+     "Injection under the skin",
+     "Sections 1 to 15 and Article B"
+    ],
+    [
+     "KPV",
+     "Capsules taken by mouth",
+     "Sections 1 to 7 and 10 to 15 and Article C"
+    ],
+    [
+     "MOTS-c",
+     "Injection under the skin",
+     "Sections 1 to 15 and Article D"
+    ],
+    [
+     "Semax",
+     "Nasal spray",
+     "Sections 1 to 7 and 10 to 15 and Article E"
+    ],
+    [
+     "Epitalon",
+     "Injection under the skin",
+     "Sections 1 to 15 and Article F"
+    ]
+   ],
+   "widths": [
+    2,
+    4,
+    4
+   ],
+   "header": true,
+   "shade": false
+  },
+  {
+   "t": "p",
+   "text": "If you are prescribed more than one product, read the article for each. If you are also prescribed a GLP-1 medicine, read the GLP-1 Medication Safety Information and Acknowledgment too.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "3. Important: about compounded medicines"
+  },
+  {
+   "t": "p",
+   "text": "Every product in this document is a compounded medicine. A compounded medicine is made by a pharmacy for you, based on your prescriber’s order.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "Compounded medicines are **not FDA-approved**. FDA does not review compounded medicines for safety, effectiveness or quality before they are sold. They do not come with FDA-approved labeling or an FDA Medication Guide. Strength, purity and quality can differ between pharmacies and between batches.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "A compounded medicine is not a generic version of an FDA-approved medicine. Do not assume it is the same as, equivalent to or interchangeable with one.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**None of these six peptides is FDA-approved for any use, and none is an active ingredient in an FDA-approved medicine in the United States.** Do not assume a product is safe because it is sold by prescription or made by a licensed pharmacy.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Some of these peptides are versions or fragments of substances the body makes. That does not tell you what an injection, capsule or spray will do, or whether it is appropriate for you.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Because these products have not been through FDA review, their full risks, side effects, interactions and effectiveness may not be known. Some information below comes from general medical knowledge and from FDA-approved labeling for related products. That does not mean a compounded product behaves the same way.",
+   "level": 0
+  },
+  {
+   "t": "p",
+   "text": "The Compounded Medication Disclosure and Consent explains compounded medicines in more detail. You can ask your clinician at any time about other options, including no medicine at all. WellPeps does not offer brand-name FDA-approved products. FDA-approved medicines may be available through another provider and pharmacy.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "4. What WellPeps does and does not claim"
+  },
+  {
+   "t": "p",
+   "text": "WellPeps does **not** claim that any product in this document treats, cures or prevents any disease or condition, speeds healing or recovery from an injury, builds muscle, improves memory or focus, changes your weight or metabolism, or slows aging. We do not promise any result. You may notice no change at all.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**What is known.** Each product contains substances that play a role in the body. A description of what a substance does in the body is not a promise of what an injection or capsule will do for you.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "**What is not established.** For these peptides it has not been established that they are safe or that they give any benefit to people, for any use. Almost all of the research comes from lab studies and animal studies. Human studies are few, small and short, and for several of these peptides there are no published human safety studies at all. Long-term safety is unknown. FDA scientists who reviewed these peptides for compounding raised safety concerns, including the lack of human safety data (see each article).",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "p",
+   "text": "If you see a statement from WellPeps that does not match this section, tell us at support@wellpeps.com.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "5. Before you start, tell your clinician if you"
+  },
+  {
+   "t": "li",
+   "text": "have had an allergic reaction to any medicine, vitamin, preservative (such as benzyl alcohol), dye, latex or other ingredient.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "are pregnant, may be pregnant, plan to become pregnant or are breastfeeding.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have or have had cancer or a tumor, or are being checked for one.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have diabetes or prediabetes, or take insulin or another diabetes medicine.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have heart disease, an irregular heartbeat, chest pain, or high or low blood pressure.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have kidney disease or liver disease.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have seizures, a blood disorder, a bleeding problem, or take a blood thinner.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have an autoimmune or inflammatory condition, or take medicine that affects your immune system.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have frequent nosebleeds, a nasal condition, or recent nose surgery (if you are prescribed Semax).",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "take any prescription or over-the-counter medicine, vitamin, supplement or herbal product. This includes medicines for depression, anxiety, ADHD, pain, migraine, sleep, cough and cold.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "use any other peptide, hormone, injection, IV drip or “wellness” treatment from anywhere else.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "are a competitive athlete or are subject to drug testing for sport, work or school. Several of these peptides are prohibited in sport.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "6. Who should not use these products"
+  },
+  {
+   "t": "li",
+   "text": "Anyone who is not an adult. These products are for adults only. The minimum age depends on your state; see the Patient Terms of Service and Payment Agreement.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Anyone who is allergic to an ingredient on the label.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Anyone whose clinician decides the product is not appropriate. That is a medical decision, even if you want the product.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Anyone who falls under the “do not use” statements in the product article that applies to them.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "7. Serious symptoms: stop and get help"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Possible problem",
+     "Symptoms",
+     "What to do"
+    ],
+    [
+     "Serious allergic reaction",
+     "Swelling of the face, lips, tongue or throat; trouble breathing or swallowing; wheezing; hives over the body; fast heartbeat; fainting; severe dizziness",
+     "Call 911."
+    ],
+    [
+     "Heart or breathing problem",
+     "Chest pain or pressure, severe shortness of breath, fainting",
+     "Call 911."
+    ],
+    [
+     "Infection at the injection site",
+     "Spreading redness, warmth, increasing pain or swelling, pus, red streaks, fever",
+     "Contact your clinician right away. Seek urgent care if you have a fever or it spreads fast."
+    ],
+    [
+     "Other injection-site problem",
+     "Severe pain, a hard lump that grows, skin that breaks down",
+     "Contact your clinician promptly."
+    ],
+    [
+     "Too much medication or wrong dose",
+     "Severe nausea or vomiting, dizziness, confusion, or any sign that you took more than prescribed",
+     "Call Poison Control at 1-800-222-1222. Call 911 for severe symptoms."
+    ],
+    [
+     "Problems listed in a product article",
+     "See the “Stop and get help” list in the article for your product",
+     "Follow that list."
+    ]
+   ],
+   "widths": [
+    2.3,
+    5,
+    3.5
+   ],
+   "header": true,
+   "shade": false,
+   "text": ""
+  },
+  {
+   "t": "p",
+   "text": "Tell any clinician who treats you, including in an emergency room or before a procedure, that you use these products, and show your label.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "8. Injection safety (Articles A, B, D and F)"
+  },
+  {
+   "t": "p",
+   "text": "This section applies to the injectable products. Your label and your pharmacy’s written instructions come first. If you have never injected yourself, ask for training through the patient portal before your first dose.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "li",
+   "text": "Use only the product, dose, route (under the skin or into a muscle), schedule and syringe on your current label.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Units, milliliters (mL) and milligrams (mg) are not the same thing.** Syringes may be marked in units or mL, while a dose may be written in mg, mcg, mL or units. Mixing them up can cause a serious overdose. Before every injection, check the product name, the strength (amount per mL), your dose, the volume you will draw up and the markings on your syringe.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "If any direction is missing, unclear or does not match another direction, do not inject until your clinician or the pharmacy confirms it.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "A refill, or a different pharmacy, may have a different strength. Check your label every time. Never copy the number of “units” you used from a different vial.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Peptides often arrive as a powder that you mix before use. Mix only as your pharmacy instructs, with the diluent it supplied, and use the mixed product within the time on the label.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not mix products in one syringe or vial unless your clinician or pharmacy tells you to.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Wash your hands. Wipe the vial stopper and your skin with a new alcohol swab and let them dry. Use a new, sterile needle and syringe for every injection. Never touch the needle, and never reuse or share needles, syringes or vials.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Rotate injection sites. Do not inject into skin that is bruised, red, tender, scarred or hard.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Look at the liquid before every use. Do not use it if it is cloudy, discolored, frozen or has particles, unless your label says that is expected.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not leave a needle in a multi-dose vial. Throw the vial away after its beyond-use date even if liquid remains.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**These products are not for IV use at home.** Do not inject any of them into a vein. If your label says IV or “for office use,” do not use it yourself and contact your clinician.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "9. Sharps disposal"
+  },
+  {
+   "t": "li",
+   "text": "Put used needles and syringes in an FDA-cleared sharps disposal container right after use. If you do not have one, use a heavy-duty, puncture-resistant household container with a tight lid, such as a laundry detergent bottle.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not throw loose needles or syringes in the trash or recycling, and do not flush them. Do not bend or break needles by hand.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Some states and towns do not allow sharps in household trash. Check your state and local rules. FDA’s sharps disposal information is at www.fda.gov/safesharpsdisposal.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Keep sharps and all medication out of reach of children and pets.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "10. Storage, shipping and product quality"
+  },
+  {
+   "t": "li",
+   "text": "Follow your pharmacy label for refrigeration, room-temperature limits, protection from light and handling. Many injectable products must be kept cold. Do not freeze a product unless the label says to. Keep capsules and nasal sprays in their original containers, as the label says.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Beyond-use date.** The pharmacy sets a date after which the product must not be used. Do not use it after that date, or after the time limit on the label for use after opening or mixing, even if some is left.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Some products must stay cold in transit. Open your package when it arrives and check it. If it arrives late, warm, with melted ice packs or was left in heat, contact the dispensing pharmacy before you use it. See the Shipping and Delivery Policy.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not use the product if the label is missing or incomplete, the seal is broken, the container is leaking or damaged, or the name or strength is not what you expected.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not assume storage guidance from an earlier shipment, another pharmacy or another product applies to your current prescription.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "11. Pregnancy and breastfeeding"
+  },
+  {
+   "t": "p",
+   "text": "These products have not been well studied in pregnancy or breastfeeding, and some can harm an unborn baby. Tell your clinician before you start if you are pregnant, may be pregnant, plan to become pregnant or are breastfeeding, and tell your clinician right away if this changes. If you become pregnant while using one of these products, stop it and contact your clinician.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "12. Other medicines, supplements and treatments"
+  },
+  {
+   "t": "li",
+   "text": "Tell your clinician about everything you take or use, including over-the-counter medicines, vitamins, herbal products, and treatments from other places such as IV drips, injections at a spa or clinic, other peptides and hormones.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not “stack.” Do not use two of these products together, or with another peptide or similar product from anywhere else, unless your clinician has clearly told you to. Combinations of these peptides have not been studied for safety.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not buy or use peptides or other products labeled “for research use only” or “not for human consumption.” They are not made for people and may be contaminated, mislabeled or the wrong strength. WellPeps does not supply them. Peptides sold online for “research” are a common source of contaminated and mislabeled products.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "If another clinician prescribes you a new medicine, tell them you use these products and tell your WellPeps clinician in the patient portal.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Some of these products may be banned under anti-doping or workplace drug-testing rules. If you are tested, you are responsible for checking the rules that apply to you.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "13. Lab tests, follow-up and stopping"
+  },
+  {
+   "t": "li",
+   "text": "Your clinician tells you if labs are needed. Labs are billed separately. See the Laboratory Testing Consent.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "You can stop at any time. Tell your clinician if you stop. Stopping does not by itself cancel your plan; see the Refund, Cancellation and Auto-Renewal Policy.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not change your dose, take it more often than prescribed or double a missed dose. If you miss a dose, follow your label or ask your clinician.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Your clinician may change or stop a prescription based on your health, test results, new medicines or changes in the rules for a product.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "14. Questions and reporting problems"
+  },
+  {
+   "t": "li",
+   "text": "Non-emergency medical questions: message your prescribing clinician in the patient portal at portal.wellpeps.com.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Orders, shipping or billing help: support@wellpeps.com. Phone: (307) 881-8700, during normal business hours.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Ingredients, strength, preparation, storage or beyond-use date: the dispensing pharmacy listed on your prescription label.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "To report a side effect or product-quality problem to FDA: FDA MedWatch at www.fda.gov/medwatch or 1-800-FDA-1088. Please also tell your clinician and the pharmacy.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "15. Additional information"
+  },
+  {
+   "t": "p",
+   "text": "This is general information, not medical advice for you. It is not a complete list of warnings, risks, side effects, interactions or instructions. Your prescription label and the information from your dispensing pharmacy control if they differ from this summary. For general information about compounded drugs, see the “Human Drug Compounding” pages at www.fda.gov.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "Product articles"
+  },
+  {
+   "t": "h2",
+   "text": "Article A. BPC-157 injection"
+  },
+  {
+   "t": "h3",
+   "text": "What it is"
+  },
+  {
+   "t": "p",
+   "text": "BPC-157 is a synthetic peptide made of 15 amino acids. Its sequence comes from a protein found in stomach juice. It is given as an injection under the skin.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "FDA status"
+  },
+  {
+   "t": "p",
+   "text": "BPC-157 is not FDA-approved for any use. FDA has reviewed BPC-157 as an ingredient that pharmacies might compound, and FDA scientists raised safety concerns, including that the human studies are too small and too short to show it is safe or that it works for any use. The federal rules on whether and how pharmacies may compound BPC-157 have changed during 2026 and may change again. If they change, your clinician may stop or change your prescription.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "What is known and what is not"
+  },
+  {
+   "t": "p",
+   "text": "Lab and animal studies have looked at BPC-157 and tissue repair, the stomach and gut, and blood-vessel growth. Very few small studies have been done in people. It is not known whether it helps people with any condition, what dose is safe, or what it does when used for months.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "Do not use, or tell your clinician first, if you"
+  },
+  {
+   "t": "li",
+   "text": "have or have had cancer, a tumor or a growth that is being watched. These peptides are studied for effects on cell growth and blood-vessel growth, so they may not be appropriate if you have or have had cancer.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "are pregnant, may be pregnant, plan to become pregnant or are breastfeeding. Do not use it then.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have a bleeding problem or take a blood thinner.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have heart disease or high or low blood pressure.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "are a competitive athlete. BPC-157 is prohibited in sport by the World Anti-Doping Agency (WADA).",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Possible side effects"
+  },
+  {
+   "t": "li",
+   "text": "Redness, itching, swelling, bruising or a small lump where you inject.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Headache, dizziness, nausea, tiredness or flushing.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Side effects not listed here may happen, because it has not been well studied in people.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Stop and get help"
+  },
+  {
+   "t": "li",
+   "text": "Signs of a serious allergic reaction: swelling of the face, lips, tongue or throat, trouble breathing, hives over the body, or fainting. Call 911.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Chest pain, a fast or pounding heartbeat, fainting or severe dizziness. Call 911.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Signs of infection where you inject: spreading redness, warmth, pus, red streaks or fever. Contact your clinician right away.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "A new lump or growth anywhere on your body, or any new symptom that worries you. Contact your clinician.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Medicines and products to tell your clinician about"
+  },
+  {
+   "t": "li",
+   "text": "Blood thinners and medicines that affect bleeding, including aspirin and ibuprofen.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Any other peptide, hormone or injection from anywhere else.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "Article B. TB-500 injection"
+  },
+  {
+   "t": "h3",
+   "text": "What it is"
+  },
+  {
+   "t": "p",
+   "text": "TB-500 is a synthetic peptide. It is a short fragment related to thymosin beta-4, a protein the body makes. It is given as an injection under the skin.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "FDA status"
+  },
+  {
+   "t": "p",
+   "text": "TB-500 is not FDA-approved for any use. FDA has reviewed TB-500 as an ingredient that pharmacies might compound, and FDA scientists raised safety concerns, including that there are no published human safety studies. The federal rules on whether and how pharmacies may compound TB-500 have changed during 2026 and may change again. If they change, your clinician may stop or change your prescription.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "What is known and what is not"
+  },
+  {
+   "t": "p",
+   "text": "Lab and animal studies have looked at thymosin beta-4 and its fragments in wound healing, tissue repair and blood-vessel growth. There are no published studies of TB-500 safety in people. It is not known whether it helps people with any condition, what dose is safe, or what it does over time.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "Do not use, or tell your clinician first, if you"
+  },
+  {
+   "t": "li",
+   "text": "have or have had cancer, a tumor or a growth that is being watched. These peptides are studied for effects on cell growth and blood-vessel growth, so they may not be appropriate if you have or have had cancer.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "are pregnant, may be pregnant, plan to become pregnant or are breastfeeding. Do not use it then.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have heart disease or a heart rhythm problem.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "are a competitive athlete. TB-500 is prohibited in sport by the World Anti-Doping Agency (WADA).",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Possible side effects"
+  },
+  {
+   "t": "li",
+   "text": "Redness, itching, swelling, bruising or a small lump where you inject.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Headache, tiredness, light-headedness or flushing.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Side effects not listed here may happen, because it has not been studied in people.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Stop and get help"
+  },
+  {
+   "t": "li",
+   "text": "Signs of a serious allergic reaction: swelling of the face, lips, tongue or throat, trouble breathing, hives over the body, or fainting. Call 911.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Chest pain, a fast or pounding heartbeat, fainting or severe dizziness. Call 911.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Signs of infection where you inject: spreading redness, warmth, pus, red streaks or fever. Contact your clinician right away.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "A new lump or growth anywhere on your body. Contact your clinician.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Medicines and products to tell your clinician about"
+  },
+  {
+   "t": "li",
+   "text": "Any other peptide, hormone or injection from anywhere else.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "Article C. KPV capsules"
+  },
+  {
+   "t": "h3",
+   "text": "What it is"
+  },
+  {
+   "t": "p",
+   "text": "KPV is a synthetic peptide of three amino acids. It is a fragment of alpha-melanocyte-stimulating hormone (alpha-MSH), a hormone the body makes. It is taken as capsules by mouth.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "FDA status"
+  },
+  {
+   "t": "p",
+   "text": "KPV is not FDA-approved for any use. FDA has reviewed KPV as an ingredient that pharmacies might compound, and FDA scientists raised safety concerns, including that there are no published human safety studies. The federal rules on whether and how pharmacies may compound KPV have changed during 2026 and may change again. If they change, your clinician may stop or change your prescription.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "What is known and what is not"
+  },
+  {
+   "t": "p",
+   "text": "Lab and animal studies have looked at KPV and inflammation in the gut and the skin. There are no published studies of KPV safety in people. It is not known whether it helps people with any condition or what it does over time.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "Do not use, or tell your clinician first, if you"
+  },
+  {
+   "t": "li",
+   "text": "are pregnant, may be pregnant, plan to become pregnant or are breastfeeding. Do not use it then.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have an inflammatory bowel condition (such as Crohn’s disease or ulcerative colitis) or a skin condition. KPV is not a treatment for either, and it does not replace the treatment your doctor prescribed.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Possible side effects"
+  },
+  {
+   "t": "li",
+   "text": "Stomach upset, nausea, bloating or a change in bowel habits.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Headache or tiredness.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Side effects not listed here may happen, because it has not been studied in people.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Stop and get help"
+  },
+  {
+   "t": "li",
+   "text": "Signs of a serious allergic reaction: swelling of the face, lips, tongue or throat, trouble breathing, hives over the body, or fainting. Call 911.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Severe stomach pain, blood in your stool, or vomiting that does not stop. Get medical care right away.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "A rash, itching or swelling after you start it. Stop taking it and contact your clinician.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Using it correctly"
+  },
+  {
+   "t": "li",
+   "text": "Take the capsules only by mouth, as your label says. Do not open or crush them unless your label says you may.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Medicines and products to tell your clinician about"
+  },
+  {
+   "t": "li",
+   "text": "Any medicine for an inflammatory bowel or skin condition.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Any other peptide or supplement you take.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "Article D. MOTS-c injection"
+  },
+  {
+   "t": "h3",
+   "text": "What it is"
+  },
+  {
+   "t": "p",
+   "text": "MOTS-c is a synthetic version of a small peptide made by mitochondria, the parts of a cell that produce energy. It is given as an injection under the skin.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "FDA status"
+  },
+  {
+   "t": "p",
+   "text": "MOTS-c is not FDA-approved for any use. FDA has reviewed MOTS-c as an ingredient that pharmacies might compound, and FDA scientists raised safety concerns, including that there are no published human safety studies. The federal rules on whether and how pharmacies may compound MOTS-c have changed during 2026 and may change again. If they change, your clinician may stop or change your prescription.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "What is known and what is not"
+  },
+  {
+   "t": "p",
+   "text": "Lab and animal studies have looked at MOTS-c and how the body uses energy and sugar. There are no published studies of MOTS-c safety in people. It is not known whether it helps people with any condition, what dose is safe, or what it does over time.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "Do not use, or tell your clinician first, if you"
+  },
+  {
+   "t": "li",
+   "text": "are pregnant, may be pregnant, plan to become pregnant or are breastfeeding. Do not use it then.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have diabetes or prediabetes, or take insulin or another medicine that lowers blood sugar. MOTS-c may affect blood sugar.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have heart disease, kidney disease or liver disease.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Possible side effects"
+  },
+  {
+   "t": "li",
+   "text": "Redness, itching, swelling, bruising or a small lump where you inject.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Tiredness, headache, nausea or a fast heartbeat.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Low blood sugar if you take diabetes medicine: shakiness, sweating, hunger, confusion or a fast heartbeat.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Side effects not listed here may happen, because it has not been studied in people.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Stop and get help"
+  },
+  {
+   "t": "li",
+   "text": "Signs of a serious allergic reaction: swelling of the face, lips, tongue or throat, trouble breathing, hives over the body, or fainting. Call 911.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Signs of very low blood sugar: confusion, fainting or a seizure. Call 911.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Chest pain, a fast or pounding heartbeat or fainting. Call 911.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Medicines and products to tell your clinician about"
+  },
+  {
+   "t": "li",
+   "text": "Insulin and every medicine you take for diabetes or blood sugar, including GLP-1 medicines.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Any other peptide, hormone or injection from anywhere else.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "Article E. Semax nasal spray"
+  },
+  {
+   "t": "h3",
+   "text": "What it is"
+  },
+  {
+   "t": "p",
+   "text": "Semax is a synthetic peptide of seven amino acids, based on part of adrenocorticotropic hormone (ACTH), a hormone the body makes. It is used as a nasal spray.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "FDA status"
+  },
+  {
+   "t": "p",
+   "text": "Semax is not FDA-approved for any use. FDA has reviewed Semax as an ingredient that pharmacies might compound, and FDA scientists raised safety concerns, including that the evidence about its safety is limited. The federal rules on whether and how pharmacies may compound Semax have changed during 2026 and may change again. If they change, your clinician may stop or change your prescription.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "What is known and what is not"
+  },
+  {
+   "t": "p",
+   "text": "Semax has been studied mainly in Russia, where it is registered as a medicine, and in lab and animal studies. Most human studies are small. It is not approved in the United States. It is not known whether it helps healthy people with memory, focus or anything else, or what it does over time.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "Do not use, or tell your clinician first, if you"
+  },
+  {
+   "t": "li",
+   "text": "are pregnant, may be pregnant, plan to become pregnant or are breastfeeding. Do not use it then.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have seizures or epilepsy.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have bipolar disorder, anxiety, or trouble sleeping.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have high blood pressure or heart disease.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "have frequent nosebleeds, a nasal condition or recent nose surgery.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Possible side effects"
+  },
+  {
+   "t": "li",
+   "text": "Irritation, dryness or a runny nose, or nosebleeds.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Headache, trouble sleeping, feeling restless, jittery or anxious.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Side effects not listed here may happen, because it has not been well studied.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Stop and get help"
+  },
+  {
+   "t": "li",
+   "text": "Signs of a serious allergic reaction: swelling of the face, lips, tongue or throat, trouble breathing, hives over the body, or fainting. Call 911.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "A seizure. Call 911.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Severe headache, chest pain or a fast or pounding heartbeat. Get medical care right away.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Changes in mood or behavior that worry you or the people around you. Contact your clinician.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Using it correctly"
+  },
+  {
+   "t": "li",
+   "text": "Use it only in the nose, in the number of sprays and on the schedule your label says.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Do not share the bottle. Wipe the tip after use and replace the cap.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "If your nose bleeds or becomes very sore, stop using it and contact your clinician.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Medicines and products to tell your clinician about"
+  },
+  {
+   "t": "li",
+   "text": "Medicines for depression, anxiety, ADHD, seizures or sleep, and stimulants (including caffeine pills).",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Nasal sprays you use for allergies or congestion.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "Article F. Epitalon injection"
+  },
+  {
+   "t": "h3",
+   "text": "What it is"
+  },
+  {
+   "t": "p",
+   "text": "Epitalon (also written epithalon) is a synthetic peptide of four amino acids, based on a substance from the pineal gland, a small gland in the brain. It is given as an injection under the skin.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "FDA status"
+  },
+  {
+   "t": "p",
+   "text": "Epitalon is not FDA-approved for any use. FDA has reviewed Epitalon as an ingredient that pharmacies might compound, and FDA scientists raised safety concerns, including that there are no published human safety studies. The federal rules on whether and how pharmacies may compound Epitalon have changed during 2026 and may change again. If they change, your clinician may stop or change your prescription.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "What is known and what is not"
+  },
+  {
+   "t": "p",
+   "text": "Epitalon has been studied mainly in lab and animal studies, mostly in Russia, for effects on cell aging and sleep cycles. There are no published human safety studies of the kind FDA relies on. It is not known whether it helps people with sleep, aging or any condition, or what it does over time.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h3",
+   "text": "Do not use, or tell your clinician first, if you"
+  },
+  {
+   "t": "li",
+   "text": "have or have had cancer, a tumor or a growth that is being watched. These peptides are studied for effects on cell growth and blood-vessel growth, so they may not be appropriate if you have or have had cancer.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "are pregnant, may be pregnant, plan to become pregnant or are breastfeeding. Do not use it then.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "take medicine for sleep, or have a sleep disorder.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Possible side effects"
+  },
+  {
+   "t": "li",
+   "text": "Redness, itching, swelling, bruising or a small lump where you inject.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Changes in sleep, drowsiness, headache or tiredness.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Side effects not listed here may happen, because it has not been studied in people.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Stop and get help"
+  },
+  {
+   "t": "li",
+   "text": "Signs of a serious allergic reaction: swelling of the face, lips, tongue or throat, trouble breathing, hives over the body, or fainting. Call 911.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Signs of infection where you inject: spreading redness, warmth, pus, red streaks or fever. Contact your clinician right away.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "A new lump or growth anywhere on your body. Contact your clinician.",
+   "level": 0
+  },
+  {
+   "t": "h3",
+   "text": "Medicines and products to tell your clinician about"
+  },
+  {
+   "t": "li",
+   "text": "Sleep medicines, melatonin and other products for sleep.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "Any other peptide, hormone or injection from anywhere else.",
+   "level": 0
+  },
+  {
+   "t": "h1",
+   "text": "PART 2. PEPTIDE THERAPY SAFETY ACKNOWLEDGMENT (required form)"
+  },
+  {
+   "t": "p",
+   "text": "Please read the Peptide Therapy Medication Safety Information (version 1.0, effective November 21, 2026) before checking each box. Signing this acknowledgment does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h2",
+   "text": "Part A. Core acknowledgments (every patient)"
+  },
+  {
+   "t": "check",
+   "text": "I have read Sections 1 to 15 of the Peptide Therapy Medication Safety Information (Section 8 applies only to the injectable products in Articles A, B, D and F) and the article for each product I selected. I know I can read them again in the patient portal at portal.wellpeps.com and that I can ask my clinician or the pharmacy questions."
+  },
+  {
+   "t": "check",
+   "text": "I understand that WellPeps is not a medical practice or a pharmacy, that an independent licensed clinician decides whether I receive a prescription, that a prescription is not guaranteed, and that a clinician may decline, change or stop a prescription."
+  },
+  {
+   "t": "check",
+   "text": "I understand that every product listed here is a compounded medicine, that compounded medicines are not FDA-approved, and that FDA does not review them for safety, effectiveness or quality. I understand that the Compounded Medication Disclosure and Consent explains this in more detail and that I may ask my clinician about other options at any time."
+  },
+  {
+   "t": "check",
+   "text": "I understand that WellPeps does not claim that any of these products treats, cures or prevents any disease or condition, speeds healing or recovery, improves memory or focus, or slows aging. I understand that results are not promised and that I may notice no change."
+  },
+  {
+   "t": "check",
+   "text": "I have answered all health questions truthfully and completely, including about allergies, cancer, heart, kidney and liver conditions, blood disorders, pregnancy and breastfeeding, and every medicine, supplement and treatment I use. I will tell my clinician right away if anything changes, including if I become pregnant."
+  },
+  {
+   "t": "check",
+   "text": "I understand that my prescription label and my pharmacy’s instructions come first, and that I must check the storage rules and the beyond-use date. I will contact the pharmacy before using a product that arrives late, warm, damaged or labeled differently from what I expected."
+  },
+  {
+   "t": "check",
+   "text": "I will not share these products. I will not combine them with each other, or with similar products from anywhere else, unless my clinician tells me to. I will not use any product labeled “for research use only.” I will tell any other clinician who treats me that I use these products."
+  },
+  {
+   "t": "check",
+   "text": "I know to call 911 in an emergency and Poison Control at 1-800-222-1222 for a possible overdose or dosing error. I know how to report a side effect or product problem to my clinician, the pharmacy and FDA MedWatch (www.fda.gov/medwatch or 1-800-FDA-1088)."
+  },
+  {
+   "t": "check",
+   "text": "I understand that none of these peptides is FDA-approved for any use, that it has not been established that they are safe or effective in people, that long-term safety is unknown, and that the federal rules on compounding them may change."
+  },
+  {
+   "t": "h2",
+   "text": "Part B. Injectable products (shown if Article A, B, D or F applies)"
+  },
+  {
+   "t": "check",
+   "text": "I understand that I must use only the product, dose, route, strength and syringe on my current pharmacy label, that units, milliliters and milligrams are different, and that strengths can differ between refills and pharmacies. I will not inject until my clinician or the pharmacy confirms anything that is unclear."
+  },
+  {
+   "t": "check",
+   "text": "I understand how to use a new sterile needle and syringe for every injection, never to share or reuse them, and to put used sharps in a sharps container. I will not inject any product into a vein, and I will not use at home a product labeled IV or “for office use.”"
+  },
+  {
+   "t": "check",
+   "text": "I know the signs of an injection-site infection and of a serious allergic reaction, and I know when to contact my clinician and when to call 911."
+  },
+  {
+   "t": "h2",
+   "text": "Part C. Product acknowledgments (shown only for the products in your order)"
+  },
+  {
+   "t": "h3",
+   "text": "Article A. BPC-157 injection"
+  },
+  {
+   "t": "check",
+   "text": "I understand that BPC-157 is not FDA-approved for any use, that FDA scientists have raised safety concerns about it, that it has not been established that it is safe or that it helps people, and that WellPeps does not claim it treats, cures or prevents anything."
+  },
+  {
+   "t": "check",
+   "text": "I have told my clinician about any cancer, tumor or growth, now or in the past. I understand this peptide is studied for effects on cell growth and may not be appropriate if I have or have had cancer."
+  },
+  {
+   "t": "check",
+   "text": "I understand that BPC-157 is prohibited in sport, and that I am responsible for checking any drug-testing rules that apply to me."
+  },
+  {
+   "t": "h3",
+   "text": "Article B. TB-500 injection"
+  },
+  {
+   "t": "check",
+   "text": "I understand that TB-500 is not FDA-approved for any use, that FDA scientists have raised safety concerns about it, that it has not been established that it is safe or that it helps people, and that WellPeps does not claim it treats, cures or prevents anything."
+  },
+  {
+   "t": "check",
+   "text": "I have told my clinician about any cancer, tumor or growth, now or in the past. I understand this peptide is studied for effects on cell growth and may not be appropriate if I have or have had cancer."
+  },
+  {
+   "t": "check",
+   "text": "I understand that TB-500 is prohibited in sport, and that I am responsible for checking any drug-testing rules that apply to me."
+  },
+  {
+   "t": "h3",
+   "text": "Article C. KPV capsules"
+  },
+  {
+   "t": "check",
+   "text": "I understand that KPV is not FDA-approved for any use, that FDA scientists have raised safety concerns about it, that it has not been established that it is safe or that it helps people, and that WellPeps does not claim it treats, cures or prevents anything."
+  },
+  {
+   "t": "check",
+   "text": "I understand that KPV is not a treatment for any bowel or skin condition and does not replace the treatment my doctor prescribed."
+  },
+  {
+   "t": "check",
+   "text": "I will take KPV only as my label says, by mouth."
+  },
+  {
+   "t": "h3",
+   "text": "Article D. MOTS-c injection"
+  },
+  {
+   "t": "check",
+   "text": "I understand that MOTS-c is not FDA-approved for any use, that FDA scientists have raised safety concerns about it, that it has not been established that it is safe or that it helps people, and that WellPeps does not claim it treats, cures or prevents anything."
+  },
+  {
+   "t": "check",
+   "text": "I understand that MOTS-c may affect blood sugar, and I have told my clinician about any diabetes and every medicine I take for blood sugar."
+  },
+  {
+   "t": "check",
+   "text": "I know the problems listed under “Stop and get help” in the article, and when to contact my clinician and when to call 911."
+  },
+  {
+   "t": "h3",
+   "text": "Article E. Semax nasal spray"
+  },
+  {
+   "t": "check",
+   "text": "I understand that Semax is not FDA-approved for any use, that FDA scientists have raised safety concerns about it, that it has not been established that it is safe or that it helps people, and that WellPeps does not claim it treats, cures or prevents anything."
+  },
+  {
+   "t": "check",
+   "text": "I have told my clinician about any seizures, mood or anxiety condition, high blood pressure and nasal problem, and every medicine I take for mood, attention, seizures or sleep."
+  },
+  {
+   "t": "check",
+   "text": "I know the problems listed under “Stop and get help” in the article, and when to contact my clinician and when to call 911."
+  },
+  {
+   "t": "h3",
+   "text": "Article F. Epitalon injection"
+  },
+  {
+   "t": "check",
+   "text": "I understand that Epitalon is not FDA-approved for any use, that FDA scientists have raised safety concerns about it, that it has not been established that it is safe or that it helps people, and that WellPeps does not claim it treats, cures or prevents anything."
+  },
+  {
+   "t": "check",
+   "text": "I have told my clinician about any cancer, tumor or growth, now or in the past. I understand this peptide is studied for effects on cell growth and may not be appropriate if I have or have had cancer."
+  },
+  {
+   "t": "check",
+   "text": "I have told my clinician about any sleep disorder and every medicine or product I take for sleep."
+  },
+  {
+   "t": "h2",
+   "text": "Electronic signature"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Typed full legal name",
+     "(typed by patient)"
+    ],
+    [
+     "Products covered by this acknowledgment",
+     "(captured by the system from the order)"
+    ],
+    [
+     "Date and time",
+     "(captured by the system)"
+    ],
+    [
+     "Document version",
+     "(captured by the system)"
+    ],
+    [
+     "IP address",
+     "(captured by the system)"
+    ]
+   ],
+   "widths": [
+    2,
+    3
+   ],
+   "header": false,
+   "shade": true
+  },
+  {
+   "t": "p",
+   "text": "By typing my name, I agree that my electronic signature is the legal equivalent of my handwritten signature, and that I have already agreed to receive and sign documents electronically. This acknowledgment does not replace the Informed Consent to Telehealth Services and Treatment and does not by itself create a clinician-patient relationship.",
+   "italic": false,
+   "align": null
+  },
+  {
+   "t": "h1",
+   "text": "Technical and drafting notes"
+  },
+  {
+   "t": "callout",
+   "text": "**For the team, not part of the document.** These notes are for WellPeps, counsel, the medical director and the pharmacy. They are collected here so the document above reads on its own."
+  },
+  {
+   "t": "h2",
+   "text": "Approval"
+  },
+  {
+   "t": "li",
+   "text": "Approved by the owner on November 21, 2026, after medical review by Dr. Rahel Yirga, MD (no edits). The owner chose to go live before counsel and pharmacy confirmed the items below; they remain open.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "Open items (counsel and pharmacy)"
+  },
+  {
+   "t": "li",
+   "text": "**Medical review (Dr. Yirga):** every product article, especially the “Do not use” lists, side effects and “Stop and get help” lists. These were drafted from published reviews and general medical knowledge; there is no FDA-approved labeling for any of these peptides to draw from.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Counsel: FDA status.** The status of these six peptides for 503A compounding changed during 2026 (Category 2 listing in 2023, reported removal in April 2026, a July 2026 advisory committee vote recommending them for the 503A bulks list, and a reported HHS interim policy). Sources disagree on the current position. Confirm the status as of the effective date and whether each article’s “FDA status” wording is accurate. Confirm the pharmacy may lawfully compound each product before it opens.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Counsel: sport.** Confirm the WADA statements for BPC-157 (S0, non-approved substances) and TB-500 (S2), and whether any other article should carry one.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Counsel: Semax.** Confirm that saying it is registered as a medicine in Russia is accurate and appropriate.",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Pharmacy:** confirm each product’s form, route, diluent, storage and beyond-use dating so Sections 8 and 10 and the articles match what is dispensed (KPV capsules; Semax nasal spray).",
+   "level": 0
+  },
+  {
+   "t": "li",
+   "text": "**Practice name:** the shared sections name the Practice as A17 does. Confirm written consent to name it on the site, as with the other safety pages.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "Build notes"
+  },
+  {
+   "t": "callout",
+   "text": "**Build note:** configure Part 2 as a required GEN Health form, shown before provider review and checkout, after the Electronic Records, Signatures and Communications Consent. Always show the core boxes. Show the injectable boxes if any of Articles A, B, D or F is in the cart. Show one product block for each product in the cart. Every box shown must be checked to continue."
+  }
+ ]
+}
