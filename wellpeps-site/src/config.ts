@@ -134,21 +134,23 @@ export const PRODUCT_LINKS = {
   'testosterone-cypionate': { program: 'mens-hormone-therapy', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/LFYNjw8vldxMO6N52OCs?checkoutFlow=intake_first' },
   // GEN: "Men's Hormone Plan – 3 month Testosterone Injectable (Cypionate / Enanthate)" ($299, subscription every 3 months)
   'testosterone-cypionate-3-month': { program: 'mens-hormone-therapy', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/WLP-PRD-4FG3HT?checkoutFlow=intake_first' },
-  // womens-hormone-therapy (owner, 2026-11-21): Oral Micronized Progesterone, 30 capsules (1 month), $199. NOT in
-  // LIVE_PRODUCTS until Women's Hormone Therapy has an approved safety page (SAFETY_PAGE has none yet).
+  // womens-hormone-therapy (owner, 2026-11-21): NOT in LIVE_PRODUCTS until Women's Hormone Therapy has an approved
+  // safety page (SAFETY_PAGE has none yet). Prices are noted beside each card in src/data/hormone.ts.
+  // Oral Micronized Progesterone, 30 capsules (1 month), $199.
   'oral-micronized-progesterone': { program: 'womens-hormone-therapy', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/WLP-PRD-GKKACS?checkoutFlow=intake_first' },
-  // peptides (owner, 2026-11-21): TB-500, 1 month, $231. NOT in LIVE_PRODUCTS until Peptide Therapy has an approved
-  // safety page (SAFETY_PAGE in src/data/product-disclosures.ts): a program cannot open without its safety information.
+  // Estradiol Transdermal Patches, 8 patches (1 month), $199.
+  'estradiol-transdermal-patches': { program: 'womens-hormone-therapy', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/EfujuAhcU9qgWQ36oEI3?checkoutFlow=intake_first' },
+  // peptides (owner, 2026-11-21): TB-500, 1 month, $231. Live 2026-11-21 with safety page A19.
   'tb-500': { program: 'peptides', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Mld6DVZWa0X3dYxRdhai?checkoutFlow=intake_first' },
-  // BPC-157, 1 month, $168.50 (owner, 2026-11-21). Not live yet, for the same reason as TB-500.
+  // BPC-157, 1 month, $168.50 (owner, 2026-11-21). Live 2026-11-21.
   'bpc-157': { program: 'peptides', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/KXMm9SsbOEYnFy9phmZn?checkoutFlow=intake_first' },
-  // Epitalon, 1 month, $157.50 (owner, 2026-11-21). Not live yet, for the same reason as TB-500.
+  // Epitalon, 1 month, $157.50 (owner, 2026-11-21). Live 2026-11-21.
   epitalon: { program: 'peptides', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/WLP-PRD-ERC6M4?checkoutFlow=intake_first' },
-  // MOTS-c, 1 month, $157.50 (owner, 2026-11-21). Not live yet, for the same reason as TB-500.
+  // MOTS-c, 1 month, $157.50 (owner, 2026-11-21). Live 2026-11-21.
   'mots-c': { program: 'peptides', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/So0N5GOR2qqLUp0hBdYc?checkoutFlow=intake_first' },
-  // KPV capsules, 1 month, $323.40 (owner, 2026-11-21). Not live yet, for the same reason as TB-500.
+  // KPV capsules, 1 month, $323.40 (owner, 2026-11-21). Live 2026-11-21.
   kpv: { program: 'peptides', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/WLP-PRD-4BBMZ8?checkoutFlow=intake_first' },
-  // Semax, 1 month, $129 (owner, 2026-11-21). Not live yet, for the same reason as TB-500.
+  // Semax, 1 month, $129 (owner, 2026-11-21). Live 2026-11-21.
   semax: { program: 'peptides', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/WLP-PRD-GDKMR9?checkoutFlow=intake_first' },
 } satisfies CtaLinks['products'];
 
@@ -184,6 +186,13 @@ export const LIVE_PRODUCTS: readonly (keyof typeof PRODUCT_LINKS)[] = [
   // Live 2026-11-19 (owner): priced, linked in GEN Health, safety page A18 approved.
   'testosterone-cypionate',
   'testosterone-cypionate-3-month',
+  // Live 2026-11-21 (owner): Peptide Therapy, 1-month plans, safety page A19 approved.
+  'bpc-157',
+  'tb-500',
+  'kpv',
+  'mots-c',
+  'semax',
+  'epitalon',
 ];
 
 /** Every assessment link, keyed by program. Buttons never read these directly —

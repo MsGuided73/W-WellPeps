@@ -46,6 +46,8 @@ export const SAFETY_PAGE: Partial<Record<ProgramSlug, string>> = {
   'healthy-aging': '/safety/healthy-aging',
   // A18, approved 2026-11-19 (owner) and released with Testosterone Cypionate.
   'mens-hormone-therapy': '/safety/testosterone',
+  // A19, approved 2026-11-21 (owner, after medical review) and released with the six Peptide Therapy products.
+  peptides: '/safety/peptides',
 };
 
 /** Where "What off-label means" goes (B5, which also explains off-label use). */

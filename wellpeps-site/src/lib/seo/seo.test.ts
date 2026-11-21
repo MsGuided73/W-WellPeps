@@ -186,7 +186,8 @@ describe('llms.txt', () => {
   test('lists every priced treatment with its monthly price, from the same data as the pages', () => {
     for (const p of PROGRAMS.filter((x) => x.live)) {
       for (const t of p.treatments.filter((x) => x.monthlyPrice !== undefined)) {
-        expect(text).toContain(`- ${t.name} (${t.form}): $${t.monthlyPrice}/month`);
+        const price = Number.isInteger(t.monthlyPrice) ? String(t.monthlyPrice) : t.monthlyPrice!.toFixed(2);
+        expect(text).toContain(`- ${t.name} (${t.form}): $${price}/month`);
       }
     }
   });

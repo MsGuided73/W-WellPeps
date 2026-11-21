@@ -413,6 +413,9 @@ export const womensHormone: HormonePage = {
           'Estradiol patches deliver estrogen through the skin and may be prescribed for moderate to severe hot flashes and night sweats associated with menopause.',
         methodOfUse: 'Transdermal Patch',
         features: ['Worn on the skin, changed on a prescribed schedule', 'Available in different strengths, as prescribed', 'Ongoing provider follow-up'],
+        // Owner, 2026-11-21: 8 patches (1 month), $199, GEN Health link saved as 'estradiol-transdermal-patches' in
+        // src/config.ts. Add price: '199' here and the key to LIVE_PRODUCTS together, once Women's Hormone Therapy has
+        // an approved safety page.
       },
       {
         name: 'Oral Micronized Progesterone',
