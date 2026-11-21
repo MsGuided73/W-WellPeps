@@ -8,6 +8,7 @@ import { disclosureFor } from '../data/product-disclosures';
 import { CTA_LINKS } from '../config';
 import { isLinked } from './links';
 import { toProductKey, type ProgramSlug } from './cta';
+import { peptidesPage } from '../data/peptides';
 import {
   PRODUCT_PAGES, metaDescription, pageTitle, productPath, productRoutes, productSlug, termsItems,
 } from './products';
@@ -20,6 +21,7 @@ const CARD_PRODUCTS: Record<ProgramSlug, string[]> = {
   'healthy-aging': peptideProducts.flatMap((p) => (p.variants && p.variants.length > 1 ? p.variants.map((v) => v.product) : [p.name])),
   'mens-hormone-therapy': mensHormone.products.items.map((p) => p.name),
   'womens-hormone-therapy': womensHormone.products.items.map((p) => p.name),
+  peptides: peptidesPage.products.items.map((p) => p.name),
 };
 
 describe('product pages', () => {

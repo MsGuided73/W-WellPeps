@@ -5,14 +5,15 @@ import { peptideProducts } from '../data/peptide';
 import { sexProducts } from '../data/sexual';
 import { weightProducts } from '../data/weight';
 import { mensHormone, womensHormone } from '../data/hormone';
+import { peptidesPage } from '../data/peptides';
 import { resolveCta, toProductKey } from './cta';
 
 // A card's own name, plus the forms on a card with a toggle (NAD+ injection / nasal spray).
 const CARD_KEYS = [
   ...[...weightProducts, ...hairProducts, ...sexProducts, ...peptideProducts].map((p) => toProductKey(p.name)),
   ...peptideProducts.flatMap((p) => (p.variants ?? []).map((v) => toProductKey(v.product))),
-  // Hormone cards, plus the plans on a card with a plan toggle (Testosterone Cypionate 1 month / 3 months).
-  ...[mensHormone, womensHormone].flatMap((page) => page.products.items.flatMap((p) => [toProductKey(p.name), ...(p.plans ?? []).map((plan) => toProductKey(plan.product))])),
+  // Hormone and Peptide Therapy cards, plus the plans on a card with a plan toggle (1 month / 3 months).
+  ...[mensHormone, womensHormone, peptidesPage].flatMap((page) => page.products.items.flatMap((p) => [toProductKey(p.name), ...(p.plans ?? []).map((plan) => toProductKey(plan.product))])),
 ];
 
 describe('product links in src/config.ts', () => {

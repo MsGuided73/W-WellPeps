@@ -1,0 +1,55 @@
+---
+/**
+ * A photo beside a title and one or two paragraphs, the title above the text (Derek's 2026-11-19 notes on the
+ * Peptide Therapy page: "The Power & Potential of Peptides" and "Understanding Peptide Therapy", laid out like the
+ * Sexual Wellness and Healthy Aging education bands). A paragraph may open with a bold lead-in. The photo is shown
+ * whole at its own shape, never cropped, and stacks above the text on narrow screens.
+ */
+import type { PeptideBand } from '../../../data/peptides';
+
+interface Props {
+  band: PeptideBand;
+  id?: string;
+}
+const { band, id } = Astro.props;
+const { image } = band;
+---
+<section class="section pband" id={id}>
+  <div class:list={['container', 'pband__inner', 'reveal', { 'pband__inner--img-right': image.side === 'right' }]}>
+    <div class="pband__media">
+      <img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" />
+    </div>
+    <div class="pband__copy">
+      <h2>{band.title}</h2>
+      <hr class="rule rule--left" />
+      {band.paragraphs.map((p) => (
+        <p>{p.lead && <strong>{p.lead}</strong>}{p.lead && ' '}{p.text}</p>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .pband { padding-block: clamp(2.5rem, 4vw, 3.75rem); }
+  .pband__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(2rem, 4vw, 4rem);
+    align-items: center;
+  }
+  .pband__inner--img-right .pband__media { order: 2; }
+
+  .pband__media { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
+  .pband__media img { display: block; width: 100%; height: auto; }
+
+  .pband__copy h2 { font-size: var(--text-section-title); font-weight: 700; line-height: 1.05; }
+  .pband__copy .rule { margin-block: 1.1rem 1.5rem; }
+  .pband__copy p { font-size: var(--text-card-body); line-height: 1.6; color: var(--text-body); }
+  .pband__copy p + p { margin-top: 1.1rem; }
+  .pband__copy strong { color: var(--navy); font-weight: 700; }
+
+  @media (max-width: 900px) {
+    .pband__inner { grid-template-columns: 1fr; gap: 1.5rem; }
+    .pband__inner--img-right .pband__media { order: 0; }
+  }
+</style>

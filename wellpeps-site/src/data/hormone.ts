@@ -31,7 +31,8 @@ export interface HormoneProduct {
   description: string;
   /** Delivery method, the bold label above the checklist. */
   methodOfUse: string;
-  features: [string, string, string];
+  /** Checklist under the method label: three on the hormone cards, four on the Peptides cards (Derek). */
+  features: string[];
   /**
    * Monthly price in dollars, e.g. '149'. Leave it out until the owner gives the GEN Health link WITH its price.
    * A card goes live (See If You Qualify) only when it has both this price and its link in PRODUCT_LINKS +
@@ -84,6 +85,8 @@ export interface HormonePage {
     titleNoWrap?: boolean;
     titleAccent: string;
     lead: string;
+    /** The second hero button's label; defaults to "Explore Treatment Options". */
+    exploreLabel?: string;
     image: string;
     width: number;
     height: number;
@@ -105,6 +108,10 @@ export interface HormonePage {
     intro: string;
     footnote: string;
     items: HormoneProduct[];
+    /** The section's id, which the hero and closing buttons jump to; defaults to "hormone-products". */
+    anchor?: string;
+    /** The line under each price; defaults to the lab-testing line. null shows none. */
+    priceExtra?: string | null;
   };
   journey: { title: string; subtitle: string; lead: string; steps: HormoneStep[] };
   why: { title: string; lead: string; items: HormoneWhy[] };
@@ -118,8 +125,17 @@ export interface HormonePage {
     width: number;
     height: number;
     alt: string;
+    /** 'left' puts the photo on the left and the copy on the right (Peptides: the couple sits on the left). */
+    imageSide?: 'left' | 'right';
   };
 }
+
+/** The parts of a program page the shared hero, product grid, questions and closing band read. The Peptides page
+ *  (data/peptides.ts) uses these sections too, without the hormone-only education, journey and why sections. */
+export type ProgramPageCore = Pick<HormonePage, 'program' | 'path' | 'name' | 'seo' | 'hero' | 'products' | 'faqIntro' | 'faqs' | 'cta'>;
+
+/** Where the hero and closing buttons go until the program's assessment links exist. */
+export const productsAnchor = (page: ProgramPageCore): string => `#${page.products.anchor ?? 'hormone-products'}`;
 
 const PRODUCT_FOOTNOTE =
   'Treatment is prescribed only when a licensed provider decides it is appropriate for you. Pricing, supply length, and any lab costs are shown before you pay at checkout.';

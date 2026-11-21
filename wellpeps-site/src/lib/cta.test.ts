@@ -21,6 +21,7 @@ const NOTHING_LINKED = {
     'healthy-aging': '#scriptful-stub-healthy-aging',
     'mens-hormone-therapy': '#scriptful-stub-mens-hormone-therapy',
     'womens-hormone-therapy': '#scriptful-stub-womens-hormone-therapy',
+    peptides: '#scriptful-stub-peptides',
   },
   products: {},
 } as const;

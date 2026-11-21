@@ -60,6 +60,12 @@ const SCRIPTFUL_HEALTHY_AGING_PRODUCT_URL = '#scriptful-stub-healthy-aging';
  *  needs a safety page before it opens (product-disclosures.test.ts). */
 const SCRIPTFUL_MENS_HORMONE_PRODUCT_URL = '#scriptful-stub-mens-hormone-therapy';
 const SCRIPTFUL_WOMENS_HORMONE_PRODUCT_URL = '#scriptful-stub-womens-hormone-therapy';
+/** Peptide Therapy (page added 2026-11-18 from Derek's mockup). Its six newest products (BPC-157, TB-500, KPV, MOTS-c,
+ *  Semax, Epitalon) show "Coming Soon" until the owner gives each one's GEN Health link AND price: add the link to
+ *  PRODUCT_LINKS + LIVE_PRODUCTS keyed 'bpc-157', 'tb-500', 'kpv', 'mots-c', 'semax', 'epitalon', and the price in
+ *  src/data/peptides.ts. BPC-157, TB-500, MOTS-c, Semax and Epitalon also have a 3-month prepaid plan (owner,
+ *  2026-11-18), keyed '<name>-3-month' (e.g. 'bpc-157-3-month'), with its price on the plan in peptides.ts. */
+const SCRIPTFUL_PEPTIDES_PRODUCT_URL = '#scriptful-stub-peptides';
 
 /** Intake-first links for individual treatments, one per product card
  *  (`checkoutFlow=intake_first`, owner 2026-10-12).
@@ -128,6 +134,9 @@ export const PRODUCT_LINKS = {
   'testosterone-cypionate': { program: 'mens-hormone-therapy', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/LFYNjw8vldxMO6N52OCs?checkoutFlow=intake_first' },
   // GEN: "Men's Hormone Plan – 3 month Testosterone Injectable (Cypionate / Enanthate)" ($299, subscription every 3 months)
   'testosterone-cypionate-3-month': { program: 'mens-hormone-therapy', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/WLP-PRD-4FG3HT?checkoutFlow=intake_first' },
+  // peptides (owner, 2026-11-21): TB-500, 1 month, $231. NOT in LIVE_PRODUCTS until Peptide Therapy has an approved
+  // safety page (SAFETY_PAGE in src/data/product-disclosures.ts): a program cannot open without its safety information.
+  'tb-500': { program: 'peptides', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/Mld6DVZWa0X3dYxRdhai?checkoutFlow=intake_first' },
 } satisfies CtaLinks['products'];
 
 /**
@@ -175,6 +184,7 @@ export const CTA_LINKS: CtaLinks = {
     'healthy-aging': SCRIPTFUL_HEALTHY_AGING_PRODUCT_URL,
     'mens-hormone-therapy': SCRIPTFUL_MENS_HORMONE_PRODUCT_URL,
     'womens-hormone-therapy': SCRIPTFUL_WOMENS_HORMONE_PRODUCT_URL,
+    peptides: SCRIPTFUL_PEPTIDES_PRODUCT_URL,
   },
   products: Object.fromEntries(LIVE_PRODUCTS.map((key) => [key, PRODUCT_LINKS[key]])),
 };
@@ -301,6 +311,8 @@ export const NAV_LINKS: (NavLink | NavGroup)[] = [
       { label: 'Women’s Hormone Therapy', href: '/womens-hormone-therapy/' },
     ],
   },
+  // Derek's Peptide Therapy mockup (2026-11-17) puts "Peptides" last in the bar.
+  { label: 'Peptides', href: '/peptides/' },
   // "Why WellPeps" left the bar 2026-11-10 to give the row room (owner); it is linked from the home page,
   // every program's Why Choose section and the footer ("About WellPeps").
 ];
