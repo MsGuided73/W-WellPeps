@@ -104,13 +104,17 @@ export const PROGRAMS: readonly ProgramEntry[] = [
     treatments: page.products.items.map((p) => ({ name: p.name, form: p.methodOfUse })),
     faqs: toFaqs(page.faqs),
   })),
-  // Peptide Therapy (2026-11-18): its six newest products have no price or link yet ("Coming soon").
+  // Peptide Therapy (2026-11-18; products live 2026-11-21): a card's price, or its 1-month plan's price.
   {
     path: peptidesPage.path,
     name: peptidesPage.name,
     summary: plain(peptidesPage.hero.lead),
     live: true,
-    treatments: peptidesPage.products.items.map((p) => ({ name: p.name, form: p.methodOfUse, monthlyPrice: toPrice(p.price) })),
+    treatments: peptidesPage.products.items.map((p) => ({
+      name: p.name,
+      form: p.methodOfUse,
+      monthlyPrice: toPrice(p.price ?? p.plans?.find((pl) => pl.priceUnit === '/month')?.price),
+    })),
     faqs: toFaqs(peptidesPage.faqs),
   },
 ];

@@ -111,9 +111,8 @@ export const peptidesPage: PeptidesPage = {
         // 1 month or 3 months prepaid (owner, 2026-11-18). Each plan opens with its own price and GEN Health link:
         // PRODUCT_LINKS keys 'bpc-157' and 'bpc-157-3-month'.
         plans: [
-          // Owner, 2026-11-21: $168.50/month, GEN Health link saved as 'bpc-157' in src/config.ts. Add price: '168.50' here
-          // and 'bpc-157' to LIVE_PRODUCTS together, once Peptide Therapy has an approved safety page.
-          { label: '1 month', priceUnit: '/month', product: 'BPC-157' },
+          // Live 2026-11-21 (owner): $168.50/month with its GEN Health link.
+          { label: '1 month', priceUnit: '/month', product: 'BPC-157', price: '168.50' },
           { label: '3 months', priceUnit: '/3 months', product: 'BPC-157 3 Month', renewal: 'Renews every 3 months, cancel anytime.' },
         ],
       },
@@ -128,10 +127,8 @@ export const peptidesPage: PeptidesPage = {
         // 1 month or 3 months prepaid (owner, 2026-11-18). Each plan opens with its own price and GEN Health link:
         // PRODUCT_LINKS keys 'tb-500' and 'tb-500-3-month'.
         plans: [
-          // Owner, 2026-11-21: $231/month, GEN Health link saved as 'tb-500' in src/config.ts. Add price: '231' here and
-          // 'tb-500' to LIVE_PRODUCTS together, once Peptide Therapy has an approved safety page (a price on a plan
-          // shows on the card even while it is Coming Soon).
-          { label: '1 month', priceUnit: '/month', product: 'TB-500' },
+          // Live 2026-11-21 (owner): $231/month with its GEN Health link.
+          { label: '1 month', priceUnit: '/month', product: 'TB-500', price: '231' },
           { label: '3 months', priceUnit: '/3 months', product: 'TB-500 3 Month', renewal: 'Renews every 3 months, cancel anytime.' },
         ],
       },
@@ -143,8 +140,8 @@ export const peptidesPage: PeptidesPage = {
         description: 'KPV is a naturally occurring peptide fragment being studied for its potential role in inflammatory processes, skin health, and gastrointestinal wellness.',
         // Capsules only (owner, 2026-11-21); the topical cream is not offered.
         methodOfUse: 'Oral Capsules',
-        // Owner, 2026-11-21: $323.40/month, GEN Health link saved as 'kpv' in src/config.ts. Add price: '323.40' here and
-        // 'kpv' to LIVE_PRODUCTS together, once Peptide Therapy has an approved safety page.
+        // Live 2026-11-21 (owner): $323.40/month with its GEN Health link.
+        price: '323.40',
         features: ['Studied for its potential anti-inflammatory properties', 'Research involving skin and gastrointestinal health', ...PRODUCT_FEATURES],
       },
       {
@@ -158,9 +155,8 @@ export const peptidesPage: PeptidesPage = {
         // 1 month or 3 months prepaid (owner, 2026-11-18). Each plan opens with its own price and GEN Health link:
         // PRODUCT_LINKS keys 'mots-c' and 'mots-c-3-month'.
         plans: [
-          // Owner, 2026-11-21: $157.50/month, GEN Health link saved as 'mots-c' in src/config.ts. Add price: '157.50' here
-          // and 'mots-c' to LIVE_PRODUCTS together, once Peptide Therapy has an approved safety page.
-          { label: '1 month', priceUnit: '/month', product: 'MOTS-c' },
+          // Live 2026-11-21 (owner): $157.50/month with its GEN Health link.
+          { label: '1 month', priceUnit: '/month', product: 'MOTS-c', price: '157.50' },
           { label: '3 months', priceUnit: '/3 months', product: 'MOTS-c 3 Month', renewal: 'Renews every 3 months, cancel anytime.' },
         ],
       },
@@ -175,9 +171,8 @@ export const peptidesPage: PeptidesPage = {
         // 1 month or 3 months prepaid (owner, 2026-11-18). Each plan opens with its own price and GEN Health link:
         // PRODUCT_LINKS keys 'semax' and 'semax-3-month'.
         plans: [
-          // Owner, 2026-11-21: $129/month, GEN Health link saved as 'semax' in src/config.ts. Add price: '129' here and
-          // 'semax' to LIVE_PRODUCTS together, once Peptide Therapy has an approved safety page.
-          { label: '1 month', priceUnit: '/month', product: 'Semax' },
+          // Live 2026-11-21 (owner): $129/month with its GEN Health link.
+          { label: '1 month', priceUnit: '/month', product: 'Semax', price: '129' },
           { label: '3 months', priceUnit: '/3 months', product: 'Semax 3 Month', renewal: 'Renews every 3 months, cancel anytime.' },
         ],
       },
@@ -192,9 +187,8 @@ export const peptidesPage: PeptidesPage = {
         // 1 month or 3 months prepaid (owner, 2026-11-18). Each plan opens with its own price and GEN Health link:
         // PRODUCT_LINKS keys 'epitalon' and 'epitalon-3-month'.
         plans: [
-          // Owner, 2026-11-21: $157.50/month, GEN Health link saved as 'epitalon' in src/config.ts. Add price: '157.50' here
-          // and 'epitalon' to LIVE_PRODUCTS together, once Peptide Therapy has an approved safety page.
-          { label: '1 month', priceUnit: '/month', product: 'Epitalon' },
+          // Live 2026-11-21 (owner): $157.50/month with its GEN Health link.
+          { label: '1 month', priceUnit: '/month', product: 'Epitalon', price: '157.50' },
           { label: '3 months', priceUnit: '/3 months', product: 'Epitalon 3 Month', renewal: 'Renews every 3 months, cancel anytime.' },
         ],
       },

@@ -1,6 +1,6 @@
 {
  "title": "Peptide Therapy Medication Safety Information",
- "version": "0.1",
+ "version": "1.0",
  "date": "November 21, 2026",
  "id": "A19",
  "docTitle": "Peptide Therapy Medication Safety Information and Acknowledgment",
@@ -12,7 +12,7 @@
   },
   {
    "t": "p",
-   "text": "DRAFT for medical and legal review  |  Prepared: November 21, 2026  |  Version 0.1",
+   "text": "Last updated: November 21, 2026  |  Effective: November 21, 2026  |  Version 1.0",
    "italic": true,
    "align": null
   },
@@ -1254,7 +1254,7 @@
   },
   {
    "t": "p",
-   "text": "Please read the Peptide Therapy Medication Safety Information (version 0.1, draft) before checking each box. Signing this acknowledgment does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
+   "text": "Please read the Peptide Therapy Medication Safety Information (version 1.0, effective November 21, 2026) before checking each box. Signing this acknowledgment does not guarantee a prescription. A licensed clinician decides whether treatment is appropriate for you.",
    "italic": false,
    "align": null
   },
@@ -1465,7 +1465,16 @@
   },
   {
    "t": "h2",
-   "text": "Review needed before approval"
+   "text": "Approval"
+  },
+  {
+   "t": "li",
+   "text": "Approved by the owner on November 21, 2026, after medical review by Dr. Rahel Yirga, MD (no edits). The owner chose to go live before counsel and pharmacy confirmed the items below; they remain open.",
+   "level": 0
+  },
+  {
+   "t": "h2",
+   "text": "Open items (counsel and pharmacy)"
   },
   {
    "t": "li",

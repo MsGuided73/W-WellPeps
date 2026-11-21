@@ -46,9 +46,8 @@ export const SAFETY_PAGE: Partial<Record<ProgramSlug, string>> = {
   'healthy-aging': '/safety/healthy-aging',
   // A18, approved 2026-11-19 (owner) and released with Testosterone Cypionate.
   'mens-hormone-therapy': '/safety/testosterone',
-  // Peptide Therapy: A19 (/safety/peptides) is a DRAFT (2026-11-21). Add `peptides: '/safety/peptides'` here when it is
-  // approved; until then its links fall back to the Medical Disclaimer (a draft page is not public) and no peptide product
-  // may open (tests below).
+  // A19, approved 2026-11-21 (owner, after medical review) and released with the six Peptide Therapy products.
+  peptides: '/safety/peptides',
 };
 
 /** Where "What off-label means" goes (B5, which also explains off-label use). */

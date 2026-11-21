@@ -124,11 +124,11 @@ export const LEGAL_DOCS: readonly LegalDoc[] = [
   { id: 'A18', path: 'safety/testosterone', title: 'Testosterone and hCG Safety Information', label: 'Testosterone Safety Information', group: 'patient',
     blurb: 'Important safety information for testosterone and hCG.',
     description: 'Important safety information for testosterone and hCG prescribed through WellPeps: warnings, who should not use them, lab monitoring and when to get help.', approved: true, effective: 'November 19, 2026' },
-  // DRAFT 2026-11-21 for medical (Dr. Yirga), pharmacy and counsel review; drafting notes list what each must confirm.
-  // Peptide Therapy products stay Coming Soon until this is approved (product-disclosures.test.ts).
+  // Drafted and approved 2026-11-21 (owner, after Dr. Yirga's medical review with no edits) and released with the six
+  // Peptide Therapy products. Counsel and pharmacy confirmation are still open (see the document's drafting notes).
   { id: 'A19', path: 'safety/peptides', title: 'Peptide Therapy Medication Safety Information', label: 'Peptide Therapy Safety Information', group: 'patient',
     blurb: 'Important safety information for peptide therapies.',
-    description: 'Important safety information for peptide therapies prescribed through WellPeps: what is and is not known, warnings, who should not use them and when to get help.' },
+    description: 'Important safety information for peptide therapies prescribed through WellPeps: what is known, warnings, who should not use them and when to get help.', approved: true, effective: 'November 21, 2026' },
   { id: 'B1', path: 'legal-review/electronic-records-consent', title: 'Electronic Records, Signatures and Communications Consent', label: 'Electronic Records Consent', group: 'checkout',
     blurb: 'Agreeing to sign and receive documents electronically (first screen of checkout).' },
   { id: 'B2', path: 'patient-terms', title: 'Patient Terms of Service and Payment Agreement', label: 'Patient Terms', group: 'patient',
