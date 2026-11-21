@@ -250,6 +250,8 @@ export const mensHormone: HormonePage = {
           'A prescription injection that signals the body to make its own testosterone, considered for selected patients, including men with fertility goals.',
         methodOfUse: 'Injectable',
         features: ['Signals the body to make its own testosterone', 'May help maintain testicular function', 'Often part of a personalized treatment plan'],
+        // Live 2026-11-21 (owner): 1 month, $499, with its GEN Health link.
+        price: '499',
       },
     ],
   },

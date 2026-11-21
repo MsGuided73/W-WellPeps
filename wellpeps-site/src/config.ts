@@ -139,6 +139,8 @@ export const PRODUCT_LINKS = {
   'oral-micronized-progesterone': { program: 'womens-hormone-therapy', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/WLP-PRD-GKKACS?checkoutFlow=intake_first' },
   // Estradiol Transdermal Patches, 8 patches (1 month), $199.
   'estradiol-transdermal-patches': { program: 'womens-hormone-therapy', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/EfujuAhcU9qgWQ36oEI3?checkoutFlow=intake_first' },
+  // mens-hormone-therapy (owner, 2026-11-21): hCG, 1 month, $499. Live with safety page A18 (Testosterone and hCG).
+  hcg: { program: 'mens-hormone-therapy', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/WLP-PRD-WNVXM7?checkoutFlow=intake_first' },
   // mens-hormone-therapy (owner, 2026-11-21): Testosterone Cream, $145/month. Live with safety page A18.
   'testosterone-cream': { program: 'mens-hormone-therapy', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/WLP-PRD-A8WUT6?checkoutFlow=intake_first' },
   // peptides (owner, 2026-11-21): TB-500, 1 month, $231. Live 2026-11-21 with safety page A19.
@@ -190,7 +192,8 @@ export const LIVE_PRODUCTS: readonly (keyof typeof PRODUCT_LINKS)[] = [
   // Live 2026-11-21 (owner): Women's Hormone Therapy, safety page A20 approved by Dr. Yirga.
   'estradiol-transdermal-patches',
   'oral-micronized-progesterone',
-  // Live 2026-11-21 (owner): Testosterone Cream, safety page A18.
+  // Live 2026-11-21 (owner): Testosterone Cream and hCG, safety page A18.
+  'hcg',
   'testosterone-cream',
   // Live 2026-11-21 (owner): Peptide Therapy, 1-month plans, safety page A19 approved.
   'bpc-157',
