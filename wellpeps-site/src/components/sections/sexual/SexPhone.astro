@@ -9,7 +9,6 @@
 import Icon from '../../Icon.astro';
 import PhonePriceBox from '../../phone/PhonePriceBox.astro';
 import PhoneProductCards from '../../phone/PhoneProductCards.astro';
-import PhonePriceBand from '../../phone/PhonePriceBand.astro';
 import PhoneFaq from '../../phone/PhoneFaq.astro';
 import PhoneGuide from '../../phone/PhoneGuide.astro';
 import { sexHero, sexEducation, sexProducts, sexProductsIntro, sexRecommendation, sexFaqs } from '../../../data/sexual';
@@ -57,7 +56,6 @@ const cards = ordered.map((p) => ({
     <small>{sexEducation.paragraphs[3]}</small>
   </section>
 
-  <PhonePriceBand />
   <PhoneFaq faqs={sexFaqs} />
   <PhoneGuide program="sexual-wellness" variant="band" />
   <p class="ph-fine">Prescription required. {sexProductsIntro.footnote}</p>

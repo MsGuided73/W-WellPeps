@@ -1,8 +1,9 @@
 ---
 /**
- * Home page, phone layout (≤ 767px; the desktop sections are hidden there). Approved round-2 mockup
- * ("Shelf"): headline, every program on the first screen (two tiles, then rows), trust chips, what the
- * monthly price covers, how it works, then the home FAQs. No "See If You Qualify" here: every such
+ * Home page, phone layout (≤ 767px; the desktop sections are hidden there). Approved design ("Shelf",
+ * with Derek's revisions of 2026-11-20): headline and supporting copy, a three-point trust strip, every
+ * program (two tiles, then rows), the confidence strip, the guide invitation, what the monthly price
+ * covers, how it works, then the home FAQs. No "See If You Qualify" here: every such
  * button opens one product's health questions, and the home page has no product.
  */
 import Icon from '../Icon.astro';
@@ -12,13 +13,10 @@ import { PROGRAMS, startingPrice } from '../../lib/seo/catalog';
 import { GUIDES_INDEX_PATH } from '../../lib/guide-flow';
 import { faqs } from '../../data/content';
 
-/**
- * Home headline (lead, accent). New wording: awaits Derek's approval and a compliance read before
- * launch. Options reviewed in the mockups: "Provider-guided care, / priced in plain sight.",
- * "Real care, / one clear monthly price.", "Understand it first. / Then decide.",
- * "Online care from / licensed U.S. clinicians."
- */
-export const HOME_PHONE_HEADLINE = { lead: 'Know the treatment.', accent: 'Know the price.' } as const;
+/** Home headline and supporting copy: Derek's wording (notes of 2026-11-20). */
+export const HOME_PHONE_HEADLINE = { lead: 'Online healthcare', accent: 'that’s more than medication.' } as const;
+export const HOME_PHONE_SUB =
+  'Personalized treatment from licensed U.S. providers, medications delivered by licensed U.S. pharmacies, and ongoing care and support throughout your treatment.';
 
 const from = (path: string) => {
   const p = PROGRAMS.find((x) => x.path === path);
@@ -35,10 +33,19 @@ const agingFrom = from('/healthy-aging/');
 ---
 <div class="ph-page hph">
   <div class="ph-head"><h1>{HOME_PHONE_HEADLINE.lead} <em>{HOME_PHONE_HEADLINE.accent}</em></h1></div>
+  <p class="ph-lede hph__sub">{HOME_PHONE_SUB}</p>
+
+  {/* LegitScript: the same claim as the desktop home page's Why Choose card and the footer seal. */}
+  <ul class="hph__trust" aria-label="Why WellPeps">
+    <li><Icon name="stethoscope" />Licensed U.S. Providers</li>
+    <li><Icon name="pharmacy" />Licensed U.S. Pharmacies</li>
+    <li><Icon name="shield-check" />LegitScript Certified</li>
+  </ul>
 
   <nav class="hph__tiles" aria-label="Programs">
     <a class="hph__tile hph__tile--photo" href="/weight-loss/" style="background:var(--ph-t-weight)">
-      <img class="hph__photo" src="/images/weight/product-semaglutide-compounded.webp" alt="An amber vial labeled Semaglutide, Compounded, Rx Only" aria-hidden="true" width="400" height="400" />
+      {/* Tirzepatide: the more popular GLP-1 (Derek). */}
+      <img class="hph__photo" src="/images/weight/product-tirzepatide-compounded.webp" alt="An amber vial labeled Tirzepatide, Compounded, Rx Only" aria-hidden="true" width="400" height="400" />
       <h2>Weight loss <em>GLP-1 care</em></h2>
       {weightFrom && <span class="hph__ft">{weightFrom}<Icon name="arrow-right" /></span>}
     </a>
@@ -48,7 +55,7 @@ const agingFrom = from('/healthy-aging/');
         <img class="s" src="/images/peptide/vial-sermorelin.webp" alt="An amber vial labeled Sermorelin, Rx Only" aria-hidden="true" width="120" height="160" />
         <img class="n" src="/images/peptide/vial-nad.webp" alt="An amber vial labeled NAD+, Rx Only" aria-hidden="true" width="120" height="160" />
       </span>
-      <h2>Healthy aging <em>NAD+, Sermorelin, Glutathione</em></h2>
+      <h2>Peptides <em>NAD+, Sermorelin, Glutathione</em></h2>
       {agingFrom && <span class="hph__ft">{agingFrom}</span>}
     </a>
   </nav>
@@ -61,19 +68,19 @@ const agingFrom = from('/healthy-aging/');
         <Icon name="arrow-right" />
       </a>
     ))}
-    <a class="ph-row" href={`${GUIDES_INDEX_PATH}/`} style="background:var(--ph-t-help);margin:0">
-      <span class="t"><b>Not sure where to begin?</b><span>Start with a Smart Patient Guide</span></span>
-      <img class="hph__face" src="/images/doctor-assessment.webp" alt="A licensed provider reviewing results on a laptop" aria-hidden="true" width="52" height="52" loading="lazy" />
-      <Icon name="arrow-right" />
-    </a>
   </div>
 
-  <ul class="hph__chips" aria-label="Why WellPeps">
-    {/* Same claim as the desktop home page's Why Choose card and the footer seal. */}
-    <li><Icon name="shield-check" />LegitScript Certified</li>
-    <li><Icon name="stethoscope" />Licensed U.S. clinicians</li>
-    <li><Icon name="receipt" />Refund if not prescribed</li>
+  {/* Consumer confidence, after the programs (Derek). Labs are footnoted in the price panel below. */}
+  <ul class="hph__conf" aria-label="Our promises">
+    <li><Icon name="check" />No hidden fees</li>
+    <li><Icon name="check" />Full refund if not prescribed</li>
+    <li><Icon name="check" />Cancel anytime</li>
   </ul>
+
+  <a class="ph-row" href={`${GUIDES_INDEX_PATH}/`} style="background:var(--ph-t-help)">
+    <span class="t"><b>Get a Free Smart Patient Guide</b><span>to help you make informed decisions</span></span>
+    <Icon name="book-open" />
+  </a>
 
   <PhonePriceBand />
 
@@ -81,7 +88,7 @@ const agingFrom = from('/healthy-aging/');
     <h2 id="hph-how">How it works</h2>
     <p class="ph-li"><i>1</i>Answer a few health questions</p>
     <p class="ph-li"><i>2</i>A licensed provider reviews your answers</p>
-    <p class="ph-li"><i>3</i>Medication ships if prescribed</p>
+    <p class="ph-li"><i>3</i>Your prescribed medication ships to you</p>
   </section>
 
   <PhoneFaq faqs={faqs} />
@@ -89,7 +96,14 @@ const agingFrom = from('/healthy-aging/');
 
 <style>
   @media (max-width: 767px) {
-    .hph .ph-head h1 { font-size: 33px; line-height: 1.08; }
+    .hph .ph-head h1 { font-size: 31px; line-height: 1.08; }
+    .hph__sub { padding-top: 4px; }
+    .hph__trust { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 12px 12px 4px; margin: 0; list-style: none; }
+    .hph__trust li { display: grid; justify-items: center; gap: 5px; text-align: center; background: var(--ph-t-gray); border-radius: 14px; padding: 10px 4px; font: 600 12.5px/1.2 var(--font-sans); color: var(--ph-ink); }
+    .hph__trust :global(svg) { width: 20px; height: 20px; color: var(--blue); }
+    .hph__conf { margin: 12px 12px 0; padding: 14px 16px; list-style: none; background: var(--navy); border-radius: 20px; display: grid; gap: 8px; }
+    .hph__conf li { display: flex; gap: 10px; align-items: center; color: #fff; font: 600 15px/1.25 var(--font-sans); }
+    .hph__conf :global(svg) { width: 18px; height: 18px; color: #8fd0ff; }
     .hph__tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 6px 12px 0; }
     .hph__tile {
       border-radius: 24px; height: 196px; position: relative; overflow: hidden; padding: 14px;
@@ -113,14 +127,6 @@ const agingFrom = from('/healthy-aging/');
     .hph__trio .s { height: 106px; left: 54px; bottom: 6px; }
     .hph__trio .n { height: 120px; right: 4px; bottom: 2px; }
     .hph__rows { display: grid; gap: 8px; padding: 10px 12px 0; }
-    .hph__face { width: 52px !important; height: 52px !important; border-radius: 50% !important; }
-    .hph__chips { display: flex; gap: 6px; overflow-x: auto; padding: 14px 12px 0; margin: 0; list-style: none; scrollbar-width: none; }
-    .hph__chips::-webkit-scrollbar { display: none; }
-    .hph__chips li {
-      flex: none; display: inline-flex; gap: 6px; align-items: center; border: 1px solid var(--ph-line); border-radius: 999px;
-      padding: 8px 12px; font: 600 12.5px/1 var(--font-sans); color: var(--ph-ink);
-    }
-    .hph__chips :global(svg) { width: 15px; height: 15px; color: var(--blue); }
     .hph a:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
   }
 </style>

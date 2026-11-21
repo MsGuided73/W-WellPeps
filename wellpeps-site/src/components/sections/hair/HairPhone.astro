@@ -8,7 +8,6 @@
 import Icon from '../../Icon.astro';
 import PhonePriceBox from '../../phone/PhonePriceBox.astro';
 import PhoneProductCards from '../../phone/PhoneProductCards.astro';
-import PhonePriceBand from '../../phone/PhonePriceBand.astro';
 import PhoneFaq from '../../phone/PhoneFaq.astro';
 import PhoneGuide from '../../phone/PhoneGuide.astro';
 import { hairHero, hairProducts, hairProductsIntro, hairWorks, hairFaqs } from '../../../data/hair';
@@ -59,11 +58,10 @@ const anyCompounded = hairProducts.some((p) => compounded(p.alt));
     help={{ title: 'Oral, topical, or both?', body: hairWorks[hairWorks.length - 1].body }}
   />
 
-  <PhonePriceBand />
 
   <section class="ph-band" style="background:var(--ph-t-gray)" aria-labelledby="ph-hair-works">
     <h2 id="ph-hair-works">How hair treatments work</h2>
-    {hairWorks.map((w, i) => <p class="ph-li"><i>{i + 1}</i><span><b>{w.title}:</b> {w.body}</span></p>)}
+    {hairWorks.map((w, i) => <p class="ph-li"><i>{i + 1}</i><span>{w.body}</span></p>)}
   </section>
 
   <PhoneFaq faqs={hairFaqs} />

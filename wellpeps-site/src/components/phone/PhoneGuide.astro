@@ -23,7 +23,7 @@ const others = ebooksFor(program).filter((b) => b.slug !== book?.slug);
 ---
 {book && variant === 'row' && (
   <a class="ph-row" href={guidePath(book.slug)} style={tint ? `background:${tint}` : undefined}>
-    <span class="t"><b>{question ?? `Thinking about ${book.title}?`}</b><span>Read the Smart Patient Guide</span></span>
+    <span class="t"><b>{question ?? `Thinking about ${book.title}?`}</b><span>Get a Free Smart Patient Guide</span></span>
     <Icon name="book-open" />
   </a>
 )}
@@ -31,7 +31,7 @@ const others = ebooksFor(program).filter((b) => b.slug !== book?.slug);
   <section class="ph-band" style={`background:${tint ?? 'var(--ph-t-aging)'}`} aria-label="Smart Patient Guide">
     <h2>Smart Patient Guide: <em>{book.title}</em></h2>
     <p>{book.subtitle}</p>
-    <a class="ph-btn ph-btn--light" href={guidePath(book.slug)}>Get the guide</a>
+    <a class="ph-btn ph-btn--light" href={guidePath(book.slug)}>Get the free guide</a>
     {others.map((o) => <small>Also: <a href={guidePath(o.slug)} style="text-decoration:underline">The Smart Patient’s Guide to {o.title}</a></small>)}
   </section>
 )}

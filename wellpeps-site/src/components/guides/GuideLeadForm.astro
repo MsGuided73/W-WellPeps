@@ -131,4 +131,9 @@ const id = `gform-${book.slug}`;
     .gform__submit { width: 100%; padding-block: 0.95rem; }
   }
   @media (prefers-reduced-motion: reduce) { .gform__submit, .gform__submit :global(svg) { transition: none; } }
+  /* Phone: more room around the optional email box (Derek, 2026-11-20). */
+  @media (max-width: 767px) {
+    .gform :global(.fconsent__row) { padding: 14px; border-radius: 14px; background: var(--ph-t-gray); gap: 12px; line-height: 1.5; }
+    .gform :global(.fconsent__fine) { margin-top: 10px; }
+  }
 </style>

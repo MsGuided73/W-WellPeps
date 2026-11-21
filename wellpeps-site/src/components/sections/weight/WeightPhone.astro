@@ -2,27 +2,33 @@
 /**
  * Weight Loss (GLP-1) page, phone layout (≤ 767px; the desktop sections are hidden there).
  * Approved round-2 mockup: headline and three check lines, the price box (weekly injection / daily
- * tablet), the guide row, all four treatments as cards, then what the price covers, how GLP-1
- * medications work, every FAQ, the guide band and the compounded disclosure. Copy and prices come
+ * tablet; Tirzepatide first), the guide row, all four treatments as cards, how GLP-1 medications work, every FAQ, the guide band and the compounded disclosure. Copy and prices come
  * from data/weight.ts and data/plan.ts.
  */
 import Icon from '../../Icon.astro';
 import PhonePriceBox from '../../phone/PhonePriceBox.astro';
 import PhoneProductCards from '../../phone/PhoneProductCards.astro';
-import PhonePriceBand from '../../phone/PhonePriceBand.astro';
 import PhoneFaq from '../../phone/PhoneFaq.astro';
 import PhoneGuide from '../../phone/PhoneGuide.astro';
-import { weightHero, weightProducts, weightWorks, weightWorksIntro, weightFaqs, weightProductsIntro, ORAL_GLP1_AVAILABILITY } from '../../../data/weight';
+import { weightHero, weightProducts, weightWorksIntro, weightFaqs, weightProductsIntro, ORAL_GLP1_AVAILABILITY } from '../../../data/weight';
 import { COMPOUNDED_SENTENCE } from '../../../data/product-disclosures';
 
-const byForm = (form: 'injection' | 'oral') => weightProducts.filter((p) => p.form === form && p.price);
+// Tirzepatide first: the more popular choice (Derek, 2026-11-20).
+const ordered = [...weightProducts].sort((a, b) => Number(b.medication === 'tirzepatide') - Number(a.medication === 'tirzepatide'));
+const byForm = (form: 'injection' | 'oral') => ordered.filter((p) => p.form === form && p.price);
+// One sentence per line, so the grammar reads cleanly (Derek, 2026-11-20); same facts as weightWorks.
+const WORKS_LINES = [
+  'Help reduce hunger by regulating appetite signals',
+  'Help you feel full longer by slowing stomach emptying',
+  'Support weight loss alongside healthy lifestyle changes',
+];
 const short = (name: string) => name.replace(/^Compounded /, '');
 const groups = [
   { label: 'Weekly injection', options: byForm('injection').map((p) => ({ product: p.name, label: short(p.name), price: p.price! })) },
   { label: 'Daily tablet', options: byForm('oral').map((p) => ({ product: p.name, label: p.name, price: p.price! })) },
 ].filter((g) => g.options.length > 0);
 
-const cards = weightProducts.map((p) => ({
+const cards = ordered.map((p) => ({
   product: p.name,
   image: p.image,
   alt: p.alt,
@@ -45,11 +51,10 @@ const cards = weightProducts.map((p) => ({
   <PhoneProductCards program="weight-loss" cards={cards} />
   <p class="ph-fine" style="padding-top:8px">Oral tablets: {ORAL_GLP1_AVAILABILITY.toLowerCase()}</p>
 
-  <PhonePriceBand />
 
   <section class="ph-band" style="background:var(--ph-t-gray)" aria-labelledby="ph-glp-works">
     <h2 id="ph-glp-works">{weightWorksIntro.title}</h2>
-    {weightWorks.map((w, i) => <p class="ph-li"><i>{i + 1}</i><span><b>{w.title}:</b> {w.body}</span></p>)}
+    {WORKS_LINES.map((line, i) => <p class="ph-li"><i>{i + 1}</i><span>{line}</span></p>)}
   </section>
 
   <PhoneFaq faqs={weightFaqs} />

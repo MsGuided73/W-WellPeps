@@ -21,12 +21,35 @@ import AssessmentCta from '../../components/AssessmentCta.astro';
 import { getCategoriesWithArticles, getFeaturedArticles, categoryIcon } from '../../lib/blog';
 import GuideRing from '../../components/guides/GuideRing.astro';
 import { EBOOKS } from '../../data/ebooks';
+import { coverForArticle } from '../../data/article-heroes';
 
 const categories = await getCategoriesWithArticles();
 // Physician-reviewed articles carry the "MD Reviewed" tag on every card and list row (src/data/medical-review.ts).
 const isReviewed = (slug: string) => reviewForArticle(slug) !== undefined;
 const featured = await getFeaturedArticles();
 const totalArticles = categories.reduce((n, c) => n + c.articles.length, 0);
+// Phone layout (Derek, 2026-11-20): an editorial page. A featured article with a photo, the topics,
+// then the latest articles with thumbnails. A photo comes from the article's cover, else its topic.
+const TOPIC_PHOTO: { match: string; src: string; alt: string }[] = [
+  { match: 'weight', src: '/images/weight/hero-woman.webp', alt: 'A smiling woman in athletic wear standing with arms crossed in a bright room' },
+  { match: 'sexual', src: '/images/sexual/understanding.webp', alt: 'A smiling couple walking hand in hand through a sunlit park' },
+  { match: 'hair', src: '/images/hair/works-growth.webp', alt: 'A man checking his hair growth in the mirror' },
+  { match: 'aging', src: '/images/peptide/science.webp', alt: 'Two women smiling and flexing after a workout outdoors' },
+  { match: 'peptide', src: '/images/peptide/science.webp', alt: 'Two women smiling and flexing after a workout outdoors' },
+];
+const photoFor = (slug: string, categorySlug: string) => {
+  const cover = coverForArticle(slug);
+  if (cover) return { src: cover.src, alt: cover.alt };
+  return TOPIC_PHOTO.find((t) => categorySlug.includes(t.match)) ?? { src: '/images/learning-center/consult.webp', alt: 'A woman smiling as she uses a laptop at home' };
+};
+const lead = featured[0];
+const leadPhoto = lead && photoFor(lead.slug, lead.category.slug);
+const latest = categories
+  .flatMap((c) => c.articles.map((a) => ({ ...a, categorySlug: c.slug, categoryName: c.name })))
+  .filter((a) => a.slug !== lead?.slug && a.published_at)
+  .sort((a, b) => (b.published_at ?? '').localeCompare(a.published_at ?? ''))
+  .slice(0, 4);
+
 // Phone layout: each topic row takes its program's tint (styles/phone.css).
 const tintFor = (slug: string) =>
   slug.includes('weight') ? 'var(--ph-t-weight)'
@@ -67,10 +90,14 @@ const searchIndexJson = JSON.stringify(searchIndex).replace(/</g, '\\u003c');
   <section class="lc-hero">
     <div class="container lc-hero__inner">
       <div class="lc-hero__text">
-        <h1 class="lc-hero__title">Wellness<br />Learning Center</h1>
+        <h1 class="lc-hero__title">
+          <span class="ph-hide">Wellness<br />Learning Center</span>
+          <span class="ph-only">Better information. <em>Better health decisions.</em></span>
+        </h1>
         <p class="lc-hero__lede">
-          A growing library of physician-reviewed educational resources to help
-          you make informed decisions about your health and wellness.
+          <span class="ph-hide">A growing library of physician-reviewed educational resources to help
+          you make informed decisions about your health and wellness.</span>
+          <span class="ph-only">Explore physician-reviewed articles, expert insights, and free patient guides designed to help you make informed healthcare decisions.</span>
         </p>
         <ul class="lc-trust">
           {trustMarkers.map((m) => (
@@ -120,8 +147,18 @@ const searchIndexJson = JSON.stringify(searchIndex).replace(/</g, '\\u003c');
     </section>
 
     <div data-browse>
+      {lead && leadPhoto && (
+        <a class="lc-lead ph-only" href={lead.url_path}>
+          <img src={leadPhoto.src} alt={leadPhoto.alt} width="800" height="500" loading="eager" />
+          <span class="lc-lead__t">
+            <span class="lc-lead__cat">Featured · {lead.category.name}</span>
+            <span class="lc-lead__title">{lead.title}</span>
+            <span class="lc-lead__meta">{lead.reading_minutes} min read{isReviewed(lead.slug) && <MdReviewedBadge variant="tag" />}</span>
+          </span>
+        </a>
+      )}
       {featured.length > 0 && (
-        <section class="lc-featured" aria-labelledby="featured-h">
+        <section class="lc-featured ph-hide" aria-labelledby="featured-h">
           <header class="lc-featured__head">
             <h2 id="featured-h"><Icon name="star" />Featured Articles</h2>
             <a class="lc-featured__all" href="#library">
@@ -148,6 +185,7 @@ const searchIndexJson = JSON.stringify(searchIndex).replace(/</g, '\\u003c');
         </section>
       )}
 
+      <h2 class="lc-phone-h ph-only">Browse by topic</h2>
       <section class="lc-library" id="library" aria-label="Browse all articles">
         {categories.map((category) => (
           <details class="lc-cat" name="lc-library" id={`cat-${category.slug}`} style={`--lc-tint:${tintFor(category.slug)}`}>
@@ -181,6 +219,28 @@ const searchIndexJson = JSON.stringify(searchIndex).replace(/</g, '\\u003c');
           </details>
         ))}
       </section>
+
+      {latest.length > 0 && (
+        <section class="ph-only" aria-labelledby="lc-latest-h">
+          <h2 class="lc-phone-h" id="lc-latest-h">Latest articles</h2>
+          <ul class="lc-latest">
+            {latest.map((a) => {
+              const p = photoFor(a.slug, a.categorySlug);
+              return (
+                <li>
+                  <a href={a.url_path}>
+                    <img src={p.src} alt={p.alt} aria-hidden="true" width="152" height="128" loading="lazy" />
+                    <span>
+                      <span class="lc-latest__title">{a.title}</span>
+                      <span class="lc-latest__meta">{a.categoryName} · {a.reading_minutes} min</span>
+                    </span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      )}
     </div>
 
     <section class="lc-cta">
@@ -525,8 +585,8 @@ const searchIndexJson = JSON.stringify(searchIndex).replace(/</g, '\\u003c');
     .lc-hero { background: #fff; padding: 14px 0 0; }
     .lc-hero__inner { gap: 0; }
     .lc-collage { display: none; }
-    .lc-hero__title { font-size: 34px; line-height: 1.06; color: var(--ph-ink); }
-    .lc-hero__lede { margin-top: 8px; font-size: 14.5px; line-height: 1.5; color: var(--ph-body); }
+    .lc-hero__title { font-size: 31px; line-height: 1.08; color: var(--ph-ink); font-weight: 600; letter-spacing: -0.025em; }
+    .lc-hero__lede { margin-top: 10px; font-size: 15px; line-height: 1.5; color: var(--ph-body); }
     .lc-trust { flex-wrap: nowrap; overflow-x: auto; gap: 6px; margin-top: 14px; scrollbar-width: none; }
     .lc-trust li { flex: none; border: 1px solid var(--ph-line); border-radius: 999px; padding: 8px 12px; gap: 6px; }
     .lc-trust :global(svg) { width: 15px; height: 15px; color: var(--blue); }
@@ -558,6 +618,24 @@ const searchIndexJson = JSON.stringify(searchIndex).replace(/</g, '\\u003c');
     .lc-cat__list { padding: 0 14px 12px; background: rgba(255, 255, 255, 0.55); }
     .lc-cat__list a { padding: 10px 6px; min-height: 44px; align-items: center; }
 
+    .lc-hero__title em { font-style: normal; color: var(--blue); }
+    .lc-lead { display: grid; border-radius: 24px; overflow: hidden; background: var(--ph-t-weight); margin-bottom: 18px; color: inherit; }
+    .lc-lead img { width: 100%; height: 200px; object-fit: cover; object-position: center 30%; display: block; }
+    .lc-lead__t { padding: 14px 16px 16px; display: grid; gap: 6px; }
+    .lc-lead__cat { font: 700 11px/1 var(--font-sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); }
+    .lc-lead__title { font: 600 21px/1.2 var(--font-serif); color: var(--ph-ink); letter-spacing: -0.02em; }
+    .lc-lead__meta { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; font-size: 13px; color: var(--ph-muted); }
+    .lc-phone-h { font-size: 21px; color: var(--ph-ink); margin: 6px 0 10px; }
+    .lc-latest { list-style: none; margin: 0 0 8px; padding: 0; }
+    .lc-latest a { display: grid; grid-template-columns: 76px 1fr; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--ph-line); color: inherit; }
+    .lc-latest img { width: 76px; height: 64px; border-radius: 12px; object-fit: cover; }
+    .lc-latest__title { display: block; font: 600 16px/1.25 var(--font-serif); color: var(--ph-ink); letter-spacing: -0.015em; }
+    .lc-latest__meta { display: block; margin-top: 4px; font-size: 12.5px; color: var(--ph-muted); }
+    .lc-cat { background: #fff; border: 1px solid var(--ph-line); }
+    .lc-cat__icon { background: var(--lc-tint, var(--ph-t-help)); }
+    .lc-library { gap: 6px; margin-bottom: 22px; }
+    .lc-cat__row { min-height: 56px; padding: 8px 12px; }
+    .lc-cat__icon { width: 36px; height: 36px; }
     .lc-cta { flex-direction: column; align-items: stretch; background: var(--ph-t-help); border-radius: 24px; padding: 18px 16px; gap: 10px; }
     .lc-cta__mark { display: none; }
     .lc-cta__text { flex: none; }

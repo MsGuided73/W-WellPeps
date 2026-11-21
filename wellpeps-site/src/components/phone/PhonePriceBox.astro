@@ -38,8 +38,9 @@ interface Props {
   heading?: { image: string; title: string; sub: string };
 }
 
+// What the price includes, said once, here beside the prices (Derek, 2026-11-20); pages don't repeat it.
 export const DEFAULT_TERMS =
-  'Includes clinician review, follow-ups, medication if prescribed and standard shipping. Labs billed separately. Full refund if not prescribed.';
+  'Includes your clinician’s review and follow-ups, prescribed medication and shipping, and messaging with your care team. Full refund if not prescribed.';
 
 const { program, groups, terms = DEFAULT_TERMS, heading } = Astro.props;
 const uid = `pbox-${program}-${Math.random().toString(36).slice(2, 7)}`;

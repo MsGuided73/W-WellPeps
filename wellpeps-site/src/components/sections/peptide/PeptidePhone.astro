@@ -9,7 +9,6 @@
 import Icon from '../../Icon.astro';
 import PhonePriceBox from '../../phone/PhonePriceBox.astro';
 import PhoneProductCards from '../../phone/PhoneProductCards.astro';
-import PhonePriceBand from '../../phone/PhonePriceBand.astro';
 import PhoneFaq from '../../phone/PhoneFaq.astro';
 import PhoneGuide from '../../phone/PhoneGuide.astro';
 import {
@@ -75,7 +74,6 @@ const cards = peptideProducts.flatMap(forms).map((f) => ({
     <small>{peptideScience.footnote}</small>
   </section>
 
-  <PhonePriceBand />
   <PhoneFaq faqs={peptideFaqs} />
   <PhoneGuide program="healthy-aging" variant="band" tint="var(--ph-t-help)" />
   <p class="ph-fine">{peptideProductsFootnote} {COMPOUNDED_SENTENCE}</p>
