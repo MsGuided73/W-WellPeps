@@ -143,6 +143,10 @@ export const PRODUCT_LINKS = {
   epitalon: { program: 'peptides', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/WLP-PRD-ERC6M4?checkoutFlow=intake_first' },
   // MOTS-c, 1 month, $157.50 (owner, 2026-11-21). Not live yet, for the same reason as TB-500.
   'mots-c': { program: 'peptides', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/So0N5GOR2qqLUp0hBdYc?checkoutFlow=intake_first' },
+  // KPV capsules, 1 month, $323.40 (owner, 2026-11-21). Not live yet, for the same reason as TB-500.
+  kpv: { program: 'peptides', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/WLP-PRD-4BBMZ8?checkoutFlow=intake_first' },
+  // Semax, 1 month, $129 (owner, 2026-11-21). Not live yet, for the same reason as TB-500.
+  semax: { program: 'peptides', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/WLP-PRD-GDKMR9?checkoutFlow=intake_first' },
 } satisfies CtaLinks['products'];
 
 /**

@@ -143,6 +143,8 @@ export const peptidesPage: PeptidesPage = {
         description: 'KPV is a naturally occurring peptide fragment being studied for its potential role in inflammatory processes, skin health, and gastrointestinal wellness.',
         // Capsules only (owner, 2026-11-21); the topical cream is not offered.
         methodOfUse: 'Oral Capsules',
+        // Owner, 2026-11-21: $323.40/month, GEN Health link saved as 'kpv' in src/config.ts. Add price: '323.40' here and
+        // 'kpv' to LIVE_PRODUCTS together, once Peptide Therapy has an approved safety page.
         features: ['Studied for its potential anti-inflammatory properties', 'Research involving skin and gastrointestinal health', ...PRODUCT_FEATURES],
       },
       {
@@ -173,6 +175,8 @@ export const peptidesPage: PeptidesPage = {
         // 1 month or 3 months prepaid (owner, 2026-11-18). Each plan opens with its own price and GEN Health link:
         // PRODUCT_LINKS keys 'semax' and 'semax-3-month'.
         plans: [
+          // Owner, 2026-11-21: $129/month, GEN Health link saved as 'semax' in src/config.ts. Add price: '129' here and
+          // 'semax' to LIVE_PRODUCTS together, once Peptide Therapy has an approved safety page.
           { label: '1 month', priceUnit: '/month', product: 'Semax' },
           { label: '3 months', priceUnit: '/3 months', product: 'Semax 3 Month', renewal: 'Renews every 3 months, cancel anytime.' },
         ],
