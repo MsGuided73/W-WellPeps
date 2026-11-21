@@ -175,6 +175,8 @@ export const peptidesPage: PeptidesPage = {
         // 1 month or 3 months prepaid (owner, 2026-11-18). Each plan opens with its own price and GEN Health link:
         // PRODUCT_LINKS keys 'semax' and 'semax-3-month'.
         plans: [
+          // Owner, 2026-11-21: $129/month, GEN Health link saved as 'semax' in src/config.ts. Add price: '129' here and
+          // 'semax' to LIVE_PRODUCTS together, once Peptide Therapy has an approved safety page.
           { label: '1 month', priceUnit: '/month', product: 'Semax' },
           { label: '3 months', priceUnit: '/3 months', product: 'Semax 3 Month', renewal: 'Renews every 3 months, cancel anytime.' },
         ],
