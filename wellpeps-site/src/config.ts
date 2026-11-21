@@ -141,6 +141,8 @@ export const PRODUCT_LINKS = {
   'bpc-157': { program: 'peptides', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/KXMm9SsbOEYnFy9phmZn?checkoutFlow=intake_first' },
   // Epitalon, 1 month, $157.50 (owner, 2026-11-21). Not live yet, for the same reason as TB-500.
   epitalon: { program: 'peptides', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/WLP-PRD-ERC6M4?checkoutFlow=intake_first' },
+  // MOTS-c, 1 month, $157.50 (owner, 2026-11-21). Not live yet, for the same reason as TB-500.
+  'mots-c': { program: 'peptides', url: 'https://portal.wellpeps.com/Zst5Qu9lkZz7vKNusesA/product/So0N5GOR2qqLUp0hBdYc?checkoutFlow=intake_first' },
 } satisfies CtaLinks['products'];
 
 /**
