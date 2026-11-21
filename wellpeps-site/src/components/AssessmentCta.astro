@@ -28,7 +28,7 @@ import { createHash } from 'node:crypto';
 import Icon from './Icon.astro';
 import { CHECKOUT_LOCKED } from '../config';
 import lockFile from '../data/checkout-lock.json';
-import { ASSESSMENT_CTA_LABEL, resolveCta, toProductKey, type ProgramSlug } from '../lib/cta';
+import { ASSESSMENT_CTA_LABEL, phoneTreatmentsHref, resolveCta, toProductKey, type ProgramSlug } from '../lib/cta';
 import { isLinked } from '../lib/links';
 
 interface Props {
@@ -59,12 +59,21 @@ if (isLocked) {
   }
 }
 const href = isLocked ? '#checkout-access' : cta.href;
+// On a phone, "See If You Qualify" always opens one product's health questions (owner, 2026-11-20). A
+// button with no product (generic or program-wide) leads to the treatments instead, so there it reads
+// "Explore treatments". Desktop keeps its label.
+const productLess = !product;
+// …and on a phone it goes to the phone layout's treatments, since the desktop anchors are hidden there
+// (PhoneHeader swaps in data-ph-href on phone widths).
+const phoneHref = productLess && !isLocked ? phoneTreatmentsHref(program) : undefined;
 ---
 {cta.isComingSoon
   ? (Astro.slots.has('soon')
       ? <slot name="soon" />
       : <span class:list={[className, 'cta-soon']} role="button" aria-disabled="true" {...scopeAttrs}><Icon name="clock" /> Coming Soon</span>)
-  : <a href={href} class={className} data-assessment={cta.target} data-checkout-lock={isLocked ? cta.target : undefined} {...scopeAttrs}>{ASSESSMENT_CTA_LABEL}{arrow && <Fragment> <Icon name="arrow-right" /></Fragment>}</a>}
+  : <a href={href} class={className} data-assessment={cta.target} data-checkout-lock={isLocked ? cta.target : undefined} data-ph-href={phoneHref} {...scopeAttrs}>{productLess
+    ? <Fragment><span class="ph-hide">{ASSESSMENT_CTA_LABEL}</span><span class="ph-only ph-only--inline">Explore treatments</span></Fragment>
+    : ASSESSMENT_CTA_LABEL}{arrow && <Fragment> <Icon name="arrow-right" /></Fragment>}</a>}
 
 <style is:global>
   /* Non-interactive state. It must beat whatever button style the caller

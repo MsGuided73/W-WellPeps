@@ -6,6 +6,7 @@ import HairHowItWorks from '../components/sections/hair/HairHowItWorks.astro';
 import HairProducts from '../components/sections/hair/HairProducts.astro';
 import HairFaq from '../components/sections/hair/HairFaq.astro';
 import HairCta from '../components/sections/hair/HairCta.astro';
+import HairPhone from '../components/sections/hair/HairPhone.astro';
 import { HAIR_COMING_SOON } from '../config';
 import GuideBand from '../components/guides/GuideBand.astro';
 import { programAt, startingPrice } from '../lib/seo/catalog';
@@ -24,12 +25,15 @@ const jsonLd = [
   description={description}
   jsonLd={jsonLd}
 >
-  <HairHero />
-  {HAIR_COMING_SOON && <HairComingSoon />}
-  <HairHowItWorks />
-  <HairProducts />
-  {/* Products always come before the Smart Patient Guide band (Derek, 2026-11-12). */}
-  <GuideBand program="hair-restoration" />
-  <HairFaq />
-  <HairCta />
+  <div class="ph-only"><HairPhone /></div>
+  <div class="ph-hide">
+    <HairHero />
+    {HAIR_COMING_SOON && <HairComingSoon />}
+    <HairHowItWorks />
+    <HairProducts />
+    {/* Products always come before the Smart Patient Guide band (Derek, 2026-11-12). */}
+    <GuideBand program="hair-restoration" />
+    <HairFaq />
+    <HairCta />
+  </div>
 </BaseLayout>

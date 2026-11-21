@@ -1,0 +1,112 @@
+---
+/**
+ * The collapsible sections of a product page (<details>, closed on phones, opened on wider screens):
+ * what the price includes (the price terms from PhonePriceBox, plus the labs line for hormone therapy), how it
+ * works (the home page's journey wording), important safety information, and, for a compounded or off-label
+ * product, what that means. An FDA-approved product has no last section. All wording is existing site copy.
+ */
+import Icon from '../Icon.astro';
+import { DEFAULT_TERMS } from '../phone/PhonePriceBox.astro';
+import { journeySteps } from '../../data/content';
+import {
+  COMPOUNDED_PAGE, COMPOUNDED_SENTENCE, OFF_LABEL_SENTENCE, RX_LINE,
+} from '../../data/product-disclosures';
+import { draftPagesEnabledNow, linkVisible } from '../../lib/legal-docs';
+import { safetyLink, termsItems, type ProductPage } from '../../lib/products';
+
+interface Props {
+  page: ProductPage;
+}
+const { page } = Astro.props;
+const showDrafts = draftPagesEnabledNow();
+const visible = (href: string) => linkVisible(href, showDrafts);
+const { regulatory, note } = page.disclosure;
+
+const included = [...termsItems(DEFAULT_TERMS), ...(page.includedExtra ? [page.includedExtra] : [])];
+const priced = page.plans[0];
+const includedTitle = priced.price ? `What’s included in $${priced.price}${priced.priceUnit}` : 'What’s included';
+// Answer the questions, a provider decides, medication ships (home page journey steps 1, 2 and 4).
+const steps = [journeySteps[0], journeySteps[1], journeySteps[3]];
+const safety = safetyLink(page.program, visible);
+const about = regulatory === 'compounded'
+  ? { title: 'About compounded medications', text: COMPOUNDED_SENTENCE, label: 'What compounded medications mean' }
+  : regulatory === 'off-label'
+    ? { title: 'About off-label use', text: OFF_LABEL_SENTENCE, label: 'What off-label means' }
+    : undefined;
+---
+<div class="psec" data-product-sections>
+  <details>
+    <summary>{includedTitle}<Icon name="chevron-down" /></summary>
+    <ul class="psec__checks">
+      {included.map((item) => <li><Icon name="check" />{item}</li>)}
+    </ul>
+  </details>
+
+  <details>
+    <summary>How it works<Icon name="chevron-down" /></summary>
+    <ol class="psec__steps">
+      {steps.map((s) => <li><b>{s.title}</b><span>{s.body}</span></li>)}
+    </ol>
+  </details>
+
+  <details>
+    <summary>Important safety information<Icon name="chevron-down" /></summary>
+    <div class="psec__body">
+      <p>{RX_LINE}</p>
+      {note && <p class="psec__note">{note}</p>}
+      {page.availability && <p>{page.availability}</p>}
+      {safety && <p><a href={safety.href}>{safety.label}</a></p>}
+    </div>
+  </details>
+
+  {about && (
+    <details>
+      <summary>{about.title}<Icon name="chevron-down" /></summary>
+      <div class="psec__body">
+        <p>{about.text}</p>
+        {visible(COMPOUNDED_PAGE) && <p><a href={COMPOUNDED_PAGE}>{about.label}</a></p>}
+      </div>
+    </details>
+  )}
+</div>
+
+<script>
+  // Wider screens show every section open; phones keep them closed until tapped.
+  if (window.matchMedia('(min-width: 768px)').matches) {
+    document.querySelectorAll<HTMLDetailsElement>('[data-product-sections] details').forEach((d) => { d.open = true; });
+  }
+</script>
+
+<style>
+  .psec { border-top: 1px solid var(--border); }
+  .psec details { border-bottom: 1px solid var(--border); }
+  .psec summary {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    min-height: 52px; padding: 12px 0; cursor: pointer; list-style: none;
+    font: 700 16px/1.3 var(--font-sans); color: var(--navy);
+  }
+  .psec summary::-webkit-details-marker { display: none; }
+  .psec summary :global(svg) { flex: none; width: 20px; height: 20px; color: var(--blue); transition: transform var(--dur) var(--ease); }
+  .psec details[open] summary :global(svg) { transform: rotate(180deg); }
+  .psec summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+  .psec__checks, .psec__steps { margin: 0; padding: 0 0 16px; display: grid; gap: 10px; }
+  .psec__checks { list-style: none; }
+  .psec__checks li { display: flex; gap: 10px; align-items: flex-start; font: 400 14.5px/1.45 var(--font-sans); color: var(--text-body); }
+  .psec__checks li :global(svg) { flex: none; width: 18px; height: 18px; margin-top: 2px; color: var(--success); }
+  .psec__steps { padding-left: 1.3em; }
+  .psec__steps li { font: 400 14.5px/1.45 var(--font-sans); color: var(--text-body); }
+  .psec__steps li::marker { color: var(--blue); font-weight: 700; }
+  .psec__steps b { display: block; color: var(--navy); }
+
+  .psec__body { display: grid; gap: 8px; padding-bottom: 16px; font: 400 14.5px/1.5 var(--font-sans); color: var(--text-body); }
+  .psec__body p { margin: 0; }
+  .psec__note { font-weight: 600; color: #8a4a12; }
+  .psec__body a { color: var(--blue); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+
+  @media (min-width: 768px) {
+    .psec summary { min-height: 64px; font-size: 20px; }
+    .psec__checks li, .psec__steps li, .psec__body { font-size: 17px; }
+    .psec__checks, .psec__steps, .psec__body { padding-bottom: 22px; }
+  }
+</style>

@@ -35,6 +35,12 @@ const PROGRAM_TREATMENTS_HREF: Readonly<Record<ProgramSlug, string>> = {
   peptides: '/peptides/#peptides-products',
 };
 
+/** On a phone the program pages hide their desktop sections, so a program-wide button leads to the phone
+ *  layout's treatments heading (#ph-treatments), and a generic one to the home page's program tiles. */
+export function phoneTreatmentsHref(program?: ProgramSlug): string {
+  return program ? `${PROGRAM_TREATMENTS_HREF[program].split('#')[0]}#ph-treatments` : '/#ph-programs';
+}
+
 export interface ProductLink {
   program: ProgramSlug;
   url: string;

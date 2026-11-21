@@ -303,4 +303,41 @@ const longDate = (iso: string) => new Date(`${iso}T12:00:00Z`).toLocaleDateStrin
   @media (prefers-reduced-motion: reduce) {
     .gf-library__link, .gf-close__btn { transition: none; }
   }
+
+  /* ---------- Phone layout (round-2 mockup): a light card with the cover beside the title, then the form ---------- */
+  @media (max-width: 767px) {
+    .gf-hero { background: #fff; color: var(--ph-ink); }
+    .gf-hero__inner {
+      grid-template-columns: 136px minmax(0, 1fr); grid-template-areas: 'book head' 'form form' 'intro intro';
+      column-gap: 0; row-gap: 14px; padding-block: 10px 22px;
+    }
+    /* The cover and the title share one sage card. */
+    .gf-hero__book { grid-area: book; width: auto; margin: 0; padding: 14px 0 14px 14px; align-self: stretch; display: flex; align-items: center; background: var(--ph-t-aging); border-radius: 26px 0 0 26px; }
+    .gf-hero__glow { display: none; }
+    .gf-hero__book :global(.gbook) { filter: drop-shadow(0 8px 14px rgba(19, 37, 61, 0.25)); }
+    .gf-hero__head { align-self: stretch; display: flex; flex-direction: column; justify-content: center; padding: 14px 14px 14px 0; background: var(--ph-t-aging); border-radius: 0 26px 26px 0; }
+    .gf-eyebrow { font-size: 11px; letter-spacing: 0.08em; color: var(--blue); }
+    .gf-hero__head { padding-left: 14px; }
+    .gf-title { color: var(--ph-ink); font-size: 24px; line-height: 1.1; margin-top: 6px; }
+    .gf-sub { display: none; }
+    .gf-title { font-weight: 600; letter-spacing: -0.025em; }
+    .gf-intro { color: var(--ph-ink); font-size: 16px; line-height: 1.5; }
+
+    /* The guide's benefits as three tiles (Derek: show them more prominently). */
+    .gf-trust { background: #fff; border: 0; }
+    .gf-trust__inner { padding-block: 4px 18px; gap: 12px; }
+    .gf-trust__list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; width: 100%; }
+    .gf-trust__list li { flex-direction: column; text-align: center; gap: 6px; padding: 12px 6px; border-radius: 16px; background: var(--ph-t-help); font-size: 12px; line-height: 1.35; }
+    .gf-trust__list strong { font-size: 14px; margin-bottom: 2px; }
+    .gf-trust__icon { width: 40px; height: 40px; box-shadow: none; }
+    .gf-trust__icon :global(svg) { width: 20px; height: 20px; }
+
+    /* What's inside: numbered tiles instead of a plain list (Derek: more visually engaging). */
+    .gf-inside { padding-block: 8px 28px; }
+    .gf-inside__photo { display: none; }
+    .gf-checks { grid-template-columns: 1fr 1fr; gap: 8px; counter-reset: inside; }
+    .gf-checks li { counter-increment: inside; flex-direction: column; gap: 6px; padding: 12px; border-radius: 14px; background: var(--navy); color: #fff; font-size: 14px; line-height: 1.35; }
+    .gf-checks li::before { content: counter(inside, decimal-leading-zero); font: 700 13px/1 var(--font-sans); color: #8fd0ff; }
+    .gf-checks__tick { display: none; }
+  }
 </style>

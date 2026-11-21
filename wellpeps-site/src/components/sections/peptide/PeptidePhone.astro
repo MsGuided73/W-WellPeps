@@ -1,0 +1,81 @@
+---
+/**
+ * Healthy Aging & Vitality page, phone layout (≤ 767px; the desktop sections are hidden there).
+ * Round-2 mockup: headline and three check lines, the price box in three tabs (Peptides / Cellular /
+ * Nutrients; a product sold in two forms is two options), the guide row, every therapy as a vial
+ * card, the personalized-care chips, what the price covers, every FAQ, the guide band and the
+ * disclosures. Products and prices come from data/peptide.ts.
+ */
+import Icon from '../../Icon.astro';
+import PhonePriceBox from '../../phone/PhonePriceBox.astro';
+import PhoneProductCards from '../../phone/PhoneProductCards.astro';
+import { productPath } from '../../../lib/products';
+import PhoneFaq from '../../phone/PhoneFaq.astro';
+import PhoneGuide from '../../phone/PhoneGuide.astro';
+import {
+  peptideHero, peptideProducts, peptideProductsIntro, peptideProductsFootnote, peptideScience, peptideBenefits, peptideFaqs, VIAL_ALT,
+} from '../../../data/peptide';
+import { COMPOUNDED_SENTENCE } from '../../../data/product-disclosures';
+
+type P = (typeof peptideProducts)[number];
+// Every form sold as its own product (NAD+ injection and NAD+ nasal spray are two).
+const forms = (p: P) =>
+  p.variants && p.variants.length > 1
+    ? p.variants.map((v) => ({ product: v.product, disclosure: p.name, label: `${p.name} ${v.label.toLowerCase()}`, price: v.price, method: v.methodOfUse, vial: v.vial }))
+    : [{ product: p.name, disclosure: p.name, label: p.name, price: p.price, method: p.methodOfUse, vial: p.vial }];
+
+// Tabs: peptide and coenzyme therapies, cellular support, nutrient injections.
+const TAB: Record<string, 'Peptides' | 'Cellular' | 'Nutrients'> = {
+  Sermorelin: 'Peptides', 'NAD+': 'Peptides', Glutathione: 'Cellular', 'Methylene Blue': 'Cellular', 'MIC + B12': 'Nutrients', 'Lipo-C': 'Nutrients',
+};
+const priced = (price: string) => /^\d+$/.test(price);
+const groups = (['Peptides', 'Cellular', 'Nutrients'] as const)
+  .map((label) => ({
+    label,
+    options: peptideProducts
+      .filter((p) => (TAB[p.name] ?? 'Nutrients') === label)
+      .flatMap(forms)
+      .filter((f) => priced(f.price))
+      // The "For …" line names the form too (NAD+ injection vs NAD+ nasal spray).
+      .map((f) => ({ product: f.product, disclosure: f.disclosure, label: f.label, name: f.label, price: f.price })),
+  }))
+  .filter((g) => g.options.length > 0);
+
+// One card per form sold, so each card's button opens that form's own health questions
+// (NAD+ injection and NAD+ nasal spray each get a card).
+const cards = peptideProducts.flatMap(forms).map((f) => ({
+  product: f.product,
+  title: f.label,
+  image: f.vial,
+  alt: VIAL_ALT[f.vial] ?? '',
+  disclosure: f.disclosure,
+  href: productPath('healthy-aging', f.product),
+  tags: [f.method.replace('Subcutaneous ', '')],
+  price: priced(f.price) ? `$${f.price}/month` : undefined,
+}));
+---
+<div class="ph-page ph-page--ice" style="--ph-tint:var(--ph-t-ice)">
+  <div class="ph-head"><h1>{peptideHero.titleLead} <em>{peptideHero.titleAccent}</em></h1></div>
+  <div class="ph-checks">
+    <div><i><Icon name="stethoscope" /></i><span><b>Health history review</b> by a licensed provider</span></div>
+    <div><i><Icon name="pharmacy" /></i><span><b>Licensed U.S. pharmacies,</b> discreet home delivery</span></div>
+    <div><i><Icon name="tag" /></i><span><b>One monthly price.</b> No setup or cancellation fee</span></div>
+  </div>
+
+  {groups.length > 0 && <PhonePriceBox program="healthy-aging" groups={groups} />}
+  <PhoneGuide program="healthy-aging" variant="row" question="New to wellness therapies?" tint="var(--ph-t-help)" />
+
+  <h2 class="ph-htitle" id="ph-treatments">{peptideProductsIntro.title}</h2>
+  <PhoneProductCards program="healthy-aging" cards={cards} variant="glass" />
+
+  <section class="ph-band" style="background:var(--ph-t-gray)" aria-labelledby="ph-aging-care">
+    <h2 id="ph-aging-care">{peptideScience.benefitsTitle}</h2>
+    <p>{peptideScience.benefitsLead}</p>
+    <div class="ph-chips">{peptideBenefits.map((b) => <span>{b.title}</span>)}</div>
+    <small>{peptideScience.footnote}</small>
+  </section>
+
+  <PhoneFaq faqs={peptideFaqs} />
+  <PhoneGuide program="healthy-aging" variant="band" tint="var(--ph-t-help)" />
+  <p class="ph-fine">{peptideProductsFootnote} {COMPOUNDED_SENTENCE}</p>
+</div>

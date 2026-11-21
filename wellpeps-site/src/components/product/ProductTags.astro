@@ -1,0 +1,38 @@
+---
+/**
+ * Small pills under a product title: the form, "Compounded" or "Off-label use" (from the product's disclosure
+ * decision, src/data/product-disclosures.ts), "Rx required", and a warm "Not with nitrates" when the
+ * disclosure carries the nitrate warning.
+ */
+import { TAG_LABEL } from '../../data/product-disclosures';
+import { sentenceCase, type ProductPage } from '../../lib/products';
+
+interface Props {
+  page: ProductPage;
+}
+const { page } = Astro.props;
+const { regulatory, note } = page.disclosure;
+const tags: { text: string; warm?: boolean }[] = [
+  { text: sentenceCase(page.form) },
+  ...(regulatory ? [{ text: regulatory === 'compounded' ? 'Compounded' : TAG_LABEL['off-label'] }] : []),
+  { text: 'Rx required' },
+  ...(note && /nitrate/i.test(note) ? [{ text: 'Not with nitrates', warm: true }] : []),
+];
+---
+<ul class="ptags" aria-label="About this treatment">
+  {tags.map((t) => <li class:list={{ 'ptags--warm': t.warm }}>{t.text}</li>)}
+</ul>
+
+<style>
+  .ptags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+  .ptags li {
+    padding: 4px 10px; border-radius: 999px;
+    background: var(--bg-light-sky); color: var(--navy);
+    font: 600 12px/1.25 var(--font-sans);
+  }
+  .ptags li.ptags--warm { background: #fff1e6; color: #8a4a12; }
+  @media (min-width: 768px) {
+    .ptags { gap: 8px; }
+    .ptags li { padding: 6px 14px; font-size: 15px; }
+  }
+</style>

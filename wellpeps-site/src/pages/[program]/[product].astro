@@ -1,0 +1,132 @@
+---
+/**
+ * One page per product card: /<program>/<product-slug>/, generated from src/lib/products.ts.
+ *
+ * One DOM for every width (so the page has one <h1>), laid out with a grid:
+ *   phone   back link · image · title block · disclosure line · sections · price bar pinned to the bottom.
+ *           For a vial product the title block sits on a frosted panel over the lower part of the image.
+ *   ≥768px  image on the left; back link, title block, price box and disclosure line on the right;
+ *           sections below.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import ProductHero from '../../components/product/ProductHero.astro';
+import ProductTags from '../../components/product/ProductTags.astro';
+import ProductDisclosureLine from '../../components/product/ProductDisclosureLine.astro';
+import ProductPriceBar from '../../components/product/ProductPriceBar.astro';
+import ProductSections from '../../components/product/ProductSections.astro';
+import { metaDescription, pageTitle, productRoutes, type ProductPage } from '../../lib/products';
+import { breadcrumbs } from '../../lib/seo/schema';
+
+export function getStaticPaths() {
+  return productRoutes();
+}
+
+interface Props {
+  page: ProductPage;
+}
+const { page } = Astro.props;
+const isVial = page.imageStyle === 'vial';
+const jsonLd = [
+  breadcrumbs([
+    { name: page.programName, path: page.programPath },
+    { name: page.title, path: page.path },
+  ]),
+];
+---
+<BaseLayout title={pageTitle(page)} description={metaDescription(page)} jsonLd={jsonLd}>
+  <div class:list={['pp', isVial ? 'pp--vial' : 'pp--photo']}>
+    <div class="pp__top">
+      <a class="pp__back" href={page.programPath}><Icon name="chevron-down" />{page.programName}</a>
+      <ProductHero page={page} class="pp__hero" />
+      <div class="pp__intro">
+        <ProductTags page={page} />
+        <h1>{page.title}</h1>
+        <p class="pp__desc">{page.description}</p>
+      </div>
+      <div class="pp__buy">
+        <ProductPriceBar page={page} variant="box" />
+        {page.availability && <p class="pp__avail"><Icon name="info" />{page.availability}</p>}
+        <ProductDisclosureLine page={page} />
+      </div>
+    </div>
+    <div class="pp__sections">
+      <ProductSections page={page} />
+    </div>
+    <ProductPriceBar page={page} variant="bar" />
+  </div>
+</BaseLayout>
+
+<style>
+  .pp { background: #fff; color: var(--text-body); }
+  .pp__top {
+    display: grid; grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "back" "hero" "intro" "buy";
+  }
+  .pp--vial .pp__top { grid-template-areas: "back" "hero" "buy"; }
+  .pp__back { grid-area: back; }
+  .pp :global(.pp__hero) { grid-area: hero; }
+  .pp__intro { grid-area: intro; min-width: 0; padding: 16px 18px 4px; display: grid; gap: 10px; }
+  .pp__buy { grid-area: buy; min-width: 0; padding: 10px 18px 16px; display: grid; gap: 10px; }
+
+  .pp__back {
+    display: inline-flex; align-items: center; gap: 4px; justify-self: start;
+    min-height: 44px; padding: 6px 16px;
+    font: 600 13.5px/1 var(--font-sans); color: var(--navy); text-decoration: none;
+  }
+  .pp__back :global(svg) { width: 18px; height: 18px; transform: rotate(90deg); color: var(--blue); }
+  .pp__back:hover { color: var(--blue); }
+
+  .pp h1 {
+    margin: 0; font-family: var(--font-serif); font-weight: 600; color: var(--navy);
+    font-size: 28px; line-height: 1.08; letter-spacing: -0.02em; text-wrap: balance; overflow-wrap: anywhere;
+  }
+  .pp__desc { margin: 0; font: 400 14.5px/1.5 var(--font-sans); color: var(--text-body); }
+
+  /* Vial on phones: the title block on a frosted panel over the lower part of the image. */
+  .pp--vial .pp__intro {
+    grid-area: hero; align-self: end; position: relative; z-index: 1;
+    margin: 0 12px 12px; padding: 14px 14px 13px; gap: 7px;
+    background: rgba(255, 255, 255, 0.62);
+    border: 1px solid rgba(255, 255, 255, 0.7); border-radius: 15px;
+    -webkit-backdrop-filter: blur(14px) saturate(1.4);
+    backdrop-filter: blur(14px) saturate(1.4);
+    box-shadow: 0 8px 24px rgba(8, 43, 89, 0.08);
+  }
+  .pp--vial h1 { font-size: 25px; }
+  .pp--vial .pp__desc {
+    font-size: 13.5px; line-height: 1.45;
+    display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden;
+  }
+
+  .pp__avail {
+    display: flex; gap: 8px; align-items: flex-start; margin: 0;
+    padding: 8px 10px; border-radius: 8px; background: var(--bg-light-sky);
+    font: 600 13px/1.4 var(--font-sans); color: var(--navy);
+  }
+  .pp__avail :global(svg) { flex: none; width: 16px; height: 16px; margin-top: 1px; color: var(--blue); }
+
+  .pp__sections { padding: 4px 18px 24px; }
+
+  @media (min-width: 768px) {
+    .pp { max-width: 1240px; margin-inline: auto; padding: clamp(1.5rem, 3vw, 3rem) var(--gutter) var(--space-section); }
+    .pp__top, .pp--vial .pp__top {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-areas: "hero back" "hero intro" "hero buy";
+      grid-template-rows: auto auto 1fr;
+      column-gap: clamp(2rem, 4.5vw, 4.5rem);
+      align-items: start;
+    }
+    .pp__back { padding: 0; font-size: 17px; }
+    .pp__intro, .pp--vial .pp__intro {
+      grid-area: intro; align-self: start; margin: 0; padding: 14px 0 0; gap: 16px;
+      background: none; border: 0; border-radius: 0; box-shadow: none;
+      -webkit-backdrop-filter: none; backdrop-filter: none;
+    }
+    .pp h1, .pp--vial h1 { font-size: clamp(2.2rem, 1.4rem + 2vw, 3.2rem); font-weight: 700; line-height: 1.1; }
+    .pp__desc, .pp--vial .pp__desc { font-size: var(--text-lead); line-height: 1.55; display: block; overflow: visible; -webkit-line-clamp: unset; line-clamp: none; }
+    .pp__buy { padding: 26px 0 0; gap: 16px; }
+    .pp__avail { font-size: 16px; padding: 10px 12px; }
+    .pp__sections { padding: clamp(2.5rem, 4vw, 4rem) 0 0; max-width: 900px; }
+  }
+</style>

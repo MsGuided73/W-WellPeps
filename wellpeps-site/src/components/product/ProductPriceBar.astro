@@ -1,0 +1,129 @@
+---
+/**
+ * Price and "See If You Qualify" for one product page, in two forms:
+ *   variant="bar"  phones: pinned to the bottom of the screen (position: sticky; the page puts it last).
+ *   variant="box"  tablet and desktop: in the right-hand column, with the renewal line and refund link.
+ * Plans (Testosterone Cypionate 1 month / 3 months) show a toggle that switches the price, renewal wording and
+ * button; radio buttons + CSS :has, no JavaScript (as on StandardProductCard). A plan without a price or a live
+ * link shows "Coming soon" and the disabled Coming Soon button (AssessmentCta comingSoon).
+ */
+import AssessmentCta from '../AssessmentCta.astro';
+import ProductDisclosures from '../ProductDisclosures.astro';
+import { RENEWAL_LINE } from '../../data/product-disclosures';
+import { shortUnit, type ProductPage } from '../../lib/products';
+
+interface Props {
+  page: ProductPage;
+  variant: 'bar' | 'box';
+}
+const { page, variant } = Astro.props;
+const { plans } = page;
+const multi = plans.length > 1;
+const group = `plan-${page.program}-${page.slug}-${variant}`;
+const isBar = variant === 'bar';
+const REFUND_NOTE = 'Full refund if not prescribed.';
+---
+<div class:list={['pbar', `pbar--${variant}`, { 'pbar--plans': multi }]} data-product-price={variant}>
+  {multi && (
+    <fieldset class="pbar__plans">
+      <legend class="visually-hidden">Choose a plan for {page.title}</legend>
+      {plans.map((p, i) => (
+        <label class="pbar__plan">
+          <input type="radio" name={group} value={String(i)} checked={i === 0} />
+          <span>{p.label}</span>
+        </label>
+      ))}
+    </fieldset>
+  )}
+  {plans.map((p, i) => (
+    <div class="pbar__v" data-v={i}>
+      <div class="pbar__price">
+        {p.price
+          ? <p class="pbar__amount">${p.price}<span>{isBar ? shortUnit(p.priceUnit) : p.priceUnit}</span></p>
+          : <p class="pbar__soon">Coming soon</p>}
+        {p.price && isBar && <p class="pbar__terms">{p.renewal ?? RENEWAL_LINE} {REFUND_NOTE}</p>}
+        {p.price && !isBar && page.includedExtra && <p class="pbar__extra">Plus lab testing, billed separately.</p>}
+      </div>
+      {p.price && !isBar && (
+        <div class="pbar__renew">
+          <ProductDisclosures part="renewal" renewal={p.renewal} />
+          <p class="pbar__extra">{REFUND_NOTE}</p>
+        </div>
+      )}
+      <AssessmentCta program={page.program} product={p.product} comingSoon={!p.isLive} class="pbar__cta" arrow={!isBar} />
+    </div>
+  ))}
+</div>
+
+<style>
+  .pbar__v { display: none; }
+  .pbar__v[data-v="0"] { display: flex; }
+  .pbar--plans:has(.pbar__plans input[value="1"]:checked) .pbar__v[data-v="0"],
+  .pbar--plans:has(.pbar__plans input[value="2"]:checked) .pbar__v[data-v="0"] { display: none; }
+  .pbar--plans:has(.pbar__plans input[value="1"]:checked) .pbar__v[data-v="1"],
+  .pbar--plans:has(.pbar__plans input[value="2"]:checked) .pbar__v[data-v="2"] { display: flex; }
+
+  .pbar p { margin: 0; }
+  .pbar__plans {
+    margin: 0; padding: 3px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg-gray);
+    display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 3px; min-width: 0;
+  }
+  .pbar__plan { position: relative; display: flex; cursor: pointer; }
+  .pbar__plan input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+  .pbar__plan span {
+    flex: 1; text-align: center; padding: 6px 8px; border-radius: 7px;
+    font: 700 13px/1.3 var(--font-sans); color: var(--text-muted);
+  }
+  .pbar__plan input:checked + span { background: #fff; color: var(--navy); box-shadow: var(--shadow-sm); }
+  .pbar__plan input:focus-visible + span { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+  .pbar__amount { font: 800 22px/1.1 var(--font-sans); color: var(--navy); letter-spacing: -0.02em; }
+  .pbar__amount span { font-weight: 500; font-size: 13px; color: var(--text-muted); letter-spacing: 0; margin-left: 2px; }
+  .pbar__soon { font: 700 17px/1.3 var(--font-sans); color: var(--navy); }
+  .pbar__terms { margin-top: 3px !important; font: 400 11px/1.35 var(--font-sans); color: var(--text-body); }
+  .pbar__extra { font: 400 13px/1.4 var(--font-sans); color: var(--text-muted); }
+
+  .pbar__cta {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; flex: none;
+    min-height: 48px; padding: 0 18px; border-radius: 14px;
+    background: var(--blue); color: #fff; font: 600 15px/1.2 var(--font-sans); white-space: nowrap;
+    text-decoration: none;
+  }
+  .pbar__cta:hover { background: var(--blue-hover); color: #fff; }
+  .pbar__cta :global(svg) { width: 1.05em; height: 1.05em; }
+
+  /* Phone bar */
+  .pbar--bar {
+    position: sticky; bottom: 0; z-index: 40;
+    display: grid; gap: 8px;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, 0.97); border-top: 1px solid var(--border);
+    box-shadow: 0 -8px 24px rgba(8, 43, 89, 0.08);
+  }
+  .pbar--bar .pbar__v { align-items: center; justify-content: space-between; gap: 12px; }
+  .pbar--bar .pbar__price { min-width: 0; }
+
+  /* The site assistant's floating button (Assistant.astro, .wa) moves up so it never covers the bar's button. */
+  @media (max-width: 767px) {
+    :global(body:has(.pbar--bar) .wa) { bottom: calc(108px + env(safe-area-inset-bottom)); }
+    :global(body:has(.pbar--bar.pbar--plans) .wa) { bottom: calc(150px + env(safe-area-inset-bottom)); }
+  }
+
+  /* Desktop box */
+  .pbar--box { display: none; }
+
+  @media (min-width: 768px) {
+    .pbar--bar { display: none; }
+    .pbar--box {
+      display: grid; gap: 14px; padding: 22px; border: 1px solid var(--border); border-radius: var(--radius);
+      background: #fff; box-shadow: var(--shadow-sm);
+    }
+    .pbar--box .pbar__v { flex-direction: column; align-items: stretch; gap: 12px; }
+    .pbar--box .pbar__amount { font-size: var(--price-amount); }
+    .pbar--box .pbar__amount span { font-size: var(--price-unit); }
+    .pbar--box .pbar__extra { font-size: 15px; }
+    .pbar--box .pbar__renew :global(.pdisc__renew) { margin: 0; font-size: 15px; }
+    .pbar--box .pbar__plan span { font-size: 15px; padding: 9px 10px; }
+    .pbar--box .pbar__cta { width: 100%; min-height: 52px; font-size: 17px; border-radius: 16px; }
+  }
+</style>

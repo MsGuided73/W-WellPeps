@@ -1,0 +1,137 @@
+---
+/**
+ * Home page, phone layout (≤ 767px; the desktop sections are hidden there). Approved design ("Shelf",
+ * with Derek's revisions of 2026-11-20): headline and supporting copy, a three-point trust strip, every
+ * program (two tiles, then rows), the confidence strip, the guide invitation, what the monthly price
+ * covers, how it works, then the home FAQs. No "See If You Qualify" here: every such
+ * button opens one product's health questions, and the home page has no product.
+ */
+import Icon from '../Icon.astro';
+import PhonePriceBand from '../phone/PhonePriceBand.astro';
+import PhoneFaq from '../phone/PhoneFaq.astro';
+import { PROGRAMS, startingPrice } from '../../lib/seo/catalog';
+import { GUIDES_INDEX_PATH } from '../../lib/guide-flow';
+import { faqs } from '../../data/content';
+
+// Same answers as the desktop FAQ and the home page's structured data (data/content.ts).
+const phoneFaqs = faqs;
+
+/** Home headline and supporting copy: Derek's wording (notes of 2026-11-20). */
+export const HOME_PHONE_HEADLINE = { lead: 'Online healthcare', accent: 'that’s more than medication.' } as const;
+export const HOME_PHONE_SUB =
+  'Personalized treatment from licensed U.S. providers, medications delivered by licensed U.S. pharmacies, and ongoing care and support throughout your treatment.';
+
+const from = (path: string) => {
+  const p = PROGRAMS.find((x) => x.path === path);
+  const n = p && startingPrice(p);
+  return n === undefined ? undefined : `From $${n}/mo`;
+};
+const rows = [
+  { href: '/sexual-wellness/', title: 'Sexual wellness', sub: from('/sexual-wellness/'), image: '/images/sexual/product-tadalafil-daily.webp', tint: 'var(--ph-t-sex)' },
+  { href: '/hormone-optimization/', title: 'Hormone therapy', sub: 'For men and women', image: '/images/hormone/men-product-testosterone-cypionate.webp', tint: 'var(--ph-t-horm)' },
+  { href: '/hair-restoration/', title: 'Hair restoration', sub: from('/hair-restoration/'), image: '/images/hair/product-combo.webp', tint: 'var(--ph-t-hair)' },
+];
+const weightFrom = from('/weight-loss/');
+const agingFrom = from('/healthy-aging/');
+---
+<div class="ph-page hph">
+  <div class="ph-head"><h1>{HOME_PHONE_HEADLINE.lead} <em>{HOME_PHONE_HEADLINE.accent}</em></h1></div>
+  <p class="ph-lede hph__sub">{HOME_PHONE_SUB}</p>
+
+  {/* LegitScript: the same claim as the desktop home page's Why Choose card and the footer seal. */}
+  <ul class="hph__trust" aria-label="Why WellPeps">
+    <li><Icon name="stethoscope" />Licensed U.S. Providers</li>
+    <li><Icon name="pharmacy" />Licensed U.S. Pharmacies</li>
+    <li><Icon name="shield-check" />LegitScript Certified</li>
+  </ul>
+
+  <nav class="hph__tiles" id="ph-programs" aria-label="Programs">
+    <a class="hph__tile hph__tile--photo" href="/weight-loss/" style="background:var(--ph-t-weight)">
+      {/* Tirzepatide: the more popular GLP-1 (Derek). */}
+      <img loading="lazy" class="hph__photo" src="/images/weight/product-tirzepatide-compounded.webp" alt="An amber vial labeled Tirzepatide, Compounded, Rx Only" aria-hidden="true" width="400" height="400" />
+      <h2>Weight loss <em>GLP-1 care</em></h2>
+      {weightFrom && <span class="hph__ft">{weightFrom}<Icon name="arrow-right" /></span>}
+    </a>
+    <a class="hph__tile hph__tile--trio" href="/healthy-aging/" style="background:var(--ph-t-aging)">
+      <span class="hph__trio" aria-hidden="true">
+        <img loading="lazy" class="g" src="/images/peptide/vial-glutathione-v2.webp" alt="An amber vial labeled Glutathione, Compounded, Rx Only" aria-hidden="true" width="120" height="160" />
+        <img loading="lazy" class="s" src="/images/peptide/vial-sermorelin.webp" alt="An amber vial labeled Sermorelin, Rx Only" aria-hidden="true" width="120" height="160" />
+        <img loading="lazy" class="n" src="/images/peptide/vial-nad.webp" alt="An amber vial labeled NAD+, Rx Only" aria-hidden="true" width="120" height="160" />
+      </span>
+      <h2>Peptides <em>NAD+, Sermorelin, Glutathione</em></h2>
+      {agingFrom && <span class="hph__ft">{agingFrom}</span>}
+    </a>
+  </nav>
+
+  <div class="hph__rows">
+    {rows.map((r) => (
+      <a class="ph-row" href={r.href} style={`background:${r.tint};margin:0`}>
+        <span class="t"><b>{r.title}</b>{r.sub && <span>{r.sub}</span>}</span>
+        <img src={r.image} alt={`${r.title} treatment`} aria-hidden="true" width="56" height="48" loading="lazy" />
+        <Icon name="arrow-right" />
+      </a>
+    ))}
+  </div>
+
+  {/* Consumer confidence, after the programs (Derek). Labs are footnoted in the price panel below. */}
+  <ul class="hph__conf" aria-label="Our promises">
+    <li><Icon name="check" />No hidden fees</li>
+    <li><Icon name="check" />Full refund if not prescribed*</li>
+    <li><Icon name="check" />Cancel anytime</li>
+  </ul>
+  <p class="hph__conf-note">*Lab tests for hormone therapy are billed separately.</p>
+
+  <a class="ph-row" href={`${GUIDES_INDEX_PATH}/`} style="background:var(--ph-t-help)">
+    <span class="t"><b>Get a Free Smart Patient Guide</b><span>to help you make informed decisions</span></span>
+    <Icon name="book-open" />
+  </a>
+
+  <PhonePriceBand />
+
+  <section class="ph-band" style="background:var(--ph-t-aging)" aria-labelledby="hph-how">
+    <h2 id="hph-how">How it works</h2>
+    <p class="ph-li"><i>1</i>Answer a few health questions</p>
+    <p class="ph-li"><i>2</i>A licensed provider reviews your answers</p>
+    <p class="ph-li"><i>3</i>Your prescribed medication ships to you</p>
+  </section>
+
+  <PhoneFaq faqs={phoneFaqs} />
+</div>
+
+<style>
+  @media (max-width: 767px) {
+    .hph .ph-head h1 { font-size: 31px; line-height: 1.08; }
+    .hph__sub { padding-top: 4px; }
+    .hph__trust { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 12px 12px 4px; margin: 0; list-style: none; }
+    .hph__trust li { display: grid; justify-items: center; gap: 5px; text-align: center; background: var(--ph-t-gray); border-radius: 14px; padding: 10px 4px; font: 600 12.5px/1.2 var(--font-sans); color: var(--ph-ink); }
+    .hph__trust :global(svg) { width: 20px; height: 20px; color: var(--blue); }
+    .hph__conf { margin: 12px 12px 0; padding: 14px 16px; list-style: none; background: var(--navy); border-radius: 20px; display: grid; gap: 8px; }
+    .hph__conf li { display: flex; gap: 10px; align-items: center; color: #fff; font: 600 15px/1.25 var(--font-sans); }
+    .hph__conf :global(svg) { width: 18px; height: 18px; color: #8fd0ff; }
+    .hph__conf-note { margin: 6px 16px 0; font-size: 12px; line-height: 1.4; color: var(--ph-body); }
+    .hph__tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 6px 12px 0; }
+    .hph__tile {
+      border-radius: 24px; height: 196px; position: relative; overflow: hidden; padding: 14px;
+      display: flex; flex-direction: column; justify-content: space-between; color: var(--ph-ink);
+    }
+    .hph__tile h2 { font-size: 18px; font-weight: 600; line-height: 1.12; position: relative; z-index: 2; }
+    .hph__tile h2 em { display: block; }
+    .hph__ft {
+      position: relative; z-index: 2; align-self: flex-start; display: inline-flex; gap: 6px; align-items: center;
+      font: 600 13px/1 var(--font-sans); color: var(--ph-ink); background: rgba(255, 255, 255, 0.9); border-radius: 999px; padding: 8px 10px;
+    }
+    .hph__ft :global(svg) { width: 14px; height: 14px; }
+    .hph__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
+    .hph__tile--photo::after {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(180deg, rgba(226,237,246,0.96) 0%, rgba(226,237,246,0.75) 34%, rgba(226,237,246,0) 60%);
+    }
+    .hph__trio { position: absolute; inset: 0; }
+    .hph__trio img { position: absolute; width: auto; mix-blend-mode: multiply; }
+    .hph__trio .g { height: 92px; left: 10px; bottom: 10px; }
+    .hph__trio .s { height: 106px; left: 54px; bottom: 6px; }
+    .hph__trio .n { height: 120px; right: 4px; bottom: 2px; }
+    .hph__rows { display: grid; gap: 8px; padding: 10px 12px 0; }
+    .hph a:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+  }
+</style>

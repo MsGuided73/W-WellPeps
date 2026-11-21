@@ -13,6 +13,7 @@ import HormoneJourney from './HormoneJourney.astro';
 import HormoneWhyChoose from './HormoneWhyChoose.astro';
 import HormoneFaq from './HormoneFaq.astro';
 import HormoneCta from './HormoneCta.astro';
+import HormonePhone from './HormonePhone.astro';
 import { programAt } from '../../../lib/seo/catalog';
 import { breadcrumbs, faqPage, programService } from '../../../lib/seo/schema';
 import type { HormonePage } from '../../../data/hormone';
@@ -29,13 +30,16 @@ const jsonLd = [
 ];
 ---
 <BaseLayout title={page.seo.title} description={page.seo.description} jsonLd={jsonLd}>
-  <HormoneHero page={page} />
-  <HormoneEducation page={page} />
-  {/* Products before the eBook band on these pages (Derek, 2026-11-12). */}
-  <HormoneProducts page={page} />
-  <GuideBand program={page.program} />
-  <HormoneJourney page={page} />
-  <HormoneWhyChoose page={page} />
-  <HormoneFaq page={page} />
-  <HormoneCta page={page} />
+  <div class="ph-only"><HormonePhone page={page} /></div>
+  <div class="ph-hide">
+    <HormoneHero page={page} />
+    <HormoneEducation page={page} />
+    {/* Products before the eBook band on these pages (Derek, 2026-11-12). */}
+    <HormoneProducts page={page} />
+    <GuideBand program={page.program} />
+    <HormoneJourney page={page} />
+    <HormoneWhyChoose page={page} />
+    <HormoneFaq page={page} />
+    <HormoneCta page={page} />
+  </div>
 </BaseLayout>

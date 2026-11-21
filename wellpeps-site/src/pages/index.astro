@@ -12,6 +12,7 @@ import Insights from '../components/sections/Insights.astro';
 import Faq from '../components/sections/Faq.astro';
 import FinalCta from '../components/sections/FinalCta.astro';
 import GuideRing from '../components/guides/GuideRing.astro';
+import HomePhone from '../components/sections/HomePhone.astro';
 import { EBOOKS } from '../data/ebooks';
 import { faqs } from '../data/content';
 import { toFaqs } from '../lib/seo/catalog';
@@ -23,16 +24,19 @@ const jsonLd = [faqPage(toFaqs(faqs), '/')];
   description="Provider-guided telehealth for weight loss, hair loss, ED and healthy aging. One monthly price with medication and shipping. Full refund if not prescribed."
   jsonLd={jsonLd}
 >
-  <Hero />
-  <WhyChoose />
-  <HelpFind />
-  <Programs />
-  <Journey />
-  <Includes />
-  <WhatsIncluded tinted />
-  <Safety />
-  <Insights />
-  <GuideRing books={EBOOKS} />
-  <Faq />
-  <FinalCta />
+  <div class="ph-only"><HomePhone /></div>
+  <div class="ph-hide">
+    <Hero />
+    <WhyChoose />
+    <HelpFind />
+    <Programs />
+    <Journey />
+    <Includes />
+    <WhatsIncluded tinted />
+    <Safety />
+    <Insights />
+    <GuideRing books={EBOOKS} />
+    <Faq />
+    <FinalCta />
+  </div>
 </BaseLayout>
