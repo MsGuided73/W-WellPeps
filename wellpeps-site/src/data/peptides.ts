@@ -143,6 +143,8 @@ export const peptidesPage: PeptidesPage = {
         description: 'KPV is a naturally occurring peptide fragment being studied for its potential role in inflammatory processes, skin health, and gastrointestinal wellness.',
         // Capsules only (owner, 2026-11-21); the topical cream is not offered.
         methodOfUse: 'Oral Capsules',
+        // Owner, 2026-11-21: $323.40/month, GEN Health link saved as 'kpv' in src/config.ts. Add price: '323.40' here and
+        // 'kpv' to LIVE_PRODUCTS together, once Peptide Therapy has an approved safety page.
         features: ['Studied for its potential anti-inflammatory properties', 'Research involving skin and gastrointestinal health', ...PRODUCT_FEATURES],
       },
       {
