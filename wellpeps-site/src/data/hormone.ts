@@ -236,6 +236,8 @@ export const mensHormone: HormonePage = {
           'A prescription cream that delivers testosterone through the skin, applied daily as prescribed.',
         methodOfUse: 'Topical Cream',
         features: ['Daily application to the skin, as prescribed', 'Dose set by your provider', 'Ongoing provider monitoring'],
+        // Live 2026-11-21 (owner): $145/month with its GEN Health link.
+        price: '145',
       },
       // Derek's "Minimal hCG Therapy Information Card" (owner asked for it, 2026-11-10). His "clinically proven"
       // and "may support fertility" were softened to provider-decides wording, as on the other cards.
