@@ -39,7 +39,7 @@ const cards = items.map((p) => {
     alt: p.alt,
     photo: true,
     href: productPath(program, p.name),
-    tags: [p.methodOfUse.replace(/ Peptide$/, '').replace('Oral Capsules & Topical Cream', 'Capsules & cream')],
+    tags: [p.methodOfUse.replace(/ Peptide$/, '').replace('Oral Capsules', 'Capsules')],
     price: prices.length ? `From $${money(Math.min(...prices))}/month` : undefined,
   };
 });
