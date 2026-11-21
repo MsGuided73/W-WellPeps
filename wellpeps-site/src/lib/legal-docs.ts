@@ -124,8 +124,8 @@ export const LEGAL_DOCS: readonly LegalDoc[] = [
   { id: 'A18', path: 'safety/testosterone', title: 'Testosterone and hCG Safety Information', label: 'Testosterone Safety Information', group: 'patient',
     blurb: 'Important safety information for testosterone and hCG.',
     description: 'Important safety information for testosterone and hCG prescribed through WellPeps: warnings, who should not use them, lab monitoring and when to get help.', approved: true, effective: 'November 19, 2026' },
-  // Drafted and approved 2026-11-21 (owner, after Dr. Yirga's medical review with no edits) and released with the six
-  // Peptide Therapy products. Counsel and pharmacy confirmation are still open (see the document's drafting notes).
+  // Drafted and approved 2026-11-21 (owner, after Dr. Yirga's medical review with no edits; peptides cleared with counsel
+  // and LegitScript per the owner) and released with the six Peptide Therapy products.
   { id: 'A19', path: 'safety/peptides', title: 'Peptide Therapy Medication Safety Information', label: 'Peptide Therapy Safety Information', group: 'patient',
     blurb: 'Important safety information for peptide therapies.',
     description: 'Important safety information for peptide therapies prescribed through WellPeps: what is known, warnings, who should not use them and when to get help.', approved: true, effective: 'November 21, 2026' },
