@@ -110,11 +110,14 @@ export const peptidesPage: PeptidesPage = {
         features: ['Studied for tissue repair and recovery', 'Research involving gastrointestinal health', ...PRODUCT_FEATURES],
         // 1 month or 3 months prepaid (owner, 2026-11-18). Each plan opens with its own price and GEN Health link:
         // PRODUCT_LINKS keys 'bpc-157' and 'bpc-157-3-month'.
-        plans: [
-          // Live 2026-11-21 (owner): $168.50/month with its GEN Health link.
-          { label: '1 month', priceUnit: '/month', product: 'BPC-157', price: '168.50' },
-          { label: '3 months', priceUnit: '/3 months', product: 'BPC-157 3 Month', renewal: 'Renews every 3 months, cancel anytime.' },
-        ],
+        // 1 month only for now (owner, 2026-11-21): the 3-month GEN Health products are not created yet. Restore the
+        // plans below (and drop `price`) when they are, adding the 3-month price and its PRODUCT_LINKS key.
+        price: '168.50',
+        // plans: [
+        //   // Live 2026-11-21 (owner): $168.50/month with its GEN Health link.
+        //   { label: '1 month', priceUnit: '/month', product: 'BPC-157', price: '168.50' },
+        //   { label: '3 months', priceUnit: '/3 months', product: 'BPC-157 3 Month', renewal: 'Renews every 3 months, cancel anytime.' },
+        // ],
       },
       {
         name: 'TB-500',
@@ -126,11 +129,14 @@ export const peptidesPage: PeptidesPage = {
         features: ['Studied for soft-tissue repair and recovery', 'Research involving wound healing and tissue regeneration', ...PRODUCT_FEATURES],
         // 1 month or 3 months prepaid (owner, 2026-11-18). Each plan opens with its own price and GEN Health link:
         // PRODUCT_LINKS keys 'tb-500' and 'tb-500-3-month'.
-        plans: [
-          // Live 2026-11-21 (owner): $231/month with its GEN Health link.
-          { label: '1 month', priceUnit: '/month', product: 'TB-500', price: '231' },
-          { label: '3 months', priceUnit: '/3 months', product: 'TB-500 3 Month', renewal: 'Renews every 3 months, cancel anytime.' },
-        ],
+        // 1 month only for now (owner, 2026-11-21): the 3-month GEN Health products are not created yet. Restore the
+        // plans below (and drop `price`) when they are, adding the 3-month price and its PRODUCT_LINKS key.
+        price: '231',
+        // plans: [
+        //   // Live 2026-11-21 (owner): $231/month with its GEN Health link.
+        //   { label: '1 month', priceUnit: '/month', product: 'TB-500', price: '231' },
+        //   { label: '3 months', priceUnit: '/3 months', product: 'TB-500 3 Month', renewal: 'Renews every 3 months, cancel anytime.' },
+        // ],
       },
       {
         name: 'KPV',
@@ -154,11 +160,14 @@ export const peptidesPage: PeptidesPage = {
         features: ['Studied for cellular energy regulation', 'Research involving metabolic health', ...PRODUCT_FEATURES],
         // 1 month or 3 months prepaid (owner, 2026-11-18). Each plan opens with its own price and GEN Health link:
         // PRODUCT_LINKS keys 'mots-c' and 'mots-c-3-month'.
-        plans: [
-          // Live 2026-11-21 (owner): $157.50/month with its GEN Health link.
-          { label: '1 month', priceUnit: '/month', product: 'MOTS-c', price: '157.50' },
-          { label: '3 months', priceUnit: '/3 months', product: 'MOTS-c 3 Month', renewal: 'Renews every 3 months, cancel anytime.' },
-        ],
+        // 1 month only for now (owner, 2026-11-21): the 3-month GEN Health products are not created yet. Restore the
+        // plans below (and drop `price`) when they are, adding the 3-month price and its PRODUCT_LINKS key.
+        price: '157.50',
+        // plans: [
+        //   // Live 2026-11-21 (owner): $157.50/month with its GEN Health link.
+        //   { label: '1 month', priceUnit: '/month', product: 'MOTS-c', price: '157.50' },
+        //   { label: '3 months', priceUnit: '/3 months', product: 'MOTS-c 3 Month', renewal: 'Renews every 3 months, cancel anytime.' },
+        // ],
       },
       {
         name: 'Semax',
@@ -170,11 +179,14 @@ export const peptidesPage: PeptidesPage = {
         features: ['Studied for its potential role in cognitive function and memory', 'Research involving attention and neurological health', ...PRODUCT_FEATURES],
         // 1 month or 3 months prepaid (owner, 2026-11-18). Each plan opens with its own price and GEN Health link:
         // PRODUCT_LINKS keys 'semax' and 'semax-3-month'.
-        plans: [
-          // Live 2026-11-21 (owner): $129/month with its GEN Health link.
-          { label: '1 month', priceUnit: '/month', product: 'Semax', price: '129' },
-          { label: '3 months', priceUnit: '/3 months', product: 'Semax 3 Month', renewal: 'Renews every 3 months, cancel anytime.' },
-        ],
+        // 1 month only for now (owner, 2026-11-21): the 3-month GEN Health products are not created yet. Restore the
+        // plans below (and drop `price`) when they are, adding the 3-month price and its PRODUCT_LINKS key.
+        price: '129',
+        // plans: [
+        //   // Live 2026-11-21 (owner): $129/month with its GEN Health link.
+        //   { label: '1 month', priceUnit: '/month', product: 'Semax', price: '129' },
+        //   { label: '3 months', priceUnit: '/3 months', product: 'Semax 3 Month', renewal: 'Renews every 3 months, cancel anytime.' },
+        // ],
       },
       {
         name: 'Epitalon',
@@ -186,11 +198,14 @@ export const peptidesPage: PeptidesPage = {
         features: ['Studied for its potential role in cellular aging and longevity', 'Research involving sleep and circadian rhythm regulation', ...PRODUCT_FEATURES],
         // 1 month or 3 months prepaid (owner, 2026-11-18). Each plan opens with its own price and GEN Health link:
         // PRODUCT_LINKS keys 'epitalon' and 'epitalon-3-month'.
-        plans: [
-          // Live 2026-11-21 (owner): $157.50/month with its GEN Health link.
-          { label: '1 month', priceUnit: '/month', product: 'Epitalon', price: '157.50' },
-          { label: '3 months', priceUnit: '/3 months', product: 'Epitalon 3 Month', renewal: 'Renews every 3 months, cancel anytime.' },
-        ],
+        // 1 month only for now (owner, 2026-11-21): the 3-month GEN Health products are not created yet. Restore the
+        // plans below (and drop `price`) when they are, adding the 3-month price and its PRODUCT_LINKS key.
+        price: '157.50',
+        // plans: [
+        //   // Live 2026-11-21 (owner): $157.50/month with its GEN Health link.
+        //   { label: '1 month', priceUnit: '/month', product: 'Epitalon', price: '157.50' },
+        //   { label: '3 months', priceUnit: '/3 months', product: 'Epitalon 3 Month', renewal: 'Renews every 3 months, cancel anytime.' },
+        // ],
       },
     ],
   },
@@ -241,8 +256,8 @@ export const peptidesPage: PeptidesPage = {
       a: 'Like any prescription treatment, peptide therapies can cause side effects, and the evidence for some peptides is still limited. Your provider reviews your health history before prescribing and explains the possible risks. Contact your provider about any symptoms, and seek emergency care for severe symptoms.',
     },
     {
-      q: 'When will the newest peptide therapies be available?',
-      a: 'Cards marked Coming Soon are not available yet. Each card will show its price and a See If You Qualify button as soon as that therapy opens.',
+      q: 'How much do peptide therapies cost?',
+      a: 'Each card shows its monthly price, which includes your provider review and follow-ups, the prescribed medication and shipping. Plans renew monthly and you can cancel anytime. If you are not prescribed, you get a full refund.',
     },
   ],
   cta: {
