@@ -88,8 +88,8 @@
     ],
     [
      "KPV",
-     "Capsules taken by mouth, or a cream for the skin",
-     "Sections 1 to 7 and 9 to 15 and Article C"
+     "Capsules taken by mouth",
+     "Sections 1 to 7 and 10 to 15 and Article C"
     ],
     [
      "MOTS-c",
@@ -148,7 +148,7 @@
   },
   {
    "t": "li",
-   "text": "Some of these peptides are versions or fragments of substances the body makes. That does not tell you what an injection, capsule, cream or spray will do, or whether it is appropriate for you.",
+   "text": "Some of these peptides are versions or fragments of substances the body makes. That does not tell you what an injection, capsule or spray will do, or whether it is appropriate for you.",
    "level": 0
   },
   {
@@ -431,7 +431,7 @@
   },
   {
    "t": "li",
-   "text": "Follow your pharmacy label for refrigeration, room-temperature limits, protection from light and handling. Many injectable products must be kept cold. Do not freeze a product unless the label says to. Keep capsules, creams and nasal sprays in their original containers, as the label says.",
+   "text": "Follow your pharmacy label for refrigeration, room-temperature limits, protection from light and handling. Many injectable products must be kept cold. Do not freeze a product unless the label says to. Keep capsules and nasal sprays in their original containers, as the label says.",
    "level": 0
   },
   {
@@ -787,7 +787,7 @@
   },
   {
    "t": "h2",
-   "text": "Article C. KPV capsules or cream"
+   "text": "Article C. KPV capsules"
   },
   {
    "t": "h3",
@@ -795,7 +795,7 @@
   },
   {
    "t": "p",
-   "text": "KPV is a synthetic peptide of three amino acids. It is a fragment of alpha-melanocyte-stimulating hormone (alpha-MSH), a hormone the body makes. It may be prescribed as capsules taken by mouth or as a cream for the skin.",
+   "text": "KPV is a synthetic peptide of three amino acids. It is a fragment of alpha-melanocyte-stimulating hormone (alpha-MSH), a hormone the body makes. It is taken as capsules by mouth.",
    "italic": false,
    "align": null
   },
@@ -815,7 +815,7 @@
   },
   {
    "t": "p",
-   "text": "Lab and animal studies have looked at KPV and inflammation in the gut and the skin. There are no published studies of KPV safety in people, by mouth or on the skin. It is not known whether it helps people with any condition or what it does over time.",
+   "text": "Lab and animal studies have looked at KPV and inflammation in the gut and the skin. There are no published studies of KPV safety in people. It is not known whether it helps people with any condition or what it does over time.",
    "italic": false,
    "align": null
   },
@@ -834,22 +834,17 @@
    "level": 0
   },
   {
-   "t": "li",
-   "text": "have broken, infected or very irritated skin where you would use the cream.",
-   "level": 0
-  },
-  {
    "t": "h3",
    "text": "Possible side effects"
   },
   {
    "t": "li",
-   "text": "By mouth: stomach upset, nausea, bloating or a change in bowel habits.",
+   "text": "Stomach upset, nausea, bloating or a change in bowel habits.",
    "level": 0
   },
   {
    "t": "li",
-   "text": "On the skin: redness, itching, burning or a rash where you apply it.",
+   "text": "Headache or tiredness.",
    "level": 0
   },
   {
@@ -873,7 +868,7 @@
   },
   {
    "t": "li",
-   "text": "A rash that spreads, blisters or peels. Stop using the cream and contact your clinician.",
+   "text": "A rash, itching or swelling after you start it. Stop taking it and contact your clinician.",
    "level": 0
   },
   {
@@ -882,12 +877,7 @@
   },
   {
    "t": "li",
-   "text": "Capsules: take them only by mouth, as your label says. Do not open or crush them unless your label says you may.",
-   "level": 0
-  },
-  {
-   "t": "li",
-   "text": "Cream: use it only on the skin, in the amount and on the area your label says. Keep it out of your eyes, nose and mouth. Wash your hands after you apply it, and do not let others touch the treated skin until it dries.",
+   "text": "Take the capsules only by mouth, as your label says. Do not open or crush them unless your label says you may.",
    "level": 0
   },
   {
@@ -901,7 +891,7 @@
   },
   {
    "t": "li",
-   "text": "Other creams or ointments you use on the same skin.",
+   "text": "Any other peptide or supplement you take.",
    "level": 0
   },
   {
@@ -1362,7 +1352,7 @@
   },
   {
    "t": "h3",
-   "text": "Article C. KPV capsules or cream"
+   "text": "Article C. KPV capsules"
   },
   {
    "t": "check",
@@ -1374,7 +1364,7 @@
   },
   {
    "t": "check",
-   "text": "I will use KPV only as my label says: capsules by mouth, cream on the skin."
+   "text": "I will take KPV only as my label says, by mouth."
   },
   {
    "t": "h3",
@@ -1499,7 +1489,7 @@
   },
   {
    "t": "li",
-   "text": "**Pharmacy:** confirm each product’s form, route, diluent, storage and beyond-use dating so Sections 8 and 10 and the articles match what is dispensed (KPV capsules and cream; Semax nasal spray).",
+   "text": "**Pharmacy:** confirm each product’s form, route, diluent, storage and beyond-use dating so Sections 8 and 10 and the articles match what is dispensed (KPV capsules; Semax nasal spray).",
    "level": 0
   },
   {
