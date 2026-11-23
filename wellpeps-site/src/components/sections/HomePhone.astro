@@ -104,8 +104,10 @@ const agingFrom = from('/healthy-aging/');
   @media (max-width: 767px) {
     .hph .ph-head .ph-h1 { font-size: 31px; line-height: 1.08; }
     .hph__sub { padding-top: 4px; }
-    .hph__trust { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 12px 12px 4px; margin: 0; list-style: none; }
-    .hph__trust li { display: grid; justify-items: center; gap: 5px; text-align: center; background: var(--ph-t-gray); border-radius: 14px; padding: 10px 4px; font: 600 12.5px/1.2 var(--font-sans); color: var(--ph-ink); }
+    /* Trust strip: a quiet ruled row, not three more tiles, so the program tiles below stay the focus (owner, 2026-11-23). */
+    .hph__trust { display: grid; grid-template-columns: repeat(3, 1fr); margin: 16px 18px 8px; padding: 0; list-style: none; border-block: 1px solid var(--ph-line); }
+    .hph__trust li { display: grid; justify-items: center; gap: 6px; text-align: center; padding: 12px 4px; font: 600 13px/1.2 var(--font-sans); color: var(--ph-ink); }
+    .hph__trust li + li { border-left: 1px solid var(--ph-line); }
     .hph__trust :global(svg) { width: 20px; height: 20px; color: var(--blue); }
     .hph__conf { margin: 12px 12px 0; padding: 14px 16px; list-style: none; background: var(--navy); border-radius: 20px; display: grid; gap: 8px; }
     .hph__conf li { display: flex; gap: 10px; align-items: center; color: #fff; font: 600 15px/1.25 var(--font-sans); }
