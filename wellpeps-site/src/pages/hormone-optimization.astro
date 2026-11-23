@@ -33,7 +33,7 @@ const choices = HORMONE_PAGES.map((p) => ({ name: p.name, href: p.path, lead: p.
   {/* Phone layout (≤ 767px): two portrait tiles, then every treatment with its price or Coming soon. */}
   <div class="ph-only">
     <div class="ph-page hph2">
-      <div class="ph-head"><h1>Hormone therapy, <em>guided by a provider.</em></h1></div>
+      <div class="ph-head"><p class="ph-h1" role="heading" aria-level="1">Hormone therapy, <em>guided by a provider.</em></p></div>
       <nav class="hph2__portraits" aria-label="Hormone therapy programs">
         {HORMONE_PAGES.map((p) => (
           <a class="hph2__portrait" href={p.path}>
@@ -100,7 +100,7 @@ const choices = HORMONE_PAGES.map((p) => ({ name: p.name, href: p.path, lead: p.
   .hchoose__body .arrow-link { margin-top: 1rem; font-weight: 700; }
   @media (max-width: 720px) { .hchoose { grid-template-columns: 1fr; max-width: 460px; } }
   @media (max-width: 767px) {
-    .hph2 .ph-head h1 { font-size: 31px; line-height: 1.08; }
+    .hph2 .ph-head .ph-h1 { font-size: 31px; line-height: 1.08; }
     .hph2__portraits { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 6px 12px 0; }
     .hph2__portrait { border-radius: 24px; overflow: hidden; position: relative; height: 252px; background: var(--ph-t-horm); display: block; }
     .hph2__portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 82% center; }

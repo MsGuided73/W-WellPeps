@@ -45,7 +45,7 @@ const cards = hairProducts.map((p) => ({
 const anyCompounded = hairProducts.some((p) => compounded(p.name));
 ---
 <div class="ph-page" style="--ph-tint:var(--ph-t-hair)">
-  <div class="ph-head"><h1>{hairHero.titleLead} <em>{hairHero.titleAccent}</em></h1></div>
+  <div class="ph-head"><p class="ph-h1" role="heading" aria-level="1">{hairHero.titleLead} <em>{hairHero.titleAccent}</em></p></div>
   <div class="ph-checks">
     <div><i><Icon name="stethoscope" /></i><span><b>A licensed provider</b> reviews your answers and recommends a plan</span></div>
     <div><i><Icon name="pill" /></i><span><b>Oral and topical options,</b> for men and women</span></div>

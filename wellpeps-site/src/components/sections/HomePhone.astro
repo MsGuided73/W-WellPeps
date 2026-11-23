@@ -37,7 +37,7 @@ const weightFrom = from('/weight-loss/');
 const agingFrom = from('/healthy-aging/');
 ---
 <div class="ph-page hph">
-  <div class="ph-head"><h1>{HOME_PHONE_HEADLINE.lead} <em>{HOME_PHONE_HEADLINE.accent}</em></h1></div>
+  <div class="ph-head"><p class="ph-h1" role="heading" aria-level="1">{HOME_PHONE_HEADLINE.lead} <em>{HOME_PHONE_HEADLINE.accent}</em></p></div>
   <p class="ph-lede hph__sub">{HOME_PHONE_SUB}</p>
 
   {/* LegitScript: the same claim as the desktop home page's Why Choose card and the footer seal. */}
@@ -102,7 +102,7 @@ const agingFrom = from('/healthy-aging/');
 
 <style>
   @media (max-width: 767px) {
-    .hph .ph-head h1 { font-size: 31px; line-height: 1.08; }
+    .hph .ph-head .ph-h1 { font-size: 31px; line-height: 1.08; }
     .hph__sub { padding-top: 4px; }
     .hph__trust { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 12px 12px 4px; margin: 0; list-style: none; }
     .hph__trust li { display: grid; justify-items: center; gap: 5px; text-align: center; background: var(--ph-t-gray); border-radius: 14px; padding: 10px 4px; font: 600 12.5px/1.2 var(--font-sans); color: var(--ph-ink); }
