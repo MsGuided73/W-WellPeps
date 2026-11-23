@@ -96,7 +96,7 @@ const uid = `hsoon-${program}`;
 <div class="ph-page hpp" style={`--ph-tint:${isMen ? 'var(--ph-t-horm)' : 'var(--ph-t-sex)'}`}>
   <a class="ph-back" href="/hormone-optimization/"><Icon name="arrow-right" />Hormone therapy</a>
   <div class="ph-head">
-    <h1>{page.hero.titleLead}{page.hero.titleMiddle && ` ${page.hero.titleMiddle.replace(/\.?$/, '.')}`} <em>{page.hero.titleAccent}</em></h1>
+    <p class="ph-h1" role="heading" aria-level="1">{page.hero.titleLead}{page.hero.titleMiddle && ` ${page.hero.titleMiddle.replace(/\.?$/, '.')}`} <em>{page.hero.titleAccent}</em></p>
   </div>
   <div class="ph-checks">
     {CHECKS.map((c) => <div><i><Icon name={c.icon} /></i><span><b>{c.b}</b>{c.t}</span></div>)}
@@ -173,7 +173,7 @@ const uid = `hsoon-${program}`;
 
 <style>
   @media (max-width: 767px) {
-    .hpp .ph-head h1 { font-size: 28px; }
+    .hpp .ph-head .ph-h1 { font-size: 28px; }
     .hpp__list { background: #fff; border-radius: 18px; padding: 2px 12px 10px; }
     .hpp__list[hidden] { display: none; }
     .hpp__list ul { list-style: none; margin: 0; padding: 0; }

@@ -45,16 +45,17 @@
   [data-nav] { display: none !important; }
 
   .ph-page { color: var(--ph-body); background: #fff; padding-bottom: 8px; }
-  .ph-page h1, .ph-page h2, .ph-page h3 {
+  /* .ph-h1: the phone page title. Not an <h1> tag (role="heading" aria-level="1"), so the page source keeps one <h1>, the desktop one. */
+  .ph-page .ph-h1, .ph-page h2, .ph-page h3 {
     font-family: var(--ph-head); color: var(--ph-ink); letter-spacing: -0.025em; margin: 0; text-wrap: balance;
   }
-  .ph-page h1 em, .ph-page h2 em, .ph-page h3 em { font-style: normal; color: var(--blue); }
+  .ph-page .ph-h1 em, .ph-page h2 em, .ph-page h3 em { font-style: normal; color: var(--blue); }
   .ph-page p { margin: 0; }
   .ph-page a { text-decoration: none; color: inherit; }
 
   /* Page head */
   .ph-head { padding: 12px 18px 6px; }
-  .ph-head h1 { font-size: 30px; line-height: 1.06; font-weight: 600; }
+  .ph-head .ph-h1 { font-size: 30px; line-height: 1.06; font-weight: 600; }
   .ph-eyebrow { display: block; font: 700 11px/1 var(--font-sans, Inter, sans-serif); letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; }
   .ph-lede { font-size: 14.5px; line-height: 1.5; padding: 8px 18px 0; }
   .ph-back { display: inline-flex; align-items: center; gap: 4px; padding: 8px 16px 0; min-height: 44px; font: 600 13.5px/1 var(--font-sans, Inter, sans-serif); color: var(--ph-ink) !important; }
