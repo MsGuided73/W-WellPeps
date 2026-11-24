@@ -361,7 +361,7 @@ export const womensHormone: HormonePage = {
   name: 'Women’s Hormone Therapy',
   audience: 'women’s',
   seo: {
-    title: 'Menopause Hormone Therapy: Estradiol & Progesterone | WellPeps',
+    title: 'Menopause HRT Online: Estradiol & Progesterone | WellPeps',
     description:
       'Provider-guided menopause hormone therapy online. A licensed provider reviews your symptoms and health history and decides whether treatment is appropriate.',
   },

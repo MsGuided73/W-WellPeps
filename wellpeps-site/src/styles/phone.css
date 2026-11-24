@@ -36,7 +36,7 @@
 
 @media (max-width: 767px) {
   /* Legal documents keep the site serif on phones too (owner, 2026-11-21): only the redesigned pages switch. */
-  :root:not(:has(article.ld, .ld-hub__list)) { --font-serif: 'Schibsted Grotesk', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; }
+  :root:not(:has(article.ld, .ld-hub__list)) { --font-serif: 'Schibsted Grotesk', 'Schibsted Fallback', 'Inter', 'Inter Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif; }
   .ph-only { display: block; }
   /* Inside a button: stays on the line, so an arrow icon after it doesn't wrap. */
   .ph-only.ph-only--inline { display: inline; }
@@ -56,7 +56,7 @@
   /* Page head */
   .ph-head { padding: 12px 18px 6px; }
   .ph-head .ph-h1 { font-size: 30px; line-height: 1.06; font-weight: 600; }
-  .ph-eyebrow { display: block; font: 700 11px/1 var(--font-sans, Inter, sans-serif); letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; }
+  .ph-eyebrow { display: block; font: 700 11px/1 var(--font-sans, Inter, sans-serif); letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue-hover); margin-bottom: 8px; } /* the darker blue: 11px text needs 4.5:1 on the tinted cards */
   .ph-lede { font-size: 14.5px; line-height: 1.5; padding: 8px 18px 0; }
   .ph-back { display: inline-flex; align-items: center; gap: 4px; padding: 8px 16px 0; min-height: 44px; font: 600 13.5px/1 var(--font-sans, Inter, sans-serif); color: var(--ph-ink) !important; }
   .ph-back svg { width: 18px; height: 18px; transform: rotate(180deg); }

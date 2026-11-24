@@ -95,13 +95,17 @@ export const PROGRAMS: readonly ProgramEntry[] = [
         : [{ name: p.name, form: p.methodOfUse, monthlyPrice: toPrice(p.price) }]),
     faqs: toFaqs(peptideFaqs),
   },
-  // Men's and Women's Hormone Therapy: available (owner, 2026-11-10); prices are not set on the site yet.
+  // Men's and Women's Hormone Therapy: a card's price, or its 1-month plan's price; none while it is Coming Soon.
   ...HORMONE_PAGES.map((page) => ({
     path: page.path,
     name: page.name,
     summary: plain(page.hero.lead),
     live: true,
-    treatments: page.products.items.map((p) => ({ name: p.name, form: p.methodOfUse })),
+    treatments: page.products.items.map((p) => ({
+      name: p.name,
+      form: p.methodOfUse,
+      monthlyPrice: toPrice(p.price ?? p.plans?.find((pl) => pl.priceUnit === '/month')?.price),
+    })),
     faqs: toFaqs(page.faqs),
   })),
   // Peptide Therapy (2026-11-18; products live 2026-11-21): a card's price, or its 1-month plan's price.

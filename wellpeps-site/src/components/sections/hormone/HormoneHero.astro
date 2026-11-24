@@ -23,8 +23,10 @@ const toProducts = productsAnchor(page);
     <div class:list={['hhero__copy', 'reveal', { 'hhero__copy--nowrap': hero.titleNoWrap }]}>
       {hero.eyebrow && <p class="hhero__eyebrow">{hero.eyebrow}</p>}
       <h1>
-        <span class="hhero__line">{hero.titleLead}</span>
-        {hero.titleMiddle && <span class="hhero__line">{hero.titleMiddle}</span>}
+        {/* Each line is a block. The spaces, and the hidden full stop after a middle line, keep the heading
+            readable as one string for search engines and screen readers: "... For Menopause & More. Real Medical Care." */}
+        <span class="hhero__line">{hero.titleLead}</span>{' '}
+        {hero.titleMiddle && <span class="hhero__line">{hero.titleMiddle}{!/[.!?]$/.test(hero.titleMiddle) && <span class="visually-hidden">.</span>}</span>}{' '}
         <span class="hhero__line hhero__line--accent">{hero.titleAccent}</span>
       </h1>
       <hr class="rule rule--left" />

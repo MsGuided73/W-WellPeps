@@ -141,7 +141,7 @@ export const LEGAL_DOCS: readonly LegalDoc[] = [
     description: 'The WellPeps Patient Terms of Service and Payment Agreement: the services, how payment and auto-renewal work, cancellation, and how disputes are handled.', approved: true, effective: 'October 12, 2026' },
   { id: 'B3', path: 'legal-review/patient-intake-attestations', title: 'Patient Intake Attestations', label: 'Intake Attestations', group: 'checkout',
     blurb: 'Statements the patient confirms at intake, by program.' },
-  { id: 'B4', path: 'telehealth-consent', title: 'Informed Consent to Telehealth Services and Treatment', label: 'Telehealth Consent', group: 'patient',
+  { id: 'B4', path: 'telehealth-consent', title: 'Informed Consent to Telehealth Services and Treatment', seoTitle: 'Telehealth Informed Consent', label: 'Telehealth Consent', group: 'patient',
     blurb: 'Informed consent to receive care by telehealth: how it works, its benefits and limits, and your rights.',
     description: 'Informed consent to care by telehealth through WellPeps: how online visits work, their benefits and limits, how your privacy is protected, and your rights.', approved: true, effective: 'October 12, 2026' },
   { id: 'B5', path: 'compounded-medications', title: 'What Compounded Medications Mean', label: 'Compounded Medications', group: 'patient',

@@ -243,7 +243,8 @@ export function shortUnit(unit: string): string {
   return unit === MONTH ? '/mo' : unit;
 }
 
-const TITLE_MAX = 65;
+/** Google shows about 60 characters of a title. */
+const TITLE_MAX = 60;
 
 /** <title>: "Sermorelin: Provider-Guided Treatment | WellPeps", shortened for long names. */
 export function pageTitle(page: Pick<ProductPage, 'title'>): string {
@@ -251,26 +252,48 @@ export function pageTitle(page: Pick<ProductPage, 'title'>): string {
   return options.find((t) => t.length <= TITLE_MAX) ?? `${page.title} | WellPeps`;
 }
 
-const DESCRIPTION_TARGET = 160;
-/** scripts/seo-check.mjs fails a description over 260 characters; stay clear of it. */
-const DESCRIPTION_MAX = 240;
-const RX_SUFFIX = 'Prescription required.';
+/** A search result shows about 160 characters; under about 110 the snippet is mostly wasted. */
+const DESCRIPTION_MIN = 110;
+const DESCRIPTION_MAX = 160;
+/** The longer closing line is used when it fits, the short one when it does not. */
+const RX_SUFFIXES = ['Prescribed only if a licensed clinician finds it appropriate.', 'Prescription required.'] as const;
+
+const endSentence = (s: string): string => `${s.replace(/[\s,;:]+$/, '')}.`;
 
 /**
- * Meta description: the card's approved description (its first sentence when the whole one is too long for a
- * search result) + "Prescription required." The title leads when the description does not already start with it,
- * so two forms of one product (which share a description) still get different descriptions.
+ * Shorter versions of a card description, each a prefix of the approved text closed with a full stop, in
+ * order of preference: the whole text; its leading sentences; a cut at a clause boundary (a colon, or a comma
+ * that is not inside a list), longest first; then a cut at any comma or "and", shortest first.
+ */
+export function descriptionCuts(desc: string): string[] {
+  const sentences = [...desc.matchAll(/[.!?](?=\s|$)/g)].map((m) => desc.slice(0, m.index! + 1));
+  const whole = sentences.at(-1) === desc ? [] : [desc];
+  const first = sentences[0] ?? desc;
+  const inList = (rest: string) => /^(and|or)\s/.test(rest) || /^[^,.]*,?\s(and|or)\s/.test(rest);
+  const clause = [...first.matchAll(/[:,]\s/g)]
+    .filter((m) => m[0][0] === ':' || !inList(first.slice(m.index! + 2)))
+    .map((m) => endSentence(first.slice(0, m.index!)));
+  const any = [...first.matchAll(/,\s|\sand\s/g)].map((m) => endSentence(first.slice(0, m.index!)));
+  return [...new Set([...whole, ...sentences.reverse(), ...clause.reverse(), ...any])];
+}
+
+/**
+ * Meta description, 110 to 160 characters: the product name, the card's approved description (cut at a
+ * sentence or clause when the whole is too long for a search result) and a closing line that says a clinician
+ * decides. Every word comes from the card; nothing is added but the closing line. The title leads when the
+ * description does not already start with it, so two forms of one product (which share a description) still
+ * get different descriptions.
  */
 export function metaDescription(page: Pick<ProductPage, 'title' | 'description'>): string {
   const desc = page.description.replace(/\s+/g, ' ').trim();
   const lead = desc.toLowerCase().startsWith(page.title.toLowerCase()) ? '' : `${page.title}: `;
-  const first = desc.match(/^.*?[.!?](?=\s|$)/)?.[0] ?? desc;
-  const whole = `${lead}${desc} ${RX_SUFFIX}`;
-  if (whole.length <= DESCRIPTION_TARGET) return whole;
-  // Over the target: the first sentence, keeping the title lead (two forms of one product share a description)
-  // unless that would pass the hard limit search tools cut at.
-  const short = `${lead}${first} ${RX_SUFFIX}`;
-  return short.length <= DESCRIPTION_MAX ? short : `${first} ${RX_SUFFIX}`;
+  const cuts = descriptionCuts(desc);
+  const candidates = [...new Set([lead, ''])].flatMap((l) => cuts.flatMap((c) => RX_SUFFIXES.map((s) => `${l}${c} ${s}`)));
+  return (
+    candidates.find((c) => c.length >= DESCRIPTION_MIN && c.length <= DESCRIPTION_MAX) ??
+    candidates.find((c) => c.length <= DESCRIPTION_MAX) ??
+    candidates[candidates.length - 1]
+  );
 }
 
 /**

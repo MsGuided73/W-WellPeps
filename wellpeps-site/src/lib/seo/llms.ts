@@ -9,6 +9,7 @@ import { journeySteps } from '../../data/content';
 import { planFinePrint } from '../../data/plan';
 import { STATE_NOTES } from '../../data/states';
 import { LEGAL_DOCS } from '../legal-docs';
+import { PRODUCT_PAGES, type ProductPage } from '../products';
 import { PROGRAMS, startingPrice, type ProgramEntry } from './catalog';
 import { SITE_URL, canonicalUrl } from './site';
 
@@ -22,6 +23,12 @@ export interface LlmsArticle {
 
 const money = (n: number) => `$${Number.isInteger(n) ? n : n.toFixed(2)}`;
 
+/** "- [Testosterone Cypionate](url): $169/month or $299/3 months", or "coming soon" while no plan can be bought. */
+function productLine(page: ProductPage): string {
+  const prices = page.plans.filter((pl) => pl.isLive && pl.price).map((pl) => `$${pl.price}${pl.priceUnit}`);
+  return `- [${page.title}](${canonicalUrl(page.path)}): ${prices.length ? prices.join(' or ') : 'coming soon'}`;
+}
+
 function programSection(p: ProgramEntry): string {
   const lines = [`### [${p.name}](${canonicalUrl(p.path)})`, '', p.summary, ''];
   if (!p.live) return [...lines, 'Coming soon: no treatments are offered yet.', ''].join('\n');
@@ -31,6 +38,8 @@ function programSection(p: ProgramEntry): string {
     const price = t.monthlyPrice !== undefined ? `${money(t.monthlyPrice)}/month` : 'price being set';
     lines.push(`- ${t.name} (${t.form}): ${price}${t.availability ? `. ${t.availability}` : ''}`);
   }
+  const pages = PRODUCT_PAGES.filter((page) => page.programPath === p.path);
+  if (pages.length) lines.push('', 'Product pages:', '', ...pages.map(productLine));
   return [...lines, ''].join('\n');
 }
 
@@ -40,7 +49,7 @@ export function buildLlmsTxt(articles: readonly LlmsArticle[], builtOn: Date): s
     '# WellPeps',
     '',
     '> WellPeps is a U.S. telehealth wellness company offering provider-guided care for weight management, hair ' +
-      'restoration, sexual wellness and healthy aging. Every treatment has one monthly price that includes the licensed ' +
+      'restoration, sexual wellness, healthy aging, peptide therapy and hormone therapy. Every treatment has one monthly price that includes the licensed ' +
       'clinician’s review, follow-up care, the medication if prescribed, and standard shipping. Patients pay for the first ' +
       'month at checkout, and WellPeps refunds that payment in full if a clinician does not prescribe treatment.',
     '',

@@ -11,7 +11,7 @@
  */
 import { CONTACT, CONTACT_ADDRESS, LEGITSCRIPT, YOUTUBE } from '../../config';
 import { npiRegistryUrl, reviewerPath, type ArticleReview, type MedicalReviewer } from '../../data/medical-review';
-import type { Faq, ProgramEntry } from './catalog';
+import { toPrice, type Faq, type ProgramEntry } from './catalog';
 import { SHARE_IMAGE, SITE_NAME, SITE_URL, absoluteUrl, canonicalUrl } from './site';
 
 export type JsonLd = Record<string, unknown>;
@@ -37,7 +37,7 @@ export function organization(): JsonLd {
     logo: { '@type': 'ImageObject', url: absoluteUrl('/images/logo-full-v2.png'), width: 600, height: 125 },
     description:
       'WellPeps is a U.S. telehealth wellness company offering provider-guided care for weight management, hair restoration, ' +
-      'sexual wellness and healthy aging. Care is provided by independent licensed clinicians, and prescriptions are filled ' +
+      'sexual wellness, healthy aging, peptide therapy and hormone therapy. Care is provided by independent licensed clinicians, and prescriptions are filled ' +
       'by state-licensed pharmacies. WellPeps is not a medical practice or a pharmacy.',
     email: CONTACT.email,
     telephone: CONTACT.phoneHref.replace(/^tel:/, ''),
@@ -180,6 +180,62 @@ export function programService(program: ProgramEntry): JsonLd {
     provider: { '@id': ORG_ID },
     areaServed: { '@type': 'Country', name: 'United States' },
     ...(offers.length ? { hasOfferCatalog: { '@type': 'OfferCatalog', name: `${program.name} treatments`, itemListElement: offers } } : {}),
+  };
+}
+
+/** What productService needs from a product page (src/lib/products.ts ProductPage). */
+export interface ProductOfferSource {
+  path: string;
+  title: string;
+  form: string;
+  description: string;
+  programName: string;
+  programPath: string;
+  availability?: string;
+  plans: readonly { label: string; price?: string; priceUnit: string; isLive: boolean }[];
+}
+
+/** "/month" -> P1M, "/3 months" -> P3M (ISO 8601), or undefined for a unit that is not a number of months. */
+export function billingDuration(priceUnit: string): string | undefined {
+  const m = priceUnit.trim().match(/^\/(?:(\d+)\s+)?months?$/);
+  return m ? `P${m[1] ?? 1}M` : undefined;
+}
+
+/**
+ * One product page as a Service with an Offer per plan that can be bought today, at the price the page
+ * shows. A "Coming soon" product is described without offers.
+ */
+export function productService(page: ProductOfferSource): JsonLd {
+  const url = canonicalUrl(page.path);
+  const offers = page.plans
+    .filter((p) => p.isLive && toPrice(p.price) !== undefined)
+    .map((p) => {
+      const price = toPrice(p.price)!.toFixed(2);
+      const duration = billingDuration(p.priceUnit);
+      return {
+        '@type': 'Offer',
+        name: page.plans.length > 1 ? `${page.title} (${p.label})` : `${page.title} (${page.form})`,
+        url,
+        price,
+        priceCurrency: 'USD',
+        ...(duration
+          ? { priceSpecification: { '@type': 'UnitPriceSpecification', price, priceCurrency: 'USD', unitText: p.priceUnit.replace(/^\//, ''), billingDuration: duration } }
+          : {}),
+        eligibleRegion: { '@type': 'Country', name: 'US' },
+        description: page.availability ? `Prescription required. ${page.availability}` : 'Prescription required.',
+      };
+    });
+  return {
+    '@type': 'Service',
+    '@id': `${url}#service`,
+    name: page.title,
+    serviceType: page.programName,
+    description: page.description,
+    url,
+    provider: { '@id': ORG_ID },
+    areaServed: { '@type': 'Country', name: 'United States' },
+    isRelatedTo: { '@id': `${canonicalUrl(page.programPath)}#service` },
+    ...(offers.length ? { offers } : {}),
   };
 }
 
