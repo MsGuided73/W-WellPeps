@@ -71,10 +71,13 @@ const about = regulatory === 'compounded'
 </div>
 
 <script>
-  // Wider screens show every section open; phones keep them closed until tapped.
+  // Wider screens show every section open; phones keep them closed until tapped. This runs after the page
+  // has painted, so the style below already shows the content on wider screens (no layout shift); the script
+  // then sets the real open state, and covers browsers without ::details-content.
   if (window.matchMedia('(min-width: 768px)').matches) {
     document.querySelectorAll<HTMLDetailsElement>('[data-product-sections] details').forEach((d) => { d.open = true; });
   }
+  document.querySelectorAll<HTMLElement>('[data-product-sections]').forEach((el) => { el.dataset.ready = ''; });
 </script>
 
 <style>
@@ -108,5 +111,8 @@ const about = regulatory === 'compounded'
     .psec summary { min-height: 64px; font-size: 20px; }
     .psec__checks li, .psec__steps li, .psec__body { font-size: 17px; }
     .psec__checks, .psec__steps, .psec__body { padding-bottom: 22px; }
+    /* Until the script has opened the sections, show their content anyway, so nothing moves when it does. */
+    .psec:not([data-ready]) details::details-content { content-visibility: visible; }
+    .psec:not([data-ready]) summary :global(svg) { transform: rotate(180deg); transition: none; }
   }
 </style>

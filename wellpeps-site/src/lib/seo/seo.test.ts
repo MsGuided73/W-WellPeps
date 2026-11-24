@@ -16,7 +16,8 @@ import {
 import { weightProducts } from '../../data/weight';
 import { PROGRAMS, programAt, startingPrice, toFaqs, toPrice } from './catalog';
 import { buildLlmsTxt } from './llms';
-import { breadcrumbs, faqPage, organization, postalAddress, programService, reviewerPerson, serializeGraph, webPage } from './schema';
+import { billingDuration, breadcrumbs, faqPage, organization, postalAddress, productService, programService, reviewerPerson, serializeGraph, webPage } from './schema';
+import { PRODUCT_PAGES } from '../products';
 import { reviewForArticle } from '../../data/medical-review';
 import { canonicalUrl } from './site';
 import { belongsInSitemap, lastModifiedOf, pageUrlFor, renderSitemap } from '../../../scripts/lib/sitemap.mjs';
@@ -101,6 +102,36 @@ describe('structured data', () => {
         expect(o.description).toMatch(/^Prescription required\./);
       }
       expect(JSON.stringify(svc)).not.toMatch(/aggregateRating|"review"|ratingValue/i);
+    }
+  });
+
+  test('a product page lists one offer per plan that can be bought, at the price the page shows', () => {
+    for (const page of PRODUCT_PAGES) {
+      const svc = productService(page) as any;
+      const live = page.plans.filter((p) => p.isLive);
+      expect((svc.offers ?? []).map((o: any) => o.price), page.path).toEqual(live.map((p) => Number(p.price).toFixed(2)));
+      for (const o of svc.offers ?? []) {
+        expect(o.url).toBe(`https://wellpeps.com${page.path}`);
+        expect(o.description).toMatch(/^Prescription required\./);
+      }
+      expect(svc.description).toBe(page.description);
+      expect(JSON.stringify(svc)).not.toMatch(/aggregateRating|"review"|ratingValue/i);
+    }
+  });
+
+  test('a plan billed every 3 months is marked up as 3 months, and a Coming Soon product has no offer', () => {
+    expect(billingDuration('/month')).toBe('P1M');
+    expect(billingDuration('/3 months')).toBe('P3M');
+    expect(billingDuration('each')).toBeUndefined();
+    const soon = productService({ ...PRODUCT_PAGES[0], plans: PRODUCT_PAGES[0].plans.map((p) => ({ ...p, isLive: false })) }) as any;
+    expect(soon.offers).toBeUndefined();
+  });
+
+  test('the hormone programs carry the prices their cards show', () => {
+    for (const path of ['/mens-hormone-therapy/', '/womens-hormone-therapy/']) {
+      const priced = PRODUCT_PAGES.filter((p) => p.programPath === path && p.price).length;
+      expect(programAt(path).treatments.filter((t) => t.monthlyPrice !== undefined).length, path).toBe(priced);
+      expect(priced).toBeGreaterThan(0);
     }
   });
 

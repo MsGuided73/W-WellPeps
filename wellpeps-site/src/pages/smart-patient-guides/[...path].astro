@@ -48,7 +48,8 @@ const meta =
       }
     : kind === 'guide' && book
       ? {
-          title: `${book.title} Guide: Free Patient eBook | WellPeps`,
+          // Google shows about 60 characters: a long guide name drops "Patient".
+          title: [`${book.title} Guide: Free Patient eBook | WellPeps`, `${book.title} Guide: Free eBook | WellPeps`].find((t) => t.length <= 60) ?? `${book.title} Guide | WellPeps`,
           description: guidePageFor(book.slug).metaDescription,
         }
       : kind === 'read'

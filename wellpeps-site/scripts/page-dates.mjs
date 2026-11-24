@@ -49,6 +49,26 @@ export const PAGES = {
   '/your-privacy-choices/': 'src/pages/your-privacy-choices.astro',
   '/smart-patient-guides/': 'src/pages/smart-patient-guides/[...path].astro',
   '/patient-information/': 'src/pages/[...doc].astro',
+  '/mens-hormone-therapy/': 'src/pages/mens-hormone-therapy.astro',
+  '/womens-hormone-therapy/': 'src/pages/womens-hormone-therapy.astro',
+};
+
+/**
+ * Product pages (/<program>/<product>/) are built from one template and the program's data file, so every
+ * product page of a program shares one date: the newest commit to the template, the product components or
+ * that data file. Keyed by the program path; written to src/data/product-dates.json, which the product page
+ * reads for its dateModified (and so its sitemap <lastmod>).
+ */
+const PRODUCT_OUT = path.join(root, 'src/data/product-dates.json');
+const PRODUCT_TEMPLATE = ['src/pages/[program]/[product].astro', 'src/components/product'];
+export const PRODUCT_GROUPS = {
+  '/weight-loss/': 'src/data/weight.ts',
+  '/hair-restoration/': 'src/data/hair.ts',
+  '/sexual-wellness/': 'src/data/sexual.ts',
+  '/healthy-aging/': 'src/data/peptide.ts',
+  '/mens-hormone-therapy/': 'src/data/hormone.ts',
+  '/womens-hormone-therapy/': 'src/data/hormone.ts',
+  '/peptides/': 'src/data/peptides.ts',
 };
 
 function gitDate(files) {
@@ -61,14 +81,23 @@ export function computePageDates() {
   return Object.fromEntries(Object.entries(PAGES).map(([url, page]) => [url, gitDate(sourcesOf(page))]));
 }
 
+export function computeProductDates() {
+  return Object.fromEntries(Object.entries(PRODUCT_GROUPS).map(([url, data]) => [url, gitDate([...PRODUCT_TEMPLATE, data])]));
+}
+
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const fresh = JSON.stringify(computePageDates(), null, 2) + '\n';
+  const files = [
+    [OUT, JSON.stringify(computePageDates(), null, 2) + '\n'],
+    [PRODUCT_OUT, JSON.stringify(computeProductDates(), null, 2) + '\n'],
+  ];
   if (process.argv.includes('--check')) {
-    const current = fs.existsSync(OUT) ? fs.readFileSync(OUT, 'utf8') : '';
-    if (current !== fresh) { console.error('src/data/page-dates.json is out of date: run `node scripts/page-dates.mjs`'); process.exit(1); }
-    console.log('page-dates.json is current');
+    const stale = files.filter(([file, fresh]) => (fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : '') !== fresh);
+    if (stale.length) {
+      console.error(`${stale.map(([file]) => path.relative(root, file)).join(', ')} out of date: run \`node scripts/page-dates.mjs\``);
+      process.exit(1);
+    }
+    console.log('page-dates.json and product-dates.json are current');
   } else {
-    fs.writeFileSync(OUT, fresh);
-    console.log(fresh);
+    for (const [file, fresh] of files) { fs.writeFileSync(file, fresh); console.log(fresh); }
   }
 }

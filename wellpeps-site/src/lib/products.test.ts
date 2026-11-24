@@ -10,7 +10,7 @@ import { isLinked } from './links';
 import { toProductKey, type ProgramSlug } from './cta';
 import { peptidesPage } from '../data/peptides';
 import {
-  PRODUCT_PAGES, metaDescription, pageTitle, productPath, productRoutes, productSlug, termsItems,
+  PRODUCT_PAGES, descriptionCuts, metaDescription, pageTitle, productPath, productRoutes, productSlug, termsItems,
 } from './products';
 
 /** Every card's product name (the name its CTA uses), per program, read straight from the data files. */
@@ -98,12 +98,28 @@ describe('product pages', () => {
     const descs = PRODUCT_PAGES.map(metaDescription);
     expect(new Set(titles).size).toBe(titles.length);
     expect(new Set(descs).size).toBe(descs.length);
-    for (const t of titles) expect(t.length).toBeLessThanOrEqual(65);
+    for (const t of titles) expect(t.length, t).toBeLessThanOrEqual(60);
     for (const d of descs) {
-      expect(d.length).toBeGreaterThanOrEqual(50);
-      expect(d.length).toBeLessThanOrEqual(260);
-      expect(d.endsWith('Prescription required.')).toBe(true);
+      expect(d.length, d).toBeGreaterThanOrEqual(110);
+      expect(d.length, d).toBeLessThanOrEqual(160);
+      expect(d).toMatch(/(Prescription required\.|Prescribed only if a licensed clinician finds it appropriate\.)$/);
     }
+  });
+
+  test('a meta description adds nothing to the card description but the product name and the closing line', () => {
+    for (const page of PRODUCT_PAGES) {
+      const body = metaDescription(page)
+        .replace(/ (Prescription required\.|Prescribed only if a licensed clinician finds it appropriate\.)$/, '')
+        .replace(`${page.title}: `, '')
+        .replace(/\.$/, '');
+      expect(page.description.replace(/\s+/g, ' ').startsWith(body), `${page.path}: ${body}`).toBe(true);
+    }
+  });
+
+  test('a long description is cut at a sentence or clause, never inside a list', () => {
+    expect(descriptionCuts('One thing. Another thing.')).toEqual(['One thing. Another thing.', 'One thing.']);
+    expect(descriptionCuts('It combines a, b and c with d, an essential nutrient.')).toContain('It combines a, b and c with d.');
+    expect(descriptionCuts('Two medications in one foam: one does this, and one does that.')[1]).toBe('Two medications in one foam.');
   });
 
   test('the price terms split into check-list items', () => {

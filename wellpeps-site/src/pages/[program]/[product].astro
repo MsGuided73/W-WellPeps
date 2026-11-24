@@ -16,7 +16,8 @@ import ProductDisclosureLine from '../../components/product/ProductDisclosureLin
 import ProductPriceBar from '../../components/product/ProductPriceBar.astro';
 import ProductSections from '../../components/product/ProductSections.astro';
 import { metaDescription, pageTitle, productRoutes, type ProductPage } from '../../lib/products';
-import { breadcrumbs } from '../../lib/seo/schema';
+import { breadcrumbs, productService } from '../../lib/seo/schema';
+import productDates from '../../data/product-dates.json';
 
 export function getStaticPaths() {
   return productRoutes();
@@ -27,14 +28,17 @@ interface Props {
 }
 const { page } = Astro.props;
 const isVial = page.imageStyle === 'vial';
+// Last change to this program's product pages (scripts/page-dates.mjs): dateModified here, <lastmod> in the sitemap.
+const dateModified = (productDates as Record<string, string>)[page.programPath];
 const jsonLd = [
+  productService(page),
   breadcrumbs([
     { name: page.programName, path: page.programPath },
     { name: page.title, path: page.path },
   ]),
 ];
 ---
-<BaseLayout title={pageTitle(page)} description={metaDescription(page)} jsonLd={jsonLd}>
+<BaseLayout title={pageTitle(page)} description={metaDescription(page)} jsonLd={jsonLd} dateModified={dateModified}>
   <div class:list={['pp', isVial ? 'pp--vial' : 'pp--photo']}>
     <div class="pp__top">
       <a class="pp__back" href={page.programPath}><Icon name="chevron-down" />{page.programName}</a>
