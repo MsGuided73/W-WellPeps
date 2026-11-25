@@ -5,6 +5,7 @@
  * the brand promises, a closing call to action and questions. The hero, cards, questions and closing band are the hormone pages' sections.
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
+import LearnMore from '../components/LearnMore.astro';
 import HormoneHero from '../components/sections/hormone/HormoneHero.astro';
 import HormoneProducts from '../components/sections/hormone/HormoneProducts.astro';
 import HormoneCta from '../components/sections/hormone/HormoneCta.astro';
@@ -43,4 +44,6 @@ const jsonLd = [
   <HormoneCta page={page} />
   <HormoneFaq page={page} />
   </div>
+  {/* One block for every width: links to this program's Learning Center articles. */}
+  <LearnMore program="peptides" showGuide={false} />
 </BaseLayout>

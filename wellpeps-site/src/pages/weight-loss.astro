@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import LearnMore from '../components/LearnMore.astro';
 import WeightHero from '../components/sections/weight/WeightHero.astro';
 import WeightHowItWorks from '../components/sections/weight/WeightHowItWorks.astro';
 import WeightWhyChoose from '../components/sections/weight/WeightWhyChoose.astro';
@@ -37,4 +38,6 @@ const jsonLd = [
     <WeightFaq />
     <WeightCta />
   </div>
+  {/* One block for every width: links to this program's Learning Center articles. */}
+  <LearnMore program="weight-loss" showGuide={false} />
 </BaseLayout>

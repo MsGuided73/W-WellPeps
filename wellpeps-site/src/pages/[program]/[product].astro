@@ -15,6 +15,8 @@ import ProductTags from '../../components/product/ProductTags.astro';
 import ProductDisclosureLine from '../../components/product/ProductDisclosureLine.astro';
 import ProductPriceBar from '../../components/product/ProductPriceBar.astro';
 import ProductSections from '../../components/product/ProductSections.astro';
+import LearnMore from '../../components/LearnMore.astro';
+import { articlesForProduct } from '../../data/related-articles';
 import { metaDescription, pageTitle, productRoutes, type ProductPage } from '../../lib/products';
 import { breadcrumbs, productService } from '../../lib/seo/schema';
 import productDates from '../../data/product-dates.json';
@@ -57,6 +59,7 @@ const jsonLd = [
     <div class="pp__sections">
       <ProductSections page={page} />
     </div>
+    <LearnMore program={page.program} slugs={articlesForProduct(page.path, page.program)} variant="product" />
     <ProductPriceBar page={page} variant="bar" />
   </div>
 </BaseLayout>
