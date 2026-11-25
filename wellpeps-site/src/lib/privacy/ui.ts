@@ -102,8 +102,8 @@ export function bannerCopy(trackers: readonly Tracker[]): string {
     // Not "advertising": visitors read that as showing ads. This is measurement of our own ads.
     parts.push(
       one
-        ? 'On pages about health topics it needs a second yes; “Accept all” doesn’t include those.'
-        : 'Ad measurement on pages about health topics needs a second yes; “Accept all” doesn’t include those.',
+        ? 'On pages about health topics it runs only if you also tick the box below.'
+        : 'On pages about health topics, ad measurement runs only if you also tick the box below.',
     );
   }
   if (hasAnonymous) parts.push(ANON_SENTENCE);
@@ -145,7 +145,9 @@ export function statusAfter(action: ConsentAction, snap: GateSnapshot): string {
     case 'acceptAll':
       return s.gpc && !s.gpcOverride
         ? 'Saved in this browser. Analytics is on. Ad measurement stays off because your browser sent a Global Privacy Control signal.'
-        : 'Saved in this browser. Analytics and ad measurement are on. Pages about health topics are included only if you separately allow them.';
+        : action.healthPages
+          ? 'Saved in this browser. Analytics and ad measurement are on, including on pages about health topics.'
+          : 'Saved in this browser. Analytics and ad measurement are on. Pages about health topics are included only if you separately allow them.';
     case 'rejectAll':
       return 'Saved in this browser. Analytics and ad measurement are off.';
     case 'withdrawAll':
@@ -341,7 +343,12 @@ export function initPrivacyUI({ gate, trackers }: UiOptions): void {
     dialog.querySelector<HTMLElement>('[data-pc-close]')?.focus();
   }
 
-  dialog?.addEventListener('close', () => lastFocus?.focus());
+  dialog?.addEventListener('close', () => {
+    // Closing "Choose" without saving anything keeps the defaults (everything optional stays off) and remembers
+    // that, so the pop-up does not come back on every page (owner, 2026-11-24).
+    if (gate.snapshot().promptReason !== null) dispatch({ type: 'set', changes: {}, via: 'center' });
+    lastFocus?.focus();
+  });
   dialog?.addEventListener('click', (e) => {
     // A click on the backdrop (the dialog element itself) closes it.
     if (e.target === dialog) dialog.close();
@@ -395,7 +402,10 @@ export function initPrivacyUI({ gate, trackers }: UiOptions): void {
     if (act) {
       const type = act.dataset.pcAction as ConsentAction['type'];
       const via = act.closest('[data-privacy-banner]') ? 'banner' : 'center';
-      if (type === 'acceptAll' || type === 'rejectAll') dispatch({ type, via });
+      // The pop-up's health-pages box applies to Accept all only (owner, 2026-11-24).
+      const box = act.closest('[data-privacy-banner]')?.querySelector<HTMLInputElement>('[data-pc-health-pages]');
+      if (type === 'acceptAll') dispatch({ type, via, healthPages: box?.checked === true });
+      else if (type === 'rejectAll') dispatch({ type, via });
       else if (type === 'withdrawAll' || type === 'gpcAllowAnyway' || type === 'gpcKeepOff') dispatch({ type });
       return;
     }
