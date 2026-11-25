@@ -15,6 +15,8 @@ interface Props {
 const { page } = Astro.props;
 const { hero, program } = page;
 const toProducts = productsAnchor(page);
+// One block per sentence when the page asks for it, so a long blue line stays off the photo.
+const accentLines = hero.titleAccentBreak ? hero.titleAccent.split(/(?<=[.!?])\s+/) : [hero.titleAccent];
 ---
 <section class="hhero">
   <img class="hhero__img" src={hero.image} width={hero.width} height={hero.height} alt={hero.alt} fetchpriority="high" />
@@ -27,7 +29,7 @@ const toProducts = productsAnchor(page);
             readable as one string for search engines and screen readers: "... For Menopause & More. Real Medical Care." */}
         <span class="hhero__line">{hero.titleLead}</span>{' '}
         {hero.titleMiddle && <span class="hhero__line">{hero.titleMiddle}{!/[.!?]$/.test(hero.titleMiddle) && <span class="visually-hidden">.</span>}</span>}{' '}
-        <span class="hhero__line hhero__line--accent">{hero.titleAccent}</span>
+        {accentLines.map((line, i) => <>{i > 0 && ' '}<span class="hhero__line hhero__line--accent">{line}</span></>)}
       </h1>
       <hr class="rule rule--left" />
       <p class="hhero__lead">{hero.lead}</p>

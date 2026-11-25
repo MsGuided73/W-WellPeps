@@ -84,6 +84,9 @@ export interface HormonePage {
     /** Keep each title line on one line on desktop, letting it run over the photo's faded edge. */
     titleNoWrap?: boolean;
     titleAccent: string;
+    /** Put each sentence of the blue line on its own line on desktop, so a long blue line never runs across the
+     *  photo's faces ("Small Molecules." / "Big Possibilities.", owner 2026-11-25). */
+    titleAccentBreak?: boolean;
     lead: string;
     /** The second hero button's label; defaults to "Explore Treatment Options". */
     exploreLabel?: string;
