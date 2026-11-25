@@ -530,3 +530,32 @@ describe('parse: cookies saved before 2026-10-05', () => {
     expect(parse(p.toString())).toBeNull();
   });
 });
+
+describe('health-pages box in the pop-up (owner, 2026-11-24)', () => {
+  const now = Date.UTC(2026, 10, 24);
+  test('Accept all on its own leaves pages about health topics out', () => {
+    const s = reduce(defaultState(now, 'c'), { type: 'acceptAll', via: 'banner' }, now);
+    expect(s.advertising).toBe(true);
+    expect(s.advertisingSensitive).toBe(false);
+    expect(s.analyticsSensitive).toBe(false);
+  });
+  test('Accept all with the box ticked gives the separate health-page consent too', () => {
+    const s = reduce(defaultState(now, 'c'), { type: 'acceptAll', via: 'banner', healthPages: true }, now);
+    expect(s.advertising).toBe(true);
+    expect(s.advertisingSensitive).toBe(true);
+    expect(s.analyticsSensitive).toBe(true);
+  });
+  test('a Global Privacy Control signal still keeps ad measurement off, health pages included', () => {
+    const gpc = reduce(defaultState(now, 'c'), { type: 'gpcDetected' }, now);
+    const s = reduce(gpc, { type: 'acceptAll', via: 'banner', healthPages: true }, now);
+    expect(s.advertising).toBe(false);
+    expect(s.advertisingSensitive).toBe(false);
+  });
+  test('saving with no changes (closing "Choose") keeps every optional tool off', () => {
+    const s = reduce(defaultState(now, 'c'), { type: 'set', changes: {}, via: 'center' }, now);
+    expect(s.advertising).toBe(false);
+    expect(s.analytics).toBe(false);
+    expect(s.advertisingSensitive).toBe(false);
+    expect(s.source).toBe('center');
+  });
+});

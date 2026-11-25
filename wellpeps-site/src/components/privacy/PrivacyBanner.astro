@@ -37,6 +37,12 @@ const LEARN_MORE = '/cookie-notice/#3-4-optional-tools-that-run-only-if-you-say-
       </div>
       <p id="pbanner-text"><span data-pc-banner-text></span> <a class="pbanner__more" href={LEARN_MORE}>Learn more<span class="visually-hidden"> about optional cookies</span></a></p>
     </div>
+    {/* The separate health-page consent, in the same step (owner, 2026-11-24). Unticked by default; it applies
+        only to Accept all, so Accept all on its own still leaves pages about health topics out. */}
+    <label class="pbanner__health">
+      <input type="checkbox" data-pc-health-pages />
+      <span>Also allow on pages about health topics</span>
+    </label>
     <div class="pbanner__buttons">
       <button type="button" class="pc-btn pc-btn--primary" data-pc-action="acceptAll">Accept all</button>
       <button type="button" class="pc-btn pc-btn--primary" data-pc-action="rejectAll">Reject all</button>

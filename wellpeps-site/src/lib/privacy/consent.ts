@@ -75,7 +75,9 @@ export type ConsentChanges = Partial<
 >;
 
 export type ConsentAction =
-  | { type: 'acceptAll'; via?: ConsentVia }
+  /** `healthPages`: the visitor also ticked "Also allow on pages about health topics" (the separate health-page
+   *  consent, given in the same step). Never implied: Accept all on its own leaves health pages out. */
+  | { type: 'acceptAll'; via?: ConsentVia; healthPages?: boolean }
   | { type: 'rejectAll'; via?: ConsentVia }
   | { type: 'withdrawAll' }
   | {
@@ -129,7 +131,10 @@ export function reduce(state: ConsentState, action: ConsentAction, now: number):
         ...base,
         analytics: true,
         advertising: true,
-        // The two health-page consents are separate and are never bundled into "Accept all".
+        // The two health-page consents are separate and are never bundled into "Accept all": they are given only
+        // when the visitor also ticks the health-pages box (owner, 2026-11-24). GPC still keeps advertising off.
+        analyticsSensitive: action.healthPages === true ? true : base.analyticsSensitive,
+        advertisingSensitive: action.healthPages === true ? true : base.advertisingSensitive,
         anonOptOut: false,
         source: action.via ?? 'center',
       });

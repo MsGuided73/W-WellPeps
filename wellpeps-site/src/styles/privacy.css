@@ -247,3 +247,9 @@ html.pc-modal-open { overflow: hidden; }
   .pc__rowhead { flex-direction: column; }
   .pc__buttons .pc-btn, .pc__buttons .pc-btn--secondary { flex: 1 1 100%; }
 }
+
+/* The health-pages box above the buttons (owner, 2026-11-24): unticked by default, applies to Accept all only. */
+.pbanner__health { display: flex; align-items: center; gap: 0.6rem; margin-top: 0.9rem; font-size: 0.95rem; font-weight: 600; color: var(--navy); cursor: pointer; min-height: 44px; }
+.pbanner__health input { width: 22px; height: 22px; flex: none; margin: 0; accent-color: var(--blue); cursor: pointer; }
+.pbanner__health input:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 2px; }
+.pbanner--bar .pbanner__health { margin-top: 0.4rem; min-height: 36px; font-size: 0.9rem; }

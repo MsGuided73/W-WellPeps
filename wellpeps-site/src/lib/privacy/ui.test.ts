@@ -79,10 +79,9 @@ describe('bannerCopy: written from the tool list, so it cannot promise what the 
     expect(text).toContain('Ad pixel');
   });
 
-  test('says ad measurement runs on health-topic pages only with a second yes that "Accept all" does not give', () => {
+  test('says ad measurement runs on health-topic pages only if the visitor also ticks the box (owner, 2026-11-24)', () => {
     const text = bannerCopy([tool({ id: 'ads', name: 'Ad pixel', category: 'advertising' })]);
-    expect(text).toMatch(/health topics.*second yes/i);
-    expect(text).toMatch(/accept all.*doesn’t include/i);
+    expect(text).toMatch(/health topics.*only if you also tick the box below/i);
     // "Advertising" reads as showing ads; the site shows none (owner, 2026-11-17).
     expect(text).not.toMatch(/advertising/i);
     expect(text).not.toMatch(/never/i);
@@ -92,7 +91,7 @@ describe('bannerCopy: written from the tool list, so it cannot promise what the 
     const text = bannerCopy([tool({ id: 'c', name: 'Curve Compliance conversion tracking', vendor: 'Curve Compliance, Inc.', category: 'advertising', bannerText: 'We’d like to use Curve Compliance, a service. We don’t show ads on this site.' })]);
     expect(text).toMatch(/^We’d like to use Curve Compliance, a service\./);
     expect(text).toMatch(/Curve stays off unless you say yes\./);
-    expect(text).toMatch(/second yes; “Accept all” doesn’t include those\./);
+    expect(text).toMatch(/On pages about health topics it runs only if you also tick the box below\./);
   });
 
   test('falls back to naming the tools when one has no introduction', () => {
