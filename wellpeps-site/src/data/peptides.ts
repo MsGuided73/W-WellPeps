@@ -56,6 +56,8 @@ export const peptidesPage: PeptidesPage = {
     eyebrow: '',
     titleLead: 'Peptide Therapy',
     titleAccent: 'Small Molecules. Big Possibilities.',
+    // Owner, 2026-11-25: on one line it ran across the woman's face in the photo.
+    titleAccentBreak: true,
     // Derek: "Harness the science of peptides and their growing role in weight management, metabolic health,
     // recovery, cognitive function, healthy aging, and more." Softened: "growing role in" reads as a benefit
     // claim for products that are not FDA-approved.
