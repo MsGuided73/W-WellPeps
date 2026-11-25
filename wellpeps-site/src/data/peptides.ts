@@ -82,7 +82,7 @@ export const peptidesPage: PeptidesPage = {
     ],
     // Owner, 2026-11-24: the hero couple's close crop repeated the photo above it, so this is a different photo (a
     // woman stretching on a yoga mat, also used on Healthy Aging) until Derek chooses one.
-    image: { src: '/images/peptides/power.webp', alt: 'A smiling woman stretching on a yoga mat in a bright room', width: 1270, height: 1219, side: 'left' },
+    image: { src: '/images/peptides/power-yoga.webp', alt: 'A smiling woman stretching on a yoga mat in a bright room', width: 1270, height: 1219, side: 'left' },
   },
   products: {
     // Derek 2026-11-19: title and subheadline. His "therapies designed to support a variety of health and wellness
