@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import LearnMore from '../components/LearnMore.astro';
 import SexHero from '../components/sections/sexual/SexHero.astro';
 import SexEducation from '../components/sections/sexual/SexEducation.astro';
 import SexProducts from '../components/sections/sexual/SexProducts.astro';
@@ -35,4 +36,6 @@ const jsonLd = [
     <SexFaq />
     <SexCta />
   </div>
+  {/* One block for every width: links to this program's Learning Center articles. */}
+  <LearnMore program="sexual-wellness" showGuide={false} />
 </BaseLayout>

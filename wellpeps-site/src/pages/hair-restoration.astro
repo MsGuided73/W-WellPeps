@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import LearnMore from '../components/LearnMore.astro';
 import HairHero from '../components/sections/hair/HairHero.astro';
 import HairComingSoon from '../components/sections/hair/HairComingSoon.astro';
 import HairHowItWorks from '../components/sections/hair/HairHowItWorks.astro';
@@ -36,4 +37,6 @@ const jsonLd = [
     <HairFaq />
     <HairCta />
   </div>
+  {/* One block for every width: links to this program's Learning Center articles. */}
+  <LearnMore program="hair-restoration" showGuide={false} />
 </BaseLayout>

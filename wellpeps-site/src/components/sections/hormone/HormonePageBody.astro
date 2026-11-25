@@ -6,6 +6,7 @@
  */
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import GuideBand from '../../guides/GuideBand.astro';
+import LearnMore from '../../LearnMore.astro';
 import HormoneHero from './HormoneHero.astro';
 import HormoneEducation from './HormoneEducation.astro';
 import HormoneProducts from './HormoneProducts.astro';
@@ -42,4 +43,6 @@ const jsonLd = [
     <HormoneFaq page={page} />
     <HormoneCta page={page} />
   </div>
+  {/* One block for every width: links to this program's Learning Center articles. */}
+  <LearnMore program={page.program} showGuide={false} />
 </BaseLayout>

@@ -1,0 +1,89 @@
+---
+/**
+ * "Learn more": links from a program page or a product page to its Learning Center articles, its Smart
+ * Patient's Guide and any related WellPeps pages (src/data/related-articles.ts). One block for every width.
+ * It links with each article's own title and adds no other copy. Renders nothing when there is nothing to
+ * link to.
+ */
+import Icon from './Icon.astro';
+import { getArticles } from '../lib/blog';
+import { guidePath, primaryGuideFor } from '../lib/guide-flow';
+import type { ProgramSlug } from '../lib/cta';
+import { PROGRAM_ARTICLES, PROGRAM_RELATED_PAGES, articlePath, pickArticles } from '../data/related-articles';
+
+interface Props {
+  program: ProgramSlug;
+  /** Article slugs; the program's own list when absent. */
+  slugs?: readonly string[];
+  /** "page" is a full-width section on a program page; "product" sits in a product page's column. */
+  variant?: 'page' | 'product';
+  /** Leave the guide link out where the page already promotes the guide. */
+  showGuide?: boolean;
+}
+const { program, slugs = PROGRAM_ARTICLES[program], variant = 'page', showGuide = true } = Astro.props;
+
+const articles = pickArticles(slugs, await getArticles());
+const guide = showGuide ? primaryGuideFor(program) : undefined;
+const related = variant === 'page' ? (PROGRAM_RELATED_PAGES[program] ?? []) : [];
+const links = [
+  ...articles.map((a) => ({ href: articlePath(a.slug), label: a.title, kind: 'Article' })),
+  ...(guide ? [{ href: guidePath(guide.slug), label: `The Smart Patient’s Guide to ${guide.title}`, kind: 'Free guide' }] : []),
+  ...related.map((r) => ({ href: r.href, label: r.label, kind: 'Related' })),
+];
+const headingId = `learn-more-${program}`;
+---
+{links.length > 0 && (
+  <section class:list={['lm', `lm--${variant}`]} aria-labelledby={headingId} data-learn-more={program}>
+    <div class="lm__inner">
+      <h2 id={headingId}>Learn more</h2>
+      <ul>
+        {links.map((l) => (
+          <li>
+            <a href={l.href}>
+              <span class="lm__kind">{l.kind}</span>
+              <span class="lm__label">{l.label}</span>
+              <Icon name="arrow-right" />
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="lm__all"><a href="/wellness-learning-center/">Browse the Wellness Learning Center</a></p>
+    </div>
+  </section>
+)}
+
+<style>
+  .lm { background: var(--bg-light-sky); padding: 28px 16px; }
+  .lm__inner { max-width: 1100px; margin-inline: auto; }
+  .lm h2 { margin: 0 0 14px; font-family: var(--font-serif); font-weight: 600; font-size: 24px; line-height: 1.15; color: var(--navy); }
+  .lm ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .lm li a {
+    display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "kind arrow" "label arrow";
+    column-gap: 12px; row-gap: 4px; align-items: center;
+    min-height: 64px; padding: 12px 14px; border-radius: 14px;
+    background: #fff; border: 1px solid var(--border); text-decoration: none;
+    transition: border-color var(--dur) var(--ease);
+  }
+  .lm li a:hover { border-color: var(--blue); }
+  .lm li a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+  .lm__kind { grid-area: kind; font: 700 11px/1 var(--font-sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue-hover); }
+  .lm__label { grid-area: label; font: 600 15.5px/1.35 var(--font-sans); color: var(--navy); }
+  .lm li a :global(svg) { grid-area: arrow; width: 18px; height: 18px; color: var(--blue); }
+  .lm__all { margin: 16px 0 0; font: 600 15px/1.4 var(--font-sans); }
+  .lm__all a { color: var(--blue-hover); text-decoration: underline; text-underline-offset: 2px; }
+
+  /* On a product page the block sits in the page's own column, under the sections. */
+  .lm--product { background: none; padding: 20px 18px 28px; }
+  .lm--product h2 { font-size: 20px; }
+
+  @media (min-width: 768px) {
+    .lm--page { padding: var(--space-section) var(--gutter); }
+    .lm--page h2 { font-size: var(--text-h2, 2.2rem); font-weight: 700; text-align: center; margin-bottom: 28px; }
+    .lm--page ul { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .lm--page .lm__all { text-align: center; margin-top: 28px; font-size: 17px; }
+    .lm li a { min-height: 84px; padding: 16px 20px; }
+    .lm__label { font-size: 18px; }
+    .lm--product { padding: clamp(2rem, 3vw, 3rem) 0 0; max-width: 900px; }
+    .lm--product h2 { font-size: 26px; }
+  }
+</style>
